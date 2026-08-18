@@ -2,7 +2,7 @@
 % Please edit documentation in R/database.R
 \name{gift_profile}
 \alias{gift_profile}
-\title{Derived ecological and physiological profile of each GIFT}
+\title{Derived ecological and physiological profile of each metabolic GIFT}
 \usage{
 gift_profile(db = NULL)
 }
@@ -10,11 +10,13 @@ gift_profile(db = NULL)
 \item{db}{Optional open giftr database connection.}
 }
 \value{
-A tibble with one row per GIFT.
+A tibble with one row per metabolic GIFT.
 }
 \description{
 Nothing in the profile is curated. Every field is computed from declared
-anchors, anchor facets, and the composition graph.
+anchors, anchor facets, and the composition graph, all of which belong to the
+metabolic model, so non-metabolic GIFTs are absent rather than carrying an
+empty row. Reporting a resource strategy for a flagellum would invent one.
 }
 \details{
 `resource_strategy` is the degrader-versus-forager distinction the anchor

@@ -1,0 +1,14 @@
+system_id	function_id	name	description
+SYS_RF_CHEMOTAXIS_RECEPTOR_GENERIC	RF_CHEMOTAXIS_RECEPTION	generic methyl-accepting chemoreceptor	A chemoreceptor identified only by its conserved signalling architecture. It evidences that the genome encodes a receptor feeding the pathway, and nothing about what that receptor detects.
+SYS_RF_CHEMOTAXIS_RECEPTOR_CHARACTERISED	RF_CHEMOTAXIS_RECEPTION	characterised chemoreceptor	A chemoreceptor whose orthology group is anchored on a characterised ligand or stimulus. Any one of them satisfies the reception function of the core pathway; Escherichia coli K-12 carries no generic-MCP orthologue and would otherwise be called receptor-less.
+SYS_RF_CHEMOTAXIS_KINASE	RF_CHEMOTAXIS_KINASE_CORE	CheA/CheW kinase core	The histidine kinase and its coupling protein, jointly required.
+SYS_RF_CHEMOTAXIS_CHEY	RF_CHEMOTAXIS_RESPONSE_REGULATOR	CheY response regulator	Single protein.
+SYS_RF_CHEMOTAXIS_ADAPTATION	RF_CHEMOTAXIS_ADAPTATION	CheR/CheB methylation cycle	The methyltransferase and the methylesterase, jointly required.
+SYS_RF_CHEMOTAXIS_CHEZ	RF_CHEMOTAXIS_SIGNAL_TERMINATION	CheZ phosphatase	The enterobacterial CheY-P phosphatase.
+SYS_RF_CHEMOTAXIS_CHEC	RF_CHEMOTAXIS_SIGNAL_TERMINATION	CheC phosphatase	A CheY-P phosphatase unrelated in sequence to CheZ, found in Bacillus and many archaea. A non-homologous replacement rather than a homologue.
+SYS_RF_CHEMOTAXIS_CHEX	RF_CHEMOTAXIS_SIGNAL_TERMINATION	CheX phosphatase	A third, again unrelated, CheY-P phosphatase family.
+SYS_RF_ASPARTATE_RECEPTOR	RF_ASPARTATE_RECEPTION	Tar aspartate chemoreceptor	The Tar orthologue group, anchored on the characterised aspartate and maltose sensor of Escherichia coli and Salmonella.
+SYS_RF_PHO_SENSOR	RF_PHO_SIGNAL_RECEPTION	PhoR sensor histidine kinase	Single protein.
+SYS_RF_PHO_PHOB	RF_PHO_RESPONSE_PHOB	PhoB response regulator	Single protein.
+SYS_RF_PHO_PHOP	RF_PHO_RESPONSE_PHOP	PhoP response regulator	Single protein.
+SYS_RF_PST_PHOU	RF_PHO_PHOSPHATE_STATUS	PstSCAB-PhoU complex	The four transporter subunits and PhoU, jointly required.

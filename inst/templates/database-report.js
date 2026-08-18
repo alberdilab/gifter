@@ -249,6 +249,82 @@
     emit(giftOrder, 0);
   }
 
+  // Right-clicking a group header offers whole-table expand and collapse, so a
+  // deeply grouped table can be folded without clicking every header in turn.
+  var groupMenu = null;
+
+  function closeGroupMenu() {
+    if (groupMenu) groupMenu.hidden = true;
+  }
+
+  // Collapsing acts on the headers currently laid out, so a second grouping
+  // axis folds away with the first rather than reappearing when expanded.
+  function setAllGroups(collapsed) {
+    collapsedGroups = {};
+    if (collapsed) {
+      groupRows().forEach(function (row) {
+        collapsedGroups[row.getAttribute("data-gift-group")] = true;
+      });
+    }
+    applySearch(false);
+  }
+
+  function buildGroupMenu() {
+    var menu = document.createElement("div");
+    menu.className = "gift-group-menu";
+    menu.setAttribute("role", "menu");
+    menu.hidden = true;
+    [
+      { label: "Expand all groups", collapsed: false },
+      { label: "Collapse all groups", collapsed: true }
+    ].forEach(function (item) {
+      var button = document.createElement("button");
+      button.type = "button";
+      button.setAttribute("role", "menuitem");
+      button.textContent = item.label;
+      button.addEventListener("click", function () {
+        closeGroupMenu();
+        setAllGroups(item.collapsed);
+      });
+      menu.appendChild(button);
+    });
+    document.body.appendChild(menu);
+    return menu;
+  }
+
+  function openGroupMenu(x, y) {
+    if (!groupMenu) groupMenu = buildGroupMenu();
+    groupMenu.hidden = false;
+    // The size is only measurable once shown, so a menu opened near an edge is
+    // pulled back inside the viewport rather than being clipped by it.
+    var width = groupMenu.offsetWidth;
+    var height = groupMenu.offsetHeight;
+    groupMenu.style.left = Math.max(4, Math.min(x, window.innerWidth - width - 4)) + "px";
+    groupMenu.style.top = Math.max(4, Math.min(y, window.innerHeight - height - 4)) + "px";
+    groupMenu.querySelector("button").focus();
+  }
+
+  giftBody.addEventListener("contextmenu", function (event) {
+    var target = event.target;
+    var row = target && target.closest ? target.closest(".gift-group-row") : null;
+    if (!row) return;
+    event.preventDefault();
+    // The keyboard menu key reports no pointer position, so the menu then opens
+    // against the header itself.
+    var rect = row.getBoundingClientRect();
+    var x = event.clientX || rect.left + 12;
+    var y = event.clientY || rect.bottom;
+    openGroupMenu(x, y);
+  });
+
+  document.addEventListener("mousedown", function (event) {
+    if (!groupMenu || groupMenu.hidden) return;
+    if (!groupMenu.contains(event.target)) closeGroupMenu();
+  });
+
+  window.addEventListener("resize", closeGroupMenu);
+  window.addEventListener("scroll", closeGroupMenu, true);
+
   function filterGifts(query) {
     var view = document.querySelector('[data-view="gifts"]');
     var grouped = isGrouped();
@@ -642,6 +718,11 @@
   });
 
   document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && groupMenu && !groupMenu.hidden) {
+      event.preventDefault();
+      closeGroupMenu();
+      return;
+    }
     if (event.key === "Escape" && !modal.hidden) {
       event.preventDefault();
       closeGift();

@@ -1,6 +1,9 @@
 test_that("curated content declares a mode and leaves compartment unspecified", {
-  gifts <- list_gifts()
+  # `mode` is a property of the metabolic model. Non-metabolic GIFTs have no
+  # direction between molecules and must leave it unset.
+  gifts <- list_gifts(type = "metabolic")
   expect_true(all(gifts$mode %in% c("anabolic", "catabolic", "transport", "interconversion")))
+  expect_true(all(is.na(list_gifts(type = "structural")$mode)))
   expect_true(all(gifts$mode[grepl("_biosynthesis", gifts$gift_id)] == "anabolic"))
   expect_true(all(gifts$mode[grepl("_degradation", gifts$gift_id)] == "catabolic"))
 

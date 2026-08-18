@@ -61,14 +61,24 @@ test_that("pathway links are filterable and KEGG context is complete or named", 
   expect_true(all(modules$namespace == "KEGG_MODULE"))
 
   # Every GIFT carries external context except where no external record covers
-  # the chemistry. Microbial collagenolysis is such a case: KEGG places colA in
-  # the bacterial toxin hierarchy, which is not a pathway map, and no module
-  # spans the curated boundaries. Recording a link whose boundaries could not be
-  # compared would assert an equivalence that does not exist, so the honest
-  # answer is no link -- named here rather than left as a silent gap.
+  # the capability. Four are such cases, and all four are unlinked for the same
+  # reason: KEGG describes them in a BRITE hierarchy rather than a pathway map,
+  # and a hierarchy is not a pathway record whose boundaries could be compared.
+  # Microbial collagenolysis sits in the bacterial toxin hierarchy; the type IVa
+  # pilus in the secretion-system hierarchy, the only pilus module M00852 being
+  # the unrelated type IVb toxin-coregulated pilus; and both defense systems in
+  # the prokaryotic defense hierarchy. Recording a link whose boundaries could
+  # not be compared would assert an equivalence that does not exist, so the
+  # honest answer is no link -- named here rather than left as a silent gap.
   gift_ids <- list_gifts()$gift_id
   linked <- vapply(gift_ids, function(id) nrow(get_gift_pathways(id)), integer(1))
-  expect_equal(unname(gift_ids[linked == 0L]), "collagen_cleavage")
+  expect_equal(
+    unname(gift_ids[linked == 0L]),
+    c(
+      "collagen_cleavage", "type_i_e_crispr_cas_machinery",
+      "type_i_restriction_modification", "type_iva_pilus"
+    )
+  )
 
   # A GIFT with no module at all still carries pathway context.
   glycine <- get_gift_pathways("glycine_biosynthesis")

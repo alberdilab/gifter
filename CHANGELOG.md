@@ -15,6 +15,161 @@ versioned with the package.
 
 ## Package 0.1.0 (in development)
 
+### 2026-08-18T12:00Z — Regulatory and defense models gain curated content
+
+**Change.** Five GIFTs are curated, filling the two typed models that shipped
+with schema only: `chemotaxis_signal_transduction`, `aspartate_chemoreception`
+and `phosphate_starvation_response` (regulatory), and
+`type_i_restriction_modification` and `type_i_e_crispr_cas_machinery`
+(defense). Database version moves to 2026.12.3. **The schema is unchanged at
+version 6** — this is a content release, which is the point: adding a
+capability of an existing type is a data change plus tests, not an R branch.
+
+**Code.** One line: `.giftr_required_gift_facets` now requires
+`regulatory_class` of regulatory GIFTs and `defense_class` of defense ones, and
+`facet_terms.tsv` registers the four values those two vocabularies use. Each
+vocabulary was registered when the first content of its type was curated, not
+ahead of it. No evaluator, validator or accessor change was needed.
+
+**Why these five.** They were the sequence the type proposals recommended, and
+each was blocked on a question that was then answered by measurement rather than
+assumption:
+
+- *Chemotaxis* needed no evidence the marker model lacks, and immediately
+  exercises the specificity invariant. Requiring the generic chemoreceptor
+  accession K03406 would have called *Escherichia coli* K-12 receptor-less — it
+  carries none, its four receptors being assigned to characterised groups —
+  while *Vibrio cholerae* carries 34. The reception function therefore accepts a
+  generic *or* a characterised chemoreceptor.
+- *Phosphate response* was blocked on whether orthology distinguishes a cognate
+  PhoR/PhoB pair from a genome full of paralogous kinases and regulators. Gene
+  counts across nine reference genomes showed the sensor single-copy where
+  present and the two regulator groups mutually exclusive, with the *Bacillus*
+  pair adjacent in the genome. That answer split one capability into two circuits
+  sharing a sensor rather than one circuit that would have called *B. subtilis*
+  negative.
+- *Type I restriction-modification* was the cleanest multisubunit requirement
+  available, and the KEGG groups are defined as type I subunits, so the type is
+  part of the group definition rather than an inference from it.
+- *Type I-E CRISPR-Cas* was curated under the narrowed claim its proposal
+  recommended: encoded machinery, not interference, because an array is a
+  structural feature no protein accession evidences.
+
+**Refusals recorded with the content**, each enforced by a test:
+
+- ligand-specific chemoreception beyond aspartate, because K05876 covers ribose
+  and galactose in one group and K03406 covers everything;
+- K07660, which shares the gene name *phoP* with the phosphate regulator and is
+  the magnesium-sensing PhoP/PhoQ regulator, a different protein with the
+  opposite genome distribution;
+- the target sequence a type I system recognises, because HsdS specificity comes
+  from variable target recognition domains an orthology group does not resolve;
+- K07475, the HD module of a split Cas3, as evidence of the complete
+  nuclease-helicase;
+- CheV as a substitute for CheW.
+
+**Effect on other types: none.** The 29 metabolic GIFTs and the two structural
+ones are unchanged; the no-regression test now strips every non-metabolic model
+rather than only the structural one.
+
+**Report.** The atlas renders regulatory circuits and defense mechanisms through
+the same machinery view the structural type already used, and the GIFT type
+grouping axis now separates four groups.
+
+**A note on what did not happen.** The first structural and regulatory GIFTs are
+now both curated, so `flagellar_apparatus` + `chemotaxis_signal_transduction`
+could be fused into a `motility` trait. They are not, and the architecture guide
+says why: a derived statement should read the primary calls rather than hide
+which half of it a genome satisfies.
+
+### 2026-08-18T10:00Z — GIFT becomes an umbrella concept with an explicit type
+
+**Change.** A GIFT is redefined as a biologically meaningful capability whose
+genomic support is evaluated through an explicit, curated and traceable
+completeness model, and every GIFT now declares a core `gift_type`:
+`metabolic`, `structural`, `regulatory` or `defense`. Schema version moves from
+5 to 6.
+
+`gift_type` is not a facet. A facet classifies a call; the type decides which
+completeness model produces one, which source tables may attach to the GIFT, and
+what a positive call is allowed to mean. That is a change to the relational
+contract, hence a migration rather than a new column.
+
+**Reason.** A genome encodes capabilities that are not chemistry. Modelling a
+flagellum or a restriction-modification system as a directed route between
+molecular anchors would have required inventing input and output molecules the
+structure does not have, and the call would then rest on a boundary claim nobody
+could defend. Each type states its own completeness contract instead.
+
+**Effect on the metabolic model: none.** All 29 previously curated GIFTs became
+`gift_type = metabolic` with no change to their anchors, routes, reactions,
+systems, components, markers, calls, traces, graph edges or derived profile.
+`test-gift-types.R` proves this by compiling a database with the structural
+content removed and comparing every metabolic call and trace against the shipped
+one.
+
+**Structural model.** Implemented in full, with its own biologically named
+tables: `gift_architecture`, `architecture_function`, `structural_function`,
+`structural_system`, `structural_component`, `structural_component_marker`. A
+structural GIFT is complete when any curated architecture has every required
+structural function supported; an incomplete call names the closest architecture
+and the functions missing from it, never a fraction of expected genes.
+`required = 0` marks an accessory function.
+
+**Regulatory and defense models.** Schema and evaluator implemented under
+`gift_circuit`/`circuit_function`/`regulatory_*` and
+`gift_mechanism`/`mechanism_function`/`defense_*`; both ship with no curated
+content, and their Boolean semantics are fixed by synthetic fixtures in
+`test-regulatory-defense.R`. The design questions that block curation —
+cognate sensor/regulator pairing, and whether a CRISPR claim needs evidence
+beyond protein markers — are written down in the type proposals rather than
+answered by convenient curation.
+
+The three non-metabolic models are kept as parallel table families rather than
+merged into one generic set. Their Boolean shape is identical; a structural
+function, a regulatory function and a defense function are not the same
+biological object, and a source row is reviewable because of what it is called.
+Only the operations whose semantics genuinely are identical are shared in code:
+marker matching, component support, system AND logic, confidence ordering,
+deterministic tie-breaking and result assembly. Whether the data model should
+converge is left for after all three carry curated content.
+
+**Public API.**
+
+- `list_gifts()` gains a `type` argument and returns `gift_type`;
+- `get_gift()` returns `gift_type`; `gifts_by_facet()` returns it too;
+- `evaluate_gifts()` evaluates a mixed-type database in one call. Its `gifts`
+  summary gains `gift_type` and a type-neutral answer — `best_implementation`,
+  `number_of_complete_implementations`, `minimum_missing_requirements`,
+  `missing_requirements`, `completeness_score` — beside the unchanged metabolic
+  route columns, which are `NA` for non-metabolic GIFTs. New `structural`,
+  `regulatory` and `defense` members carry the type-specific detail under
+  biological names (`best_architecture`, `missing_functions_best_architecture`);
+- `trace_gift()` dispatches on the type and gains an `implementation` argument
+  for the machinery types; passing `route_id` for a non-metabolic GIFT, or
+  `implementation` for a metabolic one, is an error rather than being ignored;
+- `map_markers()` searches every model and gains `gift_type` and `function_id`.
+  Component keys are unique only within a model, so they must be compared
+  together with the type;
+- new `get_gift_machinery()` returns the implementation, function, system,
+  component and marker hierarchy of a non-metabolic GIFT;
+- `gift_profile()` is documented and implemented as metabolic-only, because
+  every field it derives comes from declared anchors.
+
+**Validation.** Unknown or missing types are rejected. `mode`, anchors and
+routes are refused on non-metabolic GIFTs and required on metabolic ones. An
+implementation may not name a GIFT of another type. Required facets are scoped
+by type, and a facet required of one type may not classify another. Function,
+system, component and implementation identifiers must be unique across models,
+because a trace prints them without naming their table. An implementation with
+no required function is rejected. A separate fix makes the composition cycle
+check skip a GIFT whose mode is missing rather than failing on an unnamed node.
+
+**Report.** The atlas renders non-metabolic GIFTs as their alternative
+implementations over the functions they share, with accessory functions dashed,
+and offers GIFT type as a grouping axis. The new tables appear in the schema and
+table browsers.
+
 ### 2026-08-19T00:30Z — Package renamed from distillR to giftr
 
 The package is renamed to `giftr` and developed in its own repository. Every

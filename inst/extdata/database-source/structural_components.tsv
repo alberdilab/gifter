@@ -1,0 +1,37 @@
+component_id	system_id	name	description
+COMP_SF_FLHA	SYS_SF_FLAGELLAR_EXPORT_GATE	FlhA export gate protein	Largest export gate component.
+COMP_SF_FLHB	SYS_SF_FLAGELLAR_EXPORT_GATE	FlhB export gate protein	Export substrate specificity switch.
+COMP_SF_FLIP	SYS_SF_FLAGELLAR_EXPORT_GATE	FliP export gate protein	Export gate channel component.
+COMP_SF_FLIQ	SYS_SF_FLAGELLAR_EXPORT_GATE	FliQ export gate protein	Export gate channel component.
+COMP_SF_FLIR	SYS_SF_FLAGELLAR_EXPORT_GATE	FliR export gate protein	Export gate channel component.
+COMP_SF_FLII	SYS_SF_FLAGELLAR_EXPORT_ATPASE	FliI export ATPase	Flagellum-specific ATPase.
+COMP_SF_FLIH	SYS_SF_FLAGELLAR_EXPORT_ATPASE	FliH ATPase regulator	Negative regulator and docking partner of FliI.
+COMP_SF_FLIF	SYS_SF_FLAGELLAR_MS_RING	FliF MS ring protein	Forms the MS ring.
+COMP_SF_FLIE	SYS_SF_FLAGELLAR_ROD	FliE rod-MS ring junction	Joins the rod to the MS ring.
+COMP_SF_FLGB	SYS_SF_FLAGELLAR_ROD	FlgB proximal rod protein	Proximal rod.
+COMP_SF_FLGC	SYS_SF_FLAGELLAR_ROD	FlgC proximal rod protein	Proximal rod.
+COMP_SF_FLGF	SYS_SF_FLAGELLAR_ROD	FlgF proximal rod protein	Proximal rod.
+COMP_SF_FLGG	SYS_SF_FLAGELLAR_ROD	FlgG distal rod protein	Distal rod.
+COMP_SF_FLIG	SYS_SF_FLAGELLAR_C_RING	FliG switch protein	Rotor protein contacting the stator.
+COMP_SF_FLIM	SYS_SF_FLAGELLAR_C_RING	FliM switch protein	Binds the chemotaxis response regulator.
+COMP_SF_FLIN	SYS_SF_FLAGELLAR_C_RING	FliN switch protein	C ring structural protein.
+COMP_SF_FLGE	SYS_SF_FLAGELLAR_HOOK	FlgE hook protein	Polymerises into the hook.
+COMP_SF_FLGK	SYS_SF_FLAGELLAR_HOOK_FILAMENT_JUNCTION	FlgK hook-associated protein 1	Proximal junction.
+COMP_SF_FLGL	SYS_SF_FLAGELLAR_HOOK_FILAMENT_JUNCTION	FlgL hook-associated protein 3	Distal junction.
+COMP_SF_FLIC	SYS_SF_FLAGELLAR_FILAMENT	flagellin	The filament subunit.
+COMP_SF_FLID	SYS_SF_FLAGELLAR_FILAMENT	FliD filament cap	Hook-associated protein 2; the distal capping plate.
+COMP_SF_MOTA	SYS_SF_FLAGELLAR_STATOR_MOTAB	MotA-family stator A subunit	Ion-conducting stator subunit. The accession does not distinguish proton-driven MotA from sodium-driven PomA.
+COMP_SF_MOTB	SYS_SF_FLAGELLAR_STATOR_MOTAB	MotB-family stator B subunit	Peptidoglycan-binding stator subunit. The accession does not distinguish MotB from PomB.
+COMP_SF_FLGH	SYS_SF_FLAGELLAR_OUTER_RING	FlgH L-ring protein	Outer membrane bushing.
+COMP_SF_FLGI	SYS_SF_FLAGELLAR_OUTER_RING	FlgI P-ring protein	Peptidoglycan bushing.
+COMP_T4AP_PILD	SYS_T4AP_PREPILIN_PEPTIDASE	PilD prepilin peptidase	Leader peptidase and N-methyltransferase.
+COMP_T4AP_PILIN	SYS_T4AP_MAJOR_PILIN	type IVa major pilin	The polymerised fibre subunit.
+COMP_T4AP_PILB	SYS_T4AP_ASSEMBLY_ATPASE_PILB	PilB assembly ATPase	Extension motor.
+COMP_T4AP_PILF	SYS_T4AP_ASSEMBLY_ATPASE_PILF	PilF assembly ATPase	Extension motor.
+COMP_T4AP_PILC	SYS_T4AP_PLATFORM	PilC platform protein	Inner membrane platform.
+COMP_T4AP_PILM	SYS_T4AP_ALIGNMENT_COMPLEX	PilM cytoplasmic actin-like protein	Alignment subcomplex.
+COMP_T4AP_PILN	SYS_T4AP_ALIGNMENT_COMPLEX	PilN inner membrane protein	Alignment subcomplex.
+COMP_T4AP_PILO	SYS_T4AP_ALIGNMENT_COMPLEX	PilO inner membrane protein	Alignment subcomplex.
+COMP_T4AP_PILP	SYS_T4AP_ALIGNMENT_COMPLEX	PilP periplasmic lipoprotein	Alignment subcomplex.
+COMP_T4AP_PILQ	SYS_T4AP_SECRETIN	PilQ secretin	Outer membrane channel.
+COMP_T4AP_PILT	SYS_T4AP_RETRACTION_ATPASE	PilT retraction ATPase	Depolymerisation motor.

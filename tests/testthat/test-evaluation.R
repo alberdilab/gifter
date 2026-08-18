@@ -10,7 +10,14 @@ test_that("markers normalize and map to components", {
 test_that("empty marker sets produce auditable incomplete calls", {
   result <- evaluate_gifts(character())
   expect_false(any(result$gifts$complete))
-  expect_true(all(result$gifts$minimum_missing_reactions > 0L))
+  # Every type reports what is missing, in the vocabulary of its own model.
+  expect_true(all(result$gifts$minimum_missing_requirements > 0L))
+  metabolic <- result$gifts[result$gifts$gift_type == "metabolic", ]
+  expect_true(all(metabolic$minimum_missing_reactions > 0L))
+  # Reactions belong to the metabolic model, so the route columns of a
+  # non-metabolic call are empty rather than zero.
+  structural <- result$gifts[result$gifts$gift_type == "structural", ]
+  expect_true(all(is.na(structural$minimum_missing_reactions)))
   expect_equal(nrow(result$observed_markers), 0L)
 })
 

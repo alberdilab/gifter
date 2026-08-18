@@ -1,0 +1,24 @@
+component_id	namespace	accession	evidence_type	confidence	source	notes
+COMP_RF_MCP	KO	K03406	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	Identifies the conserved cytoplasmic signalling architecture, not the periplasmic sensing domain. A single genome may carry dozens: Vibrio cholerae has 34 and Pseudomonas aeruginosa 21. It therefore supports the core signal-transduction claim and no ligand-specific claim.
+COMP_RF_CHARACTERISED_RECEPTOR	KO	K05874	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	Tsr, serine chemoreceptor.
+COMP_RF_CHARACTERISED_RECEPTOR	KO	K05875	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	Tar, aspartate and maltose chemoreceptor.
+COMP_RF_CHARACTERISED_RECEPTOR	KO	K05876	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	Trg, ribose and galactose chemoreceptor.
+COMP_RF_CHARACTERISED_RECEPTOR	KO	K05877	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	Tap, dipeptide chemoreceptor.
+COMP_RF_CHARACTERISED_RECEPTOR	KO	K03776	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	Aer, redox and aerotaxis receptor.
+COMP_RF_CHEA	KO	K03407	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_RF_CHEW	KO	K03408	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_RF_CHEY	KO	K03413	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_RF_CHER	KO	K00575	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_RF_CHEB	KO	K03412	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_RF_CHEZ	KO	K03414	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_RF_CHEC	KO	K03410	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_RF_CHEX	KO	K03409	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_RF_TAR	KO	K05875	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	The orthologue group is anchored on the characterised aspartate and maltose sensor. K03406 is deliberately not accepted here: it identifies the signalling domain shared by every chemoreceptor and cannot single out an aspartate sensor.
+COMP_RF_PHOR	KO	K07636	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	Single copy in every reference genome checked that carries it (Escherichia coli, Bacillus subtilis, Pseudomonas aeruginosa, Salmonella Typhi, Vibrio cholerae), and absent from Campylobacter jejuni, Helicobacter pylori, Mycobacterium tuberculosis and Lactococcus lactis. The group is not absorbing paralogous histidine kinases.
+COMP_RF_PHOB	KO	K07657	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	Single copy in Escherichia coli, Pseudomonas aeruginosa, Salmonella Typhi and Vibrio cholerae; absent from Bacillus subtilis, which uses the K07658 regulator instead. The two regulator groups are mutually exclusive across the genomes checked.
+COMP_RF_PHOP	KO	K07658	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	BSU29110 in Bacillus subtilis, immediately adjacent to the K07636 sensor BSU29100, which is the cognate pair. Not to be confused with K07660, the response regulator of the magnesium-sensing PhoP/PhoQ system, which is present in Escherichia coli and Salmonella and is a different protein with the same gene name.
+COMP_RF_PSTS	KO	K02040	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_RF_PSTC	KO	K02037	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_RF_PSTA	KO	K02038	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_RF_PSTB	KO	K02036	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_RF_PHOU	KO	K02039	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	

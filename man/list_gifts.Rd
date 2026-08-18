@@ -4,10 +4,13 @@
 \alias{list_gifts}
 \title{List curated genome-inferred functional traits}
 \usage{
-list_gifts(status = NULL, db = NULL)
+list_gifts(status = NULL, type = NULL, db = NULL)
 }
 \arguments{
 \item{status}{Optional status filter such as `"curated"`.}
+
+\item{type}{Optional GIFT type filter: `"metabolic"`, `"structural"`,
+`"regulatory"` or `"defense"`.}
 
 \item{db}{Optional open giftr database connection.}
 }
@@ -15,5 +18,9 @@ list_gifts(status = NULL, db = NULL)
 A tibble with one row per GIFT.
 }
 \description{
-List curated genome-inferred functional traits
+`gift_type` names the completeness model behind each capability:
+`metabolic` GIFTs are complete when a curated enzymatic route is complete,
+and `structural`, `regulatory` and `defense` GIFTs when a curated
+architecture, circuit or defense mechanism is complete. `mode` is a property
+of the metabolic model and is `NA` for the other types.
 }

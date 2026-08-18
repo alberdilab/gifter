@@ -7,10 +7,29 @@ curation procedures live in [the development and architecture guide](inst/doc/ar
 ## Mission
 
 giftr infers **genome-inferred functional traits (GIFTs)** from genomic
-evidence. A GIFT is a directed, biologically meaningful capability between one
-or more curated input anchors and one or more curated output anchors. A positive
-call means that the available markers support at least one complete known
-enzymatic route between those boundaries.
+evidence. A GIFT is a biologically meaningful capability whose genomic support is
+evaluated through an explicit, curated and traceable completeness model. Every
+GIFT declares a `gift_type`, which names that model:
+
+```text
+GIFT
+├── metabolic     directed capability between curated molecular anchors
+├── structural    machinery to build a defined cellular structure
+├── regulatory    machinery to sense a signal and execute a response
+└── defense       machinery to execute a defined defense mechanism
+```
+
+`gift_type` is not a facet. A facet classifies a call; `gift_type` decides which
+completeness model produces one, which source tables may attach to the GIFT, and
+what a positive call is allowed to mean. It belongs to the core ontology and to
+the relational contract.
+
+A positive **metabolic** call means that the available markers support at least
+one complete known enzymatic route between the declared boundaries. A positive
+**structural**, **regulatory** or **defense** call means that they support at
+least one complete curated architecture, circuit or defense mechanism. In no
+case does a positive call mean expression, activity, physiological state, actual
+motility, an actual defense outcome, environmental relevance, or phenotype.
 
 Keep giftr in the space between marker checklists and genome-scale metabolic
 models. It should be biologically explicit, composable, traceable,
@@ -49,13 +68,23 @@ isolation. Preserve compatibility when it does not compromise the model below.
 
 ## The evaluation contract
 
-Preserve these Boolean layers:
+Every type keeps five Boolean layers. For a metabolic GIFT:
 
 ```text
-GIFT            = ANY complete route
+metabolic GIFT  = ANY complete route
 route           = ALL required reactions
 reaction        = ANY complete enzyme system
 enzyme system   = ALL required components
+component       = ANY accepted genomic marker
+```
+
+For a structural, regulatory or defense GIFT, under its own names:
+
+```text
+structural GIFT = ANY complete architecture
+architecture    = ALL required structural functions
+structural fn   = ANY complete system
+system          = ALL required components
 component       = ANY accepted genomic marker
 ```
 
@@ -63,16 +92,24 @@ The complete evidence path is:
 
 ```text
 observed marker
-  -> enzyme component
-  -> enzyme system
-  -> reaction
-  -> route
+  -> component
+  -> system
+  -> reaction | structural, regulatory or defense function
+  -> route | architecture, circuit or mechanism
   -> GIFT
 ```
 
 Do not collapse adjacent layers. They separately represent alternative
-markers, multisubunit enzymes, alternative enzymes, required chemistry, and
-alternative routes.
+markers, multisubunit machines, alternative implementations, required elements,
+and alternative complete designs.
+
+The three non-metabolic models are kept as parallel, biologically named table
+families. Their Boolean shape is the same; a structural function, a regulatory
+function and a defense function are not the same biological object. Share
+lower-level evaluation code where the semantics really are identical -- marker
+matching, component support, system AND logic, confidence ordering, determinism,
+result assembly -- and do not merge the data model on the strength of shape
+alone. Revisit that only once all three carry curated content.
 
 ## Non-negotiable biological invariants
 
@@ -117,8 +154,12 @@ alternative routes.
     the biological ontology or hand-edited source of truth.
 15. Express uncertainty honestly. A supported route does not prove expression,
     activity, physiological flux, substrate availability, or phenotype.
-16. The specificity of a GIFT must not exceed the specificity supported by its
-    genomic evidence. A marker that cannot distinguish one substrate from
+16. The specificity of any GIFT claim must not exceed the specificity supported
+    by its genomic evidence. This is type-independent: a broad CAZy family
+    cannot license a substrate-specific metabolic trait, a stator accession
+    shared by MotA and PomA cannot identify proton versus sodium coupling, a
+    generic chemoreceptor cannot identify a chemoeffector, and a generic Cas
+    protein cannot license a CRISPR subtype. A marker that cannot distinguish one substrate from
     another licenses only the broader trait. Two consequences: a generic
     activity marker never supports a substrate-specific claim -- peptide-bond
     hydrolysis is not evidence of collagen cleavage, and a polyspecific glycoside
@@ -128,7 +169,24 @@ alternative routes.
     evidenced at the specificity its name implies, refuse it and record the
     refusal rather than widening the marker.
 
+17. `gift_type` selects the completeness model and bounds the claim. A metabolic
+    GIFT uses the anchor/route model and must declare anchors, routes and a
+    `mode`. A structural, regulatory or defense GIFT uses its own machinery
+    model and must not declare anchors, routes or a `mode` -- inventing a
+    boundary molecule so that a structure fits the metabolic schema is a
+    boundary claim nobody can defend, and the build rejects it.
+18. Do not create a primary GIFT type for a higher-order ecological or
+    phenotypic description -- motility, virulence, host association, ecological
+    strategy, cross-feeding, competition, public-good behaviour, community
+    resilience. Derive those from combinations of primary typed GIFTs, as
+    `gift_profile` already derives resource strategy from curated anchors.
+19. Adding a GIFT type is an architectural decision. A new type arrives with a
+    stated completeness contract, its own validation rules, and a curated or
+    fixture-backed example. Do not register a type with nothing behind it.
+
 See [Core concepts](inst/doc/architecture.md#core-concepts-and-scope),
+[GIFT types](inst/doc/architecture.md#gift-types),
+[The machinery model](inst/doc/architecture.md#the-machinery-model),
 [Evaluation logic](inst/doc/architecture.md#evaluation-logic), and
 [Boundaries and composition](inst/doc/architecture.md#gift-boundaries-anchors-and-composition)
 for examples and rationale.
@@ -137,6 +195,9 @@ for examples and rationale.
 
 | Change | Primary files | Also inspect |
 |---|---|---|
+| GIFT type or a new capability type | `gifts.tsv`, `inst/schema/giftr.sql`, `R/database-build.R` | `.giftr_machinery_models`, type tests, architecture guide |
+| Structural GIFT content | `gift_architectures.tsv`, `architecture_functions.tsv`, `structural_functions.tsv`, `structural_systems.tsv`, `structural_components.tsv`, `structural_component_markers.tsv` | `test-structural.R`, `proposal-structural-gifts.md`, provenance |
+| Regulatory or defense content | `gift_circuits.tsv`/`gift_mechanisms.tsv` and their `regulatory_*`/`defense_*` tables | the matching proposal document, `test-regulatory-defense.R` |
 | GIFT boundaries or metadata | `gifts.tsv`, `anchors.tsv`, `gift_anchors.tsv` | routes, composition tests, provenance |
 | Compartment, transport, or GIFT mode | `anchors.tsv`, `gifts.tsv` | graph edge quality, mode-aware cycle check, compartment tests |
 | Related external pathways | `gift_xrefs.tsv` | the relation must match the curated boundaries |
@@ -160,6 +221,8 @@ validate them, and rebuild the database.
 
 Before adding or redefining a GIFT, be able to answer:
 
+- Which `gift_type` is this, and does the capability actually fit that type's
+  completeness contract?
 - What exact capability is claimed, and why is it useful to infer from a genome?
 - What are the input and output anchors, and why are they the right biological
   cut points?
@@ -173,8 +236,19 @@ Before adding or redefining a GIFT, be able to answer:
 - Which existing GIFTs connect through the declared anchors, and would the new
   definition duplicate or supersede one?
 
+For a non-metabolic GIFT the equivalent questions are: which alternative
+complete implementations exist, which functional modules does each require,
+which systems and jointly required components implement each function, are the
+markers specific enough for the claim as named, and what does the claim
+deliberately exclude.
+
 If these questions cannot be answered, stop at a documented curation proposal;
-do not manufacture a precise implementation from ambiguous biology. The full
+do not manufacture a precise implementation from ambiguous biology. Three such
+proposals exist and are the model to follow:
+[structural](inst/doc/proposal-structural-gifts.md),
+[regulatory](inst/doc/proposal-regulatory-gifts.md), and
+[defense](inst/doc/proposal-defense-gifts.md). Recording a refusal with its
+evidence is a result, not a gap. The full
 procedure is in [Curating a GIFT](inst/doc/architecture.md#curating-a-new-or-changed-gift).
 
 Materialize alternative valid minimal routes during curation. Do not store or
@@ -210,8 +284,14 @@ data frame. Depending on the change, cover:
 - multifunctional markers;
 - route-specific reaction direction;
 - composition only through declared anchors;
-- trait specificity bounded by marker specificity, including the negative case
-  that a broad marker does not fire a substrate-specific GIFT;
+- trait specificity bounded by evidence specificity, in every type, including the
+  negative case that a broad marker does not fire a specific GIFT;
+- the typed contract: unknown types rejected, typed rows refused on the wrong
+  GIFT type, structural GIFTs refused anchors, routes and a mode;
+- alternative implementations, jointly required functions, alternative systems,
+  multisubunit failure, and accessory functions in the machinery models;
+- mixed-type evaluation in one call, and no metabolic regression from the
+  migration;
 - absence of implicit edges through internal metabolites;
 - evidence tracing back to observed markers and genes;
 - stable identifiers, foreign keys, source validation, and independent version

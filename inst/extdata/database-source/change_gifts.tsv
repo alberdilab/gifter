@@ -72,3 +72,12 @@ DBC-20260818-FACET-CLASSIFICATION	arabinoxylan_debranching
 DBC-20260818-FACET-CLASSIFICATION	starch_degradation
 DBC-20260818-COLLAGEN-CLEAVAGE	collagen_cleavage
 DBC-20260818-EVIDENCE-SPECIFICITY	collagen_cleavage
+DBC-20260818-FLAGELLAR-APPARATUS	flagellar_apparatus
+DBC-20260818-FLAGELLAR-ION-COUPLING	flagellar_apparatus
+DBC-20260818-TYPE-IVA-PILUS	type_iva_pilus
+DBC-20260818-CHEMOTAXIS-CORE	chemotaxis_signal_transduction
+DBC-20260818-CHEMOTAXIS-SPECIFICITY	aspartate_chemoreception
+DBC-20260818-CHEMOTAXIS-SPECIFICITY	chemotaxis_signal_transduction
+DBC-20260818-PHO-TWO-CIRCUITS	phosphate_starvation_response
+DBC-20260818-TYPE-I-RM	type_i_restriction_modification
+DBC-20260818-CRISPR-ARRAY-LIMIT	type_i_e_crispr_cas_machinery

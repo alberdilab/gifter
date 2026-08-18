@@ -12,6 +12,9 @@ in source-table names and code wherever practical.
 | Question or keyword | Go to |
 |---|---|
 | What is a GIFT? What is outside scope? | [Core concepts and scope](#core-concepts-and-scope) |
+| GIFT type, metabolic, structural, regulatory, defense | [GIFT types](#gift-types) |
+| Architecture, structural function, machinery model | [The machinery model](#the-machinery-model) |
+| Motility, virulence, cross-feeding, higher-order traits | [Derived capabilities](#derived-capabilities) |
 | OR/AND hierarchy, completeness, closest route | [Evaluation logic](#evaluation-logic) |
 | Anchor, boundary, branchpoint, composition, graph | [GIFT boundaries, anchors, and composition](#gift-boundaries-anchors-and-composition) |
 | Compartment, transport, uptake, extracellular | [Compartment and transport](#compartment-and-transport) |
@@ -35,10 +38,31 @@ in source-table names and code wherever practical.
 
 ### What a GIFT means
 
-A **genome-inferred functional trait (GIFT)** is a directed biological
-capability between curated molecular boundaries. It claims that a genome
-contains sufficient genomic evidence for at least one known enzymatic route
-connecting its input anchor or anchors to its output anchor or anchors.
+A **genome-inferred functional trait (GIFT)** is a biologically meaningful
+capability whose genomic support is evaluated through an explicit, curated and
+traceable completeness model.
+
+"Functional" is intentionally broad. A genome encodes capabilities that are not
+chemistry: it encodes machines, circuits and defenses. The precision does not
+come from narrowing the word, it comes from `gift_type` and from the explicit
+completeness contract each type carries.
+
+```text
+GIFT
+├── metabolic     a directed capability between curated molecular anchors
+├── structural    the machinery to build a defined cellular structure
+├── regulatory    the machinery to sense a signal and execute a response
+└── defense       the machinery to execute a defined defense mechanism
+```
+
+Every type answers the same three questions in its own vocabulary: what is
+claimed, what makes the claim complete, and what evidence supports it. What none
+of them does is soften the answer into a score.
+
+A **metabolic GIFT** is a directed biological capability between curated
+molecular boundaries. It claims that a genome contains sufficient genomic
+evidence for at least one known enzymatic route connecting its input anchor or
+anchors to its output anchor or anchors.
 
 ```text
 INPUT ANCHOR(S)
@@ -53,6 +77,12 @@ The primary objects of inference are the genes and enzymes conferring the
 capability. Anchors give that capability a clear biological identity and allow
 it to compose with other GIFTs.
 
+Anchors, routes, reactions, orientation, enzyme systems, components and the
+composition graph all belong to the metabolic model. A structural GIFT has none
+of them, and must never acquire them: a flagellum has no input molecule, and
+inventing one to satisfy a schema would make the boundary layer meaningless for
+the GIFTs that genuinely use it. The build rejects it.
+
 External databases contribute chemistry, identifiers, pathway suggestions, and
 annotation evidence. They do not define the giftr ontology. A KEGG module is
 not automatically a GIFT, and giftr boundaries may intentionally differ from
@@ -62,13 +92,27 @@ an external pathway's endpoints.
 
 A positive result means approximately:
 
-> The available genomic evidence supports at least one complete known enzymatic
+> The available genomic evidence supports at least one complete curated
 > implementation of this capability.
 
 It does not prove expression, enzyme activity, physiological flux, substrate
 availability, environmental relevance, or phenotype under every condition.
 Genome annotations are evidence rather than certainty, and user-facing language
 must preserve that distinction.
+
+This is not weaker for the non-metabolic types; it is the same claim in a
+different vocabulary, and the gap between machinery and behaviour is wider there
+because the behaviours have names people already use:
+
+| Positive call | Does **not** mean |
+|---|---|
+| `flagellar_apparatus` | that the cell is motile, that the flagellum is expressed or assembled, or that it rotates in any environment |
+| `type_iva_pilus` | twitching motility, natural competence, or adhesion to anything |
+| a regulatory GIFT | that the circuit is active, or that its regulon responds |
+| a defense GIFT | that an attacker is actually resisted |
+
+A structural call says the genome encodes the parts list and the machine that
+builds it. Everything after that is physiology.
 
 ### What giftr deliberately does not model
 
@@ -112,7 +156,232 @@ Good cut points often occur at an important branchpoint, a stable product, a
 change in functional identity, the start or end of trait-specific chemistry, or
 a molecule through which several meaningful traits naturally connect.
 
+## GIFT types
+
+`gift_type` is a core ontology field, not a facet. A facet classifies a call;
+`gift_type` decides which completeness model produces one, which source tables
+may attach to the GIFT, and what a positive call is allowed to mean. Changing it
+changes the relational contract, which is why introducing it was a schema
+migration.
+
+The vocabulary is closed and deliberately small:
+
+```text
+metabolic | structural | regulatory | defense
+```
+
+Adding a type is an architectural decision, not a data entry. A new type must
+arrive with a stated completeness contract, its own validation rules, and a
+curated or fixture-backed example. A vocabulary term with nothing behind it
+teaches curators that the vocabulary does not mean anything.
+
+### What each type contributes
+
+| Type | Claim | Complete when | Missing element reported |
+|---|---|---|---|
+| `metabolic` | A directed capability between curated molecular anchors | any curated **route** has every required reaction supported | the missing **reactions** of the closest route |
+| `structural` | The machinery to build a defined structure or molecular machine | any curated **architecture** has every required structural function supported | the missing **functions** of the closest architecture |
+| `regulatory` | The machinery to detect a defined signal and execute a defined response | any curated **circuit** has every required regulatory function supported | the missing **functions** of the closest circuit |
+| `defense` | The machinery to execute a defined defense mechanism | any curated **mechanism** has every required defense function supported | the missing **functions** of the closest mechanism |
+
+Every type carries curated content:
+
+| Type | Curated GIFTs |
+|---|---|
+| `metabolic` | 29, from purine biosynthesis to polysaccharide saccharification |
+| `structural` | `flagellar_apparatus`, `type_iva_pilus` |
+| `regulatory` | `chemotaxis_signal_transduction`, `aspartate_chemoreception`, `phosphate_starvation_response` |
+| `defense` | `type_i_restriction_modification`, `type_i_e_crispr_cas_machinery` |
+
+### Type-scoped structure
+
+The build enforces which model a GIFT uses:
+
+- a metabolic GIFT **must** declare input and output anchors, at least one
+  route, and a `mode`; it may not own an architecture, circuit or mechanism;
+- a structural, regulatory or defense GIFT **must** own at least one
+  implementation of its own type; it may **not** declare anchors, routes or a
+  `mode`;
+- an implementation may not name a GIFT of another type, so an architecture
+  cannot be attached to a metabolic GIFT;
+- required facets are scoped by type: metabolic GIFTs carry `substrate_class`
+  and `physiological_role`, structural GIFTs carry `structural_class`,
+  regulatory GIFTs `regulatory_class` and defense GIFTs `defense_class`, and a
+  facet required of one type may not classify another.
+
+The last rule is what keeps the type honest. Without it a structural GIFT could
+acquire a `substrate_class` and start looking like chemistry in every filter
+that reads facets.
+
+### Why the types are not one generic model
+
+Structural, regulatory and defense GIFTs share a Boolean shape. They do not
+share biology. A reaction has an identity independent of any organism — a Rhea
+master, a direction within a route, and reuse across GIFTs that have nothing
+else in common. A structural function does not: it is a part of a thing being
+built. A regulatory function is an information-processing step. A defense
+function is a step in resisting an attack.
+
+Merging them into one table set named for their shape rather than their meaning
+would make every curated row harder to review, which is the opposite of what the
+source tables are for. They are therefore kept as parallel, biologically named
+families, and only the operations whose semantics really are identical are
+shared in code: marker matching, component support, system AND logic, confidence
+ordering, deterministic tie-breaking, and result assembly.
+
+Whether any of them should later share a representation is a question to revisit
+once all three carry real curated content. It is not a question to answer in
+advance.
+
+## The machinery model
+
+The three non-metabolic types share one relational shape, instantiated three
+times under their own names:
+
+```text
+STRUCTURAL GIFT
+  |
+  +-- OR --> ARCHITECTURE
+                  |
+                  +-- AND --> STRUCTURAL FUNCTION
+                                   |
+                                   +-- OR --> SYSTEM
+                                                  |
+                                                  +-- AND --> COMPONENT
+                                                                 |
+                                                                 +-- OR --> MARKER
+```
+
+Substitute *circuit* and *regulatory function* for the regulatory type, and
+*defense mechanism* and *defense function* for the defense type.
+
+In Boolean form:
+
+```text
+structural GIFT   = ANY complete architecture
+architecture      = ALL required structural functions
+structural fn     = ANY complete system
+system            = ALL required components
+component         = ANY accepted genomic marker
+```
+
+Each layer answers a different biological question, exactly as in the metabolic
+model:
+
+- Multiple **architectures, circuits or mechanisms** are genuinely different ways
+  to achieve the same capability. The diderm and monoderm flagella are one
+  worked example: the monoderm envelope has no outer membrane for the L ring to
+  sit in, so the bushings are absent by construction rather than unannotated.
+  The PhoR/PhoB and PhoR/PhoP circuits are another: they share the sensor and
+  differ in the cognate response regulator, and a genome carries one or the
+  other.
+- Multiple **systems** are alternative implementations of one function. PilB and
+  PilF are non-interchangeable orthologues that both power pilus extension;
+  CheZ, CheC and CheX are three unrelated families that all dephosphorylate
+  CheY-P.
+- Multiple **components** are proteins a machine jointly requires. The five
+  proteins of the flagellar export gate are one system, not five functions, and
+  so are the five subunits of the type I-E Cascade complex.
+- Multiple **markers** are alternative evidence for one component. The
+  chemoreception function accepts any characterised chemoreceptor, which is what
+  keeps an *Escherichia coli* annotation — carrying no generic-MCP orthologue at
+  all — from being called receptor-less.
+
+### Accessory functions
+
+`required = 0` marks a function whose absence does not make the implementation
+incomplete. It is used where the biology says a machine works without a part,
+not where evidence is inconvenient. The curated cases:
+
+| Accessory function | Why the capability survives without it |
+|---|---|
+| type IVa pilus retraction ATPase | a genome without PilT builds a pilus it cannot retract |
+| chemotaxis signal termination | CheY-P also autodephosphorylates; the phosphatase families are unevenly distributed |
+| PstSCAB–PhoU | independently a transport capability the metabolic model already covers |
+| CRISPR spacer acquisition | a system interferes using the spacers it already has |
+
+An implementation whose functions are *all* accessory could never be defensibly
+complete, so the build rejects it.
+
+### Reuse rather than duplication
+
+Functions are curated once and referenced by every implementation that needs
+them, including across GIFTs. The nine functions shared by the two flagellar
+architectures exist as nine rows, not eighteen; the PhoR sensor function is one
+row serving two circuits; and the chemotaxis kinase, response-regulator and
+adaptation functions are the same rows in `chemotaxis_signal_transduction` and
+`aspartate_chemoreception`, which differ only in their reception function.
+
+This is the machinery counterpart of not copying an atomic GIFT's reactions into
+a larger trait: a definition that exists twice will eventually disagree with
+itself.
+
+### Structural GIFTs have no anchors
+
+A structural GIFT must not declare molecular boundaries. This is not a
+simplification; it is the point. Anchors are what make metabolic GIFTs compose,
+and a fake anchor pair on a flagellum would inject a meaningless node into the
+composition graph and the derived profile. Both are metabolic-only by
+construction, and the validator rejects the attempt.
+
+## Derived capabilities
+
+Higher-order ecological and phenotypic descriptions — motility, virulence, host
+association, cross-feeding, competition, public-good behaviour, community
+resilience — are **not** new GIFT types and should not become curated primary
+traits.
+
+They are combinations of primary typed GIFTs:
+
+```text
+flagellar_apparatus              (structural)
+  +  chemotaxis_signal_transduction  (regulatory)
+  ->  potential chemotactic motility
+
+metabolic extracellular substrate release by organism A
+  +  metabolic uptake and catabolism by organism B
+  ->  potential cross-feeding interaction
+```
+
+Both halves of the first example are now curated and separately callable, which
+is the point: a genome can encode a flagellum without a chemosensory pathway, or
+a chemosensory pathway that steers something else. Fusing them into a `motility`
+trait would hide which half a particular genome actually satisfies, and would
+add the physiological assumptions — expression, energisation, a gradient — that
+neither call makes.
+
+The precedent is already in the database. `gift_profile` derives resource
+strategy, network position, cross-feeding output and auxotrophy indication from
+declared anchors, anchor facets and the composition graph. Nothing in it is
+curated, which is why adding it required no curation campaign: the signal was
+already there and simply had no way out.
+
+Curating "motility" directly would do the opposite. It would fuse a structural
+claim, a regulatory claim and a set of physiological assumptions into one row
+that no evidence supports as a unit, and it would hide which part of it a
+particular genome actually satisfies.
+
+This migration deliberately does **not** implement a general derived-capability
+engine. It keeps the architecture able to carry one: primary types stay
+separately callable, and a derived layer would read their calls rather than
+adding a fifth type.
+
+### Deferred: programmatic capabilities
+
+Sporulation does not fit the structural model. Building an endospore is a
+coordinated developmental programme — ordered compartment-specific regulons, an
+asymmetric division, engulfment, a cascade of morphological stages — not the
+assembly of one machine. It is recorded as a candidate for a future
+`programmatic` type in
+[the structural proposal](proposal-structural-gifts.md), and that type is
+deliberately **not** in the schema until its completeness contract can be
+stated.
+
 ## Evaluation logic
+
+Every GIFT type is evaluated through explicit Boolean layers, and the layers are
+never collapsed. This section describes the metabolic model; the machinery types
+are in [The machinery model](#the-machinery-model).
 
 giftr separates biological meaning, chemistry, enzymology, and genomic
 evidence into explicit layers:
@@ -493,6 +762,38 @@ is only as good as its weakest accepted marker, and a GIFT resting on an
 ambiguous polyspecific family must not read like one resting on curated
 orthology. The terms are ordered, never averaged into a score.
 
+### Evidence specificity bounds claim specificity
+
+The invariant is type-independent:
+
+> The specificity of any GIFT claim must not exceed the specificity of the
+> genomic evidence supporting it.
+
+It has an instance in every type:
+
+| Type | Over-broad evidence | Claim it must not license |
+|---|---|---|
+| metabolic | a polyspecific CAZy family | one of the family's activities as a substrate-specific trait |
+| metabolic | EC 3.4.24.26, which hydrolyses elastin, collagen, fibronectin and IgA | cleavage of any one of them |
+| structural | K02556/K02557, which KEGG assigns to both *E. coli* MotA/MotB and *Vibrio* PomA/PomB | a proton- or sodium-driven flagellar apparatus |
+| structural | a type IV pilus assembly machine | twitching motility, natural competence, or adhesion |
+| regulatory | K03406, assigned to 34 genes in one *Vibrio cholerae* genome | chemotaxis toward a named chemoeffector |
+| regulatory | K07660, which shares the gene name *phoP* with the phosphate regulator | a phosphate starvation response |
+| defense | K01154, the type I specificity subunit | which target sequence the system recognises |
+| defense | a generic Cas protein | a CRISPR subtype, or functional interference without a detectable array |
+
+Each row above is enforced by a test, not only stated. The strongest case is
+curated twice on purpose: `chemotaxis_signal_transduction` accepts a generic
+chemoreceptor, `aspartate_chemoreception` accepts only Tar, and a genome with
+the generic receptor completes the first and not the second.
+
+The remedy is always the same, and it is never to widen the marker: state the
+broader claim the evidence supports, or refuse the trait and record why. The
+flagellar coupling-ion refusal is worked through in
+[the structural proposal](proposal-structural-gifts.md); the ligand-specific
+chemotaxis case in [the regulatory proposal](proposal-regulatory-gifts.md); the
+CRISPR array case in [the defense proposal](proposal-defense-gifts.md).
+
 Marker specificity bounds trait specificity (invariant 16). A marker that cannot
 distinguish one substrate from another licenses only the broader capability, and
 a trait must not be named for a substrate its evidence cannot single out. The
@@ -520,13 +821,23 @@ they are not implicitly separate required genes.
 
 ### Logical model
 
-The normalized model has two complementary paths:
+The normalized model has three complementary paths. The first two describe a
+metabolic GIFT; the third describes a machinery GIFT of any non-metabolic type,
+instantiated once per type under its own table names:
 
 ```text
-anchor -> GIFT -> anchor
+anchor -> metabolic GIFT -> anchor
 
-marker -> component -> enzyme system -> reaction -> route -> GIFT
+marker -> enzyme component -> enzyme system -> reaction -> route -> metabolic GIFT
+
+marker -> component -> system -> function -> architecture/circuit/mechanism -> GIFT
 ```
+
+The `marker` table is shared by every model, because a KO is the same object
+whichever capability it evidences. Everything above it is per-model. Component,
+system, function and implementation identifiers are validated to be unique
+across the models, because a trace prints them without saying which table they
+came from.
 
 The reviewable source uses plural TSV filenames. The compiled SQLite database
 uses singular table names and internal integer primary keys. Stable public IDs
@@ -534,7 +845,7 @@ remain present in both forms.
 
 | Source file | Runtime table | Purpose and stable key |
 |---|---|---|
-| `gifts.tsv` | `gift` | Biological claim; `gift_id`, with `mode` |
+| `gifts.tsv` | `gift` | Biological claim; `gift_id`, with `gift_type` and, for metabolic GIFTs, `mode` |
 | `anchors.tsv` | `anchor` | Curated boundary molecule; `anchor_id`, `molecule` + `compartment`, usually with `chebi_id` |
 | `gift_anchors.tsv` | `gift_anchor` | Input/output role and ordinal for each GIFT boundary |
 | `gift_xrefs.tsv` | `gift_xref` | Related external pathway and how the curated boundaries compare |
@@ -546,6 +857,14 @@ remain present in both forms.
 | `enzyme_components.tsv` | `enzyme_component` | Required protein within a system; `component_id` |
 | `markers.tsv` | `marker` | Reusable genomic evidence; `namespace + accession` |
 | `component_markers.tsv` | `component_marker` | Evidence mapping with source and confidence |
+| `gift_architectures.tsv` | `gift_architecture` | Alternative complete architecture of a structural GIFT; `architecture_id` |
+| `architecture_functions.tsv` | `architecture_function` | Architecture membership, ordinal, and required flag |
+| `structural_functions.tsv` | `structural_function` | Reusable structural or assembly function; `function_id` |
+| `structural_systems.tsv` | `structural_system` | Alternative implementation of a structural function; `system_id` |
+| `structural_components.tsv` | `structural_component` | Jointly required protein within a structural system |
+| `structural_component_markers.tsv` | `structural_component_marker` | Evidence mapping for a structural component |
+| `gift_circuits.tsv`, `circuit_functions.tsv`, `regulatory_*.tsv` | `gift_circuit`, `circuit_function`, `regulatory_*` | The same six shapes for the regulatory model |
+| `gift_mechanisms.tsv`, `mechanism_functions.tsv`, `defense_*.tsv` | `gift_mechanism`, `mechanism_function`, `defense_*` | The same six shapes for the defense model |
 | `database_changes.tsv` | `database_change` | Curation history entry; `change_id` |
 | `change_gifts.tsv` | `change_gift` | GIFTs a recorded change affects |
 | `database_release.tsv` | `database_release` | Database, schema, upstream-source, date, and commit metadata |
@@ -740,6 +1059,11 @@ database:  2027.04
 schema:    2
 ```
 
+Schema version 6 introduced `gift_type` and the three machinery models. Because
+`gift_type` decides which tables may attach to a GIFT, it changed the relational
+contract rather than adding an optional column, which is what made it a
+migration rather than a field.
+
 A package release must not silently change biological definitions without
 database provenance. A schema change requires an explicit schema-version bump
 and coordinated updates to the SQL schema, TSV source specification, compiler,
@@ -802,6 +1126,7 @@ Preferred operations include:
 ```r
 list_gifts()
 get_gift()
+get_gift_machinery()
 get_gift_anchors()
 get_gift_pathways()
 gifts_for_pathway()
@@ -861,6 +1186,19 @@ Also test that:
 - internal intermediates never create topology;
 - compartment-split anchors compose only through a transport GIFT, and an
   unresolved compartment traverses as a flagged inexact edge;
+- every GIFT curated before the typed migration is `metabolic`, and its calls,
+  traces, graph edges and profile are unchanged by the migration;
+- an unknown or missing `gift_type` is rejected, and a typed source row cannot
+  be attached to a GIFT of another type;
+- a structural GIFT cannot declare anchors, routes or a `mode`;
+- alternative architectures complete independently, all required structural
+  functions are jointly needed, alternative systems satisfy one function, a
+  multisubunit system fails when a component is missing, and an accessory
+  function does not enter the call;
+- an incomplete machinery call names the closest implementation and the
+  functions missing from it, deterministically;
+- a mixed-type database evaluates in one `evaluate_gifts()` call, and
+  `gift_type` reaches the result and the browsing API;
 - composition cycles are rejected within a mode and accepted between modes;
 - a call reports the weakest confidence among the markers behind it;
 - source identifiers and references validate;
@@ -874,6 +1212,13 @@ count are insufficient when the biological interpretation can regress.
 Relevant test locations are:
 
 - `tests/testthat/test-evaluation.R` for the evidence hierarchy and calls;
+- `tests/testthat/test-gift-types.R` for the typed contract and the
+  no-metabolic-regression guarantee;
+- `tests/testthat/test-structural.R` for the structural model, on synthetic
+  fixtures and on the curated flagellar and pilus content;
+- `tests/testthat/test-regulatory-defense.R` for the regulatory and defense
+  models, on synthetic fixtures and on the curated chemotaxis, phosphate,
+  restriction-modification and CRISPR-Cas content;
 - `tests/testthat/test-composition.R` for anchor-derived topology;
 - `tests/testthat/test-compartment.R` for compartment, mode, and edge quality;
 - `tests/testthat/test-reaction-identity.R` for reaction identity and
@@ -991,8 +1336,21 @@ If not, reconsider the design.
   marker may support a component.
 - **Enzyme system:** One complete catalytic implementation of a reaction. It may
   contain one or several jointly required components.
-- **GIFT:** A directed, biologically meaningful genome-inferred capability
-  between declared anchors, complete when any valid route is complete.
+- **Architecture:** One complete curated way to build the structure a structural
+  GIFT claims. Architectures are alternatives under OR.
+- **Circuit:** One complete curated implementation of a regulatory GIFT.
+- **Defense mechanism:** One complete curated implementation of a defense GIFT.
+- **GIFT:** A biologically meaningful capability whose genomic support is
+  evaluated through an explicit, curated and traceable completeness model. Its
+  `gift_type` names that model.
+- **GIFT type:** `metabolic`, `structural`, `regulatory` or `defense`. A core
+  ontology field, not a facet: it decides which completeness model applies and
+  which tables may attach to the GIFT.
+- **Metabolic GIFT:** A directed genome-inferred capability between declared
+  anchors, complete when any valid route is complete.
+- **Structural function:** A discrete structural or assembly function an
+  architecture requires. The structural analogue of a reaction: the unit whose
+  absence an incomplete structural call reports.
 - **Internal intermediate:** A reaction participant inside a route that is not a
   declared anchor and cannot connect GIFTs.
 - **Marker:** A namespaced genomic observation or annotation accession used as

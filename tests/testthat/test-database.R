@@ -4,7 +4,12 @@ test_that("canonical source tables validate", {
 
   expect_true(report$valid)
   expect_length(report$errors, 0L)
-  expect_equal(unname(report$rows[c("gifts", "anchors", "reactions")]), c(29L, 43L, 91L))
+  expect_equal(unname(report$rows[c("gifts", "anchors", "reactions")]), c(36L, 43L, 91L))
+  # Every typed model now ships curated content.
+  expect_equal(
+    unname(report$rows[c("gift_architectures", "gift_circuits", "gift_mechanisms")]),
+    c(3L, 4L, 2L)
+  )
 })
 
 test_that("database compilation creates constrained SQLite schema", {
@@ -20,7 +25,10 @@ test_that("database compilation creates constrained SQLite schema", {
   expect_true(all(c(
     "gift", "anchor", "gift_anchor", "reaction", "gift_route",
     "route_reaction", "enzyme_system", "enzyme_component", "marker",
-    "component_marker", "gift_xref", "database_release"
+    "component_marker", "gift_xref", "database_release",
+    "gift_architecture", "architecture_function", "structural_function",
+    "structural_system", "structural_component", "structural_component_marker",
+    "gift_circuit", "circuit_function", "gift_mechanism", "mechanism_function"
   ) %in% tables))
   expect_equal(nrow(DBI::dbGetQuery(db, "PRAGMA foreign_key_check")), 0L)
   expect_identical(DBI::dbGetQuery(db, "PRAGMA integrity_check")[[1]], "ok")
@@ -32,6 +40,8 @@ test_that("database compilation creates constrained SQLite schema", {
   expect_true("idx_marker_namespace_accession" %in% indexes)
   expect_true("idx_route_reaction_route_pk" %in% indexes)
   expect_true("idx_gift_xref_gift_pk" %in% indexes)
+  expect_true("idx_gift_gift_type" %in% indexes)
+  expect_true("idx_structural_component_system_pk" %in% indexes)
 })
 
 test_that("source validation rejects duplicate stable IDs", {
@@ -65,18 +75,22 @@ test_that("database accessors return stable definitions", {
     c(
       "adenylate_biosynthesis", "arabinose_degradation",
       "arabinose_uptake_abc", "arabinoxylan_debranching",
-      "aspartate_semialdehyde_biosynthesis", "collagen_cleavage",
+      "aspartate_chemoreception",
+      "aspartate_semialdehyde_biosynthesis", "chemotaxis_signal_transduction",
+      "collagen_cleavage",
       "cysteine_biosynthesis_homocysteine", "cysteine_biosynthesis_sulfide",
-      "cytidylate_biosynthesis",
+      "cytidylate_biosynthesis", "flagellar_apparatus",
       "fucose_degradation_isomerase", "galactose_degradation_leloir",
       "galacturonate_degradation", "glcnac_degradation",
       "glucuronate_degradation", "glycine_biosynthesis",
       "guanylate_biosynthesis", "homoserine_biosynthesis",
       "methionine_biosynthesis_sulfhydrylation", "methionine_biosynthesis_transsulfuration",
-      "neuac_degradation", "purine_core_biosynthesis",
+      "neuac_degradation", "phosphate_starvation_response",
+      "purine_core_biosynthesis",
       "pyrimidine_core_biosynthesis", "rhamnose_degradation",
       "serine_biosynthesis", "starch_degradation",
-      "threonine_biosynthesis", "xylan_degradation",
+      "threonine_biosynthesis", "type_i_e_crispr_cas_machinery",
+      "type_i_restriction_modification", "type_iva_pilus", "xylan_degradation",
       "xylose_degradation_isomerase", "xylose_uptake_abc"
     )
   )
@@ -138,8 +152,8 @@ test_that("database accessors return stable definitions", {
 test_that("database and schema versions are independent", {
   version <- giftr_db_version()
   expect_equal(version$package_version, "0.1.0")
-  expect_equal(version$giftr_db_version, "2026.12.1")
-  expect_equal(version$schema_version, 5L)
+  expect_equal(version$giftr_db_version, "2026.12.3")
+  expect_equal(version$schema_version, 6L)
   expect_equal(version$rhea_release, "141")
 })
 
@@ -199,12 +213,12 @@ test_that("database HTML atlas is self-contained and reflects compiled rows", {
   expect_false(grepl('<script[^>]+src=', html))
 })
 
-test_that("every GIFT gets a route network bounded by its declared anchors", {
+test_that("every metabolic GIFT gets a route network bounded by its declared anchors", {
   db <- giftr_db_connect()
   on.exit(giftr_db_disconnect(db), add = TRUE)
   data <- giftr:::.giftr_report_data(db)
 
-  for (gift_id in data$gifts$gift_id) {
+  for (gift_id in data$gifts$gift_id[data$gifts$gift_type == "metabolic"]) {
     anchors <- data$anchors[data$anchors$gift_id == gift_id, , drop = FALSE]
     svg <- giftr:::.report_gift_network_svg(
       gift_id,

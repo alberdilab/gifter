@@ -4,20 +4,27 @@
 \alias{trace_gift}
 \title{Trace the evidence chain for a GIFT call}
 \usage{
-trace_gift(result, gift_id, route_id = NULL)
+trace_gift(result, gift_id, route_id = NULL, implementation = NULL)
 }
 \arguments{
 \item{result}{A result returned by [evaluate_gifts()].}
 
 \item{gift_id}{Stable GIFT identifier.}
 
-\item{route_id}{Optional route to trace. The evaluated best route is used by
-default.}
+\item{route_id}{Optional route to trace, for a metabolic GIFT. The evaluated
+best route is used by default.}
+
+\item{implementation}{Optional architecture, circuit or mechanism to trace,
+for a non-metabolic GIFT. The evaluated best one is used by default.}
 }
 \value{
-A long-form tibble from route reactions through selected enzyme
-  systems and required components to observed markers and genes.
+A long-form tibble from the chosen implementation down to observed
+  markers and genes.
 }
 \description{
-Trace the evidence chain for a GIFT call
+Traceability follows the completeness model that produced the call. For a
+metabolic GIFT the chain runs route -> reaction -> enzyme system -> component
+-> marker -> gene; for a structural, regulatory or defense GIFT it runs
+architecture, circuit or mechanism -> function -> system -> component ->
+marker -> gene. Both end at the supplied gene identifiers.
 }

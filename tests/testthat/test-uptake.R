@@ -55,7 +55,7 @@ test_that("a dual-specificity importer serves both pentoses", {
   # XacGHI is characterised on L-arabinose and D-xylose, so it is an
   # alternative system for both reactions rather than a marker of one.
   result <- evaluate_gifts(ko_annotations(c("K25045", "K25046", "K25047")))
-  transport <- result$gifts[result$gifts$mode == "transport", ]
+  transport <- result$gifts[result$gifts$mode %in% "transport", ]
   expect_true(all(transport$complete))
 
   expect_setequal(

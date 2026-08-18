@@ -52,3 +52,7 @@ arabinose_uptake_abc	KEGG_PATHWAY	map02010	ABC transporters	related	Biologically
 starch_degradation	KEGG_PATHWAY	map00500	Starch and sucrose metabolism	subset_of	
 xylan_degradation	KEGG_PATHWAY	map00500	Starch and sucrose metabolism	related	Adjacent context only; the xylan capabilities are not part of this map.
 arabinoxylan_debranching	KEGG_PATHWAY	map00500	Starch and sucrose metabolism	related	Adjacent context only; the xylan capabilities are not part of this map.
+flagellar_apparatus	KEGG_PATHWAY	map02040	Flagellar assembly	subset_of	The KEGG map additionally contains the transcriptional regulators of flagellar gene expression (FlhDC, FliA, FlgM), which this structural GIFT deliberately excludes.
+chemotaxis_signal_transduction	KEGG_PATHWAY	map02030	Bacterial chemotaxis	subset_of	The KEGG map additionally contains the flagellar motor the pathway steers, which is a separate structural GIFT, and receptor families whose signals this claim does not name.
+aspartate_chemoreception	KEGG_PATHWAY	map02030	Bacterial chemotaxis	subset_of	One receptor input of the KEGG map together with the shared downstream signalling functions.
+phosphate_starvation_response	KEGG_PATHWAY	map02020	Two-component system	subset_of	One of many two-component systems the KEGG map collects.

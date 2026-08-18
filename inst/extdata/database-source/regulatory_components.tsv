@@ -1,0 +1,20 @@
+component_id	system_id	name	description
+COMP_RF_MCP	SYS_RF_CHEMOTAXIS_RECEPTOR_GENERIC	methyl-accepting chemotaxis protein	Any chemoreceptor with the conserved signalling domain.
+COMP_RF_CHARACTERISED_RECEPTOR	SYS_RF_CHEMOTAXIS_RECEPTOR_CHARACTERISED	characterised chemoreceptor	A chemoreceptor whose orthology group is anchored on a known stimulus.
+COMP_RF_CHEA	SYS_RF_CHEMOTAXIS_KINASE	CheA histidine kinase	Autophosphorylating kinase.
+COMP_RF_CHEW	SYS_RF_CHEMOTAXIS_KINASE	CheW coupling protein	Couples receptor to kinase.
+COMP_RF_CHEY	SYS_RF_CHEMOTAXIS_CHEY	CheY response regulator	Diffusible messenger.
+COMP_RF_CHER	SYS_RF_CHEMOTAXIS_ADAPTATION	CheR methyltransferase	Adds receptor methyl groups.
+COMP_RF_CHEB	SYS_RF_CHEMOTAXIS_ADAPTATION	CheB methylesterase	Removes receptor methyl groups.
+COMP_RF_CHEZ	SYS_RF_CHEMOTAXIS_CHEZ	CheZ phosphatase	CheY-P phosphatase.
+COMP_RF_CHEC	SYS_RF_CHEMOTAXIS_CHEC	CheC phosphatase	CheY-P phosphatase.
+COMP_RF_CHEX	SYS_RF_CHEMOTAXIS_CHEX	CheX phosphatase	CheY-P phosphatase.
+COMP_RF_TAR	SYS_RF_ASPARTATE_RECEPTOR	Tar aspartate chemoreceptor	The aspartate-sensing receptor itself.
+COMP_RF_PHOR	SYS_RF_PHO_SENSOR	PhoR sensor histidine kinase	Phosphate-limitation sensor.
+COMP_RF_PHOB	SYS_RF_PHO_PHOB	PhoB response regulator	Pho box activator.
+COMP_RF_PHOP	SYS_RF_PHO_PHOP	PhoP response regulator	Bacillus-type Pho regulon activator.
+COMP_RF_PSTS	SYS_RF_PST_PHOU	PstS phosphate-binding protein	Periplasmic binding protein.
+COMP_RF_PSTC	SYS_RF_PST_PHOU	PstC permease	Transporter permease.
+COMP_RF_PSTA	SYS_RF_PST_PHOU	PstA permease	Transporter permease.
+COMP_RF_PSTB	SYS_RF_PST_PHOU	PstB ATP-binding protein	Transporter ATPase.
+COMP_RF_PHOU	SYS_RF_PST_PHOU	PhoU	Conveys transporter occupancy to PhoR.

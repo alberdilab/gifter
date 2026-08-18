@@ -106,23 +106,41 @@ giftr_db_version <- function(db = NULL) {
 
 #' List curated genome-inferred functional traits
 #'
+#' `gift_type` names the completeness model behind each capability:
+#' `metabolic` GIFTs are complete when a curated enzymatic route is complete,
+#' and `structural`, `regulatory` and `defense` GIFTs when a curated
+#' architecture, circuit or defense mechanism is complete. `mode` is a property
+#' of the metabolic model and is `NA` for the other types.
+#'
 #' @param status Optional status filter such as `"curated"`.
+#' @param type Optional GIFT type filter: `"metabolic"`, `"structural"`,
+#'   `"regulatory"` or `"defense"`.
 #' @param db Optional open giftr database connection.
 #' @return A tibble with one row per GIFT.
 #' @export
-list_gifts <- function(status = NULL, db = NULL) {
+list_gifts <- function(status = NULL, type = NULL, db = NULL) {
+  if (!is.null(type)) type <- match.arg(type, .giftr_gift_types, several.ok = TRUE)
   .with_giftr_db(db, function(connection) {
     sql <- paste(
-      "SELECT gift_id, name, description, mode, status, version, notes",
+      "SELECT gift_id, gift_type, name, description, mode, status, version, notes",
       "FROM gift"
     )
-    params <- NULL
+    conditions <- character()
+    params <- list()
     if (!is.null(status)) {
-      sql <- paste(sql, "WHERE status = ?")
-      params <- list(as.character(status))
+      conditions <- c(conditions, "status = ?")
+      params <- c(params, list(as.character(status)))
     }
+    if (!is.null(type)) {
+      conditions <- c(
+        conditions,
+        paste0("gift_type IN (", paste(rep("?", length(type)), collapse = ", "), ")")
+      )
+      params <- c(params, as.list(type))
+    }
+    if (length(conditions)) sql <- paste(sql, "WHERE", paste(conditions, collapse = " AND "))
     sql <- paste(sql, "ORDER BY gift_id")
-    .as_tibble_query(connection, sql, params)
+    .as_tibble_query(connection, sql, if (length(params)) params else NULL)
   })
 }
 
@@ -138,7 +156,7 @@ get_gift <- function(gift_id, db = NULL) {
     .as_tibble_query(
       connection,
       paste(
-        "SELECT gift_id, name, description, mode, status, version, notes",
+        "SELECT gift_id, gift_type, name, description, mode, status, version, notes",
         "FROM gift WHERE gift_id = ?"
       ),
       list(gift_id)
@@ -457,7 +475,7 @@ gifts_by_facet <- function(facet, value, db = NULL) {
     .as_tibble_query(
       connection,
       paste(
-        "SELECT g.gift_id, g.name, g.mode, f.facet, f.value",
+        "SELECT g.gift_id, g.gift_type, g.name, g.mode, f.facet, f.value",
         "FROM gift g JOIN gift_facet f ON f.gift_pk = g.gift_pk",
         "WHERE f.facet = ? AND f.value = ? ORDER BY g.gift_id"
       ),
@@ -466,10 +484,12 @@ gifts_by_facet <- function(facet, value, db = NULL) {
   })
 }
 
-#' Derived ecological and physiological profile of each GIFT
+#' Derived ecological and physiological profile of each metabolic GIFT
 #'
 #' Nothing in the profile is curated. Every field is computed from declared
-#' anchors, anchor facets, and the composition graph.
+#' anchors, anchor facets, and the composition graph, all of which belong to the
+#' metabolic model, so non-metabolic GIFTs are absent rather than carrying an
+#' empty row. Reporting a resource strategy for a flagellum would invent one.
 #'
 #' `resource_strategy` is the degrader-versus-forager distinction the anchor
 #' compartment field exists to support: `uptake` consumes outside and delivers
@@ -478,7 +498,7 @@ gifts_by_facet <- function(facet, value, db = NULL) {
 #' real answer rather than a gap.
 #'
 #' @param db Optional open giftr database connection.
-#' @return A tibble with one row per GIFT.
+#' @return A tibble with one row per metabolic GIFT.
 #' @export
 gift_profile <- function(db = NULL) {
   .with_giftr_db(db, function(connection) {
@@ -528,5 +548,68 @@ gift_graph <- function(db = NULL, quality = NULL) {
     }
     sql <- paste(sql, "ORDER BY from_gift, shared_anchor, to_gift")
     .as_tibble_query(connection, sql, params)
+  })
+}
+
+#' Get the curated machinery of a non-metabolic GIFT
+#'
+#' The machinery analogue of [get_gift_reactions()] and
+#' [get_reaction_systems()]. A structural, regulatory or defense GIFT is
+#' complete when at least one of its curated implementations -- an
+#' architecture, a circuit, a defense mechanism -- has every required function
+#' supported, so this returns that hierarchy in one long-form table:
+#' implementation, function, system, component and accepted marker.
+#'
+#' Reading it: implementations are alternatives (OR), the required functions of
+#' one implementation are jointly needed (AND), the systems of one function are
+#' alternatives (OR), the components of one system are jointly needed (AND),
+#' and the markers of one component are alternatives (OR).
+#'
+#' @inheritParams get_gift
+#' @return A long-form tibble. The implementation column is named for the GIFT
+#'   type: `architecture_id`, `circuit_id` or `mechanism_id`. Calling this on a
+#'   metabolic GIFT is an error, because a metabolic GIFT has routes instead.
+#' @export
+get_gift_machinery <- function(gift_id, db = NULL) {
+  gift_id <- .normalize_gift_id(gift_id)
+  .with_giftr_db(db, function(connection) {
+    type <- .as_tibble_query(
+      connection, "SELECT gift_type FROM gift WHERE gift_id = ?", list(gift_id)
+    )
+    if (!nrow(type)) stop("Unknown gift_id: ", gift_id, call. = FALSE)
+    type <- type$gift_type[[1]]
+    if (identical(type, "metabolic")) {
+      stop(
+        gift_id, " is a metabolic GIFT; use get_gift_routes() and ",
+        "get_gift_reactions() instead.",
+        call. = FALSE
+      )
+    }
+    model <- .giftr_machinery_models[[type]]
+    result <- .as_tibble_query(
+      connection,
+      paste0(
+        "SELECT g.gift_id, g.gift_type, i.", model$implementation_id, ", i.name AS ",
+        model$implementation, "_name, mf.ordinal, mf.required, ",
+        "f.function_id, f.name AS function_name, s.system_id, s.name AS system_name, ",
+        "c.component_id, c.name AS component_name, m.namespace, m.accession, ",
+        "e.evidence_type, e.confidence, e.source, e.notes ",
+        "FROM gift g ",
+        "JOIN ", model$implementation_table, " i ON i.gift_pk = g.gift_pk ",
+        "JOIN ", model$membership_table, " mf ON mf.", model$implementation_pk,
+        " = i.", model$implementation_pk, " ",
+        "JOIN ", model$function_table, " f ON f.function_pk = mf.function_pk ",
+        "JOIN ", model$system_table, " s ON s.function_pk = f.function_pk ",
+        "JOIN ", model$component_table, " c ON c.system_pk = s.system_pk ",
+        "JOIN ", model$evidence_table, " e ON e.component_pk = c.component_pk ",
+        "JOIN marker m ON m.marker_pk = e.marker_pk ",
+        "WHERE g.gift_id = ? ",
+        "ORDER BY i.", model$implementation_id,
+        ", mf.ordinal, s.system_id, c.component_id, m.namespace, m.accession"
+      ),
+      list(gift_id)
+    )
+    result$required <- as.logical(result$required)
+    result
   })
 }

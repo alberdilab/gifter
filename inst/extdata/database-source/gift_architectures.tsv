@@ -1,0 +1,4 @@
+architecture_id	gift_id	name	description	status
+ARCH_FLAGELLUM_DIDERM	flagellar_apparatus	diderm flagellar apparatus	The flagellum of a Gram-negative style envelope, in which the rod passes through P- and L-ring bushings.	curated
+ARCH_FLAGELLUM_MONODERM	flagellar_apparatus	monoderm flagellar apparatus	The flagellum of a single-membrane envelope, which is built without L and P rings. It is a distinct architecture rather than the diderm architecture with an optional part, because the bushings are absent by construction and not merely unannotated.	curated
+ARCH_T4AP_CORE	type_iva_pilus	type IVa pilus machinery	The conserved type IVa pilus machine: prepilin processing, a major pilin, an extension ATPase, the inner membrane platform, the alignment subcomplex and the outer membrane secretin, with retraction as an accessory function.	curated

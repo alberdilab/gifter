@@ -1,0 +1,40 @@
+component_id	namespace	accession	evidence_type	confidence	source	notes
+COMP_SF_FLHA	KO	K02400	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLHB	KO	K02401	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLHB	KO	K13820	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	Fused FliR-FlhB protein; the same accession also supports COMP_SF_FLIR, which is what a fused protein means.
+COMP_SF_FLIP	KO	K02419	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLIQ	KO	K02420	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLIR	KO	K02421	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLIR	KO	K13820	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	Fused FliR-FlhB protein; the same accession also supports COMP_SF_FLHB.
+COMP_SF_FLII	KO	K02412	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLIH	KO	K02411	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLIF	KO	K02409	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLIE	KO	K02408	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLGB	KO	K02387	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLGC	KO	K02388	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLGF	KO	K02391	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLGG	KO	K02392	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLIG	KO	K02410	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLIM	KO	K02416	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLIN	KO	K02417	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLGE	KO	K02390	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLGK	KO	K02396	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLGL	KO	K02397	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLIC	KO	K02406	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLID	KO	K02407	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_MOTA	KO	K02556	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	KEGG assigns Vibrio cholerae PomA (VC_0892) to this orthologue alongside Escherichia coli MotA, so it evidences a stator but not its coupling ion.
+COMP_SF_MOTB	KO	K02557	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	KEGG assigns Vibrio cholerae PomB (VC_0893) to this orthologue alongside Escherichia coli MotB.
+COMP_SF_FLGH	KO	K02393	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_SF_FLGI	KO	K02394	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_T4AP_PILD	KO	K02654	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_T4AP_PILIN	KO	K02650	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_T4AP_PILIN	KO	K02655	orthology	ambiguous	KEGG orthology, verified against KEGG REST 2026-08-18	PilE is the major pilin in Neisseria but a minor pilin in Pseudomonas, so this accession does not by itself establish that the protein is the major subunit. Accepted as an alternative marker at reduced confidence so that Neisseria-type systems are not called absent, and the weaker term is reported on any call that rests on it.
+COMP_T4AP_PILB	KO	K02652	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_T4AP_PILF	KO	K02656	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_T4AP_PILC	KO	K02653	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_T4AP_PILM	KO	K02662	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_T4AP_PILN	KO	K02663	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_T4AP_PILO	KO	K02664	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_T4AP_PILP	KO	K02665	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_T4AP_PILQ	KO	K02666	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_T4AP_PILT	KO	K02669	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	

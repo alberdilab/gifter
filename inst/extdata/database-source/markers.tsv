@@ -423,3 +423,74 @@ CAZY	CE7_e23	dbCAN-sub cluster CE7_e23	dbCAN-sub eCAMI cluster of CAZy family CE
 CAZY	CE7_e33	dbCAN-sub cluster CE7_e33	dbCAN-sub eCAMI cluster of CAZy family CE7.
 KO	K01387	microbial collagenase orthologue	KEGG orthology marker.
 PFAM	PF01752	Collagenase, peptidase family M9	Pfam domain marker.
+KO	K02387	flagellar basal-body rod protein FlgB	KEGG orthology marker.
+KO	K02388	flagellar basal-body rod protein FlgC	KEGG orthology marker.
+KO	K02390	flagellar hook protein FlgE	KEGG orthology marker.
+KO	K02391	flagellar basal-body rod protein FlgF	KEGG orthology marker.
+KO	K02392	flagellar basal-body rod protein FlgG	KEGG orthology marker.
+KO	K02393	flagellar L-ring protein FlgH	KEGG orthology marker.
+KO	K02394	flagellar P-ring protein FlgI	KEGG orthology marker.
+KO	K02396	flagellar hook-associated protein 1	KEGG orthology marker.
+KO	K02397	flagellar hook-associated protein 3 FlgL	KEGG orthology marker.
+KO	K02400	flagellar biosynthesis protein FlhA	KEGG orthology marker.
+KO	K02401	flagellar biosynthesis protein FlhB	KEGG orthology marker.
+KO	K02406	flagellin	KEGG orthology marker.
+KO	K02407	flagellar hook-associated protein 2	KEGG orthology marker.
+KO	K02408	flagellar hook-basal body complex protein FliE	KEGG orthology marker.
+KO	K02409	flagellar M-ring protein FliF	KEGG orthology marker.
+KO	K02410	flagellar motor switch protein FliG	KEGG orthology marker.
+KO	K02411	flagellar assembly protein FliH	KEGG orthology marker.
+KO	K02412	flagellum-specific ATP synthase [EC:7.4.2.8]	KEGG orthology marker.
+KO	K02416	flagellar motor switch protein FliM	KEGG orthology marker.
+KO	K02417	flagellar motor switch protein FliN	KEGG orthology marker.
+KO	K02419	flagellar biosynthesis protein FliP	KEGG orthology marker.
+KO	K02420	flagellar biosynthesis protein FliQ	KEGG orthology marker.
+KO	K02421	flagellar biosynthesis protein FliR	KEGG orthology marker.
+KO	K02556	chemotaxis protein MotA	KEGG orthology marker.
+KO	K02557	chemotaxis protein MotB	KEGG orthology marker.
+KO	K02650	type IV pilus assembly protein PilA	KEGG orthology marker.
+KO	K02652	type IV pilus assembly protein PilB	KEGG orthology marker.
+KO	K02653	type IV pilus assembly protein PilC	KEGG orthology marker.
+KO	K02654	leader peptidase (prepilin peptidase) / N-methyltransferase [EC:3.4.23.43 2.1.1.-]	KEGG orthology marker.
+KO	K02655	type IV pilus assembly protein PilE	KEGG orthology marker.
+KO	K02656	type IV pilus assembly protein PilF	KEGG orthology marker.
+KO	K02662	type IV pilus assembly protein PilM	KEGG orthology marker.
+KO	K02663	type IV pilus assembly protein PilN	KEGG orthology marker.
+KO	K02664	type IV pilus assembly protein PilO	KEGG orthology marker.
+KO	K02665	type IV pilus assembly protein PilP	KEGG orthology marker.
+KO	K02666	type IV pilus assembly protein PilQ	KEGG orthology marker.
+KO	K02669	twitching motility protein PilT	KEGG orthology marker.
+KO	K13820	flagellar biosynthesis protein FliR/FlhB	KEGG orthology marker.
+KO	K00575	chemotaxis protein methyltransferase CheR [EC:2.1.1.80]	KEGG orthology marker.
+KO	K02036	phosphate transport system ATP-binding protein [EC:7.3.2.1]	KEGG orthology marker.
+KO	K02037	phosphate transport system permease protein	KEGG orthology marker.
+KO	K02038	phosphate transport system permease protein	KEGG orthology marker.
+KO	K02039	phosphate transport system protein	KEGG orthology marker.
+KO	K02040	phosphate transport system substrate-binding protein	KEGG orthology marker.
+KO	K03406	methyl-accepting chemotaxis protein	KEGG orthology marker.
+KO	K03407	two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]	KEGG orthology marker.
+KO	K03408	purine-binding chemotaxis protein CheW	KEGG orthology marker.
+KO	K03409	chemotaxis protein CheX	KEGG orthology marker.
+KO	K03410	chemotaxis protein CheC	KEGG orthology marker.
+KO	K03412	two-component system, chemotaxis family, protein-glutamate methylesterase/glutaminase [EC:3.1.1.61 3.5.1.44]	KEGG orthology marker.
+KO	K03413	two-component system, chemotaxis family, chemotaxis protein CheY	KEGG orthology marker.
+KO	K03414	chemotaxis protein CheZ	KEGG orthology marker.
+KO	K03776	aerotaxis receptor	KEGG orthology marker.
+KO	K05874	methyl-accepting chemotaxis protein I, serine sensor receptor	KEGG orthology marker.
+KO	K05875	methyl-accepting chemotaxis protein II, aspartate sensor receptor	KEGG orthology marker.
+KO	K05876	methyl-accepting chemotaxis protein III, ribose and galactose sensor receptor	KEGG orthology marker.
+KO	K05877	methyl-accepting chemotaxis protein IV, peptide sensor receptor	KEGG orthology marker.
+KO	K07636	two-component system, OmpR family, phosphate regulon sensor histidine kinase PhoR [EC:2.7.13.3]	KEGG orthology marker.
+KO	K07657	two-component system, OmpR family, phosphate regulon response regulator PhoB	KEGG orthology marker.
+KO	K07658	two-component system, OmpR family, alkaline phosphatase synthesis response regulator PhoP	KEGG orthology marker.
+KO	K01153	type I restriction enzyme, R subunit [EC:3.1.21.3]	KEGG orthology marker.
+KO	K01154	type I restriction enzyme, S subunit [EC:3.1.21.3]	KEGG orthology marker.
+KO	K03427	type I restriction enzyme M protein [EC:2.1.1.72]	KEGG orthology marker.
+KO	K07012	CRISPR-associated endonuclease/helicase Cas3 [EC:3.1.-.- 5.6.2.4]	KEGG orthology marker.
+KO	K09951	CRISPR-associated protein Cas2	KEGG orthology marker.
+KO	K15342	CRISP-associated protein Cas1	KEGG orthology marker.
+KO	K19046	CRISPR system Cascade subunit CasB	KEGG orthology marker.
+KO	K19123	CRISPR system Cascade subunit CasA	KEGG orthology marker.
+KO	K19124	CRISPR system Cascade subunit CasC	KEGG orthology marker.
+KO	K19125	CRISPR system Cascade subunit CasD	KEGG orthology marker.
+KO	K19126	CRISPR system Cascade subunit CasE	KEGG orthology marker.

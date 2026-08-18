@@ -1,0 +1,5 @@
+circuit_id	gift_id	name	description	status
+CIRCUIT_CHEMOTAXIS_CORE	chemotaxis_signal_transduction	core chemotaxis signalling pathway	Receptor, kinase core, response regulator and adaptation, with signal termination accessory.	curated
+CIRCUIT_ASPARTATE_CHEMORECEPTION	aspartate_chemoreception	aspartate chemoreception pathway	The Tar receptor feeding the shared chemotaxis kinase, response and adaptation functions. The three downstream functions are the same curated rows the core pathway uses, not copies of them.	curated
+CIRCUIT_PHO_PHOR_PHOB	phosphate_starvation_response	PhoR/PhoB phosphate regulon	The enterobacterial and pseudomonad form of the phosphate starvation two-component system.	curated
+CIRCUIT_PHO_PHOR_PHOP	phosphate_starvation_response	PhoR/PhoP phosphate regulon	The Bacillus-type form, sharing the sensor with the PhoR/PhoB circuit and differing in the cognate response regulator.	curated

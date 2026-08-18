@@ -289,3 +289,111 @@ the database; `physiological_role`, `resource_origin`, `molecular_tier` and
 `independent`: none of the curated chemistry needs or excludes oxygen, and
 asserting otherwise would overclaim. Lytic polysaccharide monooxygenase routes,
 when curated, will be `aerobic`.
+
+## Typed GIFTs and structural content (database 2026.12.2, schema 6)
+
+`gifts.tsv` gains a required `gift_type` column, and the structural, regulatory
+and defense models gain their own source tables. Every previously curated GIFT
+became `metabolic` unchanged.
+
+### Structural content
+
+`flagellar_apparatus` and `type_iva_pilus` are curated from KEGG orthology,
+verified against the KEGG REST API on 2026-08-18. Each accession used here was
+read back from `rest.kegg.jp` rather than transcribed from memory or from a
+secondary source. KEGG supplies the orthology assignments; the decomposition
+into structural functions, the choice of two flagellar architectures, and the
+decision about what each claim excludes are giftr curation.
+
+Provenance of the structural decomposition:
+
+- flagellar export gate, basal body, C ring, hook, hook-filament junction,
+  filament and stator follow the characterised enterobacterial and *Bacillus*
+  flagellar apparatus;
+- the L and P rings are curated as a separate diderm architecture because a
+  monoderm envelope has no outer membrane for the L ring; this is an
+  architectural alternative, not an optional part;
+- the type IVa pilus decomposition follows the conserved T4aP machine:
+  prepilin processing, major pilin, extension ATPase, inner membrane platform,
+  PilMNOP alignment subcomplex and PilQ secretin, with retraction accessory.
+
+### Refusals recorded with the content
+
+`proton_driven_flagellar_apparatus` and `sodium_driven_flagellar_apparatus` are
+**not** curated. KEGG assigns *Vibrio cholerae* PomA (`vch:VC_0892`) and PomB
+(`vch:VC_0893`) to K02556 and K02557, the same orthologues as *Escherichia coli*
+MotA and MotB, so KO evidence does not separate proton- from sodium-driven
+motors. MotX (K21217) and MotY (K21218) are specific to the sodium-type polar
+T ring but evidence a scaffold rather than an ion channel, and are absent from
+the *Bacillus* MotPS sodium motor. The refusal, and what would license the
+split, are recorded in `database_changes.tsv` and in
+`inst/doc/proposal-structural-gifts.md`.
+
+`K02424` (*fliY*) is refused as evidence for the flagellar switch: KEGG assigns
+it to an L-cystine transport binding protein, so it is not specific to the
+capability it would be accepted for.
+
+`K02655` (*pilE*) is accepted for the major pilin at `ambiguous` confidence
+only. It is the major pilin in *Neisseria* and a minor pilin in *Pseudomonas*,
+so the accession does not by itself establish the protein's role; the confidence
+ordering carries that doubt to any call resting on it.
+
+### Regulatory and defense
+
+No regulatory or defense content is curated. Their source tables ship with
+headers and no rows, and the open evidence questions are recorded in
+`inst/doc/proposal-regulatory-gifts.md` and
+`inst/doc/proposal-defense-gifts.md`.
+
+## Regulatory and defense content (database 2026.12.3, schema 6)
+
+Five GIFTs fill the two typed models that previously shipped with schema only.
+The schema is unchanged; this is a content release. Every accession was read
+back from `rest.kegg.jp` on 2026-08-18 rather than transcribed. KEGG supplies
+the orthology assignments and the gene counts; the decomposition into functions,
+the choice of alternative circuits and mechanisms, and what each claim excludes
+are giftr curation.
+
+### Measurements, not assumptions
+
+Two curation decisions rest on gene counts per genome taken from the KEGG REST
+API on 2026-08-18, and both changed the design:
+
+| Accession | Counts | Consequence |
+|---|---|---|
+| K03406 generic MCP | *E. coli* K-12 **0**, *S.* Typhi 1, *B. subtilis* 8, *P. aeruginosa* 21, *V. cholerae* 34 | The chemoreception function accepts a generic **or** a characterised chemoreceptor, so an *E. coli* annotation is not called receptor-less; and the same spread is the evidence that the accession cannot name a chemoeffector. |
+| K07636 `phoR`, K07657 `phoB`, K07658 `phoP` | sensor single-copy in the five genomes carrying it; the two regulator groups mutually exclusive; *B. subtilis* BSU29110 adjacent to BSU29100 | The phosphate response is curated as two circuits sharing a sensor rather than one PhoR/PhoB circuit that would call *B. subtilis* negative. |
+
+These are nine reference genomes, not a calibration study. They answer the
+specific worry about paralogue absorption and nothing wider.
+
+### Refusals recorded with the content
+
+- **Ligand-specific chemoreception beyond aspartate.** K05876 (Trg) covers ribose
+  and galactose in one group; K05877 (Tap) covers an unresolved dipeptide range;
+  K03406 covers everything. Only K05875 (Tar) is anchored on a single
+  characterised primary ligand, so only `aspartate_chemoreception` is curated.
+  It accepts K05875 and refuses K03406.
+- **K07660** is refused as a phosphate-regulon regulator. It shares the gene name
+  *phoP* with K07658 and is the response regulator of the magnesium-sensing
+  PhoP/PhoQ system, present in *E. coli* and *Salmonella* and absent from
+  *B. subtilis* — the opposite distribution from the phosphate regulator.
+- **The target sequence of a type I restriction-modification system** is not
+  claimed. HsdS specificity comes from variable target recognition domains that
+  the orthology group does not resolve.
+- **K07475**, the HD nuclease module of a split Cas3, is refused as evidence of
+  the complete nuclease-helicase; K07012, the fused protein, is accepted.
+- **CheV (K03415)** is refused as a substitute for CheW, because it occurs
+  alongside CheW in the systems that have it rather than replacing it.
+- **Interference by a CRISPR-Cas system** is not claimed. Interference needs a
+  CRISPR array to supply guide RNAs, an array is a repeat-spacer locus detected
+  by structure, and no protein accession evidences one. The claim is narrowed to
+  the encoded machinery and says so in its description.
+
+### External links
+
+`chemotaxis_signal_transduction` and `aspartate_chemoreception` are `subset_of`
+KEGG map02030, and `phosphate_starvation_response` is `subset_of` map02020. The
+two defense GIFTs carry no link: KEGG describes prokaryotic defense systems in a
+BRITE hierarchy, which is not a pathway record whose boundaries could be
+compared, the same reason `collagen_cleavage` and `type_iva_pilus` carry none.

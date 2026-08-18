@@ -1,0 +1,19 @@
+system_id	function_id	name	description
+SYS_SF_FLAGELLAR_EXPORT_GATE	SF_FLAGELLAR_EXPORT_GATE	FlhA/FlhB/FliPQR export gate	The five jointly required proteins of the flagellar type III secretion export gate.
+SYS_SF_FLAGELLAR_EXPORT_ATPASE	SF_FLAGELLAR_EXPORT_ATPASE	FliI/FliH export ATPase complex	The export ATPase and its regulatory partner, jointly required.
+SYS_SF_FLAGELLAR_MS_RING	SF_FLAGELLAR_MS_RING	FliF MS ring	Single-protein ring.
+SYS_SF_FLAGELLAR_ROD	SF_FLAGELLAR_ROD	FliE/FlgBCFG rod	The proximal and distal rod proteins together with the rod-MS ring junction, jointly required.
+SYS_SF_FLAGELLAR_C_RING	SF_FLAGELLAR_C_RING	FliG/FliM/FliN switch complex	The three jointly required switch proteins.
+SYS_SF_FLAGELLAR_HOOK	SF_FLAGELLAR_HOOK	FlgE hook	Single-protein hook.
+SYS_SF_FLAGELLAR_HOOK_FILAMENT_JUNCTION	SF_FLAGELLAR_HOOK_FILAMENT_JUNCTION	FlgK/FlgL junction	Both hook-associated proteins are jointly required.
+SYS_SF_FLAGELLAR_FILAMENT	SF_FLAGELLAR_FILAMENT	flagellin filament with FliD cap	Flagellin and the distal cap, jointly required.
+SYS_SF_FLAGELLAR_STATOR_MOTAB	SF_FLAGELLAR_STATOR	MotA/MotB stator unit family	The MotAB stator family, which includes the proton-driven MotAB units of Escherichia coli and the sodium-driven PomAB units of Vibrio. KEGG assigns both to K02556/K02557, so this system evidences a stator without evidencing its coupling ion; see inst/doc/proposal-structural-gifts.md.
+SYS_SF_FLAGELLAR_OUTER_RING	SF_FLAGELLAR_OUTER_RING	FlgH/FlgI L and P rings	Both envelope bushings are jointly required.
+SYS_T4AP_PREPILIN_PEPTIDASE	SF_T4AP_PREPILIN_PEPTIDASE	PilD prepilin peptidase	Single bifunctional protein.
+SYS_T4AP_MAJOR_PILIN	SF_T4AP_MAJOR_PILIN	type IVa pilin subunit	One pilin protein.
+SYS_T4AP_ASSEMBLY_ATPASE_PILB	SF_T4AP_ASSEMBLY_ATPASE	PilB extension ATPase	The PilB-type assembly ATPase of Pseudomonas and Myxococcus systems.
+SYS_T4AP_ASSEMBLY_ATPASE_PILF	SF_T4AP_ASSEMBLY_ATPASE	PilF extension ATPase	The PilF-type assembly ATPase of Neisseria and Thermus systems; a non-interchangeable orthologue serving the same function.
+SYS_T4AP_PLATFORM	SF_T4AP_PLATFORM	PilC platform protein	Single polytopic membrane protein.
+SYS_T4AP_ALIGNMENT_COMPLEX	SF_T4AP_ALIGNMENT_COMPLEX	PilM/N/O/P alignment subcomplex	All four proteins are jointly required to span the envelope.
+SYS_T4AP_SECRETIN	SF_T4AP_SECRETIN	PilQ secretin	Single outer membrane channel.
+SYS_T4AP_RETRACTION_ATPASE	SF_T4AP_RETRACTION_ATPASE	PilT retraction ATPase	PilT. The paralogue PilU is not accepted here: it cannot retract a pilus on its own, so it is not evidence of the retraction function.

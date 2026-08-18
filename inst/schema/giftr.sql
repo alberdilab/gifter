@@ -1,15 +1,26 @@
 PRAGMA foreign_keys = ON;
 
+-- A GIFT is a biologically meaningful capability whose genomic support is
+-- evaluated through an explicit, curated and traceable completeness model.
+--
+-- `gift_type` is not a facet. A facet classifies a call; `gift_type` decides
+-- which completeness model produces one, which tables may attach to the GIFT,
+-- and what a positive call is allowed to mean. It is therefore part of the core
+-- ontology and part of the relational contract.
 CREATE TABLE gift (
   gift_pk INTEGER PRIMARY KEY,
   gift_id TEXT NOT NULL UNIQUE,
+  gift_type TEXT NOT NULL CHECK (gift_type IN (
+    'metabolic', 'structural', 'regulatory', 'defense'
+  )),
   name TEXT NOT NULL,
   description TEXT NOT NULL,
-  -- Direction of the capability. Cycles in anchor-derived composition are
-  -- forbidden within a mode and expected between modes: a catabolic route back
-  -- to a metabolite that an anabolic GIFT produces is real biology, not a
-  -- boundary error.
-  mode TEXT NOT NULL CHECK (mode IN (
+  -- Direction of a metabolic capability, and meaningless for the other types:
+  -- a flagellum has no anabolic or catabolic direction. Cycles in
+  -- anchor-derived composition are forbidden within a mode and expected between
+  -- modes, because a catabolic route back to a metabolite that an anabolic GIFT
+  -- produces is real biology, not a boundary error.
+  mode TEXT CHECK (mode IS NULL OR mode IN (
     'anabolic', 'catabolic', 'transport', 'interconversion'
   )),
   status TEXT NOT NULL,
@@ -72,8 +83,11 @@ CREATE TABLE facet_term (
   PRIMARY KEY (facet, value)
 );
 
--- Curated classification of a GIFT. Multi-valued in general; the build requires
--- exactly one `substrate_class` and at least one `physiological_role`.
+-- Curated classification of a GIFT. Multi-valued in general. Which facets are
+-- required is scoped by `gift.gift_type`: a metabolic GIFT needs exactly one
+-- `substrate_class` and at least one `physiological_role`, a structural GIFT
+-- needs exactly one `structural_class`, and a facet required of one type may
+-- not classify another.
 CREATE TABLE gift_facet (
   gift_pk INTEGER NOT NULL REFERENCES gift(gift_pk),
   facet TEXT NOT NULL,
@@ -180,6 +194,206 @@ CREATE TABLE component_marker (
   PRIMARY KEY (component_pk, marker_pk)
 );
 
+-- ---------------------------------------------------------------------------
+-- Typed non-metabolic GIFT models
+--
+-- A metabolic GIFT is a claim about chemistry, so its unit of completeness is a
+-- reaction with an identity of its own (a Rhea master) and a direction within a
+-- route. The other GIFT types make claims about encoded machinery, so their
+-- unit of completeness is a named function fulfilled by protein systems.
+--
+-- The three families below are deliberately kept separate rather than merged
+-- into one generic table set. Their Boolean shape is the same, but a structural
+-- function, a regulatory function and a defense function are different
+-- biological objects, and the names are what make a curated row reviewable.
+-- Whether any of them should later share a representation is a question for
+-- after real curated content exists in all three.
+-- ---------------------------------------------------------------------------
+
+-- A discrete structural or assembly function that an architecture requires,
+-- such as building the hook or generating torque. It is the structural
+-- analogue of a reaction: the unit whose absence is reported when a
+-- structural GIFT is incomplete. Functions are reusable, so two architectures
+-- of the same apparatus share them rather than duplicating their systems.
+CREATE TABLE structural_function (
+  function_pk INTEGER PRIMARY KEY,
+  function_id TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  description TEXT
+);
+
+-- One alternative implementation of a structural function. Systems are
+-- alternatives under OR; a system's components are jointly required.
+CREATE TABLE structural_system (
+  system_pk INTEGER PRIMARY KEY,
+  function_pk INTEGER NOT NULL REFERENCES structural_function(function_pk),
+  system_id TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  description TEXT
+);
+
+CREATE TABLE structural_component (
+  component_pk INTEGER PRIMARY KEY,
+  system_pk INTEGER NOT NULL REFERENCES structural_system(system_pk),
+  component_id TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  description TEXT
+);
+
+CREATE TABLE structural_component_marker (
+  component_pk INTEGER NOT NULL REFERENCES structural_component(component_pk),
+  marker_pk INTEGER NOT NULL REFERENCES marker(marker_pk),
+  evidence_type TEXT NOT NULL,
+  confidence TEXT NOT NULL,
+  source TEXT NOT NULL,
+  notes TEXT,
+  PRIMARY KEY (component_pk, marker_pk)
+);
+
+-- One complete curated architecture of a cellular structure or molecular
+-- machine. Architectures are alternatives under OR: the diderm flagellum and
+-- the monoderm flagellum are different architectures of the same apparatus,
+-- not one architecture with an optional part.
+CREATE TABLE gift_architecture (
+  architecture_pk INTEGER PRIMARY KEY,
+  gift_pk INTEGER NOT NULL REFERENCES gift(gift_pk),
+  architecture_id TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  description TEXT,
+  status TEXT NOT NULL
+);
+
+-- AND membership. `required = 0` marks an accessory function whose absence does
+-- not make the architecture incomplete; `ordinal` orders the report only.
+CREATE TABLE architecture_function (
+  architecture_pk INTEGER NOT NULL REFERENCES gift_architecture(architecture_pk),
+  function_pk INTEGER NOT NULL REFERENCES structural_function(function_pk),
+  ordinal INTEGER NOT NULL CHECK (ordinal > 0),
+  required INTEGER NOT NULL DEFAULT 1 CHECK (required IN (0, 1)),
+  PRIMARY KEY (architecture_pk, function_pk),
+  UNIQUE (architecture_pk, ordinal)
+);
+
+-- A discrete information-transduction function a circuit requires, such as
+-- sensing a defined signal or effecting a defined transcriptional response.
+CREATE TABLE regulatory_function (
+  function_pk INTEGER PRIMARY KEY,
+  function_id TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  description TEXT
+);
+
+-- One alternative implementation of a regulatory function. Marker accession
+-- alone may not always be sufficient evidence for a regulatory system; see
+-- inst/doc/proposal-regulatory-gifts.md for the open evidence question.
+CREATE TABLE regulatory_system (
+  system_pk INTEGER PRIMARY KEY,
+  function_pk INTEGER NOT NULL REFERENCES regulatory_function(function_pk),
+  system_id TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  description TEXT
+);
+
+CREATE TABLE regulatory_component (
+  component_pk INTEGER PRIMARY KEY,
+  system_pk INTEGER NOT NULL REFERENCES regulatory_system(system_pk),
+  component_id TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  description TEXT
+);
+
+CREATE TABLE regulatory_component_marker (
+  component_pk INTEGER NOT NULL REFERENCES regulatory_component(component_pk),
+  marker_pk INTEGER NOT NULL REFERENCES marker(marker_pk),
+  evidence_type TEXT NOT NULL,
+  confidence TEXT NOT NULL,
+  source TEXT NOT NULL,
+  notes TEXT,
+  PRIMARY KEY (component_pk, marker_pk)
+);
+
+-- One complete curated circuit that detects a defined signal and executes a
+-- defined regulatory response. Circuits are alternatives under OR.
+CREATE TABLE gift_circuit (
+  circuit_pk INTEGER PRIMARY KEY,
+  gift_pk INTEGER NOT NULL REFERENCES gift(gift_pk),
+  circuit_id TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  description TEXT,
+  status TEXT NOT NULL
+);
+
+-- AND membership. `required = 0` marks an accessory function whose absence does
+-- not make the circuit incomplete; `ordinal` orders the report only.
+CREATE TABLE circuit_function (
+  circuit_pk INTEGER NOT NULL REFERENCES gift_circuit(circuit_pk),
+  function_pk INTEGER NOT NULL REFERENCES regulatory_function(function_pk),
+  ordinal INTEGER NOT NULL CHECK (ordinal > 0),
+  required INTEGER NOT NULL DEFAULT 1 CHECK (required IN (0, 1)),
+  PRIMARY KEY (circuit_pk, function_pk),
+  UNIQUE (circuit_pk, ordinal)
+);
+
+-- A discrete defensive function a mechanism requires, such as recognising a
+-- target sequence, cleaving invading DNA, or protecting self DNA.
+CREATE TABLE defense_function (
+  function_pk INTEGER PRIMARY KEY,
+  function_id TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  description TEXT
+);
+
+-- One alternative implementation of a defense function. Protein markers may
+-- not be sufficient evidence for every defense system; see
+-- inst/doc/proposal-defense-gifts.md.
+CREATE TABLE defense_system (
+  system_pk INTEGER PRIMARY KEY,
+  function_pk INTEGER NOT NULL REFERENCES defense_function(function_pk),
+  system_id TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  description TEXT
+);
+
+CREATE TABLE defense_component (
+  component_pk INTEGER PRIMARY KEY,
+  system_pk INTEGER NOT NULL REFERENCES defense_system(system_pk),
+  component_id TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  description TEXT
+);
+
+CREATE TABLE defense_component_marker (
+  component_pk INTEGER NOT NULL REFERENCES defense_component(component_pk),
+  marker_pk INTEGER NOT NULL REFERENCES marker(marker_pk),
+  evidence_type TEXT NOT NULL,
+  confidence TEXT NOT NULL,
+  source TEXT NOT NULL,
+  notes TEXT,
+  PRIMARY KEY (component_pk, marker_pk)
+);
+
+-- One complete curated defense mechanism against a defined biological or
+-- chemical challenge. Mechanisms are alternatives under OR.
+CREATE TABLE gift_mechanism (
+  mechanism_pk INTEGER PRIMARY KEY,
+  gift_pk INTEGER NOT NULL REFERENCES gift(gift_pk),
+  mechanism_id TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  description TEXT,
+  status TEXT NOT NULL
+);
+
+-- AND membership. `required = 0` marks an accessory function whose absence does
+-- not make the mechanism incomplete; `ordinal` orders the report only.
+CREATE TABLE mechanism_function (
+  mechanism_pk INTEGER NOT NULL REFERENCES gift_mechanism(mechanism_pk),
+  function_pk INTEGER NOT NULL REFERENCES defense_function(function_pk),
+  ordinal INTEGER NOT NULL CHECK (ordinal > 0),
+  required INTEGER NOT NULL DEFAULT 1 CHECK (required IN (0, 1)),
+  PRIMARY KEY (mechanism_pk, function_pk),
+  UNIQUE (mechanism_pk, ordinal)
+);
+
 CREATE TABLE database_release (
   release_pk INTEGER PRIMARY KEY CHECK (release_pk = 1),
   giftr_db_version TEXT NOT NULL,
@@ -200,7 +414,11 @@ CREATE TABLE database_change (
   changed_at TEXT NOT NULL,
   layer TEXT NOT NULL CHECK (layer IN (
     'gift', 'anchor', 'route', 'reaction', 'enzyme_system',
-    'enzyme_component', 'marker', 'provenance', 'schema'
+    'enzyme_component', 'marker',
+    'architecture', 'structural_function', 'structural_system', 'structural_component',
+    'circuit', 'regulatory_function', 'regulatory_system', 'regulatory_component',
+    'mechanism', 'defense_function', 'defense_system', 'defense_component',
+    'provenance', 'schema'
   )),
   category TEXT NOT NULL CHECK (category IN (
     'addition', 'correction', 'removal', 'clarification'
@@ -219,6 +437,7 @@ CREATE TABLE change_gift (
 );
 
 CREATE INDEX idx_gift_gift_id ON gift(gift_id);
+CREATE INDEX idx_gift_gift_type ON gift(gift_type);
 CREATE INDEX idx_anchor_anchor_id ON anchor(anchor_id);
 CREATE INDEX idx_anchor_chebi_id ON anchor(chebi_id);
 CREATE INDEX idx_anchor_molecule ON anchor(molecule);
@@ -239,6 +458,22 @@ CREATE INDEX idx_gift_facet_gift_pk ON gift_facet(gift_pk);
 CREATE INDEX idx_gift_facet_lookup ON gift_facet(facet, value);
 CREATE INDEX idx_anchor_facet_anchor_pk ON anchor_facet(anchor_pk);
 CREATE INDEX idx_anchor_facet_lookup ON anchor_facet(facet, value);
+
+CREATE INDEX idx_structural_system_function_pk ON structural_system(function_pk);
+CREATE INDEX idx_structural_component_system_pk ON structural_component(system_pk);
+CREATE INDEX idx_structural_component_marker_marker_pk ON structural_component_marker(marker_pk);
+CREATE INDEX idx_gift_architecture_gift_pk ON gift_architecture(gift_pk);
+CREATE INDEX idx_architecture_function_function_pk ON architecture_function(function_pk);
+CREATE INDEX idx_regulatory_system_function_pk ON regulatory_system(function_pk);
+CREATE INDEX idx_regulatory_component_system_pk ON regulatory_component(system_pk);
+CREATE INDEX idx_regulatory_component_marker_marker_pk ON regulatory_component_marker(marker_pk);
+CREATE INDEX idx_gift_circuit_gift_pk ON gift_circuit(gift_pk);
+CREATE INDEX idx_circuit_function_function_pk ON circuit_function(function_pk);
+CREATE INDEX idx_defense_system_function_pk ON defense_system(function_pk);
+CREATE INDEX idx_defense_component_system_pk ON defense_component(system_pk);
+CREATE INDEX idx_defense_component_marker_marker_pk ON defense_component_marker(marker_pk);
+CREATE INDEX idx_gift_mechanism_gift_pk ON gift_mechanism(gift_pk);
+CREATE INDEX idx_mechanism_function_function_pk ON mechanism_function(function_pk);
 
 -- Composition edges derived from declared anchors only.
 --
@@ -278,7 +513,7 @@ WHERE output_boundary.role = 'output'
   )
   AND upstream.gift_pk <> downstream.gift_pk;
 
--- Derived ecological and physiological profile of a GIFT.
+-- Derived ecological and physiological profile of a metabolic GIFT.
 --
 -- Nothing here is curated. Every field is computed from declared anchors, the
 -- anchor facets, and the composition graph, which is why adding it required no
@@ -369,4 +604,9 @@ LEFT JOIN (
 ) incoming ON incoming.gift_id = g.gift_id
 LEFT JOIN (
   SELECT from_gift AS gift_id, COUNT(DISTINCT to_gift) AS n FROM gift_graph GROUP BY from_gift
-) outgoing ON outgoing.gift_id = g.gift_id;
+) outgoing ON outgoing.gift_id = g.gift_id
+-- The profile is derived entirely from declared anchors and the anchor-derived
+-- composition graph, which only metabolic GIFTs have. Reporting an empty
+-- profile row for a structural GIFT would invent a resource strategy it does
+-- not have.
+WHERE g.gift_type = 'metabolic';

@@ -1,9 +1,61 @@
-.giftr_schema_version <- 5L
+.giftr_schema_version <- 6L
 
-# Direction of a capability. Anchor-derived composition may not cycle within a
-# mode; it is expected to cycle between modes, because a catabolic route back to
-# a metabolite an anabolic GIFT produces is real biology.
+# The kinds of biologically meaningful capability giftr can state. This is not a
+# facet: it selects the completeness model that produces a call, decides which
+# source tables may attach to a GIFT, and bounds what a positive call may mean.
+.giftr_gift_types <- c("metabolic", "structural", "regulatory", "defense")
+
+# Direction of a metabolic capability. Anchor-derived composition may not cycle
+# within a mode; it is expected to cycle between modes, because a catabolic
+# route back to a metabolite an anabolic GIFT produces is real biology. The
+# other GIFT types have no direction between molecules and must leave it empty.
 .giftr_gift_modes <- c("anabolic", "catabolic", "transport", "interconversion")
+
+# The non-metabolic GIFT types share a Boolean shape but not their biology, so
+# each keeps its own named tables. This map is the only place the shape is
+# stated once: validation, compilation and evaluation are driven by it, which is
+# how dispatch happens by GIFT type rather than by trait identity.
+.giftr_machinery_models <- list(
+  structural = list(
+    gift_type = "structural",
+    implementation = "architecture", implementation_plural = "architectures",
+    unit = "structural function",
+    implementation_source = "gift_architectures", implementation_table = "gift_architecture",
+    implementation_id = "architecture_id", implementation_pk = "architecture_pk",
+    membership_source = "architecture_functions", membership_table = "architecture_function",
+    function_source = "structural_functions", function_table = "structural_function",
+    system_source = "structural_systems", system_table = "structural_system",
+    component_source = "structural_components", component_table = "structural_component",
+    evidence_source = "structural_component_markers",
+    evidence_table = "structural_component_marker"
+  ),
+  regulatory = list(
+    gift_type = "regulatory",
+    implementation = "circuit", implementation_plural = "circuits",
+    unit = "regulatory function",
+    implementation_source = "gift_circuits", implementation_table = "gift_circuit",
+    implementation_id = "circuit_id", implementation_pk = "circuit_pk",
+    membership_source = "circuit_functions", membership_table = "circuit_function",
+    function_source = "regulatory_functions", function_table = "regulatory_function",
+    system_source = "regulatory_systems", system_table = "regulatory_system",
+    component_source = "regulatory_components", component_table = "regulatory_component",
+    evidence_source = "regulatory_component_markers",
+    evidence_table = "regulatory_component_marker"
+  ),
+  defense = list(
+    gift_type = "defense",
+    implementation = "mechanism", implementation_plural = "mechanisms",
+    unit = "defense function",
+    implementation_source = "gift_mechanisms", implementation_table = "gift_mechanism",
+    implementation_id = "mechanism_id", implementation_pk = "mechanism_pk",
+    membership_source = "mechanism_functions", membership_table = "mechanism_function",
+    function_source = "defense_functions", function_table = "defense_function",
+    system_source = "defense_systems", system_table = "defense_system",
+    component_source = "defense_components", component_table = "defense_component",
+    evidence_source = "defense_component_markers",
+    evidence_table = "defense_component_marker"
+  )
+)
 
 # Two-state location qualifier on declared anchors. Nothing else in giftr is
 # compartmentalised; see inst/doc/architecture.md.
@@ -18,12 +70,22 @@
 # What a facet may classify.
 .giftr_facet_targets <- c("gift", "anchor")
 
-# Facets a GIFT must carry. `substrate_class` answers "what is this capability
-# about" and must be single-valued, or it cannot partition anything;
-# `physiological_role` is multi-valued because one capability legitimately
-# serves several roles.
-.giftr_required_single_gift_facets <- c("substrate_class")
-.giftr_required_multi_gift_facets <- c("physiological_role")
+# Facets a GIFT must carry, scoped by GIFT type because the questions differ.
+# `substrate_class` answers "what chemistry is this capability about" and is
+# meaningless for a flagellum; `structural_class` answers "what kind of thing is
+# built" and is meaningless for a biosynthetic route. Single-valued facets can
+# partition their type; multi-valued ones return supersets.
+#
+# Each type's single-valued class facet partitions that type and answers the
+# question the type is about: what chemistry, what structure, what kind of
+# signalling machine, what kind of defense. Each vocabulary was registered when
+# the first content of its type was curated, not before.
+.giftr_required_gift_facets <- list(
+  metabolic = list(single = "substrate_class", multi = "physiological_role"),
+  structural = list(single = "structural_class", multi = character()),
+  regulatory = list(single = "regulatory_class", multi = character()),
+  defense = list(single = "defense_class", multi = character())
+)
 
 # Facets an anchor must carry, both single-valued: a molecule has one size tier
 # and is either a building block or not. `resource_origin` is deliberately not
@@ -40,17 +102,20 @@
   "equivalent", "subset_of", "superset_of", "overlaps", "related"
 )
 
+# Hierarchy layers a curation decision can touch. The metabolic layers come
+# first, then the layers of each typed machinery model.
 .giftr_change_layers <- c(
   "gift", "anchor", "route", "reaction", "enzyme_system",
-  "enzyme_component", "marker", "provenance", "schema"
+  "enzyme_component", "marker",
+  "architecture", "structural_function", "structural_system", "structural_component",
+  "circuit", "regulatory_function", "regulatory_system", "regulatory_component",
+  "mechanism", "defense_function", "defense_system", "defense_component",
+  "provenance", "schema"
 )
 
 # Layers that make a biological claim about specific traits. A change to one of
 # them must name the GIFTs it affects; provenance and schema changes need not.
-.giftr_gift_bearing_layers <- c(
-  "gift", "anchor", "route", "reaction", "enzyme_system",
-  "enzyme_component", "marker"
-)
+.giftr_gift_bearing_layers <- setdiff(.giftr_change_layers, c("provenance", "schema"))
 
 .giftr_change_categories <- c("addition", "correction", "removal", "clarification")
 
@@ -58,7 +123,8 @@
 
 .giftr_source_spec <- list(
   gifts = c(
-    "gift_id", "name", "description", "mode", "status", "version", "notes"
+    "gift_id", "gift_type", "name", "description", "mode", "status", "version",
+    "notes"
   ),
   facet_terms = c("facet", "value", "applies_to", "definition"),
   gift_facets = c("gift_id", "facet", "value", "notes"),
@@ -76,6 +142,33 @@
   enzyme_components = c("component_id", "system_id", "name", "description"),
   markers = c("namespace", "accession", "name", "description"),
   component_markers = c(
+    "component_id", "namespace", "accession", "evidence_type",
+    "confidence", "source", "notes"
+  ),
+  gift_architectures = c("architecture_id", "gift_id", "name", "description", "status"),
+  architecture_functions = c("architecture_id", "function_id", "ordinal", "required"),
+  structural_functions = c("function_id", "name", "description"),
+  structural_systems = c("system_id", "function_id", "name", "description"),
+  structural_components = c("component_id", "system_id", "name", "description"),
+  structural_component_markers = c(
+    "component_id", "namespace", "accession", "evidence_type",
+    "confidence", "source", "notes"
+  ),
+  gift_circuits = c("circuit_id", "gift_id", "name", "description", "status"),
+  circuit_functions = c("circuit_id", "function_id", "ordinal", "required"),
+  regulatory_functions = c("function_id", "name", "description"),
+  regulatory_systems = c("system_id", "function_id", "name", "description"),
+  regulatory_components = c("component_id", "system_id", "name", "description"),
+  regulatory_component_markers = c(
+    "component_id", "namespace", "accession", "evidence_type",
+    "confidence", "source", "notes"
+  ),
+  gift_mechanisms = c("mechanism_id", "gift_id", "name", "description", "status"),
+  mechanism_functions = c("mechanism_id", "function_id", "ordinal", "required"),
+  defense_functions = c("function_id", "name", "description"),
+  defense_systems = c("system_id", "function_id", "name", "description"),
+  defense_components = c("component_id", "system_id", "name", "description"),
+  defense_component_markers = c(
     "component_id", "namespace", "accession", "evidence_type",
     "confidence", "source", "notes"
   ),
@@ -228,7 +321,13 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
   unique_ids <- c(
     gifts = "gift_id", anchors = "anchor_id", reactions = "reaction_id",
     gift_routes = "route_id", enzyme_systems = "system_id",
-    enzyme_components = "component_id", database_changes = "change_id"
+    enzyme_components = "component_id", database_changes = "change_id",
+    gift_architectures = "architecture_id", structural_functions = "function_id",
+    structural_systems = "system_id", structural_components = "component_id",
+    gift_circuits = "circuit_id", regulatory_functions = "function_id",
+    regulatory_systems = "system_id", regulatory_components = "component_id",
+    gift_mechanisms = "mechanism_id", defense_functions = "function_id",
+    defense_systems = "system_id", defense_components = "component_id"
   )
   for (table in names(unique_ids)) {
     column <- unique_ids[[table]]
@@ -377,37 +476,69 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
     }
   }
 
-  for (facet in .giftr_required_single_gift_facets) {
-    counts <- table(tables$gift_facets$gift_id[tables$gift_facets$facet == facet])
-    missing_facet <- setdiff(tables$gifts$gift_id, names(counts))
-    if (length(missing_facet)) {
-      errors <- c(
-        errors,
-        paste0(
-          "Every GIFT needs one ", facet, ": ", paste(missing_facet, collapse = ", ")
+  # Required facets are scoped by GIFT type: a substrate class is meaningless for
+  # a flagellum, and a structural class is meaningless for a biosynthetic route.
+  for (type in names(.giftr_required_gift_facets)) {
+    of_type <- tables$gifts$gift_id[
+      !is.na(tables$gifts$gift_type) & tables$gifts$gift_type == type
+    ]
+    if (!length(of_type)) next
+    requirement <- .giftr_required_gift_facets[[type]]
+    for (facet in requirement$single) {
+      assigned <- tables$gift_facets$gift_id[
+        tables$gift_facets$facet == facet & tables$gift_facets$gift_id %in% of_type
+      ]
+      counts <- table(assigned)
+      missing_facet <- setdiff(of_type, names(counts))
+      if (length(missing_facet)) {
+        errors <- c(
+          errors,
+          paste0(
+            "Every ", type, " GIFT needs one ", facet, ": ",
+            paste(missing_facet, collapse = ", ")
+          )
         )
-      )
-    }
-    if (any(counts > 1L)) {
-      errors <- c(
-        errors,
-        paste0(
-          facet, " must be single-valued, but is repeated for: ",
-          paste(names(counts)[counts > 1L], collapse = ", ")
+      }
+      if (any(counts > 1L)) {
+        errors <- c(
+          errors,
+          paste0(
+            facet, " must be single-valued, but is repeated for: ",
+            paste(names(counts)[counts > 1L], collapse = ", ")
+          )
         )
-      )
+      }
     }
-  }
-  for (facet in .giftr_required_multi_gift_facets) {
-    missing_facet <- setdiff(
-      tables$gifts$gift_id, tables$gift_facets$gift_id[tables$gift_facets$facet == facet]
-    )
-    if (length(missing_facet)) {
+    for (facet in requirement$multi) {
+      missing_facet <- setdiff(
+        of_type, tables$gift_facets$gift_id[tables$gift_facets$facet == facet]
+      )
+      if (length(missing_facet)) {
+        errors <- c(
+          errors,
+          paste0(
+            "Every ", type, " GIFT needs at least one ", facet, ": ",
+            paste(missing_facet, collapse = ", ")
+          )
+        )
+      }
+    }
+    # A facet required of one type must not silently classify another: a
+    # structural GIFT with a substrate class would claim chemistry it has none of.
+    foreign <- unlist(lapply(
+      setdiff(names(.giftr_required_gift_facets), type),
+      function(other) .giftr_required_gift_facets[[other]]$single
+    ))
+    foreign <- setdiff(foreign, c(requirement$single, requirement$multi))
+    misapplied <- sort(unique(tables$gift_facets$gift_id[
+      tables$gift_facets$facet %in% foreign & tables$gift_facets$gift_id %in% of_type
+    ]))
+    if (length(misapplied)) {
       errors <- c(
         errors,
         paste0(
-          "Every GIFT needs at least one ", facet, ": ",
-          paste(missing_facet, collapse = ", ")
+          "A ", type, " GIFT carries a facet required of another GIFT type: ",
+          paste(misapplied, collapse = ", ")
         )
       )
     }
@@ -477,15 +608,83 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
       paste0("anchors.molecule must be recorded for: ", paste(empty_molecules, collapse = ", "))
     )
   }
-  invalid_modes <- setdiff(unique(tables$gifts$mode), .giftr_gift_modes)
+  # `gift_type` selects the completeness model, so an unknown value cannot be
+  # evaluated at all and is rejected before anything else about the GIFT is read.
+  declared_types <- unique(tables$gifts$gift_type)
+  untyped <- tables$gifts$gift_id[is.na(tables$gifts$gift_type)]
+  if (length(untyped)) {
+    errors <- c(
+      errors,
+      paste0("gifts.gift_type must be recorded for: ", paste(untyped, collapse = ", "))
+    )
+  }
+  invalid_types <- setdiff(declared_types[!is.na(declared_types)], .giftr_gift_types)
+  if (length(invalid_types)) {
+    errors <- c(
+      errors,
+      paste0("Invalid gifts.gift_type: ", paste(invalid_types, collapse = ", "))
+    )
+  }
+
+  gift_type <- stats::setNames(tables$gifts$gift_type, tables$gifts$gift_id)
+  gifts_of_type <- function(type) {
+    tables$gifts$gift_id[!is.na(tables$gifts$gift_type) & tables$gifts$gift_type == type]
+  }
+  metabolic_gifts <- gifts_of_type("metabolic")
+
+  invalid_modes <- setdiff(
+    unique(tables$gifts$mode[!is.na(tables$gifts$mode)]), .giftr_gift_modes
+  )
   if (length(invalid_modes)) {
     errors <- c(errors, paste0("Invalid gifts.mode: ", paste(invalid_modes, collapse = ", ")))
+  }
+  # `mode` is the direction of a metabolic capability. A flagellum has none, and
+  # inventing one would let a structural GIFT into the anchor-derived cycle check.
+  missing_mode <- setdiff(metabolic_gifts, tables$gifts$gift_id[!is.na(tables$gifts$mode)])
+  if (length(missing_mode)) {
+    errors <- c(
+      errors,
+      paste0("Every metabolic GIFT needs a mode: ", paste(missing_mode, collapse = ", "))
+    )
+  }
+  moded_non_metabolic <- tables$gifts$gift_id[
+    !is.na(tables$gifts$mode) & !tables$gifts$gift_id %in% metabolic_gifts
+  ]
+  if (length(moded_non_metabolic)) {
+    errors <- c(
+      errors,
+      paste0(
+        "mode applies to metabolic GIFTs only, but is recorded for: ",
+        paste(moded_non_metabolic, collapse = ", ")
+      )
+    )
+  }
+
+  # The metabolic anchor/route model is metabolic-only. A structural GIFT that
+  # declared anchors would be inventing molecular boundaries to satisfy a schema
+  # rather than describing a structure.
+  for (check in list(
+    list("gift_anchors", tables$gift_anchors$gift_id),
+    list("gift_routes", tables$gift_routes$gift_id)
+  )) {
+    misplaced <- sort(unique(check[[2]][
+      check[[2]] %in% tables$gifts$gift_id & !check[[2]] %in% metabolic_gifts
+    ]))
+    if (length(misplaced)) {
+      errors <- c(
+        errors,
+        paste0(
+          check[[1]], " describes the metabolic model and may not name a ",
+          "non-metabolic GIFT: ", paste(misplaced, collapse = ", ")
+        )
+      )
+    }
   }
 
   anchor_molecule <- stats::setNames(tables$anchors$molecule, tables$anchors$anchor_id)
   gift_mode <- stats::setNames(tables$gifts$mode, tables$gifts$gift_id)
 
-  for (gift_id in tables$gifts$gift_id) {
+  for (gift_id in metabolic_gifts) {
     anchors <- tables$gift_anchors[tables$gift_anchors$gift_id == gift_id, , drop = FALSE]
     routes <- tables$gift_routes[tables$gift_routes$gift_id == gift_id, , drop = FALSE]
     if (!any(anchors$role == "input")) errors <- c(errors, paste0(gift_id, " has no input anchor"))
@@ -616,6 +815,168 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
     }
   }
 
+  # ---- typed machinery models ---------------------------------------------
+  #
+  # Structural, regulatory and defense GIFTs are evaluated over their own named
+  # tables. The checks below are identical in shape because the Boolean contract
+  # is identical; the tables they read are not, which is what keeps a regulatory
+  # circuit from being curated as a flagellar architecture.
+  for (model in .giftr_machinery_models) {
+    implementations <- tables[[model$implementation_source]]
+    membership <- tables[[model$membership_source]]
+    functions <- tables[[model$function_source]]
+    systems <- tables[[model$system_source]]
+    components <- tables[[model$component_source]]
+    evidence <- tables[[model$evidence_source]]
+    id_column <- model$implementation_id
+    typed_gifts <- gifts_of_type(model$gift_type)
+
+    for (check in list(
+      list(paste0(model$implementation_source, ".gift_id"),
+           implementations$gift_id, tables$gifts$gift_id),
+      list(paste0(model$membership_source, ".", id_column),
+           membership[[id_column]], implementations[[id_column]]),
+      list(paste0(model$membership_source, ".function_id"),
+           membership$function_id, functions$function_id),
+      list(paste0(model$system_source, ".function_id"),
+           systems$function_id, functions$function_id),
+      list(paste0(model$component_source, ".system_id"),
+           components$system_id, systems$system_id),
+      list(paste0(model$evidence_source, ".component_id"),
+           evidence$component_id, components$component_id),
+      list(paste0(model$evidence_source, " marker key"),
+           paste(evidence$namespace, evidence$accession, sep = "\r"),
+           paste(tables$markers$namespace, tables$markers$accession, sep = "\r"))
+    )) {
+      missing <- .missing_refs(check[[2]], check[[3]])
+      if (length(missing)) {
+        errors <- c(
+          errors,
+          paste0(
+            "Invalid ", check[[1]], ": ",
+            paste(sub("\r", ":", missing, fixed = TRUE), collapse = ", ")
+          )
+        )
+      }
+    }
+
+    # A curated row belongs to exactly one completeness model. Attaching an
+    # architecture to a metabolic GIFT, or a circuit to a structural one, would
+    # make the GIFT's type stop predicting how it is evaluated.
+    wrong_type <- sort(unique(implementations$gift_id[
+      implementations$gift_id %in% tables$gifts$gift_id &
+        !implementations$gift_id %in% typed_gifts
+    ]))
+    if (length(wrong_type)) {
+      errors <- c(
+        errors,
+        paste0(
+          model$implementation_source, " describes the ", model$gift_type,
+          " model and may not name a GIFT of another type: ",
+          paste(wrong_type, collapse = ", ")
+        )
+      )
+    }
+
+    without_implementation <- setdiff(typed_gifts, implementations$gift_id)
+    if (length(without_implementation)) {
+      errors <- c(
+        errors,
+        paste0(
+          "Every ", model$gift_type, " GIFT needs at least one ",
+          model$implementation, ": ", paste(without_implementation, collapse = ", ")
+        )
+      )
+    }
+
+    if (length(.duplicate_keys(membership, c(id_column, "function_id")))) {
+      errors <- c(
+        errors,
+        paste0(model$membership_source, " contains duplicate ",
+               model$implementation, "/function pairs")
+      )
+    }
+    if (length(.duplicate_keys(membership, c(id_column, "ordinal")))) {
+      errors <- c(
+        errors, paste0(model$membership_source, " contains duplicate ordinal values")
+      )
+    }
+    if (length(.duplicate_keys(evidence, c("component_id", "namespace", "accession")))) {
+      errors <- c(
+        errors, paste0(model$evidence_source, " contains duplicate component/marker pairs")
+      )
+    }
+    ordinals <- suppressWarnings(as.integer(membership$ordinal))
+    if (any(is.na(ordinals) | ordinals < 1L)) {
+      errors <- c(errors, paste0(model$membership_source, " contains an invalid ordinal"))
+    }
+    if (any(!membership$required %in% c("0", "1"))) {
+      errors <- c(errors, paste0(model$membership_source, ".required must be 0 or 1"))
+    }
+
+    # Completeness is discrete, so every level of the hierarchy must be able to
+    # be satisfied. An implementation with only accessory functions, or a
+    # component with no accepted evidence, can never produce a defensible call.
+    for (implementation_id in implementations[[id_column]]) {
+      required <- membership[
+        membership[[id_column]] == implementation_id & membership$required == "1",
+        , drop = FALSE
+      ]
+      if (!nrow(required)) {
+        errors <- c(
+          errors,
+          paste0(implementation_id, " has no required ", model$unit)
+        )
+      }
+    }
+    for (function_id in functions$function_id) {
+      if (!any(systems$function_id == function_id)) {
+        errors <- c(errors, paste0(function_id, " has no system"))
+      }
+      if (!any(membership$function_id == function_id)) {
+        warnings <- c(
+          warnings,
+          paste0(function_id, " is not used by any ", model$implementation)
+        )
+      }
+    }
+    for (system_id in systems$system_id) {
+      if (!any(components$system_id == system_id)) {
+        errors <- c(errors, paste0(system_id, " has no component"))
+      }
+    }
+    for (component_id in components$component_id) {
+      if (!any(evidence$component_id == component_id)) {
+        errors <- c(errors, paste0(component_id, " has no marker"))
+      }
+    }
+  }
+
+  # Function, system and component identifiers are stable public keys that a
+  # trace prints without saying which table they came from, so they must be
+  # unique across the models, not only within one.
+  for (level in list(
+    list("function", c("structural_functions", "regulatory_functions", "defense_functions"), "function_id"),
+    list("system", c("enzyme_systems", "structural_systems", "regulatory_systems", "defense_systems"), "system_id"),
+    list("component", c("enzyme_components", "structural_components", "regulatory_components", "defense_components"), "component_id"),
+    list("implementation", c("gift_routes", "gift_architectures", "gift_circuits", "gift_mechanisms"),
+         c("route_id", "architecture_id", "circuit_id", "mechanism_id"))
+  )) {
+    columns <- level[[3]]
+    if (length(columns) == 1L) columns <- rep(columns, length(level[[2]]))
+    values <- unlist(Map(function(table, column) tables[[table]][[column]], level[[2]], columns))
+    shared <- .duplicate_values(values)
+    if (length(shared)) {
+      errors <- c(
+        errors,
+        paste0(
+          "The same ", level[[1]], " identifier is used by more than one GIFT model: ",
+          paste(sort(shared), collapse = ", ")
+        )
+      )
+    }
+  }
+
   # Composition edges must be derived exactly as the gift_graph view derives
   # them, including the rule that two specified and different compartments do
   # not connect.
@@ -636,8 +997,11 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
     edges <- edges[edges$from != edges$to, , drop = FALSE]
     # Cycles are forbidden within a mode and expected between modes.
     for (mode in intersect(.giftr_gift_modes, unique(tables$gifts$mode))) {
+      # `%in%` rather than `==` so that a GIFT whose mode is missing -- which is
+      # a separate, already reported error -- drops out of the scan instead of
+      # producing an NA row the traversal cannot name.
       within_mode <- edges[
-        unname(gift_mode[edges$from]) == mode & unname(gift_mode[edges$to]) == mode,
+        unname(gift_mode[edges$from]) %in% mode & unname(gift_mode[edges$to]) %in% mode,
         , drop = FALSE
       ]
       cycle <- .find_graph_cycle(within_mode)
@@ -907,6 +1271,94 @@ build_giftr_database <- function(source_dir, output, overwrite = FALSE, source_c
     notes = tables$component_markers$notes
   )
   DBI::dbWriteTable(connection, "component_marker", component_markers, append = TRUE, row.names = FALSE)
+
+  # Compile each typed machinery model from its own named source tables. The
+  # loop is generic because the relational shape is; the tables it reads are
+  # biologically specific because the content is.
+  for (model in .giftr_machinery_models) {
+    functions <- tables[[model$function_source]]
+    DBI::dbWriteTable(
+      connection, model$function_table,
+      functions[c("function_id", "name", "description")],
+      append = TRUE, row.names = FALSE
+    )
+    function_pk <- .db_key_map(connection, model$function_table, "function_id", "function_pk")
+
+    systems <- tables[[model$system_source]]
+    DBI::dbWriteTable(
+      connection, model$system_table,
+      data.frame(
+        function_pk = unname(function_pk[systems$function_id]),
+        system_id = systems$system_id,
+        name = systems$name,
+        description = systems$description,
+        stringsAsFactors = FALSE
+      ),
+      append = TRUE, row.names = FALSE
+    )
+    system_pk <- .db_key_map(connection, model$system_table, "system_id", "system_pk")
+
+    components <- tables[[model$component_source]]
+    DBI::dbWriteTable(
+      connection, model$component_table,
+      data.frame(
+        system_pk = unname(system_pk[components$system_id]),
+        component_id = components$component_id,
+        name = components$name,
+        description = components$description,
+        stringsAsFactors = FALSE
+      ),
+      append = TRUE, row.names = FALSE
+    )
+    component_pk <- .db_key_map(connection, model$component_table, "component_id", "component_pk")
+
+    evidence <- tables[[model$evidence_source]]
+    DBI::dbWriteTable(
+      connection, model$evidence_table,
+      data.frame(
+        component_pk = unname(component_pk[evidence$component_id]),
+        marker_pk = unname(marker_key[paste(evidence$namespace, evidence$accession, sep = "\r")]),
+        evidence_type = evidence$evidence_type,
+        confidence = evidence$confidence,
+        source = evidence$source,
+        notes = evidence$notes,
+        stringsAsFactors = FALSE
+      ),
+      append = TRUE, row.names = FALSE
+    )
+
+    implementations <- tables[[model$implementation_source]]
+    implementation_rows <- data.frame(
+      gift_pk = unname(gift_pk[implementations$gift_id]),
+      id = implementations[[model$implementation_id]],
+      name = implementations$name,
+      description = implementations$description,
+      status = implementations$status,
+      stringsAsFactors = FALSE
+    )
+    names(implementation_rows)[[2]] <- model$implementation_id
+    DBI::dbWriteTable(
+      connection, model$implementation_table, implementation_rows,
+      append = TRUE, row.names = FALSE
+    )
+    implementation_pk <- .db_key_map(
+      connection, model$implementation_table, model$implementation_id, model$implementation_pk
+    )
+
+    membership <- tables[[model$membership_source]]
+    membership_rows <- data.frame(
+      implementation = unname(implementation_pk[membership[[model$implementation_id]]]),
+      function_pk = unname(function_pk[membership$function_id]),
+      ordinal = as.integer(membership$ordinal),
+      required = as.integer(membership$required),
+      stringsAsFactors = FALSE
+    )
+    names(membership_rows)[[1]] <- model$implementation_pk
+    DBI::dbWriteTable(
+      connection, model$membership_table, membership_rows,
+      append = TRUE, row.names = FALSE
+    )
+  }
 
   database_changes <- tables$database_changes[c(
     "change_id", "released", "changed_at", "layer", "category", "call_effect",

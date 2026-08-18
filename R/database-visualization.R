@@ -1,6 +1,12 @@
 .giftr_report_tables <- c(
   "gift", "anchor", "gift_anchor", "gift_xref", "gift_route", "route_reaction",
   "reaction", "reaction_xref", "enzyme_system", "enzyme_component",
+  "gift_architecture", "architecture_function", "structural_function",
+  "structural_system", "structural_component", "structural_component_marker",
+  "gift_circuit", "circuit_function", "regulatory_function",
+  "regulatory_system", "regulatory_component", "regulatory_component_marker",
+  "gift_mechanism", "mechanism_function", "defense_function",
+  "defense_system", "defense_component", "defense_component_marker",
   "marker", "component_marker", "database_change", "change_gift",
   "database_release"
 )
@@ -49,6 +55,53 @@
     DBI::dbReadTable(connection, table)
   })
   names(tables) <- .giftr_report_tables
+
+  # Each typed machinery model is read through the same six shapes, named
+  # generically here because the report renders them identically; the biological
+  # names stay on the tables and on the identifiers the report prints.
+  machinery <- lapply(.giftr_machinery_models, function(model) {
+    query <- function(sql) DBI::dbGetQuery(connection, sql)
+    list(
+      model = model,
+      implementations = query(paste0(
+        "SELECT g.gift_id, i.", model$implementation_id, " AS implementation_id, ",
+        "i.name, i.description, i.status FROM ", model$implementation_table, " i ",
+        "JOIN gift g ON g.gift_pk = i.gift_pk ORDER BY g.gift_id, i.",
+        model$implementation_id
+      )),
+      membership = query(paste0(
+        "SELECT i.", model$implementation_id, " AS implementation_id, mf.ordinal, ",
+        "mf.required, f.function_id, f.name AS function_name, ",
+        "f.description AS function_description FROM ", model$membership_table, " mf ",
+        "JOIN ", model$implementation_table, " i ON i.", model$implementation_pk,
+        " = mf.", model$implementation_pk, " ",
+        "JOIN ", model$function_table, " f ON f.function_pk = mf.function_pk ",
+        "ORDER BY i.", model$implementation_id, ", mf.ordinal"
+      )),
+      functions = query(paste0(
+        "SELECT function_id, name, description FROM ", model$function_table,
+        " ORDER BY function_id"
+      )),
+      systems = query(paste0(
+        "SELECT f.function_id, s.system_id, s.name, s.description FROM ",
+        model$system_table, " s JOIN ", model$function_table,
+        " f ON f.function_pk = s.function_pk ORDER BY f.function_id, s.system_id"
+      )),
+      components = query(paste0(
+        "SELECT s.system_id, c.component_id, c.name, c.description FROM ",
+        model$component_table, " c JOIN ", model$system_table,
+        " s ON s.system_pk = c.system_pk ORDER BY s.system_id, c.component_id"
+      )),
+      markers = query(paste0(
+        "SELECT c.component_id, m.namespace, m.accession, m.name, ",
+        "e.evidence_type, e.confidence, e.source, e.notes FROM ",
+        model$evidence_table, " e JOIN ", model$component_table,
+        " c ON c.component_pk = e.component_pk ",
+        "JOIN marker m ON m.marker_pk = e.marker_pk ",
+        "ORDER BY c.component_id, m.namespace, m.accession"
+      ))
+    )
+  })
 
   queries <- list(
     gifts = paste(
@@ -159,6 +212,7 @@
   c(
     values,
     list(
+      machinery = machinery,
       tables = tables,
       schema = schema,
       release = tables$database_release[1, , drop = FALSE],
@@ -464,7 +518,10 @@
 # Both grouping selects offer the same axes, so an axis is added in one place.
 # The option value is the row's data-attribute suffix.
 .report_group_select <- function(attribute, selected) {
-  axes <- c(none = "No grouping", mode = "Process", `substrate-class` = "Substrate class")
+  axes <- c(
+    none = "No grouping", `gift-type` = "GIFT type", mode = "Process",
+    `substrate-class` = "Substrate class"
+  )
   paste0(
     "<select ", attribute, ">",
     paste0(
@@ -499,49 +556,157 @@
 .report_gift_explorer <- function(data) {
   rendered <- lapply(seq_len(nrow(data$gifts)), function(index) {
     gift <- data$gifts[index, , drop = FALSE]
-    anchors <- data$anchors[data$anchors$gift_id == gift$gift_id, , drop = FALSE]
-    inputs <- anchors[anchors$role == "input", , drop = FALSE]
-    outputs <- anchors[anchors$role == "output", , drop = FALSE]
-    gift_routes <- data$routes[data$routes$gift_id == gift$gift_id, , drop = FALSE]
-    gift_route_ids <- gift_routes$route_id
-    gift_reactions <- data$route_reactions[
-      data$route_reactions$route_id %in% gift_route_ids, , drop = FALSE
-    ]
-    evidence <- data$systems[data$systems$reaction_id %in% gift_reactions$reaction_id, , drop = FALSE]
-    components <- data$components[
-      data$components$system_id %in% evidence$system_id, , drop = FALSE
-    ]
-    markers <- data$component_markers[
-      data$component_markers$component_id %in% components$component_id, , drop = FALSE
-    ]
+    metabolic <- identical(gift$gift_type, "metabolic")
     pathways <- data$gift_pathways[data$gift_pathways$gift_id == gift$gift_id, , drop = FALSE]
     facets <- data$gift_facets[data$gift_facets$gift_id == gift$gift_id, , drop = FALSE]
-    searchable <- .html_search_text(
-      gift, anchors, gift_routes, gift_reactions, evidence, components, markers,
-      pathways, facets
-    )
     detail_id <- paste0("gift-detail-", sprintf("%02d", index))
+    marker_id <- paste0("arrow-gift-", sprintf("%02d", index))
+    class_label <- if (nrow(facets)) {
+      single <- facets$value[facets$facet %in% c("substrate_class", "structural_class")]
+      if (length(single)) single[[1]] else NA_character_
+    } else {
+      NA_character_
+    }
+
+    if (metabolic) {
+      anchors <- data$anchors[data$anchors$gift_id == gift$gift_id, , drop = FALSE]
+      inputs <- anchors[anchors$role == "input", , drop = FALSE]
+      outputs <- anchors[anchors$role == "output", , drop = FALSE]
+      gift_routes <- data$routes[data$routes$gift_id == gift$gift_id, , drop = FALSE]
+      gift_reactions <- data$route_reactions[
+        data$route_reactions$route_id %in% gift_routes$route_id, , drop = FALSE
+      ]
+      evidence <- data$systems[
+        data$systems$reaction_id %in% gift_reactions$reaction_id, , drop = FALSE
+      ]
+      components <- data$components[
+        data$components$system_id %in% evidence$system_id, , drop = FALSE
+      ]
+      markers <- data$component_markers[
+        data$component_markers$component_id %in% components$component_id, , drop = FALSE
+      ]
+      searchable <- .html_search_text(
+        gift, anchors, gift_routes, gift_reactions, evidence, components, markers,
+        pathways, facets
+      )
+      input_ids <- inputs$anchor_id
+      output_ids <- outputs$anchor_id
+      alternatives <- gift$route_count
+      requirements <- gift$reaction_count
+      system_count <- length(unique(evidence$system_id))
+      boundary_cell <- paste0(
+        '<td class="gift-boundary-cell"><span class="compact-boundary">',
+        .report_anchor_badges(inputs), '</span><span class="compact-arrow">&rarr;</span>',
+        '<span class="compact-boundary">', .report_anchor_badges(outputs), "</span></td>"
+      )
+      scope_block <- paste0(
+        '<div class="boundary-flow"><div class="boundary">',
+        '<span class="boundary-label">Inputs</span>',
+        .report_anchor_badges(inputs),
+        '</div><div class="boundary-arrow" aria-hidden="true">&rarr;</div>',
+        '<div class="boundary"><span class="boundary-label">Outputs</span>',
+        .report_anchor_badges(outputs), "</div></div>"
+      )
+      statline <- paste0(
+        '<div class="gift-statline"><span><strong>', alternatives, "</strong> routes</span>",
+        '<span><strong>', requirements, "</strong> unique reactions</span>",
+        '<span><strong>', system_count, "</strong> enzyme systems</span></div>"
+      )
+      network_block <- paste0(
+        '<div class="network-section"><div class="network-heading"><h4>Route network</h4>',
+        '<div class="graph-legend"><span class="legend-chip input">Input anchor</span>',
+        '<span class="legend-chip reaction">Reaction</span>',
+        '<span class="legend-chip output">Output anchor</span></div></div>',
+        '<p class="network-caption">Alternative routes are overlaid on the reactions they ',
+        'share, so parallel branches are route alternatives. Thicker edges are used by ',
+        'more routes.</p>',
+        '<div class="graph-scroll compact">',
+        .report_gift_network_svg(gift$gift_id, inputs, outputs, data, marker_id),
+        "</div></div>"
+      )
+      alternatives_block <- paste0(
+        '<div class="route-section"><h4>Alternative routes <span>OR</span></h4>',
+        .report_route_cards(gift$gift_id, data), "</div>"
+      )
+    } else {
+      view <- .report_machinery_view(data, gift$gift_type)
+      slice <- .report_machinery_gift_slice(view, gift$gift_id)
+      searchable <- .html_search_text(
+        gift, slice$implementations, slice$membership, slice$systems,
+        slice$components, slice$markers, pathways, facets
+      )
+      input_ids <- character()
+      output_ids <- character()
+      alternatives <- nrow(slice$implementations)
+      requirements <- length(unique(slice$membership$function_id))
+      system_count <- length(unique(slice$systems$system_id))
+      # A structural, regulatory or defense GIFT has no molecular boundaries, so
+      # the column names what is built rather than inventing an anchor pair.
+      boundary_cell <- paste0(
+        '<td class="gift-boundary-cell"><span class="compact-boundary">',
+        '<span class="anchor-chip structure" title="',
+        .html_escape(paste0(
+          "Completeness follows the ", view$model$implementation,
+          " model, not molecular boundaries"
+        )), '">', .html_escape(gift$gift_type), " ", .html_escape(view$model$implementation),
+        "</span></span></td>"
+      )
+      scope_block <- paste0(
+        '<div class="boundary-flow"><div class="boundary">',
+        '<span class="boundary-label">Completeness model</span>',
+        '<span class="anchor-chip structure">', .html_escape(gift$gift_type),
+        "</span></div>",
+        '<div class="boundary-arrow" aria-hidden="true">&rarr;</div>',
+        '<div class="boundary"><span class="boundary-label">Complete when</span>',
+        '<span class="anchor-chip structure">any ', .html_escape(view$model$implementation),
+        " is complete</span></div></div>"
+      )
+      statline <- paste0(
+        '<div class="gift-statline"><span><strong>', alternatives, "</strong> ",
+        .html_escape(view$model$implementation_plural), "</span>",
+        '<span><strong>', requirements, "</strong> functions</span>",
+        '<span><strong>', system_count, "</strong> systems</span></div>"
+      )
+      network_block <- paste0(
+        '<div class="network-section"><div class="network-heading"><h4>Machinery</h4>',
+        '<div class="graph-legend"><span class="legend-chip input">',
+        .html_escape(view$model$implementation), "</span>",
+        '<span class="legend-chip reaction">Function</span></div></div>',
+        '<p class="network-caption">Alternative ', .html_escape(view$model$implementation_plural),
+        ' are drawn over the functions they share, so a function curated once serves ',
+        'every implementation that needs it. Thin edges mark accessory functions, whose ',
+        'absence does not make an implementation incomplete.</p>',
+        '<div class="graph-scroll compact">',
+        .report_machinery_network_svg(gift, view, slice, marker_id),
+        "</div></div>"
+      )
+      alternatives_block <- paste0(
+        '<div class="route-section"><h4>Alternative ',
+        .html_escape(view$model$implementation_plural), " <span>OR</span></h4>",
+        .report_implementation_cards(gift, view, slice), "</div>"
+      )
+    }
+
     row <- paste0(
       '<tr class="gift-table-row" data-gift-row data-search-item data-gift-id="',
       .html_escape(gift$gift_id),
+      '" data-gift-type="', .html_escape(gift$gift_type),
       '" data-substrate-class="', .html_escape(gift$substrate_class),
       '" data-mode="', .html_escape(gift$mode),
-      '" data-inputs="', .html_escape(paste0(" ", paste(inputs$anchor_id, collapse = " "), " ")),
-      '" data-outputs="', .html_escape(paste0(" ", paste(outputs$anchor_id, collapse = " "), " ")),
+      '" data-inputs="', .html_escape(paste0(" ", paste(input_ids, collapse = " "), " ")),
+      '" data-outputs="', .html_escape(paste0(" ", paste(output_ids, collapse = " "), " ")),
       '" data-search="', .html_escape(searchable), '" tabindex="0" role="button"',
       ' aria-selected="false" aria-haspopup="dialog" aria-controls="', detail_id, '">',
       '<td class="gift-name-cell"><span class="gift-table-index">', sprintf("%02d", index),
       '</span><span><strong>', .html_text(gift$name), '</strong><code>',
       .html_text(gift$gift_id), "</code></span></td>",
-      '<td class="gift-boundary-cell"><span class="compact-boundary">',
-      .report_anchor_badges(inputs), '</span><span class="compact-arrow">&rarr;</span>',
-      '<span class="compact-boundary">', .report_anchor_badges(outputs), "</span></td>",
-      '<td><span class="category-label">', .html_text(gift$substrate_class), "</span></td>",
-      '<td class="numeric-cell"><strong>', gift$route_count, "</strong></td>",
-      '<td class="numeric-cell"><strong>', gift$reaction_count, "</strong></td>",
-      '<td class="numeric-cell"><strong>', length(unique(evidence$system_id)), "</strong></td>",
+      boundary_cell,
+      '<td><span class="category-label">', .html_text(class_label), "</span></td>",
+      '<td class="numeric-cell"><strong>', alternatives, "</strong></td>",
+      '<td class="numeric-cell"><strong>', requirements, "</strong></td>",
+      '<td class="numeric-cell"><strong>', system_count, "</strong></td>",
       '<td><span class="table-status"><i></i>', .html_text(gift$status), "</span></td>",
-      '<td class="open-cell"><span>View reactions</span>&rarr;</td></tr>'
+      '<td class="open-cell"><span>View detail</span>&rarr;</td></tr>'
     )
     detail <- paste0(
       '<article class="gift-detail" data-gift-detail data-gift-id="',
@@ -551,31 +716,15 @@
       sprintf("%02d", index), "</div>",
       '<h3>', .html_text(gift$name), '</h3><div class="gift-id">',
       .html_text(gift$gift_id), "</div></div>",
-      '<div class="gift-tags"><span>', .html_text(gift$substrate_class), "</span><span>",
+      '<div class="gift-tags"><span>', .html_text(gift$gift_type), "</span><span>",
+      .html_text(class_label), "</span><span>",
       .html_text(gift$status), "</span><span>v", .html_text(gift$version), "</span></div></header>",
       '<p class="gift-description">', .html_text(gift$description), "</p>",
       .report_gift_metadata(gift, data),
-      '<div class="boundary-flow"><div class="boundary"><span class="boundary-label">Inputs</span>',
-      .report_anchor_badges(inputs), '</div><div class="boundary-arrow" aria-hidden="true">&rarr;</div>',
-      '<div class="boundary"><span class="boundary-label">Outputs</span>',
-      .report_anchor_badges(outputs), "</div></div>",
-      '<div class="gift-statline"><span><strong>', gift$route_count, "</strong> routes</span>",
-      '<span><strong>', gift$reaction_count, "</strong> unique reactions</span>",
-      '<span><strong>', length(unique(evidence$system_id)), "</strong> enzyme systems</span></div>",
-      '<div class="network-section"><div class="network-heading"><h4>Route network</h4>',
-      '<div class="graph-legend"><span class="legend-chip input">Input anchor</span>',
-      '<span class="legend-chip reaction">Reaction</span>',
-      '<span class="legend-chip output">Output anchor</span></div></div>',
-      '<p class="network-caption">Alternative routes are overlaid on the reactions they share, ',
-      'so parallel branches are route alternatives. Thicker edges are used by more routes.</p>',
-      '<div class="graph-scroll compact">',
-      .report_gift_network_svg(
-        gift$gift_id, inputs, outputs, data,
-        paste0("arrow-gift-", sprintf("%02d", index))
-      ),
-      "</div></div>",
-      '<div class="route-section"><h4>Alternative routes <span>OR</span></h4>',
-      .report_route_cards(gift$gift_id, data), "</div>",
+      scope_block,
+      statline,
+      network_block,
+      alternatives_block,
       .report_gift_pathways(gift$gift_id, data),
       .report_gift_change_history(gift$gift_id, data),
       if (!is.na(gift$notes) && nzchar(gift$notes)) {
@@ -593,8 +742,9 @@
     nrow(data$gifts), ' curated GIFTs</span><small>Select a row to open its routes and reactions</small></div>',
     .report_gift_controls(data),
     '<div class="gift-table-scroll"><table class="gift-summary-table">',
-    '<thead><tr><th>GIFT</th><th>Boundaries</th><th>Category</th>',
-    '<th>Routes</th><th>Reactions</th><th>Systems</th><th>Status</th><th></th></tr></thead>',
+    '<thead><tr><th>GIFT</th><th>Boundaries or structure</th><th>Class</th>',
+    '<th>Alternatives</th><th>Requirements</th><th>Systems</th><th>Status</th>',
+    '<th></th></tr></thead>',
     '<tbody>', rows, '</tbody></table></div></div>',
     # The detail of one GIFT is long, so it opens over the table instead of
     # below it: the list stays where the reader left it.
@@ -1105,6 +1255,189 @@
   )
 }
 
+
+# ---------------------------------------------------------------------------
+# Non-metabolic GIFT rendering
+#
+# A metabolic GIFT is drawn as a directed route between declared anchors. A
+# structural, regulatory or defense GIFT has no anchors to draw between, so it
+# is drawn as its alternative implementations and the functions each of them
+# requires. Functions shared by two implementations appear once, which is what
+# makes reuse visible instead of duplicated.
+# ---------------------------------------------------------------------------
+
+.report_machinery_view <- function(data, gift_type) {
+  view <- data$machinery[[gift_type]]
+  if (is.null(view)) stop("No report model for GIFT type: ", gift_type, call. = FALSE)
+  view
+}
+
+.report_machinery_gift_slice <- function(view, gift_id) {
+  implementations <- view$implementations[view$implementations$gift_id == gift_id, , drop = FALSE]
+  membership <- view$membership[
+    view$membership$implementation_id %in% implementations$implementation_id, , drop = FALSE
+  ]
+  systems <- view$systems[view$systems$function_id %in% membership$function_id, , drop = FALSE]
+  components <- view$components[view$components$system_id %in% systems$system_id, , drop = FALSE]
+  markers <- view$markers[view$markers$component_id %in% components$component_id, , drop = FALSE]
+  list(
+    implementations = implementations, membership = membership,
+    systems = systems, components = components, markers = markers
+  )
+}
+
+.report_machinery_marker_rows <- function(rows) {
+  if (!nrow(rows)) return('<div class="empty-state compact">No accepted markers</div>')
+  paste(vapply(seq_len(nrow(rows)), function(index) {
+    row <- rows[index, , drop = FALSE]
+    notes <- if (!is.na(row$notes) && nzchar(row$notes)) {
+      paste0('<span class="marker-note">', .html_escape(row$notes), "</span>")
+    } else ""
+    paste0(
+      '<div class="marker-row"><code>', .html_escape(row$namespace), ":",
+      .html_escape(row$accession), "</code><span>", .html_text(row$name),
+      '</span><span class="marker-confidence">', .html_text(row$confidence),
+      "</span>", notes, "</div>"
+    )
+  }, character(1)), collapse = "")
+}
+
+.report_machinery_system_rows <- function(function_id, slice) {
+  systems <- slice$systems[slice$systems$function_id == function_id, , drop = FALSE]
+  if (!nrow(systems)) return('<div class="empty-state compact">No systems</div>')
+  paste(vapply(seq_len(nrow(systems)), function(index) {
+    system <- systems[index, , drop = FALSE]
+    components <- slice$components[
+      slice$components$system_id == system$system_id, , drop = FALSE
+    ]
+    component_rows <- paste(vapply(seq_len(nrow(components)), function(j) {
+      component <- components[j, , drop = FALSE]
+      markers <- slice$markers[
+        slice$markers$component_id == component$component_id, , drop = FALSE
+      ]
+      paste0(
+        '<div class="component-card"><div class="component-head">',
+        '<span class="entity-name">', .html_text(component$name), "</span>",
+        '<span class="entity-id">', .html_text(component$component_id), "</span></div>",
+        '<p class="entity-description">', .html_text(component$description), "</p>",
+        .report_machinery_marker_rows(markers), "</div>"
+      )
+    }, character(1)), collapse = "")
+    paste0(
+      '<div class="system-card"><div class="system-head">',
+      '<span class="entity-name">', .html_text(system$name), "</span>",
+      '<span class="entity-id">', .html_text(system$system_id), "</span>",
+      '<span class="system-meta">', nrow(components), " component",
+      if (nrow(components) == 1L) "" else "s", " &middot; AND</span></div>",
+      '<p class="entity-description">', .html_text(system$description), "</p>",
+      component_rows, "</div>"
+    )
+  }, character(1)), collapse = "")
+}
+
+.report_implementation_cards <- function(gift, view, slice) {
+  rows <- slice$implementations
+  if (!nrow(rows)) {
+    return(paste0('<div class="empty-state">No ', view$model$implementation_plural, "</div>"))
+  }
+  paste(vapply(seq_len(nrow(rows)), function(index) {
+    row <- rows[index, , drop = FALSE]
+    functions <- slice$membership[
+      slice$membership$implementation_id == row$implementation_id, , drop = FALSE
+    ]
+    functions <- functions[order(functions$ordinal), , drop = FALSE]
+    required_count <- sum(functions$required == 1L)
+    function_items <- paste(vapply(seq_len(nrow(functions)), function(j) {
+      fn <- functions[j, , drop = FALSE]
+      accessory <- fn$required != 1L
+      paste0(
+        '<li class="reaction-row', if (accessory) " optional" else "", '">',
+        '<details><summary><span class="step-number">',
+        sprintf("%02d", fn$ordinal), "</span>",
+        '<span class="summary-main"><span class="entity-name">',
+        .html_text(fn$function_name), "</span>",
+        '<span class="entity-id">', .html_text(fn$function_id), "</span></span>",
+        '<span class="reaction-meta">',
+        if (accessory) "accessory" else "required", "</span></summary>",
+        '<div class="reaction-body"><p class="entity-description">',
+        .html_text(fn$function_description), "</p>",
+        '<div class="system-block"><h5>Alternative systems <span>OR</span></h5>',
+        .report_machinery_system_rows(fn$function_id, slice), "</div></div></details></li>"
+      )
+    }, character(1)), collapse = "")
+    paste0(
+      '<details class="route-card">',
+      '<summary><span class="route-number">', sprintf("%02d", index), "</span>",
+      '<span class="summary-main"><span class="entity-name">', .html_text(row$name), "</span>",
+      '<span class="entity-id">', .html_text(row$implementation_id), "</span></span>",
+      '<span class="route-meta"><span class="status-dot"></span>', .html_text(row$status),
+      " &middot; ", required_count, " required function",
+      if (required_count == 1L) "" else "s", "</span></summary>",
+      '<div class="route-body"><p class="route-description">',
+      .html_text(row$description), "</p>",
+      '<ol class="reaction-list">', function_items, "</ol></div></details>"
+    )
+  }, character(1)), collapse = "")
+}
+
+.report_machinery_network_svg <- function(gift, view, slice, marker) {
+  if (!nrow(slice$implementations) || !nrow(slice$membership)) {
+    return(paste0(
+      '<div class="empty-state compact">No ', view$model$implementation_plural, " to draw</div>"
+    ))
+  }
+  total <- nrow(slice$implementations)
+  implementation_nodes <- do.call(rbind, lapply(seq_len(total), function(index) {
+    row <- slice$implementations[index, , drop = FALSE]
+    .graph_node(
+      id = paste0("impl:", row$implementation_id), shape = "box", kind = "gift",
+      label = .graph_truncate(row$name, 34), sublabel = row$implementation_id,
+      title = paste0(
+        row$implementation_id, " \u00b7 ", row$name,
+        " \u00b7 one complete curated ", view$model$implementation
+      )
+    )
+  }))
+
+  function_ids <- unique(slice$membership$function_id)
+  function_nodes <- do.call(rbind, lapply(function_ids, function(function_id) {
+    rows <- slice$membership[slice$membership$function_id == function_id, , drop = FALSE]
+    used <- nrow(rows)
+    accessory <- all(rows$required != 1L)
+    .graph_node(
+      id = paste0("fn:", function_id), shape = "step",
+      kind = paste0("function", if (accessory) " accessory" else ""),
+      label = .graph_truncate(rows$function_name[[1]], 30), sublabel = function_id,
+      badge = paste0(
+        if (accessory) "accessory" else "required", " \u00b7 ", used, "/", total, " ",
+        if (total == 1L) view$model$implementation else view$model$implementation_plural
+      ),
+      title = paste0(
+        function_id, " \u00b7 ", rows$function_name[[1]], " \u00b7 ",
+        if (accessory) "accessory to " else "required by ", used, " of ", total, " ",
+        if (total == 1L) view$model$implementation else view$model$implementation_plural
+      )
+    )
+  }))
+
+  edges <- .graph_edges(
+    from = paste0("impl:", slice$membership$implementation_id),
+    to = paste0("fn:", slice$membership$function_id),
+    weight = ifelse(slice$membership$required == 1L, 0.75, 0.3),
+    title = ifelse(
+      slice$membership$required == 1L,
+      "Required for this implementation",
+      "Accessory: its absence does not make the implementation incomplete"
+    )
+  )
+
+  .report_graph_svg(
+    rbind(implementation_nodes, function_nodes), edges, marker,
+    paste0("Machinery of ", gift$gift_id),
+    class = "network-svg machinery-network-svg", min_width = 480, column_gap = 54
+  )
+}
+
 .report_schema <- function(data) {
   table_cards <- paste(vapply(.giftr_report_tables, function(table) {
     info <- data$schema[[table]]
@@ -1152,10 +1485,14 @@
   }
 
   paste0(
-    '<div class="logic-strip" aria-label="Evaluation hierarchy">',
-    '<span>gift</span><b>OR</b><span>gift_route</span><b>AND</b><span>reaction</span>',
-    '<b>OR</b><span>enzyme_system</span><b>AND</b><span>enzyme_component</span>',
-    '<b>OR</b><span>marker</span></div>',
+    '<div class="logic-strip" aria-label="Metabolic evaluation hierarchy">',
+    '<span>metabolic gift</span><b>OR</b><span>gift_route</span><b>AND</b>',
+    '<span>reaction</span><b>OR</b><span>enzyme_system</span><b>AND</b>',
+    '<span>enzyme_component</span><b>OR</b><span>marker</span></div>',
+    '<div class="logic-strip" aria-label="Machinery evaluation hierarchy">',
+    '<span>structural gift</span><b>OR</b><span>gift_architecture</span><b>AND</b>',
+    '<span>structural_function</span><b>OR</b><span>structural_system</span><b>AND</b>',
+    '<span>structural_component</span><b>OR</b><span>marker</span></div>',
     '<div class="schema-layout"><div class="schema-grid">', table_cards, "</div>",
     '<aside class="relationships"><div class="eyebrow">Foreign keys</div><h3>Relationship inventory</h3>',
     '<p>Every arrow points from a child column to the parent key it references.</p>',

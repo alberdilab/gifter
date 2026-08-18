@@ -1,0 +1,7 @@
+system_id	function_id	name	description
+SYS_DF_HSDS	DF_TYPE_I_RM_SPECIFICITY	HsdS specificity subunit	Single protein.
+SYS_DF_HSDM	DF_TYPE_I_RM_MODIFICATION	HsdM methyltransferase	Single protein.
+SYS_DF_HSDR	DF_TYPE_I_RM_RESTRICTION	HsdR restriction subunit	Single protein.
+SYS_DF_CASCADE_I_E	DF_CRISPR_I_E_SURVEILLANCE	type I-E Cascade	CasA, CasB, CasC, CasD and CasE, jointly required.
+SYS_DF_CAS3	DF_CRISPR_I_E_INTERFERENCE_NUCLEASE	Cas3 nuclease-helicase	Single fused protein.
+SYS_DF_CAS1_CAS2	DF_CRISPR_ADAPTATION	Cas1-Cas2 integrase	Both proteins jointly required.

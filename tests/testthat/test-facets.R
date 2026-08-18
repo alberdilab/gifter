@@ -22,7 +22,9 @@ test_that("a facet registered for anchors cannot classify a GIFT", {
 })
 
 test_that("substrate_class partitions and physiological_role does not", {
-  gifts <- list_gifts()$gift_id
+  # Required facets are scoped by GIFT type: substrate class answers a question
+  # about chemistry, which a structural GIFT does not have.
+  gifts <- list_gifts(type = "metabolic")$gift_id
   for (gift_id in gifts) {
     facets <- get_facets(gift_id)
     expect_equal(sum(facets$facet == "substrate_class"), 1L)
@@ -51,7 +53,11 @@ test_that("a repeated substrate_class is rejected", {
 
 test_that("the derived profile reads the compartment layer, not curation", {
   profile <- gift_profile()
-  expect_equal(nrow(profile), nrow(list_gifts()))
+  # The profile is derived from declared anchors and the anchor-derived graph,
+  # both of which belong to the metabolic model. A structural GIFT is absent
+  # rather than carrying an invented resource strategy.
+  expect_equal(nrow(profile), nrow(list_gifts(type = "metabolic")))
+  expect_false(any(list_gifts(type = "structural")$gift_id %in% profile$gift_id))
 
   strategy <- function(id) profile$resource_strategy[profile$gift_id == id]
   # Consumes outside, delivers inside.

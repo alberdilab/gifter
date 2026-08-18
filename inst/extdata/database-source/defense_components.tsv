@@ -1,0 +1,12 @@
+component_id	system_id	name	description
+COMP_DF_HSDS	SYS_DF_HSDS	HsdS specificity subunit	Directs the complex to its target sequence.
+COMP_DF_HSDM	SYS_DF_HSDM	HsdM methyltransferase	Protects host target sites.
+COMP_DF_HSDR	SYS_DF_HSDR	HsdR restriction subunit	Translocates and cleaves.
+COMP_DF_CASA	SYS_DF_CASCADE_I_E	CasA/Cse1	PAM recognition and Cas3 recruitment.
+COMP_DF_CASB	SYS_DF_CASCADE_I_E	CasB/Cse2	R-loop stabilisation.
+COMP_DF_CASC	SYS_DF_CASCADE_I_E	CasC/Cas7	Backbone of the complex.
+COMP_DF_CASD	SYS_DF_CASCADE_I_E	CasD/Cas5	crRNA 5' handle binding.
+COMP_DF_CASE	SYS_DF_CASCADE_I_E	CasE/Cas6e	crRNA processing endoribonuclease.
+COMP_DF_CAS3	SYS_DF_CAS3	Cas3 nuclease-helicase	Degrades the target.
+COMP_DF_CAS1	SYS_DF_CAS1_CAS2	Cas1 integrase	Spacer integration.
+COMP_DF_CAS2	SYS_DF_CAS1_CAS2	Cas2	Integrase partner.

@@ -1,0 +1,18 @@
+function_id	name	description
+SF_FLAGELLAR_EXPORT_GATE	flagellar type III export gate	Membrane-embedded export gate that translocates the axial subunits of the flagellum (rod, hook and filament) across the cytoplasmic membrane. Without it no axial structure can be built.
+SF_FLAGELLAR_EXPORT_ATPASE	flagellar export ATPase complex	Cytoplasmic ATPase complex that delivers export substrates to the gate. FliJ is deliberately not required: it is a small, poorly conserved escort whose orthology assignment is unreliable, and requiring it would report absent machinery in genomes that build flagella.
+SF_FLAGELLAR_MS_RING	flagellar MS ring	The membrane and supramembrane ring that nucleates basal body assembly and houses the export apparatus.
+SF_FLAGELLAR_ROD	flagellar basal body rod	The drive shaft that transmits torque from the motor across the cell envelope to the hook, together with the rod-MS ring junction protein.
+SF_FLAGELLAR_C_RING	flagellar C ring and switch complex	The cytoplasmic ring that couples the stator to the rotor and switches rotational sense. FliY, which replaces FliN in some Firmicutes, is not accepted as evidence because its KEGG orthologue K02424 is assigned to an L-cystine transport binding protein and is therefore not specific to the flagellar switch.
+SF_FLAGELLAR_HOOK	flagellar hook	The curved universal joint that transmits torque from the rod to the filament. FlgD is excluded because it is a transient assembly scaffold rather than a part of the finished structure.
+SF_FLAGELLAR_HOOK_FILAMENT_JUNCTION	flagellar hook-filament junction	The hook-associated proteins that adapt the hook to the filament; without them flagellin polymerises without being retained.
+SF_FLAGELLAR_FILAMENT	flagellar filament	The helical propeller: polymerised flagellin together with the distal cap that permits its ordered polymerisation.
+SF_FLAGELLAR_STATOR	flagellar stator torque generator	The membrane-anchored ion-conducting stator units that generate torque against the C ring. The curated claim is deliberately silent about the coupling ion; see the description of SYS_SF_FLAGELLAR_STATOR_MOTAB.
+SF_FLAGELLAR_OUTER_RING	flagellar L and P rings	The outer membrane and peptidoglycan bushings through which the rod passes in a diderm envelope. Monoderms build a flagellum without them, which is why they belong to a separate architecture rather than being an optional part of one.
+SF_T4AP_PREPILIN_PEPTIDASE	type IV prepilin peptidase	Cleaves and N-methylates the type IV prepilin leader, without which no pilin can be polymerised.
+SF_T4AP_MAJOR_PILIN	type IVa major pilin	The subunit polymerised into the pilus fibre.
+SF_T4AP_ASSEMBLY_ATPASE	type IVa pilus assembly ATPase	The cytoplasmic motor ATPase that powers pilus extension.
+SF_T4AP_PLATFORM	type IVa pilus inner membrane platform	The polytopic inner membrane protein that transfers pilin subunits from the membrane into the growing fibre.
+SF_T4AP_ALIGNMENT_COMPLEX	type IVa pilus alignment subcomplex	The envelope-spanning subcomplex that aligns the inner membrane platform with the outer membrane secretin.
+SF_T4AP_SECRETIN	type IVa pilus secretin	The outer membrane channel through which the pilus fibre emerges.
+SF_T4AP_RETRACTION_ATPASE	type IVa pilus retraction ATPase	The ATPase that depolymerises the fibre. It is accessory to assembling a pilus and is therefore not required by the architecture; a genome without it is expected to build a pilus it cannot retract.

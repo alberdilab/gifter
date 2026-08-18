@@ -1,0 +1,12 @@
+component_id	namespace	accession	evidence_type	confidence	source	notes
+COMP_DF_HSDS	KO	K01154	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	The orthologue group is defined as the type I restriction enzyme S subunit, so it separates type I from types II, III and IV. It does not resolve which target sequence the variable target recognition domains specify.
+COMP_DF_HSDM	KO	K03427	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	Defined as the type I restriction enzyme M protein.
+COMP_DF_HSDR	KO	K01153	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	Defined as the type I restriction enzyme R subunit.
+COMP_DF_CASA	KO	K19123	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_DF_CASB	KO	K19046	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_DF_CASC	KO	K19124	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_DF_CASD	KO	K19125	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_DF_CASE	KO	K19126	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_DF_CAS3	KO	K07012	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	The fused endonuclease-helicase. K07475, the standalone HD nuclease module of a split Cas3, is not accepted as evidence of the complete function.
+COMP_DF_CAS1	KO	K15342	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_DF_CAS2	KO	K09951	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	

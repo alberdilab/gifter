@@ -24,3 +24,10 @@ resource_origin	central_metabolism	anchor	An intracellular metabolite of shared 
 resource_origin	inorganic	anchor	An inorganic nutrient.
 biomass_essential	yes	anchor	A building block a growing cell must obtain or synthesise.
 biomass_essential	no	anchor	Not itself a biomass building block.
+structural_class	cell_surface_appendage	gift	An extracellular filamentous or fibrillar structure anchored in the cell envelope and built by a dedicated assembly machine.
+structural_class	envelope_structure	gift	A structure built within the cell envelope itself rather than projecting from it.
+structural_class	secretion_machine	gift	A machine whose curated architecture exists to translocate substrates across the envelope.
+regulatory_class	two_component_system	gift	A sensor histidine kinase paired with a cognate response regulator.
+regulatory_class	chemosensory_pathway	gift	A receptor-array signalling pathway with a coupled kinase, a diffusible response regulator and a receptor methylation adaptation cycle.
+defense_class	restriction_modification	gift	A system that distinguishes self from non-self DNA by modification and cleaves what is unmodified.
+defense_class	crispr_cas	gift	A system that recognises invading nucleic acid by sequence complementarity to stored spacers.

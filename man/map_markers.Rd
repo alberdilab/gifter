@@ -2,7 +2,7 @@
 % Please edit documentation in R/evaluation.R
 \name{map_markers}
 \alias{map_markers}
-\title{Map observed genomic markers to enzyme components}
+\title{Map observed genomic markers to curated components}
 \usage{
 map_markers(annotation_table, namespace = NULL, db = NULL)
 }
@@ -17,10 +17,14 @@ Pfam, and TIGRFAM accessions are inferred where possible.}
 \item{db}{Optional open giftr database connection.}
 }
 \value{
-A long-form tibble linking each observation to zero or more enzyme
-  components and reactions. `matched` is `FALSE` for unused markers.
+A long-form tibble linking each observation to zero or more curated
+  components. `gift_type` names the completeness model a row belongs to:
+  metabolic rows carry `reaction_id`, and the machinery types carry
+  `function_id`. Component keys are unique only within a model, so compare
+  them together with `gift_type`. `matched` is `FALSE` for unused markers.
 }
 \description{
-Marker namespaces and accessions are normalized before indexed lookups. The
-result retains unmatched observations, making marker use auditable.
+Marker namespaces and accessions are normalized before indexed lookups, and
+every curated GIFT type is searched. The result retains unmatched
+observations, making marker use auditable.
 }
