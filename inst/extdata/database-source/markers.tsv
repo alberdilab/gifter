@@ -1,0 +1,425 @@
+namespace	accession	name	description
+KO	K00764	amidophosphoribosyltransferase	KEGG orthology marker.
+KO	K01945	phosphoribosylamine--glycine ligase	KEGG orthology marker.
+KO	K11787	multifunctional purine biosynthesis protein	KEGG orthology marker supporting multiple catalytic components.
+KO	K11788	multifunctional purine biosynthesis protein	KEGG orthology marker supporting multiple catalytic components.
+KO	K13713	fusion protein PurCD	KEGG orthology marker supporting two catalytic components.
+KO	K00601	phosphoribosylglycinamide formyltransferase	KEGG orthology marker.
+KO	K11175	phosphoribosylglycinamide formyltransferase	KEGG orthology marker.
+KO	K01492	purine biosynthesis transformylase	KEGG orthology marker supporting multiple catalytic components.
+KO	K08289	phosphoribosylglycinamide formyltransferase 2	KEGG orthology marker.
+KO	K01952	phosphoribosylformylglycinamidine synthase	KEGG orthology marker for the large single-protein architecture.
+KO	K23269	FGAM synthase component	KEGG orthology marker for a required complex component.
+KO	K23264	FGAM synthase component	KEGG orthology marker for a required complex component.
+KO	K23265	FGAM synthase component	KEGG orthology marker shared by alternative complex architectures.
+KO	K23270	FGAM synthase component	KEGG orthology marker for a required complex component.
+KO	K01933	phosphoribosylformylglycinamidine cyclo-ligase	KEGG orthology marker.
+KO	K01587	phosphoribosylaminoimidazole carboxylase	KEGG orthology marker supporting multiple catalytic components.
+KO	K11808	phosphoribosylaminoimidazole carboxylase	KEGG orthology marker.
+KO	K01589	N5-CAIR synthetase	KEGG orthology marker.
+KO	K01588	N5-CAIR mutase	KEGG orthology marker.
+KO	K01923	SAICAR synthetase	KEGG orthology marker.
+KO	K01756	adenylosuccinate lyase	KEGG orthology marker supporting reactions in both reference GIFTs.
+KO	K00602	bifunctional AICAR transformylase and IMP cyclohydrolase	KEGG orthology marker supporting two catalytic components.
+KO	K06863	FAICAR synthetase	KEGG orthology marker.
+KO	K11176	IMP cyclohydrolase	KEGG orthology marker.
+KO	K01939	adenylosuccinate synthase	KEGG orthology marker.
+KO	K00088	IMP dehydrogenase	KEGG orthology marker for the first guanylate-branch reaction.
+KO	K01951	GMP synthase (glutamine-hydrolyzing)	KEGG orthology marker for guanylate-branch GMP formation.
+KO	K11540	carbamoyl-phosphate synthase / aspartate carbamoyltransferase / dihydroorotase	Multifunctional KEGG orthology marker supporting three M00051 reactions.
+KO	K11541	carbamoyl-phosphate synthase / aspartate carbamoyltransferase	Multifunctional KEGG orthology marker supporting two M00051 reactions.
+KO	K01465	dihydroorotase	KEGG orthology marker.
+KO	K01954	carbamoyl-phosphate synthase	KEGG orthology marker for the single-protein architecture.
+KO	K01955	carbamoyl-phosphate synthase large subunit	KEGG orthology marker for a required complex component.
+KO	K01956	carbamoyl-phosphate synthase small subunit	KEGG orthology marker for a required complex component.
+KO	K00609	aspartate carbamoyltransferase catalytic subunit	KEGG orthology marker for a required complex component.
+KO	K00608	aspartate carbamoyltransferase	KEGG orthology marker for the single-protein architecture.
+KO	K00226	dihydroorotate dehydrogenase (fumarate)	KEGG orthology marker.
+KO	K00254	dihydroorotate dehydrogenase (quinone)	KEGG orthology marker.
+KO	K17828	dihydroorotate dehydrogenase (NAD+) catalytic subunit	KEGG orthology marker.
+KO	K02823	dihydroorotate dehydrogenase electron transfer subunit	KEGG orthology marker for a required complex component.
+KO	K13421	uridine monophosphate synthetase	Bifunctional KEGG orthology marker supporting two M00051 reactions.
+KO	K00762	orotate phosphoribosyltransferase	KEGG orthology marker.
+KO	K01591	orotidine 5'-phosphate decarboxylase	KEGG orthology marker.
+KO	K01937	CTP synthase	KEGG orthology marker for cytidylate formation.
+KO	K00058	D-3-phosphoglycerate dehydrogenase	KEGG orthology marker.
+KO	K00831	phosphoserine aminotransferase	KEGG orthology marker.
+KO	K01079	phosphoserine phosphatase	KEGG orthology marker.
+KO	K02203	phosphoserine / homoserine phosphotransferase	Bifunctional KEGG orthology marker supporting two catalytic components.
+KO	K22305	phosphoserine phosphatase	KEGG orthology marker.
+KO	K25528	phosphoserine phosphatase	KEGG orthology marker.
+KO	K00600	glycine hydroxymethyltransferase	KEGG orthology marker.
+KO	K00928	aspartate kinase	KEGG orthology marker.
+KO	K12524	bifunctional aspartokinase / homoserine dehydrogenase 1	Bifunctional KEGG orthology marker supporting two catalytic components.
+KO	K12525	bifunctional aspartokinase / homoserine dehydrogenase 2	Bifunctional KEGG orthology marker supporting two catalytic components.
+KO	K12526	bifunctional diaminopimelate decarboxylase / aspartate kinase	Bifunctional KEGG orthology marker carrying aspartate kinase activity.
+KO	K00133	aspartate-semialdehyde dehydrogenase	KEGG orthology marker.
+KO	K00003	homoserine dehydrogenase	KEGG orthology marker.
+KO	K00872	homoserine kinase	KEGG orthology marker.
+KO	K02204	homoserine kinase type II	KEGG orthology marker.
+KO	K01733	threonine synthase	KEGG orthology marker.
+KO	K00651	homoserine O-succinyltransferase / O-acetyltransferase	KEGG orthology marker carrying both acyl chemistries.
+KO	K00641	homoserine O-acetyltransferase / O-succinyltransferase	KEGG orthology marker carrying both acyl chemistries.
+KO	K01739	cystathionine gamma-synthase	KEGG orthology marker.
+KO	K27857	plant cystathionine gamma-synthase	KEGG orthology marker.
+KO	K01760	cystathionine beta-lyase	KEGG orthology marker.
+KO	K14155	cystathionine beta-lyase	KEGG orthology marker.
+KO	K00548	cobalamin-dependent methionine synthase	KEGG orthology marker.
+KO	K24042	methionine synthase / methylenetetrahydrofolate reductase	KEGG orthology marker carrying cobalamin-dependent methionine synthase activity.
+KO	K00549	cobalamin-independent methionine synthase	KEGG orthology marker.
+KO	K01740	O-acetylhomoserine (thiol)-lyase	KEGG orthology marker.
+KO	K10764	O-succinylhomoserine sulfhydrylase	KEGG orthology marker.
+KO	K17069	O-acetylhomoserine / O-acetylserine sulfhydrylase	KEGG orthology marker supporting two catalytic components.
+KO	K00640	serine O-acetyltransferase	KEGG orthology marker.
+KO	K23304	serine O-acetyltransferase	KEGG orthology marker.
+KO	K01738	cysteine synthase	KEGG orthology marker.
+KO	K13034	cyanoalanine synthase / cysteine synthase	KEGG orthology marker carrying cysteine synthase activity.
+KO	K01697	cystathionine beta-synthase	KEGG orthology marker.
+KO	K10150	cysteine synthase / cystathionine beta-synthase	KEGG orthology marker carrying cystathionine beta-synthase activity.
+KO	K01758	cystathionine gamma-lyase	KEGG orthology marker.
+KO	K17216	cystathionine beta-synthase (O-acetyl-L-serine)	KEGG orthology marker.
+KO	K17217	cystathionine gamma-lyase / homocysteine desulfhydrase	KEGG orthology marker.
+KO	K01805	xylA; xylose isomerase	KEGG orthology marker.
+KO	K00854	xylB; xylulokinase	KEGG orthology marker.
+KO	K01804	araA; L-arabinose isomerase	KEGG orthology marker.
+KO	K00853	araB; L-ribulokinase	KEGG orthology marker.
+KO	K24707	ribulokinase	KEGG orthology marker.
+KO	K03077	araD; L-ribulose-5-phosphate 4-epimerase	KEGG orthology marker.
+KO	K01818	fucI; L-fucose/D-arabinose isomerase	KEGG orthology marker.
+KO	K00879	fucK; L-fuculokinase	KEGG orthology marker.
+KO	K01628	fucA; L-fuculose-phosphate aldolase	KEGG orthology marker.
+KO	K01813	rhaA; L-rhamnose isomerase	KEGG orthology marker.
+KO	K01820	rhaA; L-rhamnose isomerase / sugar isomerase	KEGG orthology marker.
+KO	K00848	rhaB; rhamnulokinase	KEGG orthology marker.
+KO	K01629	rhaD; rhamnulose-1-phosphate aldolase	KEGG orthology marker.
+KO	K01785	galM; aldose 1-epimerase	KEGG orthology marker.
+KO	K00849	galK; galactokinase	KEGG orthology marker.
+KO	K00965	galT; UDPglucose--hexose-1-phosphate uridylyltransferase	KEGG orthology marker.
+KO	K01784	galE; UDP-glucose 4-epimerase	KEGG orthology marker.
+KO	K17716	capD; UDP-glucose 4-epimerase	KEGG orthology marker.
+KO	K00884	NAGK; N-acetylglucosamine kinase	KEGG orthology marker.
+KO	K28207	nagK; N-acetylglucosamine kinase	KEGG orthology marker.
+KO	K28208	murK; N-acetylmuramate/N-acetylglucosamine kinase	KEGG orthology marker.
+KO	K01443	nagA; N-acetylglucosamine-6-phosphate deacetylase	KEGG orthology marker.
+KO	K02564	nagB; glucosamine-6-phosphate deaminase	KEGG orthology marker.
+KO	K01639	nanA; N-acetylneuraminate lyase	KEGG orthology marker.
+KO	K00885	nanK; N-acylmannosamine kinase	KEGG orthology marker.
+KO	K13967	nanEK; N-acetylmannosamine-6-phosphate 2-epimerase / kinase	KEGG orthology marker.
+KO	K01788	nanE; N-acylglucosamine-6-phosphate 2-epimerase	KEGG orthology marker.
+KO	K01812	uxaC; glucuronate isomerase	KEGG orthology marker.
+KO	K00041	uxaB; tagaturonate reductase	KEGG orthology marker.
+KO	K01685	uxaA; altronate hydrolase	KEGG orthology marker.
+KO	K16849	uxaA1; altronate dehydratase small subunit	KEGG orthology marker.
+KO	K16850	uxaA2; altronate dehydratase large subunit	KEGG orthology marker.
+KO	K00874	kdgK; 2-dehydro-3-deoxygluconokinase	KEGG orthology marker.
+KO	K01625	eda; 2-dehydro-3-deoxyphosphogluconate aldolase	KEGG orthology marker.
+KO	K17463	dgaF; 2-dehydro-3-deoxy-phosphogluconate aldolase	KEGG orthology marker.
+KO	K28887	kdgA; 2-dehydro-3-deoxy-phosphogluconate aldolase	KEGG orthology marker.
+KO	K00040	uxuB; fructuronate reductase	KEGG orthology marker.
+KO	K01686	uxuA; mannonate dehydratase	KEGG orthology marker.
+KO	K08323	rspA; mannonate dehydratase	KEGG orthology marker.
+KO	K10543	xylF; D-xylose transport system substrate-binding protein	KEGG orthology marker.
+KO	K10544	xylH; D-xylose transport system permease protein	KEGG orthology marker.
+KO	K10545	xylG; D-xylose transport system ATP-binding protein	KEGG orthology marker.
+KO	K10537	araF; L-arabinose transport system substrate-binding protein	KEGG orthology marker.
+KO	K10538	araH; L-arabinose transport system permease protein	KEGG orthology marker.
+KO	K10539	araG; L-arabinose transport system ATP-binding protein	KEGG orthology marker.
+KO	K25045	xacG; L-arabinose/D-xylose transport system substrate-binding protein	KEGG orthology marker.
+KO	K25046	xacH; L-arabinose/D-xylose transport system permease protein	KEGG orthology marker.
+KO	K25047	xacI; L-arabinose/D-xylose transport system permease protein	KEGG orthology marker.
+KO	K01209	alpha-L-arabinofuranosidase orthologue	KEGG orthology marker.
+KO	K15921	alpha-L-arabinofuranosidase orthologue	KEGG orthology marker.
+KO	K20844	alpha-L-arabinofuranosidase orthologue	KEGG orthology marker.
+CAZY	GH2	CAZy family GH2	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH3	CAZy family GH3	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH43	CAZy family GH43	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH5	CAZy family GH5	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH51	CAZy family GH51	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH54	CAZy family GH54	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH62	CAZy family GH62	CAZy sequence family; activity assignment from dbCAN.
+KO	K01181	endo-1,4-beta-xylanase orthologue	KEGG orthology marker.
+CAZY	GH10	CAZy family GH10	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH11	CAZy family GH11	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH141	CAZy family GH141	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH30	CAZy family GH30	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH44	CAZy family GH44	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH8	CAZy family GH8	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH9	CAZy family GH9	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH98	CAZy family GH98	CAZy sequence family; activity assignment from dbCAN.
+KO	K01198	xylan 1,4-beta-xylosidase orthologue	KEGG orthology marker.
+KO	K15920	xylan 1,4-beta-xylosidase orthologue	KEGG orthology marker.
+KO	K22268	xylan 1,4-beta-xylosidase orthologue	KEGG orthology marker.
+CAZY	GH1	CAZy family GH1	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH116	CAZy family GH116	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH120	CAZy family GH120	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH39	CAZy family GH39	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH52	CAZy family GH52	CAZy sequence family; activity assignment from dbCAN.
+KO	K01176	alpha-amylase orthologue	KEGG orthology marker.
+KO	K07405	alpha-amylase orthologue	KEGG orthology marker.
+CAZY	GH119	CAZy family GH119	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH126	CAZy family GH126	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH13	CAZy family GH13	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH57	CAZy family GH57	CAZy sequence family; activity assignment from dbCAN.
+KO	K01200	pullulanase orthologue	KEGG orthology marker.
+KO	K01187	alpha-glucosidase orthologue	KEGG orthology marker.
+CAZY	GH122	CAZy family GH122	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH31	CAZy family GH31	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH4	CAZy family GH4	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH63	CAZy family GH63	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH76	CAZy family GH76	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH97	CAZy family GH97	CAZy sequence family; activity assignment from dbCAN.
+KO	K05972	AXE1; acetylxylan esterase	KEGG orthology marker.
+CAZY	CE1	CAZy family CE1	CAZy sequence family; activity assignment from dbCAN.
+CAZY	CE2	CAZy family CE2	CAZy sequence family; activity assignment from dbCAN.
+CAZY	CE3	CAZy family CE3	CAZy sequence family; activity assignment from dbCAN.
+CAZY	CE4	CAZy family CE4	CAZy sequence family; activity assignment from dbCAN.
+CAZY	CE5	CAZy family CE5	CAZy sequence family; activity assignment from dbCAN.
+CAZY	CE6	CAZy family CE6	CAZy sequence family; activity assignment from dbCAN.
+CAZY	CE7	CAZy family CE7	CAZy sequence family; activity assignment from dbCAN.
+CAZY	CE12	CAZy family CE12	CAZy sequence family; activity assignment from dbCAN.
+CAZY	GH10_e0	dbCAN-sub cluster GH10_e0	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e10	dbCAN-sub cluster GH10_e10	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e101	dbCAN-sub cluster GH10_e101	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e103	dbCAN-sub cluster GH10_e103	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e105	dbCAN-sub cluster GH10_e105	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e109	dbCAN-sub cluster GH10_e109	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e112	dbCAN-sub cluster GH10_e112	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e118	dbCAN-sub cluster GH10_e118	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e12	dbCAN-sub cluster GH10_e12	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e130	dbCAN-sub cluster GH10_e130	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e134	dbCAN-sub cluster GH10_e134	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e135	dbCAN-sub cluster GH10_e135	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e137	dbCAN-sub cluster GH10_e137	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e141	dbCAN-sub cluster GH10_e141	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e143	dbCAN-sub cluster GH10_e143	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e144	dbCAN-sub cluster GH10_e144	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e148	dbCAN-sub cluster GH10_e148	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e170	dbCAN-sub cluster GH10_e170	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e188	dbCAN-sub cluster GH10_e188	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e19	dbCAN-sub cluster GH10_e19	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e191	dbCAN-sub cluster GH10_e191	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e20	dbCAN-sub cluster GH10_e20	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e204	dbCAN-sub cluster GH10_e204	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e21	dbCAN-sub cluster GH10_e21	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e225	dbCAN-sub cluster GH10_e225	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e25	dbCAN-sub cluster GH10_e25	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e250	dbCAN-sub cluster GH10_e250	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e3	dbCAN-sub cluster GH10_e3	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e30	dbCAN-sub cluster GH10_e30	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e38	dbCAN-sub cluster GH10_e38	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e40	dbCAN-sub cluster GH10_e40	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e43	dbCAN-sub cluster GH10_e43	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e5	dbCAN-sub cluster GH10_e5	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e50	dbCAN-sub cluster GH10_e50	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e52	dbCAN-sub cluster GH10_e52	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e53	dbCAN-sub cluster GH10_e53	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e58	dbCAN-sub cluster GH10_e58	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e6	dbCAN-sub cluster GH10_e6	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e60	dbCAN-sub cluster GH10_e60	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e64	dbCAN-sub cluster GH10_e64	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e67	dbCAN-sub cluster GH10_e67	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e75	dbCAN-sub cluster GH10_e75	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e77	dbCAN-sub cluster GH10_e77	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e78	dbCAN-sub cluster GH10_e78	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e8	dbCAN-sub cluster GH10_e8	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e83	dbCAN-sub cluster GH10_e83	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e85	dbCAN-sub cluster GH10_e85	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e88	dbCAN-sub cluster GH10_e88	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e90	dbCAN-sub cluster GH10_e90	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e96	dbCAN-sub cluster GH10_e96	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e97	dbCAN-sub cluster GH10_e97	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH10_e98	dbCAN-sub cluster GH10_e98	dbCAN-sub eCAMI cluster of CAZy family GH10.
+CAZY	GH11_e0	dbCAN-sub cluster GH11_e0	dbCAN-sub eCAMI cluster of CAZy family GH11.
+CAZY	GH11_e10	dbCAN-sub cluster GH11_e10	dbCAN-sub eCAMI cluster of CAZy family GH11.
+CAZY	GH11_e11	dbCAN-sub cluster GH11_e11	dbCAN-sub eCAMI cluster of CAZy family GH11.
+CAZY	GH11_e13	dbCAN-sub cluster GH11_e13	dbCAN-sub eCAMI cluster of CAZy family GH11.
+CAZY	GH11_e14	dbCAN-sub cluster GH11_e14	dbCAN-sub eCAMI cluster of CAZy family GH11.
+CAZY	GH11_e15	dbCAN-sub cluster GH11_e15	dbCAN-sub eCAMI cluster of CAZy family GH11.
+CAZY	GH11_e16	dbCAN-sub cluster GH11_e16	dbCAN-sub eCAMI cluster of CAZy family GH11.
+CAZY	GH11_e17	dbCAN-sub cluster GH11_e17	dbCAN-sub eCAMI cluster of CAZy family GH11.
+CAZY	GH11_e2	dbCAN-sub cluster GH11_e2	dbCAN-sub eCAMI cluster of CAZy family GH11.
+CAZY	GH11_e20	dbCAN-sub cluster GH11_e20	dbCAN-sub eCAMI cluster of CAZy family GH11.
+CAZY	GH11_e22	dbCAN-sub cluster GH11_e22	dbCAN-sub eCAMI cluster of CAZy family GH11.
+CAZY	GH11_e23	dbCAN-sub cluster GH11_e23	dbCAN-sub eCAMI cluster of CAZy family GH11.
+CAZY	GH11_e24	dbCAN-sub cluster GH11_e24	dbCAN-sub eCAMI cluster of CAZy family GH11.
+CAZY	GH11_e39	dbCAN-sub cluster GH11_e39	dbCAN-sub eCAMI cluster of CAZy family GH11.
+CAZY	GH11_e42	dbCAN-sub cluster GH11_e42	dbCAN-sub eCAMI cluster of CAZy family GH11.
+CAZY	GH11_e5	dbCAN-sub cluster GH11_e5	dbCAN-sub eCAMI cluster of CAZy family GH11.
+CAZY	GH11_e7	dbCAN-sub cluster GH11_e7	dbCAN-sub eCAMI cluster of CAZy family GH11.
+CAZY	GH11_e8	dbCAN-sub cluster GH11_e8	dbCAN-sub eCAMI cluster of CAZy family GH11.
+CAZY	GH16_e14	dbCAN-sub cluster GH16_e14	dbCAN-sub eCAMI cluster of CAZy family GH16.
+CAZY	GH26_e54	dbCAN-sub cluster GH26_e54	dbCAN-sub eCAMI cluster of CAZy family GH26.
+CAZY	GH30_e138	dbCAN-sub cluster GH30_e138	dbCAN-sub eCAMI cluster of CAZy family GH30.
+CAZY	GH30_e145	dbCAN-sub cluster GH30_e145	dbCAN-sub eCAMI cluster of CAZy family GH30.
+CAZY	GH30_e48	dbCAN-sub cluster GH30_e48	dbCAN-sub eCAMI cluster of CAZy family GH30.
+CAZY	GH30_e78	dbCAN-sub cluster GH30_e78	dbCAN-sub eCAMI cluster of CAZy family GH30.
+CAZY	GH43_e261	dbCAN-sub cluster GH43_e261	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH5_e130	dbCAN-sub cluster GH5_e130	dbCAN-sub eCAMI cluster of CAZy family GH5.
+CAZY	GH5_e141	dbCAN-sub cluster GH5_e141	dbCAN-sub eCAMI cluster of CAZy family GH5.
+CAZY	GH5_e243	dbCAN-sub cluster GH5_e243	dbCAN-sub eCAMI cluster of CAZy family GH5.
+CAZY	GH5_e29	dbCAN-sub cluster GH5_e29	dbCAN-sub eCAMI cluster of CAZy family GH5.
+CAZY	GH5_e319	dbCAN-sub cluster GH5_e319	dbCAN-sub eCAMI cluster of CAZy family GH5.
+CAZY	GH5_e55	dbCAN-sub cluster GH5_e55	dbCAN-sub eCAMI cluster of CAZy family GH5.
+CAZY	GH5_e77	dbCAN-sub cluster GH5_e77	dbCAN-sub eCAMI cluster of CAZy family GH5.
+CAZY	GH51_e9	dbCAN-sub cluster GH51_e9	dbCAN-sub eCAMI cluster of CAZy family GH51.
+CAZY	GH8_e19	dbCAN-sub cluster GH8_e19	dbCAN-sub eCAMI cluster of CAZy family GH8.
+CAZY	GH8_e37	dbCAN-sub cluster GH8_e37	dbCAN-sub eCAMI cluster of CAZy family GH8.
+CAZY	GH8_e9	dbCAN-sub cluster GH8_e9	dbCAN-sub eCAMI cluster of CAZy family GH8.
+CAZY	GH9_e16	dbCAN-sub cluster GH9_e16	dbCAN-sub eCAMI cluster of CAZy family GH9.
+CAZY	GH98_e0	dbCAN-sub cluster GH98_e0	dbCAN-sub eCAMI cluster of CAZy family GH98.
+CAZY	GH120_e0	dbCAN-sub cluster GH120_e0	dbCAN-sub eCAMI cluster of CAZy family GH120.
+CAZY	GH3_e0	dbCAN-sub cluster GH3_e0	dbCAN-sub eCAMI cluster of CAZy family GH3.
+CAZY	GH3_e165	dbCAN-sub cluster GH3_e165	dbCAN-sub eCAMI cluster of CAZy family GH3.
+CAZY	GH3_e21	dbCAN-sub cluster GH3_e21	dbCAN-sub eCAMI cluster of CAZy family GH3.
+CAZY	GH3_e32	dbCAN-sub cluster GH3_e32	dbCAN-sub eCAMI cluster of CAZy family GH3.
+CAZY	GH3_e50	dbCAN-sub cluster GH3_e50	dbCAN-sub eCAMI cluster of CAZy family GH3.
+CAZY	GH3_e73	dbCAN-sub cluster GH3_e73	dbCAN-sub eCAMI cluster of CAZy family GH3.
+CAZY	GH3_e88	dbCAN-sub cluster GH3_e88	dbCAN-sub eCAMI cluster of CAZy family GH3.
+CAZY	GH39_e131	dbCAN-sub cluster GH39_e131	dbCAN-sub eCAMI cluster of CAZy family GH39.
+CAZY	GH39_e264	dbCAN-sub cluster GH39_e264	dbCAN-sub eCAMI cluster of CAZy family GH39.
+CAZY	GH39_e57	dbCAN-sub cluster GH39_e57	dbCAN-sub eCAMI cluster of CAZy family GH39.
+CAZY	GH39_e74	dbCAN-sub cluster GH39_e74	dbCAN-sub eCAMI cluster of CAZy family GH39.
+CAZY	GH43_e264	dbCAN-sub cluster GH43_e264	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e285	dbCAN-sub cluster GH43_e285	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e330	dbCAN-sub cluster GH43_e330	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e398	dbCAN-sub cluster GH43_e398	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e459	dbCAN-sub cluster GH43_e459	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e53	dbCAN-sub cluster GH43_e53	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e59	dbCAN-sub cluster GH43_e59	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e67	dbCAN-sub cluster GH43_e67	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH5_e288	dbCAN-sub cluster GH5_e288	dbCAN-sub eCAMI cluster of CAZy family GH5.
+CAZY	GH51_e4	dbCAN-sub cluster GH51_e4	dbCAN-sub eCAMI cluster of CAZy family GH51.
+CAZY	GH52_e0	dbCAN-sub cluster GH52_e0	dbCAN-sub eCAMI cluster of CAZy family GH52.
+CAZY	GH43_e0	dbCAN-sub cluster GH43_e0	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e118	dbCAN-sub cluster GH43_e118	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e124	dbCAN-sub cluster GH43_e124	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e159	dbCAN-sub cluster GH43_e159	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e173	dbCAN-sub cluster GH43_e173	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e188	dbCAN-sub cluster GH43_e188	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e194	dbCAN-sub cluster GH43_e194	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e2	dbCAN-sub cluster GH43_e2	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e239	dbCAN-sub cluster GH43_e239	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e259	dbCAN-sub cluster GH43_e259	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e311	dbCAN-sub cluster GH43_e311	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e327	dbCAN-sub cluster GH43_e327	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e429	dbCAN-sub cluster GH43_e429	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e52	dbCAN-sub cluster GH43_e52	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e532	dbCAN-sub cluster GH43_e532	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e79	dbCAN-sub cluster GH43_e79	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH43_e84	dbCAN-sub cluster GH43_e84	dbCAN-sub eCAMI cluster of CAZy family GH43.
+CAZY	GH51_e0	dbCAN-sub cluster GH51_e0	dbCAN-sub eCAMI cluster of CAZy family GH51.
+CAZY	GH51_e1	dbCAN-sub cluster GH51_e1	dbCAN-sub eCAMI cluster of CAZy family GH51.
+CAZY	GH51_e19	dbCAN-sub cluster GH51_e19	dbCAN-sub eCAMI cluster of CAZy family GH51.
+CAZY	GH51_e26	dbCAN-sub cluster GH51_e26	dbCAN-sub eCAMI cluster of CAZy family GH51.
+CAZY	GH51_e31	dbCAN-sub cluster GH51_e31	dbCAN-sub eCAMI cluster of CAZy family GH51.
+CAZY	GH51_e34	dbCAN-sub cluster GH51_e34	dbCAN-sub eCAMI cluster of CAZy family GH51.
+CAZY	GH51_e35	dbCAN-sub cluster GH51_e35	dbCAN-sub eCAMI cluster of CAZy family GH51.
+CAZY	GH51_e36	dbCAN-sub cluster GH51_e36	dbCAN-sub eCAMI cluster of CAZy family GH51.
+CAZY	GH51_e47	dbCAN-sub cluster GH51_e47	dbCAN-sub eCAMI cluster of CAZy family GH51.
+CAZY	GH51_e51	dbCAN-sub cluster GH51_e51	dbCAN-sub eCAMI cluster of CAZy family GH51.
+CAZY	GH51_e65	dbCAN-sub cluster GH51_e65	dbCAN-sub eCAMI cluster of CAZy family GH51.
+CAZY	GH54_e0	dbCAN-sub cluster GH54_e0	dbCAN-sub eCAMI cluster of CAZy family GH54.
+CAZY	GH62_e0	dbCAN-sub cluster GH62_e0	dbCAN-sub eCAMI cluster of CAZy family GH62.
+CAZY	GH62_e1	dbCAN-sub cluster GH62_e1	dbCAN-sub eCAMI cluster of CAZy family GH62.
+CAZY	GH62_e9	dbCAN-sub cluster GH62_e9	dbCAN-sub eCAMI cluster of CAZy family GH62.
+CAZY	GH119_e2	dbCAN-sub cluster GH119_e2	dbCAN-sub eCAMI cluster of CAZy family GH119.
+CAZY	GH13_e124	dbCAN-sub cluster GH13_e124	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e13	dbCAN-sub cluster GH13_e13	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e139	dbCAN-sub cluster GH13_e139	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e143	dbCAN-sub cluster GH13_e143	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e146	dbCAN-sub cluster GH13_e146	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e160	dbCAN-sub cluster GH13_e160	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e172	dbCAN-sub cluster GH13_e172	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e173	dbCAN-sub cluster GH13_e173	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e18	dbCAN-sub cluster GH13_e18	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e183	dbCAN-sub cluster GH13_e183	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e19	dbCAN-sub cluster GH13_e19	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e205	dbCAN-sub cluster GH13_e205	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e206	dbCAN-sub cluster GH13_e206	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e23	dbCAN-sub cluster GH13_e23	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e240	dbCAN-sub cluster GH13_e240	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e245	dbCAN-sub cluster GH13_e245	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e248	dbCAN-sub cluster GH13_e248	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e25	dbCAN-sub cluster GH13_e25	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e302	dbCAN-sub cluster GH13_e302	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e303	dbCAN-sub cluster GH13_e303	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e307	dbCAN-sub cluster GH13_e307	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e329	dbCAN-sub cluster GH13_e329	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e34	dbCAN-sub cluster GH13_e34	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e345	dbCAN-sub cluster GH13_e345	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e346	dbCAN-sub cluster GH13_e346	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e348	dbCAN-sub cluster GH13_e348	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e354	dbCAN-sub cluster GH13_e354	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e380	dbCAN-sub cluster GH13_e380	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e381	dbCAN-sub cluster GH13_e381	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e386	dbCAN-sub cluster GH13_e386	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e387	dbCAN-sub cluster GH13_e387	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e389	dbCAN-sub cluster GH13_e389	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e406	dbCAN-sub cluster GH13_e406	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e409	dbCAN-sub cluster GH13_e409	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e413	dbCAN-sub cluster GH13_e413	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e419	dbCAN-sub cluster GH13_e419	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e42	dbCAN-sub cluster GH13_e42	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e443	dbCAN-sub cluster GH13_e443	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e446	dbCAN-sub cluster GH13_e446	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e462	dbCAN-sub cluster GH13_e462	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e465	dbCAN-sub cluster GH13_e465	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e47	dbCAN-sub cluster GH13_e47	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e484	dbCAN-sub cluster GH13_e484	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e486	dbCAN-sub cluster GH13_e486	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e491	dbCAN-sub cluster GH13_e491	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e493	dbCAN-sub cluster GH13_e493	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e497	dbCAN-sub cluster GH13_e497	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e5	dbCAN-sub cluster GH13_e5	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e500	dbCAN-sub cluster GH13_e500	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e61	dbCAN-sub cluster GH13_e61	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH14_e6	dbCAN-sub cluster GH14_e6	dbCAN-sub eCAMI cluster of CAZy family GH14.
+CAZY	GH57_e11	dbCAN-sub cluster GH57_e11	dbCAN-sub eCAMI cluster of CAZy family GH57.
+CAZY	GH57_e15	dbCAN-sub cluster GH57_e15	dbCAN-sub eCAMI cluster of CAZy family GH57.
+CAZY	GH57_e30	dbCAN-sub cluster GH57_e30	dbCAN-sub eCAMI cluster of CAZy family GH57.
+CAZY	GH57_e63	dbCAN-sub cluster GH57_e63	dbCAN-sub eCAMI cluster of CAZy family GH57.
+CAZY	GH13_e113	dbCAN-sub cluster GH13_e113	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e122	dbCAN-sub cluster GH13_e122	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e221	dbCAN-sub cluster GH13_e221	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e234	dbCAN-sub cluster GH13_e234	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e250	dbCAN-sub cluster GH13_e250	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e276	dbCAN-sub cluster GH13_e276	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e347	dbCAN-sub cluster GH13_e347	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e392	dbCAN-sub cluster GH13_e392	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH31_e102	dbCAN-sub cluster GH31_e102	dbCAN-sub eCAMI cluster of CAZy family GH31.
+CAZY	GH31_e177	dbCAN-sub cluster GH31_e177	dbCAN-sub eCAMI cluster of CAZy family GH31.
+CAZY	GH31_e22	dbCAN-sub cluster GH31_e22	dbCAN-sub eCAMI cluster of CAZy family GH31.
+CAZY	GH31_e39	dbCAN-sub cluster GH31_e39	dbCAN-sub eCAMI cluster of CAZy family GH31.
+CAZY	GH31_e41	dbCAN-sub cluster GH31_e41	dbCAN-sub eCAMI cluster of CAZy family GH31.
+CAZY	GH31_e42	dbCAN-sub cluster GH31_e42	dbCAN-sub eCAMI cluster of CAZy family GH31.
+CAZY	GH31_e56	dbCAN-sub cluster GH31_e56	dbCAN-sub eCAMI cluster of CAZy family GH31.
+CAZY	GH31_e7	dbCAN-sub cluster GH31_e7	dbCAN-sub eCAMI cluster of CAZy family GH31.
+CAZY	GH31_e73	dbCAN-sub cluster GH31_e73	dbCAN-sub eCAMI cluster of CAZy family GH31.
+CAZY	GH31_e78	dbCAN-sub cluster GH31_e78	dbCAN-sub eCAMI cluster of CAZy family GH31.
+CAZY	GH31_e82	dbCAN-sub cluster GH31_e82	dbCAN-sub eCAMI cluster of CAZy family GH31.
+CAZY	GH4_e14	dbCAN-sub cluster GH4_e14	dbCAN-sub eCAMI cluster of CAZy family GH4.
+CAZY	GH4_e6	dbCAN-sub cluster GH4_e6	dbCAN-sub eCAMI cluster of CAZy family GH4.
+CAZY	GH63_e1	dbCAN-sub cluster GH63_e1	dbCAN-sub eCAMI cluster of CAZy family GH63.
+CAZY	GH97_e22	dbCAN-sub cluster GH97_e22	dbCAN-sub eCAMI cluster of CAZy family GH97.
+CAZY	GH13_e108	dbCAN-sub cluster GH13_e108	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e130	dbCAN-sub cluster GH13_e130	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e165	dbCAN-sub cluster GH13_e165	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e180	dbCAN-sub cluster GH13_e180	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e278	dbCAN-sub cluster GH13_e278	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e300	dbCAN-sub cluster GH13_e300	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e315	dbCAN-sub cluster GH13_e315	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e349	dbCAN-sub cluster GH13_e349	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	GH13_e94	dbCAN-sub cluster GH13_e94	dbCAN-sub eCAMI cluster of CAZy family GH13.
+CAZY	CE1_e20	dbCAN-sub cluster CE1_e20	dbCAN-sub eCAMI cluster of CAZy family CE1.
+CAZY	CE1_e4	dbCAN-sub cluster CE1_e4	dbCAN-sub eCAMI cluster of CAZy family CE1.
+CAZY	CE12_e45	dbCAN-sub cluster CE12_e45	dbCAN-sub eCAMI cluster of CAZy family CE12.
+CAZY	CE4_e262	dbCAN-sub cluster CE4_e262	dbCAN-sub eCAMI cluster of CAZy family CE4.
+CAZY	CE4_e58	dbCAN-sub cluster CE4_e58	dbCAN-sub eCAMI cluster of CAZy family CE4.
+CAZY	CE5_e24	dbCAN-sub cluster CE5_e24	dbCAN-sub eCAMI cluster of CAZy family CE5.
+CAZY	CE6_e2	dbCAN-sub cluster CE6_e2	dbCAN-sub eCAMI cluster of CAZy family CE6.
+CAZY	CE6_e3	dbCAN-sub cluster CE6_e3	dbCAN-sub eCAMI cluster of CAZy family CE6.
+CAZY	CE7_e11	dbCAN-sub cluster CE7_e11	dbCAN-sub eCAMI cluster of CAZy family CE7.
+CAZY	CE7_e23	dbCAN-sub cluster CE7_e23	dbCAN-sub eCAMI cluster of CAZy family CE7.
+CAZY	CE7_e33	dbCAN-sub cluster CE7_e33	dbCAN-sub eCAMI cluster of CAZy family CE7.
+KO	K01387	microbial collagenase orthologue	KEGG orthology marker.
+PFAM	PF01752	Collagenase, peptidase family M9	Pfam domain marker.

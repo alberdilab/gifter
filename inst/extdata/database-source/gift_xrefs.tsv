@@ -1,0 +1,54 @@
+gift_id	namespace	accession	name	relation	notes
+purine_core_biosynthesis	KEGG_MODULE	M00048	De novo purine biosynthesis, PRPP + glutamine => IMP	equivalent	Same boundaries; giftr materialises the eight alternative minimal routes that the module expresses compactly.
+purine_core_biosynthesis	KEGG_PATHWAY	map00230	Purine metabolism	subset_of	
+adenylate_biosynthesis	KEGG_MODULE	M00049	Adenine ribonucleotide biosynthesis, IMP => ADP,ATP	subset_of	giftr stops at AMP; the shared nucleotide phosphorylation that the module continues through is excluded.
+adenylate_biosynthesis	KEGG_PATHWAY	map00230	Purine metabolism	subset_of	
+guanylate_biosynthesis	KEGG_MODULE	M00050	Guanine ribonucleotide biosynthesis, IMP => GDP,GTP	subset_of	giftr stops at GMP; the shared nucleotide phosphorylation that the module continues through is excluded.
+guanylate_biosynthesis	KEGG_PATHWAY	map00230	Purine metabolism	subset_of	
+pyrimidine_core_biosynthesis	KEGG_MODULE	M00051	De novo pyrimidine biosynthesis, glutamine (+ PRPP) => UMP	equivalent	Same boundaries; the three dihydroorotate oxidation chemistries are separate routes rather than one step.
+pyrimidine_core_biosynthesis	KEGG_PATHWAY	map00240	Pyrimidine metabolism	subset_of	
+cytidylate_biosynthesis	KEGG_MODULE	M00052	Pyrimidine ribonucleotide biosynthesis, UMP => UDP/UTP,CDP/CTP	subset_of	giftr curates only the CTP synthase reaction; shared UMP and UDP phosphorylation are excluded.
+cytidylate_biosynthesis	KEGG_PATHWAY	map00240	Pyrimidine metabolism	subset_of	
+serine_biosynthesis	KEGG_MODULE	M00020	Serine biosynthesis, glycerate-3P => serine	equivalent	Module boundaries retained unchanged.
+serine_biosynthesis	KEGG_PATHWAY	map00260	Glycine, serine and threonine metabolism	subset_of	
+serine_biosynthesis	KEGG_PATHWAY	map01230	Biosynthesis of amino acids	subset_of	
+glycine_biosynthesis	KEGG_PATHWAY	map00260	Glycine, serine and threonine metabolism	subset_of	No KEGG module covers serine to glycine.
+glycine_biosynthesis	KEGG_PATHWAY	map01230	Biosynthesis of amino acids	subset_of	
+aspartate_semialdehyde_biosynthesis	KEGG_MODULE	M00018	Threonine biosynthesis, aspartate => homoserine => threonine	subset_of	Shared head of the module, cut out so it is curated once.
+aspartate_semialdehyde_biosynthesis	KEGG_MODULE	M00017	Methionine biosynthesis, aspartate => homoserine => methionine	subset_of	Shared head of the module, cut out so it is curated once.
+aspartate_semialdehyde_biosynthesis	KEGG_MODULE	M00016	Lysine biosynthesis, succinyl-DAP pathway, aspartate => lysine	subset_of	The semialdehyde anchor is where the lysine and diaminopimelate branch leaves the aspartate family.
+aspartate_semialdehyde_biosynthesis	KEGG_PATHWAY	map00260	Glycine, serine and threonine metabolism	subset_of	
+aspartate_semialdehyde_biosynthesis	KEGG_PATHWAY	map00300	Lysine biosynthesis	subset_of	
+homoserine_biosynthesis	KEGG_MODULE	M00018	Threonine biosynthesis, aspartate => homoserine => threonine	subset_of	Shared step of the module, cut out so it is curated once.
+homoserine_biosynthesis	KEGG_MODULE	M00017	Methionine biosynthesis, aspartate => homoserine => methionine	subset_of	Shared step of the module, cut out so it is curated once.
+homoserine_biosynthesis	KEGG_PATHWAY	map00260	Glycine, serine and threonine metabolism	subset_of	
+threonine_biosynthesis	KEGG_MODULE	M00018	Threonine biosynthesis, aspartate => homoserine => threonine	subset_of	Tail of the module; the aspartate-to-homoserine head is composed from separate GIFTs.
+threonine_biosynthesis	KEGG_PATHWAY	map00260	Glycine, serine and threonine metabolism	subset_of	
+threonine_biosynthesis	KEGG_PATHWAY	map01230	Biosynthesis of amino acids	subset_of	
+methionine_biosynthesis_transsulfuration	KEGG_MODULE	M00017	Methionine biosynthesis, aspartate => homoserine => methionine	subset_of	Tail of the module; the aspartate-to-homoserine head is composed from separate GIFTs.
+methionine_biosynthesis_transsulfuration	KEGG_PATHWAY	map00270	Cysteine and methionine metabolism	subset_of	
+methionine_biosynthesis_transsulfuration	KEGG_PATHWAY	map01230	Biosynthesis of amino acids	subset_of	
+methionine_biosynthesis_sulfhydrylation	KEGG_MODULE	M00017	Methionine biosynthesis, aspartate => homoserine => methionine	overlaps	Shares homoserine acylation and methionine synthase with the module, but the module contains no direct sulfhydrylation step.
+methionine_biosynthesis_sulfhydrylation	KEGG_PATHWAY	map00270	Cysteine and methionine metabolism	subset_of	
+cysteine_biosynthesis_sulfide	KEGG_MODULE	M00021	Cysteine biosynthesis, serine => cysteine	equivalent	Module boundaries retained; the sulfide input is declared explicitly.
+cysteine_biosynthesis_sulfide	KEGG_PATHWAY	map00270	Cysteine and methionine metabolism	subset_of	
+cysteine_biosynthesis_sulfide	KEGG_PATHWAY	map00920	Sulfur metabolism	subset_of	
+cysteine_biosynthesis_homocysteine	KEGG_MODULE	M00338	Cysteine biosynthesis, homocysteine + serine => cysteine	superset_of	The module is one of the two curated routes; the other uses O-acetyl-L-serine.
+cysteine_biosynthesis_homocysteine	KEGG_MODULE	M00609	Cysteine biosynthesis, methionine => cysteine	overlaps	Only the two cysteine-forming steps of the module are curated; its four SAM-cycle steps are a different capability.
+cysteine_biosynthesis_homocysteine	KEGG_PATHWAY	map00270	Cysteine and methionine metabolism	subset_of	
+galactose_degradation_leloir	KEGG_MODULE	M00632	Galactose degradation, Leloir pathway, galactose => alpha-D-glucose-1P	equivalent	Same boundaries.
+galactose_degradation_leloir	KEGG_PATHWAY	map00052	Galactose metabolism	subset_of	
+glucuronate_degradation	KEGG_MODULE	M00061	Glucuronate degradation, glucuronate => pyruvate + glyceraldehyde-3P	equivalent	Same boundaries.
+glucuronate_degradation	KEGG_PATHWAY	map00040	Pentose and glucuronate interconversions	subset_of	
+galacturonate_degradation	KEGG_PATHWAY	map00040	Pentose and glucuronate interconversions	subset_of	No KEGG module covers the galacturonate-specific head of this route.
+xylose_degradation_isomerase	KEGG_PATHWAY	map00040	Pentose and glucuronate interconversions	subset_of	
+arabinose_degradation	KEGG_PATHWAY	map00040	Pentose and glucuronate interconversions	subset_of	
+fucose_degradation_isomerase	KEGG_PATHWAY	map00051	Fructose and mannose metabolism	subset_of	
+rhamnose_degradation	KEGG_PATHWAY	map00051	Fructose and mannose metabolism	subset_of	
+glcnac_degradation	KEGG_PATHWAY	map00520	Amino sugar and nucleotide sugar metabolism	subset_of	
+neuac_degradation	KEGG_PATHWAY	map00520	Amino sugar and nucleotide sugar metabolism	subset_of	
+xylose_uptake_abc	KEGG_PATHWAY	map02010	ABC transporters	related	Biologically adjacent context only. The KEGG map catalogues transporter architectures; it makes no claim about this substrate.
+arabinose_uptake_abc	KEGG_PATHWAY	map02010	ABC transporters	related	Biologically adjacent context only. The KEGG map catalogues transporter architectures; it makes no claim about this substrate.
+starch_degradation	KEGG_PATHWAY	map00500	Starch and sucrose metabolism	subset_of	
+xylan_degradation	KEGG_PATHWAY	map00500	Starch and sucrose metabolism	related	Adjacent context only; the xylan capabilities are not part of this map.
+arabinoxylan_debranching	KEGG_PATHWAY	map00500	Starch and sucrose metabolism	related	Adjacent context only; the xylan capabilities are not part of this map.

@@ -1,0 +1,99 @@
+system_id	reaction_id	name	description
+SYS_14905_PURF	RHEA:14905	amidophosphoribosyltransferase	Single catalytic protein system.
+SYS_17453_MONOMER	RHEA:17453	phosphoribosylamine--glycine ligase	Single-protein catalytic system with alternative orthology markers.
+SYS_15053_FOLATE	RHEA:15053	GAR transformylase	Single-protein folate-dependent catalytic system with alternative orthology markers.
+SYS_24829_FORMATE	RHEA:24829	GAR formyltransferase 2	Single-protein formate-dependent catalytic system.
+SYS_17129_LARGE	RHEA:17129	large-type FGAM synthase	Single-protein FGAM synthase architecture.
+SYS_17129_TRIMER	RHEA:17129	small-type FGAM synthase trimeric system	Three required protein components.
+SYS_17129_DIMER	RHEA:17129	small-type FGAM synthase two-component system	Two required protein components.
+SYS_23032_AIR_SYNTHASE	RHEA:23032	AIR synthetase	Single-protein catalytic system with alternative orthology markers.
+SYS_10792_DIRECT	RHEA:10792	direct AIR carboxylase	Single-protein direct carboxylation system.
+SYS_19317_N5CAIR_SYNTHASE	RHEA:19317	N5-CAIR synthetase	First enzyme of the two-reaction AIR carboxylation route.
+SYS_13193_N5CAIR_MUTASE	RHEA:13193	N5-CAIR mutase	Second enzyme of the two-reaction AIR carboxylation route.
+SYS_22628_SAICAR	RHEA:22628	SAICAR synthetase	Single-protein catalytic system with alternative orthology markers.
+SYS_23920_LYASE	RHEA:23920	SAICAR lyase	Single-protein catalytic system.
+SYS_22192_FOLATE	RHEA:22192	AICAR transformylase	Single-protein folate-dependent catalytic system.
+SYS_24836_FORMATE	RHEA:24836	FAICAR synthetase	Single-protein formate-dependent catalytic system.
+SYS_18445_CYCLASE	RHEA:18445	IMP cyclohydrolase	Single-protein catalytic system with alternative orthology markers.
+SYS_15753_ADSS	RHEA:15753	adenylosuccinate synthase	Single-protein catalytic system.
+SYS_16853_ADSL	RHEA:16853	adenylosuccinate lyase	Single-protein catalytic system.
+SYS_11708_IMPDH	RHEA:11708	IMP dehydrogenase	Single-protein catalytic system.
+SYS_11680_GMP_SYNTHASE	RHEA:11680	GMP synthase	Single-protein glutamine-hydrolyzing catalytic system.
+SYS_18633_MONOMER	RHEA:18633	monomeric carbamoyl-phosphate synthase	Single-protein catalytic system including multifunctional architectures.
+SYS_18633_HETERODIMER	RHEA:18633	heterodimeric carbamoyl-phosphate synthase	Two required protein subunits.
+SYS_20013_MONOMER	RHEA:20013	monomeric aspartate carbamoyltransferase	Single-protein catalytic system including multifunctional architectures.
+SYS_20013_CATALYTIC	RHEA:20013	aspartate carbamoyltransferase catalytic subunit	Single-protein catalytic system; the PyrI regulatory subunit is allosteric and is not required evidence.
+SYS_24296_DIHYDROOROTASE	RHEA:24296	dihydroorotase	Single-protein catalytic system including the multifunctional CAD architecture.
+SYS_30059_FUMARATE	RHEA:30059	fumarate-dependent dihydroorotate dehydrogenase	Single-protein catalytic system.
+SYS_30187_QUINONE	RHEA:30187	quinone-dependent dihydroorotate dehydrogenase	Single-protein catalytic system.
+SYS_13513_NAD	RHEA:13513	NAD-dependent dihydroorotate dehydrogenase	Two required protein subunits of the class 1B holoenzyme.
+SYS_10380_OPRT	RHEA:10380	orotate phosphoribosyltransferase	Single-protein catalytic system including bifunctional UMP synthase.
+SYS_11596_OMP_DECARBOXYLASE	RHEA:11596	orotidine 5'-phosphate decarboxylase	Single-protein catalytic system including bifunctional UMP synthase.
+SYS_26426_CTP_SYNTHASE	RHEA:26426	CTP synthase	Single-protein glutamine-hydrolyzing catalytic system.
+SYS_12641_SERA	RHEA:12641	3-phosphoglycerate dehydrogenase	Single-protein catalytic system.
+SYS_14329_SERC	RHEA:14329	phosphoserine aminotransferase	Single-protein catalytic system.
+SYS_21208_PSP	RHEA:21208	phosphoserine phosphatase	Single-protein catalytic system with alternative orthology markers.
+SYS_15481_SHMT	RHEA:15481	serine hydroxymethyltransferase	Single-protein catalytic system.
+SYS_23776_AK	RHEA:23776	aspartate kinase	Single-protein catalytic system including bifunctional architectures.
+SYS_24284_ASD	RHEA:24284	aspartate-semialdehyde dehydrogenase	Single-protein catalytic system.
+SYS_15757_HOM_NAD	RHEA:15757	NAD-dependent homoserine dehydrogenase	Single-protein catalytic system including bifunctional aspartokinase architectures.
+SYS_15761_HOM_NADP	RHEA:15761	NADP-dependent homoserine dehydrogenase	Single-protein catalytic system including bifunctional aspartokinase architectures.
+SYS_13985_HSK	RHEA:13985	homoserine kinase	Single-protein catalytic system with alternative orthology markers.
+SYS_10840_THRC	RHEA:10840	threonine synthase	Single-protein catalytic system.
+SYS_22008_ACYLTRANSFERASE	RHEA:22008	homoserine O-succinyltransferase	Single-protein catalytic system; MetA and MetX orthologues are both accepted because KEGG assigns both acyl chemistries to both.
+SYS_13701_ACYLTRANSFERASE	RHEA:13701	homoserine O-acetyltransferase	Single-protein catalytic system; MetA and MetX orthologues are both accepted because KEGG assigns both acyl chemistries to both.
+SYS_20397_METB	RHEA:20397	cystathionine gamma-synthase	Single-protein catalytic system acting on O-succinyl-L-homoserine.
+SYS_30931_METB	RHEA:30931	cystathionine gamma-synthase	Single-protein catalytic system acting on O-acetyl-L-homoserine.
+SYS_80891_CGS1	RHEA:80891	plant cystathionine gamma-synthase	Single-protein catalytic system acting on O-phospho-L-homoserine.
+SYS_13965_CBL	RHEA:13965	cystathionine beta-lyase	Single-protein catalytic system with alternative orthology markers.
+SYS_27826_METZ	RHEA:27826	O-succinylhomoserine sulfhydrylase	Single-protein catalytic system restricted to the dedicated sulfhydrylase orthologue.
+SYS_27822_METY	RHEA:27822	O-acetylhomoserine sulfhydrylase	Single-protein catalytic system with alternative orthology markers.
+SYS_11172_METH	RHEA:11172	cobalamin-dependent methionine synthase	Single-protein catalytic system; the cobalamin cofactor is not a separate evidence component.
+SYS_21196_METE	RHEA:21196	cobalamin-independent methionine synthase	Single-protein catalytic system.
+SYS_24560_CYSE	RHEA:24560	serine O-acetyltransferase	Single-protein catalytic system.
+SYS_14829_OASS	RHEA:14829	cysteine synthase	Single-protein catalytic system with alternative orthology markers.
+SYS_10112_CBS	RHEA:10112	cystathionine beta-synthase	Single-protein catalytic system acting on L-serine.
+SYS_32743_MCCA	RHEA:32743	cystathionine beta-synthase (O-acetyl-L-serine)	Single-protein catalytic system acting on O-acetyl-L-serine.
+SYS_14005_CGL	RHEA:14005	cystathionine gamma-lyase	Single-protein catalytic system with alternative orthology markers.
+SYS_22816_XYLA	RHEA:22816	xylose isomerase	Single-protein catalytic system.
+SYS_10964_XYLB	RHEA:10964	xylulokinase	Single-protein catalytic system.
+SYS_14821_ARAA	RHEA:14821	L-arabinose isomerase	Single-protein catalytic system.
+SYS_22072_ARAB	RHEA:22072	L-ribulokinase	Single-protein catalytic system.
+SYS_22368_ARAD	RHEA:22368	L-ribulose-5-phosphate 4-epimerase	Single-protein catalytic system.
+SYS_17233_FUCI	RHEA:17233	L-fucose isomerase	Single-protein catalytic system.
+SYS_12376_FUCK	RHEA:12376	L-fuculokinase	Single-protein catalytic system.
+SYS_12933_FUCA	RHEA:12933	L-fuculose-1-phosphate aldolase	Single-protein catalytic system.
+SYS_23160_RHAA	RHEA:23160	L-rhamnose isomerase	Single-protein catalytic system.
+SYS_20117_RHAB	RHEA:20117	rhamnulokinase	Single-protein catalytic system.
+SYS_19689_RHAD	RHEA:19689	rhamnulose-1-phosphate aldolase	Single-protein catalytic system.
+SYS_28675_GALM	RHEA:28675	aldose 1-epimerase	Single-protein catalytic system.
+SYS_13553_GALK	RHEA:13553	galactokinase	Single-protein catalytic system.
+SYS_13989_GALT	RHEA:13989	galactose-1-phosphate uridylyltransferase	Single-protein catalytic system.
+SYS_22168_GALE	RHEA:22168	UDP-glucose 4-epimerase	Single-protein catalytic system.
+SYS_17417_NAGK	RHEA:17417	N-acetylglucosamine kinase	Single-protein catalytic system.
+SYS_22936_NAGA	RHEA:22936	N-acetylglucosamine-6-phosphate deacetylase	Single-protein catalytic system.
+SYS_12172_NAGB	RHEA:12172	glucosamine-6-phosphate deaminase	Single-protein catalytic system.
+SYS_23296_NANA	RHEA:23296	N-acetylneuraminate lyase	Single-protein catalytic system.
+SYS_25253_NANK	RHEA:25253	N-acetylmannosamine kinase	Single-protein catalytic system.
+SYS_25257_NANE	RHEA:25257	N-acetylmannosamine-6-phosphate 2-epimerase	Single-protein catalytic system.
+SYS_27702_UXAC	RHEA:27702	glucuronate isomerase	Single-protein catalytic system.
+SYS_17813_UXAB	RHEA:17813	tagaturonate reductase	Single-protein catalytic system.
+SYS_14797_KDGK	RHEA:14797	2-dehydro-3-deoxygluconokinase	Single-protein catalytic system.
+SYS_17089_EDA	RHEA:17089	2-dehydro-3-deoxy-phosphogluconate aldolase	Single-protein catalytic system.
+SYS_13049_UXAC	RHEA:13049	glucuronate isomerase	Single-protein catalytic system.
+SYS_15729_UXUB	RHEA:15729	fructuronate reductase	Single-protein catalytic system.
+SYS_20097_UXUA	RHEA:20097	mannonate dehydratase	Single-protein catalytic system.
+SYS_15957_MONOMER	RHEA:15957	altronate hydrolase	Single-protein catalytic system.
+SYS_15957_HETERODIMER	RHEA:15957	two-subunit altronate dehydratase	Two jointly required protein subunits.
+SYS_29899_XYLFGH	RHEA:29899	XylFGH ABC importer	Three jointly required subunits.
+SYS_29899_XACGHI	RHEA:29899	XacGHI dual-specificity ABC importer	Three jointly required subunits; characterised on both pentoses.
+SYS_30007_ARAFGH	RHEA:30007	AraFGH ABC importer	Three jointly required subunits.
+SYS_30007_XACGHI	RHEA:30007	XacGHI dual-specificity ABC importer	Three jointly required subunits; characterised on both pentoses.
+SYS_ARAF	RXN_ARABINOXYLAN_ARAF_RELEASE	alpha-L-arabinofuranosidase	Single-protein catalytic system; CAZy families and orthologues are alternative evidence for the same role.
+SYS_XYLANASE	RXN_XYLAN_ENDO_1_4	endo-1,4-beta-xylanase	Single-protein catalytic system; CAZy families and orthologues are alternative evidence for the same role.
+SYS_XYLOSIDASE	RXN_XYLOOLIGO_EXO	xylan 1,4-beta-xylosidase	Single-protein catalytic system; CAZy families and orthologues are alternative evidence for the same role.
+SYS_AMYLASE	RXN_STARCH_ENDO_1_4	alpha-amylase	Single-protein catalytic system; CAZy families and orthologues are alternative evidence for the same role.
+SYS_PULLULANASE	RXN_STARCH_DEBRANCH_1_6	pullulanase	Single-protein catalytic system; CAZy families and orthologues are alternative evidence for the same role.
+SYS_GLUCOSIDASE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	Single-protein catalytic system; CAZy families and orthologues are alternative evidence for the same role.
+SYS_DEACETYL	RXN_XYLAN_DEACETYL	acetylxylan esterase	Single-protein catalytic system; CAZy families and orthologues are alternative evidence for the same role.
+SYS_COLLAGENASE_M9	RXN_COLLAGEN_HELIX_CLEAVAGE	microbial collagenase	Single-protein catalytic system; the orthologue and the Pfam domain are alternative evidence for the same protein, not alternative enzymes.

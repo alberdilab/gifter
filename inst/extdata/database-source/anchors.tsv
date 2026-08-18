@@ -1,0 +1,44 @@
+anchor_id	molecule	compartment	name	chebi_id	description
+PRPP	PRPP	unspecified	5-phospho-alpha-D-ribose 1-diphosphate	CHEBI:58017	Input boundary for de novo nucleotide core biosynthesis.
+IMP	IMP	unspecified	inosine 5'-monophosphate(2-)	CHEBI:58053	Purine core boundary connecting core and branch biosynthesis GIFTs.
+AMP	AMP	unspecified	adenosine 5'-monophosphate(2-)	CHEBI:456215	Output boundary of adenylate biosynthesis.
+GMP	GMP	unspecified	guanosine 5'-monophosphate(2-)	CHEBI:58115	Output boundary that establishes guanylate identity before shared nucleotide phosphorylation.
+GLUTAMINE	GLUTAMINE	unspecified	L-glutamine	CHEBI:58359	Nitrogen-donor input boundary for de novo pyrimidine core biosynthesis.
+UMP	UMP	unspecified	uridine 5'-monophosphate(2-)	CHEBI:57865	Output boundary of de novo pyrimidine core biosynthesis.
+UTP	UTP	unspecified	uridine 5'-triphosphate(4-)	CHEBI:46398	Stable uridine nucleotide input immediately before cytidylate-specific amination.
+CTP	CTP	unspecified	cytidine 5'-triphosphate(4-)	CHEBI:37563	Output boundary that establishes cytidylate identity.
+PG3	PG3	unspecified	(2R)-3-phosphoglycerate	CHEBI:58272	Glycolytic intermediate; the junction where carbon leaves central metabolism for serine biosynthesis.
+SERINE	SERINE	unspecified	L-serine	CHEBI:33384	Stable amino acid product and the precursor of glycine and of both cysteine biosynthesis GIFTs.
+GLYCINE	GLYCINE	unspecified	glycine	CHEBI:57305	Output boundary of glycine biosynthesis.
+CYSTEINE	CYSTEINE	unspecified	L-cysteine	CHEBI:35235	Stable amino acid product; also the sulfur-donor input boundary of transsulfuration.
+SULFIDE	SULFIDE	unspecified	hydrogen sulfide	CHEBI:29919	Assimilable inorganic sulfur input boundary shared by sulfide-dependent cysteine and methionine biosynthesis.
+ASPARTATE	ASPARTATE	unspecified	L-aspartate	CHEBI:29991	Central amino acid input boundary of the aspartate family.
+ASA	ASA	unspecified	L-aspartate 4-semialdehyde	CHEBI:537519	Branchpoint separating the lysine and diaminopimelate branch from the threonine and methionine branch.
+HOMOSERINE	HOMOSERINE	unspecified	L-homoserine	CHEBI:57476	Branchpoint that commits aspartate carbon to threonine or to methionine.
+THREONINE	THREONINE	unspecified	L-threonine	CHEBI:57926	Output boundary of threonine biosynthesis.
+METHIONINE	METHIONINE	unspecified	L-methionine	CHEBI:57844	Output boundary of methionine biosynthesis.
+HOMOCYSTEINE	HOMOCYSTEINE	unspecified	L-homocysteine	CHEBI:58199	Input-only sulfur-donor boundary supplied by methionine salvage. Never declared as an output anchor; see the acyclicity note in database_changes.
+FUCOSE	FUCOSE	unspecified	L-fucose	CHEBI:2181	Deoxyhexose of host mucin O-glycans and plant cell walls.
+RHAMNOSE	RHAMNOSE	unspecified	L-rhamnopyranose	CHEBI:62346	Deoxyhexose of pectic rhamnogalacturonan.
+GALACTOSE	GALACTOSE	unspecified	beta-D-galactose	CHEBI:27667	Hexose released from lactose, galactans and host glycans.
+GLCNAC	GLCNAC	unspecified	N-acetyl-D-glucosamine	CHEBI:506227	Amino sugar of chitin, peptidoglycan and host glycans.
+NEUAC	NEUAC	unspecified	aceneuramate	CHEBI:173083	Open form of N-acetylneuraminate (sialic acid), the terminal residue of host mucin O-glycans released by sialidases.
+GLUCURONATE	GLUCURONATE	unspecified	D-glucuronate	CHEBI:58720	Uronic acid of glucuronoxylan and host glycosaminoglycans.
+GALACTURONATE	GALACTURONATE	unspecified	aldehydo-D-galacturonate	CHEBI:12952	Uronic acid backbone residue of pectin.
+XYLULOSE_5P	XYLULOSE_5P	unspecified	D-xylulose 5-phosphate	CHEBI:57737	Pentose phosphate pathway entry point for pentose catabolism.
+FRUCTOSE_6P	FRUCTOSE_6P	unspecified	beta-D-fructose 6-phosphate	CHEBI:57634	Glycolytic entry point for amino sugar catabolism.
+GLUCOSE_1P	GLUCOSE_1P	unspecified	alpha-D-glucose 1-phosphate	CHEBI:58601	First stable product of the Leloir pathway, before shared phosphoglucomutase chemistry.
+DHAP	DHAP	unspecified	dihydroxyacetone phosphate	CHEBI:57642	Glycolytic entry point for deoxyhexose catabolism.
+LACTALDEHYDE	LACTALDEHYDE	unspecified	(S)-lactaldehyde	CHEBI:18041	Co-product of deoxyhexose aldol cleavage.
+PYRUVATE	PYRUVATE	unspecified	pyruvate	CHEBI:15361	Central carbon entry point.
+GAP	GAP	unspecified	D-glyceraldehyde 3-phosphate	CHEBI:59776	Glycolytic entry point; distinct from the PG3 anchor of serine biosynthesis.
+XYLOSE_EX	XYLOSE	extracellular	D-xylose	CHEBI:53455	Pentose released by xylan saccharification, outside the cell.
+XYLOSE_IN	XYLOSE	cytoplasmic	D-xylose	CHEBI:53455	D-xylose in the cytoplasm, where isomerase-dependent catabolism begins.
+ARABINOSE_EX	ARABINOSE	extracellular	L-arabinose	CHEBI:17535	Pentose released from arabinan and arabinoxylan side chains, outside the cell.
+ARABINOSE_IN	ARABINOSE	cytoplasmic	L-arabinose	CHEBI:17535	L-arabinose in the cytoplasm, where catabolism begins.
+ARABINOXYLAN	ARABINOXYLAN	extracellular	arabinoxylan		Arabinose-decorated xylan of cereal and grass cell walls; the dominant hemicellulose of a plant-based diet. A substrate class rather than a single compound.
+XYLAN	XYLAN	extracellular	xylan	CHEBI:37166	Beta-1,4-linked xylose backbone remaining after side-chain removal. A substrate class rather than a single compound.
+STARCH	STARCH	extracellular	starch	CHEBI:28017	Alpha-glucan storage polysaccharide of plants, and the major digestible carbohydrate of most diets.
+GLUCOSE	GLUCOSE	unspecified	D-glucose	CHEBI:4167	Hexose released by alpha-glucosidase. Compartment unresolved: glucose is moved mainly by promiscuous carriers, so no uptake GIFT licenses a split.
+COLLAGEN	COLLAGEN	extracellular	collagen		Fibrillar triple-helical structural protein of animal extracellular matrix, and the most abundant protein of animal tissue. A substrate class rather than a single compound: it has no balanced-equation identity and Rhea represents it as the polymer [collagen].
+COLLAGEN_PEPTIDES	COLLAGEN_PEPTIDES	extracellular	collagen peptides		Heterogeneous peptides released by cleavage of the collagen triple helix. Deliberately substrate-specific rather than a shared peptide pool, so that protein-degradation GIFTs do not connect through an undefined intermediate; see inst/doc/proposal-protein-degradation.md.

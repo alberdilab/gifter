@@ -1,0 +1,113 @@
+component_id	system_id	name	description
+COMP_14905_CATALYTIC	SYS_14905_PURF	amidophosphoribosyltransferase protein	Required catalytic protein.
+COMP_17453_CATALYTIC	SYS_17453_MONOMER	GAR synthetase protein	Required catalytic protein; alternative markers are OR.
+COMP_15053_CATALYTIC	SYS_15053_FOLATE	GAR transformylase protein	Required catalytic protein; alternative markers are OR.
+COMP_24829_CATALYTIC	SYS_24829_FORMATE	GAR formyltransferase 2 protein	Required catalytic protein.
+COMP_17129_LARGE	SYS_17129_LARGE	large FGAM synthase protein	Required single-protein architecture.
+COMP_17129_TRI_A	SYS_17129_TRIMER	FGAM synthase trimer component A	Required component one of three.
+COMP_17129_TRI_B	SYS_17129_TRIMER	FGAM synthase trimer component B	Required component two of three.
+COMP_17129_TRI_C	SYS_17129_TRIMER	FGAM synthase trimer component C	Required component three of three.
+COMP_17129_DI_A	SYS_17129_DIMER	FGAM synthase two-component protein A	Required component one of two.
+COMP_17129_DI_B	SYS_17129_DIMER	FGAM synthase two-component protein B	Required component two of two.
+COMP_23032_CATALYTIC	SYS_23032_AIR_SYNTHASE	AIR synthetase protein	Required catalytic protein; alternative markers are OR.
+COMP_10792_CATALYTIC	SYS_10792_DIRECT	direct AIR carboxylase protein	Required catalytic protein; alternative markers are OR.
+COMP_19317_CATALYTIC	SYS_19317_N5CAIR_SYNTHASE	N5-CAIR synthetase protein	Required catalytic protein.
+COMP_13193_CATALYTIC	SYS_13193_N5CAIR_MUTASE	N5-CAIR mutase protein	Required catalytic protein.
+COMP_22628_CATALYTIC	SYS_22628_SAICAR	SAICAR synthetase protein	Required catalytic protein; alternative markers are OR.
+COMP_23920_CATALYTIC	SYS_23920_LYASE	SAICAR lyase protein	Required catalytic protein.
+COMP_22192_CATALYTIC	SYS_22192_FOLATE	AICAR transformylase protein	Required catalytic protein; alternative markers are OR.
+COMP_24836_CATALYTIC	SYS_24836_FORMATE	FAICAR synthetase protein	Required catalytic protein.
+COMP_18445_CATALYTIC	SYS_18445_CYCLASE	IMP cyclohydrolase protein	Required catalytic protein; alternative markers are OR.
+COMP_15753_CATALYTIC	SYS_15753_ADSS	adenylosuccinate synthase protein	Required catalytic protein.
+COMP_16853_CATALYTIC	SYS_16853_ADSL	adenylosuccinate lyase protein	Required catalytic protein.
+COMP_11708_CATALYTIC	SYS_11708_IMPDH	IMP dehydrogenase protein	Required catalytic protein.
+COMP_11680_CATALYTIC	SYS_11680_GMP_SYNTHASE	GMP synthase protein	Required catalytic protein.
+COMP_18633_MONOMER	SYS_18633_MONOMER	carbamoyl-phosphate synthase protein	Required catalytic protein; alternative markers are OR.
+COMP_18633_LARGE	SYS_18633_HETERODIMER	carbamoyl-phosphate synthase large subunit	Required catalytic large subunit.
+COMP_18633_SMALL	SYS_18633_HETERODIMER	carbamoyl-phosphate synthase small subunit	Required glutamine-hydrolyzing small subunit.
+COMP_20013_MONOMER	SYS_20013_MONOMER	aspartate carbamoyltransferase protein	Required catalytic protein; alternative markers are OR.
+COMP_20013_CATALYTIC	SYS_20013_CATALYTIC	aspartate carbamoyltransferase catalytic subunit	Required catalytic subunit; catalytically competent without the PyrI regulatory subunit.
+COMP_24296_CATALYTIC	SYS_24296_DIHYDROOROTASE	dihydroorotase protein	Required catalytic protein; alternative markers are OR.
+COMP_30059_CATALYTIC	SYS_30059_FUMARATE	fumarate-dependent dihydroorotate dehydrogenase protein	Required catalytic protein.
+COMP_30187_CATALYTIC	SYS_30187_QUINONE	quinone-dependent dihydroorotate dehydrogenase protein	Required catalytic protein.
+COMP_13513_CATALYTIC	SYS_13513_NAD	NAD-dependent dihydroorotate dehydrogenase catalytic subunit	Required PyrDb catalytic subunit.
+COMP_13513_ELECTRON	SYS_13513_NAD	NAD-dependent dihydroorotate dehydrogenase electron transfer subunit	Required PyrK electron transfer subunit; NAD+ reduction depends on it.
+COMP_10380_CATALYTIC	SYS_10380_OPRT	orotate phosphoribosyltransferase protein	Required catalytic protein; alternative markers are OR.
+COMP_11596_CATALYTIC	SYS_11596_OMP_DECARBOXYLASE	orotidine 5'-phosphate decarboxylase protein	Required catalytic protein; alternative markers are OR.
+COMP_26426_CATALYTIC	SYS_26426_CTP_SYNTHASE	CTP synthase protein	Required catalytic protein.
+COMP_12641_CATALYTIC	SYS_12641_SERA	3-phosphoglycerate dehydrogenase protein	Required catalytic protein.
+COMP_14329_CATALYTIC	SYS_14329_SERC	phosphoserine aminotransferase protein	Required catalytic protein.
+COMP_21208_CATALYTIC	SYS_21208_PSP	phosphoserine phosphatase protein	Required catalytic protein; alternative markers are OR.
+COMP_15481_CATALYTIC	SYS_15481_SHMT	serine hydroxymethyltransferase protein	Required catalytic protein.
+COMP_23776_CATALYTIC	SYS_23776_AK	aspartate kinase protein	Required catalytic protein; alternative markers are OR.
+COMP_24284_CATALYTIC	SYS_24284_ASD	aspartate-semialdehyde dehydrogenase protein	Required catalytic protein.
+COMP_15757_CATALYTIC	SYS_15757_HOM_NAD	NAD-dependent homoserine dehydrogenase protein	Required catalytic protein; alternative markers are OR.
+COMP_15761_CATALYTIC	SYS_15761_HOM_NADP	NADP-dependent homoserine dehydrogenase protein	Required catalytic protein; alternative markers are OR.
+COMP_13985_CATALYTIC	SYS_13985_HSK	homoserine kinase protein	Required catalytic protein; alternative markers are OR.
+COMP_10840_CATALYTIC	SYS_10840_THRC	threonine synthase protein	Required catalytic protein.
+COMP_22008_CATALYTIC	SYS_22008_ACYLTRANSFERASE	homoserine acyltransferase protein	Required catalytic protein; alternative markers are OR.
+COMP_13701_CATALYTIC	SYS_13701_ACYLTRANSFERASE	homoserine acyltransferase protein	Required catalytic protein; alternative markers are OR.
+COMP_20397_CATALYTIC	SYS_20397_METB	cystathionine gamma-synthase protein	Required catalytic protein.
+COMP_30931_CATALYTIC	SYS_30931_METB	cystathionine gamma-synthase protein	Required catalytic protein.
+COMP_80891_CATALYTIC	SYS_80891_CGS1	plant cystathionine gamma-synthase protein	Required catalytic protein.
+COMP_13965_CATALYTIC	SYS_13965_CBL	cystathionine beta-lyase protein	Required catalytic protein; alternative markers are OR.
+COMP_27826_CATALYTIC	SYS_27826_METZ	O-succinylhomoserine sulfhydrylase protein	Required catalytic protein; alternative markers are OR.
+COMP_27822_CATALYTIC	SYS_27822_METY	O-acetylhomoserine sulfhydrylase protein	Required catalytic protein; alternative markers are OR.
+COMP_11172_CATALYTIC	SYS_11172_METH	cobalamin-dependent methionine synthase protein	Required catalytic protein; alternative markers are OR.
+COMP_21196_CATALYTIC	SYS_21196_METE	cobalamin-independent methionine synthase protein	Required catalytic protein.
+COMP_24560_CATALYTIC	SYS_24560_CYSE	serine O-acetyltransferase protein	Required catalytic protein; alternative markers are OR.
+COMP_14829_CATALYTIC	SYS_14829_OASS	cysteine synthase protein	Required catalytic protein; alternative markers are OR.
+COMP_10112_CATALYTIC	SYS_10112_CBS	cystathionine beta-synthase protein	Required catalytic protein; alternative markers are OR.
+COMP_32743_CATALYTIC	SYS_32743_MCCA	cystathionine beta-synthase protein	Required catalytic protein.
+COMP_14005_CATALYTIC	SYS_14005_CGL	cystathionine gamma-lyase protein	Required catalytic protein; alternative markers are OR.
+COMP_22816_CATALYTIC	SYS_22816_XYLA	xylose isomerase protein	Required catalytic protein; alternative markers are OR.
+COMP_10964_CATALYTIC	SYS_10964_XYLB	xylulokinase protein	Required catalytic protein; alternative markers are OR.
+COMP_14821_CATALYTIC	SYS_14821_ARAA	L-arabinose isomerase protein	Required catalytic protein; alternative markers are OR.
+COMP_22072_CATALYTIC	SYS_22072_ARAB	L-ribulokinase protein	Required catalytic protein; alternative markers are OR.
+COMP_22368_CATALYTIC	SYS_22368_ARAD	L-ribulose-5-phosphate 4-epimerase protein	Required catalytic protein; alternative markers are OR.
+COMP_17233_CATALYTIC	SYS_17233_FUCI	L-fucose isomerase protein	Required catalytic protein; alternative markers are OR.
+COMP_12376_CATALYTIC	SYS_12376_FUCK	L-fuculokinase protein	Required catalytic protein; alternative markers are OR.
+COMP_12933_CATALYTIC	SYS_12933_FUCA	L-fuculose-1-phosphate aldolase protein	Required catalytic protein; alternative markers are OR.
+COMP_23160_CATALYTIC	SYS_23160_RHAA	L-rhamnose isomerase protein	Required catalytic protein; alternative markers are OR.
+COMP_20117_CATALYTIC	SYS_20117_RHAB	rhamnulokinase protein	Required catalytic protein; alternative markers are OR.
+COMP_19689_CATALYTIC	SYS_19689_RHAD	rhamnulose-1-phosphate aldolase protein	Required catalytic protein; alternative markers are OR.
+COMP_28675_CATALYTIC	SYS_28675_GALM	aldose 1-epimerase protein	Required catalytic protein; alternative markers are OR.
+COMP_13553_CATALYTIC	SYS_13553_GALK	galactokinase protein	Required catalytic protein; alternative markers are OR.
+COMP_13989_CATALYTIC	SYS_13989_GALT	galactose-1-phosphate uridylyltransferase protein	Required catalytic protein; alternative markers are OR.
+COMP_22168_CATALYTIC	SYS_22168_GALE	UDP-glucose 4-epimerase protein	Required catalytic protein; alternative markers are OR.
+COMP_17417_CATALYTIC	SYS_17417_NAGK	N-acetylglucosamine kinase protein	Required catalytic protein; alternative markers are OR.
+COMP_22936_CATALYTIC	SYS_22936_NAGA	N-acetylglucosamine-6-phosphate deacetylase protein	Required catalytic protein; alternative markers are OR.
+COMP_12172_CATALYTIC	SYS_12172_NAGB	glucosamine-6-phosphate deaminase protein	Required catalytic protein; alternative markers are OR.
+COMP_23296_CATALYTIC	SYS_23296_NANA	N-acetylneuraminate lyase protein	Required catalytic protein; alternative markers are OR.
+COMP_25253_CATALYTIC	SYS_25253_NANK	N-acetylmannosamine kinase protein	Required catalytic protein; alternative markers are OR.
+COMP_25257_CATALYTIC	SYS_25257_NANE	N-acetylmannosamine-6-phosphate 2-epimerase protein	Required catalytic protein; alternative markers are OR.
+COMP_27702_CATALYTIC	SYS_27702_UXAC	glucuronate isomerase protein	Required catalytic protein; alternative markers are OR.
+COMP_17813_CATALYTIC	SYS_17813_UXAB	tagaturonate reductase protein	Required catalytic protein; alternative markers are OR.
+COMP_14797_CATALYTIC	SYS_14797_KDGK	2-dehydro-3-deoxygluconokinase protein	Required catalytic protein; alternative markers are OR.
+COMP_17089_CATALYTIC	SYS_17089_EDA	2-dehydro-3-deoxy-phosphogluconate aldolase protein	Required catalytic protein; alternative markers are OR.
+COMP_13049_CATALYTIC	SYS_13049_UXAC	glucuronate isomerase protein	Required catalytic protein; alternative markers are OR.
+COMP_15729_CATALYTIC	SYS_15729_UXUB	fructuronate reductase protein	Required catalytic protein; alternative markers are OR.
+COMP_20097_CATALYTIC	SYS_20097_UXUA	mannonate dehydratase protein	Required catalytic protein; alternative markers are OR.
+COMP_15957_CATALYTIC	SYS_15957_MONOMER	altronate hydrolase protein	Required catalytic protein.
+COMP_15957_SMALL	SYS_15957_HETERODIMER	altronate dehydratase small subunit	Required subunit one of two.
+COMP_15957_LARGE	SYS_15957_HETERODIMER	altronate dehydratase large subunit	Required subunit two of two.
+COMP_29899_SBP	SYS_29899_XYLFGH	substrate-binding protein	Required subunit of the importer.
+COMP_29899_PERMEASE	SYS_29899_XYLFGH	permease	Required subunit of the importer.
+COMP_29899_ATPASE	SYS_29899_XYLFGH	ATP-binding protein	Required subunit of the importer.
+COMP_29899_XAC_SBP	SYS_29899_XACGHI	substrate-binding protein	Required subunit of the importer.
+COMP_29899_XAC_PERM1	SYS_29899_XACGHI	permease one of two	Required subunit of the importer.
+COMP_29899_XAC_PERM2	SYS_29899_XACGHI	permease two of two	Required subunit of the importer.
+COMP_30007_SBP	SYS_30007_ARAFGH	substrate-binding protein	Required subunit of the importer.
+COMP_30007_PERMEASE	SYS_30007_ARAFGH	permease	Required subunit of the importer.
+COMP_30007_ATPASE	SYS_30007_ARAFGH	ATP-binding protein	Required subunit of the importer.
+COMP_30007_XAC_SBP	SYS_30007_XACGHI	substrate-binding protein	Required subunit of the importer.
+COMP_30007_XAC_PERM1	SYS_30007_XACGHI	permease one of two	Required subunit of the importer.
+COMP_30007_XAC_PERM2	SYS_30007_XACGHI	permease two of two	Required subunit of the importer.
+COMP_ARAF	SYS_ARAF	alpha-L-arabinofuranosidase protein	Required catalytic protein; alternative markers are OR.
+COMP_XYLANASE	SYS_XYLANASE	endo-1,4-beta-xylanase protein	Required catalytic protein; alternative markers are OR.
+COMP_XYLOSIDASE	SYS_XYLOSIDASE	xylan 1,4-beta-xylosidase protein	Required catalytic protein; alternative markers are OR.
+COMP_AMYLASE	SYS_AMYLASE	alpha-amylase protein	Required catalytic protein; alternative markers are OR.
+COMP_PULLULANASE	SYS_PULLULANASE	pullulanase protein	Required catalytic protein; alternative markers are OR.
+COMP_GLUCOSIDASE	SYS_GLUCOSIDASE	alpha-glucosidase protein	Required catalytic protein; alternative markers are OR.
+COMP_DEACETYL	SYS_DEACETYL	acetylxylan esterase protein	Required catalytic protein; alternative markers are OR.
+COMP_COLLAGENASE_M9	SYS_COLLAGENASE_M9	collagenase catalytic protein	Required catalytic protein; alternative markers are OR.

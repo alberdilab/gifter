@@ -1,0 +1,92 @@
+reaction_id	rhea_master	name	description
+RHEA:14905	RHEA:14905	amidophosphoribosyltransferase reaction	PRPP to 5-phosphoribosylamine; used in reverse relative to the Rhea master equation.
+RHEA:17453	RHEA:17453	phosphoribosylamine--glycine ligase reaction	Formation of phosphoribosylglycinamide.
+RHEA:15053	RHEA:15053	GAR transformylase reaction	Folate-dependent formation of phosphoribosyl-N-formylglycinamide.
+RHEA:24829	RHEA:24829	GAR formyltransferase 2 reaction	Formate- and ATP-dependent alternative formation of phosphoribosyl-N-formylglycinamide.
+RHEA:17129	RHEA:17129	FGAM synthase reaction	Formation of phosphoribosylformylglycinamidine.
+RHEA:23032	RHEA:23032	AIR synthetase reaction	Cyclization to phosphoribosylaminoimidazole.
+RHEA:10792	RHEA:10792	AIR carboxylase reaction	Direct AIR to CAIR conversion; used in reverse relative to the Rhea master equation.
+RHEA:19317	RHEA:19317	N5-CAIR synthetase reaction	ATP-dependent formation of N5-carboxyaminoimidazole ribonucleotide.
+RHEA:13193	RHEA:13193	N5-CAIR mutase reaction	Conversion of N5-carboxyaminoimidazole ribonucleotide to CAIR.
+RHEA:22628	RHEA:22628	SAICAR synthetase reaction	Formation of succinylaminoimidazolecarboxamide ribotide.
+RHEA:23920	RHEA:23920	SAICAR lyase reaction	Formation of AICAR and fumarate.
+RHEA:22192	RHEA:22192	AICAR transformylase reaction	Folate-dependent formation of FAICAR.
+RHEA:24836	RHEA:24836	FAICAR synthetase reaction	Formate- and ATP-dependent alternative formation of FAICAR.
+RHEA:18445	RHEA:18445	IMP cyclohydrolase reaction	FAICAR to IMP ring closure; used in reverse relative to the Rhea master equation.
+RHEA:15753	RHEA:15753	adenylosuccinate synthase reaction	Formation of adenylosuccinate from IMP.
+RHEA:16853	RHEA:16853	adenylosuccinate lyase reaction	Formation of AMP and fumarate from adenylosuccinate.
+RHEA:11708	RHEA:11708	IMP dehydrogenase reaction	NAD-dependent oxidation of IMP to XMP, committing the guanylate branch.
+RHEA:11680	RHEA:11680	GMP synthase reaction	Glutamine-dependent amination of XMP to GMP.
+RHEA:18633	RHEA:18633	carbamoyl-phosphate synthase reaction	Glutamine-dependent formation of carbamoyl phosphate.
+RHEA:20013	RHEA:20013	aspartate carbamoyltransferase reaction	Formation of N-carbamoyl-L-aspartate from carbamoyl phosphate and L-aspartate.
+RHEA:24296	RHEA:24296	dihydroorotase reaction	Cyclization to (S)-dihydroorotate; used in reverse relative to the Rhea master equation.
+RHEA:30059	RHEA:30059	fumarate-dependent dihydroorotate dehydrogenase reaction	Oxidation of (S)-dihydroorotate to orotate using fumarate.
+RHEA:30187	RHEA:30187	quinone-dependent dihydroorotate dehydrogenase reaction	Oxidation of (S)-dihydroorotate to orotate using a quinone.
+RHEA:13513	RHEA:13513	NAD-dependent dihydroorotate dehydrogenase reaction	Oxidation of (S)-dihydroorotate to orotate using NAD(+).
+RHEA:10380	RHEA:10380	orotate phosphoribosyltransferase reaction	Formation of orotidine 5'-phosphate from orotate and PRPP; used in reverse relative to the Rhea master equation.
+RHEA:11596	RHEA:11596	orotidine 5'-phosphate decarboxylase reaction	Formation of UMP from orotidine 5'-phosphate.
+RHEA:26426	RHEA:26426	CTP synthase reaction	Glutamine-dependent amination of UTP to CTP.
+RHEA:12641	RHEA:12641	3-phosphoglycerate dehydrogenase reaction	NAD-dependent oxidation of 3-phosphoglycerate to 3-phosphooxypyruvate, the committing step of phosphorylated serine biosynthesis.
+RHEA:14329	RHEA:14329	phosphoserine aminotransferase reaction	Glutamate-dependent transamination forming O-phospho-L-serine; used in reverse relative to the Rhea master equation.
+RHEA:21208	RHEA:21208	phosphoserine phosphatase reaction	Hydrolysis of O-phospho-L-serine to L-serine.
+RHEA:15481	RHEA:15481	serine hydroxymethyltransferase reaction	Folate-dependent interconversion of serine and glycine; used in reverse relative to the Rhea master equation to form glycine.
+RHEA:23776	RHEA:23776	aspartate kinase reaction	ATP-dependent phosphorylation of L-aspartate, the committing step of the aspartate amino acid family.
+RHEA:24284	RHEA:24284	aspartate-semialdehyde dehydrogenase reaction	NADPH-dependent reduction of 4-phospho-L-aspartate to the semialdehyde; used in reverse relative to the Rhea master equation.
+RHEA:15757	RHEA:15757	homoserine dehydrogenase reaction (NAD)	NAD-dependent reduction of L-aspartate 4-semialdehyde to L-homoserine; used in reverse relative to the Rhea master equation.
+RHEA:15761	RHEA:15761	homoserine dehydrogenase reaction (NADP)	NADP-dependent reduction of L-aspartate 4-semialdehyde to L-homoserine; used in reverse relative to the Rhea master equation.
+RHEA:13985	RHEA:13985	homoserine kinase reaction	ATP-dependent phosphorylation of L-homoserine to O-phospho-L-homoserine.
+RHEA:10840	RHEA:10840	threonine synthase reaction	Conversion of O-phospho-L-homoserine to L-threonine.
+RHEA:22008	RHEA:22008	homoserine O-succinyltransferase reaction	Succinyl-CoA-dependent activation of L-homoserine.
+RHEA:13701	RHEA:13701	homoserine O-acetyltransferase reaction	Acetyl-CoA-dependent activation of L-homoserine.
+RHEA:20397	RHEA:20397	cystathionine gamma-synthase reaction (O-succinylhomoserine)	Cysteine-dependent formation of L,L-cystathionine from O-succinyl-L-homoserine.
+RHEA:30931	RHEA:30931	cystathionine gamma-synthase reaction (O-acetylhomoserine)	Cysteine-dependent formation of L,L-cystathionine from O-acetyl-L-homoserine.
+RHEA:80891	RHEA:80891	plant cystathionine gamma-synthase reaction	Cysteine-dependent formation of L,L-cystathionine from O-phospho-L-homoserine.
+RHEA:13965	RHEA:13965	cystathionine beta-lyase reaction	Cleavage of L,L-cystathionine to L-homocysteine and pyruvate.
+RHEA:27826	RHEA:27826	O-succinylhomoserine sulfhydrylase reaction	Direct incorporation of inorganic sulfide into O-succinyl-L-homoserine to give L-homocysteine.
+RHEA:27822	RHEA:27822	O-acetylhomoserine sulfhydrylase reaction	Direct incorporation of inorganic sulfide into O-acetyl-L-homoserine to give L-homocysteine.
+RHEA:11172	RHEA:11172	cobalamin-dependent methionine synthase reaction	Methyl transfer from 5-methyltetrahydrofolate to L-homocysteine.
+RHEA:21196	RHEA:21196	cobalamin-independent methionine synthase reaction	Methyl transfer from 5-methyltetrahydropteroyltriglutamate to L-homocysteine.
+RHEA:24560	RHEA:24560	serine O-acetyltransferase reaction	Acetyl-CoA-dependent activation of L-serine to O-acetyl-L-serine.
+RHEA:14829	RHEA:14829	cysteine synthase reaction	Incorporation of inorganic sulfide into O-acetyl-L-serine to give L-cysteine.
+RHEA:10112	RHEA:10112	cystathionine beta-synthase reaction	Condensation of L-serine with L-homocysteine to give L,L-cystathionine.
+RHEA:32743	RHEA:32743	cystathionine beta-synthase reaction (O-acetyl-L-serine)	Condensation of O-acetyl-L-serine with L-homocysteine to give L,L-cystathionine.
+RHEA:14005	RHEA:14005	cystathionine gamma-lyase reaction	Cleavage of L,L-cystathionine to L-cysteine and 2-oxobutanoate.
+RHEA:22816	RHEA:22816	xylose isomerase reaction	alpha-D-xylose = alpha-D-xylulofuranose.
+RHEA:10964	RHEA:10964	xylulokinase reaction	D-xylulose + ATP = D-xylulose 5-phosphate + ADP.
+RHEA:14821	RHEA:14821	L-arabinose isomerase reaction	beta-L-arabinopyranose = L-ribulose.
+RHEA:22072	RHEA:22072	L-ribulokinase reaction	L-ribulose + ATP = L-ribulose 5-phosphate + ADP.
+RHEA:22368	RHEA:22368	L-ribulose-5-phosphate 4-epimerase reaction	L-ribulose 5-phosphate = D-xylulose 5-phosphate.
+RHEA:17233	RHEA:17233	L-fucose isomerase reaction	L-fucose = L-fuculose.
+RHEA:12376	RHEA:12376	L-fuculokinase reaction	L-fuculose + ATP = L-fuculose 1-phosphate + ADP.
+RHEA:12933	RHEA:12933	L-fuculose-1-phosphate aldolase reaction	L-fuculose 1-phosphate = (S)-lactaldehyde + dihydroxyacetone phosphate.
+RHEA:23160	RHEA:23160	L-rhamnose isomerase reaction	L-rhamnopyranose = L-rhamnulose.
+RHEA:20117	RHEA:20117	rhamnulokinase reaction	L-rhamnulose + ATP = L-rhamnulose 1-phosphate + ADP.
+RHEA:19689	RHEA:19689	rhamnulose-1-phosphate aldolase reaction	L-rhamnulose 1-phosphate = (S)-lactaldehyde + dihydroxyacetone phosphate.
+RHEA:28675	RHEA:28675	aldose 1-epimerase reaction on D-galactose	alpha-D-galactose = beta-D-galactose; used in reverse for catabolism.
+RHEA:13553	RHEA:13553	galactokinase reaction	alpha-D-galactose + ATP = alpha-D-galactose 1-phosphate + ADP.
+RHEA:13989	RHEA:13989	galactose-1-phosphate uridylyltransferase reaction	alpha-D-galactose 1-phosphate + UDP-alpha-D-glucose = alpha-D-glucose 1-phosphate + UDP-alpha-D-galactose.
+RHEA:22168	RHEA:22168	UDP-glucose 4-epimerase reaction	UDP-alpha-D-glucose = UDP-alpha-D-galactose; used in reverse to regenerate UDP-glucose.
+RHEA:17417	RHEA:17417	N-acetylglucosamine kinase reaction	N-acetyl-D-glucosamine + ATP = N-acetyl-D-glucosamine 6-phosphate + ADP.
+RHEA:22936	RHEA:22936	N-acetylglucosamine-6-phosphate deacetylase reaction	N-acetyl-D-glucosamine 6-phosphate + H2O = D-glucosamine 6-phosphate + acetate.
+RHEA:12172	RHEA:12172	glucosamine-6-phosphate deaminase reaction	alpha-D-glucosamine 6-phosphate + H2O = beta-D-fructose 6-phosphate + ammonium.
+RHEA:23296	RHEA:23296	N-acetylneuraminate lyase reaction	aceneuramate = aldehydo-N-acetyl-D-mannosamine + pyruvate.
+RHEA:25253	RHEA:25253	N-acetylmannosamine kinase reaction	aldehydo-N-acetyl-D-mannosamine + ATP = aldehydo-N-acetyl-D-mannosamine 6-phosphate + ADP.
+RHEA:25257	RHEA:25257	N-acetylmannosamine-6-phosphate 2-epimerase reaction	N-acetyl-D-glucosamine 6-phosphate = aldehydo-N-acetyl-D-mannosamine 6-phosphate; used in reverse for catabolism.
+RHEA:27702	RHEA:27702	glucuronate isomerase reaction on D-galacturonate	aldehydo-D-galacturonate = keto-D-tagaturonate.
+RHEA:17813	RHEA:17813	tagaturonate reductase reaction	D-altronate + NAD+ = keto-D-tagaturonate + NADH; used in reverse for catabolism.
+RHEA:15957	RHEA:15957	altronate dehydratase reaction	D-altronate = 2-dehydro-3-deoxy-D-gluconate + H2O.
+RHEA:14797	RHEA:14797	2-dehydro-3-deoxygluconokinase reaction	2-dehydro-3-deoxy-D-gluconate + ATP = 2-dehydro-3-deoxy-6-phospho-D-gluconate + ADP.
+RHEA:17089	RHEA:17089	2-dehydro-3-deoxy-phosphogluconate aldolase reaction	2-dehydro-3-deoxy-6-phospho-D-gluconate = D-glyceraldehyde 3-phosphate + pyruvate.
+RHEA:13049	RHEA:13049	glucuronate isomerase reaction on D-glucuronate	D-glucuronate = D-fructuronate.
+RHEA:15729	RHEA:15729	fructuronate reductase reaction	D-mannonate + NAD+ = keto-D-fructuronate + NADH; used in reverse for catabolism.
+RHEA:20097	RHEA:20097	mannonate dehydratase reaction	D-mannonate = 2-dehydro-3-deoxy-D-gluconate + H2O.
+RHEA:29899	RHEA:29899	ABC-type D-xylose import reaction	D-xylose(out) + ATP + H2O = D-xylose(in) + ADP + phosphate + H(+).
+RHEA:30007	RHEA:30007	ABC-type L-arabinose import reaction	L-arabinose(out) + ATP + H2O = L-arabinose(in) + ADP + phosphate + H(+).
+RXN_ARABINOXYLAN_ARAF_RELEASE		alpha-L-arabinofuranosidase reaction	Hydrolysis of terminal non-reducing alpha-L-arabinofuranosyl residues from arabinoxylan.
+RXN_XYLAN_ENDO_1_4		endo-1,4-beta-xylanase reaction	Endohydrolysis of (1->4)-beta-D-xylosidic linkages in xylan.
+RXN_XYLOOLIGO_EXO		xylan 1,4-beta-xylosidase reaction	Hydrolysis of (1->4)-beta-D-xylans to remove successive D-xylose residues from the non-reducing end.
+RXN_STARCH_ENDO_1_4		alpha-amylase reaction	Endohydrolysis of (1->4)-alpha-D-glucosidic linkages in starch.
+RXN_STARCH_DEBRANCH_1_6		pullulanase reaction	Hydrolysis of (1->6)-alpha-D-glucosidic linkages in pullulan and amylopectin.
+RXN_MALTOOLIGO_EXO		alpha-glucosidase reaction	Hydrolysis of terminal non-reducing (1->4)-linked alpha-D-glucose residues, releasing alpha-D-glucose.
+RXN_XYLAN_DEACETYL		acetylxylan esterase reaction	Hydrolysis of acetyl groups from the xylan backbone, exposing it to endo-acting xylanases.
+RXN_COLLAGEN_HELIX_CLEAVAGE		microbial collagenase reaction	Digestion of native collagen in the triple-helical region at Gly bonds. Rhea covers collagen hydroxylation, glycosylation and crosslinking but contains no proteolytic cleavage of the helix, so this reaction carries no master and is identified by its EC cross-reference.

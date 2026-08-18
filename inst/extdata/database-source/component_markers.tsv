@@ -1,0 +1,491 @@
+component_id	namespace	accession	evidence_type	confidence	source	notes
+COMP_14905_CATALYTIC	KO	K00764	orthology	curated	KEGG M00048 2026-08-17	
+COMP_17453_CATALYTIC	KO	K01945	orthology	curated	KEGG M00048 2026-08-17	
+COMP_17453_CATALYTIC	KO	K11787	orthology	curated	KEGG M00048 2026-08-17	Multifunctional protein.
+COMP_17453_CATALYTIC	KO	K11788	orthology	curated	KEGG M00048 2026-08-17	Multifunctional protein.
+COMP_17453_CATALYTIC	KO	K13713	orthology	curated	KEGG M00048 2026-08-17	Fusion protein.
+COMP_15053_CATALYTIC	KO	K00601	orthology	curated	KEGG M00048 2026-08-17	
+COMP_15053_CATALYTIC	KO	K11175	orthology	curated	KEGG M00048 2026-08-17	
+COMP_15053_CATALYTIC	KO	K11787	orthology	curated	KEGG M00048 2026-08-17	Multifunctional protein.
+COMP_15053_CATALYTIC	KO	K01492	orthology	curated	KEGG M00048 2026-08-17	
+COMP_24829_CATALYTIC	KO	K08289	orthology	curated	KEGG M00048 2026-08-17	
+COMP_17129_LARGE	KO	K01952	orthology	curated	KEGG M00048 2026-08-17	
+COMP_17129_TRI_A	KO	K23269	orthology	curated	KEGG M00048 2026-08-17	
+COMP_17129_TRI_B	KO	K23264	orthology	curated	KEGG M00048 2026-08-17	
+COMP_17129_TRI_C	KO	K23265	orthology	curated	KEGG M00048 2026-08-17	
+COMP_17129_DI_A	KO	K23270	orthology	curated	KEGG M00048 2026-08-17	
+COMP_17129_DI_B	KO	K23265	orthology	curated	KEGG M00048 2026-08-17	
+COMP_23032_CATALYTIC	KO	K01933	orthology	curated	KEGG M00048 2026-08-17	
+COMP_23032_CATALYTIC	KO	K11787	orthology	curated	KEGG M00048 2026-08-17	Multifunctional protein.
+COMP_23032_CATALYTIC	KO	K11788	orthology	curated	KEGG M00048 2026-08-17	Multifunctional protein.
+COMP_10792_CATALYTIC	KO	K01587	orthology	curated	KEGG M00048 2026-08-17	
+COMP_10792_CATALYTIC	KO	K11808	orthology	curated	KEGG M00048 2026-08-17	
+COMP_19317_CATALYTIC	KO	K01589	orthology	curated	KEGG M00048 2026-08-17	
+COMP_13193_CATALYTIC	KO	K01588	orthology	curated	KEGG M00048 2026-08-17	
+COMP_22628_CATALYTIC	KO	K01923	orthology	curated	KEGG M00048 2026-08-17	
+COMP_22628_CATALYTIC	KO	K01587	orthology	curated	KEGG M00048 2026-08-17	Multifunctional protein.
+COMP_22628_CATALYTIC	KO	K13713	orthology	curated	KEGG M00048 2026-08-17	Fusion protein.
+COMP_23920_CATALYTIC	KO	K01756	orthology	curated	KEGG M00048 2026-08-17	
+COMP_22192_CATALYTIC	KO	K00602	orthology	curated	KEGG M00048 2026-08-17	Bifunctional protein.
+COMP_22192_CATALYTIC	KO	K01492	orthology	curated	KEGG M00048 2026-08-17	
+COMP_24836_CATALYTIC	KO	K06863	orthology	curated	KEGG M00048 2026-08-17	
+COMP_18445_CATALYTIC	KO	K00602	orthology	curated	KEGG M00048 2026-08-17	Bifunctional protein.
+COMP_18445_CATALYTIC	KO	K11176	orthology	curated	KEGG M00048 2026-08-17	
+COMP_15753_CATALYTIC	KO	K01939	orthology	curated	KEGG M00049 2026-08-17	Only the IMP-to-adenylosuccinate reaction is used.
+COMP_16853_CATALYTIC	KO	K01756	orthology	curated	KEGG M00049 2026-08-17	Only the adenylosuccinate-to-AMP reaction is used.
+COMP_11708_CATALYTIC	KO	K00088	orthology	curated	KEGG M00050 2026-08-17	Only the IMP-to-XMP reaction is used; downstream shared nucleotide phosphorylation is excluded.
+COMP_11680_CATALYTIC	KO	K01951	orthology	curated	KEGG M00050 2026-08-17	The complete glutamine-dependent XMP-to-GMP reaction is used.
+COMP_18633_MONOMER	KO	K11540	orthology	curated	KEGG M00051 2026-08-17	Multifunctional CAD protein; only the carbamoyl-phosphate synthase reaction is used here.
+COMP_18633_MONOMER	KO	K11541	orthology	curated	KEGG M00051 2026-08-17	Multifunctional protein; only the carbamoyl-phosphate synthase reaction is used here.
+COMP_18633_MONOMER	KO	K01954	orthology	curated	KEGG M00051 2026-08-17	Single-protein carbamoyl-phosphate synthase architecture.
+COMP_18633_LARGE	KO	K01955	orthology	curated	KEGG M00051 2026-08-17	Required large subunit.
+COMP_18633_SMALL	KO	K01956	orthology	curated	KEGG M00051 2026-08-17	Required small subunit.
+COMP_20013_MONOMER	KO	K11540	orthology	curated	KEGG M00051 2026-08-17	Multifunctional CAD protein; only the aspartate carbamoyltransferase reaction is used here.
+COMP_20013_MONOMER	KO	K11541	orthology	curated	KEGG M00051 2026-08-17	Multifunctional protein; only the aspartate carbamoyltransferase reaction is used here.
+COMP_20013_MONOMER	KO	K00608	orthology	curated	KEGG M00051 2026-08-17	Single-protein aspartate carbamoyltransferase architecture.
+COMP_20013_CATALYTIC	KO	K00609	orthology	curated	KEGG M00051 2026-08-17	Required catalytic subunit.
+COMP_24296_CATALYTIC	KO	K11540	orthology	curated	KEGG M00051 2026-08-17	Multifunctional CAD protein; only the dihydroorotase reaction is used here.
+COMP_24296_CATALYTIC	KO	K01465	orthology	curated	KEGG M00051 2026-08-17	Single-protein dihydroorotase architecture.
+COMP_30059_CATALYTIC	KO	K00226	orthology	curated	KEGG M00051 2026-08-17	Fumarate-dependent reaction R01867.
+COMP_30187_CATALYTIC	KO	K00254	orthology	curated	KEGG M00051 2026-08-17	Quinone-dependent reaction R01868.
+COMP_13513_CATALYTIC	KO	K17828	orthology	curated	KEGG M00051 2026-08-17	NAD-dependent reaction R01869.
+COMP_13513_ELECTRON	KO	K02823	orthology	curated	KEGG 2026-08-17	PyrK subunit of the class 1B holoenzyme; annotated to the same KEGG reaction R01869.
+COMP_10380_CATALYTIC	KO	K13421	orthology	curated	KEGG M00051 2026-08-17	Bifunctional UMP synthase; only the orotate phosphoribosyltransferase reaction is used here.
+COMP_10380_CATALYTIC	KO	K00762	orthology	curated	KEGG M00051 2026-08-17	Single-function orotate phosphoribosyltransferase.
+COMP_11596_CATALYTIC	KO	K13421	orthology	curated	KEGG M00051 2026-08-17	Bifunctional UMP synthase; only the orotidine 5'-phosphate decarboxylase reaction is used here.
+COMP_11596_CATALYTIC	KO	K01591	orthology	curated	KEGG M00051 2026-08-17	Single-function orotidine 5'-phosphate decarboxylase.
+COMP_26426_CATALYTIC	KO	K01937	orthology	curated	KEGG M00052 2026-08-17	The complete glutamine-dependent UTP-to-CTP reaction is used; shared nucleotide phosphorylation is excluded.
+COMP_12641_CATALYTIC	KO	K00058	orthology	curated	KEGG M00020 2026-08-17	
+COMP_14329_CATALYTIC	KO	K00831	orthology	curated	KEGG M00020 2026-08-17	
+COMP_21208_CATALYTIC	KO	K01079	orthology	curated	KEGG M00020 2026-08-17	
+COMP_21208_CATALYTIC	KO	K02203	orthology	curated	KEGG M00020 2026-08-17	Bifunctional protein; the homoserine kinase activity is used by threonine biosynthesis.
+COMP_21208_CATALYTIC	KO	K22305	orthology	curated	KEGG M00020 2026-08-17	
+COMP_21208_CATALYTIC	KO	K25528	orthology	curated	KEGG M00020 2026-08-17	
+COMP_15481_CATALYTIC	KO	K00600	orthology	curated	KEGG R00945 2026-08-17	Used in the serine-to-glycine direction; no KEGG module covers this capability.
+COMP_23776_CATALYTIC	KO	K00928	orthology	curated	KEGG M00018 2026-08-17	
+COMP_23776_CATALYTIC	KO	K12524	orthology	curated	KEGG M00018 2026-08-17	Bifunctional protein; only the aspartate kinase reaction is used here.
+COMP_23776_CATALYTIC	KO	K12525	orthology	curated	KEGG M00018 2026-08-17	Bifunctional protein; only the aspartate kinase reaction is used here.
+COMP_23776_CATALYTIC	KO	K12526	orthology	curated	KEGG M00018 2026-08-17	Bifunctional protein carrying EC 2.7.2.4; listed by M00018 but omitted from M00017, which is a KEGG inconsistency.
+COMP_24284_CATALYTIC	KO	K00133	orthology	curated	KEGG M00018 2026-08-17	
+COMP_15757_CATALYTIC	KO	K00003	orthology	curated	KEGG M00018 2026-08-17	
+COMP_15757_CATALYTIC	KO	K12524	orthology	curated	KEGG M00018 2026-08-17	Bifunctional protein; only the homoserine dehydrogenase reaction is used here.
+COMP_15757_CATALYTIC	KO	K12525	orthology	curated	KEGG M00018 2026-08-17	Bifunctional protein; only the homoserine dehydrogenase reaction is used here.
+COMP_15761_CATALYTIC	KO	K00003	orthology	curated	KEGG M00018 2026-08-17	KEGG annotates the same orthologue to both cofactor reactions.
+COMP_15761_CATALYTIC	KO	K12524	orthology	curated	KEGG M00018 2026-08-17	Bifunctional protein; only the homoserine dehydrogenase reaction is used here.
+COMP_15761_CATALYTIC	KO	K12525	orthology	curated	KEGG M00018 2026-08-17	Bifunctional protein; only the homoserine dehydrogenase reaction is used here.
+COMP_13985_CATALYTIC	KO	K00872	orthology	curated	KEGG M00018 2026-08-17	
+COMP_13985_CATALYTIC	KO	K02204	orthology	curated	KEGG M00018 2026-08-17	
+COMP_13985_CATALYTIC	KO	K02203	orthology	curated	KEGG M00018 2026-08-17	Bifunctional protein; the phosphoserine phosphatase activity is used by serine biosynthesis.
+COMP_10840_CATALYTIC	KO	K01733	orthology	curated	KEGG M00018 2026-08-17	
+COMP_22008_CATALYTIC	KO	K00651	orthology	curated	KEGG M00017 2026-08-17	KEGG assigns both R01776 and R01777 to this orthologue, so the acyl specificity is not recoverable at KO resolution.
+COMP_22008_CATALYTIC	KO	K00641	orthology	curated	KEGG M00017 2026-08-17	KEGG assigns both R01776 and R01777 to this orthologue, so the acyl specificity is not recoverable at KO resolution.
+COMP_13701_CATALYTIC	KO	K00641	orthology	curated	KEGG M00017 2026-08-17	KEGG assigns both R01776 and R01777 to this orthologue, so the acyl specificity is not recoverable at KO resolution.
+COMP_13701_CATALYTIC	KO	K00651	orthology	curated	KEGG M00017 2026-08-17	KEGG assigns both R01776 and R01777 to this orthologue, so the acyl specificity is not recoverable at KO resolution.
+COMP_20397_CATALYTIC	KO	K01739	orthology	curated	KEGG M00017 2026-08-17	
+COMP_30931_CATALYTIC	KO	K01739	orthology	curated	KEGG R03217 2026-08-17	KEGG annotates the same orthologue to the O-acetylhomoserine chemistry.
+COMP_80891_CATALYTIC	KO	K27857	orthology	curated	KEGG M00017 2026-08-17	
+COMP_13965_CATALYTIC	KO	K01760	orthology	curated	KEGG M00017 2026-08-17	
+COMP_13965_CATALYTIC	KO	K14155	orthology	curated	KEGG M00017 2026-08-17	
+COMP_27826_CATALYTIC	KO	K10764	orthology	curated	KEGG R01288 2026-08-17	MetZ is the dedicated O-succinylhomoserine sulfhydrylase. K01739 is rejected here although KEGG annotates MetB to R01288: the sulfhydrylase side activity of a cystathionine gamma-synthase is not evidence that a genome assimilates sulfide directly, and accepting it would make every transsulfuration genome positive for this GIFT.
+COMP_27822_CATALYTIC	KO	K01740	orthology	curated	KEGG R01287 2026-08-17	Direct sulfhydrylation; absent from KEGG module M00017.
+COMP_27822_CATALYTIC	KO	K17069	orthology	curated	KEGG R01287 2026-08-17	Bifunctional sulfhydrylase; the O-acetylserine activity is used by cysteine biosynthesis.
+COMP_11172_CATALYTIC	KO	K00548	orthology	curated	KEGG M00017 2026-08-17	
+COMP_11172_CATALYTIC	KO	K24042	orthology	curated	KEGG M00017 2026-08-17	Bifunctional protein; only the methionine synthase reaction is used here.
+COMP_21196_CATALYTIC	KO	K00549	orthology	curated	KEGG M00017 2026-08-17	
+COMP_24560_CATALYTIC	KO	K00640	orthology	curated	KEGG M00021 2026-08-17	
+COMP_24560_CATALYTIC	KO	K23304	orthology	curated	KEGG M00021 2026-08-17	
+COMP_14829_CATALYTIC	KO	K01738	orthology	curated	KEGG M00021 2026-08-17	
+COMP_14829_CATALYTIC	KO	K13034	orthology	curated	KEGG M00021 2026-08-17	Bifunctional protein; only the cysteine synthase reaction is used here.
+COMP_14829_CATALYTIC	KO	K17069	orthology	curated	KEGG M00021 2026-08-17	Bifunctional sulfhydrylase; the O-acetylhomoserine activity is used by methionine biosynthesis.
+COMP_10112_CATALYTIC	KO	K01697	orthology	curated	KEGG M00338 2026-08-17	
+COMP_10112_CATALYTIC	KO	K10150	orthology	curated	KEGG M00338 2026-08-17	Multifunctional protein; only the cystathionine beta-synthase reaction is used here.
+COMP_32743_CATALYTIC	KO	K17216	orthology	curated	KEGG M00609 2026-08-17	Cysteine-forming step of M00609; the four SAM-cycle steps of that module are excluded.
+COMP_14005_CATALYTIC	KO	K01758	orthology	curated	KEGG M00338 2026-08-17	
+COMP_14005_CATALYTIC	KO	K17217	orthology	curated	KEGG M00609 2026-08-17	KEGG assigns both orthologues to R01001; they are alternative evidence for one reaction.
+COMP_22816_CATALYTIC	KO	K01805	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_10964_CATALYTIC	KO	K00854	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_14821_CATALYTIC	KO	K01804	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_22072_CATALYTIC	KO	K00853	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_22072_CATALYTIC	KO	K24707	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_22368_CATALYTIC	KO	K03077	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17233_CATALYTIC	KO	K01818	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_12376_CATALYTIC	KO	K00879	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_12933_CATALYTIC	KO	K01628	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_23160_CATALYTIC	KO	K01813	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_23160_CATALYTIC	KO	K01820	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_20117_CATALYTIC	KO	K00848	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_19689_CATALYTIC	KO	K01629	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_28675_CATALYTIC	KO	K01785	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_13553_CATALYTIC	KO	K00849	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_13989_CATALYTIC	KO	K00965	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_22168_CATALYTIC	KO	K01784	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_22168_CATALYTIC	KO	K17716	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17417_CATALYTIC	KO	K00884	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17417_CATALYTIC	KO	K28207	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17417_CATALYTIC	KO	K28208	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Cell wall recycling kinase acting on the same chemistry.
+COMP_22936_CATALYTIC	KO	K01443	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_12172_CATALYTIC	KO	K02564	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_23296_CATALYTIC	KO	K01639	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_25253_CATALYTIC	KO	K00885	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_25253_CATALYTIC	KO	K13967	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Bifunctional nanEK supports components in two reactions.
+COMP_25257_CATALYTIC	KO	K01788	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_25257_CATALYTIC	KO	K13967	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Bifunctional nanEK supports components in two reactions.
+COMP_27702_CATALYTIC	KO	K01812	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17813_CATALYTIC	KO	K00041	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_14797_CATALYTIC	KO	K00874	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17089_CATALYTIC	KO	K01625	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17089_CATALYTIC	KO	K17463	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17089_CATALYTIC	KO	K28887	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_13049_CATALYTIC	KO	K01812	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15729_CATALYTIC	KO	K00040	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_20097_CATALYTIC	KO	K01686	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_20097_CATALYTIC	KO	K08323	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15957_CATALYTIC	KO	K01685	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15957_SMALL	KO	K16849	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15957_LARGE	KO	K16850	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_29899_SBP	KO	K10543	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_29899_PERMEASE	KO	K10544	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_29899_ATPASE	KO	K10545	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_29899_XAC_SBP	KO	K25045	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Dual-specificity system, characterised on both pentoses.
+COMP_29899_XAC_PERM1	KO	K25046	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Dual-specificity system, characterised on both pentoses.
+COMP_29899_XAC_PERM2	KO	K25047	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Dual-specificity system, characterised on both pentoses.
+COMP_30007_SBP	KO	K10537	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_30007_PERMEASE	KO	K10538	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_30007_ATPASE	KO	K10539	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_30007_XAC_SBP	KO	K25045	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Dual-specificity system, characterised on both pentoses.
+COMP_30007_XAC_PERM1	KO	K25046	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Dual-specificity system, characterised on both pentoses.
+COMP_30007_XAC_PERM2	KO	K25047	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Dual-specificity system, characterised on both pentoses.
+COMP_ARAF	KO	K01209	orthology	curated	KEGG orthology, verified 2026-08-18	
+COMP_ARAF	KO	K15921	orthology	curated	KEGG orthology, verified 2026-08-18	
+COMP_ARAF	KO	K20844	orthology	curated	KEGG orthology, verified 2026-08-18	
+COMP_ARAF	CAZY	GH2	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 11 distinct characterised activities in dbCAN.
+COMP_ARAF	CAZY	GH3	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 19 distinct characterised activities in dbCAN.
+COMP_ARAF	CAZY	GH43	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 8 distinct characterised activities in dbCAN.
+COMP_ARAF	CAZY	GH5	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 28 distinct characterised activities in dbCAN.
+COMP_ARAF	CAZY	GH51	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 6 distinct characterised activities in dbCAN.
+COMP_ARAF	CAZY	GH54	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 3 distinct characterised activities in dbCAN.
+COMP_ARAF	CAZY	GH62	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 1 characterised activity in dbCAN.
+COMP_XYLANASE	KO	K01181	orthology	curated	KEGG orthology, verified 2026-08-18	
+COMP_XYLANASE	CAZY	GH10	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 7 distinct characterised activities in dbCAN.
+COMP_XYLANASE	CAZY	GH11	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 2 distinct characterised activities in dbCAN.
+COMP_XYLANASE	CAZY	GH141	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 2 distinct characterised activities in dbCAN.
+COMP_XYLANASE	CAZY	GH30	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 9 distinct characterised activities in dbCAN.
+COMP_XYLANASE	CAZY	GH43	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 8 distinct characterised activities in dbCAN.
+COMP_XYLANASE	CAZY	GH44	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 4 distinct characterised activities in dbCAN.
+COMP_XYLANASE	CAZY	GH5	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 28 distinct characterised activities in dbCAN.
+COMP_XYLANASE	CAZY	GH51	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 6 distinct characterised activities in dbCAN.
+COMP_XYLANASE	CAZY	GH8	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 7 distinct characterised activities in dbCAN.
+COMP_XYLANASE	CAZY	GH9	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 9 distinct characterised activities in dbCAN.
+COMP_XYLANASE	CAZY	GH98	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 2 distinct characterised activities in dbCAN.
+COMP_XYLOSIDASE	KO	K01198	orthology	curated	KEGG orthology, verified 2026-08-18	
+COMP_XYLOSIDASE	KO	K15920	orthology	curated	KEGG orthology, verified 2026-08-18	
+COMP_XYLOSIDASE	KO	K22268	orthology	curated	KEGG orthology, verified 2026-08-18	
+COMP_XYLOSIDASE	CAZY	GH1	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 30 distinct characterised activities in dbCAN.
+COMP_XYLOSIDASE	CAZY	GH10	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 7 distinct characterised activities in dbCAN.
+COMP_XYLOSIDASE	CAZY	GH11	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 2 distinct characterised activities in dbCAN.
+COMP_XYLOSIDASE	CAZY	GH116	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 5 distinct characterised activities in dbCAN.
+COMP_XYLOSIDASE	CAZY	GH120	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 1 characterised activity in dbCAN.
+COMP_XYLOSIDASE	CAZY	GH2	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 11 distinct characterised activities in dbCAN.
+COMP_XYLOSIDASE	CAZY	GH3	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 19 distinct characterised activities in dbCAN.
+COMP_XYLOSIDASE	CAZY	GH30	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 9 distinct characterised activities in dbCAN.
+COMP_XYLOSIDASE	CAZY	GH39	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 6 distinct characterised activities in dbCAN.
+COMP_XYLOSIDASE	CAZY	GH43	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 8 distinct characterised activities in dbCAN.
+COMP_XYLOSIDASE	CAZY	GH5	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 28 distinct characterised activities in dbCAN.
+COMP_XYLOSIDASE	CAZY	GH51	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 6 distinct characterised activities in dbCAN.
+COMP_XYLOSIDASE	CAZY	GH52	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 1 characterised activity in dbCAN.
+COMP_XYLOSIDASE	CAZY	GH54	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 3 distinct characterised activities in dbCAN.
+COMP_AMYLASE	KO	K01176	orthology	curated	KEGG orthology, verified 2026-08-18	
+COMP_AMYLASE	KO	K07405	orthology	curated	KEGG orthology, verified 2026-08-18	
+COMP_AMYLASE	CAZY	GH119	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 1 characterised activity in dbCAN.
+COMP_AMYLASE	CAZY	GH126	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 1 characterised activity in dbCAN.
+COMP_AMYLASE	CAZY	GH13	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 34 distinct characterised activities in dbCAN.
+COMP_AMYLASE	CAZY	GH57	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 7 distinct characterised activities in dbCAN.
+COMP_PULLULANASE	KO	K01200	orthology	curated	KEGG orthology, verified 2026-08-18	
+COMP_PULLULANASE	CAZY	GH13	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 34 distinct characterised activities in dbCAN.
+COMP_PULLULANASE	CAZY	GH57	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 7 distinct characterised activities in dbCAN.
+COMP_GLUCOSIDASE	KO	K01187	orthology	curated	KEGG orthology, verified 2026-08-18	
+COMP_GLUCOSIDASE	CAZY	GH122	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 1 characterised activity in dbCAN.
+COMP_GLUCOSIDASE	CAZY	GH13	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 34 distinct characterised activities in dbCAN.
+COMP_GLUCOSIDASE	CAZY	GH31	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 14 distinct characterised activities in dbCAN.
+COMP_GLUCOSIDASE	CAZY	GH4	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 7 distinct characterised activities in dbCAN.
+COMP_GLUCOSIDASE	CAZY	GH63	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 5 distinct characterised activities in dbCAN.
+COMP_GLUCOSIDASE	CAZY	GH76	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 2 distinct characterised activities in dbCAN.
+COMP_GLUCOSIDASE	CAZY	GH97	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 5 distinct characterised activities in dbCAN.
+COMP_DEACETYL	KO	K05972	orthology	curated	KEGG orthology, verified 2026-08-18	
+COMP_DEACETYL	CAZY	CE1	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 5 distinct characterised activities in dbCAN.
+COMP_DEACETYL	CAZY	CE2	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 3 distinct characterised activities in dbCAN.
+COMP_DEACETYL	CAZY	CE3	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 2 distinct characterised activities in dbCAN.
+COMP_DEACETYL	CAZY	CE4	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 6 distinct characterised activities in dbCAN.
+COMP_DEACETYL	CAZY	CE5	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 3 distinct characterised activities in dbCAN.
+COMP_DEACETYL	CAZY	CE6	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 1 characterised activity in dbCAN.
+COMP_DEACETYL	CAZY	CE7	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 3 distinct characterised activities in dbCAN.
+COMP_DEACETYL	CAZY	CE12	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026 fam-substrate-mapping, retrieved 2026-08-18	Family carries 3 distinct characterised activities in dbCAN.
+COMP_XYLANASE	CAZY	GH10_e0	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e10	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e101	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	9 of 9 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e103	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e105	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e109	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e112	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e118	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 7 EC-annotated members carry EC 3.2.1.8 (71%); contains CAZy subfamily GH43_16.
+COMP_XYLANASE	CAZY	GH10_e12	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	8 of 11 EC-annotated members carry EC 3.2.1.8 (73%); contains CAZy subfamily GH43_12.
+COMP_XYLANASE	CAZY	GH10_e130	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	8 of 8 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e134	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e135	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	22 of 22 EC-annotated members carry EC 3.2.1.8 (100%); contains CAZy subfamily GH43_12.
+COMP_XYLANASE	CAZY	GH10_e137	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e141	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	29 of 34 EC-annotated members carry EC 3.2.1.8 (85%); contains CAZy subfamily GH43_16;GH5_1.
+COMP_XYLANASE	CAZY	GH10_e143	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e144	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e148	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e170	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e188	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e19	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e191	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e20	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e204	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e21	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	13 of 13 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e225	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e25	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e250	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 6 EC-annotated members carry EC 3.2.1.8 (67%); contains CAZy subfamily GH5_1.
+COMP_XYLANASE	CAZY	GH10_e3	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	15 of 15 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e30	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e38	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e40	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	31 of 31 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e43	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e5	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e50	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e52	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 9 EC-annotated members carry EC 3.2.1.8 (67%).
+COMP_XYLANASE	CAZY	GH10_e53	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e58	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e6	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	9 of 9 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e60	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	9 of 9 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e64	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	44 of 44 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e67	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e75	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e77	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	7 of 7 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e78	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e8	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.8 (100%); contains CAZy subfamily GH43_16.
+COMP_XYLANASE	CAZY	GH10_e83	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	21 of 21 EC-annotated members carry EC 3.2.1.8 (100%); contains CAZy subfamily GH43_1;GH43_12.
+COMP_XYLANASE	CAZY	GH10_e85	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e88	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e90	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	32 of 32 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e96	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e97	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH10_e98	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	28 of 28 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH11_e0	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	20 of 20 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH11_e10	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH11_e11	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	59 of 59 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH11_e13	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH11_e14	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	29 of 29 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH11_e15	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	104 of 104 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH11_e16	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH11_e17	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	12 of 12 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH11_e2	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	12 of 12 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH11_e20	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH11_e22	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	66 of 71 EC-annotated members carry EC 3.2.1.8 (93%).
+COMP_XYLANASE	CAZY	GH11_e23	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	18 of 18 EC-annotated members carry EC 3.2.1.8 (100%); contains CAZy subfamily GH5_53.
+COMP_XYLANASE	CAZY	GH11_e24	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH11_e39	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH11_e42	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.8 (100%); contains CAZy subfamily GH5_53.
+COMP_XYLANASE	CAZY	GH11_e5	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	10 of 12 EC-annotated members carry EC 3.2.1.8 (83%); contains CAZy subfamily GH16_21.
+COMP_XYLANASE	CAZY	GH11_e7	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	37 of 37 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH11_e8	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	66 of 66 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH16_e14	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 53 EC-annotated members carry EC 3.2.1.8 (4%); contains CAZy subfamily GH16_21.
+COMP_XYLANASE	CAZY	GH26_e54	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 5 EC-annotated members carry EC 3.2.1.8 (40%); contains CAZy subfamily GH5_25.
+COMP_XYLANASE	CAZY	GH30_e138	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%); contains CAZy subfamily GH30_7.
+COMP_XYLANASE	CAZY	GH30_e145	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%); contains CAZy subfamily GH30_8;GH43_10.
+COMP_XYLANASE	CAZY	GH30_e48	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 5 EC-annotated members carry EC 3.2.1.8 (40%); contains CAZy subfamily GH30_7.
+COMP_XYLANASE	CAZY	GH30_e78	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	16 of 24 EC-annotated members carry EC 3.2.1.8 (67%); contains CAZy subfamily GH30_8.
+COMP_XYLANASE	CAZY	GH43_e261	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 15 EC-annotated members carry EC 3.2.1.8 (13%); contains CAZy subfamily GH43_10;GH43_16;GH43_34.
+COMP_XYLANASE	CAZY	GH5_e130	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%); contains CAZy subfamily GH5_21.
+COMP_XYLANASE	CAZY	GH5_e141	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 29 EC-annotated members carry EC 3.2.1.8 (7%); contains CAZy subfamily GH5_4.
+COMP_XYLANASE	CAZY	GH5_e243	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%); contains CAZy subfamily GH43_10;GH5_21.
+COMP_XYLANASE	CAZY	GH5_e29	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 11 EC-annotated members carry EC 3.2.1.8 (36%); contains CAZy subfamily GH5_4.
+COMP_XYLANASE	CAZY	GH5_e319	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.8 (50%); contains CAZy subfamily GH5_4.
+COMP_XYLANASE	CAZY	GH5_e55	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 21 EC-annotated members carry EC 3.2.1.8 (10%); contains CAZy subfamily GH5_4.
+COMP_XYLANASE	CAZY	GH5_e77	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 8 EC-annotated members carry EC 3.2.1.8 (25%); contains CAZy subfamily GH5_25;GH5_39.
+COMP_XYLANASE	CAZY	GH51_e9	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 6 EC-annotated members carry EC 3.2.1.8 (33%).
+COMP_XYLANASE	CAZY	GH8_e19	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 11 EC-annotated members carry EC 3.2.1.8 (55%).
+COMP_XYLANASE	CAZY	GH8_e37	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 5 EC-annotated members carry EC 3.2.1.8 (60%); contains CAZy subfamily GH5_55.
+COMP_XYLANASE	CAZY	GH8_e9	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLANASE	CAZY	GH9_e16	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 19 EC-annotated members carry EC 3.2.1.8 (26%).
+COMP_XYLANASE	CAZY	GH98_e0	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%).
+COMP_XYLOSIDASE	CAZY	GH120_e0	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.37 (100%).
+COMP_XYLOSIDASE	CAZY	GH3_e0	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	92 of 131 EC-annotated members carry EC 3.2.1.37 (70%).
+COMP_XYLOSIDASE	CAZY	GH3_e165	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 39 EC-annotated members carry EC 3.2.1.37 (8%).
+COMP_XYLOSIDASE	CAZY	GH3_e21	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	8 of 8 EC-annotated members carry EC 3.2.1.37 (100%).
+COMP_XYLOSIDASE	CAZY	GH3_e32	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 14 EC-annotated members carry EC 3.2.1.37 (29%).
+COMP_XYLOSIDASE	CAZY	GH3_e50	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.37 (100%).
+COMP_XYLOSIDASE	CAZY	GH3_e73	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	31 of 31 EC-annotated members carry EC 3.2.1.37 (100%).
+COMP_XYLOSIDASE	CAZY	GH3_e88	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	15 of 18 EC-annotated members carry EC 3.2.1.37 (83%).
+COMP_XYLOSIDASE	CAZY	GH39_e131	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.37 (100%).
+COMP_XYLOSIDASE	CAZY	GH39_e264	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.37 (100%).
+COMP_XYLOSIDASE	CAZY	GH39_e57	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.37 (100%).
+COMP_XYLOSIDASE	CAZY	GH39_e74	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	10 of 10 EC-annotated members carry EC 3.2.1.37 (100%).
+COMP_XYLOSIDASE	CAZY	GH43_e264	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 8 EC-annotated members carry EC 3.2.1.37 (50%); contains CAZy subfamily GH43_35.
+COMP_XYLOSIDASE	CAZY	GH43_e285	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	20 of 23 EC-annotated members carry EC 3.2.1.37 (87%); contains CAZy subfamily GH43_11;GH43_12.
+COMP_XYLOSIDASE	CAZY	GH43_e330	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 8 EC-annotated members carry EC 3.2.1.37 (75%); contains CAZy subfamily GH43_11;GH43_12;GH43_13.
+COMP_XYLOSIDASE	CAZY	GH43_e398	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.37 (50%); contains CAZy subfamily GH43_2.
+COMP_XYLOSIDASE	CAZY	GH43_e459	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.37 (100%); contains CAZy subfamily GH43_12;GH43_13.
+COMP_XYLOSIDASE	CAZY	GH43_e53	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	19 of 23 EC-annotated members carry EC 3.2.1.37 (83%); contains CAZy subfamily GH43_1;GH43_10;GH43_29;GH43_32;GH43_33;GH43_34;GH5_21.
+COMP_XYLOSIDASE	CAZY	GH43_e59	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.37 (50%); contains CAZy subfamily GH43_10;GH43_17;GH43_26;GH43_29;GH43_30.
+COMP_XYLOSIDASE	CAZY	GH43_e67	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.37 (50%); contains CAZy subfamily GH43_12.
+COMP_XYLOSIDASE	CAZY	GH5_e288	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.37 (50%); contains CAZy subfamily GH5_22.
+COMP_XYLOSIDASE	CAZY	GH51_e4	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	11 of 31 EC-annotated members carry EC 3.2.1.37 (35%).
+COMP_XYLOSIDASE	CAZY	GH52_e0	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	8 of 8 EC-annotated members carry EC 3.2.1.37 (100%).
+COMP_ARAF	CAZY	GH3_e0	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	39 of 131 EC-annotated members carry EC 3.2.1.55 (30%).
+COMP_ARAF	CAZY	GH3_e88	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 18 EC-annotated members carry EC 3.2.1.55 (17%).
+COMP_ARAF	CAZY	GH43_e0	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_10;GH43_12.
+COMP_ARAF	CAZY	GH43_e118	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_10;GH43_16.
+COMP_ARAF	CAZY	GH43_e124	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	7 of 7 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_12.
+COMP_ARAF	CAZY	GH43_e159	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_19;GH43_29;GH43_34.
+COMP_ARAF	CAZY	GH43_e173	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_18;GH43_20;PL1_2.
+COMP_ARAF	CAZY	GH43_e188	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_10;GH43_16.
+COMP_ARAF	CAZY	GH43_e194	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_8;GH43_9.
+COMP_ARAF	CAZY	GH43_e2	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_10.
+COMP_ARAF	CAZY	GH43_e239	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_10;GH43_16.
+COMP_ARAF	CAZY	GH43_e259	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_12.
+COMP_ARAF	CAZY	GH43_e261	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	11 of 15 EC-annotated members carry EC 3.2.1.55 (73%); contains CAZy subfamily GH43_10;GH43_16;GH43_34.
+COMP_ARAF	CAZY	GH43_e264	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 8 EC-annotated members carry EC 3.2.1.55 (50%); contains CAZy subfamily GH43_35.
+COMP_ARAF	CAZY	GH43_e285	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 23 EC-annotated members carry EC 3.2.1.55 (13%); contains CAZy subfamily GH43_11;GH43_12.
+COMP_ARAF	CAZY	GH43_e311	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.55 (50%); contains CAZy subfamily GH43_17;GH43_23;GH43_26;GH43_34.
+COMP_ARAF	CAZY	GH43_e327	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_2;GH43_29;GH43_34.
+COMP_ARAF	CAZY	GH43_e330	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 8 EC-annotated members carry EC 3.2.1.55 (25%); contains CAZy subfamily GH43_11;GH43_12;GH43_13.
+COMP_ARAF	CAZY	GH43_e398	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.55 (50%); contains CAZy subfamily GH43_2.
+COMP_ARAF	CAZY	GH43_e429	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_12.
+COMP_ARAF	CAZY	GH43_e52	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_36.
+COMP_ARAF	CAZY	GH43_e53	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 23 EC-annotated members carry EC 3.2.1.55 (17%); contains CAZy subfamily GH43_1;GH43_10;GH43_29;GH43_32;GH43_33;GH43_34;GH5_21.
+COMP_ARAF	CAZY	GH43_e532	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_10;GH43_29.
+COMP_ARAF	CAZY	GH43_e59	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.55 (50%); contains CAZy subfamily GH43_10;GH43_17;GH43_26;GH43_29;GH43_30.
+COMP_ARAF	CAZY	GH43_e67	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.55 (50%); contains CAZy subfamily GH43_12.
+COMP_ARAF	CAZY	GH43_e79	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_20.
+COMP_ARAF	CAZY	GH43_e84	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_18;GH43_20;GH43_34.
+COMP_ARAF	CAZY	GH51_e0	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	36 of 36 EC-annotated members carry EC 3.2.1.55 (100%).
+COMP_ARAF	CAZY	GH51_e1	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.55 (100%).
+COMP_ARAF	CAZY	GH51_e19	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	26 of 26 EC-annotated members carry EC 3.2.1.55 (100%).
+COMP_ARAF	CAZY	GH51_e26	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	7 of 7 EC-annotated members carry EC 3.2.1.55 (100%).
+COMP_ARAF	CAZY	GH51_e31	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.55 (100%).
+COMP_ARAF	CAZY	GH51_e34	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.55 (100%).
+COMP_ARAF	CAZY	GH51_e35	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	10 of 10 EC-annotated members carry EC 3.2.1.55 (100%).
+COMP_ARAF	CAZY	GH51_e36	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH51_2.
+COMP_ARAF	CAZY	GH51_e4	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	20 of 31 EC-annotated members carry EC 3.2.1.55 (65%).
+COMP_ARAF	CAZY	GH51_e47	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_18;GH43_22;GH43_29;GH43_34;GH43_4.
+COMP_ARAF	CAZY	GH51_e51	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH51_1.
+COMP_ARAF	CAZY	GH51_e65	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	10 of 10 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH51_1;GH51_14.
+COMP_ARAF	CAZY	GH54_e0	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	23 of 23 EC-annotated members carry EC 3.2.1.55 (100%).
+COMP_ARAF	CAZY	GH62_e0	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	24 of 24 EC-annotated members carry EC 3.2.1.55 (100%).
+COMP_ARAF	CAZY	GH62_e1	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_16.
+COMP_ARAF	CAZY	GH62_e9	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_36.
+COMP_AMYLASE	CAZY	GH119_e2	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%).
+COMP_AMYLASE	CAZY	GH13_e124	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	7 of 7 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_1.
+COMP_AMYLASE	CAZY	GH13_e13	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_36.
+COMP_AMYLASE	CAZY	GH13_e139	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_1.
+COMP_AMYLASE	CAZY	GH13_e143	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	10 of 10 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_6.
+COMP_AMYLASE	CAZY	GH13_e146	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_19;GH13_32;GH13_6.
+COMP_AMYLASE	CAZY	GH13_e160	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_19;GH13_28;GH13_32;GH13_42.
+COMP_AMYLASE	CAZY	GH13_e172	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	9 of 17 EC-annotated members carry EC 3.2.1.1 (53%); contains CAZy subfamily GH13_20;GH13_21;GH13_39.
+COMP_AMYLASE	CAZY	GH13_e173	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_5.
+COMP_AMYLASE	CAZY	GH13_e18	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	7 of 7 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_5;GH13_7.
+COMP_AMYLASE	CAZY	GH13_e183	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 13 EC-annotated members carry EC 3.2.1.1 (23%); contains CAZy subfamily GH13_13;GH13_3;GH13_32.
+COMP_AMYLASE	CAZY	GH13_e19	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	16 of 16 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_1.
+COMP_AMYLASE	CAZY	GH13_e205	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	49 of 49 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_15;GH13_24;GH13_32.
+COMP_AMYLASE	CAZY	GH13_e206	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_1;GH13_2.
+COMP_AMYLASE	CAZY	GH13_e23	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_32.
+COMP_AMYLASE	CAZY	GH13_e240	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_28;GH13_32.
+COMP_AMYLASE	CAZY	GH13_e245	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_5.
+COMP_AMYLASE	CAZY	GH13_e248	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 31 EC-annotated members carry EC 3.2.1.1 (10%); contains CAZy subfamily GH13_13;GH13_14;GH13_32;GH13_37;GH13_5.
+COMP_AMYLASE	CAZY	GH13_e25	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_5.
+COMP_AMYLASE	CAZY	GH13_e302	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_28.
+COMP_AMYLASE	CAZY	GH13_e303	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	10 of 19 EC-annotated members carry EC 3.2.1.1 (53%); contains CAZy subfamily GH13_39.
+COMP_AMYLASE	CAZY	GH13_e307	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	15 of 17 EC-annotated members carry EC 3.2.1.1 (88%); contains CAZy subfamily GH13_36.
+COMP_AMYLASE	CAZY	GH13_e329	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 22 EC-annotated members carry EC 3.2.1.1 (9%); contains CAZy subfamily GH13_20;GH13_21.
+COMP_AMYLASE	CAZY	GH13_e34	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	8 of 8 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_28.
+COMP_AMYLASE	CAZY	GH13_e345	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	50 of 50 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_6.
+COMP_AMYLASE	CAZY	GH13_e346	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_20.
+COMP_AMYLASE	CAZY	GH13_e348	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	214 of 219 EC-annotated members carry EC 3.2.1.1 (98%); contains CAZy subfamily GH13_15;GH13_24;GH13_34.
+COMP_AMYLASE	CAZY	GH13_e354	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	18 of 18 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_7.
+COMP_AMYLASE	CAZY	GH13_e380	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	7 of 10 EC-annotated members carry EC 3.2.1.1 (70%); contains CAZy subfamily GH13_1;GH13_45.
+COMP_AMYLASE	CAZY	GH13_e381	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_32.
+COMP_AMYLASE	CAZY	GH13_e386	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	8 of 8 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_36.
+COMP_AMYLASE	CAZY	GH13_e387	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	8 of 8 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_32.
+COMP_AMYLASE	CAZY	GH13_e389	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	8 of 8 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_36.
+COMP_AMYLASE	CAZY	GH13_e406	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	10 of 14 EC-annotated members carry EC 3.2.1.1 (71%); contains CAZy subfamily GH13_19;GH13_45;GH13_6.
+COMP_AMYLASE	CAZY	GH13_e409	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	79 of 79 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_1;GH13_45.
+COMP_AMYLASE	CAZY	GH13_e413	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_1.
+COMP_AMYLASE	CAZY	GH13_e419	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	153 of 163 EC-annotated members carry EC 3.2.1.1 (94%); contains CAZy subfamily GH13_5;GH13_7.
+COMP_AMYLASE	CAZY	GH13_e42	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_28.
+COMP_AMYLASE	CAZY	GH13_e443	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_49.
+COMP_AMYLASE	CAZY	GH13_e446	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 6 EC-annotated members carry EC 3.2.1.1 (33%); contains CAZy subfamily GH13_20.
+COMP_AMYLASE	CAZY	GH13_e462	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_36.
+COMP_AMYLASE	CAZY	GH13_e465	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 11 EC-annotated members carry EC 3.2.1.1 (45%); contains CAZy subfamily GH13_14;GH13_32;GH13_41.
+COMP_AMYLASE	CAZY	GH13_e47	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 5 EC-annotated members carry EC 3.2.1.1 (60%); contains CAZy subfamily GH13_36.
+COMP_AMYLASE	CAZY	GH13_e484	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_27.
+COMP_AMYLASE	CAZY	GH13_e486	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 96 EC-annotated members carry EC 3.2.1.1 (3%); contains CAZy subfamily AA3_2;GH13_10;GH13_17;GH13_23;GH13_29;GH13_31;GH13_36;GH13_40.
+COMP_AMYLASE	CAZY	GH13_e491	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 25 EC-annotated members carry EC 3.2.1.1 (12%); contains CAZy subfamily GH13_10;GH13_26.
+COMP_AMYLASE	CAZY	GH13_e493	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 17 EC-annotated members carry EC 3.2.1.1 (12%); contains CAZy subfamily GH13_14.
+COMP_AMYLASE	CAZY	GH13_e497	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 6 EC-annotated members carry EC 3.2.1.1 (67%); contains CAZy subfamily GH13_48.
+COMP_AMYLASE	CAZY	GH13_e5	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	17 of 20 EC-annotated members carry EC 3.2.1.1 (85%); contains CAZy subfamily GH13_14;GH13_5;GH13_7.
+COMP_AMYLASE	CAZY	GH13_e500	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	25 of 25 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_28;GH13_42.
+COMP_AMYLASE	CAZY	GH13_e61	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 12 EC-annotated members carry EC 3.2.1.1 (50%); contains CAZy subfamily GH13_12;GH13_14;GH13_28;GH13_41.
+COMP_AMYLASE	CAZY	GH14_e6	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 11 EC-annotated members carry EC 3.2.1.1 (18%).
+COMP_AMYLASE	CAZY	GH57_e11	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH57_7.
+COMP_AMYLASE	CAZY	GH57_e15	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 7 EC-annotated members carry EC 3.2.1.1 (29%).
+COMP_AMYLASE	CAZY	GH57_e30	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.1 (100%).
+COMP_AMYLASE	CAZY	GH57_e63	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 6 EC-annotated members carry EC 3.2.1.1 (33%); contains CAZy subfamily GH57_5.
+COMP_GLUCOSIDASE	CAZY	GH13_e113	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.20 (100%); contains CAZy subfamily GH13_38.
+COMP_GLUCOSIDASE	CAZY	GH13_e122	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 9 EC-annotated members carry EC 3.2.1.20 (44%); contains CAZy subfamily GH13_17;GH13_23;GH13_29;GH13_31;GH13_36;GH13_40;GH13_44.
+COMP_GLUCOSIDASE	CAZY	GH13_e221	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	14 of 14 EC-annotated members carry EC 3.2.1.20 (100%); contains CAZy subfamily GH13_17.
+COMP_GLUCOSIDASE	CAZY	GH13_e234	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.20 (100%); contains CAZy subfamily GH13_16;GH13_23;GH13_30.
+COMP_GLUCOSIDASE	CAZY	GH13_e250	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.20 (100%); contains CAZy subfamily GH13_23;GH13_30;GH13_40.
+COMP_GLUCOSIDASE	CAZY	GH13_e276	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	7 of 9 EC-annotated members carry EC 3.2.1.20 (78%); contains CAZy subfamily GH13_16;GH13_17;GH13_23;GH13_40;GH13_48.
+COMP_GLUCOSIDASE	CAZY	GH13_e329	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	15 of 22 EC-annotated members carry EC 3.2.1.20 (68%); contains CAZy subfamily GH13_20;GH13_21.
+COMP_GLUCOSIDASE	CAZY	GH13_e347	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 15 EC-annotated members carry EC 3.2.1.20 (40%); contains CAZy subfamily GH13_17;GH13_20;GH13_23;GH13_30.
+COMP_GLUCOSIDASE	CAZY	GH13_e392	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	18 of 38 EC-annotated members carry EC 3.2.1.20 (47%); contains CAZy subfamily GH13_17;GH13_23;GH13_40.
+COMP_GLUCOSIDASE	CAZY	GH13_e486	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	21 of 96 EC-annotated members carry EC 3.2.1.20 (22%); contains CAZy subfamily AA3_2;GH13_10;GH13_17;GH13_23;GH13_29;GH13_31;GH13_36;GH13_40.
+COMP_GLUCOSIDASE	CAZY	GH31_e102	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.20 (100%); contains CAZy subfamily GH31_1.
+COMP_GLUCOSIDASE	CAZY	GH31_e177	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.20 (100%); contains CAZy subfamily GH31_1.
+COMP_GLUCOSIDASE	CAZY	GH31_e22	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.20 (100%).
+COMP_GLUCOSIDASE	CAZY	GH31_e39	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	25 of 50 EC-annotated members carry EC 3.2.1.20 (50%).
+COMP_GLUCOSIDASE	CAZY	GH31_e41	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.20 (100%).
+COMP_GLUCOSIDASE	CAZY	GH31_e42	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	35 of 65 EC-annotated members carry EC 3.2.1.20 (54%).
+COMP_GLUCOSIDASE	CAZY	GH31_e56	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	13 of 15 EC-annotated members carry EC 3.2.1.20 (87%).
+COMP_GLUCOSIDASE	CAZY	GH31_e7	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	9 of 12 EC-annotated members carry EC 3.2.1.20 (75%).
+COMP_GLUCOSIDASE	CAZY	GH31_e73	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	35 of 49 EC-annotated members carry EC 3.2.1.20 (71%).
+COMP_GLUCOSIDASE	CAZY	GH31_e78	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.20 (100%).
+COMP_GLUCOSIDASE	CAZY	GH31_e82	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	20 of 20 EC-annotated members carry EC 3.2.1.20 (100%).
+COMP_GLUCOSIDASE	CAZY	GH4_e14	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.20 (100%).
+COMP_GLUCOSIDASE	CAZY	GH4_e6	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 14 EC-annotated members carry EC 3.2.1.20 (43%).
+COMP_GLUCOSIDASE	CAZY	GH63_e1	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	9 of 18 EC-annotated members carry EC 3.2.1.20 (50%).
+COMP_GLUCOSIDASE	CAZY	GH97_e22	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.20 (50%).
+COMP_PULLULANASE	CAZY	GH13_e108	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.41 (100%); contains CAZy subfamily GH13_13.
+COMP_PULLULANASE	CAZY	GH13_e130	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.41 (100%); contains CAZy subfamily GH13_14.
+COMP_PULLULANASE	CAZY	GH13_e165	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.41 (100%); contains CAZy subfamily GH13_20.
+COMP_PULLULANASE	CAZY	GH13_e172	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	8 of 17 EC-annotated members carry EC 3.2.1.41 (47%); contains CAZy subfamily GH13_20;GH13_21;GH13_39.
+COMP_PULLULANASE	CAZY	GH13_e180	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.41 (100%); contains CAZy subfamily GH13_14.
+COMP_PULLULANASE	CAZY	GH13_e183	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	10 of 13 EC-annotated members carry EC 3.2.1.41 (77%); contains CAZy subfamily GH13_13;GH13_3;GH13_32.
+COMP_PULLULANASE	CAZY	GH13_e248	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	25 of 31 EC-annotated members carry EC 3.2.1.41 (81%); contains CAZy subfamily GH13_13;GH13_14;GH13_32;GH13_37;GH13_5.
+COMP_PULLULANASE	CAZY	GH13_e278	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 10 EC-annotated members carry EC 3.2.1.41 (50%); contains CAZy subfamily GH13_12;GH13_41.
+COMP_PULLULANASE	CAZY	GH13_e300	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	12 of 12 EC-annotated members carry EC 3.2.1.41 (100%); contains CAZy subfamily GH13_14.
+COMP_PULLULANASE	CAZY	GH13_e303	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	9 of 19 EC-annotated members carry EC 3.2.1.41 (47%); contains CAZy subfamily GH13_39.
+COMP_PULLULANASE	CAZY	GH13_e315	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	10 of 10 EC-annotated members carry EC 3.2.1.41 (100%); contains CAZy subfamily GH13_14.
+COMP_PULLULANASE	CAZY	GH13_e329	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 22 EC-annotated members carry EC 3.2.1.41 (23%); contains CAZy subfamily GH13_20;GH13_21.
+COMP_PULLULANASE	CAZY	GH13_e349	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	18 of 18 EC-annotated members carry EC 3.2.1.41 (100%); contains CAZy subfamily GH13_12;GH13_14;GH13_41.
+COMP_PULLULANASE	CAZY	GH13_e446	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 6 EC-annotated members carry EC 3.2.1.41 (67%); contains CAZy subfamily GH13_20.
+COMP_PULLULANASE	CAZY	GH13_e465	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 11 EC-annotated members carry EC 3.2.1.41 (55%); contains CAZy subfamily GH13_14;GH13_32;GH13_41.
+COMP_PULLULANASE	CAZY	GH13_e493	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	15 of 17 EC-annotated members carry EC 3.2.1.41 (88%); contains CAZy subfamily GH13_14.
+COMP_PULLULANASE	CAZY	GH13_e61	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 12 EC-annotated members carry EC 3.2.1.41 (33%); contains CAZy subfamily GH13_12;GH13_14;GH13_28;GH13_41.
+COMP_PULLULANASE	CAZY	GH13_e94	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.41 (100%); contains CAZy subfamily GH13_14.
+COMP_PULLULANASE	CAZY	GH57_e15	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 7 EC-annotated members carry EC 3.2.1.41 (71%).
+COMP_DEACETYL	CAZY	CE1_e20	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.1.1.72 (100%).
+COMP_DEACETYL	CAZY	CE1_e4	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	7 of 7 EC-annotated members carry EC 3.1.1.72 (100%).
+COMP_DEACETYL	CAZY	CE12_e45	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 5 EC-annotated members carry EC 3.1.1.72 (100%).
+COMP_DEACETYL	CAZY	CE4_e262	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 11 EC-annotated members carry EC 3.1.1.72 (45%).
+COMP_DEACETYL	CAZY	CE4_e58	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 5 EC-annotated members carry EC 3.1.1.72 (40%).
+COMP_DEACETYL	CAZY	CE5_e24	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.1.1.72 (100%).
+COMP_DEACETYL	CAZY	CE6_e2	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 8 EC-annotated members carry EC 3.1.1.72 (75%); contains CAZy subfamily GH43_10;GH43_17;GH43_28.
+COMP_DEACETYL	CAZY	CE6_e3	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 5 EC-annotated members carry EC 3.1.1.72 (100%).
+COMP_DEACETYL	CAZY	CE7_e11	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	14 of 28 EC-annotated members carry EC 3.1.1.72 (50%).
+COMP_DEACETYL	CAZY	CE7_e23	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.1.1.72 (100%).
+COMP_DEACETYL	CAZY	CE7_e33	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.1.1.72 (100%).
+COMP_COLLAGENASE_M9	KO	K01387	orthology	curated	KEGG, verified 2026-08-18	KEGG assigns K01387 to MEROPS family M9 and to toxins that damage the extracellular matrix. Microbial only: the host collagenases MMP-1 and MMP-8 are separate orthologues.
+COMP_COLLAGENASE_M9	PFAM	PF01752	sequence_family	high-confidence	InterPro/Pfam, retrieved 2026-08-18	Pfam Collagenase, the M9 catalytic domain, described by InterPro as a family of enzymes that break down collagens. Substrate-specific at family level, unlike the broad protease families.

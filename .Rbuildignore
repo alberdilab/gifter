@@ -1,0 +1,11 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^data-raw$
+^figures$
+^\.DS_Store$
+^data/\.DS_Store$
+^data$
+^bin$
+^AGENTS\.md$
+^CHANGELOG\.md$
+^manuscript$

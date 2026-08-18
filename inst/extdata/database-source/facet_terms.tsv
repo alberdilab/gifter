@@ -1,0 +1,26 @@
+facet	value	applies_to	definition
+substrate_class	nucleotide	gift	Purine and pyrimidine nucleotides and their direct precursors.
+substrate_class	amino_acid	gift	Proteinogenic amino acids and the branchpoint intermediates of their families.
+substrate_class	monosaccharide	gift	Neutral single sugars, including pentoses, hexoses and deoxyhexoses.
+substrate_class	amino_sugar	gift	Nitrogen-bearing sugars such as N-acetylglucosamine and sialic acid.
+substrate_class	uronate	gift	Sugar acids such as glucuronate and galacturonate.
+substrate_class	polysaccharide	gift	Glycan polymers and the decorations attached to them.
+substrate_class	protein	gift	Proteins and the peptides released from them.
+physiological_role	biosynthesis	gift	Builds a cellular building block the organism would otherwise have to acquire.
+physiological_role	carbon_acquisition	gift	Converts an acquired substrate into central carbon metabolism.
+physiological_role	nutrient_uptake	gift	Moves a substrate across the cell boundary.
+physiological_role	fibre_degradation	gift	Acts on dietary plant polysaccharides or the sugars released from them.
+physiological_role	host_glycan_foraging	gift	Acts on host-derived glycans or the sugars released from them.
+physiological_role	host_tissue_degradation	gift	Cleaves structural proteins of host or dietary animal tissue, typically as a colonisation or virulence capability rather than for carbon.
+molecular_tier	polymer	anchor	A polymer, glycan or protein; too large to cross a membrane.
+molecular_tier	oligosaccharide	anchor	A short glycan oligomer released by endo-acting cleavage.
+molecular_tier	peptide	anchor	A peptide or heterogeneous peptide mixture released by proteolytic cleavage of a protein.
+molecular_tier	monomer	anchor	A single sugar or sugar acid.
+molecular_tier	small_molecule	anchor	Any other boundary metabolite, including phosphorylated intermediates.
+resource_origin	plant_derived	anchor	Enters the system from plant material, typically as diet.
+resource_origin	animal_derived	anchor	Enters the system from animal tissue, as diet or as host tissue.
+resource_origin	host_derived	anchor	Produced by the host, typically as a secreted glycan such as mucin or as a structural protein of the extracellular matrix.
+resource_origin	central_metabolism	anchor	An intracellular metabolite of shared central metabolism.
+resource_origin	inorganic	anchor	An inorganic nutrient.
+biomass_essential	yes	anchor	A building block a growing cell must obtain or synthesise.
+biomass_essential	no	anchor	Not itself a biomass building block.

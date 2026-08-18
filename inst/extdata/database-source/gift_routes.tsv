@@ -1,0 +1,49 @@
+route_id	gift_id	name	description	status	oxygen_requirement
+PCR_FOLATE_DIRECT_FOLATE	purine_core_biosynthesis	Folate/direct/folate route	Folate-dependent GAR formylation, direct AIR carboxylation, and folate-dependent AICAR formylation.	curated	independent
+PCR_FOLATE_DIRECT_FORMATE	purine_core_biosynthesis	Folate/direct/formate route	Folate-dependent GAR formylation, direct AIR carboxylation, and formate-dependent AICAR formylation.	curated	independent
+PCR_FOLATE_TWOSTEP_FOLATE	purine_core_biosynthesis	Folate/two-step/folate route	Folate-dependent GAR formylation, two-step AIR carboxylation, and folate-dependent AICAR formylation.	curated	independent
+PCR_FOLATE_TWOSTEP_FORMATE	purine_core_biosynthesis	Folate/two-step/formate route	Folate-dependent GAR formylation, two-step AIR carboxylation, and formate-dependent AICAR formylation.	curated	independent
+PCR_FORMATE_DIRECT_FOLATE	purine_core_biosynthesis	Formate/direct/folate route	Formate-dependent GAR formylation, direct AIR carboxylation, and folate-dependent AICAR formylation.	curated	independent
+PCR_FORMATE_DIRECT_FORMATE	purine_core_biosynthesis	Formate/direct/formate route	Formate-dependent GAR formylation, direct AIR carboxylation, and formate-dependent AICAR formylation.	curated	independent
+PCR_FORMATE_TWOSTEP_FOLATE	purine_core_biosynthesis	Formate/two-step/folate route	Formate-dependent GAR formylation, two-step AIR carboxylation, and folate-dependent AICAR formylation.	curated	independent
+PCR_FORMATE_TWOSTEP_FORMATE	purine_core_biosynthesis	Formate/two-step/formate route	Formate-dependent GAR formylation, two-step AIR carboxylation, and formate-dependent AICAR formylation.	curated	independent
+AMP_ADENYLOSUCCINATE	adenylate_biosynthesis	Adenylosuccinate route	IMP to AMP through adenylosuccinate synthase and adenylosuccinate lyase.	curated	independent
+GMP_XMP	guanylate_biosynthesis	XMP route	IMP to GMP through IMP dehydrogenase and glutamine-dependent GMP synthase.	curated	independent
+PYR_DHODH_FUMARATE	pyrimidine_core_biosynthesis	Fumarate-dependent DHODH route	De novo UMP biosynthesis using fumarate-dependent dihydroorotate oxidation.	curated	independent
+PYR_DHODH_NAD	pyrimidine_core_biosynthesis	NAD-dependent DHODH route	De novo UMP biosynthesis using NAD-dependent dihydroorotate oxidation.	curated	independent
+PYR_DHODH_QUINONE	pyrimidine_core_biosynthesis	Quinone-dependent DHODH route	De novo UMP biosynthesis using quinone-dependent dihydroorotate oxidation.	curated	independent
+CTP_GLUTAMINE	cytidylate_biosynthesis	Glutamine-dependent CTP synthase route	UTP to CTP through the complete glutamine-dependent CTP synthase reaction.	curated	independent
+SER_PHOSPHORYLATED	serine_biosynthesis	Phosphorylated serine route	3-phosphoglycerate oxidation, transamination and dephosphorylation to L-serine.	curated	independent
+GLY_SHMT	glycine_biosynthesis	Serine hydroxymethyltransferase route	Folate-dependent removal of the serine hydroxymethyl group to give glycine.	curated	independent
+ASA_CANONICAL	aspartate_semialdehyde_biosynthesis	Aspartate kinase route	Aspartate phosphorylation followed by NADPH-dependent reduction to the 4-semialdehyde.	curated	independent
+HSER_NAD	homoserine_biosynthesis	NAD-dependent homoserine dehydrogenase route	Reduction of L-aspartate 4-semialdehyde to L-homoserine using NADH.	curated	independent
+HSER_NADP	homoserine_biosynthesis	NADP-dependent homoserine dehydrogenase route	Reduction of L-aspartate 4-semialdehyde to L-homoserine using NADPH.	curated	independent
+THR_CANONICAL	threonine_biosynthesis	Homoserine kinase route	Homoserine phosphorylation followed by threonine synthase.	curated	independent
+MET_TS_SUCCINYL_B12	methionine_biosynthesis_transsulfuration	Succinyl/transsulfuration/cobalamin route	O-succinylhomoserine transsulfuration with cobalamin-dependent methionine synthase.	curated	independent
+MET_TS_SUCCINYL_FOLATE	methionine_biosynthesis_transsulfuration	Succinyl/transsulfuration/cobalamin-independent route	O-succinylhomoserine transsulfuration with cobalamin-independent methionine synthase.	curated	independent
+MET_TS_ACETYL_B12	methionine_biosynthesis_transsulfuration	Acetyl/transsulfuration/cobalamin route	O-acetylhomoserine transsulfuration with cobalamin-dependent methionine synthase.	curated	independent
+MET_TS_ACETYL_FOLATE	methionine_biosynthesis_transsulfuration	Acetyl/transsulfuration/cobalamin-independent route	O-acetylhomoserine transsulfuration with cobalamin-independent methionine synthase.	curated	independent
+MET_TS_PHOSPHO_B12	methionine_biosynthesis_transsulfuration	Phospho/transsulfuration/cobalamin route	Plant O-phosphohomoserine transsulfuration with cobalamin-dependent methionine synthase.	curated	independent
+MET_TS_PHOSPHO_FOLATE	methionine_biosynthesis_transsulfuration	Phospho/transsulfuration/cobalamin-independent route	Plant O-phosphohomoserine transsulfuration with cobalamin-independent methionine synthase.	curated	independent
+MET_SH_SUCCINYL_B12	methionine_biosynthesis_sulfhydrylation	Succinyl/sulfhydrylation/cobalamin route	Direct sulfide incorporation into O-succinylhomoserine with cobalamin-dependent methionine synthase.	curated	independent
+MET_SH_SUCCINYL_FOLATE	methionine_biosynthesis_sulfhydrylation	Succinyl/sulfhydrylation/cobalamin-independent route	Direct sulfide incorporation into O-succinylhomoserine with cobalamin-independent methionine synthase.	curated	independent
+MET_SH_ACETYL_B12	methionine_biosynthesis_sulfhydrylation	Acetyl/sulfhydrylation/cobalamin route	Direct sulfide incorporation into O-acetylhomoserine with cobalamin-dependent methionine synthase.	curated	independent
+MET_SH_ACETYL_FOLATE	methionine_biosynthesis_sulfhydrylation	Acetyl/sulfhydrylation/cobalamin-independent route	Direct sulfide incorporation into O-acetylhomoserine with cobalamin-independent methionine synthase.	curated	independent
+CYS_OAS_SULFIDE	cysteine_biosynthesis_sulfide	O-acetylserine sulfhydrylation route	Serine acetylation followed by sulfide incorporation.	curated	independent
+CYS_RT_SERINE	cysteine_biosynthesis_homocysteine	Serine-dependent reverse transsulfuration route	Cystathionine beta-synthase acting on L-serine, then cystathionine gamma-lyase.	curated	independent
+CYS_RT_OAS	cysteine_biosynthesis_homocysteine	O-acetylserine-dependent reverse transsulfuration route	Serine acetylation, cystathionine beta-synthase acting on O-acetyl-L-serine, then cystathionine gamma-lyase.	curated	independent
+XYL_ISOMERASE	xylose_degradation_isomerase	Xylose isomerase route	Isomerisation to D-xylulose and phosphorylation to D-xylulose 5-phosphate.	curated	independent
+ARA_ISOMERASE	arabinose_degradation	L-arabinose isomerase route	Isomerisation to L-ribulose, phosphorylation, and epimerisation to D-xylulose 5-phosphate.	curated	independent
+FUC_ISOMERASE	fucose_degradation_isomerase	L-fucose isomerase route	Isomerisation to L-fuculose, phosphorylation, and aldol cleavage.	curated	independent
+RHA_ISOMERASE	rhamnose_degradation	L-rhamnose isomerase route	Isomerisation to L-rhamnulose, phosphorylation, and aldol cleavage.	curated	independent
+GAL_LELOIR	galactose_degradation_leloir	Leloir route	Mutarotation, galactokinase, uridylyltransferase, and UDP-glucose regeneration.	curated	independent
+GLCNAC_KINASE	glcnac_degradation	N-acetylglucosamine kinase route	Phosphorylation, deacetylation, and deamination to fructose 6-phosphate.	curated	independent
+NEUAC_LYASE	neuac_degradation	N-acetylneuraminate lyase route	Lyase cleavage to N-acetylmannosamine, phosphorylation, epimerisation, deacetylation, and deamination.	curated	independent
+GALUA_ISOMERASE	galacturonate_degradation	Galacturonate isomerase route	Isomerisation, reduction, dehydration, phosphorylation, and aldol cleavage.	curated	independent
+GLCUA_ISOMERASE	glucuronate_degradation	Glucuronate isomerase route	Isomerisation, reduction, dehydration, phosphorylation, and aldol cleavage.	curated	independent
+XYL_UPTAKE_ABC	xylose_uptake_abc	ABC importer route	ATP-driven translocation by a periplasmic-binding-protein-dependent importer.	curated	independent
+ARA_UPTAKE_ABC	arabinose_uptake_abc	ABC importer route	ATP-driven translocation by a periplasmic-binding-protein-dependent importer.	curated	independent
+XYLAN_SACCHARIFICATION	xylan_degradation	Endo-xylanase and beta-xylosidase route	Backbone endohydrolysis then exo-acting release of D-xylose, with acetyl de-blocking as accessory chemistry.	curated	independent
+AX_DEBRANCH	arabinoxylan_debranching	Arabinofuranosidase route	Hydrolysis of alpha-L-arabinofuranosyl side chains.	curated	independent
+STARCH_SACCHARIFICATION	starch_degradation	Alpha-amylase and alpha-glucosidase route	Backbone endohydrolysis then exo-acting release of D-glucose, with alpha-1,6 debranching as accessory chemistry.	curated	independent
+COLLAGEN_M9	collagen_cleavage	M9 microbial collagenase route	Direct cleavage of the collagen triple helix by a secreted family M9 collagenase.	curated	independent
