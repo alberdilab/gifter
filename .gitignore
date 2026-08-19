@@ -7,3 +7,5 @@ giftr_*.tar.gz
 bin
 data/source
 .DS_Store
+/doc/
+/Meta/

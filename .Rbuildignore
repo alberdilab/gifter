@@ -10,3 +10,5 @@
 ^CHANGELOG\.md$
 ^manuscript$
 ^giftr-context\.md$
+^doc$
+^Meta$
