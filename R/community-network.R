@@ -40,7 +40,7 @@
   matrix <- community$matrix
   graph <- graph[graph$shared_anchor %in% transferable, , drop = FALSE]
   supported_by <- lapply(stats::setNames(genomes, genomes), function(genome) {
-    intersect(rownames(matrix)[matrix[, genome]], universe_ids)
+    intersect(rownames(matrix)[matrix[, genome] %in% TRUE], universe_ids)
   })
 
   rows <- list()
@@ -87,7 +87,7 @@
   genomes <- community$genome_id
   matrix <- community$matrix
   supported_by <- lapply(stats::setNames(genomes, genomes), function(genome) {
-    intersect(rownames(matrix)[matrix[, genome]], universe_ids)
+    intersect(rownames(matrix)[matrix[, genome] %in% TRUE], universe_ids)
   })
   represented <- Reduce(union, supported_by, character())
 
@@ -156,10 +156,10 @@
     members <- cycle$gift_id
     present <- members[members %in% rownames(matrix)]
     per_genome <- vapply(genomes, function(genome) {
-      length(present) == length(members) && all(matrix[members, genome])
+      length(present) == length(members) && all(matrix[members, genome] %in% TRUE)
     }, logical(1))
     supported_anywhere <- vapply(members, function(gift) {
-      gift %in% rownames(matrix) && any(matrix[gift, ])
+      gift %in% rownames(matrix) && any(matrix[gift, ] %in% TRUE)
     }, logical(1))
     # A cycle can only be closed across organisms if every molecule handed from
     # one segment to the next actually leaves a cell. Central metabolism runs on

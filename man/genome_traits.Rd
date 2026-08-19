@@ -4,7 +4,15 @@
 \alias{genome_traits}
 \title{Quantitative traits of one genome}
 \usage{
-genome_traits(result, universes = NULL, genome_id = "genome", db = NULL)
+genome_traits(
+  result,
+  universes = NULL,
+  genome_id = "genome",
+  quality = NULL,
+  policy = "none",
+  threshold = NULL,
+  db = NULL
+)
 }
 \arguments{
 \item{result}{A result returned by [evaluate_gifts()].}
@@ -14,6 +22,15 @@ partitioning the catalogue by type, mode and resource strategy, plus the
 bounded biomass-essential anabolic universe, is used if omitted.}
 
 \item{genome_id}{Identifier reported in the `target_id` column.}
+
+\item{quality}{Optional genome completeness, as a named numeric vector or a
+data frame with `genome_id` and `completeness` columns, on a 0-1 scale.}
+
+\item{policy}{Assessability policy: `"none"` or `"completeness"`. See
+details.}
+
+\item{threshold}{Completeness below which a negative call is treated as
+indeterminate. Required by the `"completeness"` policy and has no default.}
 
 \item{db}{Optional open giftr database connection.}
 }
@@ -45,10 +62,33 @@ Metrics reported per universe:
     model, since anchors belong to it}
   \item{`multi_implementation_gifts`}{supported GIFTs completed by more than
     one curated implementation}
+  \item{`assessable_fraction`}{members of the universe whose absence the
+    assessability policy treats as informative}
   \item{`closed_cycles`}{elementary cycles of the composition graph whose
     every member is supported, from [evaluate_gift_cycles()]}
 }
 }
+\section{Assessability}{
+
+
+A negative call means the observed markers did not support any curated
+implementation. On a fragmented genome that is not the same as absence, so
+`policy` decides which negative calls may enter a denominator.
+
+`"none"`, the default, declares nothing indeterminate and reproduces Boolean
+behaviour. `"completeness"` requires a genome completeness estimate in
+`quality` and an explicit `threshold`, and treats every negative call on a
+genome below that threshold as indeterminate, removing it from every
+denominator. It is deliberately blunt: giftr has no validated model of how
+gene content is lost from a fragmented assembly, and a finer rule would imply
+a precision it cannot support. There is no default threshold, because how
+complete a genome must be before its silence is informative is the analyst's
+declared choice.
+
+No policy can make an unsupported GIFT supported. Quality informs the reading
+of absence and nothing else.
+}
+
 \section{Interpretation}{
 
 
@@ -62,9 +102,10 @@ the organism grows without supplementation. The database is not the universe
 of microbial function, which is why an unbounded universe reports no
 fraction at all.
 
-`assessable` currently equals the size of the universe, because giftr accepts
-no genome-quality information and therefore treats every member as assessed.
-A fragmented genome will report absences that a complete one would not.
+Under the default policy `assessable` equals the size of the universe: every
+member is treated as assessed, and a fragmented genome will report absences
+that a complete one would not. `assessable_fraction` states this in the
+output rather than leaving it implied.
 }
 
 \examples{

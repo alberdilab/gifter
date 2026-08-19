@@ -32,7 +32,8 @@ Metrics reported per universe:
     universes only}
   \item{`mean_genome_richness`}{reported beside community richness rather
     than divided into it, so both components stay visible}
-  \item{`provider_count`}{per GIFT, the genomes supporting it}
+  \item{`provider_count`, `provider_fraction`}{per GIFT, the genomes
+    supporting it, and that count over the genomes that could assess it}
   \item{`abundance_coverage`}{per GIFT, the share of supplied abundance those
     genomes carry. Only when `abundance` was supplied}
   \item{`singleton_fraction`}{represented GIFTs with exactly one provider}

@@ -15,6 +15,51 @@ versioned with the package.
 
 ## Package 0.1.0 (in development)
 
+### 2026-08-19T05:05Z — Assessability: when a negative call may enter a denominator
+
+**Change.** A new internal layer in `R/assessability.R`, and `quality`,
+`policy` and `threshold` arguments on `genome_traits()` and
+`giftr_community()`. Two new metrics, `assessable_fraction` and
+`provider_fraction`. **No schema, database content or evaluation change.**
+This is phase 4 of `inst/doc/proposal-quantitative-traits.md`, and the gap that
+made the externally drafted proposal unimplementable as written.
+
+**Why.** `evaluate_gifts()` answers one question — do the observed markers
+support a complete curated implementation — and answers it identically for a
+closed isolate genome and a 60%-complete MAG, because the markers are all it
+sees. That is right for a call and wrong for a denominator: a genome that was
+never fully observed has not been shown to lack anything. Every proportion in
+this layer was resting on that conflation.
+
+**Effect.** A third state sits on top of the Boolean call under an explicitly
+named policy. `"none"` is the default and declares nothing indeterminate, so
+existing behaviour is unchanged and `assessable_fraction` states the assumption
+in the output rather than leaving it implied. `"completeness"` requires a
+genome completeness estimate and an explicit threshold, and treats every
+negative call on a genome below that threshold as indeterminate, removing it
+from every denominator while leaving every positive call exactly as it was.
+
+Two constraints bind every policy that will ever be added here, and both are
+tested. No policy may promote an unsupported GIFT to supported: quality informs
+the reading of absence and nothing else. And indeterminacy is resolved per
+genome, so a fragmented member's silence is withheld from a provider
+denominator while a complete member's is not — which is what `provider_fraction`
+now divides by.
+
+Three refusals. The `"completeness"` policy has **no default threshold**,
+because how complete a genome must be before its silence is informative is the
+analyst's declared choice and a package default would be read as a
+recommendation. The policy is deliberately blunt — it does not try to guess
+which capability a fragmented assembly lost — because giftr has no validated
+model of gene loss and a finer rule would imply a precision it cannot support;
+the graduated `"near_miss"` policy stays recorded as a candidate rather than
+shipped. And a proportion computed over a universe that has quietly collapsed
+now warns: at 30% completeness a supported fraction of 1.0 over one assessable
+GIFT is arithmetically fine and biologically empty, so the reader is pointed at
+`assessable_fraction` before they quote it.
+
+28 new tests in `test-assessability.R`; full suite green at 3566.
+
 ### 2026-08-19T04:45Z — Community resource-handoff topology, bounded by the compartment model
 
 **Change.** One new exported function, `community_network()`, in the new

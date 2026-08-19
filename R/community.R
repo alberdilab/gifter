@@ -9,15 +9,23 @@
 # are different quantities that answer different questions, and a single number
 # combining them would answer neither. Neither is a statement about activity.
 
-.community_matrix <- function(results, universe_ids) {
+.community_matrix <- function(results, universe_ids, policy, completeness, threshold) {
   genomes <- names(results)
-  matrix <- vapply(results, function(result) {
+  matrix <- vapply(genomes, function(genome) {
+    result <- results[[genome]]
     calls <- stats::setNames(as.logical(result$gifts$complete), result$gifts$gift_id)
     # A GIFT the evaluation never produced is not supported. Treating it as
     # supported would let a filtered evaluation claim a capability it never
     # tested.
-    supported <- calls[universe_ids]
-    !is.na(supported) & supported
+    present <- calls[universe_ids]
+    state <- !is.na(present) & present
+    # Indeterminacy is per genome: a fragmented member's silence is uninformative
+    # while a complete member's is not, and a provider count must not mix them.
+    .assessability_state(
+      state, policy,
+      if (is.null(completeness)) NA_real_ else completeness[[genome]],
+      threshold
+    )
   }, logical(length(universe_ids)))
   if (is.null(dim(matrix))) {
     matrix <- matrix(matrix, nrow = length(universe_ids), ncol = length(genomes))
@@ -46,6 +54,14 @@
 #'   argument names become the genome identifiers.
 #' @param abundance Optional named numeric vector of relative abundances over
 #'   the same genomes. Must be non-negative and not all zero.
+#' @param quality Optional genome completeness, as a named numeric vector or a
+#'   data frame with `genome_id` and `completeness` columns, on a 0-1 scale.
+#' @param policy Assessability policy: `"none"` or `"completeness"`. See
+#'   [genome_traits()]. Indeterminacy is resolved per genome, so a fragmented
+#'   member's silence is withheld from a provider count while a complete
+#'   member's is not.
+#' @param threshold Completeness below which a negative call is treated as
+#'   indeterminate. Required by the `"completeness"` policy.
 #' @return A `giftr_community` list holding the genome identifiers, the call
 #'   matrix, the abundance vector if supplied, and the `database_version`.
 #' @examples
@@ -58,7 +74,8 @@
 #' community <- giftr_community(donor = donor, recipient = recipient)
 #' community$genome_id
 #' @export
-giftr_community <- function(..., abundance = NULL) {
+giftr_community <- function(..., abundance = NULL, quality = NULL,
+                            policy = "none", threshold = NULL) {
   results <- list(...)
   if (!length(results)) {
     stop("Supply at least one evaluated genome", call. = FALSE)
@@ -108,6 +125,9 @@ giftr_community <- function(..., abundance = NULL) {
     }
   }
 
+  policy <- .resolve_policy(policy, quality, threshold)
+  completeness <- .normalize_quality(quality, genomes)
+
   universe_ids <- sort(unique(unlist(lapply(results, function(result) {
     result$gifts$gift_id
   }), use.names = FALSE)))
@@ -116,7 +136,10 @@ giftr_community <- function(..., abundance = NULL) {
     list(
       genome_id = genomes,
       gift_id = universe_ids,
-      matrix = .community_matrix(results, universe_ids),
+      matrix = .community_matrix(results, universe_ids, policy, completeness, threshold),
+      assessability = list(
+        policy = policy, threshold = threshold, completeness = completeness
+      ),
       abundance = if (is.null(abundance)) NULL else abundance / sum(abundance),
       abundance_supplied = abundance,
       results = results,
@@ -141,8 +164,14 @@ print.giftr_community <- function(x, ...) {
   members <- intersect(community$gift_id, universe$gift_id)
   matrix <- community$matrix[members, , drop = FALSE]
   genomes <- community$genome_id
-  assessable <- length(members)
-  provider_count <- if (length(members)) rowSums(matrix) else integer()
+  supports <- matrix %in% TRUE
+  dim(supports) <- dim(matrix)
+  dimnames(supports) <- dimnames(matrix)
+  # A GIFT nobody could assess is not part of the denominator, and the genomes
+  # that could not assess one are not part of its provider denominator either.
+  assessed_by <- if (length(members)) rowSums(!is.na(matrix)) else integer()
+  assessable <- sum(assessed_by > 0L)
+  provider_count <- if (length(members)) rowSums(supports) else integer()
   represented <- members[provider_count > 0L]
 
   metrics <- list(
@@ -153,8 +182,8 @@ print.giftr_community <- function(x, ...) {
     ),
     .metric_row(
       "community", "community", "mean_genome_richness",
-      if (length(genomes)) mean(colSums(matrix)) else 0, "count",
-      sum(matrix), length(genomes), assessable, label, version,
+      if (length(genomes)) mean(colSums(supports)) else 0, "count",
+      sum(supports), length(genomes), assessable, label, version,
       "supported GIFTs summed over genomes, divided by the number of genomes"
     )
   )
@@ -172,6 +201,14 @@ print.giftr_community <- function(x, ...) {
   }
 
   singletons <- members[provider_count == 1L]
+  if (length(members)) {
+    metrics <- c(metrics, list(.metric_row(
+      "community", "community", "assessable_fraction",
+      assessable / length(members), "proportion", assessable, length(members),
+      assessable, label, version,
+      "members of the reference universe at least one genome could assess"
+    )))
+  }
   if (length(represented)) {
     metrics <- c(metrics, list(.metric_row(
       "community", "community", "singleton_fraction",
@@ -188,12 +225,20 @@ print.giftr_community <- function(x, ...) {
   # abundance_coverage is an abundance quantity; they are separate rows because
   # they answer separate questions and are not interchangeable.
   for (gift in represented) {
-    providers <- genomes[matrix[gift, ]]
-    metrics <- c(metrics, list(.metric_row(
-      "gift", gift, "provider_count", length(providers), "count",
-      length(providers), length(genomes), assessable, label, version,
-      "genomes supporting this GIFT"
-    )))
+    providers <- genomes[supports[gift, ]]
+    assessors <- as.integer(assessed_by[[gift]])
+    metrics <- c(metrics, list(
+      .metric_row(
+        "gift", gift, "provider_count", length(providers), "count",
+        length(providers), assessors, assessable, label, version,
+        "genomes supporting this GIFT, over genomes that could assess it"
+      ),
+      .metric_row(
+        "gift", gift, "provider_fraction", length(providers) / assessors,
+        "proportion", length(providers), assessors, assessable, label, version,
+        "genomes supporting this GIFT, over genomes that could assess it"
+      )
+    ))
     trace <- c(trace, list(tibble::tibble(
       target_type = "gift", target_id = gift, metric_id = "provider_count",
       reference_universe = label, gift_id = gift, contribution = providers
@@ -210,7 +255,7 @@ print.giftr_community <- function(x, ...) {
 
   # Per-genome contribution.
   for (genome in genomes) {
-    supported <- members[matrix[, genome]]
+    supported <- members[supports[, genome]]
     unique_to <- supported[provider_count[supported] == 1L]
     metrics <- c(metrics, list(
       .metric_row(
@@ -235,8 +280,8 @@ print.giftr_community <- function(x, ...) {
   if (length(genomes) > 1L) {
     pairs <- utils::combn(genomes, 2L, simplify = FALSE)
     for (pair in pairs) {
-      left <- members[matrix[, pair[[1L]]]]
-      right <- members[matrix[, pair[[2L]]]]
+      left <- members[supports[, pair[[1L]]]]
+      right <- members[supports[, pair[[2L]]]]
       union_size <- length(union(left, right))
       shared <- intersect(left, right)
       value <- if (union_size == 0L) NA_real_ else length(shared) / union_size
@@ -274,7 +319,8 @@ print.giftr_community <- function(x, ...) {
 #'     universes only}
 #'   \item{`mean_genome_richness`}{reported beside community richness rather
 #'     than divided into it, so both components stay visible}
-#'   \item{`provider_count`}{per GIFT, the genomes supporting it}
+#'   \item{`provider_count`, `provider_fraction`}{per GIFT, the genomes
+#'     supporting it, and that count over the genomes that could assess it}
 #'   \item{`abundance_coverage`}{per GIFT, the share of supplied abundance those
 #'     genomes carry. Only when `abundance` was supplied}
 #'   \item{`singleton_fraction`}{represented GIFTs with exactly one provider}
@@ -335,6 +381,7 @@ community_traits <- function(community, universes = NULL, db = NULL) {
     trace <- do.call(rbind, lapply(parts, function(part) part$trace))
     if (is.null(metrics)) metrics <- .empty_metrics()
     if (is.null(trace)) trace <- .empty_trace()
+    .warn_thin_denominators(metrics)
 
     structure(
       list(
@@ -342,6 +389,7 @@ community_traits <- function(community, universes = NULL, db = NULL) {
         trace = trace[.trace_columns],
         universes = universes,
         genome_id = community$genome_id,
+        assessability = community$assessability,
         database_version = community$database_version
       ),
       class = c("giftr_traits", "list")

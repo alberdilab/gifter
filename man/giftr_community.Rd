@@ -4,7 +4,13 @@
 \alias{giftr_community}
 \title{Bind genome results into a genome-resolved community}
 \usage{
-giftr_community(..., abundance = NULL)
+giftr_community(
+  ...,
+  abundance = NULL,
+  quality = NULL,
+  policy = "none",
+  threshold = NULL
+)
 }
 \arguments{
 \item{...}{Named results from [evaluate_gifts()], one per genome. The
@@ -12,6 +18,17 @@ argument names become the genome identifiers.}
 
 \item{abundance}{Optional named numeric vector of relative abundances over
 the same genomes. Must be non-negative and not all zero.}
+
+\item{quality}{Optional genome completeness, as a named numeric vector or a
+data frame with `genome_id` and `completeness` columns, on a 0-1 scale.}
+
+\item{policy}{Assessability policy: `"none"` or `"completeness"`. See
+[genome_traits()]. Indeterminacy is resolved per genome, so a fragmented
+member's silence is withheld from a provider count while a complete
+member's is not.}
+
+\item{threshold}{Completeness below which a negative call is treated as
+indeterminate. Required by the `"completeness"` policy.}
 }
 \value{
 A `giftr_community` list holding the genome identifiers, the call

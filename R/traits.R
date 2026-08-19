@@ -106,15 +106,15 @@
   combined[!is.na(combined$value) & nzchar(combined$value), , drop = FALSE]
 }
 
-.universe_metrics <- function(connection, universe, calls, graph, target_id, version) {
+.universe_metrics <- function(connection, universe, calls, state, graph, target_id,
+                              version) {
   members <- universe$gift_id
   label <- universe$label
   in_universe <- calls[calls$gift_id %in% members, , drop = FALSE]
-  supported <- in_universe$gift_id[in_universe$complete %in% TRUE]
-  # Phase 4 replaces this with the assessability policy. Until one exists, every
-  # member of the universe was assessed, and saying so in the output is what
-  # keeps the assumption visible rather than implied.
-  assessable <- length(members)
+  member_state <- state[members]
+  supported <- members[member_state %in% TRUE]
+  assessed <- members[!is.na(member_state)]
+  assessable <- length(assessed)
 
   metrics <- list(.metric_row(
     "genome", target_id, "gift_richness", length(supported), "count",
@@ -124,6 +124,17 @@
   trace <- list(.trace_rows(
     "genome", target_id, "gift_richness", label, supported
   ))
+
+  # How much of the intended universe could be assessed at all. Reporting a
+  # proportion without it invites the reader to treat a fragmented genome's
+  # silence as evidence of absence.
+  if (length(members)) {
+    metrics <- c(metrics, list(.metric_row(
+      "genome", target_id, "assessable_fraction", assessable / length(members),
+      "proportion", assessable, length(members), assessable, label, version,
+      "members of the reference universe whose absence the assessability policy treats as informative"
+    )))
+  }
 
   # A supported fraction over an open catalogue would read as the share of
   # microbial function a genome carries, which is not what it measures.
@@ -138,7 +149,7 @@
     )))
   }
 
-  classifications <- .gift_classifications(connection, members)
+  classifications <- .gift_classifications(connection, assessed)
   for (facet in sort(unique(classifications$facet))) {
     rows <- classifications[classifications$facet == facet, , drop = FALSE]
     available <- unique(rows$value)
@@ -163,7 +174,7 @@
   # Handoff interfaces are anchor-derived, so they exist only where the universe
   # reaches the metabolic model. Reporting an out-degree of zero for a universe
   # of structural GIFTs would imply a genome failed a test it was never given.
-  if (any(members %in% c(graph$from_gift, graph$to_gift))) {
+  if (any(assessed %in% c(graph$from_gift, graph$to_gift))) {
     outgoing <- graph[graph$from_gift %in% supported, , drop = FALSE]
     incoming <- graph[graph$to_gift %in% supported, , drop = FALSE]
     metrics <- c(metrics, list(
@@ -191,7 +202,7 @@
   }
 
   redundant <- in_universe[
-    in_universe$complete %in% TRUE &
+    in_universe$gift_id %in% supported &
       !is.na(in_universe$number_of_complete_implementations) &
       in_universe$number_of_complete_implementations > 1L, ,
     drop = FALSE
@@ -257,9 +268,30 @@
 #'     model, since anchors belong to it}
 #'   \item{`multi_implementation_gifts`}{supported GIFTs completed by more than
 #'     one curated implementation}
+#'   \item{`assessable_fraction`}{members of the universe whose absence the
+#'     assessability policy treats as informative}
 #'   \item{`closed_cycles`}{elementary cycles of the composition graph whose
 #'     every member is supported, from [evaluate_gift_cycles()]}
 #' }
+#'
+#' @section Assessability:
+#'
+#' A negative call means the observed markers did not support any curated
+#' implementation. On a fragmented genome that is not the same as absence, so
+#' `policy` decides which negative calls may enter a denominator.
+#'
+#' `"none"`, the default, declares nothing indeterminate and reproduces Boolean
+#' behaviour. `"completeness"` requires a genome completeness estimate in
+#' `quality` and an explicit `threshold`, and treats every negative call on a
+#' genome below that threshold as indeterminate, removing it from every
+#' denominator. It is deliberately blunt: giftr has no validated model of how
+#' gene content is lost from a fragmented assembly, and a finer rule would imply
+#' a precision it cannot support. There is no default threshold, because how
+#' complete a genome must be before its silence is informative is the analyst's
+#' declared choice.
+#'
+#' No policy can make an unsupported GIFT supported. Quality informs the reading
+#' of absence and nothing else.
 #'
 #' @section Interpretation:
 #'
@@ -273,15 +305,22 @@
 #' of microbial function, which is why an unbounded universe reports no
 #' fraction at all.
 #'
-#' `assessable` currently equals the size of the universe, because giftr accepts
-#' no genome-quality information and therefore treats every member as assessed.
-#' A fragmented genome will report absences that a complete one would not.
+#' Under the default policy `assessable` equals the size of the universe: every
+#' member is treated as assessed, and a fragmented genome will report absences
+#' that a complete one would not. `assessable_fraction` states this in the
+#' output rather than leaving it implied.
 #'
 #' @param result A result returned by [evaluate_gifts()].
 #' @param universes Optional list of [gift_universe()] objects. A default set
 #'   partitioning the catalogue by type, mode and resource strategy, plus the
 #'   bounded biomass-essential anabolic universe, is used if omitted.
 #' @param genome_id Identifier reported in the `target_id` column.
+#' @param quality Optional genome completeness, as a named numeric vector or a
+#'   data frame with `genome_id` and `completeness` columns, on a 0-1 scale.
+#' @param policy Assessability policy: `"none"` or `"completeness"`. See
+#'   details.
+#' @param threshold Completeness below which a negative call is treated as
+#'   indeterminate. Required by the `"completeness"` policy and has no default.
 #' @param db Optional open giftr database connection.
 #' @return A `giftr_traits` list with `metrics` (one row per trait),
 #'   `trace` (the GIFTs behind each trait), `universes`, and
@@ -300,6 +339,7 @@
 #'        c("reference_universe", "value", "assessable"))
 #' @export
 genome_traits <- function(result, universes = NULL, genome_id = "genome",
+                          quality = NULL, policy = "none", threshold = NULL,
                           db = NULL) {
   if (!inherits(result, "giftr_result")) {
     stop("result must come from evaluate_gifts()", call. = FALSE)
@@ -308,6 +348,8 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
     stop("genome_id must be one non-empty identifier", call. = FALSE)
   }
   genome_id <- as.character(genome_id)
+  policy <- .resolve_policy(policy, quality, threshold)
+  completeness <- .normalize_quality(quality, genome_id)
 
   .with_giftr_db(db, function(connection) {
     version <- giftr_db_version(connection)$giftr_db_version
@@ -335,9 +377,17 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
     }
 
     calls <- result$gifts
+    state <- stats::setNames(
+      .assessability_state(
+        calls$complete, policy,
+        if (is.null(completeness)) NA_real_ else completeness[[genome_id]],
+        threshold
+      ),
+      calls$gift_id
+    )
     graph <- gift_graph(db = connection)
     parts <- lapply(universes, function(universe) {
-      .universe_metrics(connection, universe, calls, graph, genome_id, version)
+      .universe_metrics(connection, universe, calls, state, graph, genome_id, version)
     })
     parts <- c(parts, list(.cycle_metrics(result, connection, genome_id, version)))
 
@@ -345,6 +395,7 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
     trace <- do.call(rbind, lapply(parts, function(part) part$trace))
     if (is.null(metrics)) metrics <- .empty_metrics()
     if (is.null(trace)) trace <- .empty_trace()
+    .warn_thin_denominators(metrics)
 
     structure(
       list(
@@ -352,11 +403,34 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
         trace = trace[.trace_columns],
         universes = universes,
         genome_id = genome_id,
+        assessability = list(
+          policy = policy, threshold = threshold, completeness = completeness
+        ),
         database_version = result$database_version
       ),
       class = c("giftr_traits", "list")
     )
   })
+}
+
+# A proportion over a universe that was mostly unassessable is arithmetically
+# fine and biologically empty: a supported fraction of 1.0 over one assessable
+# member says nothing. The warning is a nudge to read `assessable_fraction`, not
+# a claim about the genome.
+.warn_thin_denominators <- function(metrics) {
+  thin <- metrics[
+    metrics$metric_id == "assessable_fraction" & metrics$value < 0.5, ,
+    drop = FALSE
+  ]
+  if (!nrow(thin)) return(invisible(NULL))
+  warning(
+    "Less than half of the reference universe was assessable for ",
+    nrow(thin), " of ", sum(metrics$metric_id == "assessable_fraction"),
+    " universes, including \"", thin$reference_universe[[1L]],
+    "\". Proportions over them rest on very few GIFTs; read them beside assessable_fraction.",
+    call. = FALSE
+  )
+  invisible(NULL)
 }
 
 #' @export
