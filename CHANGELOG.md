@@ -15,6 +15,54 @@ versioned with the package.
 
 ## Package 0.1.0 (in development)
 
+### 2026-08-19T03:55Z — Reference universes and quantitative genome traits
+
+**Change.** Two new exported functions, `gift_universe()` and
+`genome_traits()`, in the new `R/universe.R` and `R/traits.R`. **No schema,
+database content or evaluation change**: the database is byte-identical and no
+call moves. This is phase 1 of
+`inst/doc/proposal-quantitative-traits.md`.
+
+**Why.** The architecture guide's *Derived capabilities* section already
+promised this layer — "a derived layer would read their calls rather than
+adding a fifth type" — and invariant 18 requires higher-order descriptions to
+be derived from primary typed GIFTs rather than curated as one. With 130 GIFTs
+the question "how many, of what kind, how distributed" is now worth asking, and
+asking it without a declared denominator is what makes such numbers
+untrustworthy. A count of supported GIFTs is meaningless without the set it was
+counted over, and that set changes between releases.
+
+**Effect.** `gift_universe()` builds a reference universe from curated metadata
+only — `gift_type`, `mode`, the registered facet vocabulary, and the derived
+`gift_profile` view. A universe may not be a list of `gift_id`s written in R,
+which is invariant 10 applied one layer up. `genome_traits()` reports
+`gift_richness`, `breadth_*` over every facet and profile classification,
+`handoff_out_degree` and `handoff_in_degree` from `gift_graph`,
+`multi_implementation_gifts` and `closed_cycles`, each within every supplied
+universe, as a long-form table carrying `numerator`, `denominator`,
+`assessable`, `reference_universe` and `database_version`, plus a `trace` table
+naming the GIFTs behind every row.
+
+Three refusals are built into the behaviour rather than left to documentation.
+`supported_fraction` is reported **only** for a universe explicitly declared
+`bounded`, because a fraction of an open and growing catalogue reads as the
+share of microbial function a genome carries; the default set bounds exactly
+one universe, the biomass-essential anabolic GIFTs, over which the fraction is
+biosynthetic capability coverage. Handoff degrees are withheld from a universe
+that does not reach the metabolic model, because a structural GIFT declares no
+anchors and reporting zero would imply a test the genome failed. And traits
+computed against a database version other than the one that produced the calls
+are an error, not a warning.
+
+`assessable` currently equals the size of the universe: giftr accepts no
+genome-quality information, so every member is treated as assessed. That column
+exists now so its shape is stable when phase 4 adds the assessability policy.
+Nothing in this layer can change a Boolean call, and `closed_cycles` reads
+`evaluate_gift_cycles()`, which already guarantees the same.
+
+81 new tests in `test-universes.R` and `test-genome-traits.R`; full suite green
+at 3435.
+
 ### 2026-08-19T13:10Z — Mercury detoxification curated: the first defense GIFT that is not anti-phage
 
 **Change.** Database version **2026.19.1**, schema unchanged at 6, **no R code
