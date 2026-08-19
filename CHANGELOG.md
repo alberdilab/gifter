@@ -15,6 +15,56 @@ versioned with the package.
 
 ## Package 0.1.0 (in development)
 
+### 2026-08-19T04:20Z — Genome-resolved communities and distributional traits
+
+**Change.** Two new exported functions, `giftr_community()` and
+`community_traits()`, in the new `R/community.R`. **No schema, database content
+or evaluation change.** This is phase 2 of
+`inst/doc/proposal-quantitative-traits.md`.
+
+**Why.** Every community question — how redundantly is a capability provided,
+which genome is its only provider, how much of the sampled abundance carries it
+— needs a container that holds several genomes' calls at once, and
+`evaluate_gifts()` evaluates one annotation table. The externally drafted
+proposal assumed such an object into existence without defining it, which is
+why defining it is a phase of its own rather than a detail of the metrics.
+
+**Effect.** `giftr_community()` binds named results into one call matrix and
+refuses two comparisons that are not comparable: genomes evaluated against
+different database releases, because a provider count over two releases counts
+capabilities that were not offered to every genome, and an abundance vector
+that does not name exactly the supplied genomes. A GIFT missing from a genome's
+result is not supported, so a filtered evaluation cannot claim a capability it
+never tested.
+
+`community_traits()` reports `community_richness`, `community_coverage` for
+bounded universes, `mean_genome_richness` beside it rather than divided into
+it, `provider_count` per GIFT, `abundance_coverage` per GIFT when abundance was
+supplied, `singleton_fraction`, `unique_contribution` per genome and
+`repertoire_overlap` per genome pair — all within every supplied universe, in
+the same long-form shape phase 1 established, with `target_type` distinguishing
+community, GIFT, genome and genome-pair rows.
+
+Presence and abundance never merge. `provider_count` and `abundance_coverage`
+are separate rows with separate units, because how many genomes encode a
+capability and how much of the observed abundance they represent answer
+different questions and neither is a statement about activity. Overlap is
+computed within a universe rather than only across the catalogue: 94% of the
+GIFTs are metabolic, so an unstratified Jaccard index is a metabolic overlap
+under a general name. Where both genomes of a pair hold nothing in a universe
+the overlap is withheld rather than reported as zero, since reporting zero
+would say two repertoires were compared and found to share nothing.
+
+The arabinoxylan chain is the integration fixture and it is curated, not
+invented: `arabinoxylan_debranching -> xylan_degradation -> xylose_uptake_abc ->
+xylose_degradation_isomerase` are already connected in `gift_graph`. Its marker
+sets are chosen so each genome completes exactly the intended capabilities,
+which the first test checks rather than assumes — several CAZy families
+evidence both debranching and backbone cleavage, and a careless fixture would
+give one genome two capabilities and destroy every expected provider count.
+
+54 new tests in `test-community-traits.R`; full suite green at 3489.
+
 ### 2026-08-19T03:55Z — Reference universes and quantitative genome traits
 
 **Change.** Two new exported functions, `gift_universe()` and

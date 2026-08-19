@@ -361,16 +361,26 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
 
 #' @export
 print.giftr_traits <- function(x, ...) {
-  cat("<giftr_traits>", x$genome_id, "\n")
-  cat("  metrics: ", nrow(x$metrics), "rows across", length(x$universes), "reference universes\n")
+  scope <- if (length(x$genome_id) > 1L) {
+    paste(length(x$genome_id), "genomes")
+  } else {
+    x$genome_id
+  }
+  cat("<giftr_traits>", scope, "\n")
+  cat("  metrics: ", nrow(x$metrics), "rows across", length(x$universes),
+      "reference universes\n")
   cat("  database version:", x$database_version$giftr_db_version, "\n")
-  richness <- x$metrics[x$metrics$metric_id == "gift_richness", , drop = FALSE]
-  if (nrow(richness)) {
+  headline <- if (any(x$metrics$target_type == "community")) {
+    x$metrics[x$metrics$metric_id == "community_richness", , drop = FALSE]
+  } else {
+    x$metrics[x$metrics$metric_id == "gift_richness", , drop = FALSE]
+  }
+  if (nrow(headline)) {
     cat("\n")
-    for (index in seq_len(nrow(richness))) {
+    for (index in seq_len(nrow(headline))) {
       cat(sprintf(
-        "  %-46s %3d / %3d supported\n", richness$reference_universe[[index]],
-        as.integer(richness$value[[index]]), richness$assessable[[index]]
+        "  %-46s %3d / %3d supported\n", headline$reference_universe[[index]],
+        as.integer(headline$value[[index]]), headline$assessable[[index]]
       ))
     }
   }
