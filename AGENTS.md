@@ -190,12 +190,34 @@ alone. Revisit that only once all three carry curated content.
 19. Adding a GIFT type is an architectural decision. A new type arrives with a
     stated completeness contract, its own validation rules, and a curated or
     fixture-backed example. Do not register a type with nothing behind it.
+20. A quantitative trait derived from GIFT calls states its reference universe,
+    and the universe is built from curated metadata -- `gift_type`, `mode`,
+    facets, `gift_profile` -- never from a list of `gift_id`s written in R.
+    No proportion without an explicit denominator; no fraction of the catalogue
+    unless the universe was declared `bounded`, which is a claim that curation
+    intends to cover that set completely. The database is not the universe of
+    microbial function.
+21. Presence, abundance and context are three axes and never one number. Genome
+    quality modifies the reading of absence only: nothing may convert an
+    unsupported GIFT into a supported one, and indeterminacy is resolved per
+    genome.
+22. A community interaction edge comes only from compatibility semantics
+    already in the database, inherits the `edge_quality` of the GIFT edge
+    beneath it, and crosses organisms only through an anchor declared
+    `extracellular`. A cytoplasmic or unspecified anchor stays inside one cell.
+    Never infer interaction from functional overlap or co-occurrence.
+23. Every derived number retains the GIFTs, genomes and anchors that produced
+    it. Prefer interpretable components to composite indices, and add a
+    composite only when it is clearer than its ingredients. A derived trait
+    describes encoded capability, never activity, flux, phenotype or ecological
+    effect.
 
 See [Core concepts](inst/doc/architecture.md#core-concepts-and-scope),
 [GIFT types](inst/doc/architecture.md#gift-types),
 [The machinery model](inst/doc/architecture.md#the-machinery-model),
 [Evaluation logic](inst/doc/architecture.md#evaluation-logic), and
-[Boundaries and composition](inst/doc/architecture.md#gift-boundaries-anchors-and-composition)
+[Boundaries and composition](inst/doc/architecture.md#gift-boundaries-anchors-and-composition),
+and [Quantitative traits](inst/doc/architecture.md#quantitative-traits)
 for examples and rationale.
 
 ## Work in the correct files
@@ -214,6 +236,7 @@ for examples and rationale.
 | Source validation or compilation | `R/database-build.R`, `inst/schema/giftr.sql` | every source table, database tests, version metadata |
 | Runtime queries or public accessors | `R/database.R` | schema, generated `.Rd` files, database tests |
 | Evaluation behavior or traceability | `R/evaluation.R` | Boolean invariants, synthetic fixtures, evaluation tests |
+| Quantitative genome or community traits | `R/universe.R`, `R/traits.R`, `R/community.R`, `R/community-network.R`, `R/assessability.R` | `proposal-quantitative-traits.md`, reference universes, denominators, trait tests |
 | GIFT graph or database reports | `R/database-visualization.R` | declared-anchor behavior, composition tests |
 | Biological source provenance | `inst/extdata/database-source/SOURCES.md`, `database_release.tsv` | affected TSV records |
 | Architecture or curator guidance | `AGENTS.md`, `inst/doc/architecture.md`, `README.md` | behavior and links remain consistent |
@@ -303,7 +326,11 @@ data frame. Depending on the change, cover:
 - absence of implicit edges through internal metabolites;
 - evidence tracing back to observed markers and genes;
 - stable identifiers, foreign keys, source validation, and independent version
-  fields.
+  fields;
+- for derived quantitative traits: every proportion's denominator, that a
+  fraction of the catalogue is withheld for an unbounded universe, that no
+  assessability policy promotes an unsupported GIFT to supported, and that a
+  cross-genome edge never carries a molecule that stays inside a cell.
 
 Use small synthetic fixtures for logic tests. Retain `PRPP > IMP`, `IMP > AMP`,
 and their `PRPP > IMP > AMP` composition as integration examples.

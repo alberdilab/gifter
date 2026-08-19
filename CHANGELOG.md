@@ -15,6 +15,47 @@ versioned with the package.
 
 ## Package 0.1.0 (in development)
 
+### 2026-08-19T05:25Z — The quantitative layer is documented and its invariants are rules
+
+**Change.** Documentation only. `inst/doc/architecture.md` gains a
+**Quantitative traits** section and three quick-index entries; `AGENTS.md`
+gains invariants 20-23, a row in *Work in the correct files* and a testing
+bullet; `README.md` gains a *Summarise genomes and communities* section;
+`inst/doc/proposal-quantitative-traits.md` becomes accepted and implemented and
+carries the implementation record. **No code, schema or database change.**
+This is phase 5 of that proposal.
+
+**Why.** The layer's four constraints are not conventions an author could
+reasonably choose otherwise about: a universe built in R rather than from
+curated metadata, a fraction of an open catalogue, a quality policy that
+promotes a call, or an edge that hands a cytoplasmic molecule between organisms
+are each a defect rather than a style. Constraints of that kind belong in the
+invariant list, where they are checked before a change ships, and not only in
+the roxygen of the function that happens to enforce them today.
+
+**Effect.** Invariant 20 requires a declared reference universe built from
+curated metadata and forbids a fraction of the catalogue unless the universe was
+declared bounded. Invariant 21 keeps presence, abundance and context apart and
+fixes genome quality as informing absence only, per genome. Invariant 22 bounds
+interaction edges to existing compatibility semantics, requires them to inherit
+`edge_quality`, and requires an `extracellular` anchor to cross organisms.
+Invariant 23 requires traceability and prefers interpretable components to
+composite indices.
+
+The implementation record states both departures from the plan. The first
+changes results: a cross-genome edge needs an extracellular anchor, which the
+plan did not anticipate and the arabinoxylan fixture found. The second is that
+the externally drafted source proposal was **not** copied into `inst/doc/`, as
+the plan had said it would be; §2, §3 and §8 of the superseding document already
+record what it got right, every duplication and gap with evidence, and every
+refusal with a reason, and 1400 further lines saying the same thing less
+accurately would make the design record harder to read rather than more
+complete.
+
+`R CMD check --no-manual` on the built tarball: one NOTE, the pre-existing
+installed size of the compiled database and HTML atlas. Full suite green at
+3566.
+
 ### 2026-08-19T05:05Z — Assessability: when a negative call may enter a denominator
 
 **Change.** A new internal layer in `R/assessability.R`, and `quality`,

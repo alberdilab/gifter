@@ -155,6 +155,56 @@ gift_graph()
 # purine_core_biosynthesis  --IMP-->  guanylate_biosynthesis
 ```
 
+## Summarise genomes and communities
+
+Calls are the primary result. The quantitative layer summarises sets of them
+without changing any, and every number carries the set it was counted over.
+
+```r
+traits <- genome_traits(result, genome_id = "MAG_001")
+subset(traits$metrics, metric_id == "gift_richness",
+       c("reference_universe", "value", "assessable"))
+
+# Why is that number what it is? The trace names the GIFTs behind it.
+subset(traits$trace, metric_id == "gift_richness")
+```
+
+A fraction of the catalogue is reported only for a universe declared `bounded`,
+meaning curation intends to cover it completely. Supporting 12 of 122 metabolic
+GIFTs does not mean a genome lacks 110 capabilities, so no such fraction is
+offered:
+
+```r
+autonomy <- gift_universe(
+  mode = "anabolic", auxotrophy_indicator = TRUE, bounded = TRUE,
+  label = "biomass-essential anabolic GIFTs"
+)
+genome_traits(result, universes = list(autonomy))
+```
+
+For several genomes, bind them into a community and ask how capability is
+distributed:
+
+```r
+community <- giftr_community(A = result_a, B = result_b, C = result_c)
+community_traits(community)          # richness, provider counts, singletons
+community_network(community)         # potential resource handoffs
+```
+
+A handoff edge means one genome encodes a GIFT whose declared extracellular
+output another genome's GIFT consumes. It is a potential compatibility
+relationship, not evidence that exchange occurs. If genome completeness is
+supplied, absences on fragmented genomes are withheld from every denominator
+rather than counted as capabilities the genome lacks:
+
+```r
+giftr_community(
+  A = result_a, B = result_b,
+  quality = c(A = 0.98, B = 0.55),
+  policy = "completeness", threshold = 0.9
+)
+```
+
 ## Inspect the reference database
 
 ```r

@@ -1,11 +1,12 @@
 # Design proposal: quantitative genome and community traits derived from GIFT calls
 
-Status: **assessment and implementation plan. Not yet implemented.**
-Assessment performed 2026-08-19 against database version as packaged in
-`inst/extdata/giftr.sqlite` (130 GIFTs). This document supersedes the
-externally drafted `proposal-quantitative-genome-community-traits.md`, which was
-the starting point. Sections 2 and 3 record what that draft got right, what it
-duplicated, and where it is not implementable as written.
+Status: **accepted and implemented, phases 1-4, in package 0.1.0.**
+Assessment performed 2026-08-19 against database version 2026.19.1 (130 GIFTs).
+This document supersedes the externally drafted
+`proposal-quantitative-genome-community-traits.md`, which was the starting
+point. Sections 2 and 3 record what that draft got right, what it duplicated,
+and where it is not implementable as written. Section 13 is the implementation
+record, including the two places where the build departed from this plan.
 
 Scope: decide how giftr should summarise sets of GIFT calls into quantitative
 traits describing a genome and a genome-resolved community, without inventing a
@@ -594,7 +595,7 @@ Per the table below.
 | `README.md` | short subsection with one genome example and one community example. No new concepts. |
 | `CHANGELOG.md` | one entry per phase, each stating change, reason and effect. Code change, not biological — nothing here goes in `database_changes.tsv`, because the database does not change. |
 | `man/*.Rd` | roxygen for every exported function. Each `@return` states the unit and the reference universe; each function carrying an interpretation risk gets a `@section Interpretation:` naming what the number does not mean. |
-| `inst/doc/proposal-quantitative-genome-community-traits.md` | the source draft, added to the repository for provenance with a header pointing here, matching how the other proposals preserve superseded reasoning. |
+| ~~`proposal-quantitative-genome-community-traits.md`~~ | **Not done, and deliberately.** See §13.2. |
 
 No database rebuild is required at any phase. This layer reads the database and
 changes nothing in it, so `database_release.tsv`, `database_changes.tsv` and the
@@ -623,3 +624,129 @@ assessment adds. These are the candidates for AGENTS.md rules 20–23.
 8. A quantitative trait describes encoded capability in the current ontology.
    It never describes activity, flux, phenotype or ecological effect, and the
    current database is not the universe of microbial function.
+
+---
+
+## 13. Implementation record
+
+Phases 1 to 4 shipped in package 0.1.0 across four commits, each with its own
+`CHANGELOG.md` entry. No schema, database content or evaluation change was
+required at any phase: the compiled artifact is byte-identical and no Boolean
+call moved. The full suite went from 3435 to 3566 assertions.
+
+| Phase | Files | Exports |
+|---|---|---|
+| 1 | `R/universe.R`, `R/traits.R` | `gift_universe()`, `genome_traits()` |
+| 2 | `R/community.R` | `giftr_community()`, `community_traits()` |
+| 3 | `R/community-network.R` | `community_network()` |
+| 4 | `R/assessability.R` | `quality`, `policy`, `threshold` arguments |
+
+### 13.1 Departure: a cross-genome edge requires an extracellular anchor
+
+**This plan did not anticipate the rule, and the fixture found it.**
+
+§7.2 said the community layer "adds no new compatibility semantics; it projects
+an existing GIFT edge onto a genome pair." Implemented literally, the
+arabinoxylan fixture produced five edges rather than the three §10 predicted:
+the extra two were `C -> D` and `D -> C` through `XYLOSE_IN`.
+
+`XYLOSE_IN` is a **cytoplasmic** anchor. Genomes C and D each encode both xylose
+uptake and xylose catabolism, so the composition link exists inside each of
+them — but projecting it across the pair asserts that one organism hands another
+a molecule that never leaves a cell.
+
+The rule added: a cross-genome edge requires the producing GIFT's output anchor
+to be declared `extracellular`. A `cytoplasmic` anchor is inside one cell by
+construction, and an `unspecified` one was never evidenced as leaving it, which
+is not the same as evidence that it does. With the rule the fixture yields
+exactly `A -> B`, `B -> C`, `B -> D`.
+
+This is a second compatibility rule, so it needed justifying rather than
+assuming. It is defensible because `gift_graph` and this layer ask different
+questions. The graph asks whether one GIFT's product is another's substrate,
+which is true wherever the molecules match, inside a cell or not. The community
+layer asks whether one *organism's* product can become another *organism's*
+substrate, and that additionally requires the molecule to cross a membrane. The
+compartment qualifier exists precisely to carry that distinction, and the
+draft's own §28 stated it — "an **extracellular** output anchor" — without
+noticing that its own §12 handoff counts did not.
+
+Two consequences followed:
+
+- `chain_coverage` gained a fourth status, `not_transferable`, for a link whose
+  two halves fall in different genomes but whose molecule stays internal.
+  Nothing completes such a link; classifying it `community_distributed` would
+  have been the error, and classifying it `not_represented` would have been
+  false, since both halves are encoded.
+- Distributed cycle closure carries the same restriction. The oxidative citric
+  acid cycle therefore reports `not_closed` however a community is composed,
+  because central metabolism runs on intermediates that never leave a cell.
+  §7.4 proposed distributed cycle closure as a distinctive metric; it is
+  implemented, and the honest answer it currently gives is always negative.
+
+### 13.2 Departure: the source draft was not copied into the repository
+
+§11 planned to add the externally drafted
+`proposal-quantitative-genome-community-traits.md` to `inst/doc/` for
+provenance, on the model of how the other proposals preserve superseded
+reasoning. It was not added.
+
+The precedent does not transfer. What the other proposals preserve is giftr's
+own reasoning at the moment a decision was taken — the refusal of
+`succinate_formation`, the evidence behind an ambiguous marker — and that
+reasoning is not recoverable from anywhere else. The source draft is an
+externally generated document whose substance is already recorded here: §2
+states what it got right, §3 records every duplication and every gap with the
+evidence for each, and every metric it proposed is either implemented, renamed
+with the rename stated, or refused in §8 with a reason. Adding 1400 lines that
+say the same thing less accurately would make the design record harder to read
+rather than more complete.
+
+### 13.3 Departure: biosynthetic autonomy is not its own metric
+
+§5.2 listed `biosynthetic_autonomy` beside `supported_fraction`. They are the
+same quantity: autonomy is `supported_fraction` computed over the bounded
+biomass-essential anabolic universe. Implementing it separately would have put
+one biological definition in two places and given the ontology a special case in
+R, so the metric was dropped and the universe kept. The default universe set
+includes it, and it is the only bounded universe giftr ships.
+
+### 13.4 Two metrics added that the plan did not list
+
+`assessable_fraction` reports how much of the intended universe the
+assessability policy could assess. It implements the draft's §44 and turned out
+to be load-bearing rather than cosmetic: at 30% completeness a genome reports
+`supported_fraction = 1.0` over a single assessable GIFT, which is
+arithmetically correct and biologically empty. The fraction is what tells the
+reader so, and a proportion over a universe less than half assessable now warns.
+
+`provider_fraction` divides a provider count by the genomes that could assess
+the GIFT rather than by all genomes, which only becomes a distinct quantity once
+assessability exists.
+
+### 13.5 What was implemented as planned
+
+Reference universes from curated metadata only, with `bounded` as a declared
+biological claim enforced in code; the long-form metric and trace tables of §9;
+the community container refusing mixed database releases and mismatched
+abundance vectors; presence and abundance in separate rows; overlap stratified
+by universe; the `"none"` and `"completeness"` assessability policies with no
+default threshold, and the constraint — tested — that no policy promotes an
+unsupported GIFT to supported.
+
+The `"near_miss"` policy of §4 was not implemented, as planned. Every refusal in
+§8 stands.
+
+### 13.6 Not yet done
+
+Phase 5's documentation shipped with this record. Nothing else from this
+proposal is outstanding. The natural next questions, none of which this document
+decides:
+
+- whether `community_network()` should gain a molecule-resolved interaction
+  density beside the genome-pair one (§3.5);
+- whether the typed repertoire metrics of §3.4 become worth reporting as
+  curation grows the structural, regulatory and defense catalogues past their
+  current 2, 3 and 3 members;
+- whether `"near_miss"` can be validated against fragmented genomes of known
+  content.

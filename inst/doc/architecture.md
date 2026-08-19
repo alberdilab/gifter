@@ -15,6 +15,9 @@ in source-table names and code wherever practical.
 | GIFT type, metabolic, structural, regulatory, defense | [GIFT types](#gift-types) |
 | Architecture, structural function, machinery model | [The machinery model](#the-machinery-model) |
 | Motility, virulence, cross-feeding, higher-order traits | [Derived capabilities](#derived-capabilities) |
+| Richness, breadth, reference universe, denominator | [Quantitative traits](#quantitative-traits) |
+| Community, provider count, redundancy, handoff network | [Quantitative traits](#quantitative-traits) |
+| Genome completeness, assessability, indeterminate call | [Assessability](#assessability-when-absence-is-informative) |
 | OR/AND hierarchy, completeness, closest route | [Evaluation logic](#evaluation-logic) |
 | Anchor, boundary, branchpoint, composition, graph | [GIFT boundaries, anchors, and composition](#gift-boundaries-anchors-and-composition) |
 | Compartment, transport, uptake, extracellular | [Compartment and transport](#compartment-and-transport) |
@@ -396,6 +399,149 @@ assembly of one machine. It is recorded as a candidate for a future
 [the structural proposal](proposal-structural-gifts.md), and that type is
 deliberately **not** in the schema until its completeness contract can be
 stated.
+
+## Quantitative traits
+
+The derived layer the previous section anticipated now exists. It reads the
+calls `evaluate_gifts()` produced and summarises them into quantitative traits
+of a genome and of a genome-resolved community. Nothing in it is curated,
+nothing in it changes a call, and it adds no GIFT type. The design record,
+including the metrics deliberately refused, is
+[the quantitative traits proposal](proposal-quantitative-traits.md).
+
+```text
+genomic evidence
+      |
+      v
+  GIFT calls                      <- evaluate_gifts()
+      |
+      +----------------------+
+      |                      |
+      v                      v
+genome traits          community traits     <- genome_traits(), community_traits()
+      |                      |
+      +----------+-----------+
+                 |
+                 v
+        handoff topology                    <- community_network()
+```
+
+### A number without its universe is not a result
+
+A count of supported GIFTs is meaningless without the set it was counted over,
+and that set grows with every curation campaign. Every metric therefore names
+its **reference universe**, and `gift_universe()` builds one from curated
+metadata only — `gift_type`, `mode`, the registered facet vocabulary, and the
+derived `gift_profile` view. A universe may never be a list of `gift_id`s
+written in R source; that is [rule 10](../../AGENTS.md) one layer up, and it is
+what keeps the biological content in the database where it can be validated and
+versioned.
+
+Every metric row carries `numerator`, `denominator`, `assessable`,
+`reference_universe` and `database_version`, and a companion `trace` table names
+the GIFTs behind it. The question the shape exists to answer without re-running
+anything is:
+
+> Why does this genome have `supported_fraction = 0.82`?
+
+### Bounded and unbounded universes
+
+`supported_fraction` is reported only for a universe explicitly declared
+`bounded`, meaning it enumerates a biologically closed set that curation intends
+to cover completely. The curated biomass-essential anabolic GIFTs are such a
+set, and the fraction of them a genome supports is biosynthetic capability
+coverage.
+
+"All metabolic GIFTs" is not such a set. The catalogue is open and growing, and
+a genome supporting 12 of 122 has not been shown to lack 110 capabilities. The
+flag is therefore a biological claim, not a formatting option, and the refusal
+is enforced in code rather than left to a caveat in prose.
+
+### Assessability: when absence is informative
+
+`evaluate_gifts()` answers whether the observed markers support a complete
+curated implementation, and answers it identically for a closed isolate genome
+and a 60%-complete MAG, because the markers are all it sees. That is correct for
+a call and wrong for a denominator: a genome that was never fully observed has
+not been shown to lack anything.
+
+A third state therefore sits on top of the Boolean call, under a named policy:
+
+```text
+supported                  the markers support a complete implementation
+confidently unsupported    they do not, and the policy reads that as absence
+indeterminate              they do not, and the policy declines to read it
+```
+
+`"none"` is the default and declares nothing indeterminate, so a caller who
+supplies no quality information keeps Boolean behaviour with
+`assessable_fraction` stating the assumption. `"completeness"` takes a genome
+completeness estimate and an explicit threshold and withdraws every negative
+call below it from every denominator.
+
+Two constraints bind any policy added later. **No policy may promote an
+unsupported GIFT to supported** — quality informs the reading of absence and
+nothing else. And **indeterminacy is resolved per genome**, so a fragmented
+member's silence is withheld from a community provider denominator while a
+complete member's is not.
+
+The `"completeness"` policy has no default threshold. How complete a genome must
+be before its silence is informative is the analyst's declared choice, and a
+package default would be read as a recommendation.
+
+### Community topology reuses the composition graph
+
+`community_network()` invents no compatibility rule. `gift_graph` already
+decides when one GIFT's declared output anchor reaches another's declared input,
+and the community layer projects that decision onto the pair of genomes that
+support its ends. Every edge inherits the `edge_quality` beneath it, so a
+handoff resting on an unlicensed compartment reads as `compartment_inexact`
+rather than as an ordinary edge.
+
+One rule the graph itself does not impose is added here, because the graph is
+not answering the same question. **A cross-genome edge requires the producing
+GIFT's output anchor to be declared `extracellular`.** A `cytoplasmic` anchor is
+inside one cell by construction; an `unspecified` one was never evidenced as
+leaving it. Without the rule, two genomes that each encode xylose uptake and
+xylose catabolism produce edges through `XYLOSE_IN` — a claim that one organism
+hands another a molecule that never leaves a cell.
+
+The same link inside one genome is an ordinary composition step and is still
+reported as complete there, which is why a link whose halves fall in different
+genomes but whose molecule stays internal is classified `not_transferable`
+rather than `community_distributed`: nothing completes it. Distributed cycle
+closure carries the same restriction, so the oxidative citric acid cycle is
+never reported as closed across a community however it is composed.
+
+### What these numbers may not say
+
+A quantitative trait counts encoded capabilities in the current giftr ontology
+within a stated universe. It is not a measure of biological complexity,
+metabolic versatility in an environment, growth independence, activity, flux,
+phenotype, or ecological effect.
+
+Specifically:
+
+- `biosynthetic_autonomy` is genomic coverage of curated biomass-essential
+  anabolic capabilities. It does not mean the organism grows without
+  supplementation.
+- `abundance_coverage` is the share of observed genome abundance carrying a
+  capability. It is not a share of activity, transcript production or effect,
+  which is why it never merges with `provider_count`.
+- `repertoire_overlap` measures repertoire difference. Two genomes with
+  disjoint repertoires have different repertoires; they have not been shown to
+  be complementary, and nothing here infers interaction from overlap.
+- `unique_contribution` counts GIFTs no other **sampled** genome provides. It
+  does not make a genome ecologically indispensable, and it moves when the
+  sampling does.
+- A handoff edge is a potential compatibility relationship. Cross-feeding is a
+  hypothesis it can support, never a conclusion it establishes.
+
+Entropy of functional repertoire, inverse-Simpson provider diversity, context
+relevance weights, and every generalist, resilience, cooperation, competition
+and importance score are refused with reasons in
+[the proposal](proposal-quantitative-traits.md#8-recorded-refusals), so that
+they are not silently reopened.
 
 ## Evaluation logic
 
