@@ -10,3 +10,10 @@ COMP_DF_CASE	SYS_DF_CASCADE_I_E	CasE/Cas6e	crRNA processing endoribonuclease.
 COMP_DF_CAS3	SYS_DF_CAS3	Cas3 nuclease-helicase	Degrades the target.
 COMP_DF_CAS1	SYS_DF_CAS1_CAS2	Cas1 integrase	Spacer integration.
 COMP_DF_CAS2	SYS_DF_CAS1_CAS2	Cas2	Integrase partner.
+COMP_DF_MERA	SYS_DF_MERA	MerA mercuric reductase	Reduces Hg(II) to Hg(0).
+COMP_DF_MERT	SYS_DF_MERTP	MerT inner-membrane transporter	Passes Hg(II) to the cytoplasm.
+COMP_DF_MERP	SYS_DF_MERTP	MerP periplasmic binding protein	Captures Hg(II) and hands it to MerT.
+COMP_DF_MERC	SYS_DF_MERC	MerC transporter	Alternative inner-membrane mercury transporter.
+COMP_DF_MERE	SYS_DF_MERE	MerE transporter	Alternative transporter, permeable to organomercurials as well as Hg(II).
+COMP_DF_MERR	SYS_DF_MERR	MerR activator	Binds Hg(II) and activates the operon promoter.
+COMP_DF_MERB	SYS_DF_MERB	MerB organomercurial lyase	Cleaves the carbon-mercury bond.

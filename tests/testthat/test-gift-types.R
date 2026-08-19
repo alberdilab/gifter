@@ -7,9 +7,10 @@ test_that("every GIFT curated before the typed migration is metabolic", {
   metabolic <- gifts$gift_id[gifts$gift_type == "metabolic"]
 
   # The 29 GIFTs that existed at schema version 5. None of them may silently
-  # change type, because the type is what the evaluator dispatches on.
-  expect_setequal(
-    metabolic,
+  # change type, because the type is what the evaluator dispatches on. Later
+  # metabolic content is allowed to join them, so this is containment rather
+  # than equality; what it protects is that none of the original 29 leaves.
+  expect_true(all(
     c(
       "adenylate_biosynthesis", "arabinose_degradation", "arabinose_uptake_abc",
       "arabinoxylan_debranching", "aspartate_semialdehyde_biosynthesis",
@@ -24,8 +25,8 @@ test_that("every GIFT curated before the typed migration is metabolic", {
       "rhamnose_degradation", "serine_biosynthesis", "starch_degradation",
       "threonine_biosynthesis", "xylan_degradation", "xylose_degradation_isomerase",
       "xylose_uptake_abc"
-    )
-  )
+    ) %in% metabolic
+  ))
   expect_true(all(gifts$gift_type %in% c("metabolic", "structural", "regulatory", "defense")))
 })
 
@@ -38,7 +39,10 @@ test_that("gift_type reaches the browsing API and the call summary", {
                   c("flagellar_apparatus", "type_iva_pilus"))
   expect_setequal(
     list_gifts(type = "defense")$gift_id,
-    c("type_i_restriction_modification", "type_i_e_crispr_cas_machinery")
+    c(
+      "type_i_restriction_modification", "type_i_e_crispr_cas_machinery",
+      "mercury_detoxification"
+    )
   )
   expect_equal(nrow(list_gifts(type = "regulatory")), 3L)
   expect_equal(

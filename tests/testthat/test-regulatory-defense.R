@@ -521,6 +521,114 @@ test_that("the CRISPR claim is about encoded machinery, not interference", {
   expect_true("DBC-20260818-CRISPR-ARRAY-LIMIT" %in% changes$change_id)
 })
 
+test_that("mercury detoxification is complete on merA alone", {
+  complete <- evaluate_gifts(ko_annotations("K00520"))
+  gift <- complete$defense$gifts[
+    complete$defense$gifts$gift_id == "mercury_detoxification",
+  ]
+  expect_true(gift$complete)
+  expect_equal(gift$best_mechanism, "MECH_MER_HG")
+  expect_equal(gift$evidence_confidence, "curated")
+
+  # Reduction is what the claim rests on. The transporters without it are a
+  # delivery capability that detoxifies nothing.
+  transport <- evaluate_gifts(ko_annotations(c("K08363", "K08364")))
+  gift <- transport$defense$gifts[
+    transport$defense$gifts$gift_id == "mercury_detoxification",
+  ]
+  expect_false(gift$complete)
+  expect_equal(gift$minimum_missing_functions, 1L)
+  expect_equal(gift$missing_functions_best_mechanism[[1]], "DF_MER_HG_REDUCTION")
+})
+
+test_that("delivery, induction and organomercurial lysis are accessory", {
+  accessory <- c(
+    "DF_MER_HG_DELIVERY", "DF_MER_HG_INDUCTION", "DF_MER_ORGANOMERCURIAL_LYSIS"
+  )
+  bare <- evaluate_gifts(ko_annotations("K00520"))
+  functions <- bare$defense$functions
+  expect_false(any(functions$supported[functions$function_id %in% accessory]))
+  expect_true(bare$defense$gifts$complete[
+    bare$defense$gifts$gift_id == "mercury_detoxification"
+  ])
+
+  # merC substitutes for the merT-merP pair, which is why requiring the pair
+  # would refuse genomes whose operon is built the other way.
+  merc <- evaluate_gifts(ko_annotations(c("K00520", "K19058")))
+  systems <- merc$defense$systems
+  expect_true(systems$supported[systems$system_id == "SYS_DF_MERC"])
+  expect_false(systems$supported[systems$system_id == "SYS_DF_MERTP"])
+  functions <- merc$defense$functions
+  expect_true(functions$supported[functions$function_id == "DF_MER_HG_DELIVERY"])
+
+  # MerT without MerP is not the pair: the two are jointly required.
+  half <- evaluate_gifts(ko_annotations(c("K00520", "K08363")))
+  functions <- half$defense$functions
+  expect_false(functions$supported[functions$function_id == "DF_MER_HG_DELIVERY"])
+})
+
+test_that("the MerA sequence family is an alternative, not a second requirement", {
+  family <- evaluate_gifts(data.frame(
+    gene_id = "gene_1", namespace = "TIGRFAM", accession = "TIGR02053",
+    stringsAsFactors = FALSE
+  ))
+  gift <- family$defense$gifts[
+    family$defense$gifts$gift_id == "mercury_detoxification",
+  ]
+  expect_true(gift$complete)
+  # Evidence rows are alternatives within a component, and the family carries
+  # its own confidence rather than inheriting the orthology group's.
+  expect_equal(gift$evidence_confidence, "high-confidence")
+})
+
+test_that("the mercury claim is detoxification machinery, not resistance", {
+  description <- get_gift("mercury_detoxification")$description
+  expect_match(description, "does not mean the organism survives", fixed = TRUE)
+
+  facets <- get_facets("mercury_detoxification")
+  expect_equal(
+    facets$value[facets$facet == "defense_class"], "chemical_detoxification"
+  )
+
+  # The class is named for the mechanism, and its definition excludes the
+  # mechanisms that would turn it into a resistance drawer.
+  terms <- list_facets("defense_class")
+  definition <- terms$definition[terms$value == "chemical_detoxification"]
+  expect_match(definition, "Efflux, sequestration and repair of the damage are excluded")
+
+  changes <- database_changelog("mercury_detoxification")
+  expect_true(all(
+    c("DBC-20260819-MERCURY-DEFENSE", "DBC-20260819-CHEMICAL-DETOXIFICATION-CLASS")
+    %in% changes$change_id
+  ))
+})
+
+test_that("merD and the unmatchable namespaces are not mer evidence", {
+  machinery <- get_gift_machinery("mercury_detoxification")
+
+  # MerD modulates MerR-driven transcription rather than activating the
+  # promoter, so as an alternative it would let a genome with no activator
+  # claim induction.
+  expect_false("K19057" %in% machinery$accession)
+  expect_equal(
+    unique(machinery$accession[machinery$function_id == "DF_MER_HG_INDUCTION"]),
+    "K08365"
+  )
+
+  # NF033555 and the InterPro entries name the enzymes more precisely than the
+  # curated accessions do, and giftr's evidence layer can never match them.
+  expect_false(any(grepl("^(NF|IPR)[0-9]", machinery$accession)))
+  expect_equal(
+    unique(machinery$accession[
+      machinery$function_id == "DF_MER_ORGANOMERCURIAL_LYSIS"
+    ]),
+    "K00221"
+  )
+
+  changes <- database_changelog("mercury_detoxification")
+  expect_true("DBC-20260819-MER-EVIDENCE-REFUSALS" %in% changes$change_id)
+})
+
 test_that("no curated GIFT claims a behaviour or an outcome", {
   # Machinery is what the evidence supports, so machinery is what is claimed.
   ids <- list_gifts()$gift_id

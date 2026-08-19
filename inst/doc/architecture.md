@@ -19,6 +19,7 @@ in source-table names and code wherever practical.
 | Anchor, boundary, branchpoint, composition, graph | [GIFT boundaries, anchors, and composition](#gift-boundaries-anchors-and-composition) |
 | Compartment, transport, uptake, extracellular | [Compartment and transport](#compartment-and-transport) |
 | GIFT mode, catabolic cycle, acyclicity | [Composition without duplication](#composition-without-duplication) |
+| Citric acid cycle, circular metabolism, closure | [Cycles in the composition graph](#cycles-in-the-composition-graph) |
 | Rhea, reaction identity, direction, stoichiometry | [Reaction chemistry](#reaction-chemistry) |
 | Enzyme alternatives, complexes, components | [Enzyme systems and components](#enzyme-systems-and-components) |
 | KO, EC, Pfam, TIGRFAM, HMM, marker namespace | [Genomic markers and evidence](#genomic-markers-and-evidence) |
@@ -128,7 +129,26 @@ decision explicitly changes scope, it does not model:
 - membrane potential, transport stoichiometry, proton coupling, or complete
   intracellular metabolite inventories;
 - cellular mass balance;
-- complete pathway stoichiometry at runtime.
+- complete pathway stoichiometry at runtime;
+- **respiration, and any capability whose completion requires an external
+  terminal electron acceptor.**
+
+The last item is a rule with consequences, so it is stated separately rather
+than left implicit:
+
+> A capability whose completion requires an external terminal electron acceptor
+> is out of scope. Curate the part of the chemistry that ends before the
+> acceptor, and name the trait for what that part does.
+
+It is what refuses nitrate respiration, denitrification, dissimilatory nitrate
+reduction to ammonium, fumarate respiration, and "taurine to hydrogen sulfide",
+and it is why `nitrate_assimilation` ends at ammonium and both taurine
+capabilities end at sulfite. The refusal is architectural, not evidential: the
+markers for NarGHI, NirK, NosZ and DsrAB are specific, abundant and easy to
+curate, which is precisely why the boundary is written down. Curating them
+would make positive claims about energy conservation that the completeness
+model cannot bound. Reversing this needs its own proposal, its own completeness
+contract, and probably its own `gift_type`.
 
 Declared anchors do carry a two-state `compartment` qualifier, added
 deliberately so that transport and extracellular chemistry can be stated. See
@@ -539,6 +559,42 @@ intermediates, or every Rhea participant unless one independently defines a
 meaningful GIFT boundary. Prefer stable identifiers such as ChEBI for declared
 anchors when available.
 
+Two molecule classes are common enough as reaction participants that they need
+an explicit admission rule, or they become boundaries of half the database by
+accident.
+
+**Cofactors.** A cofactor may be declared an anchor only where a reaction
+*consumes* it as a substrate — BluB dismantles FMNH2 to build the benzimidazole
+ring — and never where it is recycled catalytically. Without the rule, THF, PLP
+and NAD become input anchors of most biosynthetic GIFTs and the anabolic
+acyclicity check collapses.
+
+**Inorganic nitrogen.** Ammonium may be declared an anchor only where the
+reaction's *purpose* is to liberate it from an organic substrate or to
+assimilate it into one, never where it is a leaving group of chemistry aimed at
+a different product, or a co-substrate of amidation. The consumption test above
+is not sufficient here, because the ammonia-dependent NAD synthetase genuinely
+consumes ammonium; the nitrogen rule asks what the reaction is *for*.
+
+Applied to the four curated reactions that mention NH4+, the rule admits one
+and rejects three:
+
+| Reaction | Role of NH4+ | Admitted |
+|---|---|---|
+| `RHEA:12172` glucosamine-6-phosphate deaminase | the reaction *is* the deamination | yes |
+| `RHEA:21868` riboflavin pathway deaminase | leaving group of a ring modification | no |
+| `RHEA:40075` aminodeoxyfutalosine deaminase | leaving group en route to a naphthoquinone | no |
+| `RHEA:21188` NAD synthetase (ammonia) | co-substrate of an amidation | no |
+
+Each rejection prevents a specific absurdity: admitting the first two would
+make riboflavin and menaquinone biosynthesis nitrogen sources, and admitting
+the third would make NAD biosynthesis an ammonium sink that every
+ammonium-releasing catabolic GIFT composed into.
+
+Both rules are curator judgements recorded in the anchor's description and
+enforced by review rather than by the validator, which is the honest place for
+them: no schema constraint can express "what the chemistry is aimed at".
+
 ### Composition without duplication
 
 Composition follows shared declared anchors:
@@ -557,15 +613,64 @@ branching visible. A larger capability is a traversable chain in the derived
 GIFT graph when the chain remains biologically meaningful.
 
 The source validator rejects cycles in this derived composition graph **within a
-GIFT mode**. Every GIFT declares one:
+directed GIFT mode**. Every GIFT declares one:
 
 ```text
 anabolic | catabolic | transport | interconversion
 ```
 
-Within a mode, a cycle still usually indicates that the chosen boundaries or
-directions need review. Between modes it is expected, because catabolism
-legitimately returns to metabolites biosynthesis produces:
+The first three declare a direction the curated route travels. The fourth
+declares that there is no single direction to state, and it carries its own
+boundary contract:
+
+```text
+anabolic, catabolic   one direction, declared by the anchors
+transport             one molecule, two compartments
+interconversion       every anchor declared as BOTH input and output
+```
+
+`interconversion` is for a near-equilibrium node whose enzymes run both ways in
+different organisms and whose markers cannot say which. `acetate_interconversion`
+is the worked example: the same phosphotransacetylase and acetate kinase that
+release acetate from acetyl-CoA assimilate acetate into acetyl-CoA in a genome
+growing on it, and 6582 KEGG organisms carry the pair without the evidence
+distinguishing the two physiologies. Declaring only `ACETYL_COA > ACETATE`
+would assert a direction nothing supports; splitting it into two GIFTs would
+assert a distinction the same two genes cannot make.
+
+The validator enforces the contract in both directions. A GIFT that is not an
+interconversion may not declare an anchor as both input and output, and an
+interconversion GIFT must declare **every** anchor that way -- declaring some
+reversibly and others not would claim a direction for half the boundary.
+
+The route layer is unaffected, and deliberately so. A route is an ordered list
+of reactions with per-reaction orientation, and it records **one** traversal of
+the node. A mirror route with every orientation flipped would complete on
+exactly the same markers, so it would report two complete routes for one
+capability and make closest-route selection non-deterministic. Direction lives
+in the anchors for composition and in `route_reaction.orientation` for
+chemistry; those answer different questions and are not kept in step.
+
+The HTML atlas follows the same rule. A reversible GIFT draws each anchor once,
+with a double-headed arrow between the sides, rather than listing both roles on
+both sides -- `ACETYL_COA <-> ACETATE`, not
+`ACETYL_COA ACETATE -> ACETATE ACETYL_COA`. In the whole-database anchor network
+the two opposing edges collapse into one edge with a head at each end, and the
+per-GIFT route network draws the whole chain both ways, for the same reason: a
+one-way arrow asserts the direction the mode exists to deny. Each reaction still
+carries its own `forward` or `reverse` badge inside that chain, which is not a
+contradiction -- see the note below on what `orientation` is relative to.
+
+Note that `route_reaction.orientation` is relative to how Rhea writes that
+reaction's own equation, not to the direction of the GIFT. In
+`ACETATE_PTA_ACKA` the phosphotransacetylase step is `forward` and the acetate
+kinase step is `reverse`, and both run towards acetate: Rhea writes acetate
+kinase in its named, acetate-consuming direction, so chaining the two requires
+flipping one of them.
+
+Within a directed mode, a cycle still usually indicates that the chosen
+boundaries or directions need review. Between modes it is expected, because
+catabolism legitimately returns to metabolites biosynthesis produces:
 
 ```text
 FRUCTOSE_6P --> ... --> GLCNAC        (anabolic)
@@ -575,8 +680,22 @@ GLCNAC      --> ... --> FRUCTOSE_6P   (catabolic)
 Rejecting that pair would reject correct biology. Rejecting an anabolic loop
 would not, which is why the check is scoped rather than removed.
 
-Acyclicity is a real design constraint, not a formality. Sulfur metabolism is
-the worked example: cysteine donates sulfur to methionine, and homocysteine
+`interconversion` is exempt from the check altogether, and the exemption is not
+a concession to any particular biology. That mode's contract requires every
+anchor to be declared in **both** roles, so two interconversion GIFTs sharing
+one anchor produce an edge in each direction by construction:
+
+```text
+X <-> Y   and   Y <-> Z        gives     XY --> YZ  and  YZ --> XY
+```
+
+The loop is made by the mode, not by the boundary, and reporting it would be
+the check reading its own contract back as a curation error. Nothing about the
+chemistry is involved: two synthetic reversible GIFTs sharing one fixture anchor
+reproduce it, which is what `test-composition.R` asserts.
+
+Acyclicity is a real design constraint in the directed modes, not a formality.
+Sulfur metabolism is the worked example: cysteine donates sulfur to methionine, and homocysteine
 donates sulfur back to cysteine, so the obvious boundary choices close a loop.
 
 ```text
@@ -592,6 +711,73 @@ methionine-to-homocysteine capability. Promoting it to an output, or splitting
 methionine biosynthesis at homocysteine, makes the build fail. When a cycle
 appears, ask which boundary is the weakest biological claim rather than
 deleting an edge to satisfy the validator.
+
+### Cycles in the composition graph
+
+Some real metabolism closes a ring. The oxidative citric acid cycle is the
+worked example, and giftr represents it with no new kind of object: four
+ordinary metabolic GIFTs whose declared anchors happen to close.
+
+```text
+reaction              RHEA:16845, RHEA:10336, RHEA:19629, ...
+   |                  identity from Rhea, direction from route_reaction
+   v
+atomic GIFT           acetyl_coa_to_oxoglutarate, oxoglutarate_to_succinate,
+   |                  succinate_fumarate_interconversion,
+   |                  fumarate_oxaloacetate_interconversion
+   v
+topology              chains, branches, convergences, CYCLES
+                      derived from gift_graph(); nothing curated
+```
+
+`gift_cycles()` enumerates the elementary cycles of that graph. It is graph
+code and contains no biology, so it will find the reductive citric acid cycle,
+the glyoxylate bypass or the Calvin cycle on the day those are curated, without
+being changed. There is no circuit table, and there should not be one: a
+curated list of member GIFTs would duplicate `role` and shape the graph already
+knows, and could then disagree with it. It would also collide with
+`gift_circuit`, which is the **regulatory** model's implementation table.
+
+The one thing derivation cannot supply is a name, so that much is curated, as a
+facet rather than a table:
+
+```text
+metabolic_cycle = citric_acid_cycle_oxidative
+```
+
+`gift_cycles()` reports that value as `named_cycle` when every member of a
+derived cycle carries it, and `NA` otherwise -- an unnamed cycle is still
+reported, which is what keeps the accessor general instead of a lookup for the
+rings somebody remembered to label.
+
+Two kinds of ring are excluded, and both are excluded because the **mode** makes
+them rather than the chemistry. A two-node loop between `interconversion` GIFTs
+is produced by that mode's boundary contract, which declares every anchor in
+both roles. A ring containing both an `anabolic` and a `catabolic` member says
+that a genome can build a metabolite and also break it down -- true of arginine,
+proline, threonine and cysteine once the amino acid layer is curated -- and
+composition is *expected* to cycle between modes, which is why the source
+validator checks acyclicity per mode. Neither loop is circular metabolism, and
+reporting them would bury the rings that do run one way: before the exclusion,
+mixed-mode rings outnumbered the citric acid cycle by more than thirty to one.
+
+`evaluate_gift_cycles()` reads a genome's calls against those cycles and reports
+`closed`, `open` with the broken members named, or `absent`. **Closure is
+derived from Boolean calls and never changes one.** A segment is complete on its
+own routes and markers whether or not its neighbours are; inferring a
+capability's absence from a neighbour's absence is the opposite of what the
+composition model is for. And a `closed` cycle is a statement about encoded
+chemistry, not about flux, direction or expression -- two of the citric acid
+cycle's four segments are `interconversion` precisely because giftr cannot say
+which way they run.
+
+A two-node loop between two `interconversion` GIFTs is not reported, for the
+same reason the validator exempts it: it is made by the mode's boundary
+contract rather than by chemistry.
+
+The full analysis, including why a monolithic cycle GIFT and a per-reaction
+decomposition were both rejected, is in
+[the central metabolic cycles proposal](proposal-central-metabolic-cycles.md).
 
 ### Compartment and transport
 
@@ -792,7 +978,16 @@ broader claim the evidence supports, or refuse the trait and record why. The
 flagellar coupling-ion refusal is worked through in
 [the structural proposal](proposal-structural-gifts.md); the ligand-specific
 chemotaxis case in [the regulatory proposal](proposal-regulatory-gifts.md); the
-CRISPR array case in [the defense proposal](proposal-defense-gifts.md).
+CRISPR array case in [the defense proposal](proposal-defense-gifts.md); and the
+aromatic substrate case, where nine requested capabilities were refused because
+a ring-hydroxylating dioxygenase family cannot say which ring it hydroxylates,
+in [the aromatic degradation proposal](proposal-aromatic-degradation.md). The
+gallate case in
+[the shikimate aromatics proposal](proposal-shikimate-aromatics.md) is the same
+refusal reached from the other end: there the trait fails before specificity is
+even in question, because no Rhea reaction and no EC number exist for the
+chemistry, and the only markers on offer are the AroE markers the core shikimate
+pathway already uses.
 
 Marker specificity bounds trait specificity (invariant 16). A marker that cannot
 distinguish one substrate from another licenses only the broader capability, and
@@ -1138,6 +1333,8 @@ evaluate_reactions()
 evaluate_gifts()
 trace_gift()
 gift_graph()
+gift_cycles()
+evaluate_gift_cycles()
 ```
 
 These functions form a conceptual API that may outlive the current SQLite

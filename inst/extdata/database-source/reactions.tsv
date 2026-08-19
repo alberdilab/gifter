@@ -90,3 +90,296 @@ RXN_STARCH_DEBRANCH_1_6		pullulanase reaction	Hydrolysis of (1->6)-alpha-D-gluco
 RXN_MALTOOLIGO_EXO		alpha-glucosidase reaction	Hydrolysis of terminal non-reducing (1->4)-linked alpha-D-glucose residues, releasing alpha-D-glucose.
 RXN_XYLAN_DEACETYL		acetylxylan esterase reaction	Hydrolysis of acetyl groups from the xylan backbone, exposing it to endo-acting xylanases.
 RXN_COLLAGEN_HELIX_CLEAVAGE		microbial collagenase reaction	Digestion of native collagen in the triple-helical region at Gly bonds. Rhea covers collagen hydroxylation, glycosylation and crosslinking but contains no proteolytic cleavage of the helix, so this reaction carries no master and is identified by its EC cross-reference.
+RHEA:28042	RHEA:28042	pyruvate dehydrogenase complex reaction	pyruvate + NAD(+) + CoA = acetyl-CoA + CO2 + NADH.
+RHEA:12765	RHEA:12765	pyruvate:ferredoxin oxidoreductase reaction	2 oxidized [2Fe-2S]-[ferredoxin] + pyruvate + CoA = 2 reduced [2Fe-2S]-[ferredoxin] + acetyl-CoA + CO2 + H(+). Oxygen-sensitive.
+RHEA:11844	RHEA:11844	pyruvate formate-lyase reaction	formate + acetyl-CoA = pyruvate + CoA; used in reverse relative to the Rhea master equation.
+RHEA:19521	RHEA:19521	phosphate acetyltransferase reaction	acetyl-CoA + phosphate = acetyl phosphate + CoA.
+RHEA:11352	RHEA:11352	acetate kinase reaction	acetate + ATP = acetyl phosphate + ADP; used in reverse for acetate formation.
+RHEA:21036	RHEA:21036	acetyl-CoA C-acetyltransferase reaction	2 acetyl-CoA = acetoacetyl-CoA + CoA.
+RHEA:16197	RHEA:16197	3-hydroxybutanoyl-CoA dehydrogenase reaction	(3S)-3-hydroxybutanoyl-CoA + NADP(+) = acetoacetyl-CoA + NADPH + H(+); used in reverse. The NAD-dependent RHEA:30799 is the same enzyme's alternative cofactor mode, is annotated to the same orthologue, and is not treated as a genomically distinct route.
+RHEA:26558	RHEA:26558	3-hydroxybutanoyl-CoA dehydratase reaction	(3S)-3-hydroxybutanoyl-CoA = (2E)-butenoyl-CoA + H2O. The butanoyl-specific reaction is used rather than the generic short-chain master RHEA:52664, because a generic acyl chain length would not fix the product of the route.
+RHEA:24004	RHEA:24004	butanoyl-CoA dehydrogenase reaction	butanoyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) = (2E)-butenoyl-CoA + reduced [electron-transfer flavoprotein]; used in reverse.
+RHEA:30071	RHEA:30071	butanoyl-CoA:acetate CoA-transferase reaction	butanoate + acetyl-CoA = butanoyl-CoA + acetate; used in reverse. The butanoate-specific reaction is used rather than the generic EC 2.8.3.8 master RHEA:13381, whose acyl-CoA is unspecified.
+RHEA:15933	RHEA:15933	lactaldehyde reductase reaction	(S)-propane-1,2-diol + NAD(+) = (S)-lactaldehyde + NADH + H(+); used in reverse.
+RHEA:14569	RHEA:14569	propanediol dehydratase reaction	propane-1,2-diol = propanal + H2O. Adenosylcobalamin-dependent, and stereochemically unspecified in Rhea while the declared boundary is the (S) diol.
+RHEA:36027	RHEA:36027	propionaldehyde dehydrogenase reaction	propanal + NAD(+) + CoA = propanoyl-CoA + NADH + H(+).
+RHEA:28046	RHEA:28046	phosphate propanoyltransferase reaction	propanoyl-CoA + phosphate = propanoyl phosphate + CoA.
+RHEA:23148	RHEA:23148	propionate kinase reaction	propanoate + ATP = propanoyl phosphate + ADP; used in reverse for propionate formation.
+RXN_LACTATE_COA_TRANSFER		propionate CoA-transferase reaction on lactate	(R)-lactate + propanoyl-CoA = (R)-lactoyl-CoA + propanoate. Rhea's EC 2.8.3.1 master RHEA:23520 covers only the propanoate/acetyl-CoA transfer, so the lactate-accepting transfer of the acrylate pathway carries no master and is identified by KEGG R01449, which records it in the opposite direction, and by its EC cross-reference.
+RHEA:34691	RHEA:34691	lactoyl-CoA dehydratase reaction	(R)-lactoyl-CoA = acryloyl-CoA + H2O.
+RHEA:34471	RHEA:34471	acryloyl-CoA reductase reaction	propanoyl-CoA + NAD(+) = acryloyl-CoA + NADH + H(+); used in reverse.
+RHEA:23444	RHEA:23444	L-lactate dehydrogenase reaction	(S)-lactate + NAD(+) = pyruvate + NADH + H(+); used in reverse for lactate formation.
+RHEA:10960	RHEA:10960	lactate racemase reaction	(S)-lactate = (R)-lactate.
+RHEA:46276	RHEA:46276	malolactic enzyme reaction	(S)-malate + H(+) = (S)-lactate + CO2. The decarboxylation makes the step irreversible, which is why malate may be a curated boundary while the reversible citric acid cycle reactions may not.
+RHEA:10760	RHEA:10760	citrate lyase reaction	citrate = oxaloacetate + acetate. Rhea also splits the same chemistry into citryl-CoA half-reactions under EC 2.8.3.10 (RHEA:19405) and EC 4.1.3.34 (RHEA:20812); the EC 4.1.3.6 master is curated instead, so that one three-subunit enzyme is one curated step rather than two.
+RHEA:15641	RHEA:15641	oxaloacetate decarboxylase reaction	oxaloacetate + H(+) = pyruvate + CO2.
+RHEA:23288	RHEA:23288	acetaldehyde dehydrogenase (acetylating) reaction	acetaldehyde + NAD(+) + CoA = acetyl-CoA + NADH + H(+); used in reverse for ethanol formation.
+RHEA:25290	RHEA:25290	alcohol dehydrogenase reaction on ethanol	ethanol + NAD(+) = acetaldehyde + NADH + H(+); used in reverse for ethanol formation. Curated at this specificity rather than at the generic primary-alcohol parent RHEA:10736, which would let the route claim a chain length its chemistry does not fix.
+RHEA:25249	RHEA:25249	acetolactate synthase reaction	2 pyruvate + H(+) = (2S)-2-acetolactate + CO2.
+RHEA:21580	RHEA:21580	acetolactate decarboxylase reaction	(2S)-2-acetolactate + H(+) = (R)-acetoin + CO2.
+RHEA:23704	RHEA:23704	GTP cyclohydrolase II reaction	GTP + 4 H2O = 2,5-diamino-6-hydroxy-4-(5-phosphoribosylamino)-pyrimidine + formate + 2 phosphate + 3 H(+).
+RHEA:21868	RHEA:21868	diaminohydroxyphosphoribosylaminopyrimidine deaminase reaction	2,5-diamino-6-hydroxy-4-(5-phosphoribosylamino)-pyrimidine + H2O + H(+) = 5-amino-6-(5-phospho-D-ribosylamino)uracil + NH4(+).
+RHEA:17845	RHEA:17845	5-amino-6-(5-phosphoribosylamino)uracil reductase reaction	5-amino-6-(5-phospho-D-ribitylamino)uracil + NADP(+) = 5-amino-6-(5-phospho-D-ribosylamino)uracil + NADPH + H(+).
+RHEA:25197	RHEA:25197	5-amino-6-(5-phospho-D-ribitylamino)uracil phosphatase reaction	5-amino-6-(5-phospho-D-ribitylamino)uracil + H2O = 5-amino-6-(D-ribitylamino)uracil + phosphate.
+RHEA:18457	RHEA:18457	3,4-dihydroxy-2-butanone 4-phosphate synthase reaction	D-ribulose 5-phosphate = (2S)-2-hydroxy-3-oxobutyl phosphate + formate + H(+).
+RHEA:26152	RHEA:26152	6,7-dimethyl-8-ribityllumazine synthase reaction	(2S)-2-hydroxy-3-oxobutyl phosphate + 5-amino-6-(D-ribitylamino)uracil = 6,7-dimethyl-8-(1-D-ribityl)lumazine + phosphate + 2 H2O + H(+).
+RHEA:20772	RHEA:20772	riboflavin synthase reaction	2 6,7-dimethyl-8-(1-D-ribityl)lumazine + H(+) = 5-amino-6-(D-ribitylamino)uracil + riboflavin.
+RHEA:11672	RHEA:11672	4-amino-4-deoxychorismate synthase reaction	chorismate + L-glutamine = 4-amino-4-deoxychorismate + L-glutamate.
+RHEA:16201	RHEA:16201	4-amino-4-deoxychorismate lyase reaction	4-amino-4-deoxychorismate = 4-aminobenzoate + pyruvate + H(+).
+RHEA:17473	RHEA:17473	GTP cyclohydrolase I reaction	GTP + H2O = 7,8-dihydroneopterin 3'-triphosphate + formate + H(+).
+RHEA:25302	RHEA:25302	dihydroneopterin triphosphate diphosphatase reaction	7,8-dihydroneopterin 3'-triphosphate + H2O = 7,8-dihydroneopterin 3'-phosphate + diphosphate + H(+).
+RHEA:10540	RHEA:10540	dihydroneopterin aldolase reaction	7,8-dihydroneopterin = 6-hydroxymethyl-7,8-dihydropterin + glycolaldehyde.
+RHEA:11412	RHEA:11412	2-amino-4-hydroxy-6-hydroxymethyldihydropteridine diphosphokinase reaction	6-hydroxymethyl-7,8-dihydropterin + ATP = (7,8-dihydropterin-6-yl)methyl diphosphate + AMP + H(+).
+RHEA:19949	RHEA:19949	dihydropteroate synthase reaction	(7,8-dihydropterin-6-yl)methyl diphosphate + 4-aminobenzoate = 7,8-dihydropteroate + diphosphate.
+RHEA:23584	RHEA:23584	dihydrofolate synthase reaction	7,8-dihydropteroate + L-glutamate + ATP = 7,8-dihydrofolate + ADP + phosphate + H(+).
+RHEA:15009	RHEA:15009	dihydrofolate reductase reaction	(6S)-5,6,7,8-tetrahydrofolate + NADP(+) = 7,8-dihydrofolate + NADPH + H(+).
+RHEA:24840	RHEA:24840	phosphomethylpyrimidine synthase reaction	5-amino-1-(5-phospho-beta-D-ribosyl)imidazole + S-adenosyl-L-methionine = 4-amino-2-methyl-5-(phosphooxymethyl)pyrimidine + CO + 5'-deoxyadenosine + formate + L-methionine + 3 H(+).
+RHEA:19893	RHEA:19893	phosphomethylpyrimidine kinase reaction	4-amino-2-methyl-5-(phosphooxymethyl)pyrimidine + ATP = 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine + ADP.
+RHEA:26361	RHEA:26361	2-iminoacetate synthase reaction	L-tyrosine + S-adenosyl-L-methionine + NADPH = 2-iminoacetate + 4-methylphenol + 5'-deoxyadenosine + L-methionine + NADP(+).
+RHEA:26297	RHEA:26297	thiazole synthase reaction	[ThiS sulfur-carrier protein]-C-terminal-Gly-aminoethanethioate + 2-iminoacetate + 1-deoxy-D-xylulose 5-phosphate = [ThiS sulfur-carrier protein]-C-terminal Gly-Gly + 2-[(2R,5Z)-2-carboxy-4-methylthiazol-5(2H)-ylidene]ethyl phosphate + 2 H2O + H(+).
+RHEA:33343	RHEA:33343	glycine oxidase reaction	glycine + O2 = 2-iminoacetate + H2O2.
+RHEA:22328	RHEA:22328	thiamine phosphate synthase reaction	4-methyl-5-(2-phosphooxyethyl)-thiazole + 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine + H(+) = thiamine phosphate + diphosphate.
+RHEA:23096	RHEA:23096	hydroxymethylpyrimidine kinase reaction	4-amino-5-hydroxymethyl-2-methylpyrimidine + ATP = 4-amino-2-methyl-5-(phosphooxymethyl)pyrimidine + ADP + H(+).
+RHEA:24212	RHEA:24212	hydroxyethylthiazole kinase reaction	5-(2-hydroxyethyl)-4-methylthiazole + ATP = 4-methyl-5-(2-phosphooxyethyl)-thiazole + ADP + H(+).
+RHEA:11824	RHEA:11824	3-methyl-2-oxobutanoate hydroxymethyltransferase reaction	(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + 3-methyl-2-oxobutanoate + H2O = 2-dehydropantoate + (6S)-5,6,7,8-tetrahydrofolate.
+RHEA:16233	RHEA:16233	2-dehydropantoate 2-reductase reaction	(R)-pantoate + NADP(+) = 2-dehydropantoate + NADPH + H(+).
+RHEA:19497	RHEA:19497	aspartate 1-decarboxylase reaction	L-aspartate + H(+) = beta-alanine + CO2.
+RHEA:10912	RHEA:10912	pantothenate synthetase reaction	(R)-pantoate + beta-alanine + ATP = (R)-pantothenate + AMP + diphosphate + H(+).
+RHEA:31507	RHEA:31507	pyridoxal 5-phosphate synthase reaction	aldehydo-D-ribose 5-phosphate + D-glyceraldehyde 3-phosphate + L-glutamine = pyridoxal 5'-phosphate + L-glutamate + phosphate + 3 H2O + H(+).
+RHEA:12056	RHEA:12056	D-erythrose 4-phosphate dehydrogenase reaction	D-erythrose 4-phosphate + NAD(+) + H2O = 4-phospho-D-erythronate + NADH + 2 H(+).
+RHEA:18829	RHEA:18829	erythronate-4-phosphate dehydrogenase reaction	4-phospho-D-erythronate + NAD(+) = (R)-3-hydroxy-2-oxo-4-phosphooxybutanoate + NADH + H(+).
+RHEA:16573	RHEA:16573	phosphohydroxythreonine transaminase reaction	4-(phosphooxy)-L-threonine + 2-oxoglutarate = (R)-3-hydroxy-2-oxo-4-phosphooxybutanoate + L-glutamate.
+RHEA:32275	RHEA:32275	4-hydroxythreonine-4-phosphate dehydrogenase reaction	4-(phosphooxy)-L-threonine + NAD(+) = 3-amino-2-oxopropyl phosphate + CO2 + NADH.
+RHEA:15265	RHEA:15265	pyridoxine 5-phosphate synthase reaction	3-amino-2-oxopropyl phosphate + 1-deoxy-D-xylulose 5-phosphate = pyridoxine 5'-phosphate + phosphate + 2 H2O + H(+).
+RHEA:15149	RHEA:15149	pyridoxine 5-phosphate oxidase reaction	pyridoxine 5'-phosphate + O2 = pyridoxal 5'-phosphate + H2O2.
+RHEA:20712	RHEA:20712	8-amino-7-oxononanoate synthase reaction	6-carboxyhexanoyl-CoA + L-alanine + H(+) = (8S)-8-amino-7-oxononanoate + CO2 + CoA.
+RHEA:16861	RHEA:16861	adenosylmethionine-8-amino-7-oxononanoate transaminase reaction	(8S)-8-amino-7-oxononanoate + S-adenosyl-L-methionine = S-adenosyl-4-methylsulfanyl-2-oxobutanoate + (7R,8S)-7,8-diammoniononanoate.
+RHEA:15805	RHEA:15805	dethiobiotin synthetase reaction	(7R,8S)-7,8-diammoniononanoate + CO2 + ATP = (4R,5S)-dethiobiotin + ADP + phosphate + 3 H(+).
+RHEA:22060	RHEA:22060	biotin synthase reaction	(4R,5S)-dethiobiotin + (sulfur carrier)-SH + 2 reduced [2Fe-2S]-[ferredoxin] + 2 S-adenosyl-L-methionine = (sulfur carrier)-H + biotin + 2 5'-deoxyadenosine + 2 L-methionine + 2 oxidized [2Fe-2S]-[ferredoxin].
+RHEA:26329	RHEA:26329	lysine-8-amino-7-oxononanoate transaminase reaction	(8S)-8-amino-7-oxononanoate + L-lysine = (7R,8S)-7,8-diammoniononanoate + (S)-2-amino-6-oxohexanoate.
+RHEA:25876	RHEA:25876	L-aspartate oxidase reaction	L-aspartate + O2 = iminosuccinate + H2O2.
+RHEA:25888	RHEA:25888	quinolinate synthase reaction	iminosuccinate + dihydroxyacetone phosphate = quinolinate + phosphate + 2 H2O + H(+).
+RHEA:42440	RHEA:42440	aspartate dehydrogenase reaction	L-aspartate + NAD(+) = iminosuccinate + NADH + H(+).
+RHEA:12733	RHEA:12733	nicotinate-nucleotide pyrophosphorylase reaction	nicotinate beta-D-ribonucleotide + CO2 + diphosphate = quinolinate + 5-phospho-alpha-D-ribose 1-diphosphate + 2 H(+).
+RHEA:22860	RHEA:22860	nicotinate-nucleotide adenylyltransferase reaction	nicotinate beta-D-ribonucleotide + ATP + H(+) = deamido-NAD(+) + diphosphate.
+RHEA:21188	RHEA:21188	NAD synthetase (ammonia) reaction	deamido-NAD(+) + NH4(+) + ATP = AMP + diphosphate + NAD(+) + H(+).
+RHEA:24384	RHEA:24384	NAD synthetase (glutamine-hydrolysing) reaction	deamido-NAD(+) + L-glutamine + ATP + H2O = L-glutamate + AMP + diphosphate + NAD(+) + H(+).
+RHEA:36163	RHEA:36163	nicotinate phosphoribosyltransferase reaction	5-phospho-alpha-D-ribose 1-diphosphate + nicotinate + ATP + H2O = nicotinate beta-D-ribonucleotide + ADP + phosphate + diphosphate.
+RHEA:32459	RHEA:32459	uroporphyrinogen III C-methyltransferase reaction	uroporphyrinogen III + 2 S-adenosyl-L-methionine = precorrin-2 + 2 S-adenosyl-L-homocysteine + H(+).
+RHEA:15613	RHEA:15613	precorrin-2 dehydrogenase reaction	precorrin-2 + NAD(+) = sirohydrochlorin + NADH + 2 H(+).
+RHEA:15893	RHEA:15893	sirohydrochlorin cobaltochelatase reaction	Co-sirohydrochlorin + 2 H(+) = sirohydrochlorin + Co(2+).
+RHEA:17997	RHEA:17997	cobalt-factor II C20-methyltransferase reaction	Co-precorrin-2 + S-adenosyl-L-methionine = Co-precorrin-3 + S-adenosyl-L-homocysteine + H(+).
+RHEA:36155	RHEA:36155	cobalt-factor III methyltransferase reaction	Co(II)-factor III + AH2 + S-adenosyl-L-methionine = Co-precorrin-4 + A + S-adenosyl-L-homocysteine.
+RHEA:26277	RHEA:26277	cobalt-precorrin-4 C11-methyltransferase reaction	Co-precorrin-4 + S-adenosyl-L-methionine = Co-precorrin-5A + S-adenosyl-L-homocysteine + H(+).
+RHEA:26281	RHEA:26281	cobalt-precorrin-5A hydrolase reaction	Co-precorrin-5A + H2O = Co-precorrin-5B + acetaldehyde + H(+).
+RHEA:26285	RHEA:26285	cobalt-precorrin-5B C1-methyltransferase reaction	Co-precorrin-5B + S-adenosyl-L-methionine = Co-precorrin-6A + S-adenosyl-L-homocysteine.
+RHEA:15625	RHEA:15625	cobalt-precorrin-6A reductase reaction	Co-precorrin-6B + NAD(+) = Co-precorrin-6A + NADH + H(+).
+RHEA:36067	RHEA:36067	cobalt-precorrin-6B C15-methyltransferase reaction	Co-precorrin-6B + S-adenosyl-L-methionine = Co-precorrin-7 + S-adenosyl-L-homocysteine + CO2.
+RHEA:34591	RHEA:34591	cobalt-precorrin-7 C5-methyltransferase reaction	Co-precorrin-7 + S-adenosyl-L-methionine = Co-precorrin-8X + S-adenosyl-L-homocysteine + H(+).
+RHEA:16209	RHEA:16209	cobalt-precorrin-8 methylmutase reaction	Co-precorrin-8X = cob(II)yrinate.
+RHEA:26289	RHEA:26289	cobyrinate a,c-diamide synthase reaction	cob(II)yrinate + 2 L-glutamine + 2 ATP + 2 H2O = cob(II)yrinate a,c diamide + 2 L-glutamate + 2 ADP + 2 phosphate + 2 H(+).
+RHEA:16841	RHEA:16841	precorrin-2 C20-methyltransferase reaction	precorrin-2 + S-adenosyl-L-methionine = precorrin-3A + S-adenosyl-L-homocysteine + H(+).
+RHEA:17293	RHEA:17293	precorrin-3B synthase reaction	precorrin-3A + NADH + O2 + 2 H(+) = precorrin-3B + NAD(+) + H2O.
+RHEA:12761	RHEA:12761	precorrin-3B C17-methyltransferase reaction	precorrin-3B + S-adenosyl-L-methionine = precorrin-4 + S-adenosyl-L-homocysteine + 3 H(+).
+RHEA:22012	RHEA:22012	precorrin-4 C11-methyltransferase reaction	precorrin-4 + S-adenosyl-L-methionine = precorrin-5 + S-adenosyl-L-homocysteine.
+RHEA:18261	RHEA:18261	precorrin-6A synthase reaction	precorrin-5 + S-adenosyl-L-methionine + H2O = precorrin-6A + acetate + S-adenosyl-L-homocysteine + 2 H(+).
+RHEA:23408	RHEA:23408	precorrin-6A reductase reaction	precorrin-6B + NADP(+) = precorrin-6A + NADPH + 2 H(+).
+RHEA:17477	RHEA:17477	precorrin-6B C5,C15-methyltransferase reaction	precorrin-6B + 2 S-adenosyl-L-methionine = precorrin-8X + 2 S-adenosyl-L-homocysteine + CO2 + 3 H(+).
+RHEA:22512	RHEA:22512	precorrin-8X methylmutase reaction	precorrin-8X + 3 H(+) = hydrogenobyrinate.
+RHEA:12544	RHEA:12544	hydrogenobyrinate a,c-diamide synthase reaction	hydrogenobyrinate + 2 L-glutamine + 2 ATP + 2 H2O = hydrogenobyrinate a,c-diamide + 2 L-glutamate + 2 ADP + 2 phosphate + 2 H(+).
+RHEA:15341	RHEA:15341	cobaltochelatase CobNST reaction	hydrogenobyrinate a,c-diamide + Co(2+) + ATP + H2O = cob(II)yrinate a,c diamide + ADP + phosphate + 5 H(+).
+RHEA:11528	RHEA:11528	cob(I)yrinate a,c-diamide adenosyltransferase reaction	2 cob(II)yrinate a,c diamide + reduced [electron-transfer flavoprotein] + 2 ATP = 2 adenosylcob(III)yrinate a,c-diamide + 2 triphosphate + oxidized [electron-transfer flavoprotein] + 3 H(+).
+RHEA:23256	RHEA:23256	adenosylcobyric acid synthase reaction	adenosylcob(III)yrinate a,c-diamide + 4 L-glutamine + 4 ATP + 4 H2O = adenosylcob(III)yrate + 4 L-glutamate + 4 ADP + 4 phosphate + 4 H(+).
+RHEA:21896	RHEA:21896	adenosylcobinamide-phosphate synthase reaction	(R)-1-aminopropan-2-yl phosphate + adenosylcob(III)yrate + ATP = adenosylcob(III)inamide phosphate + ADP + phosphate + H(+).
+RHEA:22712	RHEA:22712	adenosylcobinamide-phosphate guanylyltransferase reaction	adenosylcob(III)inamide phosphate + GTP + H(+) = adenosylcob(III)inamide-GDP + diphosphate.
+RHEA:11196	RHEA:11196	nicotinate-nucleotide dimethylbenzimidazole phosphoribosyltransferase reaction	5,6-dimethylbenzimidazole + nicotinate beta-D-ribonucleotide = alpha-ribazole 5'-phosphate + nicotinate + H(+).
+RHEA:24456	RHEA:24456	alpha-ribazole phosphatase reaction	alpha-ribazole 5'-phosphate + H2O = alpha-ribazole + phosphate.
+RHEA:16049	RHEA:16049	adenosylcobinamide-GDP ribazoletransferase reaction	alpha-ribazole + adenosylcob(III)inamide-GDP = adenosylcob(III)alamin + GMP + H(+).
+RHEA:27345	RHEA:27345	5,6-dimethylbenzimidazole synthase reaction	FMNH2 + O2 = dialurate + 5,6-dimethylbenzimidazole + D-erythrose 4-phosphate + H(+).
+RHEA:18985	RHEA:18985	isochorismate synthase reaction	chorismate = isochorismate.
+RHEA:25593	RHEA:25593	SEPHCHC synthase reaction	isochorismate + 2-oxoglutarate + H(+) = 5-enolpyruvoyl-6-hydroxy-2-succinyl-cyclohex-3-ene-1-carboxylate + CO2.
+RHEA:25597	RHEA:25597	SHCHC synthase reaction	5-enolpyruvoyl-6-hydroxy-2-succinyl-cyclohex-3-ene-1-carboxylate = (1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate + pyruvate.
+RHEA:10196	RHEA:10196	o-succinylbenzoate synthase reaction	(1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate = 2-succinylbenzoate + H2O.
+RHEA:17009	RHEA:17009	o-succinylbenzoate-CoA ligase reaction	2-succinylbenzoate + ATP + CoA = 2-succinylbenzoyl-CoA + AMP + diphosphate.
+RHEA:26562	RHEA:26562	1,4-dihydroxy-2-naphthoyl-CoA synthase reaction	2-succinylbenzoyl-CoA + H(+) = 1,4-dihydroxy-2-naphthoyl-CoA + H2O.
+RHEA:26309	RHEA:26309	1,4-dihydroxy-2-naphthoyl-CoA hydrolase reaction	1,4-dihydroxy-2-naphthoyl-CoA + H2O = 1,4-dihydroxy-2-naphthoate + CoA + H(+).
+RHEA:26478	RHEA:26478	1,4-dihydroxy-2-naphthoate polyprenyltransferase reaction	an all-trans-polyprenyl diphosphate + 1,4-dihydroxy-2-naphthoate + H(+) = a 2-demethylmenaquinol + CO2 + diphosphate.
+RHEA:42640	RHEA:42640	demethylmenaquinol methyltransferase reaction	a 2-demethylmenaquinol + S-adenosyl-L-methionine = a menaquinol + S-adenosyl-L-homocysteine + H(+).
+RHEA:40051	RHEA:40051	chorismate dehydratase reaction	chorismate = 3-[(1-carboxyvinyl)-oxy]benzoate + H2O.
+RHEA:33075	RHEA:33075	aminodeoxyfutalosine synthase reaction	3-[(1-carboxyvinyl)-oxy]benzoate + S-adenosyl-L-methionine + H2O = 6-amino-6-deoxyfutalosine + hydrogencarbonate + L-methionine + H(+).
+RHEA:40075	RHEA:40075	aminodeoxyfutalosine deaminase reaction	6-amino-6-deoxyfutalosine + H2O + H(+) = futalosine + NH4(+).
+RHEA:25904	RHEA:25904	futalosine hydrolase reaction	futalosine + H2O = dehypoxanthine futalosine + hypoxanthine.
+RHEA:33083	RHEA:33083	cyclic dehypoxanthinyl futalosine synthase reaction	dehypoxanthine futalosine + S-adenosyl-L-methionine = cyclic dehypoxanthinylfutalosinate + 5'-deoxyadenosine + L-methionine + H(+).
+RHEA:33087	RHEA:33087	1,4-dihydroxy-6-naphthoate synthase reaction	cyclic dehypoxanthinylfutalosinate = 1,4-dihydroxy-6-naphthoate + dihydroxyacetone.
+RHEA:16845	RHEA:16845	citrate synthase reaction	oxaloacetate + acetyl-CoA + H2O = citrate + CoA + H(+). Both the si- and the Re-citrate synthases catalyse this one reaction, which is why they are two enzyme systems and not two reactions.
+RHEA:10336	RHEA:10336	aconitate hydratase reaction	citrate = D-threo-isocitrate. Rhea records the overall isomerisation, so cis-aconitate is not a separate curated step.
+RHEA:19629	RHEA:19629	isocitrate dehydrogenase reaction, NADP-dependent	D-threo-isocitrate + NADP(+) = 2-oxoglutarate + CO2 + NADPH. The decarboxylation is irreversible, which is what licenses the direction of the GIFT that uses it.
+RHEA:23632	RHEA:23632	isocitrate dehydrogenase reaction, NAD-dependent	D-threo-isocitrate + NAD(+) = 2-oxoglutarate + CO2 + NADH.
+RHEA:27786	RHEA:27786	2-oxoglutarate dehydrogenase complex reaction	2-oxoglutarate + NAD(+) + CoA = succinyl-CoA + CO2 + NADH. The overall reaction of the multienzyme complex, not the E1 half-reaction.
+RHEA:17297	RHEA:17297	2-oxoglutarate:ferredoxin oxidoreductase reaction	2 oxidized ferredoxin + 2-oxoglutarate + CoA = succinyl-CoA + 2 reduced ferredoxin + CO2 + H(+). Genuinely reversible; this is the reductive citric acid cycle enzyme.
+RHEA:17661	RHEA:17661	succinyl-CoA synthetase reaction	succinate + ATP + CoA = succinyl-CoA + ADP + phosphate. Rhea writes the succinyl-CoA-forming direction, so a route travelling towards succinate records this step as reverse.
+RHEA:10524	RHEA:10524	2-oxoglutarate decarboxylase reaction	2-oxoglutarate + H(+) = succinate semialdehyde + CO2. The first step of the actinobacterial and cyanobacterial bypass of the dehydrogenase complex.
+RHEA:13217	RHEA:13217	succinate-semialdehyde dehydrogenase reaction, NAD-dependent	succinate semialdehyde + NAD(+) + H2O = succinate + NADH + 2 H(+).
+RHEA:13213	RHEA:13213	succinate-semialdehyde dehydrogenase reaction, NADP-dependent	succinate semialdehyde + NADP(+) + H2O = succinate + NADPH + 2 H(+). Curated separately from the NAD form because they are distinct Rhea masters with partly distinct markers.
+RHEA:40523	RHEA:40523	succinate dehydrogenase and fumarate reductase reaction	a quinone + succinate = fumarate + a quinol. The generic quinone form is curated deliberately: the ubiquinone, menaquinone and rhodoquinone reactions are separate Rhea masters and no genomic marker distinguishes which one an enzyme uses.
+RHEA:12460	RHEA:12460	fumarate hydratase reaction	(S)-malate = fumarate + H2O. Rhea writes the fumarate-forming direction, so a route travelling from fumarate to malate records this step as reverse.
+RHEA:21432	RHEA:21432	malate dehydrogenase reaction	(S)-malate + NAD(+) = oxaloacetate + NADH + H(+). Near equilibrium and reversible in vivo.
+RHEA:46012	RHEA:46012	malate:quinone oxidoreductase reaction	(S)-malate + a quinone = a quinol + oxaloacetate. Effectively unidirectional towards oxaloacetate, and the only step of the fumarate/oxaloacetate arm that is.
+RHEA:14717	RHEA:14717	3-deoxy-7-phosphoheptulonate synthase reaction	D-erythrose 4-phosphate + phosphoenolpyruvate + H2O = 7-phospho-2-dehydro-3-deoxy-D-arabino-heptonate + phosphate.
+RHEA:21968	RHEA:21968	3-dehydroquinate synthase reaction	7-phospho-2-dehydro-3-deoxy-D-arabino-heptonate = 3-dehydroquinate + phosphate.
+RHEA:21096	RHEA:21096	3-dehydroquinate dehydratase reaction	3-dehydroquinate = 3-dehydroshikimate + H2O.
+RHEA:17737	RHEA:17737	shikimate dehydrogenase reaction	shikimate + NADP(+) = 3-dehydroshikimate + NADPH + H(+); used in reverse relative to the Rhea master equation, because the biosynthetic direction reduces 3-dehydroshikimate.
+RHEA:13121	RHEA:13121	shikimate kinase reaction	shikimate + ATP = 3-phosphoshikimate + ADP + H(+).
+RHEA:21256	RHEA:21256	3-phosphoshikimate 1-carboxyvinyltransferase reaction	3-phosphoshikimate + phosphoenolpyruvate = 5-O-(1-carboxyvinyl)-3-phosphoshikimate + phosphate. The second of the two phosphoenolpyruvate inputs of the pathway.
+RHEA:21020	RHEA:21020	chorismate synthase reaction	5-O-(1-carboxyvinyl)-3-phosphoshikimate = chorismate + phosphate.
+RHEA:27874	RHEA:27874	isochorismate pyruvate lyase reaction	isochorismate = salicylate + pyruvate.
+RHEA:16165	RHEA:16165	tryptophan 2-monooxygenase reaction	L-tryptophan + O2 = indole-3-acetamide + CO2 + H2O.
+RHEA:34371	RHEA:34371	indole-3-acetamide hydrolase reaction	indole-3-acetamide + H2O = (indol-3-yl)acetate + NH4(+).
+RHEA:21368	RHEA:21368	urate oxidase reaction	urate + O2 + H2O = 5-hydroxyisourate + H2O2.
+RHEA:27329	RHEA:27329	FAD-dependent urate hydroxylase reaction	urate + NADH + O2 + H(+) = 5-hydroxyisourate + NAD(+) + H2O.
+RHEA:23736	RHEA:23736	5-hydroxyisourate hydrolase reaction	5-hydroxyisourate + H2O = 5-hydroxy-2-oxo-4-ureido-2,5-dihydro-1H-imidazole-5-carboxylate + H(+).
+RHEA:26301	RHEA:26301	OHCU decarboxylase reaction	5-hydroxy-2-oxo-4-ureido-2,5-dihydro-1H-imidazole-5-carboxylate + H(+) = (S)-allantoin + CO2.
+RHEA:17029	RHEA:17029	allantoinase reaction	(S)-allantoin + H2O = allantoate + H(+).
+RHEA:11016	RHEA:11016	allantoicase reaction	allantoate + H2O = (S)-ureidoglycolate + urea.
+RHEA:27485	RHEA:27485	allantoate deiminase reaction	allantoate + H2O + 2 H(+) = (S)-2-ureidoglycine + NH4(+) + CO2.
+RHEA:25241	RHEA:25241	(S)-ureidoglycine aminohydrolase reaction	(S)-2-ureidoglycine + H2O = (S)-ureidoglycolate + NH4(+).
+RHEA:11304	RHEA:11304	ureidoglycolate lyase reaction	(S)-ureidoglycolate = urea + glyoxylate.
+RHEA:20557	RHEA:20557	urease reaction	urea + 2 H2O + H(+) = hydrogencarbonate + 2 NH4(+).
+RHEA:21068	RHEA:21068	assimilatory nitrate reductase reaction	nitrite + A + H2O = nitrate + AH2; used in reverse for assimilation. The acceptor is unspecified in the Rhea record because the assimilatory nitrate reductase EC was deleted; the marker is nonetheless specific to the assimilatory enzyme.
+RHEA:21828	RHEA:21828	ferredoxin-nitrate reductase reaction	nitrite + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O = nitrate + 2 reduced [2Fe-2S]-[ferredoxin] + 2 H(+); used in reverse for assimilation.
+RHEA:18041	RHEA:18041	ferredoxin-nitrite reductase reaction	6 oxidized [2Fe-2S]-[ferredoxin] + NH4(+) + 2 H2O = nitrite + 6 reduced [2Fe-2S]-[ferredoxin] + 8 H(+); used in reverse for assimilation.
+RHEA:24628	RHEA:24628	nitrite reductase (NADH) reaction	NH4(+) + 3 NAD(+) + 2 H2O = nitrite + 3 NADH + 5 H(+); used in reverse for assimilation.
+RHEA:45700	RHEA:45700	glycine betaine monooxygenase reaction	glycine betaine + NADH + O2 + H(+) = N,N-dimethylglycine + formaldehyde + NAD(+) + H2O.
+RHEA:74167	RHEA:74167	N,N-dimethylglycine dehydrogenase (ferredoxin) reaction	oxidized 2[4Fe-4S]-[ferredoxin] + N,N-dimethylglycine + H2O = reduced 2[4Fe-4S]-[ferredoxin] + sarcosine + formaldehyde + 2 H(+).
+RHEA:52856	RHEA:52856	N,N-dimethylglycine dehydrogenase (ETF) reaction	(6S)-5,6,7,8-tetrahydrofolyl-(gamma-L-Glu)(n) + N,N-dimethylglycine + oxidized [electron-transfer flavoprotein] + H(+) = (6R)-5,10-methylenetetrahydrofolyl-(gamma-L-Glu)(n) + sarcosine + reduced [electron-transfer flavoprotein].
+RHEA:17077	RHEA:17077	dimethylglycine oxidase reaction	N,N-dimethylglycine + O2 + H2O = sarcosine + formaldehyde + H2O2.
+RHEA:13313	RHEA:13313	sarcosine oxidase reaction	sarcosine + O2 + H2O = formaldehyde + glycine + H2O2.
+RHEA:74155	RHEA:74155	sarcosine dehydrogenase (ferredoxin) reaction	oxidized 2[4Fe-4S]-[ferredoxin] + sarcosine + H2O = reduced 2[4Fe-4S]-[ferredoxin] + formaldehyde + glycine + 2 H(+).
+RHEA:14533	RHEA:14533	creatinine amidohydrolase reaction	creatinine + H2O = creatine.
+RHEA:22456	RHEA:22456	creatinase reaction	creatine + H2O = sarcosine + urea.
+RHEA:55396	RHEA:55396	carnitine monooxygenase reaction	(R)-carnitine + NADH + O2 + H(+) = (3R)-3-hydroxy-4-oxobutanoate + trimethylamine + NAD(+) + H2O. Rhea also carries the NADPH form as RHEA:55368.
+RHEA:19265	RHEA:19265	carnitine 3-dehydrogenase reaction	carnitine + NAD(+) = 3-dehydrocarnitine + NADH + H(+).
+RHEA:47044	RHEA:47044	3-dehydrocarnitine:acetyl-CoA transferase reaction	3-dehydrocarnitine + acetyl-CoA = N,N,N-trimethylglycyl-CoA + acetoacetate.
+RHEA:45716	RHEA:45716	betainyl-CoA thioesterase reaction	N,N,N-trimethylglycyl-CoA + H2O = glycine betaine + CoA + H(+).
+RHEA:30207	RHEA:30207	methylamine dehydrogenase reaction	2 oxidized [amicyanin] + methylamine + H2O = 2 reduced [amicyanin] + formaldehyde + NH4(+) + 2 H(+).
+RHEA:15909	RHEA:15909	taurine dioxygenase reaction	taurine + 2-oxoglutarate + O2 = aminoacetaldehyde + sulfite + succinate + CO2 + H(+).
+RHEA:10420	RHEA:10420	taurine-pyruvate aminotransferase reaction	taurine + pyruvate = sulfoacetaldehyde + L-alanine.
+RHEA:18709	RHEA:18709	taurine dehydrogenase reaction	taurine + A + H2O = sulfoacetaldehyde + AH2 + NH4(+).
+RHEA:24204	RHEA:24204	sulfoacetaldehyde acetyltransferase reaction	acetyl phosphate + sulfite + H(+) = sulfoacetaldehyde + phosphate; used in reverse for taurine catabolism.
+RHEA:14613	RHEA:14613	ABC-type taurine import reaction	taurine(out) + ATP + H2O = taurine(in) + ADP + phosphate + H(+).
+RHEA:16169	RHEA:16169	glutamine synthetase reaction	L-glutamate + NH4(+) + ATP = L-glutamine + ADP + phosphate + H(+).
+RHEA:15501	RHEA:15501	glutamate synthase (NADPH) reaction	2 L-glutamate + NADP(+) = L-glutamine + 2-oxoglutarate + NADPH + H(+); used in reverse for assimilation.
+RHEA:12128	RHEA:12128	glutamate synthase (ferredoxin) reaction	2 oxidized [2Fe-2S]-[ferredoxin] + 2 L-glutamate = L-glutamine + 2 reduced [2Fe-2S]-[ferredoxin] + 2-oxoglutarate + 2 H(+); used in reverse for assimilation.
+RHEA:11612	RHEA:11612	glutamate dehydrogenase (NADP+) reaction	L-glutamate + NADP(+) + H2O = 2-oxoglutarate + NH4(+) + NADPH + H(+); used in reverse for assimilation.
+RHEA:15133	RHEA:15133	glutamate dehydrogenase (NAD+) reaction	L-glutamate + NAD(+) + H2O = 2-oxoglutarate + NH4(+) + NADH + H(+); used in reverse for assimilation.
+RHEA:12633	RHEA:12633	benzoate 1,2-dioxygenase reaction	benzoate + NADH + O2 + H(+) = (1R,6S)-1,6-dihydroxycyclohexa-2,4-diene-1-carboxylate + NAD(+)
+RHEA:11560	RHEA:11560	dihydroxycyclohexadiene carboxylate dehydrogenase reaction	(1R,6S)-1,6-dihydroxycyclohexa-2,4-diene-1-carboxylate + NAD(+) = catechol + CO2 + NADH
+RHEA:11072	RHEA:11072	anthranilate 1,2-dioxygenase reaction	anthranilate + NADPH + O2 + 3 H(+) = catechol + NH4(+) + CO2 + NADP(+); Deaminating and decarboxylating; one step from anthranilate to catechol.
+RHEA:57952	RHEA:57952	phenol 2-monooxygenase reaction	phenol + NADH + O2 + H(+) = catechol + NAD(+) + H2O
+RHEA:23852	RHEA:23852	catechol 1,2-dioxygenase reaction	catechol + O2 = cis,cis-muconate + 2 H(+); Intradiol cleavage between the two hydroxyls.
+RHEA:30031	RHEA:30031	muconate cycloisomerase reaction	(S)-muconolactone = cis,cis-muconate + H(+); Rhea writes the ring-opening direction; degradation uses it in reverse.
+RHEA:12348	RHEA:12348	muconolactone isomerase reaction	(S)-muconolactone = (4,5-dihydro-5-oxofuran-2-yl)-acetate
+RHEA:10184	RHEA:10184	3-oxoadipate enol-lactonase reaction	(4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)
+RHEA:12048	RHEA:12048	3-oxoadipate CoA-transferase reaction	3-oxoadipate + succinyl-CoA = 3-oxoadipyl-CoA + succinate; Succinyl-CoA is the CoA donor and succinate the co-product; neither is a declared boundary of the GIFT that uses this step.
+RHEA:19481	RHEA:19481	3-oxoadipyl-CoA thiolase reaction	succinyl-CoA + acetyl-CoA = 3-oxoadipyl-CoA + CoA; Rhea writes the condensation direction; degradation uses it in reverse.
+RHEA:17337	RHEA:17337	catechol 2,3-dioxygenase reaction	catechol + O2 = (2Z,4E)-2-hydroxy-6-oxohexa-2,4-dienoate + H(+); Extradiol cleavage adjacent to the hydroxyls.
+RHEA:14549	RHEA:14549	2-hydroxymuconate semialdehyde hydrolase reaction	(2Z,4E)-2-hydroxy-6-oxohexa-2,4-dienoate + H2O = 2-oxopent-4-enoate + formate + H(+)
+RHEA:34219	RHEA:34219	2-hydroxymuconate semialdehyde dehydrogenase reaction	(2Z,4E)-2-hydroxy-6-oxohexa-2,4-dienoate + NAD(+) + H2O = (2Z,4E)-2-hydroxyhexa-2,4-dienedioate + NADH + 2 H(+)
+RHEA:33431	RHEA:33431	2-hydroxymuconate tautomerase reaction	(2Z,4E)-2-hydroxyhexa-2,4-dienedioate = (3E)-2-oxohex-3-enedioate
+RHEA:24260	RHEA:24260	4-oxalocrotonate decarboxylase reaction	(3E)-2-oxohex-3-enedioate + H(+) = 2-oxopent-4-enoate + CO2
+RHEA:22580	RHEA:22580	2-oxopent-4-enoate hydratase reaction	(S)-4-hydroxy-2-oxopentanoate = (2Z)-2-hydroxypenta-2,4-dienoate + H2O; Rhea writes the dehydration direction; degradation uses it in reverse. The substrate is the enol tautomer of 2-oxopent-4-enoate.
+RHEA:22624	RHEA:22624	4-hydroxy-2-oxovalerate aldolase reaction	(S)-4-hydroxy-2-oxopentanoate = acetaldehyde + pyruvate
+RHEA:20956	RHEA:20956	phenylacetate-CoA ligase reaction	2-phenylacetate + ATP + CoA = phenylacetyl-CoA + AMP + diphosphate
+RHEA:32171	RHEA:32171	phenylacetyl-CoA 1,2-epoxidase reaction	phenylacetyl-CoA + NADPH + O2 + H(+) = 2-(1,2-epoxy-1,2-dihydrophenyl)acetyl-CoA + NADP(+) + H2O; Ring activation without dihydroxylation, which is what distinguishes the CoA-dependent aerobic strategy.
+RHEA:31843	RHEA:31843	epoxyphenylacetyl-CoA isomerase reaction	2-(1,2-epoxy-1,2-dihydrophenyl)acetyl-CoA = 2-oxepin-2(3H)-ylideneacetyl-CoA
+RHEA:31755	RHEA:31755	oxepin-CoA hydrolase reaction	2-oxepin-2(3H)-ylideneacetyl-CoA + H2O = 3-oxo-5,6-dehydrosuberyl-CoA semialdehyde; Hydrolytic ring opening; the same PaaZ protein carries the following dehydrogenase step.
+RHEA:31747	RHEA:31747	3-oxo-5,6-dehydrosuberyl-CoA semialdehyde dehydrogenase reaction	3-oxo-5,6-dehydrosuberyl-CoA semialdehyde + NADP(+) + H2O = 3-oxo-5,6-didehydrosuberyl-CoA + NADPH + 2 H(+)
+RHEA:34799	RHEA:34799	3-oxo-5,6-didehydrosuberyl-CoA thiolase reaction	2,3-didehydroadipoyl-CoA + acetyl-CoA = 3-oxo-5,6-didehydrosuberyl-CoA + CoA; Rhea writes the condensation direction; degradation uses it in reverse. The same PaaJ thiolase catalyses the terminal thiolysis of the route as well.
+RHEA:76647	RHEA:76647	2,3-didehydroadipoyl-CoA hydratase reaction	(3S)-3-hydroxyadipyl-CoA = (E)-2,3-didehydroadipoyl-CoA + H2O; Rhea writes the dehydration direction; degradation uses it in reverse.
+RHEA:34851	RHEA:34851	3-hydroxyadipyl-CoA dehydrogenase reaction	(3S)-3-hydroxyadipyl-CoA + NAD(+) = 3-oxoadipyl-CoA + NADH + H(+)
+RHEA:20357	RHEA:20357	3-phenylpropanoate dioxygenase reaction	3-phenylpropanoate + NADH + O2 + H(+) = 3-(cis-5,6-dihydroxycyclohexa-1,3-dien-1-yl)propanoate + NAD(+); Rhea gives trans-cinnamate its own master, RHEA:25058, catalysed by the same enzyme. No marker separates the two substrates, so only this one is curated.
+RHEA:25062	RHEA:25062	dihydrodiol dehydrogenase reaction	3-(cis-5,6-dihydroxycyclohexa-1,3-dien-1-yl)propanoate + NAD(+) = 3-(2,3-dihydroxyphenyl)propanoate + NADH + H(+)
+RHEA:24785	RHEA:24785	3-(3-hydroxyphenyl)propanoate hydroxylase reaction	3-(3-hydroxyphenyl)propanoate + NADH + O2 + H(+) = 3-(2,3-dihydroxyphenyl)propanoate + NAD(+) + H2O
+RHEA:23840	RHEA:23840	2,3-dihydroxyphenylpropanoate 1,2-dioxygenase reaction	3-(2,3-dihydroxyphenyl)propanoate + O2 = (2Z,4E)-2-hydroxy-6-oxonona-2,4-dienedioate + H(+); Extradiol cleavage of the catecholic phenylpropanoid.
+RHEA:34187	RHEA:34187	2-hydroxy-6-oxononadienedioate hydrolase reaction	(2Z,4E)-2-hydroxy-6-oxonona-2,4-dienedioate + H2O = (2Z)-2-hydroxypenta-2,4-dienoate + succinate + H(+); Releases succinate and the enol tautomer of 2-oxopent-4-enoate.
+RHEA:10532	RHEA:10532	tryptophan synthase reaction	Replacement of the glycerol phosphate moiety by L-serine, releasing L-tryptophan. The indole intermediate is channelled between the two subunits and is never free, which is why this GIFT does not connect to the indole anchor.
+RHEA:10676	RHEA:10676	3-isopropylmalate dehydratase reaction, hydration half	Hydration of 2-isopropylmaleate to (2R,3S)-3-isopropylmalate; the second half-reaction of the LeuCD isomerase.
+RHEA:10932	RHEA:10932	argininosuccinate synthase reaction	ATP-dependent condensation of L-citrulline with L-aspartate.
+RHEA:11040	RHEA:11040	imidazoleglycerol-phosphate dehydratase reaction	Dehydration to imidazole acetol phosphate.
+RHEA:11372	RHEA:11372	aspartate--ammonia ligase reaction	ATP-dependent amidation of L-aspartate with ammonium to L-asparagine.
+RHEA:11768	RHEA:11768	anthranilate phosphoribosyltransferase reaction	Transfer of the phosphoribosyl group of PRPP to anthranilate; run in the biosynthetic direction here.
+RHEA:11960	RHEA:11960	N-succinyldiaminopimelate aminotransferase reaction	Transamination of the succinylated oxo acid to N-succinyl-LL-diaminopimelate.
+RHEA:12228	RHEA:12228	asparagine synthase (glutamine-hydrolysing) reaction	ATP-dependent amidation of L-aspartate to L-asparagine using the amide nitrogen of L-glutamine.
+RHEA:13085	RHEA:13085	tetrahydrodipicolinate N-acetyltransferase reaction	Acetylation of tetrahydrodipicolinate, opening the acetylated branch to diaminopimelate.
+RHEA:13493	RHEA:13493	ketol-acid reductoisomerase reaction (isoleucine branch)	Isomerisation and NADPH-dependent reduction of (S)-2-ethyl-2-hydroxy-3-oxobutanoate to (2R,3R)-2,3-dihydroxy-3-methylpentanoate; run in the reductive direction for biosynthesis.
+RHEA:13561	RHEA:13561	diaminopimelate dehydrogenase reaction	Direct reductive amination of the tetrahydrodipicolinate ring-opened oxo acid to meso-diaminopimelate, replacing four steps of the acylated routes with one.
+RHEA:13869	RHEA:13869	prephenate dehydrogenase reaction (NAD)	Oxidative decarboxylation of prephenate to 3-(4-hydroxyphenyl)pyruvate using NAD.
+RHEA:13897	RHEA:13897	chorismate mutase reaction	Claisen rearrangement of chorismate to prephenate, the committed step of both phenylalanine and tyrosine biosynthesis.
+RHEA:14109	RHEA:14109	pyrroline-5-carboxylate reductase reaction	Reduction of (S)-1-pyrroline-5-carboxylate to L-proline; run in the reductive direction for biosynthesis.
+RHEA:14465	RHEA:14465	histidinol-phosphate phosphatase reaction	Dephosphorylation of L-histidinol phosphate to L-histidinol.
+RHEA:14629	RHEA:14629	acetylglutamate kinase reaction	Phosphorylation of N-acetyl-L-glutamate.
+RHEA:14877	RHEA:14877	glutamate 5-kinase reaction	Phosphorylation of L-glutamate, the committed step of proline biosynthesis.
+RHEA:15093	RHEA:15093	aromatic aminotransferase reaction (tyrosine)	Reversible transamination between L-tyrosine and 3-(4-hydroxyphenyl)pyruvate; run in the biosynthetic direction here.
+RHEA:15101	RHEA:15101	diaminopimelate decarboxylase reaction	Decarboxylation of meso-diaminopimelate to L-lysine, the step that commits the shared peptidoglycan precursor to the amino acid.
+RHEA:15349	RHEA:15349	glutamate N-acetyltransferase reaction	Transfer of the acetyl group from N-acetyl-L-ornithine to L-glutamate, releasing L-ornithine and regenerating N-acetyl-L-glutamate. The cyclic route conserves the acetyl group instead of hydrolysing it.
+RHEA:15393	RHEA:15393	diaminopimelate epimerase reaction	Epimerisation of LL-diaminopimelate to the meso isomer, which is both the lysine precursor and the peptidoglycan cross-link residue.
+RHEA:15469	RHEA:15469	phosphoribosylformimino-AICAR-phosphate isomerase reaction	Amadori rearrangement of the aminoimidazole carboxamide ribotide intermediate.
+RHEA:15941	RHEA:15941	acetylornithine deacetylase reaction	Hydrolytic release of L-ornithine and acetate, the linear route ending of ornithine biosynthesis.
+RHEA:16293	RHEA:16293	3-isopropylmalate dehydratase reaction, dehydration half	Dehydration of (2S)-2-isopropylmalate to 2-isopropylmaleate; the first half-reaction of the LeuCD isomerase.
+RHEA:17325	RHEA:17325	tetrahydrodipicolinate N-succinyltransferase reaction	Succinylation of tetrahydrodipicolinate, opening the succinylated branch to diaminopimelate.
+RHEA:18049	RHEA:18049	acetylornithine aminotransferase reaction	Transamination to N-acetyl-L-ornithine; run in the biosynthetic direction here.
+RHEA:18321	RHEA:18321	branched-chain aminotransferase reaction (leucine)	Reversible transamination between L-leucine and 4-methyl-2-oxopentanoate; run in the biosynthetic direction here.
+RHEA:18405	RHEA:18405	alanine dehydrogenase reaction	Reductive amination of pyruvate to L-alanine with ammonium; freely reversible and run catabolically in several Firmicutes.
+RHEA:18473	RHEA:18473	ATP phosphoribosyltransferase reaction	Condensation of PRPP with ATP to phosphoribosyl-ATP; run in the biosynthetic direction here. The committed and feedback-regulated step of histidine biosynthesis.
+RHEA:19045	RHEA:19045	citramalate synthase reaction	Condensation of pyruvate with acetyl-CoA to (3R)-citramalate, the committed step of the threonine-independent isoleucine route.
+RHEA:19453	RHEA:19453	alanine transaminase reaction	Reversible transamination between L-alanine and pyruvate; run in the pyruvate-to-alanine direction for biosynthesis.
+RHEA:19513	RHEA:19513	ornithine carbamoyltransferase reaction	Carbamoylation of L-ornithine to L-citrulline. Freely reversible: the biosynthetic direction builds citrulline, and the arginine deiminase pathway runs the same enzyme backwards to recover carbamoyl phosphate.
+RHEA:19541	RHEA:19541	glutamate-5-semialdehyde dehydrogenase reaction	Reduction of L-glutamyl 5-phosphate to the 5-semialdehyde, which cyclises spontaneously to 1-pyrroline-5-carboxylate; run in the reductive direction for biosynthesis.
+RHEA:20049	RHEA:20049	phosphoribosyl-AMP cyclohydrolase reaction	Ring opening of phosphoribosyl-AMP.
+RHEA:20405	RHEA:20405	N-acetyldiaminopimelate deacetylase reaction	Hydrolytic removal of the acetyl group, releasing LL-diaminopimelate.
+RHEA:21524	RHEA:21524	2-isopropylmalate synthase reaction	Condensation of 3-methyl-2-oxobutanoate with acetyl-CoA, the committed step of leucine biosynthesis.
+RHEA:21540	RHEA:21540	phosphoribosylanthranilate isomerase reaction	Amadori rearrangement of phosphoribosylanthranilate.
+RHEA:21588	RHEA:21588	N-acetyl-gamma-glutamyl-phosphate reductase reaction	Reduction to N-acetyl-L-glutamate 5-semialdehyde; run in the reductive direction for biosynthesis.
+RHEA:21640	RHEA:21640	prephenate dehydrogenase reaction (NADP)	Oxidative decarboxylation of prephenate to 3-(4-hydroxyphenyl)pyruvate using NADP.
+RHEA:21648	RHEA:21648	prephenate dehydratase reaction	Decarboxylative dehydration of prephenate to 3-phenylpyruvate.
+RHEA:21732	RHEA:21732	anthranilate synthase reaction	Amination and aromatisation of chorismate to anthranilate using the amide nitrogen of L-glutamine. KEGG also lists an ammonia-dependent partial reaction for the same enzyme; as with the glutamine-dependent GMP synthase already curated, only the complete glutamine-dependent chemistry is used.
+RHEA:21824	RHEA:21824	aspartate aminotransferase reaction	Reversible transamination between L-aspartate and oxaloacetate; run in the oxaloacetate-to-aspartate direction for biosynthesis.
+RHEA:22068	RHEA:22068	ketol-acid reductoisomerase reaction (valine branch)	Isomerisation and NADPH-dependent reduction of (2S)-2-acetolactate to (2R)-2,3-dihydroxy-3-methylbutanoate; run in the reductive direction for biosynthesis.
+RHEA:22332	RHEA:22332	2-methylmalate dehydratase reaction, dehydration half	Dehydration of (3R)-citramalate to 2-methylmaleate, catalysed by the isopropylmalate isomerase acting on the citramalate substrate.
+RHEA:22608	RHEA:22608	succinyl-diaminopimelate desuccinylase reaction	Hydrolytic removal of the succinyl group, releasing LL-diaminopimelate.
+RHEA:22828	RHEA:22828	phosphoribosyl-ATP pyrophosphohydrolase reaction	Hydrolysis of the pyrophosphate of phosphoribosyl-ATP.
+RHEA:23476	RHEA:23476	indole-3-glycerol-phosphate synthase reaction	Ring closure to (1S,2R)-1-C-(indol-3-yl)glycerol 3-phosphate, which builds the indole ring.
+RHEA:23744	RHEA:23744	histidinol-phosphate aminotransferase reaction	Transamination of imidazole acetol phosphate to L-histidinol phosphate; run in the biosynthetic direction here.
+RHEA:23988	RHEA:23988	LL-diaminopimelate aminotransferase reaction	Single-step transamination of tetrahydrodipicolinate to LL-diaminopimelate, the plant and Chlamydia route.
+RHEA:24020	RHEA:24020	argininosuccinate lyase reaction	Elimination of fumarate, releasing L-arginine.
+RHEA:24292	RHEA:24292	amino-acid N-acetyltransferase reaction	Acetylation of L-glutamate, which protects the amino group through the ornithine branch.
+RHEA:24793	RHEA:24793	imidazole glycerol-phosphate synthase reaction	Glutamine-dependent cyclisation to imidazole glycerol phosphate, releasing AICAR into purine metabolism. AICAR is not declared as an anchor: it is an internal participant of the purine GIFT and declaring it would create an edge nobody would read as biology.
+RHEA:24801	RHEA:24801	branched-chain aminotransferase reaction (isoleucine)	Reversible transamination between L-isoleucine and (S)-3-methyl-2-oxopentanoate; run in the biosynthetic direction here.
+RHEA:24809	RHEA:24809	dihydroxy-acid dehydratase reaction (valine branch)	Dehydration of (2R)-2,3-dihydroxy-3-methylbutanoate to 3-methyl-2-oxobutanoate, the branchpoint 2-oxo acid shared with pantothenate biosynthesis.
+RHEA:24813	RHEA:24813	branched-chain aminotransferase reaction (valine)	Reversible transamination between L-valine and 3-methyl-2-oxobutanoate; run in the biosynthetic direction here. The same enzyme catalyses the leucine and isoleucine transaminations, which is why the discriminating evidence for each amino acid is its 2-oxo acid supply rather than this step.
+RHEA:25152	RHEA:25152	aromatic aminotransferase reaction (phenylalanine)	Reversible transamination between L-phenylalanine and 3-phenylpyruvate; run in the biosynthetic direction here.
+RHEA:25315	RHEA:25315	N-acetyldiaminopimelate aminotransferase reaction	Transamination of the acetylated oxo acid to N-acetyl-LL-diaminopimelate.
+RHEA:27654	RHEA:27654	acetohydroxyacid synthase reaction (isoleucine branch)	Condensation of 2-oxobutanoate with pyruvate to (S)-2-ethyl-2-hydroxy-3-oxobutanoate, the isoleucine-specific reaction of the same acetohydroxyacid synthase that condenses two pyruvates in the valine branch.
+RHEA:27694	RHEA:27694	dihydroxy-acid dehydratase reaction (isoleucine branch)	Dehydration of (2R,3R)-2,3-dihydroxy-3-methylpentanoate to (S)-3-methyl-2-oxopentanoate.
+RHEA:32271	RHEA:32271	3-isopropylmalate dehydrogenase reaction	Oxidative decarboxylation of (2R,3S)-3-isopropylmalate to 4-methyl-2-oxopentanoate. Rhea states the overall reaction, so the spontaneous decarboxylation of the oxosuccinate intermediate is inside it.
+RHEA:32715	RHEA:32715	3-methylmalate dehydrogenase reaction	Oxidative decarboxylation of (2R,3S)-3-methylmalate to 2-oxobutanoate, catalysed by the isopropylmalate dehydrogenase.
+RHEA:33799	RHEA:33799	histidinol dehydrogenase reaction, first oxidation	NAD-dependent oxidation of L-histidinol to L-histidinal.
+RHEA:33803	RHEA:33803	histidinol dehydrogenase reaction, second oxidation	NAD-dependent oxidation of L-histidinal to L-histidine.
+RHEA:34171	RHEA:34171	4-hydroxy-tetrahydrodipicolinate synthase reaction	Condensation of L-aspartate 4-semialdehyde with pyruvate, the committed step of the diaminopimelate pathway.
+RHEA:35331	RHEA:35331	4-hydroxy-tetrahydrodipicolinate reductase reaction (NADPH)	Reduction and dehydration of (2S,4S)-4-hydroxy-tetrahydrodipicolinate to tetrahydrodipicolinate. The NADH-linked variant RHEA:35323 is the same enzyme with the same orthology group, so it is not curated as a separate route: it would multiply the four diaminopimelate routes without adding any genomic discrimination.
+RHEA:42424	RHEA:42424	2-methylmalate dehydratase reaction, hydration half	Hydration of 2-methylmaleate to (2R,3S)-3-methylmalate.
+RHEA:10152	RHEA:10152	carbamate kinase reaction	Interconversion of carbamoyl phosphate with ammonium and hydrogencarbonate; run in the phosphate-donating direction by the arginine deiminase pathway, where it is the substrate-level ATP-generating step.
+RHEA:10680	RHEA:10680	proline racemase reaction	Racemisation of L-proline to D-proline, which is the substrate the proline reductase requires.
+RHEA:12232	RHEA:12232	glycine reductase reaction	Reductive deamination of glycine to acetyl phosphate and ammonium by the selenoprotein glycine reductase complex; run in the glycine-consuming direction, which is the Stickland reductive half-reaction.
+RHEA:12737	RHEA:12737	D-proline reductase reaction	Reductive ring opening of D-proline to 5-aminopentanoate by the selenoprotein proline reductase; run in the proline-consuming direction, which is the Stickland reductive half-reaction.
+RHEA:13101	RHEA:13101	urocanate hydratase reaction	Hydration of trans-urocanate to 4-imidazolone-5-propanoate; run in the hydration direction for catabolism.
+RHEA:17785	RHEA:17785	glutamate decarboxylase reaction	PLP-dependent decarboxylation of L-glutamate to 4-aminobutanoate, consuming a cytoplasmic proton. The reaction is the core of the glutamate-dependent acid resistance system and the source of microbial GABA.
+RHEA:19169	RHEA:19169	serine ammonia-lyase reaction	PLP- or iron-sulfur-dependent deamination of L-serine to pyruvate and ammonium, the step that makes serine a fermentable substrate rather than only a biosynthetic product.
+RHEA:19553	RHEA:19553	tryptophanase reaction	Beta-elimination of L-tryptophan to indole, pyruvate and ammonium. One PLP enzyme, one orthology group, and the basis of the classical clinical indole test.
+RHEA:19597	RHEA:19597	arginine deiminase reaction	Hydrolytic deimination of L-arginine to L-citrulline and ammonium, the committed step of the arginine deiminase pathway.
+RHEA:21232	RHEA:21232	histidine ammonia-lyase reaction	Non-oxidative deamination of L-histidine to trans-urocanate, the committed step of histidine catabolism.
+RHEA:22108	RHEA:22108	threonine ammonia-lyase reaction	PLP-dependent deamination of L-threonine to 2-oxobutanoate and ammonium. The chemistry is catabolic wherever it runs; the product is also the precursor isoleucine biosynthesis requires, which is why the two capabilities compose across modes rather than duplicating the reaction.
+RHEA:22492	RHEA:22492	formimidoylglutamase reaction	Hydrolysis of N-formimidoyl-L-glutamate to formamide and L-glutamate, the route that releases the carbon skeleton without a folate-dependent transfer.
+RHEA:23660	RHEA:23660	imidazolonepropionase reaction	Ring hydrolysis to N-formimidoyl-L-glutamate.
+RHEA:23800	RHEA:23800	methionine gamma-lyase reaction	Gamma-elimination of L-methionine to methanethiol, 2-oxobutanoate and ammonium. The enzyme also accepts homocysteine and cysteine; the GIFT is named for methionine and this marker is deliberately not used as evidence for any cysteine trait.
+RHEA:24931	RHEA:24931	cysteine desulfidase reaction	Beta-elimination of L-cysteine to hydrogen sulfide, pyruvate and ammonium. Rhea files the same equation under the promiscuous cystathionine gamma-lyase, which is why only the dedicated desulfidase orthology groups are accepted as evidence here.

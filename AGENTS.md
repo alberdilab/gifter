@@ -138,9 +138,16 @@ alone. Revisit that only once all three carry curated content.
    reactions. Scores may be secondary summaries only.
 8. Build larger capabilities by composing GIFTs through shared declared anchors.
    Do not duplicate an atomic GIFT's reactions in a larger trait. Composition
-   may not cycle within a GIFT `mode`; it is expected to cycle between modes,
-   because a catabolic route back to a metabolite biosynthesis produces is real
-   biology rather than a boundary error.
+   may not cycle within a **directed** `mode`; it is expected to cycle between
+   modes, because a catabolic route back to a metabolite biosynthesis produces
+   is real biology rather than a boundary error. `interconversion` is exempt:
+   that mode declares every anchor in both roles, so two adjacent reversible
+   GIFTs cycle by construction and the loop says nothing about the boundaries.
+   A cycle that survives those rules is real circular metabolism -- the
+   oxidative citric acid cycle is one -- and it is **derived** by
+   `gift_cycles()` from the anchor graph, never curated as a circuit table.
+   Only its name is curated, in the `metabolic_cycle` facet, and whether a
+   genome closes it never changes a member's Boolean call.
 9. Keep GIFTs biologically useful: neither arbitrary single-step fragments nor
    bundles of independently meaningful capabilities.
 10. Keep biological definitions in the reference database, never in per-GIFT R
@@ -200,6 +207,7 @@ for examples and rationale.
 | Regulatory or defense content | `gift_circuits.tsv`/`gift_mechanisms.tsv` and their `regulatory_*`/`defense_*` tables | the matching proposal document, `test-regulatory-defense.R` |
 | GIFT boundaries or metadata | `gifts.tsv`, `anchors.tsv`, `gift_anchors.tsv` | routes, composition tests, provenance |
 | Compartment, transport, or GIFT mode | `anchors.tsv`, `gifts.tsv` | graph edge quality, mode-aware cycle check, compartment tests |
+| Cyclic metabolism or graph topology | `R/cycles.R`, `gift_facets.tsv` | `proposal-central-metabolic-cycles.md`, `test-central-cycles.R`, `test-composition.R` |
 | Related external pathways | `gift_xrefs.tsv` | the relation must match the curated boundaries |
 | Reaction routes or direction | `reactions.tsv`, `reaction_xrefs.tsv`, `gift_routes.tsv`, `route_reactions.tsv` | Rhea evidence, evaluation tests |
 | Enzymes or marker evidence | `enzyme_systems.tsv`, `enzyme_components.tsv`, `markers.tsv`, `component_markers.tsv` | provenance, complex/alternative tests |

@@ -15,6 +15,809 @@ versioned with the package.
 
 ## Package 0.1.0 (in development)
 
+### 2026-08-19T13:10Z — Mercury detoxification curated: the first defense GIFT that is not anti-phage
+
+**Change.** Database version **2026.19.1**, schema unchanged at 6, **no R code
+change**. One defense GIFT, `mercury_detoxification`, with one mechanism
+(`MECH_MER_HG`), four defense functions, six systems, seven components and eight
+markers, plus the `defense_class` value `chemical_detoxification`. 129 GIFTs
+become 130.
+
+**Why.** The assessment is `inst/doc/proposal-aromatic-degradation.md` §8.8, its
+class decision §10.6, and its implementation record §17. Hg(II) reduction has a
+Rhea master but no honest `mode`: it is not a directed conversion between
+nutrient anchors, and a fifth mode invented for one trait would put mercury into
+the anchor graph as edges through metal-ion anchors that mean nothing. The
+defense contract already covers a chemical challenge, and the machinery model
+supplies the required-and-accessory distinction the *mer* operon needs.
+
+**Effect.** MerA alone completes the call, because a genome carrying *merA*
+detoxifies the Hg(II) that reaches its cytoplasm; requiring *merT* and *merP*
+would refuse the genomes whose operon is built around *merC* or *merE*. Delivery,
+induction and organomercurial lysis are accessory and report as unsupported
+without changing the call. `TIGR02053` stands beside `K00520` as an alternative
+at `high-confidence`, so a genome hit only by the NCBIfam family calls the GIFT
+complete at the weaker confidence. Three refusals are recorded rather than left
+implicit: `NF033555` and the InterPro entries, because the evidence layer
+normalises KO, EC, Pfam, TIGRFAM, CAZy and custom HMMs only and an unmatchable
+accession reads as evidence; `K19057` (MerD), because it is a co-regulator and
+evidence rows are alternatives, so it would let a genome with no activator claim
+induction; and mercury methylation (*hgcAB*), which makes mercury more toxic and
+is a different capability. Three `database_changes.tsv` records carry the
+decisions. Five new tests in `test-regulatory-defense.R` and four inventory
+expectations updated; full suite green at 3354.
+
+### 2026-08-19T12:30Z — Assessment: the mercury defense class is named for the mechanism
+
+**Change.** Documentation only. `inst/doc/proposal-aromatic-degradation.md`
+gains §10.6 and resolves its open question §14.3: the `defense_class` value
+§8.8 needs is **`chemical_detoxification`**, not `metal_detoxification` and not
+a resistance class. **No code, schema, database content or facet registration** —
+mercury is still uncurated, and a facet vocabulary is registered when the first
+content needing it is curated.
+
+**Why.** `defense_class` is single-valued and partitions the defense type, so
+the name is the bucket every future defense GIFT falls into exactly once, and
+the way to choose it is to write out what each candidate would have to hold.
+A resistance class fails three ways: its roster is mostly *not* defense GIFTs
+(metal efflux is transport, MerR and CmtR are regulatory, lipid A modification
+is structural); resistance is an outcome, which `proposal-defense-gifts.md`
+refuses twice and which §15 of the aromatic proposal already disclaims for this
+very GIFT; and invariant 18 puts phenotypic descriptions in a derived layer. The
+curated vocabulary says the same thing already — `restriction_modification` and
+`crispr_cas` are both anti-phage and were deliberately not merged into
+`phage_resistance`. `metal_detoxification` fails differently: it holds three
+curatable members ever, because ArsM has no orthology group, ChrR's group is a
+generic NAD(P)H:quinone dehydrogenase, and ArsC's product is *more* toxic than
+its substrate.
+
+**Effect.** Mercury will be curated with `defense_class = chemical_detoxification`
+when §8.8 is implemented. The class is defined by a mechanism test — enzymatic
+conversion of a toxic chemical into a less harmful species — which excludes
+efflux, sequestration and repair by construction, and admits a populated roster
+of markable future members: SOD and catalase, AhpC and Ohr, Hmp and NorV, GloAB,
+FrmAB, TehB and CueO. Two follow-ons are recorded rather than decided: a
+separate multi-valued `challenge_class` facet if the "against what" axis is ever
+needed, and the §10.3 test applied a second time to formaldehyde, which is
+detoxification in most organisms and carbon metabolism in methylotrophs.
+
+### 2026-08-19T05:10Z — `gift_cycles()` stops reporting direction reversals as cycles
+
+**Change.** `gift_cycles()` excludes any elementary cycle whose members include
+both an `anabolic` and a `catabolic` GIFT, alongside the two-node
+`interconversion` loop it already excluded. `evaluate_gift_cycles()` follows,
+because it reads what `gift_cycles()` derives. The accessor documents both
+exclusions, and `R/cycles.R` records why.
+
+**Why.** The amino acid layer curates both directions for arginine, proline,
+threonine, cysteine and methionine, and every such pair closes a ring in the
+composition graph. A ring that alternates modes says a genome can both build a
+metabolite and break it down — which the composition rule already treats as
+expected, and is why the source validator checks acyclicity per mode — so it is
+not circular metabolism. It is also not harmless to report: the mixed rings
+combine, and before the exclusion the enumeration returned a truncated list of
+100 in which the oxidative citric acid cycle appeared at position 34.
+
+**Effect.** `gift_cycles()` returns one cycle for the curated database, the
+oxidative citric acid cycle, as it did before the amino acid layer. No GIFT call
+changes: closure never fed back into a call. Edges are untouched — the exclusion
+is about what counts as a cycle, not about what counts as composition.
+
+### 2026-08-19T05:00Z — Amino acid metabolism curated: 28 GIFTs
+
+**Change.** Database version **2026.19.1**. The fifteen proteinogenic amino
+acids giftr did not cover are curated as eighteen composable biosynthesis GIFTs,
+and amino acid degradation arrives with ten more. Schema unchanged at 6; no R
+change other than the cycle exclusion above.
+
+**Why.** The assessment is `inst/doc/proposal-amino-acid-metabolism.md`, whose
+§16 records where the implementation departed from it. Six boundaries are
+giftr's own rather than KEGG's, each at a branchpoint where genomes measurably
+differ — meso-diaminopimelate, the two branched-chain 2-oxo acids, threonine
+deamination as catabolism, glutamine as its own capability, and the widened
+aromatic transaminase.
+
+**Effect.** 89 GIFTs become 129 and 109 anchors become 140. Four boundaries that
+were declared inputs with no producer gain one — L-aspartate, L-glutamine,
+3-methyl-2-oxobutanoate and hydrogen sulfide — so pantothenate, pyrimidine,
+pyridoxal phosphate and the two sulfide-dependent biosynthesis GIFTs stop
+hanging off the graph. `auxotrophy_indicator` now reports on all twenty amino
+acids rather than five. No existing GIFT call changes: no curated route, system,
+component or marker was edited, with one correction: L-aspartate and
+L-glutamine were marked `biomass_essential = no` from when they existed only as
+input boundaries, and both are proteinogenic. Seven `database_changes.tsv`
+records carry the biological decisions, including that correction, the
+deliberate under-call of cysteine desulfidation and the promotion of acetyl
+phosphate to an anchor.
+
+### 2026-08-19T11:20Z — Aerobic aromatic ring catabolism curated; mercury carved out
+
+The assessment is `inst/doc/proposal-aromatic-degradation.md`, whose §16 records
+the implementation. **No code change and no schema change** — this is a content
+release, database version 2026.19.1, and the proposal's first claim was that the
+layer needed neither.
+
+Twelve metabolic GIFTs, twelve anchors, thirty reactions and forty-nine markers.
+Three peripheral entries (benzoate, anthranilate, phenol) converge on catechol,
+both cleavage strategies leave it, the aerobic phenylacetate route joins at the
+3-oxoadipyl-CoA thioester, and the phenylpropanoid node feeds the shared lower
+route. Thirteen composition edges, all through declared anchors.
+
+**Mercury was carved out** at the user's direction and is being assessed
+separately, so no defense GIFT and no `defense_class` facet value were
+added. Fourteen of the twenty-four candidates assessed stay refused, nine of
+them because no marker in any namespace resolves which ring a Rieske dioxygenase
+hydroxylates; the register is `DBC-20260819-AROMATIC-REFUSALS`.
+
+Four decisions worth reading in the proposal's §16.
+
+- **Where KEGG bundles, giftr cuts.** The lower *meta* route that five modules
+  duplicate is curated once as `oxopentenoate_degradation`; the thiolysis that
+  ends both the ortho funnel and the phenylacetate route is curated once as
+  `oxoadipyl_coa_thiolysis`; and M00545, which ORs two different input
+  substrates into one module, becomes three GIFTs around a shared anchor,
+  because a route must connect its own GIFT's boundaries.
+- **`K07104` is refused** as evidence of catechol 2,3-dioxygenase: 2081 genomes,
+  led by Firmicutes that do not degrade aromatics, only 276 of which carry any
+  lower *meta* gene. A test pins the refusal in both branches.
+- **Shared Rieske ferredoxin and reductase subunits are deliberately not curated
+  as components**, because `enzyme_component` has no `required` flag and those
+  subunits are annotated two to three times less often than the subunits they
+  serve. The omission is stated in each system description, and a test proves the
+  excluded reductase is inert.
+- **One predicted broadening did not happen.** Adding MhpF and XylQ as
+  alternative systems of the acetaldehyde dehydrogenase reaction was expected to
+  broaden `ethanol_formation`; measurement showed it does not, because that
+  route's second reaction rests on AdhE alone. The change record was corrected
+  from `broadens` to `none`.
+
+`tests/testthat/test-aromatic.R` adds 209 assertions. Two existing tests were
+updated because the new content is genuinely visible to them: `test-scfa.R` now
+expects the aromatic funnel among acetyl-CoA producers, and `test-organic-acid.R`
+admits one non-cycle producer of succinate while keeping its guard that no
+`_formation` trait may produce it.
+
+### 2026-08-19T00:20Z — Shikimate-derived aromatic biosynthesis curated
+
+The assessment is `inst/doc/proposal-shikimate-aromatics.md`. Three metabolic
+GIFTs added, one candidate refused, database version **2026.17.1**.
+
+**Change.** `chorismate_biosynthesis` (PEP + erythrose 4-phosphate to
+chorismate, 7644 of 10 151 bacteria and 90 of 470 archaea),
+`salicylate_biosynthesis` (chorismate to salicylate, 646 bacteria) and
+`indole_3_acetate_biosynthesis` (L-tryptophan to the auxin, 86 bacteria) are
+curated over ten new reactions, all with Rhea masters. `gallate_biosynthesis` is
+refused. A `biosynthetic_family` facet is registered and
+`shikimate_derived_aromatic` assigned to the three new GIFTs and to
+`paba_biosynthesis` and `menaquinone_biosynthesis`. No schema migration and no R
+change.
+
+**Four decisions are worth reading.**
+
+- **The family is a facet, not a GIFT.** "Aromatic compound biosynthesis" cannot
+  be one capability: two of the four candidates do not have chorismate on either
+  side of the arrow, so a single GIFT would have to declare boundaries no route
+  connects. `substrate_class` was deliberately not reused for the grouping —
+  the five GIFTs carrying the new value hold two different substrate classes
+  between them, which is the demonstration that the facets are orthogonal rather
+  than redundant.
+- **The shikimate dehydrogenase step is curated as not required.** `K00014`
+  reaches 5585 bacteria where every other step of the pathway reaches 8461 to
+  9149, and requiring it removes 201 of 213 Cyanobacteriota and 1061 of 1642
+  Actinomycetota. *M. tuberculosis* Rv2552c and *Synechocystis* slr1559 are
+  annotated shikimate 5-dehydrogenase in RefSeq and carry no KO at all. This is
+  the vitamin layer's orphan-step rule applied to a marker with a taxonomic hole
+  rather than a specificity problem, and `TIGR00507` is added alongside `K00014`
+  so an InterPro-annotated genome can satisfy the step — the first metabolic
+  marker added for coverage rather than for specificity.
+- **MbtI is a system, not a route.** The bifunctional salicylate synthases run
+  the same two transformations as PchA and PchB, with the isochorismate
+  enzyme-bound rather than released, so they belong at the system layer exactly
+  as the bifunctional PabBC already does. Because systems attach to reactions
+  rather than routes, accepting PchA and MbtI for `RHEA:18985` also reaches the
+  menaquinone route; that was measured before the decision and adds 7 genomes.
+- **Three of four auxin routes are refused.** The indole-3-pyruvate, tryptamine
+  and nitrile routes are real chemistry whose markers cannot distinguish auxin
+  formation from ordinary transamination, decarboxylation or aldehyde oxidation.
+  `K04103` is the sharpest case: 417 of its 648 bacterial carriers are
+  Enterobacteria and KEGG assigns it in *Salmonella* to a protein annotated only
+  as a putative thiamine pyrophosphate enzyme.
+
+**Gallate fails earlier than the specificity question.** Rhea records gallate in
+nine reactions and **none forms it from 3-dehydroshikimate**; there is no EC
+number for the transformation and no KO, TIGRFAM or Pfam family for a
+gallate-forming dehydrogenase. With no reaction identity there is nothing to
+curate, and the only enzymes described as doing it are plant shikimate
+dehydrogenases whose markers are the AroE markers of the core pathway. A curated
+`CUSTOM_HMM` could not rescue it today either: the characterised sequences are
+plant, so there is nothing bacterial to train on. Gallate release from
+hydrolysable tannins by tannase (`K10759`, EC 3.1.1.20) is different chemistry
+between different boundaries and is deferred, not refused.
+
+**Effect.** `paba_biosynthesis` and `menaquinone_biosynthesis` gain an upstream
+neighbour and move from `entry` to `intermediate` in `gift_profile`; `CHORISMATE`
+is the first of the four orphan input anchors named in the amino acid assessment
+to close. `indole_3_acetate_biosynthesis` reports as `isolated`, which is the
+correct answer while nothing in giftr produces tryptophan. Three inventory
+assertions in `test-database.R` — the GIFT roster, the shared-anchor set and the
+database version — were refreshed against the compiled database.
+
+### 2026-08-19T00:05Z — Assessment: the rest of amino acid metabolism
+
+The assessment is `inst/doc/proposal-amino-acid-metabolism.md`. **No code,
+schema or biological content change** — this entry records that the layer was
+tested and what the test found.
+
+**Change.** The fifteen proteinogenic amino acids giftr does not curate, plus
+amino acid degradation and microbial transformation for all twenty, were tested
+against KEGG orthology over the 10 151 bacterial genomes of KEGG, Rhea 141 and
+ChEBI 253. Twenty biosynthesis GIFTs and ten degradation or transformation GIFTs
+are recommended, six candidates are deferred pending a boundary decision
+elsewhere, and six are refused as named. No schema migration and no R change is
+required by any of it.
+
+**Four findings are worth reading even if the layer is never curated.**
+
+- **The amino-donor rule.** Glutamate is a co-substrate of nearly every reaction
+  in the layer. Declaring it an anchor wherever it is consumed would give
+  sixteen new GIFTs an edge from one node and turn `gift_graph()` into a star.
+  The rule — the nitrogen donor of a transamination is never an anchor, the
+  nitrogen source of an assimilation always is — is the nitrogen analogue of the
+  sulfur split the methionine and cysteine GIFTs already encode.
+- **An assimilatory cycle cannot be decomposed by anchors.** GS and GOGAT form a
+  genuine cycle between two anabolic capabilities, and `.find_graph_cycle()`
+  rejects anabolic cycles by design. The citric acid cycle could be cut only
+  because two of its four segments are `interconversion`; here the cycle has to
+  live inside one GIFT. This is the first case where real biology collides with
+  the acyclicity rule rather than exposing a bad boundary.
+- **KEGG's amino acid modules under-call by construction, measurably.** The four
+  lysine modules score 51.4%, 5.6%, 6.8% and 17.2% separately and 75.3% as
+  alternative routes of one capability. Requiring KEGG's aromatic
+  aminotransferase calls phenylalanine biosynthesis in 2296 genomes where the
+  discriminating aryl skeleton is present in 7796; widening the marker set to
+  the aspartate and branched-chain aminotransferases recovers 7733, which shows
+  the step carries no information rather than that it is missing.
+- **Four orphan input anchors close.** `ASPARTATE`, `CHORISMATE`, `GLUTAMINE`
+  and `OXOISOVALERATE` are declared as inputs today and produced by nothing, so
+  pantothenate, folate, menaquinone and the aspartate family currently hang off
+  the composition graph.
+
+**Effect.** Documentation only. The assessment also reconciles two overlaps with
+the assessments filed the same day: it adopts the nitrogen-anchor rule of
+`proposal-nitrogen-compound-catabolism.md` unchanged, recommends that
+`ammonium_assimilation` and `glutamate_biosynthesis` be one GIFT under one name,
+corrects that assessment's ammonium assimilation prevalence from 9482 to 8686
+genomes — glutamine synthetase without a glutamate synthase is not a net
+assimilation route, and 796 genomes have exactly that — and records that the
+`ACETYL_PHOSPHATE` anchor question can no longer be deferred, because glycine
+reductase has no other product to declare and the validator requires an output
+anchor.
+
+### 2026-08-18T23:40Z — The overview networks become dots you point at
+
+**Change.** The two networks on the atlas overview are no longer layered
+diagrams of labelled boxes. Both are now drawn by `.report_dot_network_svg()`:
+a GIFT is a large coral dot, an anchor a small mint dot, edges are hairlines,
+and **nothing in the drawing carries text**. Pointing at a dot dims every node
+and edge it is not connected to and opens a card next to it with the name, the
+identifier, the declared boundaries, and the route and reaction counts;
+clicking a GIFT dot opens it in the GIFT explorer, the same detail the summary
+table opens. Dots are placed by `.report_force_layout()`, a deterministic
+Fruchterman-Reingold sweep seeded on a golden-angle spiral, so the drawing is
+identical between builds without carrying a random seed. Gravity is stronger
+along the short axis, which settles the layout into an ellipse shaped like the
+frame instead of a disc that has to be squashed into it.
+
+**Why.** Both views were laid out in longest-path columns of 246-pixel boxes.
+With 72 GIFTs and 89 anchors that is a canvas several thousand pixels wide,
+scrolled sideways, where reading a name meant finding the box and reading the
+structure meant losing it. The overview asks one question -- *how do these
+traits connect* -- and the shape of the graph is the answer to it. Every label
+that was printed on the canvas is still there, one hover away, and the layer
+that actually names things, the GIFT explorer, is now one click from any dot.
+
+**Effect.** Presentation only: no query, no call, and no curated row changed.
+The per-GIFT route networks are untouched, and still draw labelled reaction
+boxes, because there the labels *are* the content. Edge tooltips are gone from
+the two overview networks -- what an edge asserts is now read off the two dots
+it joins -- so the anchor network is tested through its `data-edge-from` and
+`data-edge-to` attributes instead of through edge titles.
+
+### 2026-08-18T23:10Z — Assessment: aromatic degradation and mercury, 21 requested capabilities
+
+The assessment is `inst/doc/proposal-aromatic-degradation.md`. **No code, schema
+or biological content change** — this is a recorded evaluation, and its main
+result is a register of refusals.
+
+The request was the 21 capabilities of KEGG's *Xenobiotics biodegradation*
+module category plus mercury. Twenty-four candidates were tested against KEGG
+orthology prevalence (11 949 genomes), Rhea, and InterPro/NCBIfam. Six are
+recommended for curation, two conditionally, two deferred, and **fourteen
+refused** — nine of them for one reason: substrate specificity in
+ring-hydroxylating dioxygenases is not resolvable by any marker giftr can use,
+and unlike the butyrate case in the SCFA proposal, no namespace change rescues
+them. The families available are `IPR001663` and `PS00570`, which are the family
+signature itself.
+
+Four findings are worth reading even if the layer is never curated.
+
+- **A KEGG module is not a GIFT, demonstrated twice by chemistry.** M00538
+  attaches the *tmo* ring monooxygenase system to toluene → benzyl alcohol, but
+  Rhea's master for the EC KEGG itself assigns that system is toluene →
+  4-methylphenol; side-chain hydroxylation is a different enzyme in a different
+  module. M00548 attaches a phenol 2-monooxygenase to benzene oxidation. Both
+  were found only because giftr requires a Rhea master per reaction.
+- **`enzyme_component` has no `required` flag, and this layer is the first
+  content to want one.** Rieske ferredoxin and reductase subunits are shared,
+  interchangeable and annotated 2–3× less often than the catalytic subunits they
+  serve, so curating them under AND converts an annotation gap into a false
+  negative. The proposal recommends solving it in curation rather than migrating
+  the schema, and records the case as the strongest reason to revisit that.
+- **Mercury belongs to the `defense` type, not to a fifth `mode`.** Hg(II)
+  reduction is neither anabolic, catabolic, transport nor interconversion; the
+  defense contract already covers a chemical challenge, and the machinery model
+  already expresses the accessory *merTP*, *merR* and *merB* functions.
+- **`K07104` is an over-broad marker** assigned in 2081 genomes dominated by
+  Firmicutes that do not degrade aromatics, only 276 of which carry any lower
+  *meta* pathway gene. The route logic would hide the damage inside one GIFT; the
+  marker would still be in the database for the next one.
+
+### 2026-08-18T23:50Z — Nitrogen compound catabolism curated
+
+Database **2026.18.1**, schema 6 unchanged. **No code changed**; this entry
+records the content release and the two architecture rules it required, both now
+in `inst/doc/architecture.md`. The assessment is
+`inst/doc/proposal-nitrogen-compound-catabolism.md`, whose §17 records the
+implementation and every point where it departed from the proposal.
+
+**Content.** Fourteen GIFTs: `urate_degradation`, `allantoin_degradation`,
+`urea_hydrolysis`, `nitrate_assimilation`, `betaine_demethylation`,
+`sarcosine_demethylation`, `creatinine_degradation`,
+`carnitine_degradation_trimethylamine`, `carnitine_to_betaine`,
+`methylamine_degradation`, `taurine_desulfonation_aerobic`,
+`taurine_degradation_sulfoacetaldehyde`, `taurine_uptake_abc` and
+`ammonium_assimilation`. Sixteen anchors, seven facet terms, 26 routes, 37
+reactions, 39 enzyme systems, 55 components, 57 markers. `glcnac_degradation`
+and `neuac_degradation` gained `AMMONIUM` as an output anchor, which changes no
+call: both already ended at the deaminase that liberates it.
+
+**Two rules are now in the architecture guide.** The **nitrogen-anchor rule**
+admits ammonium as an anchor only where the reaction's purpose is to liberate or
+assimilate it, and it sits beside the cofactor-anchor rule under *Keeping the
+anchor vocabulary small*. The **electron-acceptor rule** is now an explicit item
+in *What giftr deliberately does not model*, generalising the refusal that was
+previously recorded only on the `FUMARATE` anchor.
+
+**Three departures from the proposal, all found by checking Rhea before
+curating.** The carnitine dehydrogenase route yields glycine betaine, not
+trimethylamine — `RHEA:47044` makes the betainyl thioester and `RHEA:45716`
+hydrolyses it — so it became its own GIFT and the trimethylamine claim narrowed
+from 972 genomes to 271. The anaerobic taurine GIFT declares no ammonium,
+because its two routes dispose of the nitrogen differently (alanine from the
+transaminase, ammonium from the dehydrogenase) and a GIFT anchor must hold for
+every route. `allantoin_degradation` declares none either, for the same reason.
+
+**Tests.** `tests/testthat/test-nitrogen.R` adds 101 assertions, including the
+negative cases that eleven respiratory accessions match no marker at all and
+that a primary-amine oxidase does not fire a phenylethylamine trait. Four
+existing inventory assertions moved for the new content: the compartment-split
+molecule list, the no-external-link GIFT list, the dual-specificity importer
+test (which filtered on `mode == "transport"` and so swept in the new taurine
+importer), and the sugar-degradation downstream assertion, which now protects
+what it was actually for — that no *carbon* anchor reaches a biosynthesis GIFT
+— rather than forbidding the legitimate catabolic-to-anabolic ammonium edge.
+
+### 2026-08-18T23:15Z — Nitrogen compound catabolism assessed
+
+The assessment is `inst/doc/proposal-nitrogen-compound-catabolism.md`. **No
+content was curated and no code changed**; this entry records that the layer was
+tested, what the test found, and the two rules the layer cannot be curated
+without.
+
+**Change.** The twelve compounds of distillR 1.x bundle D06, "Nitrogen compound
+degradation" — nitrate, urea, urate, GlcNAc, allantoin, creatinine, betaine,
+L-carnitine, methylamine, phenylethylamine, hypotaurine and taurine — were
+tested against KEGG orthology, Rhea 141, ChEBI 253 and the installed distillR
+`GIFT_db`, over all 10 151 bacterial genomes in KEGG. Eleven GIFTs are
+recommended and two more conditionally; two existing GIFTs gain an output
+anchor; six traits and two routes are refused.
+
+**Two rules are proposed, and the layer cannot be curated without either.** The
+**nitrogen-anchor rule** admits `AMMONIUM` as an anchor only where a reaction
+exists to liberate or assimilate it; applied to the database as it stands it
+admits one of the four existing NH4+ reactions and rejects three, which is what
+stops riboflavin and menaquinone biosynthesis becoming nitrogen sources and NAD
+biosynthesis becoming a nitrogen sink. The **electron-acceptor rule** generalises
+the refusal already recorded on the `FUMARATE` anchor: a capability whose
+completion needs an external terminal electron acceptor is out of scope, which
+refuses nitrate respiration, denitrification, DNRA and "taurine to hydrogen
+sulfide" architecturally rather than evidentially.
+
+**Two findings bear on how much weight the legacy database should carry.**
+distillR's `D0613 Taurine` is defined in part by EC 2.5.1.55, which is KDO
+8-phosphate synthase (`kdsA`, K01627), a lipopolysaccharide enzyme present in
+5537 of 10 151 bacteria — almost certainly a transposed digit for 2.5.1.76,
+cysteate synthase, at 39. And `D0612 Hypotaurine` is defined by a taurine
+enzyme plus a generic aldehyde dehydrogenase, so it cannot distinguish the two
+compounds. Neither is an argument against distillR, which used a different
+primitive; both are arguments for the existing rule that the legacy database is
+a coverage checklist and never an evidence source.
+
+**One correction is owed to `SOURCES.md`.** MetaCyc is reachable again through
+`websvc.biocyc.org/getxml` for records addressed by ID, so the recorded reason
+for not citing it — subscription gating — is now wrong. giftr still cites no
+MetaCyc row, and the proposal's §4 gives the structural reason that does not
+depend on access.
+
+### 2026-08-18T21:30Z — Circular central metabolism, and a scope fix for the acyclicity check
+
+The assessment is `inst/doc/proposal-central-metabolic-cycles.md`. It recommends
+option 1 of the three it evaluates: atomic segment GIFTs plus **derived** cycle
+detection, with no schema migration and no circuit table. The schema stays at
+version 6.
+
+**The within-mode acyclicity check is now scoped to the directed modes.** This
+is a bug fix and is independent of any citric acid cycle content. The
+`interconversion` mode requires every anchor to be declared in both roles, so
+two interconversion GIFTs that share one anchor produce an edge in each
+direction *by construction*; the check reported that as a circular composition
+error. Two synthetic reversible GIFTs sharing one fixture anchor reproduce it
+with no biology involved. `.giftr_directed_gift_modes` now names the three modes
+that declare a direction, and the scan iterates those. Loops in `anabolic`,
+`catabolic` and `transport` are still errors, which `test-composition.R` asserts
+alongside the new exemption.
+
+**`gift_cycles()` derives the elementary cycles of the composition graph.** It
+is graph code with no biology in it: the oxidative citric acid cycle falls out
+of four curated anchor declarations, and the same function will find the
+reductive cycle, the glyoxylate bypass or the Calvin cycle when those are
+curated. A two-node loop between two reversible GIFTs is excluded, for the same
+reason the validator exempts it. Enumeration is bounded by `limit` and warns
+rather than running unbounded.
+
+**`evaluate_gift_cycles()` reports closure for a genome** — `closed`, `open`
+with the unsupported members named, or `absent` — from an `evaluate_gifts()`
+result. It never changes a call. A segment is complete on its own routes and
+markers whether or not its neighbours are, and a `closed` cycle is a statement
+about encoded chemistry rather than about flux, direction or expression.
+
+The only curated part of a cycle is its name, which is a new multi-valued GIFT
+facet, `metabolic_cycle`. Structure is derived and naming is curated, so the two
+cannot drift apart.
+
+`R/cycles.R` is new. `R/database-build.R` gained the mode constant and the
+scoped scan. `inst/doc/architecture.md` gained a "Cycles in the composition
+graph" section and AGENTS.md invariant 8 was rewritten. Biological content is
+recorded separately, as `DBC-20260818-CENTRAL-CYCLE-LAYER`.
+
+### 2026-08-18T20:30Z — Vitamin biosynthesis curated
+
+The assessment is `inst/doc/proposal-vitamin-biosynthesis.md`, whose §14 records
+what implementation changed. **No schema and no R change** — the layer is a
+content release, 2026.15.1, and the proposal's first claim was that it could be.
+
+**Change.** Twenty GIFTs covering vitamins B1, B2, B3, B5, B6, B7, B9, B12 and
+K2: 31 anchors, 26 routes, 94 Rhea-mastered reactions, 104 enzyme systems and
+151 marker assignments. `substrate_class` gains `cofactor`,
+`physiological_role` gains `vitamin_biosynthesis`, and `resource_origin` gains
+`microbially_derived` for the precursors a genome acquires from its neighbours.
+Thirteen `database_changes` entries accompany it, eleven of which record a
+refusal or a boundary decision rather than an addition.
+
+**What the layer refuses to say.** A single "produces vitamin B12" trait is
+refused twice over. 4139 of 10 151 bacterial genomes complete the cobamide
+nucleotide loop and 3044 of those encode no corrin ring at all, so the loop is
+curated as its own capability and a positive call on it is not a production
+claim; and of the 1081 genomes that do complete ring, cobinamide arm and loop,
+only 538 carry BluB, without which the product is a cobamide rather than the
+vitamin. `dmb_biosynthesis_aerobic` is therefore separate, and a negative call
+on it is explicitly not evidence that the genome cannot make the ligand, because
+the anaerobic route has no orthology group.
+
+**The orphan-step rule, and why it needed a test.** Four reactions in the layer
+are certain chemistry with no marker at the specificity of the step. They are
+curated with `required = 0` rather than deleted or evidenced by a widened
+marker: requiring the riboflavin phosphatase would drop that trait from 7943 to
+2682 bacterial genomes, and requiring the folate pyrophosphatase would drop
+folate from 5898 to 1634. Two of the four — MenH and the DHNA-CoA thioesterase —
+were curated as required in the first pass, which made *Bacteroides*-profile
+genomes menaquinone-negative, and `tests/testthat/test-vitamins.R` caught it.
+
+**Effect on users.** Twenty new callable GIFTs and 13 new composition edges, all
+internal to the layer. `gift_profile()` reports `cross_feeding_output` as 0 and
+`resource_strategy` as `private` for all twenty, because no vitamin transporter
+is evidenceable, and `auxotrophy_indicator` as 1 for the twelve whose output is
+a biomass-essential boundary. No existing GIFT call changes. `list_gifts()`
+returns 68 rows, and the packaged database is version 2026.15.1.
+
+### 2026-08-18T18:00Z — Organic acid formation curated
+
+The assessment is `inst/doc/proposal-organic-acid-formation.md`. **No code
+changed and the schema stays at 6**; this entry records what the content release
+2026.14.1 added and, more usefully, what it refused.
+
+**Change.** Six GIFTs: `lactate_formation`, `lactate_racemisation`,
+`malolactic_fermentation`, `citrate_fermentation`, `ethanol_formation` and
+`acetoin_formation`. Five anchors, nine Rhea-mastered reactions, twelve KO
+markers. `substrate_class` gains `organic_acid` and
+`neutral_fermentation_product`; `physiological_role` `fermentative_end_product`
+is broadened from short-chain fatty acids to fermentation end products
+generally.
+
+**Why the request split in half.** The layer began as a request to express the
+capacity to form fumarate, succinate, citrate and lactate. Those four are not
+one class. Lactate is a fermentation end product a genome can be said to
+release; the other three are citric acid cycle intermediates, consumed by the
+pathway that makes them and present in every genome that has the cycle. Five
+candidates are refused and the refusals are in `database_changes.tsv`:
+
+- *Succinate.* On `frdABCD` it calls *Vibrio*, *Escherichia* and *Klebsiella*
+  positive — fumarate respirers — and *Bacteroides*, *Prevotella* and
+  *Fibrobacter* negative. Allowing the fused group instead fires in 7276 of
+  11 855 organisms including *Chlamydia*. KEGG names that group `sdhA, frdA`.
+- *Fumarate.* `K01756` is in 11 115 organisms, and giftr already curates the
+  fumarate-releasing chemistry inside `purine_core_biosynthesis` and
+  `adenylate_biosynthesis`.
+- *Citrate synthesis.* `K01647` is in 8467 organisms; the trait would mean "has
+  a citric acid cycle". The catabolic direction is curated instead.
+- *Formate.* Refused on architecture, not evidence: `gift_anchor` is keyed on
+  gift, role and ordinal, so declaring `FORMATE` on `pyruvate_to_acetyl_coa`
+  would claim that all three of its routes produce it.
+- *D-lactate formation.* Deferred; the (R)-lactate anchor is reached through the
+  racemase, which is what the acrylate-route organisms actually do.
+
+**The one result worth carrying forward.** `lactate_formation` is the first
+fermentation end product in giftr whose direction is *evidenced* rather than
+asserted. Acetate had to become an interconversion because Pta–AckA runs both
+ways on one pair of genes; lactate does not, because forming it is an
+NADH-consuming reduction and consuming it feeds a quinone or a cytochrome, and
+KEGG gives those different orthology groups. 4143 organisms carry `K00016` and
+3388 carry `K29125`, but only 573 carry both.
+
+**A structural finding that outlives the layer.** Anchoring the citric acid
+cycle closes a within-mode loop in anchor-derived composition and the build
+fails — checked against `.find_graph_cycle()`, not predicted. There is no weak
+boundary to demote the way `HOMOCYSTEINE` was, because no acid in the cycle is
+only ever consumed. The constructive half is that a metabolite does not need an
+anchor to be modelled: `citrate_fermentation` passes through oxaloacetate
+without anchoring it, and malate and citrate enter as input-only boundaries.
+`tests/testthat/test-organic-acid.R` asserts that no cycle metabolite is a
+declared output anchor, which is the only durable protection against the
+finding being rediscovered the expensive way.
+
+**Tests that had to move.** `test-sugar-degradation.R` asserted the exact set of
+GIFTs downstream of sugar catabolism; that set grows whenever a
+pyruvate-consuming capability is curated, so it now asserts what the test was
+actually protecting — the shared anchors and the downstream mode. Four
+inventory assertions in `test-database.R`, one in `test-pathway-links.R` and one
+in `test-scfa.R` were updated for the new content.
+
+### 2026-08-18T17:00Z — Vitamin biosynthesis assessed
+
+The assessment is `inst/doc/proposal-vitamin-biosynthesis.md`. **No content was
+curated and no code changed**; this entry records that the layer was tested and
+what the test found, so the next content release starts from the evidence rather
+than from KEGG's module list.
+
+**Change.** Candidate vitamin biosynthesis traits spanning twelve vitamins —
+B1, B2, B3, B5, B6, B7, B9, B12, K2, C, E and provitamin A — were tested against
+KEGG orthology, KEGG modules, Rhea, ChEBI and Pfam, over all 10 151 bacterial
+genomes in KEGG and a panel of 18 reference genomes. Nineteen GIFTs are
+recommended across nine vitamins; twelve further candidates are refused or
+deferred. The proposal's five open questions were resolved the same day and are
+recorded as §13 of the document: `GTP` is accepted as an input-only anchor and
+the `GMP` link is deliberately left open, matching the `UMP`/`UTP` gap the
+curated content already carries; the layer takes `substrate_class = cofactor`
+with `physiological_role = vitamin_biosynthesis`, since the build enforces the
+first as single-valued; menaquinone gets one anchor and a required MenG step;
+the flavin kinase step stays uncurated; and `namn_salvage_nicotinate` is in the
+first release.
+
+**Why it is worth reading before the next content release.** The layer needs no
+schema migration and no R change, and it is the first candidate layer whose
+binding constraint is *per-step* evidence rather than per-trait evidence:
+
+- *KEGG module definitions are not curatable boundaries here.* M00125 defines
+  riboflavin completeness without lumazine synthase or riboflavin synthase,
+  M00119 defines pantothenate without PanC or PanD, and M00127 defines thiamine
+  as ThiF+ThiS+ThiI. Three of nine vitamins have a module whose `DEFINITION`
+  omits the step the pathway is named for.
+- *The orphan step is a new failure mode with a measured cost.* Four reactions
+  in the layer are certainly present and have no marker at the specificity of
+  the step. Requiring the riboflavin phosphatase drops that trait from 7943
+  bacterial genomes to 2682; requiring the folate dihydroneopterin triphosphate
+  pyrophosphatase drops folate from 5898 to 1634. The proposal recommends
+  `route_reaction.required = 0`, which the schema already allows and three
+  curated rows already use, and refuses the alternative of widening the marker —
+  alkaline phosphatase (K01077, 3202 bacteria) is not evidence of a folate step.
+- *"Produces vitamin B12" must be refused as named.* 4139 genomes complete the
+  nucleotide loop and 3044 of them have no corrin ring, so a single trait would
+  call salvagers producers; and of the 1081 that do complete ring, cobinamide
+  and loop, only 538 carry BluB, without which the product is a cobamide rather
+  than cobalamin. Four narrower GIFTs are proposed instead, including the first
+  curated use of `gift_route.oxygen_requirement = 'aerobic'` for the aerobic
+  corrin ring.
+- *One architectural rule has to be set before the first anchor is added.* A
+  cofactor may be declared an input anchor only where the reaction consumes it —
+  FMNH2 by BluB — and never where it is recycled catalytically. Without it, THF,
+  PLP and NAD become input anchors across the database and the anabolic
+  acyclicity check stops describing biosynthetic composition.
+
+**Effect on users.** None yet. No GIFT, route, reaction, marker or call changed.
+
+### 2026-08-18T15:30Z — The atlas draws a reversible boundary as reversible
+
+**Change.** `R/database-visualization.R` gains `.report_boundary_sides()`, which
+decides what to draw on each side of a metabolic GIFT and which arrow to put
+between them. For a directed GIFT nothing changes. For an interconversion GIFT
+each anchor is drawn **once**, on the side where it was declared first, the
+arrow becomes `&harr;`, the side labels become "Inputs / outputs" and
+"Outputs / inputs", and the chips are coloured as shared boundaries rather than
+as an input and an output.
+
+**Why.** Declaring both directions made the renderer print the roles verbatim:
+
+```text
+before   ACETYL_COA ACETATE  ->  ACETATE ACETYL_COA
+after    ACETYL_COA          <->  ACETATE
+```
+
+The old rendering was not merely redundant. A one-way arrow between two
+identical sets asserts exactly the direction the mode exists to deny, so the
+picture contradicted the data it was drawn from.
+
+**The same defect in two other places.** In the whole-database anchor network an
+interconversion GIFT was drawing two opposing edges between the same pair of
+nodes, which reads as a contradiction rather than as reversibility. `.graph_edges()`
+now takes a `bidirectional` flag, every graph defines a mirrored arrowhead
+alongside its forward one, and the pair collapses to a single edge with a head
+at each end, titled "is an input and output boundary of". The per-GIFT route
+network carries the flag through the whole chain, so a reversible capability is
+drawn boundary to boundary in both directions rather than pointing one way while
+its own boundary display points both.
+
+Each reaction keeps its `forward` / `reverse` badge, and the caption now says
+why that is not a contradiction: the badge is the step's orientation relative to
+its own Rhea master equation, which is a different question from which way the
+capability runs.
+
+**Effect.** Presentation only: no query, no call, no curated row changed. The
+anchor filter chips still key on the declared roles, so an interconversion GIFT
+is found by searching either boundary in either direction.
+
+### 2026-08-18T15:00Z — The interconversion mode gains a boundary contract
+
+**Change.** `R/database-build.R` now separates three ways a molecule can appear
+on both sides of a boundary, and uses `mode` to say which is meant:
+
+```text
+same anchor, so one molecule in one compartment   reversible node   interconversion only
+different anchors of one molecule, two compartments   translocation   transport
+neither                                               directed chemistry
+```
+
+Two rules follow, both enforced: a GIFT that is not an interconversion may not
+declare an anchor as both input and output, and an interconversion GIFT must
+declare **every** anchor that way. `acetate_formation` is renamed
+`acetate_interconversion` and now declares `ACETYL_COA` and `ACETATE` in both
+roles. The SQL schema is unchanged at version 6 — this is a source-contract
+rule, not DDL.
+
+**Why.** `interconversion` had been a `CHECK` value with nothing behind it and
+no written meaning. Curating the first GIFT that uses it is the point at which
+the contract has to exist, and the honest contract turned out to be
+bidirectional boundaries: the phosphotransacetylase and acetate kinase pair runs
+both ways in different organisms, and no marker says which, so declaring one
+direction asserts what the evidence cannot support while splitting the GIFT in
+two asserts a distinction the same genes cannot make.
+
+**What was at risk and how it was kept.** The rule being relaxed was doing real
+work: "the same molecule is input and output" was the *definition* of transport,
+and that is what makes transport required to reach the cytoplasm. Keying
+translocation on a compartment *difference* preserves it and sharpens it, so a
+reversible node in one compartment can never be mistaken for a transporter.
+Four fixtures in `test-compartment.R` pin all four cases, including the negative
+ones.
+
+**Effect.** One new edge in `gift_graph`: `acetate_interconversion` now reaches
+`butyrate_formation` through `ACETYL_COA` as well as `ACETATE`. No call changes,
+no route changes, and no mirrored route was added — a flipped copy would
+complete on identical markers and make closest-route selection
+non-deterministic, so direction stays in the anchors for composition and in
+`route_reaction.orientation` for chemistry. `inst/doc/architecture.md` documents
+the split, including the point that `orientation` is relative to how Rhea writes
+each equation and not to the direction of the GIFT.
+
+### 2026-08-18T14:30Z — Short-chain fatty acid formation curated
+
+**Change.** Six GIFTs are curated: `pyruvate_to_acetyl_coa`, `acetate_interconversion`,
+`butyrate_formation`, `propanediol_formation`,
+`propionate_formation_propanediol` and `propionate_formation_acrylate`.
+Database version moves to 2026.13.1. **The SQL schema is unchanged at version
+6.** One R change went with it, described in the entry below; the curated
+content itself needed none. The biological decisions, their evidence and their effect
+are in `database_changes.tsv`, readable with `database_changelog()`; the source
+provenance and the four refusals are in
+`inst/extdata/database-source/SOURCES.md`.
+
+**Code.** None for the content itself, which is the entry's most useful line.
+The layer needed a marker namespace the metabolic content had never used
+(`TIGRFAM`), a GIFT mode the schema declared but nothing had exercised
+(`interconversion`), and a reaction with no Rhea master — and all three were
+already supported. `.infer_marker_namespace()` has recognised `^TIGR[0-9]{5}$`
+since the evaluator was written, `marker.namespace` has never carried a `CHECK`,
+and `rhea_master` became nullable for the polysaccharide layer. The one R change
+this release does carry is the `interconversion` boundary contract, below, and
+it came from writing that mode's meaning down rather than from the SCFA content.
+
+**Tests.** A new `test-scfa.R` (98 assertions) covers the layer's biology: that
+the chain-length-generic core markers do **not** complete `butyrate_formation`,
+that neither `K01034`/`K01035` nor the butyrate kinase pair completes it, that
+`TIGR03948` does; that adding the generic electron-transfer flavoprotein changes
+no call; that the dehydrogenase complex has two E1 architectures and the
+ferredoxin oxidoreductase two subunit architectures; that a two-of-three PduCDE
+holoenzyme is incomplete; that the acrylate route reports its unannotated
+reductase as a missing reaction rather than scoring it away; and that declaring
+acetyl-CoA an anchor creates no edge from the biosynthesis GIFTs that consume it
+internally.
+
+**Three existing tests changed, and one of them mattered.**
+`test-sugar-degradation.R` asserted that "a degradation GIFT is never upstream of
+anything". That was an accident of coverage, not an invariant: nothing
+downstream of pyruvate or lactaldehyde had been curated. It now asserts what the
+test was actually protecting — that a degradation GIFT is never upstream of a
+*biosynthesis* GIFT, and that its only outgoing edges run through the declared
+anchors `PYRUVATE` and `LACTALDEHYDE`. The other two are roster and row-count
+updates in `test-database.R` and `test-gift-types.R`; the latter became a
+containment check so that the 29 pre-migration metabolic GIFTs are still
+protected from changing type without freezing the set they belong to.
+
+**Effect on users.** Six new callable GIFTs, and the composition graph now runs
+from polysaccharide saccharification through sugar catabolism to a named
+fermentation product. `gift_profile()` reports `cross_feeding_output` as 0 for
+the whole layer and `resource_strategy` as `private`, which is deliberate: no
+SCFA transporter marker licenses the extracellular anchor that cross-feeding
+would need, so the model declines to claim it. No existing GIFT call changes.
+
+### 2026-08-18T14:00Z — SCFA formation assessed, then curated
+
+The assessment is `inst/doc/proposal-scfa-biosynthesis.md`; the content it
+recommended is release 2026.13.1, described in the entry below. **No schema and
+no R change** — this is a content release, and the proposal's first claim was
+that it could be.
+
+**Change.** Eight candidate short-chain fatty acid formation traits were tested
+against the evidence available in KEGG, Rhea, ChEBI, MetaCyc and
+InterPro/NCBIfam. Three are recommended for curation, one conditionally, and
+four are refused. A prerequisite `pyruvate_to_acetyl_coa` GIFT is recommended
+alongside them, because giftr's catabolic content currently ends at `PYRUVATE`
+and the SCFA layer would otherwise be an island in `gift_graph`.
+
+**Why it is worth reading before the next content release.** The layer needs no
+schema migration and no R change, and it is the first candidate layer where the
+*evidence* rather than the ontology is the binding constraint, in two ways the
+existing proposals had not met:
+
+- *KEGG orthology is insufficient for butyrate, measurably.* A KO-evidenced
+  butyrate trait calls *Faecalibacterium prausnitzii*, *Roseburia intestinalis*
+  and *Agathobacter rectalis* negative, and *Bacillus subtilis* positive; of 366
+  KEGG organisms completing the core plus a terminal KO, 120 are *Bacillus*. The
+  marker that does carry the claim is NCBIfam `TIGR03948` — which
+  `.infer_marker_namespace()` already recognises and no curated row has ever
+  used. The refusal is a marker-namespace gap, not an ontology gap, and the fix
+  is the same one the collagenase `PFAM PF01752` row already took.
+- *Fermentative end-product markers are direction-blind.* Every trait giftr
+  carries today is directionally unambiguous. Pta–AckA runs both ways, and the
+  methylmalonyl-CoA genes of the propionate succinate route are the same genes
+  KEGG module M00741 uses to degrade propanoyl-CoA. The proposal adds a second
+  clause to the specificity test for this, and recommends `mode =
+  'interconversion'` — the schema's fourth mode value, so far unused — for the
+  acetate node.
+
+**Effect.** None on behaviour. The document records four refusals with their
+evidence and their trigger conditions, so that the next reader who finds `buk`
+missing from the database learns why rather than adding it.
+
 ### 2026-08-18T12:00Z — Regulatory and defense models gain curated content
 
 **Change.** Five GIFTs are curated, filling the two typed models that shipped

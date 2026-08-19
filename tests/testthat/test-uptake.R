@@ -55,8 +55,15 @@ test_that("a dual-specificity importer serves both pentoses", {
   # XacGHI is characterised on L-arabinose and D-xylose, so it is an
   # alternative system for both reactions rather than a marker of one.
   result <- evaluate_gifts(ko_annotations(c("K25045", "K25046", "K25047")))
-  transport <- result$gifts[result$gifts$mode %in% "transport", ]
+  pentose_uptake <- c("xylose_uptake_abc", "arabinose_uptake_abc")
+  transport <- result$gifts[result$gifts$gift_id %in% pentose_uptake, ]
   expect_true(all(transport$complete))
+  # Scoped to the pentoses on purpose: the dual-specificity claim is about
+  # those two substrates, and other transport GIFTs must not be swept into it
+  # by a mode filter. Taurine uptake, curated later, is correctly negative here.
+  expect_false(result$gifts$complete[
+    result$gifts$gift_id == "taurine_uptake_abc"
+  ])
 
   expect_setequal(
     unique(get_reaction_systems("RHEA:29899")$system_id),

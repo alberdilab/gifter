@@ -122,9 +122,17 @@ as the pathway a reader arrives from.
 
 The namespace is open. `KEGG_MODULE` and `KEGG_PATHWAY` accessions are curated
 today, taken from the KEGG module and pathway listings retrieved on 2026-08-17.
-MetaCyc identifiers are accepted by the schema but are not curated yet: they
-could not be verified against a public MetaCyc endpoint during this release,
-and unverified pathway accessions are not recorded.
+MetaCyc identifiers are accepted by the schema but are not curated. The reason
+recorded here through database 2026.17.1 — that no public MetaCyc endpoint could
+be reached — was **corrected on 2026-08-18**: `https://websvc.biocyc.org/getxml`
+returns full pathway records for objects addressed by ID, though the search
+endpoint remains HTML- and captcha-gated, so records can be cited but not
+discovered programmatically. The reason giftr cites no MetaCyc row is therefore
+structural rather than practical: a pathway record fixes no input and output
+boundary a genome can be scored against, states no alternative minimal routes as
+separate objects, and carries no marker layer. giftr's boundaries come from where
+genomes measurably differ. See `inst/doc/proposal-nitrogen-compound-catabolism.md`
+section 4.
 
 ## Reaction identity, compartment, and mode (database 2026.09.2, schema 4)
 
@@ -397,3 +405,604 @@ KEGG map02030, and `phosphate_starvation_response` is `subset_of` map02020. The
 two defense GIFTs carry no link: KEGG describes prokaryotic defense systems in a
 BRITE hierarchy, which is not a pathway record whose boundaries could be
 compared, the same reason `collagen_cleavage` and `type_iva_pilus` carry none.
+
+## Short-chain fatty acid formation, 2026-08-18
+
+Curated in release 2026.13.1 as six GIFTs. The full evidence test, including the
+candidates that were refused, is
+[the SCFA proposal](../../doc/proposal-scfa-biosynthesis.md).
+
+### Sources used
+
+- KEGG module M00579: <https://www.kegg.jp/module/M00579>. The only module in
+  the layer; KEGG has none for butyrate formation and none for propionate
+  formation, so five of the six GIFTs are giftr curation rather than a KEGG
+  import.
+- KEGG orthology-to-gene links, `https://rest.kegg.jp/link/genes/ko:<KO>`,
+  reduced to organism codes and intersected locally. 49 orthology groups over
+  the 11856 organisms that carry at least one of them; the KEGG genome list
+  (11949 entries) supplied genus attribution.
+- KEGG reaction records for the cross-references in `reaction_xrefs.tsv`, taken
+  from each orthology group's own `REACTION` field rather than assigned by hand.
+- Rhea release 141 for all eighteen reactions.
+- ChEBI release 253 for the six new anchors.
+- InterPro and NCBIfam, `https://www.ebi.ac.uk/interpro/api/`, retrieved
+  2026-08-18: entry records and protein match listings for TIGR03948, TIGR02706
+  and TIGR02707.
+- MetaCyc was consulted and is **not** cited by any row. Its pathway pages
+  returned no content without a subscription on 2026-08-18, and the boundaries
+  it would have supplied are already fixed by Rhea and by the anchor cuts below.
+
+### A new marker namespace, for one component
+
+`TIGRFAM TIGR03948` is the first non-KO, non-CAZy marker in the metabolic layer,
+and it carries the whole specificity of `butyrate_formation`. KEGG assigns EC
+2.8.3.8 and EC 2.8.3.9 to the same pair of accessions, K01034 and K01035, so no
+orthology group separates the enzyme that releases butanoate from the
+acetoacetate degradation transferase of *E. coli*. The consequences were
+measured before the namespace was changed rather than after:
+
+| Rule | Organisms | What it gets wrong |
+|---|---:|---|
+| acetyl-CoA core + Ptb/Buk | 366 | 120 *Bacillus*, 16 *Geobacillus*; none ferment to butyrate |
+| acetyl-CoA core + K01034/K01035 | 344 | includes *B. subtilis* 168 |
+| any terminal KO, in 39 genomes of canonical butyrate-producing genera | 9 | *F. prausnitzii*, *R. intestinalis* and *A. rectalis* all negative |
+| `TIGR03948` | 178 proteins / 171 proteomes | led by *Faecalibacterium*, *Roseburia*, *Eubacterium*, *Anaerostipes*; no *Bacillus*, *Escherichia*, *Salmonella* or *Pseudomonas* |
+
+No R change was needed: `.infer_marker_namespace()` already recognised
+`^TIGR[0-9]{5}$`, and `marker.namespace` has never carried a `CHECK`.
+
+### Reaction identity: four choices worth checking
+
+Rhea covers every reaction in the layer, but three of its EC-level masters are
+parents whose acyl chain length is unspecified, and picking a parent would have
+let a route claim a product its chemistry does not fix.
+
+- **RHEA:30071**, `butanoate + acetyl-CoA = butanoyl-CoA + acetate`, is used
+  rather than **RHEA:13381**, the EC 2.8.3.8 master `an acyl-CoA + acetate`.
+- **RHEA:26558**, `(3S)-3-hydroxybutanoyl-CoA = (2E)-butenoyl-CoA + H2O`, is
+  used rather than **RHEA:52664**, the generic short-chain master that EC
+  4.2.1.150 maps to. It is also not RHEA:17849, which is the (3R) reaction.
+- **RHEA:16197** (NADP) is used for the dehydrogenase because KEGG assigns
+  K00074 to R01976. The NAD-dependent **RHEA:30799** is the same enzyme's
+  alternative cofactor mode, is annotated to the same orthologue, and is
+  therefore not a genomically distinct route — the same treatment KEGG's
+  ammonia-dependent R01230 receives in the guanylate GIFT.
+- **RXN_LACTATE_COA_TRANSFER** carries no Rhea master. Rhea's EC 2.8.3.1 master
+  RHEA:23520 covers only the propanoate/acetyl-CoA transfer, so the
+  lactate-accepting transfer of the acrylate pathway is identified by KEGG
+  R01449 and EC 2.8.3.1 through the nullable-master path.
+
+One anchor is more specific than the reaction that consumes it. `PROPANEDIOL`
+is the (S) diol (CHEBI:29002), because that is what the lactaldehyde reductase
+produces and it matches the existing (S)-`LACTALDEHYDE` anchor; RHEA:14569 is
+stereochemically unspecified in Rhea (CHEBI:16997). The boundary is stated at
+the higher specificity and the reaction at the lower, which is recorded here
+rather than resolved by weakening the anchor.
+
+### Measurements, not assumptions
+
+| Question | Counts | Consequence |
+|---|---|---|
+| Does one E1 architecture cover the dehydrogenase complex? | alpha/beta E1 with E2 and E3 in 5406 organisms; fused AceE-type E1 with E2 and E3 in 4813; union 9518 | RHEA:28042 carries **two** enzyme systems. Accepting either alone would call *E. coli* or *B. subtilis* negative for chemistry it has. |
+| Is PorABCD enough for the ferredoxin route? | four-subunit PorABCD in 499; fused NifJ-type in 2202 | Two systems again. Most gut anaerobes carry only the fused protein. |
+| Do all three pyruvate routes earn their place? | 10961 of 11856 organisms complete at least one | Yes, and the three differ in oxygen requirement, which is a route property. |
+| Should EtfAB be required of the butanoyl-CoA dehydrogenase? | K03521 with K03522 in 7729 organisms; 20 of the 39 reference butyrate-producer genomes carry both while 31 complete the core | **No.** They are the generic *fixA*/*fixB* orthologues; requiring them costs recall and adds no specificity. |
+| Is the acrylate route worth curating at its coverage? | pct with both lcdAB subunits in 13 organisms, all characterised acrylate-pathway producers; acryloyl-CoA reductase K20143 in 4 of them | Curated with the reductase **required**. Nine genomes are reported incomplete with RHEA:34471 named, following the serine phosphatase precedent. |
+
+### Refusals recorded with the content
+
+- **The butyrate kinase route.** Ptb and Buk serve branched-chain acyl-CoA
+  metabolism in aerobic Bacillota. At sequence-family level the picture is the
+  same as at KO level: TIGR02707 matches 2279 proteins with *Bacillus* the
+  second most frequent genus, TIGR02706 matches 573 with *Bacillus* second after
+  *Clostridium*. No namespace change repairs it.
+- **K01034 and K01035** are refused as evidence for the butyrate terminal step,
+  for the reason in the table above.
+- **The succinate (Wood-Werkman) route to propionate.** Its markers are the
+  genes KEGG module M00741 uses in the *degradative* direction. Mutase with
+  decarboxylase and a candidate CoA-transferase is complete in 177 organisms,
+  or 293 including the carboxyltransferase K17489, led by *Corynebacterium*
+  (70), *Escherichia* (19), *Cutibacterium* (16) and *Klebsiella* (13);
+  *Bacteroides thetaiotaomicron* is negative.
+- **Lactate and formate** are out of scope by chain length and chemical class,
+  not by evidence. Pyruvate formate-lyase is nonetheless curated, as one route
+  of `pyruvate_to_acetyl_coa`, where formate is a co-product rather than a claim.
+- **Valerate, caproate and the branched SCFAs.** No chain-length-specific marker
+  exists for chain elongation, and the branched acids share the *Bacillus*
+  enzymes refused above.
+- **A compartment for any SCFA anchor.** The only candidate transporter marker
+  is K07034, a family-level uptake annotation for a bidirectional channel, and
+  there is no butyrate or propionate transporter accession at all. All six
+  anchors are therefore `unspecified`, `gift_profile.cross_feeding_output` stays
+  0 across the layer, and acetate cross-feeding — the textbook case — remains
+  something the model cannot say. Revisit behind substrate-specific transporter
+  evidence, the same licence that governs oligosaccharide anchors.
+
+### External links
+
+`acetate_formation` is `equivalent` to M00579; the same boundaries and the same
+two reactions, with direction recorded per route and stated not to be evidenced
+by the markers. The other five are `subset_of` a KEGG pathway map: map00620 for
+the pyruvate node, map00650 for butyrate, map00640 for the propionate GIFTs and
+for propanediol formation. M00741 carries no link, because it describes the
+opposite direction of chemistry that no curated GIFT contains.
+
+### The acetate node is declared reversible, 2026-08-18
+
+`acetate_interconversion` (renamed from `acetate_formation` during review)
+declares `ACETYL_COA` and `ACETATE` as **both** input and output. This is the
+first GIFT to use `mode = 'interconversion'`, and the reason is evidential
+rather than stylistic.
+
+KEGG M00579 records one direction, acetyl-CoA to acetate. The same
+phosphotransacetylase and acetate kinase run the reaction towards acetyl-CoA in
+a genome growing on acetate — *Escherichia coli* does exactly this at high
+acetate — and no marker separates the two physiologies. Two ways of hiding that
+were rejected:
+
+- **One-way anchors** assert a direction the markers do not support. The GIFT's
+  own description already said so; the boundary contradicted it.
+- **Two GIFTs**, a formation and an assimilation, assert a distinction the same
+  two accessions cannot make, which is what invariant 16 forbids.
+
+The route is *not* mirrored. `ACETATE_PTA_ACKA` records one traversal, and a
+flipped copy would complete on identical markers, report two complete routes for
+one capability, and make closest-route selection non-deterministic. Direction
+lives in the anchors for composition and in `route_reaction.orientation` for
+chemistry, and those answer different questions.
+
+`orientation` is worth stating plainly here, because it reads as a
+contradiction: it is relative to how Rhea writes each reaction's own equation,
+not to the direction of the GIFT. Rhea writes acetate kinase in its named,
+acetate-consuming direction, so the two steps chain only if one is flipped:
+
+```text
+RHEA:19521  acetyl-CoA + phosphate = acetyl phosphate + CoA   forward
+RHEA:11352  acetate    + ATP       = acetyl phosphate + ADP   reverse
+            acetyl-CoA -> acetyl phosphate -> acetate
+```
+
+Both masters are written towards acetyl phosphate. One of them has to be
+reversed for the route to exist at all, and the `reverse` tag is that bookkeeping
+rather than a claim about pathway direction.
+
+`butyrate_formation` keeps its directional name despite the same evidential
+limit — NCBIfam TIGR03948 explicitly includes the transferase *Syntrophomonas
+wolfei* uses to grow **on** butyrate. It is not declared reversible because
+running the acetyl-CoA core backwards is beta-oxidation, a different route
+with different enzymes, so the assembly direction is a claim the curated
+chemistry does make. The asymmetry is deliberate and is recorded here rather
+than left to be rediscovered.
+
+## Organic acid and neutral fermentation product formation, 2026-08-18
+
+Curated in release 2026.14.1 as six GIFTs. The full evidence test, including the
+five candidates that were refused and the reason the citric acid cycle cannot be
+anchored, is
+[the organic acid proposal](../../doc/proposal-organic-acid-formation.md).
+
+### Sources used
+
+- KEGG orthology-to-gene links, `https://rest.kegg.jp/link/genes/ko:<KO>`,
+  reduced to organism codes and intersected locally. 59 orthology groups over
+  the 11855 organisms that carry at least one of them; the KEGG genome list
+  (11949 entries) supplied genus attribution.
+- KEGG orthology names, `https://rest.kegg.jp/find/ko/<KO>`. One of them is
+  evidence in its own right: K00239, K00240 and K00241 are named `sdhA, frdA`,
+  which is why no succinate formation trait is curated.
+- KEGG reaction-to-pathway links, `https://rest.kegg.jp/link/pathway/rn:<R>`,
+  for the `gift_xrefs.tsv` rows.
+- Rhea release 141 for all nine reactions, with the ChEBI identifiers of the
+  five new anchors read out of the equations that use them rather than assigned
+  by hand.
+- ChEBI release 253.
+- No KEGG module covers any of these six boundaries, and MetaCyc is not cited.
+
+### The layer's result: a direction that is evidenced, not asserted
+
+The SCFA layer had to declare acetate an interconversion because Pta–AckA runs
+both ways on one pair of genes. Lactate is the first fermentation end product
+curated here where the markers themselves carry the direction, and the reason is
+chemical: forming lactate is a cytoplasmic NADH-consuming reduction, while
+consuming it feeds electrons to a quinone or a cytochrome.
+
+| Direction | Enzyme | KO | Organisms |
+|---|---|---|---:|
+| forming | L-lactate dehydrogenase, NAD, EC 1.1.1.27 | K00016 | 4143 |
+| forming | D-lactate dehydrogenase, NAD, EC 1.1.1.28 | K03778 | 3133 |
+| consuming | L-lactate dehydrogenase, quinone (`lldD`) | K29125 | 3388 |
+| consuming | L-lactate dehydrogenase, cytochrome | K00101 | 194 |
+| consuming | D-lactate dehydrogenase, quinone (`dld`) | K03777 | 1257 |
+| consuming | D-lactate dehydrogenase, cytochrome | K00102 | 2664 |
+
+Only 573 organisms carry both K00016 and K29125. Every lactic acid bacterium
+checked carries the forming group and not the consuming one; *Escherichia coli*,
+*Salmonella* Typhimurium and *Pseudomonas aeruginosa* are the reverse. The four
+consuming groups are recorded as refused markers, not accepted as alternatives.
+
+D-lactate formation is deferred rather than curated: K03778 is specific to the
+right chemistry but its leading genera are *Pseudomonas* (224), *Streptomyces*
+(158) and *Burkholderia* (90), obligate aerobes running the reaction
+oxidatively. The (R)-lactate anchor is reached through the racemase instead,
+which is what the organisms actually do — of the ten KEGG genomes behind
+`propionate_formation_acrylate`, eight carry K22373 and only two carry K03778.
+
+### Refusals recorded with the content
+
+| Candidate | Best marker set | Organisms | Why refused |
+|---|---|---:|---|
+| Succinate formation, `frdABCD` | K00244–K00247 with a carboxylase, malate dehydrogenase and fumarase | 1049 | *Vibrio* 91, *Escherichia* 70, *Klebsiella* 55 — fumarate respirers. *Bacteroides*, *Prevotella* and *Fibrobacter*, the dominant gut succinate producers, are all negative |
+| Succinate formation, fused group | K00239/K00240 accepted as alternatives | 7276 | 61% of the universe, led by *Streptomyces*, *Pseudomonas*, *Bacillus* and *Chlamydia*. This is "has a citric acid cycle" |
+| Fumarate formation | K01756 (`purB`); K01679 (`fumC`) | 11115; 9098 | 93.8% of organisms. giftr already curates the fumarate-releasing chemistry inside `purine_core_biosynthesis` and `adenylate_biosynthesis` |
+| Citrate formation | K01647 (`gltA`) | 8467 | 71% of organisms; citrate is a cycle intermediate, not an excretion product |
+| Formate formation | K00656 + K04069 | 2843 | Not an evidence failure. Anchors are per GIFT, and pyruvate formate-lyase is one of three routes of `pyruvate_to_acetyl_coa` |
+
+Of the 1041 genomes carrying `frdABCD`, 943 also carry `sdhABCD`: the split is a
+paralogue duplication inside one clade, not a functional partition across
+bacteria, so it cannot infer direction anywhere else.
+
+### The structural finding: the citric acid cycle may not be anchored
+
+Checked against the validator rather than argued. Six catabolic GIFTs spanning
+citrate → 2-oxoglutarate → succinate → fumarate → malate → oxaloacetate →
+citrate close a within-mode loop and `.find_graph_cycle()` reports it. Unlike
+the sulfur layer, there is no weak boundary to demote to input-only, because no
+acid in the cycle is only ever consumed — and the cycle runs oxidatively,
+reductively and as a branched horseshoe in different organisms, so no single
+direction is curatable.
+
+Declaring a `FUMARATE` anchor on the GIFTs whose curated reactions already
+involve it adds two edges, `purine_core_biosynthesis` and
+`adenylate_biosynthesis` into `pyrimidine_core_biosynthesis`, both chemically
+true and both meaningless. It would also overclaim: only one of the three
+curated pyrimidine routes uses fumarate.
+
+The constructive half is that a metabolite does not need an anchor to be
+modelled. `citrate_fermentation` passes through oxaloacetate and does not anchor
+it; `malolactic_fermentation` and `citrate_fermentation` take malate and citrate
+as **input-only** boundaries, which makes no claim about how the genome obtained
+them. `tests/testthat/test-organic-acid.R` asserts that no citric acid cycle
+metabolite is a declared output anchor.
+
+### Evidence rests on the specific step, twice
+
+Both decisions repeat the butyrate precedent.
+
+- **Acetoin.** K01652 is named `ilvB, ilvG, ilvI` — the anabolic branched-chain
+  amino acid synthase, in 9341 organisms. The acetolactate synthase step is
+  curated with `required = 0` so the pyruvate boundary stays truthful, its
+  marker mapping is recorded `ambiguous`, and the trait rests on acetolactate
+  decarboxylase K01575 (1649 organisms), which exists only for this pathway.
+- **Citrate.** The trait is the lyase, not the transporter. *E. coli* K-12
+  carries CitT and is aerobically Cit-negative because the gene is not expressed
+  under oxygen; giftr models gene content, not regulation, so requiring K09477
+  would look like a phenotype claim without being one.
+
+### External links
+
+Five of the six GIFTs carry a `KEGG_PATHWAY` reference as `subset_of`
+(map00620 Pyruvate metabolism; map00650 Butanoate metabolism for acetoin). No
+KEGG module covers any curated boundary in this layer.
+
+`citrate_fermentation` carries **no** external link, and the gap is real rather
+than an omission: R00362 has no pathway link at all, and the citrate lyase
+orthology groups appear only in map02020, the two-component system map, which
+describes the CitAB regulator rather than the chemistry.
+
+## Vitamin biosynthesis, 2026-08-18
+
+Curated in release 2026.15.1 as twenty GIFTs covering vitamins B1, B2, B3, B5,
+B6, B7, B9, B12 and K2. The full evidence test, the twelve refusals, and the
+implementation record are in
+[the vitamin proposal](../../doc/proposal-vitamin-biosynthesis.md).
+
+### Sources used
+
+- KEGG orthology-to-gene links, `https://rest.kegg.jp/link/genes/ko:<KO>`,
+  reduced to organism codes and intersected locally. 126 orthology groups scored
+  over all 10151 bacterial genomes of the KEGG release of 2026-08-18.
+- KEGG BRITE `br:br08601` for the domain and phylum attribution used to separate
+  bacterial from eukaryotic prevalence. It is what disqualified two candidates:
+  the tryptophan route to NAD is complete in 545 organisms of which 490 are
+  eukaryotes, and neither ascorbate module completes in a single bacterium.
+- KEGG module records `M00115`–`M00931` for pathway organisation and for the
+  `gift_xrefs.tsv` relations. Their `DEFINITION` expressions were **not** used as
+  boundaries: M00125 defines riboflavin completeness without lumazine synthase or
+  riboflavin synthase, M00119 defines pantothenate without PanC or PanD, and
+  M00127 defines thiamine as ThiF+ThiS+ThiI. Every route here was assembled from
+  the reaction content instead.
+- KEGG per-organism KO assignments, `https://rest.kegg.jp/link/ko/<org>`, for the
+  18-genome validation panel, and `https://rest.kegg.jp/list/<org>` for the gene
+  names that explain two of its results.
+- Rhea release 141 for all 94 reactions. One hundred EC numbers were queried and
+  every one returned a master, so no reaction in this layer uses the nullable
+  `rhea_master` path. Two reactions are identified by a Rhea entry rather than by
+  KEGG's EC assignment: `RHEA:33343` (ThiO, no EC in Rhea) and `RHEA:42440`
+  (aspartate dehydrogenase, EC 1.4.1.29, the iminosuccinate-forming chemistry
+  that feeds quinolinate synthase rather than KEGG's EC 1.4.1.21).
+- ChEBI release 253 for the 31 new anchors.
+- InterPro/Pfam for one refusal only: `PF00590` is *Tetrapyrrole
+  (Corrin/Porphyrin) Methylases*, one family spanning CbiE, CbiF, CbiH, CbiL,
+  CobM and diphthine synthase, so it cannot evidence any individual corrin
+  methyltransferase step.
+- MetaCyc is not cited.
+
+### The layer's result: the orphan step
+
+Four reactions in this layer are certain chemistry with no marker at the
+specificity of the step. They are curated with `route_reaction.required = 0`,
+which keeps them visible in a trace while keeping them out of completeness:
+
+| Reaction | Step | Measured cost of requiring it |
+|---|---|---|
+| `RHEA:25197` | riboflavin ribityl phosphatase | 7943 → 2682 bacterial genomes |
+| `RHEA:25302` | folate dihydroneopterin triphosphate diphosphatase | 5898 → 1634 |
+| `RHEA:25597` | menaquinone MenH | classical route 3109 → 1355, with the next row |
+| `RHEA:26309` | menaquinone DHNA-CoA thioesterase | as above |
+
+The rule that keeps this honest is that the marker is never widened instead. The
+folate dihydroneopterin monophosphatase step is **not curated at all**, because
+the only markers offered for it (`K01077`, `K01113`) are generic alkaline
+phosphatases assigned in 3202 and 2770 bacterial genomes.
+
+### Measurements, not assumptions
+
+- Nucleotide loop without a ring: 4139 genomes carry the loop, 3044 of them no
+  corrin ring at all. This is why cobalamin is four GIFTs and not one.
+- Lower ligand: of 1081 genomes completing ring, cobinamide arm and loop, 538
+  carry BluB. A cobamide is not vitamin B12 unless the ligand is
+  dimethylbenzimidazole.
+- Corrin ring recall: *Propionibacterium freudenreichii* is called incomplete
+  because `PFREUD_07710` (`cysG_cbiX`) and `PFREUD_07700`
+  (`cobJ_cbiE_cbiG_cbiH`) are fusions KEGG assigns to none of the component
+  orthology groups.
+- Isochorismate synthase: *Bacteroides thetaiotaomicron* annotates `BT_4700` as
+  `entC` and carries no `menF`. Accepting `K02361` for the reaction raises the
+  complete classical route from 1355 to 3109 genomes.
+- Thiazole sulfur carrier: requiring ThiS and ThiF drops the branch from 5396 to
+  1554 genomes, and neither marker is thiamine-specific.
+- The layer partitions bacteria rather than describing them: 1087 of 10151
+  genomes complete none of the nine vitamin capabilities, 228 complete all nine,
+  and half complete four or fewer.
+
+### Refusals recorded with the content
+
+Twelve, in `database_changes.tsv`: a single cobalamin trait, vitamin C, the
+tryptophan route to NAD, biotin precursor supply, the anaerobic route to the
+lower ligand, cobalamin uptake, alkaline phosphatase as folate evidence,
+cofactor activation of every vitamin in the layer, the GMP-to-GTP
+phosphorylation, glyceraldehyde 3-phosphate as an anchor of vitamin B6, ThiS and
+ThiF as required components, and vitamin provision as a trait of its own.
+
+### External links
+
+`gift_xrefs.tsv` records 25 KEGG module links for this layer. Only five are
+`equivalent`; the rest are `subset_of`, `superset_of`, `overlaps` or `related`,
+which is the honest summary of how far the module boundaries are from the
+capabilities a genome actually gains or loses.
+
+## Circular central metabolism, 2026-08-18
+
+Database 2026.16.1, schema unchanged at 6. Four segment GIFTs of the oxidative
+citric acid cycle, four anchors, fourteen reactions. Full assessment in
+`inst/doc/proposal-central-metabolic-cycles.md`.
+
+This layer **reverses a recorded finding**. The organic acid assessment
+concluded that citric acid cycle intermediates cannot be anchors. That was right
+about product claims — whether a genome can be said to form and release citrate,
+fumarate or succinate — and those five refusals stand unchanged. It was wrong
+about capability claims, which is what every other giftr GIFT makes.
+
+### Sources used
+
+- **KEGG orthology-to-gene links**, `https://rest.kegg.jp/link/genes/ko:<KO>`:
+  67 orthology groups over the 11 783 organisms carrying at least one of them.
+- **KEGG gene-to-orthology**, `https://rest.kegg.jp/link/ko/<gene>`, for four
+  individual genes. These four lookups carry the citrate synthase decision.
+- **KEGG modules** `M00009`, `M00010`, `M00011` for the external boundaries.
+- **Rhea release 141** for all fourteen reactions, every KEGG reaction and EC
+  cross-reference, and every ChEBI identifier, each taken from the `chebi-id`
+  column of a reaction that uses it.
+
+### Measurements, not assumptions
+
+| Question | Counts | Consequence |
+|---|---|---|
+| Does segmenting the cycle distinguish genomes? | all **16 of 16** configurations of the four segments occupied; complete cycle 7415 (62.9%), none 1529 (13.0%), branched `U--F` 195 led by *Helicobacter* 80 | Yes. A monolithic trait collapses 4368 genomes into one uninterpretable class. |
+| Can the succinate/fumarate direction be evidenced? | `K00239` is named by KEGG **`sdhA, frdA`**, 8047 organisms; dedicated `frdAB` 1059, almost all Enterobacteriaceae | **No.** The segment is `interconversion`; two directional GIFTs would be complete on identical markers in 8047 genomes. |
+| Is `K01647` enough for citrate synthase? | strict 8425 (71.5%) and *B. thetaiotaomicron*, *S. aureus*, *Synechocystis* negative; with `K01659` 9717 (82.5%) and *Streptococcus* 64, *Listeria* 48 positive | Neither setting is right. `K01659` is accepted at `ambiguous` confidence — and KEGG's own `M00010` definition lists it as a citrate synthase alternative. |
+| Which aconitase groups are needed? | `K01681` ∪ `K01682` alone is 4565 and calls *B. subtilis* and *M. tuberculosis* negative; adding `K27802` gives 10 031 | All three. `K27802` was split out of `K01681` by KEGG. |
+| Should the cytochrome b anchor be required of succinate dehydrogenase? | `K00239`+`K00240` 8047; adding `K00241` 7645 | **No.** 402 genomes would be called negative on a poorly conserved membrane subunit. |
+| Do the three routes to succinate earn their place? | dehydrogenase complex 6902, ferredoxin oxidoreductase 3288, decarboxylase bypass 1420; 8932 complete at least one | Yes. The bypass is what makes *M. tuberculosis* and *C. glutamicum* positive without an E1o component. |
+| Is exposing citrate safe? | giftr's own edge derivation closes `citrate_fermentation -> pyruvate_to_acetyl_coa -> citrate_synthesis -> citrate_fermentation` | **No.** Citrate stays an internal intermediate and an input-only boundary. |
+
+### The acyclicity check was scoped, not relaxed for this content
+
+Two synthetic reversible GIFTs sharing one fixture anchor — no citric acid
+chemistry — already failed the build, because `interconversion` declares every
+anchor in both roles and two of them therefore cycle by construction. The check
+now covers the three directed modes only. Under the curated content every
+directed mode remains acyclic, which is asserted against the compiled database
+rather than a fixture.
+
+### The cycle is derived
+
+No circuit table was added. The oxidative citric acid cycle is an elementary
+cycle of the composition graph that `gift_cycles()` finds from four anchor
+declarations. Only its name is curated, as the new multi-valued `metabolic_cycle`
+GIFT facet, so structure and naming cannot drift apart.
+
+### External links
+
+`gift_xrefs.tsv` records 13 links for this layer. One is `equivalent`
+(`acetyl_coa_to_oxoglutarate` to `M00010`, the same three reactions between the
+same endpoints); the other twelve are `subset_of`, because giftr cuts `M00011`
+at succinate and fumarate and cuts `M00009` four ways.
+
+## Nitrogen compound catabolism (database 2026.18.1, schema 6)
+
+Fourteen GIFTs covering ureide, inorganic nitrogen, methylated amine and
+organosulfonate catabolism, plus a boundary amendment to the two amino sugar
+GIFTs. The assessment behind them, including everything refused, is
+`inst/doc/proposal-nitrogen-compound-catabolism.md`.
+
+### Sources
+
+- Rhea release 141, `https://ftp.expasy.org/databases/rhea/tsv/rhea2ec.tsv` and
+  the Rhea REST API, retrieved 2026-08-18. All 37 reactions of this layer carry
+  a Rhea master; none needed the nullable `rhea_master` path.
+- ChEBI release 253 for the 16 new anchors. Each identifier was taken from the
+  participant list of the Rhea reaction that uses it rather than by name lookup,
+  which is why several anchors name a protonation or tautomer state:
+  `CHEBI:15678` is (S)-allantoin rather than the racemate, `CHEBI:58389` is
+  trimethylammonium, and `CHEBI:17775` is the urate species `RHEA:21368` uses.
+- KEGG orthology and `link/genes/ko:` gene-to-organism sets, retrieved
+  2026-08-18 from `https://rest.kegg.jp/`. Prevalence figures in
+  `database_changes.tsv` are intersections of those sets with the 10 151
+  bacterial organism codes of BRITE `br08601`, computed locally. KEGG module
+  completeness was not used.
+- KEGG module `M00531` and pathway maps `map00230`, `map00220`, `map00910`,
+  `map00260`, `map00330`, `map00430` and `map00680`, listed 2026-08-18.
+- distillR 1.x `GIFT_db` as installed, read 2026-08-18, used only as the
+  coverage checklist that enumerated the twelve candidate compounds. It is not
+  an evidence source, and section 12 of the proposal records three of its
+  definitions that do not survive the marker specificity invariant.
+- MetaCyc is not cited by any row; see the correction above.
+
+### Where giftr departs from KEGG
+
+`M00531` is the one module in this layer whose boundaries match a GIFT exactly,
+and it is linked `equivalent`. Everything else is `subset_of`. `map00910` is the
+clearest case: it carries assimilation, respiration, denitrification and
+nitrification on one map, and giftr curates only the first, because the other
+three need an electron acceptor giftr does not model.
+
+Two KEGG orthology groups were examined and refused rather than used. `K00370`
+is named by KEGG as `nitrate reductase / nitrite oxidoreductase` — one accession
+for two opposite reactions — and `K01485` as `cytosine/creatinine deaminase`,
+where the cytosine activity is the common one. Both refusals are recorded in
+`database_changes.tsv` with the genome counts behind them.
+
+### The orphan steps
+
+Three route steps carry `required = 0`, covering two reactions.
+The OHCU decarboxylase appears in both urate routes and is discounted in each,
+because the step also proceeds spontaneously to racemic allantoin. The betainyl-CoA thioesterase of the carnitine route has one
+orthology group, `K27497`, which is bifunctional with the first step of the same
+route; requiring it drops the capability from 944 genomes to 256.
+
+## Shikimate-derived aromatic biosynthesis (database 2026.17.1, schema 6)
+
+Three GIFTs — chorismate, salicylate and indole-3-acetate — plus a refusal of
+gallate biosynthesis and a new `biosynthetic_family` facet. The assessment
+behind them, including everything refused and deferred, is
+`inst/doc/proposal-shikimate-aromatics.md`.
+
+### Sources
+
+- **Rhea release 141**, via the REST search API, retrieved 2026-08-18. All ten
+  reactions of this layer carry a Rhea master; none needed the nullable
+  `rhea_master` path. Every KEGG reaction and EC cross-reference was taken from
+  the Rhea record, and the four ChEBI identifiers from the `chebi-id` column of
+  a reaction that uses each participant: `CHEBI:58702` phosphoenolpyruvate from
+  `RHEA:14717`, `CHEBI:30762` salicylate from `RHEA:27874`, `CHEBI:57912`
+  L-tryptophan from `RHEA:16165` and `CHEBI:30854` (indol-3-yl)acetate from
+  `RHEA:34371`.
+- **KEGG release of 2026-08-18** (11 949 genomes). Orthology definitions from
+  `get/ko:`, prevalence from `link/genes/ko:` intersected with the bacterial and
+  archaeal leaves of BRITE `br08601`, which gives the same 10 151 bacterial and
+  470 archaeal denominators the vitamin layer used. Module `M00022` and pathway
+  maps `map00400`, `map01053` and `map00380` for the external links only.
+- **NCBIfam/InterPro**, retrieved 2026-08-18, for `TIGR00507` (InterPro
+  `IPR011342`), the one non-KO marker of this layer.
+- Individual gene records `mtu:Rv2552c` and `syn:slr1559`, which carry the
+  RefSeq annotation "shikimate 5-dehydrogenase" and no KO, and `stm:STM2405`,
+  which KEGG assigns to `K04103` under the annotation "putative thiamine
+  pyrophosphate enzymes". Those three lookups carry the two hardest decisions of
+  the layer.
+
+### Measurements, not assumptions
+
+| Question | Counts | Consequence |
+|---|---|---|
+| Should the shikimate dehydrogenase step be required? | Route 5420 with it, **7644** without; the 2224 in the gap include 201 of 213 Cyanobacteriota and 1061 of 1642 Actinomycetota | **No.** `required = 0`. The gap is a KO coverage hole, confirmed on two genomes whose gene is annotated and unassigned. |
+| Does adding `TIGR00507` and `K05887` help? | `K05887` moves the route by 180 bacteria; `TIGR00507` reaches genomes with no KO at all | Both accepted, `K05887` at `ambiguous` confidence. `K25901` refused: EC 1.1.1.24 is a different Rhea master. |
+| Should the pathway be cut at 3-dehydroquinate? | Second segment without the first: **119** bacteria, but **270** archaea, 266 of them carrying `K11646` | **No** for bacteria, and the archaeal route is excluded rather than accommodated: it consumes different precursors, so it cannot be a route between these anchors. |
+| Is `K13830` worth carrying from M00022? | **0** of 10 151 bacteria and 0 of 470 archaea | Dropped. It is the eukaryotic AROM polypeptide. |
+| Are PchA/PchB and MbtI two routes? | KEGG assigns `K04781` both EC 5.4.4.2 and EC 4.2.99.21; 104 of 109 `pchA` genomes also carry `pchB` | **No.** Same two transformations, one bifunctional protein — the PabBC shape, curated at the system layer. |
+| What does sharing `RHEA:18985` cost menaquinone? | ICS step moves 4047 to 4203, but only **7** genomes gain menaquinone | Acceptable, and recorded rather than hidden. The eight remaining *men* steps supply the specificity. |
+| Is `K04782` standing in for chorismate mutase? | 90.3% of its carriers also carry a separate chorismate mutase KO, against an 84.6% baseline; 706 of 1017 carry no isochorismate synthase at all and cannot complete the route | **No**, and the ones that could not complete the route are excluded by route logic rather than by marker judgement. |
+| Can the indole-3-pyruvate route be evidenced? | `K04103` in 648 bacteria, 417 of them Enterobacteria, assigned in *Salmonella* to a putative ThDP enzyme; the other two steps are a generic aminotransferase and a generic aldehyde dehydrogenase | **No.** Refused, with the tryptamine, nitrile and side-chain oxidase routes. |
+| Does the broad amidase belong in the auxin route? | 49 bacteria on `K21801` alone, **86** with `K01426` added; `K01426` alone matches 4948 | Accepted at `ambiguous` confidence only, because `K00466` upstream already bounds the route to 92 genomes. |
+| Can gallate biosynthesis be evidenced at all? | Rhea has **9** gallate reactions and **0** forming it from 3-dehydroshikimate; KEGG has 8 gallate KOs, all degradative or plant | **No.** Refused for want of a reaction identity, before the marker question arises. |
+
+### Refusals recorded with the content
+
+`gallate_biosynthesis`, the three alternative auxin routes, `K25901` for the
+shikimate dehydrogenase step and `K13830` for the multifunctional steps are each
+recorded in `database_changes.tsv` or in the marker note that refuses them, not
+only in the proposal.
+
+### External links
+
+`gift_xrefs.tsv` records four links for this layer. `M00022` is `overlaps`
+rather than `equivalent` — the endpoints match but giftr does not require the
+shikimate dehydrogenase step, accepts YdiB, and drops `K13830`. The three
+pathway maps are `subset_of`, because each carries chemistry beyond the curated
+boundary: `map00400` continues to the aromatic amino acids, `map01053` to the
+assembled siderophores, and `map00380` to every other fate of tryptophan.
+
+## Amino acid metabolism, release 2026.19.1
+
+Curated 2026-08-19 against KEGG release of 2026-08-18 (11 949 genomes, of which
+10 151 bacterial, taken from BRITE `br08601`), Rhea release 141 and ChEBI
+release 253. Twenty-eight GIFTs: eighteen biosynthetic, completing the fifteen
+proteinogenic amino acids giftr did not cover, and ten degradation or
+transformation capabilities. The full assessment, including the twelve
+candidates that were refused or deferred, is
+[the amino acid metabolism proposal](../../doc/proposal-amino-acid-metabolism.md).
+
+### KEGG modules consulted
+
+M00015, M00016, M00019, M00023, M00024, M00025, M00026, M00028, M00040, M00045,
+M00432, M00525, M00526, M00527, M00535, M00570, M00763, M00844. KEGG supplied
+pathway organisation and orthology assignment; every reaction identity,
+direction and cross-reference comes from Rhea.
+
+### Where giftr's boundaries are its own, and why
+
+| Decision | KEGG | giftr | Reason |
+|---|---|---|---|
+| Lysine | four modules from L-aspartate to L-lysine, each repeating the aspartate trunk | one `dap_biosynthesis` with four routes, cut at meso-diaminopimelate, plus `lysine_biosynthesis_dap` | The four are alternative implementations of one capability: 51.4, 5.6, 6.8 and 17.2% of bacterial genomes separately, 75.3% as routes of one GIFT. meso-DAP is also the peptidoglycan cross-link residue. |
+| Branched-chain | M00019 fuses valine and isoleucine because the enzymes are shared | cut at 3-methyl-2-oxobutanoate and at 2-oxobutanoate, one GIFT per amino acid | The shared enzymes act on different substrates, so the reactions differ; the 2-oxo acid supply is what separates the traits, and 2-oxoisovalerate was already an anchor pantothenate consumed. |
+| Leucine | M00432 stops at 2-oxoisocaproate | continues to L-leucine | The amino acid is the capability; the transamination is the enzyme already curated for valine. |
+| Threonine deamination | inside M00570, as a step of isoleucine biosynthesis | its own catabolic GIFT, composed into isoleucine through the 2-oxobutanoate anchor | The chemistry is a deamination wherever it runs. Curating it twice would duplicate a reaction. |
+| Aromatic transamination | requires `K00832` or `K00838` | accepts `K00832`, `K05821`, `K00812`, `K00813`, `K11358`, `K00826` | Requiring the KEGG pair calls phenylalanine in 2296 genomes where the aryl skeleton is in 7796. Recorded as `DBC-20260819-AROMATIC-TRANSAMINASE-WIDENED`. |
+| Glutamine | inside ammonium assimilation | its own GIFT, sharing the glutamine synthetase reaction | Four curated GIFTs consume the amide nitrogen, and the GS-GOGAT route consumes its glutamine internally, so the two cannot compose through an anchor. |
+| DapB cofactor | `R04198` (NADH) and `R04199` (NADPH) | `RHEA:35331` only | One orthology group serves both, so a second route would multiply the four diaminopimelate routes with no genomic discrimination. Recorded in the reaction description. |
+| Arogenate routes | M00040, M00910 | not curated | `K01850` and `K15849` are annotated in no bacterial genome. |
+| LysW ornithine route | M00763 | not curated | `K19412` is annotated in no bacterial genome. |
+
+### Refusals recorded with the content
+
+Tyramine formation (no bacterial orthology group for tyrosine decarboxylase),
+tryptamine formation (only the polyspecific aromatic decarboxylase `K01593`),
+p-cresol formation (32 bacterial genomes on `K18427`+`K18428`), glutamate
+fermentation to butyrate (no genome completes either route at KO level), and the
+promiscuous PLP enzymes as evidence for cysteine desulfidation are refused in
+the proposal; the last is recorded in `database_changes.tsv` as
+`DBC-20260819-CYSTEINE-SULFIDE-UNDERCALLED` because it bounds a curated claim.
+
+### External links
+
+`gift_xrefs.tsv` records 33 links for this layer. `equivalent` is used only
+where the boundaries match exactly (M00015, M00023, M00026, M00028, M00535,
+M00844, M00045, and M00024/M00025 where only the marker set is wider);
+`subset_of` where giftr curates part of a module (M00016, M00019 twice, M00570
+twice, M00027); `overlaps` where the diaminopimelate branch crosses all four
+lysine modules without matching any of their boundaries; `superset_of` where it
+continues past one (M00432); and `related` for the two routes refused on
+evidence. Capabilities with no module at all -- alanine, aspartate, asparagine,
+glutamine, and six of the ten catabolic GIFTs -- link to the KEGG pathway map as
+`overlaps`.

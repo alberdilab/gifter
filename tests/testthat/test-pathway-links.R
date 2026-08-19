@@ -51,7 +51,16 @@ test_that("one module can resolve to the several GIFTs that split it", {
     )
   )
   expect_true(all(gifts$relation == "subset_of"))
-  expect_equal(nrow(gifts_for_pathway("M00016")), 1L)
+  # M00016 runs from L-aspartate to L-lysine and now overlaps three curated
+  # boundaries: the semialdehyde trunk, the diaminopimelate branch, and the
+  # decarboxylation that is its final step.
+  expect_setequal(
+    gifts_for_pathway("M00016")$gift_id,
+    c(
+      "aspartate_semialdehyde_biosynthesis", "dap_biosynthesis",
+      "lysine_biosynthesis_dap"
+    )
+  )
   expect_equal(nrow(gifts_for_pathway("M99999")), 0L)
 })
 
@@ -61,21 +70,40 @@ test_that("pathway links are filterable and KEGG context is complete or named", 
   expect_true(all(modules$namespace == "KEGG_MODULE"))
 
   # Every GIFT carries external context except where no external record covers
-  # the capability. Four are such cases, and all four are unlinked for the same
-  # reason: KEGG describes them in a BRITE hierarchy rather than a pathway map,
-  # and a hierarchy is not a pathway record whose boundaries could be compared.
+  # the capability. Five are such cases. Four are unlinked for the same reason:
+  # KEGG describes them in a BRITE hierarchy rather than a pathway map, and a
+  # hierarchy is not a pathway record whose boundaries could be compared.
   # Microbial collagenolysis sits in the bacterial toxin hierarchy; the type IVa
   # pilus in the secretion-system hierarchy, the only pilus module M00852 being
   # the unrelated type IVb toxin-coregulated pilus; and both defense systems in
   # the prokaryotic defense hierarchy. Recording a link whose boundaries could
   # not be compared would assert an equivalence that does not exist, so the
   # honest answer is no link -- named here rather than left as a silent gap.
+  #
+  # The two carnitine GIFTs are a sixth kind of gap: KEGG assigns the carnitine
+  # monooxygenase and dehydrogenase orthology groups to no metabolic map at
+  # all, so there is no record whose boundaries could be compared. Mercury
+  # detoxification is the same gap in the defense model: K00520, K00221, K08363
+  # and K08365 belong to no KEGG pathway and no module, which is why the mer
+  # operon was curated from the operon biology rather than from a module
+  # boundary. taurine
+  # uptake is a seventh: map00430 carries the taurine chemistry but not the
+  # translocation, and linking a transport GIFT to a chemistry map would assert
+  # a containment that is false.
+  #
+  # citrate_fermentation is the fifth and its gap is a different one: KEGG has
+  # no metabolic map for fermentative citrate cleavage at all. R00362 carries no
+  # pathway link, and the citrate lyase orthology groups appear only in the
+  # two-component system map, which describes the CitAB regulator rather than
+  # the chemistry.
   gift_ids <- list_gifts()$gift_id
   linked <- vapply(gift_ids, function(id) nrow(get_gift_pathways(id)), integer(1))
   expect_equal(
     unname(gift_ids[linked == 0L]),
     c(
-      "collagen_cleavage", "type_i_e_crispr_cas_machinery",
+      "carnitine_degradation_trimethylamine", "carnitine_to_betaine",
+      "citrate_fermentation", "collagen_cleavage", "mercury_detoxification",
+      "taurine_uptake_abc", "type_i_e_crispr_cas_machinery",
       "type_i_restriction_modification", "type_iva_pilus"
     )
   )

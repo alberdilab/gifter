@@ -111,3 +111,416 @@ COMP_PULLULANASE	SYS_PULLULANASE	pullulanase protein	Required catalytic protein;
 COMP_GLUCOSIDASE	SYS_GLUCOSIDASE	alpha-glucosidase protein	Required catalytic protein; alternative markers are OR.
 COMP_DEACETYL	SYS_DEACETYL	acetylxylan esterase protein	Required catalytic protein; alternative markers are OR.
 COMP_COLLAGENASE_M9	SYS_COLLAGENASE_M9	collagenase catalytic protein	Required catalytic protein; alternative markers are OR.
+COMP_28042_AB_E1_ALPHA	SYS_28042_PDH_E1AB	E1 component alpha subunit	Required subunit of the complex.
+COMP_28042_AB_E1_BETA	SYS_28042_PDH_E1AB	E1 component beta subunit	Required subunit of the complex.
+COMP_28042_AB_E2	SYS_28042_PDH_E1AB	E2 dihydrolipoyllysine acetyltransferase	Required subunit of the complex.
+COMP_28042_AB_E3	SYS_28042_PDH_E1AB	E3 dihydrolipoyl dehydrogenase	Required subunit of the complex.
+COMP_28042_E1_FUSED	SYS_28042_PDH_E1	fused E1 component	Required subunit of the complex.
+COMP_28042_E1_E2	SYS_28042_PDH_E1	E2 dihydrolipoyllysine acetyltransferase	Required subunit of the complex.
+COMP_28042_E1_E3	SYS_28042_PDH_E1	E3 dihydrolipoyl dehydrogenase	Required subunit of the complex.
+COMP_12765_POR_ALPHA	SYS_12765_POR_FOUR_SUBUNIT	PorA alpha subunit	Required subunit.
+COMP_12765_POR_BETA	SYS_12765_POR_FOUR_SUBUNIT	PorB beta subunit	Required subunit.
+COMP_12765_POR_GAMMA	SYS_12765_POR_FOUR_SUBUNIT	PorC gamma subunit	Required subunit.
+COMP_12765_POR_DELTA	SYS_12765_POR_FOUR_SUBUNIT	PorD delta subunit	Required subunit.
+COMP_12765_NIFJ_CATALYTIC	SYS_12765_NIFJ	fused oxidoreductase protein	Required catalytic protein.
+COMP_11844_LYASE	SYS_11844_PFL	formate C-acetyltransferase protein	Required catalytic protein.
+COMP_11844_ACTIVASE	SYS_11844_PFL	pyruvate formate-lyase activating enzyme	Required radical S-adenosylmethionine activating protein; the lyase has no activity without it.
+COMP_19521_CATALYTIC	SYS_19521_PTA	phosphate acetyltransferase protein	Required catalytic protein; alternative markers are OR.
+COMP_11352_CATALYTIC	SYS_11352_ACKA	acetate kinase protein	Required catalytic protein.
+COMP_21036_CATALYTIC	SYS_21036_THIOLASE	acetyl-CoA C-acetyltransferase protein	Required catalytic protein.
+COMP_16197_CATALYTIC	SYS_16197_HBD	3-hydroxybutanoyl-CoA dehydrogenase protein	Required catalytic protein.
+COMP_26558_CATALYTIC	SYS_26558_CROTONASE	3-hydroxybutanoyl-CoA dehydratase protein	Required catalytic protein.
+COMP_24004_CATALYTIC	SYS_24004_BCD	butanoyl-CoA dehydrogenase protein	Required catalytic protein.
+COMP_30071_CATALYTIC	SYS_30071_BUT	butyryl-CoA:acetate CoA-transferase protein	Required catalytic protein. The claim rests on this component alone being substrate-specific, which is why no orthology marker is accepted for it.
+COMP_15933_CATALYTIC	SYS_15933_FUCO	lactaldehyde reductase protein	Required catalytic protein.
+COMP_14569_PDUC	SYS_14569_PDUCDE	propanediol dehydratase large subunit	Required subunit of the holoenzyme.
+COMP_14569_PDUD	SYS_14569_PDUCDE	propanediol dehydratase medium subunit	Required subunit of the holoenzyme.
+COMP_14569_PDUE	SYS_14569_PDUCDE	propanediol dehydratase small subunit	Required subunit of the holoenzyme.
+COMP_36027_CATALYTIC	SYS_36027_PDUP	propionaldehyde dehydrogenase protein	Required catalytic protein.
+COMP_28046_CATALYTIC	SYS_28046_PDUL	phosphate propanoyltransferase protein	Required catalytic protein.
+COMP_23148_CATALYTIC	SYS_23148_PROPIONATE_KINASE	propionate kinase protein	Required catalytic protein; alternative markers are OR.
+COMP_LACTATE_COAT_CATALYTIC	SYS_LACTATE_COAT_PCT	propionate CoA-transferase protein	Required catalytic protein.
+COMP_34691_LCDA	SYS_34691_LCD	lactoyl-CoA dehydratase alpha subunit	Required subunit.
+COMP_34691_LCDB	SYS_34691_LCD	lactoyl-CoA dehydratase beta subunit	Required subunit.
+COMP_34471_CATALYTIC	SYS_34471_ACRC	acryloyl-CoA reductase protein	Required catalytic protein.
+COMP_23444_CATALYTIC	SYS_23444_LDH	L-lactate dehydrogenase protein	Required catalytic protein.
+COMP_10960_LARA	SYS_10960_LAR	lactate racemase protein	Required catalytic protein.
+COMP_46276_CATALYTIC	SYS_46276_MLE	malolactic enzyme protein	Required catalytic protein.
+COMP_10760_CITF	SYS_10760_CITLYASE	citrate lyase alpha subunit	Required subunit; carries the citrate CoA-transferase half of the reaction.
+COMP_10760_CITE	SYS_10760_CITLYASE	citrate lyase beta subunit	Required subunit; carries the citryl-CoA lyase half of the reaction.
+COMP_10760_CITD	SYS_10760_CITLYASE	citrate lyase acyl-carrier subunit	Required subunit.
+COMP_10760_CITC	SYS_10760_CITLYASE	citrate lyase ligase	Required activating enzyme; without it the acyl-carrier subunit is unacetylated and the complex is inactive.
+COMP_15641_OADA	SYS_15641_OAD_NA	oxaloacetate decarboxylase alpha subunit	Required subunit; the carboxyltransferase that carries the catalytic activity.
+COMP_15641_SOLUBLE	SYS_15641_OAD_SOLUBLE	soluble oxaloacetate decarboxylase protein	Required catalytic protein.
+COMP_23288_CATALYTIC	SYS_23288_ADHE	bifunctional acetaldehyde/alcohol dehydrogenase protein	Required catalytic protein.
+COMP_25290_CATALYTIC	SYS_25290_ADHE	bifunctional acetaldehyde/alcohol dehydrogenase protein	Required catalytic protein; the same protein as the preceding step.
+COMP_25249_CATALYTIC	SYS_25249_ALS	acetolactate synthase large subunit	Required catalytic protein of a step the route does not require.
+COMP_21580_CATALYTIC	SYS_21580_BUDA	acetolactate decarboxylase protein	Required catalytic protein.
+COMP_23704_CATALYTIC	SYS_23704_RIBA	GTP cyclohydrolase II	Required catalytic protein.
+COMP_23704_RIBAB	SYS_23704_RIBAB	bifunctional RibAB	Required catalytic protein.
+COMP_21868_CATALYTIC	SYS_21868_RIBD	pyrimidine deaminase RibD	Required catalytic protein.
+COMP_21868_RIBG	SYS_21868_RIBG	bifunctional deaminase-reductase RibG	Required catalytic protein.
+COMP_17845_CATALYTIC	SYS_17845_RIBD2	pyrimidine reductase RibD	Required catalytic protein.
+COMP_17845_RIBG2	SYS_17845_RIBG2	bifunctional deaminase-reductase RibG	Required catalytic protein.
+COMP_25197_CATALYTIC	SYS_25197_PHOSPHATASE	5-amino-6-(5-phospho-D-ribitylamino)uracil phosphatase	Required catalytic protein.
+COMP_18457_CATALYTIC	SYS_18457_RIBB	3,4-dihydroxy-2-butanone 4-phosphate synthase	Required catalytic protein.
+COMP_18457_RIBAB2	SYS_18457_RIBAB2	bifunctional RibAB	Required catalytic protein.
+COMP_26152_CATALYTIC	SYS_26152_RIBH	6,7-dimethyl-8-ribityllumazine synthase	Required catalytic protein.
+COMP_20772_CATALYTIC	SYS_20772_RIBE	riboflavin synthase	Required catalytic protein.
+COMP_11672_CATALYTIC	SYS_11672_PABB	4-amino-4-deoxychorismate synthase	Required catalytic protein.
+COMP_11672_PABBC	SYS_11672_PABBC	bifunctional PabBC	Required catalytic protein.
+COMP_16201_CATALYTIC	SYS_16201_PABC	4-amino-4-deoxychorismate lyase	Required catalytic protein.
+COMP_16201_PABBC2	SYS_16201_PABBC2	bifunctional PabBC	Required catalytic protein.
+COMP_17473_CATALYTIC	SYS_17473_FOLE	GTP cyclohydrolase I	Required catalytic protein.
+COMP_25302_CATALYTIC	SYS_25302_NUDB	dihydroneopterin triphosphate diphosphatase	Required catalytic protein.
+COMP_10540_CATALYTIC	SYS_10540_FOLB	dihydroneopterin aldolase	Required catalytic protein.
+COMP_11412_CATALYTIC	SYS_11412_FOLK	6-hydroxymethyl-7,8-dihydropterin pyrophosphokinase	Required catalytic protein.
+COMP_19949_CATALYTIC	SYS_19949_FOLP	dihydropteroate synthase	Required catalytic protein.
+COMP_23584_CATALYTIC	SYS_23584_FOLC	dihydrofolate synthase	Required catalytic protein.
+COMP_15009_CATALYTIC	SYS_15009_FOLA	dihydrofolate reductase	Required catalytic protein.
+COMP_24840_CATALYTIC	SYS_24840_THIC	phosphomethylpyrimidine synthase ThiC	Required catalytic protein.
+COMP_19893_CATALYTIC	SYS_19893_THID	phosphomethylpyrimidine kinase ThiD	Required catalytic protein.
+COMP_26361_CATALYTIC	SYS_26361_THIH	2-iminoacetate synthase ThiH	Required catalytic protein.
+COMP_26297_CATALYTIC	SYS_26297_THIG	thiazole synthase ThiG	Required catalytic protein.
+COMP_33343_CATALYTIC	SYS_33343_THIO	glycine oxidase ThiO	Required catalytic protein.
+COMP_22328_CATALYTIC	SYS_22328_THIE	thiamine phosphate synthase ThiE	Required catalytic protein.
+COMP_23096_CATALYTIC	SYS_23096_THID_HMP	hydroxymethylpyrimidine kinase ThiD	Required catalytic protein.
+COMP_24212_CATALYTIC	SYS_24212_THIM	hydroxyethylthiazole kinase ThiM	Required catalytic protein.
+COMP_11824_CATALYTIC	SYS_11824_PANB	3-methyl-2-oxobutanoate hydroxymethyltransferase PanB	Required catalytic protein.
+COMP_16233_CATALYTIC	SYS_16233_PANE	2-dehydropantoate 2-reductase PanE	Required catalytic protein.
+COMP_16233_ILVC	SYS_16233_ILVC	ketol-acid reductoisomerase IlvC	Required catalytic protein.
+COMP_19497_CATALYTIC	SYS_19497_PAND	aspartate 1-decarboxylase PanD	Required catalytic protein.
+COMP_10912_CATALYTIC	SYS_10912_PANC	pantothenate synthetase PanC	Required catalytic protein.
+COMP_31507_PDXS	SYS_31507_PDXST	PLP synthase subunit PdxS	Required subunit of the complex.
+COMP_31507_PDXT	SYS_31507_PDXST	PLP synthase glutaminase subunit PdxT	Required subunit of the complex.
+COMP_12056_CATALYTIC	SYS_12056_EPD	D-erythrose 4-phosphate dehydrogenase Epd	Required catalytic protein.
+COMP_18829_CATALYTIC	SYS_18829_PDXB	erythronate-4-phosphate dehydrogenase PdxB	Required catalytic protein.
+COMP_16573_CATALYTIC	SYS_16573_SERC	phosphoserine aminotransferase SerC	Required catalytic protein.
+COMP_32275_CATALYTIC	SYS_32275_PDXA	4-hydroxythreonine-4-phosphate dehydrogenase PdxA	Required catalytic protein.
+COMP_15265_CATALYTIC	SYS_15265_PDXJ	pyridoxine 5-phosphate synthase PdxJ	Required catalytic protein.
+COMP_15149_CATALYTIC	SYS_15149_PDXH	pyridoxine 5-phosphate oxidase PdxH	Required catalytic protein.
+COMP_20712_CATALYTIC	SYS_20712_BIOF	8-amino-7-oxononanoate synthase BioF	Required catalytic protein.
+COMP_16861_CATALYTIC	SYS_16861_BIOA	adenosylmethionine-dependent DAPA transaminase BioA	Required catalytic protein.
+COMP_15805_CATALYTIC	SYS_15805_BIOD	dethiobiotin synthetase BioD	Required catalytic protein.
+COMP_22060_CATALYTIC	SYS_22060_BIOB	biotin synthase BioB	Required catalytic protein.
+COMP_26329_CATALYTIC	SYS_26329_BIOA_LYS	lysine-dependent DAPA transaminase BioA	Required catalytic protein.
+COMP_25876_CATALYTIC	SYS_25876_NADB	L-aspartate oxidase NadB	Required catalytic protein.
+COMP_25888_CATALYTIC	SYS_25888_NADA	quinolinate synthase NadA	Required catalytic protein.
+COMP_42440_CATALYTIC	SYS_42440_NADX	aspartate dehydrogenase NadX	Required catalytic protein.
+COMP_12733_CATALYTIC	SYS_12733_NADC	nicotinate-nucleotide pyrophosphorylase NadC	Required catalytic protein.
+COMP_22860_CATALYTIC	SYS_22860_NADD	nicotinate-nucleotide adenylyltransferase NadD	Required catalytic protein.
+COMP_21188_CATALYTIC	SYS_21188_NADE	NAD synthetase NadE	Required catalytic protein.
+COMP_24384_CATALYTIC	SYS_24384_NADE_GLN	glutamine-hydrolysing NAD synthetase	Required catalytic protein.
+COMP_36163_CATALYTIC	SYS_36163_PNCB	nicotinate phosphoribosyltransferase PncB	Required catalytic protein.
+COMP_32459_CATALYTIC	SYS_32459_COBA	uroporphyrin-III C-methyltransferase CobA	Required catalytic protein.
+COMP_32459_CYSG	SYS_32459_CYSG	multifunctional siroheme synthase CysG	Required catalytic protein.
+COMP_15613_CATALYTIC	SYS_15613_SIRC	precorrin-2 dehydrogenase SirC	Required catalytic protein.
+COMP_15613_CYSG2	SYS_15613_CYSG2	multifunctional siroheme synthase CysG	Required catalytic protein.
+COMP_15893_CATALYTIC	SYS_15893_CBIK	sirohydrochlorin cobaltochelatase	Required catalytic protein.
+COMP_17997_CATALYTIC	SYS_17997_CBIL	cobalt-factor II C20-methyltransferase CbiL	Required catalytic protein.
+COMP_36155_CATALYTIC	SYS_36155_CBIH	cobalt-factor III methyltransferase CbiH	Required catalytic protein.
+COMP_26277_CATALYTIC	SYS_26277_CBIF	cobalt-precorrin-4 C11-methyltransferase CbiF	Required catalytic protein.
+COMP_26281_CATALYTIC	SYS_26281_CBIG	cobalt-precorrin-5A hydrolase CbiG	Required catalytic protein.
+COMP_26285_CATALYTIC	SYS_26285_CBID	cobalt-precorrin-5B C1-methyltransferase CbiD	Required catalytic protein.
+COMP_15625_CATALYTIC	SYS_15625_CBIJ	cobalt-precorrin-6A reductase CbiJ	Required catalytic protein.
+COMP_36067_CATALYTIC	SYS_36067_CBIT	cobalt-precorrin-6B C15-methyltransferase CbiT	Required catalytic protein.
+COMP_34591_CATALYTIC	SYS_34591_CBIE	cobalt-precorrin-7 C5-methyltransferase CbiE	Required catalytic protein.
+COMP_16209_CATALYTIC	SYS_16209_CBIC	cobalt-precorrin-8 methylmutase CbiC	Required catalytic protein.
+COMP_26289_CATALYTIC	SYS_26289_CBIA	cobyrinate a,c-diamide synthase CbiA	Required catalytic protein.
+COMP_16841_CATALYTIC	SYS_16841_COBI	precorrin-2 C20-methyltransferase CobI	Required catalytic protein.
+COMP_17293_CATALYTIC	SYS_17293_COBG	precorrin-3B synthase CobG	Required catalytic protein.
+COMP_12761_CATALYTIC	SYS_12761_COBJ	precorrin-3B C17-methyltransferase CobJ	Required catalytic protein.
+COMP_22012_CATALYTIC	SYS_22012_COBM	precorrin-4 C11-methyltransferase CobM	Required catalytic protein.
+COMP_18261_CATALYTIC	SYS_18261_COBF	precorrin-6A synthase CobF	Required catalytic protein.
+COMP_23408_CATALYTIC	SYS_23408_COBK	precorrin-6A reductase CobK	Required catalytic protein.
+COMP_17477_CATALYTIC	SYS_17477_COBL	precorrin-6B C5,C15-methyltransferase CobL	Required catalytic protein.
+COMP_22512_CATALYTIC	SYS_22512_COBH	precorrin-8X methylmutase CobH	Required catalytic protein.
+COMP_12544_CATALYTIC	SYS_12544_COBB	hydrogenobyrinate a,c-diamide synthase CobB	Required catalytic protein.
+COMP_15341_COBN	SYS_15341_COBNST	cobaltochelatase subunit CobN	Required subunit of the complex.
+COMP_15341_COBS_SUB	SYS_15341_COBNST	cobaltochelatase subunit CobS	Required subunit of the complex.
+COMP_15341_COBT_SUB	SYS_15341_COBNST	cobaltochelatase subunit CobT	Required subunit of the complex.
+COMP_11528_CATALYTIC	SYS_11528_COBA_ADO	cob(I)yrinate a,c-diamide adenosyltransferase	Required catalytic protein.
+COMP_23256_CATALYTIC	SYS_23256_CBIP	adenosylcobyric acid synthase CbiP	Required catalytic protein.
+COMP_21896_CATALYTIC	SYS_21896_CBIB	adenosylcobinamide-phosphate synthase	Required catalytic protein.
+COMP_22712_CATALYTIC	SYS_22712_COBU	adenosylcobinamide-phosphate guanylyltransferase CobU	Required catalytic protein.
+COMP_11196_CATALYTIC	SYS_11196_COBT	nicotinate-nucleotide dimethylbenzimidazole phosphoribosyltransferase CobT	Required catalytic protein.
+COMP_24456_CATALYTIC	SYS_24456_COBC_P	alpha-ribazole phosphatase CobC	Required catalytic protein.
+COMP_16049_CATALYTIC	SYS_16049_COBS_TRANSFERASE	adenosylcobinamide-GDP ribazoletransferase CobS	Required catalytic protein.
+COMP_27345_CATALYTIC	SYS_27345_BLUB	5,6-dimethylbenzimidazole synthase BluB	Required catalytic protein.
+COMP_18985_CATALYTIC	SYS_18985_MENF	menaquinone-specific isochorismate synthase MenF	Required catalytic protein.
+COMP_18985_ENTC	SYS_18985_ENTC	isochorismate synthase EntC	Required catalytic protein.
+COMP_25593_CATALYTIC	SYS_25593_MEND	SEPHCHC synthase MenD	Required catalytic protein.
+COMP_25597_CATALYTIC	SYS_25597_MENH	SHCHC synthase MenH	Required catalytic protein.
+COMP_10196_CATALYTIC	SYS_10196_MENC	o-succinylbenzoate synthase MenC	Required catalytic protein.
+COMP_17009_CATALYTIC	SYS_17009_MENE	o-succinylbenzoate-CoA ligase MenE	Required catalytic protein.
+COMP_26562_CATALYTIC	SYS_26562_MENB	1,4-dihydroxy-2-naphthoyl-CoA synthase MenB	Required catalytic protein.
+COMP_26309_CATALYTIC	SYS_26309_MENI	1,4-dihydroxy-2-naphthoyl-CoA hydrolase MenI	Required catalytic protein.
+COMP_26478_CATALYTIC	SYS_26478_MENA	1,4-dihydroxy-2-naphthoate polyprenyltransferase MenA	Required catalytic protein.
+COMP_42640_CATALYTIC	SYS_42640_MENG	demethylmenaquinol methyltransferase MenG	Required catalytic protein.
+COMP_40051_CATALYTIC	SYS_40051_MQNA	chorismate dehydratase MqnA	Required catalytic protein.
+COMP_33075_CATALYTIC	SYS_33075_MQNE	aminodeoxyfutalosine synthase MqnE	Required catalytic protein.
+COMP_40075_CATALYTIC	SYS_40075_MQNX	aminodeoxyfutalosine deaminase MqnX	Required catalytic protein.
+COMP_25904_CATALYTIC	SYS_25904_MQNB	futalosine hydrolase MqnB	Required catalytic protein.
+COMP_33083_CATALYTIC	SYS_33083_MQNC	cyclic dehypoxanthinyl futalosine synthase MqnC	Required catalytic protein.
+COMP_33087_CATALYTIC	SYS_33087_MQND	1,4-dihydroxy-6-naphthoate synthase MqnD	Required catalytic protein.
+COMP_16845_CS_SI	SYS_16845_CS_SI	citrate synthase	Catalytic protein.
+COMP_16845_CS_RE	SYS_16845_CS_RE	Re-citrate synthase	Catalytic protein.
+COMP_16845_CS_METHYLCITRATE_GROUP	SYS_16845_CS_METHYLCITRATE_GROUP	citrate synthase, 2-methylcitrate synthase group	Catalytic protein.
+COMP_10336_CATALYTIC	SYS_10336_ACONITASE	aconitate hydratase	Catalytic protein.
+COMP_19629_CATALYTIC	SYS_19629_ICDH_NADP	isocitrate dehydrogenase	Catalytic protein.
+COMP_23632_CATALYTIC	SYS_23632_ICDH_NAD	isocitrate dehydrogenase	Catalytic protein.
+COMP_27786_E1	SYS_27786_ODH_COMPLEX	E1, 2-oxoglutarate dehydrogenase	Decarboxylating component.
+COMP_27786_E2	SYS_27786_ODH_COMPLEX	E2, dihydrolipoyllysine succinyltransferase	Acyltransferase component.
+COMP_27786_E3	SYS_27786_ODH_COMPLEX	E3, dihydrolipoyl dehydrogenase	Flavoprotein component, shared with other 2-oxo acid dehydrogenase complexes.
+COMP_17297_ALPHA	SYS_17297_KOR	oxidoreductase alpha subunit	Catalytic subunit.
+COMP_17297_BETA	SYS_17297_KOR	oxidoreductase beta subunit	Catalytic subunit.
+COMP_17661_ALPHA	SYS_17661_SUCCD	succinyl-CoA synthetase alpha subunit	Catalytic subunit.
+COMP_17661_BETA	SYS_17661_SUCCD	succinyl-CoA synthetase beta subunit	Catalytic subunit.
+COMP_17661_LSC_ALPHA	SYS_17661_LSC	succinyl-CoA ligase alpha subunit	Catalytic subunit.
+COMP_17661_LSC_BETA	SYS_17661_LSC	succinyl-CoA ligase beta subunit	Catalytic subunit.
+COMP_10524_CATALYTIC	SYS_10524_KGD	2-oxoglutarate decarboxylase	Catalytic protein.
+COMP_13217_CATALYTIC	SYS_13217_SSADH_NAD	succinate-semialdehyde dehydrogenase	Catalytic protein.
+COMP_13213_CATALYTIC	SYS_13213_SSADH_NADP	succinate-semialdehyde dehydrogenase	Catalytic protein.
+COMP_40523_FLAVOPROTEIN	SYS_40523_SDH_FRD_SHARED	flavoprotein subunit	Catalytic subunit.
+COMP_40523_IRON_SULFUR	SYS_40523_SDH_FRD_SHARED	iron-sulfur subunit	Catalytic subunit.
+COMP_40523_SDHA	SYS_40523_SDH_MITOCHONDRIAL	SDHA flavoprotein subunit	Catalytic subunit.
+COMP_40523_SDHB	SYS_40523_SDH_MITOCHONDRIAL	SDHB iron-sulfur subunit	Catalytic subunit.
+COMP_40523_FRDA	SYS_40523_FRD_DEDICATED	FrdA flavoprotein subunit	Catalytic subunit.
+COMP_40523_FRDB	SYS_40523_FRD_DEDICATED	FrdB iron-sulfur subunit	Catalytic subunit.
+COMP_12460_FUMC	SYS_12460_FUMC	fumarase class II	Catalytic protein.
+COMP_12460_FUMA	SYS_12460_FUMA_SINGLE	fumarase class I	Catalytic protein.
+COMP_12460_FUMA_ALPHA	SYS_12460_FUMAB	fumarase class I alpha subunit	Catalytic subunit.
+COMP_12460_FUMB_BETA	SYS_12460_FUMAB	fumarase class I beta subunit	Catalytic subunit.
+COMP_21432_CATALYTIC	SYS_21432_MDH	malate dehydrogenase	Catalytic protein.
+COMP_46012_CATALYTIC	SYS_46012_MQO	malate:quinone oxidoreductase	Catalytic protein.
+COMP_14717_CLASSI	SYS_14717_CLASSI	class I DAHP synthase	Required catalytic protein.
+COMP_14717_CLASSII	SYS_14717_CLASSII	class II DAHP synthase	Required catalytic protein.
+COMP_14717_DAHPCM	SYS_14717_DAHPCM	bifunctional DAHP synthase/chorismate mutase	Required catalytic protein.
+COMP_21968_CATALYTIC	SYS_21968_AROB	3-dehydroquinate synthase	Required catalytic protein.
+COMP_21968_AROKB	SYS_21968_AROKB	bifunctional AroKB	Required catalytic protein.
+COMP_21096_TYPEI	SYS_21096_TYPEI	type I 3-dehydroquinate dehydratase	Required catalytic protein.
+COMP_21096_TYPEII	SYS_21096_TYPEII	type II 3-dehydroquinate dehydratase	Required catalytic protein.
+COMP_21096_ARODE	SYS_21096_ARODE	bifunctional AroDE	Required catalytic protein.
+COMP_17737_AROE	SYS_17737_AROE	shikimate dehydrogenase AroE	Required catalytic protein.
+COMP_17737_ARODE	SYS_17737_ARODE	bifunctional AroDE	Required catalytic protein.
+COMP_17737_YDIB	SYS_17737_YDIB	quinate/shikimate dehydrogenase YdiB	Required catalytic protein.
+COMP_13121_CATALYTIC	SYS_13121_AROKL	shikimate kinase	Required catalytic protein.
+COMP_13121_AROKB	SYS_13121_AROKB	bifunctional AroKB	Required catalytic protein.
+COMP_21256_CATALYTIC	SYS_21256_AROA	EPSP synthase	Required catalytic protein.
+COMP_21256_FUSION	SYS_21256_FUSION	bifunctional prephenate dehydrogenase/EPSP synthase	Required catalytic protein.
+COMP_21020_CATALYTIC	SYS_21020_AROC	chorismate synthase	Required catalytic protein.
+COMP_18985_PCHA	SYS_18985_PCHA	isochorismate synthase PchA	Required catalytic protein.
+COMP_18985_MBTI	SYS_18985_MBTI	salicylate synthase MbtI	Required catalytic protein.
+COMP_27874_CATALYTIC	SYS_27874_PCHB	isochorismate pyruvate lyase PchB	Required catalytic protein.
+COMP_27874_MBTI	SYS_27874_MBTI	salicylate synthase MbtI	Required catalytic protein.
+COMP_16165_CATALYTIC	SYS_16165_IAAM	tryptophan 2-monooxygenase	Required catalytic protein.
+COMP_34371_CATALYTIC	SYS_34371_IAAH	indole-3-acetamide hydrolase	Required catalytic protein.
+COMP_34371_AMIDASE	SYS_34371_AMIDASE	amidase signature family hydrolase	Required catalytic protein.
+COMP_21368_URICASE	SYS_21368_URICASE	urate oxidase protein	Required catalytic protein.
+COMP_27329_HPXO	SYS_27329_HPXO	urate hydroxylase protein	Required catalytic protein.
+COMP_23736_HIUH	SYS_23736_HIUH	hydroxyisourate hydrolase protein	Required catalytic protein.
+COMP_26301_OHCUDC	SYS_26301_OHCUDC	OHCU decarboxylase protein	Required catalytic protein.
+COMP_17029_ALLB	SYS_17029_ALLB	allantoinase protein	Required catalytic protein.
+COMP_11016_ALC	SYS_11016_ALC	allantoicase protein	Required catalytic protein.
+COMP_27485_ALLC	SYS_27485_ALLC	allantoate deiminase protein	Required catalytic protein.
+COMP_25241_YLBA	SYS_25241_YLBA	ureidoglycine aminohydrolase protein	Required catalytic protein.
+COMP_11304_ALLA	SYS_11304_ALLA	ureidoglycolate lyase protein	Required catalytic protein.
+COMP_20557_ALPHA	SYS_20557_UREABC	urease subunit alpha	Required subunit.
+COMP_20557_BETA	SYS_20557_UREABC	urease subunit beta	Required subunit.
+COMP_20557_GAMMA	SYS_20557_UREABC	urease subunit gamma	Required subunit.
+COMP_21068_CATALYTIC	SYS_21068_NASAC	assimilatory nitrate reductase catalytic subunit	Required catalytic protein.
+COMP_21828_NARB	SYS_21828_NARB	ferredoxin-nitrate reductase protein	Required catalytic protein.
+COMP_18041_NIRA	SYS_18041_NIRA	ferredoxin-nitrite reductase protein	Required catalytic protein.
+COMP_24628_NIRB	SYS_24628_NIRBD	nitrite reductase large subunit	Required subunit.
+COMP_24628_NIRD	SYS_24628_NIRBD	nitrite reductase small subunit	Required subunit.
+COMP_24628_NASD	SYS_24628_NASDE	assimilatory nitrite reductase large subunit	Required subunit.
+COMP_24628_NASE	SYS_24628_NASDE	assimilatory nitrite reductase small subunit	Required subunit.
+COMP_45700_GBCA	SYS_45700_GBCAB	glycine betaine monooxygenase subunit A	Required subunit.
+COMP_45700_GBCB	SYS_45700_GBCAB	glycine betaine monooxygenase subunit B	Required subunit.
+COMP_74167_DGCA	SYS_74167_DGCAB	dimethylglycine dehydrogenase catalytic subunit	Required subunit.
+COMP_74167_DGCB	SYS_74167_DGCAB	dimethylglycine dehydrogenase ferredoxin subunit	Required subunit.
+COMP_52856_DMGDH	SYS_52856_DMGDH	dimethylglycine dehydrogenase protein	Required catalytic protein.
+COMP_17077_DMGO	SYS_17077_DMGO	dimethylglycine oxidase protein	Required catalytic protein.
+COMP_13313_SOXA	SYS_13313_SOXABGD	sarcosine oxidase subunit alpha	Required subunit.
+COMP_13313_SOXB	SYS_13313_SOXABGD	sarcosine oxidase subunit beta	Required subunit.
+COMP_13313_SOXG	SYS_13313_SOXABGD	sarcosine oxidase subunit gamma	Required subunit.
+COMP_13313_SOXD	SYS_13313_SOXABGD	sarcosine oxidase subunit delta	Required subunit.
+COMP_13313_MONO	SYS_13313_SOXMONO	monomeric sarcosine oxidase protein	Required catalytic protein.
+COMP_74155_DGCA	SYS_74155_DGCAB	sarcosine dehydrogenase catalytic subunit	Required subunit.
+COMP_74155_DGCB	SYS_74155_DGCAB	sarcosine dehydrogenase ferredoxin subunit	Required subunit.
+COMP_14533_CRNA	SYS_14533_CRNA	creatininase protein	Required catalytic protein.
+COMP_22456_CREA	SYS_22456_CREA	creatinase protein	Required catalytic protein.
+COMP_55396_CNTA	SYS_55396_CNTAB	carnitine monooxygenase oxygenase subunit	Required subunit.
+COMP_55396_CNTB	SYS_55396_CNTAB	carnitine monooxygenase reductase subunit	Required subunit.
+COMP_19265_CDHA	SYS_19265_CDHA	carnitine 3-dehydrogenase protein	Required catalytic protein.
+COMP_47044_CDHC	SYS_47044_CDHC	3-dehydrocarnitine transferase protein	Required catalytic protein.
+COMP_45716_BCT	SYS_45716_BCT	betainyl-CoA thioesterase protein	Required catalytic protein.
+COMP_30207_MAUA	SYS_30207_MAUAB	methylamine dehydrogenase light chain	Required subunit.
+COMP_30207_MAUB	SYS_30207_MAUAB	methylamine dehydrogenase heavy chain	Required subunit.
+COMP_15909_TAUD	SYS_15909_TAUD	taurine dioxygenase protein	Required catalytic protein.
+COMP_10420_TPA	SYS_10420_TPA	taurine-pyruvate aminotransferase protein	Required catalytic protein.
+COMP_18709_TAUX	SYS_18709_TAUXY	taurine dehydrogenase small subunit	Required subunit.
+COMP_18709_TAUY	SYS_18709_TAUXY	taurine dehydrogenase large subunit	Required subunit.
+COMP_24204_XSC	SYS_24204_XSC	sulfoacetaldehyde acetyltransferase protein	Required catalytic protein.
+COMP_14613_SBP	SYS_14613_TAUABC	taurine substrate-binding protein	Required subunit.
+COMP_14613_ATPASE	SYS_14613_TAUABC	taurine transport ATP-binding protein	Required subunit.
+COMP_14613_PERMEASE	SYS_14613_TAUABC	taurine transport permease	Required subunit.
+COMP_16169_GLNA	SYS_16169_GLNA	glutamine synthetase protein	Required catalytic protein.
+COMP_15501_GLTB	SYS_15501_GLTBD	glutamate synthase large chain	Required subunit.
+COMP_15501_GLTD	SYS_15501_GLTBD	glutamate synthase small chain	Required subunit.
+COMP_12128_GLTS	SYS_12128_GLTS	ferredoxin-glutamate synthase protein	Required catalytic protein.
+COMP_11612_GDHA	SYS_11612_GDHA	NADP-glutamate dehydrogenase protein	Required catalytic protein.
+COMP_15133_GDH	SYS_15133_GDH	NAD-glutamate dehydrogenase protein	Required catalytic protein.
+COMP_12633_ALPHA	SYS_12633_BENAB	benzoate 1,2-dioxygenase alpha subunit	Required catalytic subunit; it carries the active site and determines the substrate.
+COMP_12633_BETA	SYS_12633_BENAB	benzoate 1,2-dioxygenase beta subunit	Required structural subunit of the oxygenase.
+COMP_11560_CATALYTIC	SYS_11560_BEND	benD dehydrogenase protein	Required catalytic protein.
+COMP_11072_ANTA	SYS_11072_ANTAB	anthranilate 1,2-dioxygenase large subunit	Required catalytic subunit.
+COMP_11072_ANTB	SYS_11072_ANTAB	anthranilate 1,2-dioxygenase small subunit	Required structural subunit.
+COMP_11072_ANDAC	SYS_11072_ANDA	anthranilate 1,2-dioxygenase large subunit, and type	Required catalytic subunit.
+COMP_11072_ANDAD	SYS_11072_ANDA	anthranilate 1,2-dioxygenase small subunit, and type	Required structural subunit.
+COMP_57952_P0	SYS_57952_DMP	phenol hydroxylase P0 component	Required assembly component.
+COMP_57952_P1	SYS_57952_DMP	phenol hydroxylase P1 component	Required component.
+COMP_57952_P2	SYS_57952_DMP	phenol hydroxylase P2 component	Required component.
+COMP_57952_P3	SYS_57952_DMP	phenol hydroxylase P3 component	Required catalytic component.
+COMP_57952_P4	SYS_57952_DMP	phenol hydroxylase P4 component	Required component.
+COMP_57952_P5	SYS_57952_DMP	phenol hydroxylase P5 component	Required reductase component of the enzyme.
+COMP_23852_CATALYTIC	SYS_23852_CATA	catechol 1,2-dioxygenase protein	Required catalytic protein.
+COMP_30031_CATALYTIC	SYS_30031_CATB	muconate cycloisomerase protein	Required catalytic protein.
+COMP_12348_CATALYTIC	SYS_12348_CATC	muconolactone isomerase protein	Required catalytic protein.
+COMP_10184_PCAD	SYS_10184_PCAD	enol-lactonase protein	Required catalytic protein.
+COMP_10184_PCAL	SYS_10184_PCAL	PcaL bifunctional protein	Required catalytic protein.
+COMP_12048_ALPHA	SYS_12048_PCAIJ	CoA-transferase alpha subunit	Required subunit.
+COMP_12048_BETA	SYS_12048_PCAIJ	CoA-transferase beta subunit	Required subunit.
+COMP_19481_CATALYTIC	SYS_19481_PCAF	beta-ketoadipyl-CoA thiolase protein	Required catalytic protein.
+COMP_17337_CATALYTIC	SYS_17337_XYLE	catechol 2,3-dioxygenase protein	Required catalytic protein.
+COMP_14549_CATALYTIC	SYS_14549_XYLF	semialdehyde hydrolase protein	Required catalytic protein.
+COMP_34219_CATALYTIC	SYS_34219_XYLG	semialdehyde dehydrogenase protein	Required catalytic protein.
+COMP_33431_CATALYTIC	SYS_33431_XYLH	tautomerase protein	Required catalytic protein.
+COMP_24260_CATALYTIC	SYS_24260_XYLI	decarboxylase protein	Required catalytic protein.
+COMP_22580_MHPD	SYS_22580_MHPD	hydratase protein, mhp type	Required catalytic protein.
+COMP_22580_XYLJ	SYS_22580_XYLJ	hydratase protein, bph/xyl type	Required catalytic protein.
+COMP_22624_MHPE	SYS_22624_MHPE	aldolase protein, mhp type	Required catalytic protein.
+COMP_22624_XYLK	SYS_22624_XYLK	aldolase protein, bph/xyl type	Required catalytic protein.
+COMP_23288_MHPF	SYS_23288_MHPF	acetaldehyde dehydrogenase protein, mhp type	Required catalytic protein.
+COMP_23288_XYLQ	SYS_23288_XYLQ	acetaldehyde dehydrogenase protein, bph/xyl type	Required catalytic protein.
+COMP_20956_CATALYTIC	SYS_20956_PAAK	phenylacetate-CoA ligase protein	Required catalytic protein; the committed step and the substrate-determining one.
+COMP_32171_PAAA	SYS_32171_PAAABCDE	epoxidase subunit PaaA	Required catalytic subunit.
+COMP_32171_PAAB	SYS_32171_PAAABCDE	epoxidase subunit PaaB	Required subunit.
+COMP_32171_PAAC	SYS_32171_PAAABCDE	epoxidase subunit PaaC	Required subunit.
+COMP_32171_PAAD	SYS_32171_PAAABCDE	epoxidase subunit PaaD	Required subunit.
+COMP_32171_PAAE	SYS_32171_PAAABCDE	epoxidase reductase subunit PaaE	Required subunit. Unlike the interchangeable Rieske reductases refused elsewhere in this layer, PaaE is a dedicated subunit of this complex.
+COMP_31843_CATALYTIC	SYS_31843_PAAG	PaaG isomerase protein	Required catalytic protein.
+COMP_31755_CATALYTIC	SYS_31755_PAAZ	PaaZ hydrolase domain protein	Required catalytic protein.
+COMP_31747_CATALYTIC	SYS_31747_PAAZ	PaaZ dehydrogenase domain protein	Required catalytic protein.
+COMP_34799_CATALYTIC	SYS_34799_PAAJ	PaaJ thiolase protein	Required catalytic protein.
+COMP_76647_CATALYTIC	SYS_76647_PAAF	PaaF hydratase protein	Required catalytic protein. The specificity of the trait rests on the ligase and the epoxidase, not on this step.
+COMP_34851_CATALYTIC	SYS_34851_PAAH	PaaH dehydrogenase protein	Required catalytic protein.
+COMP_20357_ALPHA	SYS_20357_HCAEF	3-phenylpropanoate dioxygenase alpha subunit	Required catalytic subunit.
+COMP_20357_BETA	SYS_20357_HCAEF	3-phenylpropanoate dioxygenase beta subunit	Required structural subunit.
+COMP_25062_CATALYTIC	SYS_25062_HCAB	HcaB dehydrogenase protein	Required catalytic protein.
+COMP_24785_CATALYTIC	SYS_24785_MHPA	MhpA hydroxylase protein	Required catalytic protein.
+COMP_23840_CATALYTIC	SYS_23840_MHPB	MhpB dioxygenase protein	Required catalytic protein.
+COMP_34187_CATALYTIC	SYS_34187_MHPC	MhpC hydrolase protein	Required catalytic protein.
+COMP_10532_TRPAB_ALPHA	SYS_10532_TRPAB	tryptophan synthase alpha chain	Required subunit.
+COMP_10532_TRPAB_BETA	SYS_10532_TRPAB	tryptophan synthase beta chain	Required subunit.
+COMP_10532_TRPAB_FUSED_CATALYTIC	SYS_10532_TRPAB_FUSED	fused tryptophan synthase protein	Required catalytic protein.
+COMP_10676_LEUCD_LARGE	SYS_10676_LEUCD	3-isopropylmalate dehydratase large subunit	Required subunit.
+COMP_10676_LEUCD_SMALL	SYS_10676_LEUCD	3-isopropylmalate dehydratase small subunit	Required subunit.
+COMP_10676_LEUC_SINGLE_CATALYTIC	SYS_10676_LEUC_SINGLE	3-isopropylmalate dehydratase protein	Required catalytic protein.
+COMP_10932_CATALYTIC	SYS_10932_ARGG	argininosuccinate synthase protein	Required catalytic protein.
+COMP_11040_HISB_DEHYDRATASE_CATALYTIC	SYS_11040_HISB_DEHYDRATASE	imidazoleglycerol-phosphate dehydratase protein	Required catalytic protein.
+COMP_11040_HISB_BIFUNCTIONAL_CATALYTIC	SYS_11040_HISB_BIFUNCTIONAL	bifunctional HisB protein	Required catalytic protein.
+COMP_11372_CATALYTIC	SYS_11372_ASNA	aspartate--ammonia ligase protein	Required catalytic protein.
+COMP_11768_CATALYTIC	SYS_11768_TRPD	anthranilate phosphoribosyltransferase protein	Required catalytic protein.
+COMP_11960_CATALYTIC	SYS_11960_DAPC	succinyldiaminopimelate transaminase protein	Required catalytic protein.
+COMP_12228_CATALYTIC	SYS_12228_ASNB	asparagine synthase protein	Required catalytic protein.
+COMP_13085_CATALYTIC	SYS_13085_DAPH	N-acetyltransferase protein	Required catalytic protein.
+COMP_13493_CATALYTIC	SYS_13493_ILVC	ketol-acid reductoisomerase protein	Required catalytic protein.
+COMP_13561_CATALYTIC	SYS_13561_DDH	diaminopimelate dehydrogenase protein	Required catalytic protein.
+COMP_13869_CATALYTIC	SYS_13869_PDH	prephenate dehydrogenase protein	Required catalytic protein.
+COMP_13897_CATALYTIC	SYS_13897_CM	chorismate mutase protein	Required catalytic protein.
+COMP_14109_CATALYTIC	SYS_14109_PROC	pyrroline-5-carboxylate reductase protein	Required catalytic protein.
+COMP_14465_HISN_CATALYTIC	SYS_14465_HISN	histidinol-phosphate phosphatase protein	Required catalytic protein.
+COMP_14465_HISB_BIFUNCTIONAL_CATALYTIC	SYS_14465_HISB_BIFUNCTIONAL	bifunctional HisB protein	Required catalytic protein.
+COMP_14629_CATALYTIC	SYS_14629_ARGB	acetylglutamate kinase protein	Required catalytic protein.
+COMP_14877_PROB_CATALYTIC	SYS_14877_PROB	glutamate 5-kinase protein	Required catalytic protein.
+COMP_14877_P5CS_CATALYTIC	SYS_14877_P5CS	P5C synthetase protein	Required catalytic protein.
+COMP_15093_CATALYTIC	SYS_15093_AROAT	aromatic aminotransferase protein	Required catalytic protein. The marker set is deliberately wider than the KEGG module, which accepts only TyrB and the fungal Aro8: the aspartate and branched-chain aminotransferases transaminate aromatic 2-oxo acids as well, and requiring TyrB alone calls the trait in a third of the genomes that carry the aryl skeleton.
+COMP_15101_CATALYTIC	SYS_15101_LYSA	diaminopimelate decarboxylase protein	Required catalytic protein.
+COMP_15349_CATALYTIC	SYS_15349_ARGJ	ornithine acetyltransferase protein	Required catalytic protein.
+COMP_15393_CATALYTIC	SYS_15393_DAPF	diaminopimelate epimerase protein	Required catalytic protein.
+COMP_15469_CATALYTIC	SYS_15469_HISA	ProFAR isomerase protein	Required catalytic protein.
+COMP_15941_CATALYTIC	SYS_15941_ARGE	acetylornithine deacetylase protein	Required catalytic protein.
+COMP_16293_LEUCD_LARGE	SYS_16293_LEUCD	3-isopropylmalate dehydratase large subunit	Required subunit.
+COMP_16293_LEUCD_SMALL	SYS_16293_LEUCD	3-isopropylmalate dehydratase small subunit	Required subunit.
+COMP_16293_LEUC_SINGLE_CATALYTIC	SYS_16293_LEUC_SINGLE	3-isopropylmalate dehydratase protein	Required catalytic protein.
+COMP_17325_CATALYTIC	SYS_17325_DAPD	N-succinyltransferase protein	Required catalytic protein.
+COMP_18049_CATALYTIC	SYS_18049_ARGD	acetylornithine aminotransferase protein	Required catalytic protein.
+COMP_18321_CATALYTIC	SYS_18321_ILVE	branched-chain amino acid aminotransferase protein	Required catalytic protein.
+COMP_18405_CATALYTIC	SYS_18405_ALD	alanine dehydrogenase protein	Required catalytic protein.
+COMP_18473_CATALYTIC	SYS_18473_HISG	ATP phosphoribosyltransferase protein	Required catalytic protein.
+COMP_19045_CATALYTIC	SYS_19045_CIMA	citramalate synthase protein	Required catalytic protein.
+COMP_19453_ALAA_CATALYTIC	SYS_19453_ALAA	alanine-synthesising transaminase protein	Required catalytic protein.
+COMP_19453_AVTA_CATALYTIC	SYS_19453_AVTA	valine-pyruvate transaminase protein	Required catalytic protein.
+COMP_19513_CATALYTIC	SYS_19513_ARGF	ornithine carbamoyltransferase protein	Required catalytic protein.
+COMP_19541_PROA_CATALYTIC	SYS_19541_PROA	glutamate-5-semialdehyde dehydrogenase protein	Required catalytic protein.
+COMP_19541_P5CS_CATALYTIC	SYS_19541_P5CS	P5C synthetase protein	Required catalytic protein.
+COMP_20049_CATALYTIC	SYS_20049_HISI	phosphoribosyl-AMP cyclohydrolase protein	Required catalytic protein.
+COMP_20405_CATALYTIC	SYS_20405_DAPL	deacetylase protein	Required catalytic protein.
+COMP_21524_CATALYTIC	SYS_21524_LEUA	2-isopropylmalate synthase protein	Required catalytic protein.
+COMP_21540_CATALYTIC	SYS_21540_TRPF	phosphoribosylanthranilate isomerase protein	Required catalytic protein.
+COMP_21588_CATALYTIC	SYS_21588_ARGC	acetylglutamyl-phosphate reductase protein	Required catalytic protein.
+COMP_21640_CATALYTIC	SYS_21640_PDHN	prephenate dehydrogenase (NADP+) protein	Required catalytic protein.
+COMP_21648_CATALYTIC	SYS_21648_PDT	prephenate dehydratase protein	Required catalytic protein.
+COMP_21732_TRPEG_COMP1	SYS_21732_TRPEG	anthranilate synthase component I	Required subunit.
+COMP_21732_TRPEG_COMP2	SYS_21732_TRPEG	anthranilate synthase component II	Required glutamine amidotransferase subunit.
+COMP_21732_TRPEG_FUSED_CATALYTIC	SYS_21732_TRPEG_FUSED	fused anthranilate synthase protein	Required catalytic protein.
+COMP_21824_CATALYTIC	SYS_21824_ASPAT	aspartate aminotransferase protein	Required catalytic protein.
+COMP_22068_CATALYTIC	SYS_22068_ILVC	ketol-acid reductoisomerase protein	Required catalytic protein.
+COMP_22332_LARGE	SYS_22332_LEUCD	dehydratase large subunit	Required subunit.
+COMP_22332_SMALL	SYS_22332_LEUCD	dehydratase small subunit	Required subunit.
+COMP_22608_CATALYTIC	SYS_22608_DAPE	desuccinylase protein	Required catalytic protein.
+COMP_22828_CATALYTIC	SYS_22828_HISE	phosphoribosyl-ATP pyrophosphohydrolase protein	Required catalytic protein.
+COMP_23476_CATALYTIC	SYS_23476_TRPC	indole-3-glycerol-phosphate synthase protein	Required catalytic protein.
+COMP_23744_CATALYTIC	SYS_23744_HISC	histidinol-phosphate aminotransferase protein	Required catalytic protein.
+COMP_23988_CATALYTIC	SYS_23988_DAPLT	LL-diaminopimelate aminotransferase protein	Required catalytic protein.
+COMP_24020_CATALYTIC	SYS_24020_ARGH	argininosuccinate lyase protein	Required catalytic protein.
+COMP_24292_CATALYTIC	SYS_24292_ARGA	N-acetylglutamate synthase protein	Required catalytic protein.
+COMP_24793_HISFH_CYCLASE	SYS_24793_HISFH	imidazole glycerol-phosphate synthase cyclase subunit	Required subunit.
+COMP_24793_HISFH_AMIDOTRANSFERASE	SYS_24793_HISFH	imidazole glycerol-phosphate synthase amidotransferase subunit	Required glutamine amidotransferase subunit.
+COMP_24793_HISF_FUSED_CATALYTIC	SYS_24793_HISF_FUSED	fused imidazole glycerol-phosphate synthase protein	Required catalytic protein.
+COMP_24801_CATALYTIC	SYS_24801_ILVE	branched-chain amino acid aminotransferase protein	Required catalytic protein.
+COMP_24809_CATALYTIC	SYS_24809_ILVD	dihydroxy-acid dehydratase protein	Required catalytic protein.
+COMP_24813_CATALYTIC	SYS_24813_ILVE	branched-chain amino acid aminotransferase protein	Required catalytic protein.
+COMP_25152_CATALYTIC	SYS_25152_AROAT	aromatic aminotransferase protein	Required catalytic protein. The marker set is deliberately wider than the KEGG module, which accepts only TyrB and the fungal Aro8: the aspartate and branched-chain aminotransferases transaminate aromatic 2-oxo acids as well, and requiring TyrB alone calls the trait in a third of the genomes that carry the aryl skeleton.
+COMP_25315_CATALYTIC	SYS_25315_DAPX	acetyldiaminopimelate transaminase protein	Required catalytic protein.
+COMP_27654_CATALYTIC	SYS_27654_ILVBN	acetohydroxyacid synthase large subunit	Required catalytic subunit.
+COMP_27694_CATALYTIC	SYS_27694_ILVD	dihydroxy-acid dehydratase protein	Required catalytic protein.
+COMP_32271_CATALYTIC	SYS_32271_LEUB	3-isopropylmalate dehydrogenase protein	Required catalytic protein.
+COMP_32715_CATALYTIC	SYS_32715_LEUB	3-isopropylmalate dehydrogenase protein	Required catalytic protein.
+COMP_33799_CATALYTIC	SYS_33799_HISD	histidinol dehydrogenase protein	Required catalytic protein.
+COMP_33803_CATALYTIC	SYS_33803_HISD	histidinol dehydrogenase protein	Required catalytic protein.
+COMP_34171_CATALYTIC	SYS_34171_DAPA	dihydrodipicolinate synthase protein	Required catalytic protein.
+COMP_35331_CATALYTIC	SYS_35331_DAPB	dihydrodipicolinate reductase protein	Required catalytic protein.
+COMP_42424_LARGE	SYS_42424_LEUCD	dehydratase large subunit	Required subunit.
+COMP_42424_SMALL	SYS_42424_LEUCD	dehydratase small subunit	Required subunit.
+COMP_10152_CATALYTIC	SYS_10152_ARCC	carbamate kinase protein	Required catalytic protein.
+COMP_10680_CATALYTIC	SYS_10680_PRDF	proline racemase protein	Required catalytic protein.
+COMP_12232_SELA	SYS_12232_GRD	glycine reductase selenoprotein A	Required subunit.
+COMP_12232_B_ALPHABETA	SYS_12232_GRD	glycine reductase protein B, alpha and beta subunit	Required substrate-specific subunit.
+COMP_12232_B_GAMMA	SYS_12232_GRD	glycine reductase protein B, gamma subunit	Required substrate-specific subunit.
+COMP_12232_C_ALPHA	SYS_12232_GRD	glycine reductase protein C, alpha subunit	Required subunit.
+COMP_12232_C_BETA	SYS_12232_GRD	glycine reductase protein C, beta subunit	Required subunit.
+COMP_12737_PRDA	SYS_12737_PRD	D-proline reductase PrdA	Required subunit.
+COMP_12737_PRDB	SYS_12737_PRD	D-proline reductase PrdB	Required selenocysteine-containing subunit.
+COMP_13101_CATALYTIC	SYS_13101_HUTU	urocanate hydratase protein	Required catalytic protein.
+COMP_17785_CATALYTIC	SYS_17785_GAD	glutamate decarboxylase protein	Required catalytic protein.
+COMP_19169_CATALYTIC	SYS_19169_SDAA	L-serine dehydratase protein	Required catalytic protein.
+COMP_19553_CATALYTIC	SYS_19553_TNAA	tryptophanase protein	Required catalytic protein.
+COMP_19597_CATALYTIC	SYS_19597_ARCA	arginine deiminase protein	Required catalytic protein.
+COMP_21232_CATALYTIC	SYS_21232_HUTH	histidine ammonia-lyase protein	Required catalytic protein.
+COMP_22108_CATALYTIC	SYS_22108_ILVA	threonine ammonia-lyase protein	Required catalytic protein.
+COMP_22492_CATALYTIC	SYS_22492_HUTG	formimidoylglutamase protein	Required catalytic protein.
+COMP_23660_CATALYTIC	SYS_23660_HUTI	imidazolonepropionase protein	Required catalytic protein.
+COMP_23800_CATALYTIC	SYS_23800_MGL	methionine gamma-lyase protein	Required catalytic protein.
+COMP_24931_CATALYTIC	SYS_24931_CDS	L-cysteine desulfidase protein	Required catalytic protein.

@@ -61,9 +61,11 @@
     );
   }
 
-  // Navigation steps through what the reader can currently see, so a search
-  // narrows the sequence the arrows walk.
+  // Navigation steps through everything the current filters keep, not only the
+  // page on screen, so the arrows walk the whole result and turn the page when
+  // they reach its edge.
   function visibleGiftRows() {
+    if (giftFiltered) return giftFiltered;
     return giftRows().filter(function (row) { return !row.hidden; });
   }
 
@@ -115,18 +117,103 @@
     });
     if (current === -1 || !visible.length) return;
     var next = (current + offset + visible.length) % visible.length;
+    showGiftPage(pageOf(next));
     openGift(visible[next].getAttribute("data-gift-id"));
   }
 
   var giftBody = document.querySelector(".gift-summary-table tbody");
   var giftTable = document.querySelector(".gift-summary-table");
-  var giftOrder = giftRows();
+  // The curated order the table ships in. Sorting reorders a copy, so clearing
+  // a sort restores it rather than approximating it.
+  var giftCurated = giftRows();
+  var giftOrder = giftCurated.slice();
   var groupSelects = [
     document.querySelector("[data-gift-group-select]"),
     document.querySelector("[data-gift-group-select-2]")
   ].filter(Boolean);
   var resetAnchors = document.querySelector("[data-gift-reset]");
   var collapsedGroups = {};
+
+  // Paging state. `giftFiltered` is every row the filters keep, in the order
+  // they are laid out; the page is a window onto it.
+  var pager = document.querySelector("[data-gift-pager]");
+  var pageSizeSelect = pager ? pager.querySelector("[data-gift-page-size]") : null;
+  var pagerStatus = pager ? pager.querySelector("[data-gift-pager-status]") : null;
+  var pagerPages = pager ? pager.querySelector("[data-gift-pager-pages]") : null;
+  var giftFiltered = null;
+  var giftPageSize = pageSizeSelect ? Number(pageSizeSelect.value) || 20 : 20;
+  var giftPage = 1;
+  var giftSignature = null;
+
+  // Sorting state: the column being sorted and its direction. A column cycles
+  // ascending, descending, then back to the curated order.
+  var sortHeaders = Array.prototype.slice.call(
+    giftTable.querySelectorAll("[data-gift-sort]")
+  );
+  var sortColumn = "";
+  var sortDirection = 0;
+
+  // The key lives in the cell under the header that was clicked, so a column
+  // needs no separate lookup table: the header says which element holds it and
+  // how to compare it.
+  function sortKey(row, header) {
+    var cell = row.cells[header.parentNode.cellIndex];
+    if (!cell) return "";
+    var select = header.getAttribute("data-sort-select");
+    var source = select ? cell.querySelector(select) || cell : cell;
+    var text = (source.textContent || "").trim();
+    if (header.getAttribute("data-sort-type") === "number") {
+      var value = parseFloat(text);
+      return isNaN(value) ? -Infinity : value;
+    }
+    return text.toLowerCase();
+  }
+
+  function sortGifts() {
+    var header = sortColumn && sortDirection
+      ? giftTable.querySelector('[data-gift-sort="' + sortColumn + '"]')
+      : null;
+    giftOrder = giftCurated.slice();
+    if (header) {
+      // The sort is stable, so rows that compare equal stay in curated order.
+      giftOrder.sort(function (left, right) {
+        var a = sortKey(left, header);
+        var b = sortKey(right, header);
+        if (a === b) return 0;
+        return (a < b ? -1 : 1) * sortDirection;
+      });
+    }
+    sortHeaders.forEach(function (other) {
+      var active = other === header;
+      if (active) {
+        other.setAttribute("data-sort-direction", sortDirection > 0 ? "asc" : "desc");
+      } else {
+        other.removeAttribute("data-sort-direction");
+      }
+      other.parentNode.setAttribute(
+        "aria-sort", active ? (sortDirection > 0 ? "ascending" : "descending") : "none"
+      );
+    });
+  }
+
+  function pageOf(index) {
+    return Math.floor(index / giftPageSize) + 1;
+  }
+
+  // The upper bound depends on how many rows survive the filters, so it is
+  // clamped while they are applied; only the floor is known here.
+  function showGiftPage(page) {
+    var target = Math.max(1, page);
+    if (target === giftPage) return;
+    giftPage = target;
+    applySearch(false);
+  }
+
+  // A narrower result set can leave the reader on a page that no longer
+  // exists, so filtering always starts the list over at the top.
+  function resetGiftPage() {
+    giftPage = 1;
+  }
 
   // A select's value is the row's data-attribute suffix, so a new grouping axis
   // needs an option and an attribute on the row, not a change here. Selecting
@@ -331,8 +418,11 @@
     var input = anchorFilter("input");
     var output = anchorFilter("output");
     var matched = {};
+    var onPage = {};
     var count = 0;
+    var keyed = [];
 
+    giftFiltered = [];
     giftRows().forEach(function (row) {
       var matches =
         (!query || row.getAttribute("data-search").indexOf(query) !== -1) &&
@@ -350,23 +440,59 @@
       var withinCollapsed = keys.some(function (key) {
         return Boolean(collapsedGroups[key]);
       });
-      row.hidden = !matches || (grouped && withinCollapsed);
+      row.hidden = true;
+      if (matches && !(grouped && withinCollapsed)) {
+        giftFiltered.push(row);
+        keyed.push(keys);
+      }
+    });
+
+    // Only the rows a reader could actually see are paged: a collapsed group
+    // keeps its header on every page but spends no room on it.
+    var pages = Math.max(1, Math.ceil(giftFiltered.length / giftPageSize));
+    if (giftPage > pages) giftPage = pages;
+    var start = (giftPage - 1) * giftPageSize;
+    var end = Math.min(start + giftPageSize, giftFiltered.length);
+    giftFiltered.forEach(function (row, index) {
+      var shown = index >= start && index < end;
+      row.hidden = !shown;
+      if (shown) {
+        keyed[index].forEach(function (key) { onPage[key] = (onPage[key] || 0) + 1; });
+      }
     });
 
     groupRows().forEach(function (row) {
       var key = row.getAttribute("data-gift-group");
       var total = matched[key] || 0;
-      // An empty group disappears, and a subgroup also disappears while an
-      // ancestor is collapsed.
-      row.hidden = total === 0 || ancestorCollapsed(key);
+      // An empty group disappears, a subgroup also disappears while an ancestor
+      // is collapsed, and an expanded group whose rows all sit on another page
+      // goes with them.
+      row.hidden = total === 0 || ancestorCollapsed(key) ||
+        (!collapsedGroups[key] && !onPage[key]);
       var toggle = row.querySelector("[data-gift-group-toggle]");
       toggle.setAttribute("aria-expanded", collapsedGroups[key] ? "false" : "true");
       toggle.querySelector("small").textContent = total + (total === 1 ? " GIFT" : " GIFTs");
     });
 
+    renderPager(start, end, pages);
     if (resetAnchors) resetAnchors.hidden = !input && !output;
     setEmptyState(view, count === 0);
     return count;
+  }
+
+  function renderPager(start, end, pages) {
+    if (!pager) return;
+    var total = giftFiltered.length;
+    pager.hidden = total === 0;
+    pagerStatus.textContent = total === 0
+      ? "No GIFTs"
+      : "Showing " + (start + 1) + "\u2013" + end + " of " + total;
+    pagerPages.textContent = "Page " + giftPage + " of " + pages;
+    Array.prototype.slice.call(pager.querySelectorAll("[data-gift-page-step]"))
+      .forEach(function (button) {
+        var step = Number(button.getAttribute("data-gift-page-step"));
+        button.disabled = giftPage + step < 1 || giftPage + step > pages;
+      });
   }
 
   function filterChangelog(query) {
@@ -426,6 +552,16 @@
     var message = "";
 
     if (section === "gifts") {
+      // Any change to what is being filtered for starts the list over at the
+      // top; turning a page or folding a group leaves the reader where they are.
+      var signature = [
+        query, anchorFilter("input"), anchorFilter("output"), groupAxes().join("|"),
+        sortColumn + sortDirection
+      ].join(SEPARATOR);
+      if (signature !== giftSignature) {
+        giftSignature = signature;
+        resetGiftPage();
+      }
       var giftCount = filterGifts(query);
       message = giftCount + (giftCount === 1 ? " matching GIFT" : " matching GIFTs");
     } else if (section === "changelog") {
@@ -461,6 +597,42 @@
       applySearch(true);
     });
   });
+
+  sortHeaders.forEach(function (header) {
+    header.addEventListener("click", function () {
+      var column = header.getAttribute("data-gift-sort");
+      if (column !== sortColumn) {
+        sortColumn = column;
+        sortDirection = 1;
+      } else {
+        sortDirection = sortDirection === 1 ? -1 : 0;
+        if (!sortDirection) sortColumn = "";
+      }
+      sortGifts();
+      layoutGifts();
+      applySearch(false);
+    });
+  });
+
+  if (pageSizeSelect) {
+    pageSizeSelect.addEventListener("change", function () {
+      // The reader keeps their place rather than their page number: the new
+      // page is the one holding the row that headed the old one.
+      var first = (giftPage - 1) * giftPageSize;
+      giftPageSize = Number(pageSizeSelect.value) || 20;
+      giftPage = Math.floor(first / giftPageSize) + 1;
+      applySearch(false);
+    });
+  }
+
+  if (pager) {
+    Array.prototype.slice.call(pager.querySelectorAll("[data-gift-page-step]"))
+      .forEach(function (button) {
+        button.addEventListener("click", function () {
+          showGiftPage(giftPage + Number(button.getAttribute("data-gift-page-step")));
+        });
+      });
+  }
 
   // The anchor lists are long, so each is a text field that narrows a dropdown
   // as the reader types. The committed anchor id lives in a hidden input, which
@@ -694,18 +866,155 @@
     }
   });
 
-  Array.prototype.slice.call(document.querySelectorAll("[data-graph-button]")).forEach(function (button) {
-    button.addEventListener("click", function () {
-      var name = button.getAttribute("data-graph-button");
-      Array.prototype.slice.call(document.querySelectorAll("[data-graph-button]")).forEach(function (other) {
-        var active = other === button;
-        other.classList.toggle("active", active);
-        other.setAttribute("aria-selected", active ? "true" : "false");
+  // The overview networks draw no labels, so every fact about a dot is read
+  // out of its data attributes into one hover card. Pointing at a dot also
+  // dims everything it is not connected to, which is the only way to follow a
+  // single trait through a few hundred crossing edges.
+  Array.prototype.slice.call(document.querySelectorAll("[data-dot-network]")).forEach(function (frame) {
+    var tooltip = frame.querySelector("[data-dot-tooltip]");
+    var dots = Array.prototype.slice.call(frame.querySelectorAll(".dot-node"));
+    var edges = Array.prototype.slice.call(frame.querySelectorAll(".dot-edge"));
+    var neighbours = {};
+
+    edges.forEach(function (edge) {
+      var from = edge.getAttribute("data-edge-from");
+      var to = edge.getAttribute("data-edge-to");
+      (neighbours[from] = neighbours[from] || {})[to] = true;
+      (neighbours[to] = neighbours[to] || {})[from] = true;
+    });
+
+    function add(parent, tag, text) {
+      var element = document.createElement(tag);
+      if (text !== undefined) element.textContent = text;
+      parent.appendChild(element);
+      return element;
+    }
+
+    // The card is built out of text nodes rather than markup, so a curated
+    // name carrying an ampersand or an angle bracket is printed, not parsed.
+    function describe(dot) {
+      while (tooltip.firstChild) tooltip.removeChild(tooltip.firstChild);
+      add(tooltip, "b", dot.getAttribute("data-node-label"));
+      add(tooltip, "code", dot.getAttribute("data-node-sublabel"));
+      var lines = (dot.getAttribute("data-node-detail") || "").split("\n").filter(Boolean);
+      if (lines.length) {
+        var list = add(tooltip, "ul");
+        lines.forEach(function (line) {
+          var item = add(list, "li");
+          var split = line.indexOf("|");
+          if (split === -1) {
+            item.textContent = line;
+            return;
+          }
+          add(item, "span", line.slice(0, split));
+          item.appendChild(document.createTextNode(line.slice(split + 1)));
+        });
+      }
+      if (dot.getAttribute("data-node-gift")) add(tooltip, "em", "Click to open this GIFT");
+    }
+
+    function place(dot) {
+      var frameBox = frame.getBoundingClientRect();
+      var dotBox = dot.getBoundingClientRect();
+      var left = dotBox.left - frameBox.left + dotBox.width / 2 + 14;
+      var top = dotBox.top - frameBox.top + dotBox.height / 2 + 14;
+      // Flip the card back inside the frame rather than letting it spill over
+      // the edge of the drawing.
+      if (left + tooltip.offsetWidth > frameBox.width - 8) {
+        left = Math.max(8, left - tooltip.offsetWidth - 28);
+      }
+      if (top + tooltip.offsetHeight > frameBox.height - 8) {
+        top = Math.max(8, top - tooltip.offsetHeight - 28);
+      }
+      tooltip.style.left = Math.round(left) + "px";
+      tooltip.style.top = Math.round(top) + "px";
+    }
+
+    function probe(dot) {
+      var id = dot.getAttribute("data-node-id");
+      var near = neighbours[id] || {};
+      dots.forEach(function (other) {
+        var otherId = other.getAttribute("data-node-id");
+        other.classList.toggle("near", other === dot || near[otherId] === true);
+        other.classList.toggle("active", other === dot);
       });
-      Array.prototype.slice.call(document.querySelectorAll("[data-graph-panel]")).forEach(function (panel) {
-        panel.hidden = panel.getAttribute("data-graph-panel") !== name;
+      edges.forEach(function (edge) {
+        edge.classList.toggle(
+          "near",
+          edge.getAttribute("data-edge-from") === id || edge.getAttribute("data-edge-to") === id
+        );
+      });
+      frame.classList.add("probing");
+      describe(dot);
+      tooltip.hidden = false;
+      tooltip.setAttribute("aria-hidden", "false");
+      place(dot);
+    }
+
+    function clearProbe() {
+      frame.classList.remove("probing");
+      dots.forEach(function (dot) { dot.classList.remove("near", "active"); });
+      edges.forEach(function (edge) { edge.classList.remove("near"); });
+      tooltip.hidden = true;
+      tooltip.setAttribute("aria-hidden", "true");
+    }
+
+    function openDot(dot) {
+      var giftId = dot.getAttribute("data-node-gift");
+      if (!giftId) return;
+      // A stale query would leave the target row filtered out of the sequence
+      // the modal arrows walk.
+      search.value = "";
+      clearProbe();
+      activateView("gifts", true);
+      openGift(giftId);
+    }
+
+    dots.forEach(function (dot) {
+      dot.addEventListener("mouseenter", function () { probe(dot); });
+      dot.addEventListener("focus", function () { probe(dot); });
+      dot.addEventListener("blur", clearProbe);
+      dot.addEventListener("click", function () { openDot(dot); });
+      dot.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openDot(dot);
+        }
       });
     });
+    frame.addEventListener("mouseleave", clearProbe);
+
+    // Colouring by metadata is a repaint: every dot already carries the colour
+    // each scheme would give it, so the menus only choose which attribute wins.
+    var legend = frame.querySelector("[data-dot-legend]");
+    var menus = Array.prototype.slice.call(
+      document.querySelectorAll("[data-colour-by]")
+    );
+    function repaint() {
+      var chosen = {};
+      menus.forEach(function (menu) {
+        chosen[menu.getAttribute("data-colour-by")] = menu.value;
+      });
+      dots.forEach(function (dot) {
+        var family = dot.classList.contains("gift") ? "gift" : "anchor";
+        var scheme = chosen[family] || "";
+        var core = dot.querySelector(".dot-core");
+        var fill = scheme ? dot.getAttribute("data-fill-" + scheme) : "";
+        core.style.fill = fill || "";
+        // No colour for this dot under this scheme: the palette is never
+        // cycled, so it is drawn as a ring instead of as an eighth hue.
+        dot.classList.toggle("unassigned", Boolean(scheme) && !fill);
+      });
+      if (!legend) return;
+      Array.prototype.slice.call(
+        legend.querySelectorAll("[data-legend]")
+      ).forEach(function (block) {
+        var name = block.getAttribute("data-legend").split(":");
+        block.hidden = (chosen[name[0]] || "") !== name[1];
+      });
+    }
+    menus.forEach(function (menu) { menu.addEventListener("change", repaint); });
+    repaint();
   });
 
   search.addEventListener("input", function () { applySearch(true); });
@@ -747,6 +1056,7 @@
   });
 
   // A reloaded page can restore a previously chosen grouping in the select.
+  sortGifts();
   layoutGifts();
   activateView(window.location.hash.replace(/^#/, "") || "overview", false);
 }());

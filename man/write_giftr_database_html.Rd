@@ -24,9 +24,16 @@ The normalized output path, invisibly.
 \description{
 Creates a dependency-free HTML report containing release metadata, table
 counts, a complete biological hierarchy, the SQL schema, and a searchable
-browser for every table. Three network views are drawn as inline SVG: the
-directed GIFT composition graph, the same GIFTs drawn together with their
-declared anchors, and, for each GIFT, a merged route network in which
+browser for every table. Two network views are drawn as inline SVG. The
+overview network draws every GIFT together with its declared anchors as an
+unlabelled force directed map in which a GIFT is a large dot and an anchor a
+small one: hovering a dot dims everything it is not connected to and prints
+its identifier, boundaries, and content, and clicking a GIFT opens it in the
+explorer. Two menus recolour that drawing by curated metadata -- GIFTs by
+type, mode, substrate class, or physiological role, anchors by boundary use,
+compartment, molecular tier, resource origin, or biomass essentiality -- and
+the key for whichever scheme is showing sits in the corner of the figure.
+The second network is drawn for each GIFT: a merged route network in which
 alternative routes are overlaid on the reactions they share. The GIFT table
 can be grouped by category and filtered by start and end anchor, and a
 selected GIFT opens in a dialog over the table. All styles, scripts, and data

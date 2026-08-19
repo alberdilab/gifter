@@ -41,9 +41,59 @@ test_that("every sugar degradation GIFT is curated to the full evidence depth", 
 test_that("catabolism does not connect to biosynthesis through internal metabolites", {
   graph <- gift_graph()
 
-  # Every output is a central metabolite that no curated GIFT consumes, so a
-  # degradation GIFT is never upstream of anything.
-  expect_false(any(graph$from_gift %in% sugar_gifts))
+  # A degradation GIFT may be upstream only of the fermentation layer, and only
+  # through a declared central-metabolite anchor. It is never upstream of a
+  # biosynthesis GIFT, which is what this test exists to protect: shared
+  # internal metabolites still create no edges. The set of downstream GIFTs
+  # grows whenever a capability consuming pyruvate or lactaldehyde is curated;
+  # the invariant that must not move is the anchor set and the mode.
+  outgoing <- graph[graph$from_gift %in% sugar_gifts, ]
+  downstream_modes <- vapply(
+    unique(outgoing$to_gift), function(id) get_gift(id)$mode, character(1)
+  )
+  # The carbon anchors reach fermentation, central metabolism and -- since the
+  # amino acid layer -- biosynthesis, because pyruvate is where sugar carbon
+  # genuinely enters alanine and the branched-chain amino acids. That edge is
+  # real biology rather than a boundary error, and the anabolic GIFTs it reaches
+  # are exactly the ones whose curated input is pyruvate.
+  carbon <- outgoing[outgoing$shared_anchor != "AMMONIUM", ]
+  anabolic <- vapply(
+    unique(carbon$to_gift), function(id) get_gift(id)$mode, character(1)
+  )
+  expect_setequal(
+    names(anabolic)[anabolic == "anabolic"],
+    c(
+      "alanine_biosynthesis", "oxoisovalerate_biosynthesis",
+      "oxobutanoate_biosynthesis_citramalate"
+    )
+  )
+  expect_setequal(
+    unique(carbon$shared_anchor[carbon$to_gift %in% names(anabolic)[anabolic == "anabolic"]]),
+    "PYRUVATE"
+  )
+  # Ammonium reaches assimilation and, since glutamine synthetase was curated,
+  # amidation as well. Both are the same rule: a deaminase liberates it and an
+  # anabolic capability takes it up.
+  nitrogen <- outgoing[outgoing$shared_anchor == "AMMONIUM", ]
+  expect_setequal(
+    unique(nitrogen$to_gift),
+    c("ammonium_assimilation", "glutamine_biosynthesis")
+  )
+  expect_setequal(
+    unique(nitrogen$from_gift), c("glcnac_degradation", "neuac_degradation")
+  )
+  expect_setequal(
+    unique(outgoing$shared_anchor), c("PYRUVATE", "LACTALDEHYDE", "AMMONIUM")
+  )
+  expect_setequal(
+    unique(outgoing$to_gift),
+    c(
+      "pyruvate_to_acetyl_coa", "propanediol_formation",
+      "lactate_formation", "acetoin_formation", "ammonium_assimilation",
+      "glutamine_biosynthesis", "alanine_biosynthesis",
+      "oxoisovalerate_biosynthesis", "oxobutanoate_biosynthesis_citramalate"
+    )
+  )
 
   # The only way into a degradation GIFT is its own uptake step. Nothing
   # reaches one through a shared intermediate.

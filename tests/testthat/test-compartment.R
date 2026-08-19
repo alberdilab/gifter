@@ -15,7 +15,7 @@ test_that("curated content declares a mode and leaves compartment unspecified", 
   # Two ways an anchor acquires a compartment: an uptake GIFT licensed the
   # split, or the substance is extracellular by its own nature.
   licensed <- sort(unique(anchors$molecule[anchors$compartment == "cytoplasmic"]))
-  expect_equal(licensed, c("ARABINOSE", "XYLOSE"))
+  expect_equal(licensed, c("ARABINOSE", "TAURINE", "XYLOSE"))
   intrinsic <- sort(anchors$molecule[anchors$compartment == "extracellular"])
   expect_true(all(c("ARABINOXYLAN", "XYLAN", "STARCH") %in% intrinsic))
   expect_true(all(anchors$compartment[grepl("_biosynthesis", anchors$anchor_id)] == "unspecified"))
@@ -140,4 +140,61 @@ test_that("an unknown compartment or mode is rejected", {
   add_test_anchor(mode_dir, "FIXTURE_Y", "FIXTURE_Y", "unspecified")
   add_test_gift(mode_dir, "fixture_unknown_mode", "digestive", "FIXTURE_X", "FIXTURE_Y")
   expect_error(validate_giftr_sources(mode_dir), "Invalid gifts.mode")
+})
+
+test_that("only an interconversion GIFT may declare an anchor in both roles", {
+  # A directed GIFT that mirrors a boundary is claiming and denying a direction
+  # at once, and that has always been an error.
+  directed <- giftr_source_copy()
+  add_test_anchor(directed, "FIXTURE_X", "FIXTURE_X", "unspecified")
+  add_test_anchor(directed, "FIXTURE_Y", "FIXTURE_Y", "unspecified")
+  add_test_gift(
+    directed, "fixture_directed", "catabolic",
+    c("FIXTURE_X", "FIXTURE_Y"), c("FIXTURE_Y", "FIXTURE_X")
+  )
+  expect_error(
+    validate_giftr_sources(directed),
+    "only mode = interconversion may do that"
+  )
+
+  # The same rows under the interconversion mode are the intended use.
+  reversible <- giftr_source_copy()
+  add_test_anchor(reversible, "FIXTURE_X", "FIXTURE_X", "unspecified")
+  add_test_anchor(reversible, "FIXTURE_Y", "FIXTURE_Y", "unspecified")
+  add_test_gift(
+    reversible, "fixture_reversible", "interconversion",
+    c("FIXTURE_X", "FIXTURE_Y"), c("FIXTURE_Y", "FIXTURE_X")
+  )
+  expect_true(validate_giftr_sources(reversible)$valid)
+})
+
+test_that("an interconversion GIFT must declare every anchor in both roles", {
+  # Half a reversible boundary asserts a direction for the other half.
+  source_dir <- giftr_source_copy()
+  add_test_anchor(source_dir, "FIXTURE_X", "FIXTURE_X", "unspecified")
+  add_test_anchor(source_dir, "FIXTURE_Y", "FIXTURE_Y", "unspecified")
+  add_test_gift(
+    source_dir, "fixture_half_reversible", "interconversion",
+    "FIXTURE_X", "FIXTURE_Y"
+  )
+  expect_error(
+    validate_giftr_sources(source_dir),
+    "every anchor must be declared as both input and output"
+  )
+})
+
+test_that("a mirrored anchor is not mistaken for translocation", {
+  # Two compartments of one molecule stay the signature of transport. A
+  # reversible node in one compartment must not borrow it, or transport would
+  # stop being required to reach the cytoplasm.
+  source_dir <- giftr_source_copy()
+  add_test_anchor(source_dir, "FIXTURE_X", "FIXTURE_X", "unspecified")
+  add_test_anchor(source_dir, "FIXTURE_Y", "FIXTURE_Y", "unspecified")
+  add_test_gift(
+    source_dir, "fixture_reversible", "interconversion",
+    c("FIXTURE_X", "FIXTURE_Y"), c("FIXTURE_Y", "FIXTURE_X")
+  )
+  report <- validate_giftr_sources(source_dir)
+  expect_true(report$valid)
+  expect_false(any(grepl("is not mode = transport", report$warnings)))
 })

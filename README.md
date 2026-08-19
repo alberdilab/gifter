@@ -16,7 +16,7 @@ GIFT
 └── defense       the machinery to execute a defined defense mechanism
 ```
 
-All four carry curated content: 29 metabolic capabilities, the flagellar
+All four carry curated content: 61 metabolic capabilities, the flagellar
 apparatus and type IVa pilus, chemotaxis and phosphate-response signalling, and
 type I restriction-modification and type I-E CRISPR-Cas machinery.
 
@@ -196,11 +196,13 @@ database:
 write_giftr_database_html("giftr-database.html", open = TRUE)
 ```
 
-The report includes release metadata and row counts, two whole-database network
-views (GIFT composition, and GIFTs drawn together with their declared anchors),
-a merged route network for every GIFT, the complete GIFT-to-marker evidence
-hierarchy, the curation changelog linked to the traits each change affects, an
-entity map, and a searchable browser for every SQLite table.
+The report includes release metadata and row counts, a whole-database network
+view drawing every GIFT together with its declared anchors, in which a GIFT is a
+large dot and an anchor a small one -- hover a dot for its identifier and
+boundaries, click a GIFT to open it, and recolour either kind of dot by the
+metadata it carries -- a merged route network for every GIFT, the complete GIFT-to-marker evidence hierarchy, the
+curation changelog linked to the traits each change affects, an entity map, and
+a searchable browser for every SQLite table.
 
 The biological changelog is part of the database rather than a file beside the
 code, so it travels with the compiled artifact:

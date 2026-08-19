@@ -5,3 +5,9 @@ SYS_DF_HSDR	DF_TYPE_I_RM_RESTRICTION	HsdR restriction subunit	Single protein.
 SYS_DF_CASCADE_I_E	DF_CRISPR_I_E_SURVEILLANCE	type I-E Cascade	CasA, CasB, CasC, CasD and CasE, jointly required.
 SYS_DF_CAS3	DF_CRISPR_I_E_INTERFERENCE_NUCLEASE	Cas3 nuclease-helicase	Single fused protein.
 SYS_DF_CAS1_CAS2	DF_CRISPR_ADAPTATION	Cas1-Cas2 integrase	Both proteins jointly required.
+SYS_DF_MERA	DF_MER_HG_REDUCTION	MerA mercuric reductase	Single catalytic protein.
+SYS_DF_MERTP	DF_MER_HG_DELIVERY	MerT-MerP transport pair	The inner-membrane transporter and its periplasmic binding protein, jointly required.
+SYS_DF_MERC	DF_MER_HG_DELIVERY	MerC transporter	Single protein, an alternative to MerT-MerP.
+SYS_DF_MERE	DF_MER_HG_DELIVERY	MerE transporter	Single protein, an alternative to MerT-MerP and the one that also carries organomercurials.
+SYS_DF_MERR	DF_MER_HG_INDUCTION	MerR activator	Single protein.
+SYS_DF_MERB	DF_MER_ORGANOMERCURIAL_LYSIS	MerB organomercurial lyase	Single catalytic protein.

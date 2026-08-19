@@ -494,3 +494,464 @@ KO	K19123	CRISPR system Cascade subunit CasA	KEGG orthology marker.
 KO	K19124	CRISPR system Cascade subunit CasC	KEGG orthology marker.
 KO	K19125	CRISPR system Cascade subunit CasD	KEGG orthology marker.
 KO	K19126	CRISPR system Cascade subunit CasE	KEGG orthology marker.
+KO	K00161	pyruvate dehydrogenase E1 component subunit alpha	KEGG orthology marker.
+KO	K00162	pyruvate dehydrogenase E1 component subunit beta	KEGG orthology marker.
+KO	K00163	pyruvate dehydrogenase E1 component	KEGG orthology marker for the fused single-polypeptide E1.
+KO	K00627	pyruvate dehydrogenase E2 component	KEGG orthology marker.
+KO	K00382	dihydrolipoyl dehydrogenase	KEGG orthology marker shared with other 2-oxo acid dehydrogenase complexes.
+KO	K00169	pyruvate:ferredoxin oxidoreductase alpha subunit	KEGG orthology marker.
+KO	K00170	pyruvate:ferredoxin oxidoreductase beta subunit	KEGG orthology marker.
+KO	K00171	pyruvate:ferredoxin oxidoreductase delta subunit	KEGG orthology marker.
+KO	K00172	pyruvate:ferredoxin oxidoreductase gamma subunit	KEGG orthology marker.
+KO	K03737	pyruvate-ferredoxin/flavodoxin oxidoreductase	KEGG orthology marker for the fused NifJ-type protein.
+KO	K00656	formate C-acetyltransferase	KEGG orthology marker.
+KO	K04069	pyruvate formate-lyase activating enzyme	KEGG orthology marker.
+KO	K00625	phosphate acetyltransferase	KEGG orthology marker.
+KO	K13788	phosphate acetyltransferase	KEGG orthology marker for a second phosphotransacetylase group.
+KO	K15024	putative phosphotransacetylase	KEGG orthology marker retained from KEGG M00579.
+KO	K00925	acetate kinase	KEGG orthology marker.
+KO	K00626	acetyl-CoA C-acetyltransferase	KEGG orthology marker; chain-length-generic thiolase.
+KO	K00074	3-hydroxybutyryl-CoA dehydrogenase	KEGG orthology marker; the group also carries the phenylacetate and fatty acid beta-oxidation dehydrogenases.
+KO	K01715	short-chain-enoyl-CoA hydratase	KEGG orthology marker; chain-length-generic.
+KO	K00248	butyryl-CoA dehydrogenase	KEGG orthology marker; the group also carries the generic short-chain acyl-CoA dehydrogenase.
+TIGRFAM	TIGR03948	butyryl-CoA:acetate CoA-transferase	NCBIfam sequence family marker. Built around the characterised activity rather than the fold, and the only marker in any namespace that identifies the enzyme releasing butanoate rather than a generic CoA transfer.
+KO	K00048	lactaldehyde reductase	KEGG orthology marker.
+KO	K01699	propanediol dehydratase large subunit	KEGG orthology marker.
+KO	K13919	propanediol dehydratase medium subunit	KEGG orthology marker.
+KO	K13920	propanediol dehydratase small subunit	KEGG orthology marker.
+KO	K13922	propionaldehyde dehydrogenase	KEGG orthology marker.
+KO	K13923	phosphate propanoyltransferase	KEGG orthology marker.
+KO	K19697	propionate kinase PduW	KEGG orthology marker.
+KO	K00932	propionate kinase TdcD	KEGG orthology marker.
+KO	K01026	propionate CoA-transferase	KEGG orthology marker.
+KO	K20626	lactoyl-CoA dehydratase alpha subunit	KEGG orthology marker.
+KO	K20627	lactoyl-CoA dehydratase beta subunit	KEGG orthology marker.
+KO	K20143	acryloyl-CoA reductase	KEGG orthology marker.
+KO	K00016	L-lactate dehydrogenase	KEGG orthology marker.
+KO	K22373	lactate racemase	KEGG orthology marker.
+KO	K22212	malolactic enzyme	KEGG orthology marker.
+KO	K01643	citrate lyase alpha subunit	KEGG orthology marker.
+KO	K01644	citrate lyase beta subunit	KEGG orthology marker.
+KO	K01646	citrate lyase acyl-carrier subunit	KEGG orthology marker.
+KO	K01910	citrate lyase ligase	KEGG orthology marker.
+KO	K01571	oxaloacetate decarboxylase alpha subunit	KEGG orthology marker.
+KO	K01003	soluble oxaloacetate decarboxylase	KEGG orthology marker.
+KO	K04072	bifunctional acetaldehyde/alcohol dehydrogenase	KEGG orthology marker.
+KO	K01652	acetolactate synthase large subunit	KEGG orthology marker.
+KO	K01575	acetolactate decarboxylase	KEGG orthology marker.
+KO	K01497	GTP cyclohydrolase II	KEGG orthology marker.
+KO	K14652	3,4-dihydroxy 2-butanone 4-phosphate synthase / GTP cyclohydrolase II	KEGG orthology marker.
+KO	K01498	diaminohydroxyphosphoribosylaminopyrimidine deaminase	KEGG orthology marker.
+KO	K11752	diaminohydroxyphosphoribosylaminopyrimidine deaminase / 5-amino-6-(5-phosphoribosylamino)uracil reductase	KEGG orthology marker.
+KO	K00082	5-amino-6-(5-phosphoribosylamino)uracil reductase	KEGG orthology marker.
+KO	K20861	FMN hydrolase / 5-amino-6-(5-phospho-D-ribitylamino)uracil phosphatase	KEGG orthology marker.
+KO	K20862	FMN hydrolase / 5-amino-6-(5-phospho-D-ribitylamino)uracil phosphatase	KEGG orthology marker.
+KO	K21063	5-amino-6-(5-phospho-D-ribitylamino)uracil phosphatase	KEGG orthology marker.
+KO	K21064	5-amino-6-(5-phospho-D-ribitylamino)uracil phosphatase	KEGG orthology marker.
+KO	K20860	FMN hydrolase / 5-amino-6-(5-phospho-D-ribitylamino)uracil phosphatase	KEGG orthology marker.
+KO	K02858	3,4-dihydroxy 2-butanone 4-phosphate synthase	KEGG orthology marker.
+KO	K00794	6,7-dimethyl-8-ribityllumazine synthase	KEGG orthology marker.
+KO	K00793	riboflavin synthase	KEGG orthology marker.
+KO	K01665	para-aminobenzoate synthetase component I	KEGG orthology marker.
+KO	K13950	para-aminobenzoate synthetase	KEGG orthology marker.
+KO	K03342	para-aminobenzoate synthetase / 4-amino-4-deoxychorismate lyase	KEGG orthology marker.
+KO	K02619	4-amino-4-deoxychorismate lyase	KEGG orthology marker.
+KO	K01495	GTP cyclohydrolase IA	KEGG orthology marker.
+KO	K09007	GTP cyclohydrolase IB	KEGG orthology marker.
+KO	K22391	GTP cyclohydrolase I	KEGG orthology marker.
+KO	K08310	dihydroneopterin triphosphate diphosphatase	KEGG orthology marker.
+KO	K19965	dihydroneopterin triphosphate pyrophosphohydrolase	KEGG orthology marker.
+KO	K01633	7,8-dihydroneopterin aldolase/epimerase/oxygenase	KEGG orthology marker.
+KO	K13939	dihydroneopterin aldolase / 2-amino-4-hydroxy-6-hydroxymethyldihydropteridine diphosphokinase / dihydropteroate synthase	KEGG orthology marker.
+KO	K13940	dihydroneopterin aldolase / 2-amino-4-hydroxy-6-hydroxymethyldihydropteridine diphosphokinase	KEGG orthology marker.
+KO	K00950	2-amino-4-hydroxy-6-hydroxymethyldihydropteridine diphosphokinase	KEGG orthology marker.
+KO	K13941	2-amino-4-hydroxy-6-hydroxymethyldihydropteridine diphosphokinase / dihydropteroate synthase	KEGG orthology marker.
+KO	K00796	dihydropteroate synthase	KEGG orthology marker.
+KO	K11754	dihydrofolate synthase / folylpolyglutamate synthase	KEGG orthology marker.
+KO	K20457	dihydrofolate synthase	KEGG orthology marker.
+KO	K00287	dihydrofolate reductase	KEGG orthology marker.
+KO	K13998	dihydrofolate reductase / thymidylate synthase	KEGG orthology marker.
+KO	K03147	phosphomethylpyrimidine synthase	KEGG orthology marker.
+KO	K00941	hydroxymethylpyrimidine/phosphomethylpyrimidine kinase	KEGG orthology marker.
+KO	K14153	hydroxymethylpyrimidine kinase / phosphomethylpyrimidine kinase / thiamine-phosphate diphosphorylase	KEGG orthology marker.
+KO	K21219	hydroxymethylpyrimidine kinase / phosphomethylpyrimidine kinase / thiamine-phosphate diphosphorylase	KEGG orthology marker.
+KO	K03150	2-iminoacetate synthase	KEGG orthology marker.
+KO	K03149	thiazole synthase	KEGG orthology marker.
+KO	K03153	glycine oxidase	KEGG orthology marker.
+KO	K00788	thiamine-phosphate pyrophosphorylase	KEGG orthology marker.
+KO	K00878	hydroxyethylthiazole kinase	KEGG orthology marker.
+KO	K00606	3-methyl-2-oxobutanoate hydroxymethyltransferase	KEGG orthology marker.
+KO	K00077	2-dehydropantoate 2-reductase	KEGG orthology marker.
+KO	K00053	ketol-acid reductoisomerase	KEGG orthology marker.
+KO	K01579	aspartate 1-decarboxylase	KEGG orthology marker.
+KO	K01918	pantoate--beta-alanine ligase	KEGG orthology marker.
+KO	K13799	pantoate ligase / CMP/dCMP kinase	KEGG orthology marker.
+KO	K06215	pyridoxal 5'-phosphate synthase pdxS subunit	KEGG orthology marker.
+KO	K08681	pyridoxal 5'-phosphate synthase pdxT subunit	KEGG orthology marker.
+KO	K03472	D-erythrose 4-phosphate dehydrogenase	KEGG orthology marker.
+KO	K03473	erythronate-4-phosphate dehydrogenase	KEGG orthology marker.
+KO	K00097	4-hydroxythreonine-4-phosphate dehydrogenase	KEGG orthology marker.
+KO	K03474	pyridoxine 5-phosphate synthase	KEGG orthology marker.
+KO	K00275	pyridoxamine 5'-phosphate oxidase	KEGG orthology marker.
+KO	K00652	8-amino-7-oxononanoate synthase	KEGG orthology marker.
+KO	K00833	adenosylmethionine---8-amino-7-oxononanoate aminotransferase	KEGG orthology marker.
+KO	K19562	bifunctional dethiobiotin synthetase / spermidine---8-amino-7-oxononanoate transaminase	KEGG orthology marker.
+KO	K01935	dethiobiotin synthetase	KEGG orthology marker.
+KO	K01012	biotin synthase	KEGG orthology marker.
+KO	K19563	lysine---8-amino-7-oxononanoate aminotransferase	KEGG orthology marker.
+KO	K00278	L-aspartate oxidase	KEGG orthology marker.
+KO	K03517	quinolinate synthase	KEGG orthology marker.
+KO	K06989	aspartate dehydrogenase	KEGG orthology marker.
+KO	K00767	nicotinate-nucleotide pyrophosphorylase (carboxylating)	KEGG orthology marker.
+KO	K00969	nicotinate-nucleotide adenylyltransferase	KEGG orthology marker.
+KO	K06210	nicotinamide mononucleotide adenylyltransferase	KEGG orthology marker.
+KO	K01916	NAD+ synthase	KEGG orthology marker.
+KO	K01950	NAD+ synthase (glutamine-hydrolysing)	KEGG orthology marker.
+KO	K00763	nicotinate phosphoribosyltransferase	KEGG orthology marker.
+KO	K02303	uroporphyrin-III C-methyltransferase	KEGG orthology marker.
+KO	K13542	uroporphyrinogen III methyltransferase / synthase	KEGG orthology marker.
+KO	K02302	uroporphyrin-III C-methyltransferase / precorrin-2 dehydrogenase / sirohydrochlorin ferrochelatase	KEGG orthology marker.
+KO	K02304	precorrin-2 dehydrogenase / sirohydrochlorin ferrochelatase	KEGG orthology marker.
+KO	K24866	precorrin-2 dehydrogenase	KEGG orthology marker.
+KO	K02190	sirohydrochlorin cobaltochelatase	KEGG orthology marker.
+KO	K03795	sirohydrochlorin cobaltochelatase	KEGG orthology marker.
+KO	K22011	sirohydrochlorin cobalto/nickelchelatase	KEGG orthology marker.
+KO	K03394	precorrin-2/cobalt-factor-2 C20-methyltransferase	KEGG orthology marker.
+KO	K05934	precorrin-3B C17-methyltransferase / cobalt-factor III methyltransferase	KEGG orthology marker.
+KO	K13541	cobalt-precorrin 5A hydrolase / cobalt-factor III methyltransferase / precorrin-3B C17-methyltransferase	KEGG orthology marker.
+KO	K21479	cobalt-factor III methyltransferase	KEGG orthology marker.
+KO	K05936	precorrin-4/cobalt-precorrin-4 C11-methyltransferase	KEGG orthology marker.
+KO	K02189	cobalt-precorrin 5A hydrolase	KEGG orthology marker.
+KO	K02188	cobalt-precorrin-5B (C1)-methyltransferase	KEGG orthology marker.
+KO	K05895	precorrin-6A/cobalt-precorrin-6A reductase	KEGG orthology marker.
+KO	K02191	cobalt-precorrin-6B (C15)-methyltransferase	KEGG orthology marker.
+KO	K00595	precorrin-6B C5,15-methyltransferase / cobalt-precorrin-6B C5,C15-methyltransferase	KEGG orthology marker.
+KO	K03399	cobalt-precorrin-7 (C5)-methyltransferase	KEGG orthology marker.
+KO	K06042	precorrin-8X/cobalt-precorrin-8 methylmutase	KEGG orthology marker.
+KO	K02224	cobyrinic acid a,c-diamide synthase	KEGG orthology marker.
+KO	K13540	precorrin-2 C20-methyltransferase / precorrin-3B C17-methyltransferase	KEGG orthology marker.
+KO	K02229	precorrin-3B synthase	KEGG orthology marker.
+KO	K02228	precorrin-6A synthase	KEGG orthology marker.
+KO	K02230	cobaltochelatase CobN	KEGG orthology marker.
+KO	K09882	cobaltochelatase CobS	KEGG orthology marker.
+KO	K09883	cobaltochelatase CobT	KEGG orthology marker.
+KO	K00798	cob(I)alamin adenosyltransferase	KEGG orthology marker.
+KO	K19221	cob(I)alamin adenosyltransferase	KEGG orthology marker.
+KO	K02232	adenosylcobyric acid synthase	KEGG orthology marker.
+KO	K02227	adenosylcobinamide-phosphate synthase	KEGG orthology marker.
+KO	K02225	cobalamin biosynthesis protein CobC	KEGG orthology marker.
+KO	K02231	adenosylcobinamide kinase / adenosylcobinamide-phosphate guanylyltransferase	KEGG orthology marker.
+KO	K19712	adenosylcobinamide-phosphate guanylyltransferase	KEGG orthology marker.
+KO	K00768	nicotinate-nucleotide--dimethylbenzimidazole phosphoribosyltransferase	KEGG orthology marker.
+KO	K02226	alpha-ribazole phosphatase	KEGG orthology marker.
+KO	K22316	ribonuclease H / adenosylcobalamin/alpha-ribazole phosphatase	KEGG orthology marker.
+KO	K02233	adenosylcobinamide-GDP ribazoletransferase	KEGG orthology marker.
+KO	K04719	5,6-dimethylbenzimidazole synthase	KEGG orthology marker.
+KO	K02552	menaquinone-specific isochorismate synthase	KEGG orthology marker.
+KO	K02361	isochorismate synthase	KEGG orthology marker.
+KO	K02551	2-succinyl-5-enolpyruvyl-6-hydroxy-3-cyclohexene-1-carboxylate synthase	KEGG orthology marker.
+KO	K08680	2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carboxylate synthase	KEGG orthology marker.
+KO	K02549	o-succinylbenzoate synthase	KEGG orthology marker.
+KO	K01911	o-succinylbenzoate---CoA ligase	KEGG orthology marker.
+KO	K01661	naphthoate synthase	KEGG orthology marker.
+KO	K19222	1,4-dihydroxy-2-naphthoyl-CoA hydrolase	KEGG orthology marker.
+KO	K02548	1,4-dihydroxy-2-naphthoate polyprenyltransferase	KEGG orthology marker.
+KO	K03183	demethylmenaquinone methyltransferase / 2-methoxy-6-polyprenyl-1,4-benzoquinol methylase	KEGG orthology marker.
+KO	K11782	chorismate dehydratase	KEGG orthology marker.
+KO	K18285	aminodeoxyfutalosine synthase	KEGG orthology marker.
+KO	K18286	aminodeoxyfutalosine deaminase	KEGG orthology marker.
+KO	K20810	aminodeoxyfutalosine deaminase	KEGG orthology marker.
+KO	K11783	futalosine hydrolase	KEGG orthology marker.
+KO	K11784	cyclic dehypoxanthinyl futalosine synthase	KEGG orthology marker.
+KO	K11785	5,8-dihydroxy-2-naphthoate synthase	KEGG orthology marker.
+KO	K01647	citrate synthase	KEGG orthology marker.
+KO	K05942	citrate (Re)-synthase	KEGG orthology marker.
+KO	K01659	2-methylcitrate synthase and citrate synthase	KEGG orthology marker.
+KO	K01681	aconitate hydratase	KEGG orthology marker.
+KO	K01682	aconitate hydratase 2	KEGG orthology marker.
+KO	K27802	aconitate hydratase A	KEGG orthology marker.
+KO	K00031	isocitrate dehydrogenase (NADP+)	KEGG orthology marker.
+KO	K00030	isocitrate dehydrogenase (NAD+)	KEGG orthology marker.
+KO	K00164	2-oxoglutarate dehydrogenase E1 component	KEGG orthology marker.
+KO	K00658	2-oxoglutarate dehydrogenase E2 component	KEGG orthology marker.
+KO	K00174	2-oxoglutarate/2-oxoacid ferredoxin oxidoreductase subunit alpha	KEGG orthology marker.
+KO	K00175	2-oxoglutarate/2-oxoacid ferredoxin oxidoreductase subunit beta	KEGG orthology marker.
+KO	K01902	succinyl-CoA synthetase alpha subunit	KEGG orthology marker.
+KO	K01903	succinyl-CoA synthetase beta subunit	KEGG orthology marker.
+KO	K01899	succinyl-CoA ligase alpha subunit	KEGG orthology marker.
+KO	K01900	succinyl-CoA ligase beta subunit	KEGG orthology marker.
+KO	K01616	multifunctional 2-oxoglutarate metabolism enzyme	KEGG orthology marker.
+KO	K00139	succinate-semialdehyde dehydrogenase (NAD+)	KEGG orthology marker.
+KO	K17761	succinate-semialdehyde dehydrogenase, mitochondrial	KEGG orthology marker.
+KO	K08324	succinate-semialdehyde dehydrogenase, sad	KEGG orthology marker.
+KO	K00135	succinate-semialdehyde dehydrogenase, gabD	KEGG orthology marker.
+KO	K00239	succinate dehydrogenase or fumarate reductase flavoprotein subunit	KEGG orthology marker.
+KO	K00240	succinate dehydrogenase or fumarate reductase iron-sulfur subunit	KEGG orthology marker.
+KO	K00234	succinate dehydrogenase (ubiquinone) flavoprotein subunit	KEGG orthology marker.
+KO	K00235	succinate dehydrogenase (ubiquinone) iron-sulfur subunit	KEGG orthology marker.
+KO	K00244	fumarate reductase flavoprotein subunit	KEGG orthology marker.
+KO	K00245	fumarate reductase iron-sulfur subunit	KEGG orthology marker.
+KO	K01679	fumarate hydratase, class II	KEGG orthology marker.
+KO	K01676	fumarate hydratase, class I	KEGG orthology marker.
+KO	K01677	fumarate hydratase subunit alpha	KEGG orthology marker.
+KO	K01678	fumarate hydratase subunit beta	KEGG orthology marker.
+KO	K00024	malate dehydrogenase	KEGG orthology marker.
+KO	K00025	malate dehydrogenase, cytoplasmic	KEGG orthology marker.
+KO	K00026	malate dehydrogenase, mitochondrial	KEGG orthology marker.
+KO	K00116	malate dehydrogenase (quinone)	KEGG orthology marker.
+KO	K01626	3-deoxy-7-phosphoheptulonate synthase	KEGG orthology marker.
+KO	K03856	3-deoxy-7-phosphoheptulonate synthase, class II	KEGG orthology marker.
+KO	K13853	3-deoxy-7-phosphoheptulonate synthase / chorismate mutase	KEGG orthology marker.
+KO	K01735	3-dehydroquinate synthase	KEGG orthology marker.
+KO	K13829	shikimate kinase / 3-dehydroquinate synthase	KEGG orthology marker.
+KO	K03785	3-dehydroquinate dehydratase I	KEGG orthology marker.
+KO	K03786	3-dehydroquinate dehydratase II	KEGG orthology marker.
+KO	K13832	3-dehydroquinate dehydratase / shikimate dehydrogenase	KEGG orthology marker.
+KO	K00014	shikimate dehydrogenase	KEGG orthology marker.
+KO	K05887	quinate/shikimate dehydrogenase YdiB	KEGG orthology marker.
+KO	K00891	shikimate kinase	KEGG orthology marker.
+KO	K00800	3-phosphoshikimate 1-carboxyvinyltransferase	KEGG orthology marker.
+KO	K24018	cyclohexadienyl/prephenate dehydrogenase / 3-phosphoshikimate 1-carboxyvinyltransferase	KEGG orthology marker.
+KO	K01736	chorismate synthase	KEGG orthology marker.
+KO	K01851	salicylate biosynthesis isochorismate synthase PchA	KEGG orthology marker.
+KO	K04782	isochorismate pyruvate lyase PchB	KEGG orthology marker.
+KO	K04781	salicylate synthase MbtI, Irp9, YbtS	KEGG orthology marker.
+KO	K00466	tryptophan 2-monooxygenase IaaM	KEGG orthology marker.
+KO	K21801	indoleacetamide hydrolase IaaH	KEGG orthology marker.
+KO	K01426	amidase	KEGG orthology marker.
+TIGRFAM	TIGR00507	shikimate dehydrogenase	NCBIfam sequence family marker for AroE, integrated as InterPro IPR011342. Built to find the prokaryotic enzyme and the equivalent domain of the fungal and plant multifunctional proteins.
+KO	K00260	glutamate dehydrogenase	KEGG orthology marker.
+KO	K00261	glutamate dehydrogenase (NAD(P)+)	KEGG orthology marker.
+KO	K00262	glutamate dehydrogenase (NADP+)	KEGG orthology marker.
+KO	K00265	glutamate synthase (NADPH) large chain	KEGG orthology marker.
+KO	K00266	glutamate synthase (NADPH) small chain	KEGG orthology marker.
+KO	K00284	glutamate synthase (ferredoxin)	KEGG orthology marker.
+KO	K00301	sarcosine oxidase	KEGG orthology marker.
+KO	K00302	sarcosine oxidase, subunit alpha	KEGG orthology marker.
+KO	K00303	sarcosine oxidase, subunit beta	KEGG orthology marker.
+KO	K00304	sarcosine oxidase, subunit delta	KEGG orthology marker.
+KO	K00305	sarcosine oxidase, subunit gamma	KEGG orthology marker.
+KO	K00309	dimethylglycine oxidase	KEGG orthology marker.
+KO	K00315	dimethylglycine dehydrogenase	KEGG orthology marker.
+KO	K00362	nitrite reductase (NADH) large subunit	KEGG orthology marker.
+KO	K00363	nitrite reductase (NADH) small subunit	KEGG orthology marker.
+KO	K00365	urate oxidase	KEGG orthology marker.
+KO	K00366	ferredoxin-nitrite reductase	KEGG orthology marker.
+KO	K00367	ferredoxin-nitrate reductase	KEGG orthology marker.
+KO	K00372	assimilatory nitrate reductase catalytic subunit	KEGG orthology marker.
+KO	K00479	glycine betaine monooxygenase A	KEGG orthology marker.
+KO	K01428	urease subunit alpha	KEGG orthology marker.
+KO	K01429	urease subunit beta	KEGG orthology marker.
+KO	K01430	urease subunit gamma	KEGG orthology marker.
+KO	K01466	allantoinase	KEGG orthology marker.
+KO	K01470	creatinine amidohydrolase	KEGG orthology marker.
+KO	K01477	allantoicase	KEGG orthology marker.
+KO	K01483	ureidoglycolate lyase	KEGG orthology marker.
+KO	K01915	glutamine synthetase	KEGG orthology marker.
+KO	K02083	allantoate deiminase	KEGG orthology marker.
+KO	K03119	taurine dioxygenase	KEGG orthology marker.
+KO	K03851	taurine-pyruvate aminotransferase	KEGG orthology marker.
+KO	K03852	sulfoacetaldehyde acetyltransferase	KEGG orthology marker.
+KO	K07127	5-hydroxyisourate hydrolase	KEGG orthology marker.
+KO	K07255	taurine dehydrogenase small subunit	KEGG orthology marker.
+KO	K07256	taurine dehydrogenase large subunit	KEGG orthology marker.
+KO	K08688	creatinase	KEGG orthology marker.
+KO	K10831	taurine transport system ATP-binding protein	KEGG orthology marker.
+KO	K13484	5-hydroxyisourate hydrolase / 2-oxo-4-hydroxy-4-carboxy-5-ureidoimidazoline decarboxylase	KEGG orthology marker.
+KO	K14048	urease subunit gamma/beta	KEGG orthology marker.
+KO	K14977	(S)-ureidoglycine aminohydrolase	KEGG orthology marker.
+KO	K15228	methylamine dehydrogenase light chain	KEGG orthology marker.
+KO	K15229	methylamine dehydrogenase heavy chain	KEGG orthology marker.
+KO	K15551	taurine transport system substrate-binding protein	KEGG orthology marker.
+KO	K15552	taurine transport system permease protein	KEGG orthology marker.
+KO	K16838	urate oxidase / 2-oxo-4-hydroxy-4-carboxy-5-ureidoimidazoline decarboxylase	KEGG orthology marker.
+KO	K16839	FAD-dependent urate hydroxylase	KEGG orthology marker.
+KO	K16842	allantoinase	KEGG orthology marker.
+KO	K17735	carnitine 3-dehydrogenase	KEGG orthology marker.
+KO	K21832	glycine betaine monooxygenase B	KEGG orthology marker.
+KO	K21833	N,N-dimethylglycine/sarcosine dehydrogenase	KEGG orthology marker.
+KO	K21834	N,N-dimethylglycine/sarcosine dehydrogenase ferredoxin subunit	KEGG orthology marker.
+KO	K22443	carnitine monooxygenase subunit	KEGG orthology marker.
+KO	K22444	carnitine monooxygenase subunit	KEGG orthology marker.
+KO	K26138	nitrite reductase [NAD(P)H] small subunit	KEGG orthology marker.
+KO	K26139	nitrite reductase [NAD(P)H] large subunit	KEGG orthology marker.
+KO	K27497	carnitine 3-dehydrogenase / betainyl-CoA thioesterase	KEGG orthology marker.
+KO	K27837	3-dehydrocarnitine:acetyl-CoA trimethylamine transferase	KEGG orthology marker.
+KO	K05549	benzoate/toluate 1,2-dioxygenase subunit alpha	KEGG orthology marker.
+KO	K05550	benzoate/toluate 1,2-dioxygenase subunit beta	KEGG orthology marker.
+KO	K05783	dihydroxycyclohexadiene carboxylate dehydrogenase	KEGG orthology marker.
+KO	K05599	anthranilate 1,2-dioxygenase (deaminating, decarboxylating) large subunit	KEGG orthology marker.
+KO	K05600	anthranilate 1,2-dioxygenase (deaminating, decarboxylating) small subunit	KEGG orthology marker.
+KO	K16319	anthranilate 1,2-dioxygenase large subunit	KEGG orthology marker.
+KO	K16320	anthranilate 1,2-dioxygenase small subunit	KEGG orthology marker.
+KO	K16249	phenol/toluene 2-monooxygenase P0 component	KEGG orthology marker.
+KO	K16243	phenol/toluene 2-monooxygenase (NADH) P1/A1	KEGG orthology marker.
+KO	K16244	phenol/toluene 2-monooxygenase (NADH) P2/A2	KEGG orthology marker.
+KO	K16242	phenol/toluene 2-monooxygenase (NADH) P3/A3	KEGG orthology marker.
+KO	K16245	phenol/toluene 2-monooxygenase (NADH) P4/A4	KEGG orthology marker.
+KO	K16246	phenol/toluene 2-monooxygenase (NADH) P5/A5	KEGG orthology marker.
+KO	K03381	catechol 1,2-dioxygenase	KEGG orthology marker.
+KO	K01856	muconate cycloisomerase	KEGG orthology marker.
+KO	K03464	muconolactone D-isomerase	KEGG orthology marker.
+KO	K01055	3-oxoadipate enol-lactonase	KEGG orthology marker.
+KO	K14727	3-oxoadipate enol-lactonase / 4-carboxymuconolactone decarboxylase	KEGG orthology marker.
+KO	K01031	3-oxoadipate CoA-transferase, alpha subunit	KEGG orthology marker.
+KO	K01032	3-oxoadipate CoA-transferase, beta subunit	KEGG orthology marker.
+KO	K02615	3-oxoadipyl-CoA/3-oxo-5,6-didehydrosuberyl-CoA thiolase	KEGG orthology marker.
+KO	K00446	catechol 2,3-dioxygenase	KEGG orthology marker.
+TIGRFAM	TIGR03211	catechol 2,3-dioxygenase	NCBIfam sequence family marker.
+KO	K10216	2-hydroxymuconate-semialdehyde hydrolase	KEGG orthology marker.
+KO	K10217	aminomuconate-semialdehyde/2-hydroxymuconate-6-semialdehyde dehydrogenase	KEGG orthology marker.
+KO	K01821	4-oxalocrotonate tautomerase	KEGG orthology marker.
+KO	K01617	2-oxo-3-hexenedioate decarboxylase	KEGG orthology marker.
+KO	K02554	2-keto-4-pentenoate hydratase	KEGG orthology marker.
+KO	K18364	2-oxopent-4-enoate/cis-2-oxohex-4-enoate hydratase	KEGG orthology marker.
+KO	K01666	4-hydroxy 2-oxovalerate aldolase	KEGG orthology marker.
+KO	K18365	4-hydroxy-2-oxovalerate/4-hydroxy-2-oxohexanoate aldolase	KEGG orthology marker.
+KO	K04073	acetaldehyde dehydrogenase	KEGG orthology marker.
+KO	K18366	acetaldehyde/propanal dehydrogenase	KEGG orthology marker.
+KO	K01912	phenylacetate-CoA ligase	KEGG orthology marker.
+TIGRFAM	TIGR02155	phenylacetate--CoA ligase PaaK	NCBIfam sequence family marker.
+KO	K02609	ring-1,2-phenylacetyl-CoA epoxidase subunit PaaA	KEGG orthology marker.
+KO	K02610	ring-1,2-phenylacetyl-CoA epoxidase subunit PaaB	KEGG orthology marker.
+KO	K02611	ring-1,2-phenylacetyl-CoA epoxidase subunit PaaC	KEGG orthology marker.
+KO	K02612	ring-1,2-phenylacetyl-CoA epoxidase subunit PaaD	KEGG orthology marker.
+KO	K02613	ring-1,2-phenylacetyl-CoA epoxidase subunit PaaE	KEGG orthology marker.
+KO	K15866	2-(1,2-epoxy-1,2-dihydrophenyl)acetyl-CoA isomerase	KEGG orthology marker.
+KO	K02618	oxepin-CoA hydrolase / 3-oxo-5,6-dehydrosuberyl-CoA semialdehyde dehydrogenase	KEGG orthology marker.
+KO	K01692	enoyl-CoA hydratase	KEGG orthology marker.
+KO	K05708	3-phenylpropionate/trans-cinnamate dioxygenase subunit alpha	KEGG orthology marker.
+KO	K05709	3-phenylpropionate/trans-cinnamate dioxygenase subunit beta	KEGG orthology marker.
+KO	K05711	2,3-dihydroxy-2,3-dihydrophenylpropionate dehydrogenase	KEGG orthology marker.
+KO	K05712	3-(3-hydroxy-phenyl)propionate hydroxylase	KEGG orthology marker.
+KO	K05713	2,3-dihydroxyphenylpropionate 1,2-dioxygenase	KEGG orthology marker.
+KO	K05714	2-hydroxy-6-oxonona-2,4-dienedioate hydrolase	KEGG orthology marker.
+KO	K01695	tryptophan synthase alpha chain	KEGG orthology marker.
+KO	K01696	tryptophan synthase beta chain	KEGG orthology marker.
+KO	K06001	tryptophan synthase beta chain	KEGG orthology marker.
+KO	K01694	tryptophan synthase	KEGG orthology marker.
+KO	K01703	3-isopropylmalate/(R)-2-methylmalate dehydratase large subunit	KEGG orthology marker.
+KO	K01704	3-isopropylmalate/(R)-2-methylmalate dehydratase small subunit	KEGG orthology marker.
+KO	K01702	3-isopropylmalate dehydratase	KEGG orthology marker.
+KO	K01940	argininosuccinate synthase	KEGG orthology marker.
+KO	K01693	imidazoleglycerol-phosphate dehydratase	KEGG orthology marker.
+KO	K01089	imidazoleglycerol-phosphate dehydratase / histidinol-phosphatase	KEGG orthology marker.
+KO	K01914	aspartate--ammonia ligase	KEGG orthology marker.
+KO	K00766	anthranilate phosphoribosyltransferase	KEGG orthology marker.
+KO	K13497	anthranilate synthase/phosphoribosyltransferase	KEGG orthology marker.
+KO	K00821	acetylornithine/N-succinyldiaminopimelate aminotransferase	KEGG orthology marker.
+KO	K14267	N-succinyldiaminopimelate aminotransferase	KEGG orthology marker.
+KO	K01953	asparagine synthase (glutamine-hydrolysing)	KEGG orthology marker.
+KO	K05822	tetrahydrodipicolinate N-acetyltransferase	KEGG orthology marker.
+KO	K03340	diaminopimelate dehydrogenase	KEGG orthology marker.
+KO	K04517	prephenate dehydrogenase	KEGG orthology marker.
+KO	K14187	chorismate mutase / prephenate dehydrogenase	KEGG orthology marker.
+KO	K04092	chorismate mutase	KEGG orthology marker.
+KO	K14170	chorismate mutase / prephenate dehydratase	KEGG orthology marker.
+KO	K04093	chorismate mutase	KEGG orthology marker.
+KO	K04516	chorismate mutase	KEGG orthology marker.
+KO	K06208	chorismate mutase	KEGG orthology marker.
+KO	K06209	chorismate mutase	KEGG orthology marker.
+KO	K00286	pyrroline-5-carboxylate reductase	KEGG orthology marker.
+KO	K04486	histidinol-phosphatase (PHP family)	KEGG orthology marker.
+KO	K05602	histidinol-phosphatase	KEGG orthology marker.
+KO	K18649	inositol-phosphate phosphatase / L-galactose 1-phosphate phosphatase / histidinol-phosphatase	KEGG orthology marker.
+KO	K28842	histidinol-phosphatase	KEGG orthology marker.
+KO	K00930	acetylglutamate kinase	KEGG orthology marker.
+KO	K22478	bifunctional N-acetylglutamate synthase/kinase	KEGG orthology marker.
+KO	K12659	N-acetyl-gamma-glutamyl-phosphate reductase / acetylglutamate kinase	KEGG orthology marker.
+KO	K00931	glutamate 5-kinase	KEGG orthology marker.
+KO	K12657	delta-1-pyrroline-5-carboxylate synthetase	KEGG orthology marker.
+KO	K00832	aromatic-amino-acid transaminase	KEGG orthology marker.
+KO	K05821	aromatic amino acid aminotransferase II	KEGG orthology marker.
+KO	K00812	aspartate aminotransferase	KEGG orthology marker.
+KO	K00813	aspartate aminotransferase	KEGG orthology marker.
+KO	K11358	aspartate aminotransferase	KEGG orthology marker.
+KO	K00826	branched-chain amino acid aminotransferase	KEGG orthology marker.
+KO	K01586	diaminopimelate decarboxylase	KEGG orthology marker.
+KO	K00620	glutamate N-acetyltransferase / amino-acid N-acetyltransferase	KEGG orthology marker.
+KO	K01778	diaminopimelate epimerase	KEGG orthology marker.
+KO	K01814	phosphoribosylformimino-5-aminoimidazole carboxamide ribotide isomerase	KEGG orthology marker.
+KO	K24017	phosphoribosyl isomerase A	KEGG orthology marker.
+KO	K01438	acetylornithine deacetylase	KEGG orthology marker.
+KO	K14677	aminoacylase	KEGG orthology marker.
+KO	K00674	2,3,4,5-tetrahydropyridine-2,6-dicarboxylate N-succinyltransferase	KEGG orthology marker.
+KO	K00818	acetylornithine aminotransferase	KEGG orthology marker.
+KO	K00259	alanine dehydrogenase	KEGG orthology marker.
+KO	K19244	alanine dehydrogenase	KEGG orthology marker.
+KO	K00765	ATP phosphoribosyltransferase	KEGG orthology marker.
+KO	K09011	(R)-citramalate synthase	KEGG orthology marker.
+KO	K14260	alanine-synthesizing transaminase	KEGG orthology marker.
+KO	K14261	alanine-synthesizing transaminase	KEGG orthology marker.
+KO	K00814	alanine transaminase	KEGG orthology marker.
+KO	K00835	valine--pyruvate aminotransferase	KEGG orthology marker.
+KO	K00611	ornithine carbamoyltransferase	KEGG orthology marker.
+KO	K00147	glutamate-5-semialdehyde dehydrogenase	KEGG orthology marker.
+KO	K01496	phosphoribosyl-AMP cyclohydrolase	KEGG orthology marker.
+KO	K11755	phosphoribosyl-AMP cyclohydrolase / phosphoribosyl-ATP pyrophosphohydrolase	KEGG orthology marker.
+KO	K14152	phosphoribosyl-ATP pyrophosphohydrolase / phosphoribosyl-AMP cyclohydrolase / histidinol dehydrogenase	KEGG orthology marker.
+KO	K05823	N-acetyldiaminopimelate deacetylase	KEGG orthology marker.
+KO	K01649	2-isopropylmalate synthase	KEGG orthology marker.
+KO	K01817	phosphoribosylanthranilate isomerase	KEGG orthology marker.
+KO	K13498	indole-3-glycerol phosphate synthase / phosphoribosylanthranilate isomerase	KEGG orthology marker.
+KO	K13501	anthranilate synthase / indole-3-glycerol phosphate synthase / phosphoribosylanthranilate isomerase	KEGG orthology marker.
+KO	K00145	N-acetyl-gamma-glutamyl-phosphate reductase	KEGG orthology marker.
+KO	K00211	prephenate dehydrogenase (NADP+)	KEGG orthology marker.
+KO	K01713	cyclohexadienyl dehydratase	KEGG orthology marker.
+KO	K04518	prephenate dehydratase	KEGG orthology marker.
+KO	K05359	arogenate/prephenate dehydratase	KEGG orthology marker.
+KO	K01657	anthranilate synthase component I	KEGG orthology marker.
+KO	K01658	anthranilate synthase component II	KEGG orthology marker.
+KO	K13503	anthranilate synthase	KEGG orthology marker.
+KO	K01656	anthranilate synthase / indole-3-glycerol phosphate synthase	KEGG orthology marker.
+KO	K01439	succinyl-diaminopimelate desuccinylase	KEGG orthology marker.
+KO	K01523	phosphoribosyl-ATP pyrophosphohydrolase	KEGG orthology marker.
+KO	K01609	indole-3-glycerol phosphate synthase	KEGG orthology marker.
+KO	K00817	histidinol-phosphate aminotransferase	KEGG orthology marker.
+KO	K10206	LL-diaminopimelate aminotransferase	KEGG orthology marker.
+KO	K01755	argininosuccinate lyase	KEGG orthology marker.
+KO	K14681	argininosuccinate lyase / amino-acid N-acetyltransferase	KEGG orthology marker.
+KO	K00618	amino-acid N-acetyltransferase	KEGG orthology marker.
+KO	K00619	amino-acid N-acetyltransferase	KEGG orthology marker.
+KO	K14682	amino-acid N-acetyltransferase	KEGG orthology marker.
+KO	K22477	N-acetylglutamate synthase	KEGG orthology marker.
+KO	K02500	imidazole glycerol-phosphate synthase subunit HisF	KEGG orthology marker.
+KO	K02501	imidazole glycerol-phosphate synthase subunit HisH	KEGG orthology marker.
+KO	K01663	imidazole glycerol-phosphate synthase	KEGG orthology marker.
+KO	K01687	dihydroxy-acid dehydratase	KEGG orthology marker.
+KO	K00841	aminotransferase	KEGG orthology marker.
+KO	K00052	3-isopropylmalate dehydrogenase	KEGG orthology marker.
+KO	K00013	histidinol dehydrogenase	KEGG orthology marker.
+KO	K01714	4-hydroxy-tetrahydrodipicolinate synthase	KEGG orthology marker.
+KO	K00215	4-hydroxy-tetrahydrodipicolinate reductase	KEGG orthology marker.
+KO	K00926	carbamate kinase	KEGG orthology marker.
+KO	K01777	proline racemase	KEGG orthology marker.
+KO	K10670	glycine/sarcosine/betaine reductase complex component A	KEGG orthology marker.
+KO	K10671	glycine reductase complex component B subunit alpha and beta	KEGG orthology marker.
+KO	K10672	glycine reductase complex component B subunit gamma	KEGG orthology marker.
+KO	K21576	glycine/sarcosine/betaine reductase complex component C subunit alpha	KEGG orthology marker.
+KO	K21577	glycine/sarcosine/betaine reductase complex component C subunit beta	KEGG orthology marker.
+KO	K10793	D-proline reductase (dithiol) PrdA	KEGG orthology marker.
+KO	K10794	D-proline reductase (dithiol) PrdB	KEGG orthology marker.
+KO	K01712	urocanate hydratase	KEGG orthology marker.
+KO	K01580	glutamate decarboxylase	KEGG orthology marker.
+KO	K01752	L-serine dehydratase	KEGG orthology marker.
+KO	K17989	L-serine/L-threonine ammonia-lyase	KEGG orthology marker.
+KO	K01667	tryptophanase	KEGG orthology marker.
+KO	K01478	arginine deiminase	KEGG orthology marker.
+KO	K01745	histidine ammonia-lyase	KEGG orthology marker.
+KO	K01754	threonine dehydratase	KEGG orthology marker.
+KO	K01479	formiminoglutamase	KEGG orthology marker.
+KO	K01468	imidazolonepropionase	KEGG orthology marker.
+KO	K01761	methionine-gamma-lyase	KEGG orthology marker.
+KO	K20021	L-cysteine desulfidase	KEGG orthology marker.
+KO	K26607	putative L-cysteine desulfidase	KEGG orthology marker.
+KO	K28981	L-cysteine desulfidase	KEGG orthology marker.
+KO	K00520	merA; mercuric reductase [EC:1.16.1.1]	KEGG orthology marker.
+KO	K00221	E4.99.1.2; alkylmercury lyase [EC:4.99.1.2]	KEGG orthology marker.
+KO	K08363	merT; mercuric ion transport protein	KEGG orthology marker.
+KO	K08364	merP; periplasmic mercuric ion binding protein	KEGG orthology marker.
+KO	K08365	merR; MerR family transcriptional regulator, mercuric resistance operon regulatory protein	KEGG orthology marker.
+KO	K19058	merC; mercuric ion transport protein	KEGG orthology marker.
+KO	K19059	merE; mercuric ion transport protein	KEGG orthology marker.
+TIGRFAM	TIGR02053	mercury(II) reductase	NCBIfam sequence family marker for MerA, integrated as InterPro IPR021179. Built around the mercuric reductase itself rather than the wider pyridine nucleotide-disulfide oxidoreductase fold its catalytic core belongs to.

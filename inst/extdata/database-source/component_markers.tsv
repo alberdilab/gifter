@@ -489,3 +489,546 @@ COMP_DEACETYL	CAZY	CE7_e23	sequence_subfamily	high-confidence	CAZy subfamily via
 COMP_DEACETYL	CAZY	CE7_e33	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.1.1.72 (100%).
 COMP_COLLAGENASE_M9	KO	K01387	orthology	curated	KEGG, verified 2026-08-18	KEGG assigns K01387 to MEROPS family M9 and to toxins that damage the extracellular matrix. Microbial only: the host collagenases MMP-1 and MMP-8 are separate orthologues.
 COMP_COLLAGENASE_M9	PFAM	PF01752	sequence_family	high-confidence	InterPro/Pfam, retrieved 2026-08-18	Pfam Collagenase, the M9 catalytic domain, described by InterPro as a family of enzymes that break down collagens. Substrate-specific at family level, unlike the broad protease families.
+COMP_28042_AB_E1_ALPHA	KO	K00161	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_28042_AB_E1_BETA	KO	K00162	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_28042_AB_E2	KO	K00627	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_28042_AB_E3	KO	K00382	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Shared with the 2-oxoglutarate and branched-chain complexes; required here as a subunit rather than as evidence of the reaction on its own.
+COMP_28042_E1_FUSED	KO	K00163	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	AceE-type single polypeptide; 4813 KEGG organisms complete the complex this way and would be negative if only the alpha/beta architecture were accepted.
+COMP_28042_E1_E2	KO	K00627	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_28042_E1_E3	KO	K00382	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_12765_POR_ALPHA	KO	K00169	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_12765_POR_BETA	KO	K00170	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_12765_POR_GAMMA	KO	K00172	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_12765_POR_DELTA	KO	K00171	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_12765_NIFJ_CATALYTIC	KO	K03737	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Fused four-domain protein; 2202 KEGG organisms carry it, including most gut anaerobes that carry no PorABCD.
+COMP_11844_LYASE	KO	K00656	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_11844_ACTIVASE	KO	K04069	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_19521_CATALYTIC	KO	K00625	orthology	curated	KEGG M00579 2026-08-18	
+COMP_19521_CATALYTIC	KO	K13788	orthology	curated	KEGG M00579 2026-08-18	Second phosphotransacetylase group of KEGG M00579.
+COMP_19521_CATALYTIC	KO	K15024	orthology	curated	KEGG M00579 2026-08-18	Third group of KEGG M00579, annotated as putative; retained because the module accepts it and it adds no false positives that K00625 or K13788 do not already cover.
+COMP_11352_CATALYTIC	KO	K00925	orthology	curated	KEGG M00579 2026-08-18	
+COMP_21036_CATALYTIC	KO	K00626	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	Chain-length-generic thiolase. Acceptable here only because the route also requires the substrate-specific transferase; it licenses no claim on its own.
+COMP_16197_CATALYTIC	KO	K00074	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	The orthology group also carries paaH, fadB and mmgB. Same reasoning as the thiolase.
+COMP_26558_CATALYTIC	KO	K01715	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	Chain-length-generic enoyl-CoA hydratase. Same reasoning as the thiolase.
+COMP_24004_CATALYTIC	KO	K00248	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	Generic short-chain acyl-CoA dehydrogenase. Same reasoning as the thiolase.
+COMP_30071_CATALYTIC	TIGRFAM	TIGR03948	sequence_family	high-confidence	InterPro/NCBIfam, retrieved 2026-08-18	Matches 178 proteins in 171 proteomes, led by Faecalibacterium, Roseburia, Eubacterium and Anaerostipes, and matches no Bacillus, Escherichia, Salmonella or Pseudomonas. K01034 and K01035 are deliberately refused here: KEGG assigns them EC 2.8.3.8 and EC 2.8.3.9 together, so they cannot separate butanoate release from acetoacetate degradation.
+COMP_15933_CATALYTIC	KO	K00048	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_14569_PDUC	KO	K01699	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_14569_PDUD	KO	K13919	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_14569_PDUE	KO	K13920	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_36027_CATALYTIC	KO	K13922	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_28046_CATALYTIC	KO	K13923	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_23148_CATALYTIC	KO	K19697	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	PduW, the operon-encoded kinase.
+COMP_23148_CATALYTIC	KO	K00932	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	TdcD, assigned to the same reaction R01353 and accepted as an alternative.
+COMP_LACTATE_COAT_CATALYTIC	KO	K01026	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	KEGG assigns the lactoyl-CoA transfer R01449 to this group alongside the propanoate transfer R00928.
+COMP_34691_LCDA	KO	K20626	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_34691_LCDB	KO	K20627	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_34471_CATALYTIC	KO	K20143	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Assigned in 22 KEGG organisms and in 4 of the 13 that carry the transferase with both dehydratase subunits; the remaining nine are reported incomplete with this reaction named.
+COMP_23444_CATALYTIC	KO	K00016	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	The NAD-dependent enzyme, EC 1.1.1.27. Present in 4143 of 11855 organisms and sharing only 573 of them with the quinone-dependent K29125, which is why this component evidences a direction.
+COMP_10960_LARA	KO	K22373	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Present in 560 organisms, anaerobe-dominated. Eight of the ten genomes behind propionate_formation_acrylate carry it.
+COMP_46276_CATALYTIC	KO	K22212	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Present in 337 organisms, almost all lactic acid bacteria.
+COMP_10760_CITF	KO	K01643	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_10760_CITE	KO	K01644	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_10760_CITD	KO	K01646	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_10760_CITC	KO	K01910	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	The acyl-carrier ligase. Required because apo-citrate lyase is inactive.
+COMP_15641_OADA	KO	K01571	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Alpha subunit only. K01572 is assigned in one KEGG organism, so it is not usable as required evidence.
+COMP_15641_SOLUBLE	KO	K01003	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_23288_CATALYTIC	KO	K04072	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	AdhE is bifunctional, so one accession evidences both reactions of the route.
+COMP_25290_CATALYTIC	KO	K04072	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	The same protein as the preceding step; the alcohol dehydrogenase activity of AdhE.
+COMP_25249_CATALYTIC	KO	K01652	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	KEGG names this group ilvB, ilvG, ilvI: it is the anabolic branched-chain amino acid synthase and is present in 9341 organisms. Recorded so that the curated chemistry is complete, and confined to a route step declared not required so that it can never carry the acetoin claim.
+COMP_21580_CATALYTIC	KO	K01575	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Acetolactate decarboxylase, present in 1649 organisms and existing only for this pathway. The whole specificity of acetoin_formation rests here.
+COMP_23704_CATALYTIC	KO	K01497	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_23704_RIBAB	KO	K14652	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Bifunctional GTP cyclohydrolase II / 3,4-dihydroxy-2-butanone 4-phosphate synthase; carries both riboflavin ring-forming activities in one polypeptide.
+COMP_21868_CATALYTIC	KO	K01498	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_21868_RIBG	KO	K11752	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Fungal and bacterial RibD/RibG fusion carrying both the deaminase and the reductase activity.
+COMP_17845_CATALYTIC	KO	K00082	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17845_RIBG2	KO	K11752	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_25197_CATALYTIC	KO	K20861	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	One of several lineage-restricted HAD-family phosphatases assigned to this step; no orthology group covers it across bacteria, which is why the step is curated as not required.
+COMP_25197_CATALYTIC	KO	K20862	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_25197_CATALYTIC	KO	K21063	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_25197_CATALYTIC	KO	K21064	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_25197_CATALYTIC	KO	K20860	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_18457_CATALYTIC	KO	K02858	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_18457_RIBAB2	KO	K14652	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_26152_CATALYTIC	KO	K00794	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_20772_CATALYTIC	KO	K00793	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_11672_CATALYTIC	KO	K01665	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	PabB synthase component. PabA, the glutamine amidotransferase subunit, is interchangeable with TrpG and is not required as evidence.
+COMP_11672_CATALYTIC	KO	K13950	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	PabAB fusion.
+COMP_11672_PABBC	KO	K03342	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Fusion carrying both the synthase and the lyase activity.
+COMP_16201_CATALYTIC	KO	K02619	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_16201_PABBC2	KO	K03342	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17473_CATALYTIC	KO	K01495	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17473_CATALYTIC	KO	K09007	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	FolE2-type GTP cyclohydrolase IB, the non-homologous replacement used where FolE is absent.
+COMP_17473_CATALYTIC	KO	K22391	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_25302_CATALYTIC	KO	K08310	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	Nudix hydrolase assigned to this step mainly in Proteobacteria; the reaction is universal but the orthology is not, which is why the step is curated as not required.
+COMP_25302_CATALYTIC	KO	K19965	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_10540_CATALYTIC	KO	K01633	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_10540_CATALYTIC	KO	K13939	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	FolBKP-type fusion.
+COMP_10540_CATALYTIC	KO	K13940	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	FolBK-type fusion.
+COMP_11412_CATALYTIC	KO	K00950	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_11412_CATALYTIC	KO	K13939	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_11412_CATALYTIC	KO	K13940	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_11412_CATALYTIC	KO	K13941	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	FolKP-type fusion.
+COMP_19949_CATALYTIC	KO	K00796	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_19949_CATALYTIC	KO	K13939	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_19949_CATALYTIC	KO	K13941	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_23584_CATALYTIC	KO	K11754	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_23584_CATALYTIC	KO	K20457	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15009_CATALYTIC	KO	K00287	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15009_CATALYTIC	KO	K13998	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	FolM-type alternative dihydrofolate reductase.
+COMP_24840_CATALYTIC	KO	K03147	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_19893_CATALYTIC	KO	K00941	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_19893_CATALYTIC	KO	K14153	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	ThiDE fusion.
+COMP_19893_CATALYTIC	KO	K21219	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	ThiDN fusion.
+COMP_26361_CATALYTIC	KO	K03150	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_26297_CATALYTIC	KO	K03149	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	ThiG is the required catalytic subunit. The ThiS/ThiF sulfur-transfer pair is deliberately not required: ThiF is homologous to MoeB and ThiI also serves tRNA thiolation, so those markers add no thiamine specificity while removing two thirds of genuine thiazole synthesis.
+COMP_33343_CATALYTIC	KO	K03153	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_22328_CATALYTIC	KO	K00788	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_22328_CATALYTIC	KO	K14153	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_22328_CATALYTIC	KO	K21219	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_23096_CATALYTIC	KO	K00941	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_23096_CATALYTIC	KO	K14153	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_23096_CATALYTIC	KO	K21219	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_24212_CATALYTIC	KO	K00878	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_11824_CATALYTIC	KO	K00606	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_16233_CATALYTIC	KO	K00077	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_16233_ILVC	KO	K00053	orthology	high-confidence	KEGG orthology and Rhea release 141, verified 2026-08-18	IlvC carries out the ketopantoate reduction in genomes lacking PanE. Accepted for this reaction, not as evidence of pantothenate synthesis on its own: the route's other three reactions supply the specificity.
+COMP_19497_CATALYTIC	KO	K01579	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_10912_CATALYTIC	KO	K01918	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_10912_CATALYTIC	KO	K13799	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	PanCB fusion.
+COMP_31507_PDXS	KO	K06215	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_31507_PDXT	KO	K08681	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_12056_CATALYTIC	KO	K03472	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_18829_CATALYTIC	KO	K03473	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_16573_CATALYTIC	KO	K00831	orthology	high-confidence	KEGG orthology and Rhea release 141, verified 2026-08-18	The same protein that transaminates 3-phosphohydroxypyruvate in serine biosynthesis; it is bifunctional, and the marker is accepted here for this reaction rather than as evidence of pyridoxal phosphate synthesis on its own.
+COMP_32275_CATALYTIC	KO	K00097	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15265_CATALYTIC	KO	K03474	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15149_CATALYTIC	KO	K00275	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_20712_CATALYTIC	KO	K00652	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Accepts either the CoA or the acyl-carrier-protein thioester of pimelate; the marker does not distinguish them.
+COMP_16861_CATALYTIC	KO	K00833	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_16861_CATALYTIC	KO	K19562	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	BIO3-BIO1 fusion carrying both the transaminase and the dethiobiotin synthetase activity.
+COMP_15805_CATALYTIC	KO	K01935	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15805_CATALYTIC	KO	K19562	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_22060_CATALYTIC	KO	K01012	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_26329_CATALYTIC	KO	K19563	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	The lysine-dependent transaminase used by Bacillus and many Firmicutes in place of the SAM-dependent enzyme.
+COMP_25876_CATALYTIC	KO	K00278	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	NadB also transfers electrons to fumarate anaerobically; only the oxygen-dependent reaction is curated, which is why this route is declared aerobic.
+COMP_25888_CATALYTIC	KO	K03517	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_42440_CATALYTIC	KO	K06989	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	KEGG assigns this orthology group to EC 1.4.1.21, whose Rhea equation ends at oxaloacetate; the reaction curated here is the iminosuccinate-forming EC 1.4.1.29 chemistry that feeds quinolinate synthase.
+COMP_12733_CATALYTIC	KO	K00767	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_22860_CATALYTIC	KO	K00969	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_22860_CATALYTIC	KO	K06210	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_21188_CATALYTIC	KO	K01916	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_24384_CATALYTIC	KO	K01950	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_36163_CATALYTIC	KO	K00763	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_32459_CATALYTIC	KO	K02303	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_32459_CATALYTIC	KO	K13542	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_32459_CYSG	KO	K02302	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	CysG serves siroheme biosynthesis in genomes that make no corrinoid at all; it is accepted for this shared reaction, and the corrin-specific steps downstream carry the claim.
+COMP_15613_CATALYTIC	KO	K02304	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15613_CATALYTIC	KO	K24866	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15613_CYSG2	KO	K02302	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15893_CATALYTIC	KO	K02190	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	CbiK, the class II chelatase of Salmonella-type systems.
+COMP_15893_CATALYTIC	KO	K03795	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	CbiX.
+COMP_15893_CATALYTIC	KO	K22011	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	CfbA.
+COMP_17997_CATALYTIC	KO	K03394	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_36155_CATALYTIC	KO	K05934	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_36155_CATALYTIC	KO	K13541	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	CbiGH fusion.
+COMP_36155_CATALYTIC	KO	K21479	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	CbiH60.
+COMP_26277_CATALYTIC	KO	K05936	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_26281_CATALYTIC	KO	K02189	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_26281_CATALYTIC	KO	K13541	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_26285_CATALYTIC	KO	K02188	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15625_CATALYTIC	KO	K05895	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_36067_CATALYTIC	KO	K02191	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_36067_CATALYTIC	KO	K00595	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	CbiET fusion.
+COMP_34591_CATALYTIC	KO	K03399	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_34591_CATALYTIC	KO	K00595	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_16209_CATALYTIC	KO	K06042	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_26289_CATALYTIC	KO	K02224	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_16841_CATALYTIC	KO	K03394	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_16841_CATALYTIC	KO	K13540	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	CobIJ fusion.
+COMP_17293_CATALYTIC	KO	K02229	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	The oxygen-dependent ring hydroxylase that defines the aerobic route.
+COMP_12761_CATALYTIC	KO	K05934	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_12761_CATALYTIC	KO	K13540	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_12761_CATALYTIC	KO	K13541	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_22012_CATALYTIC	KO	K05936	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_18261_CATALYTIC	KO	K02228	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_23408_CATALYTIC	KO	K05895	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17477_CATALYTIC	KO	K00595	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_22512_CATALYTIC	KO	K06042	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_12544_CATALYTIC	KO	K02224	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15341_COBN	KO	K02230	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15341_COBS_SUB	KO	K09882	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15341_COBT_SUB	KO	K09883	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_11528_CATALYTIC	KO	K00798	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_11528_CATALYTIC	KO	K19221	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_23256_CATALYTIC	KO	K02232	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_21896_CATALYTIC	KO	K02227	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	CbiB/CobD.
+COMP_21896_CATALYTIC	KO	K02225	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	CobC-type.
+COMP_22712_CATALYTIC	KO	K02231	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Bifunctional kinase and guanylyltransferase; the kinase half is what lets a salvager enter this route from imported cobinamide.
+COMP_22712_CATALYTIC	KO	K19712	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	CobY, the archaeal non-homologous replacement.
+COMP_11196_CATALYTIC	KO	K00768	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_24456_CATALYTIC	KO	K02226	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_24456_CATALYTIC	KO	K22316	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_16049_CATALYTIC	KO	K02233	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_27345_CATALYTIC	KO	K04719	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	The oxygen-dependent route to the lower ligand. Its absence does not prove the genome cannot make DMB: the anaerobic bza pathway has no orthology group and is not curated.
+COMP_18985_CATALYTIC	KO	K02552	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_18985_ENTC	KO	K02361	orthology	high-confidence	KEGG orthology and Rhea release 141, verified 2026-08-18	EntC catalyses the same reaction for enterobactin synthesis and is the only isochorismate synthase annotated in many Bacteroidetes; accepted for the reaction, with the route's remaining steps carrying the menaquinone claim.
+COMP_25593_CATALYTIC	KO	K02551	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_25597_CATALYTIC	KO	K08680	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	Annotated mainly in Proteobacteria and Actinobacteria; the elimination it catalyses also proceeds without a dedicated enzyme, so the step is curated as not required.
+COMP_10196_CATALYTIC	KO	K02549	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17009_CATALYTIC	KO	K01911	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_26562_CATALYTIC	KO	K01661	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_26309_CATALYTIC	KO	K19222	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	A hotdog-fold thioesterase with several non-homologous replacements and no orthology group covering them; the step is curated as not required.
+COMP_26478_CATALYTIC	KO	K02548	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_42640_CATALYTIC	KO	K03183	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Also methylates the ubiquinone precursor in genomes that make both quinones.
+COMP_40051_CATALYTIC	KO	K11782	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_33075_CATALYTIC	KO	K18285	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_40075_CATALYTIC	KO	K18286	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_40075_CATALYTIC	KO	K20810	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_25904_CATALYTIC	KO	K11783	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_33083_CATALYTIC	KO	K11784	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_33087_CATALYTIC	KO	K11785	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_16845_CS_SI	KO	K01647	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_16845_CS_RE	KO	K05942	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_16845_CS_METHYLCITRATE_GROUP	KO	K01659	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	The group cannot distinguish citrate synthase from 2-methylcitrate synthase. Accepting it keeps Bacteroides and Staphylococcus positive and adds 1292 genomes whose only member may be a 2-methylcitrate synthase. Reconsider when a 2-methylcitrate cycle GIFT is curated.
+COMP_10336_CATALYTIC	KO	K01681	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_10336_CATALYTIC	KO	K01682	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_10336_CATALYTIC	KO	K27802	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Split out of K01681 by KEGG. Without it Bacillus subtilis and Mycobacterium tuberculosis are wrongly aconitase-negative.
+COMP_19629_CATALYTIC	KO	K00031	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_23632_CATALYTIC	KO	K00030	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_27786_E1	KO	K00164	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_27786_E2	KO	K00658	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_27786_E3	KO	K00382	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Shared with the pyruvate dehydrogenase complex; specificity comes from the jointly required E1 and E2.
+COMP_17297_ALPHA	KO	K00174	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17297_BETA	KO	K00175	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17661_ALPHA	KO	K01902	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17661_BETA	KO	K01903	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17661_LSC_ALPHA	KO	K01899	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17661_LSC_BETA	KO	K01900	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_10524_CATALYTIC	KO	K01616	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_13217_CATALYTIC	KO	K00139	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_13217_CATALYTIC	KO	K17761	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_13217_CATALYTIC	KO	K08324	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Carries both the NAD- and the NADP-dependent EC numbers and is therefore accepted for both reactions.
+COMP_13213_CATALYTIC	KO	K00135	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_13213_CATALYTIC	KO	K08324	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_40523_FLAVOPROTEIN	KO	K00239	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	KEGG names the group sdhA, frdA. It evidences the couple and not its direction, which is why the GIFT is an interconversion.
+COMP_40523_IRON_SULFUR	KO	K00240	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_40523_SDHA	KO	K00234	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_40523_SDHB	KO	K00235	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_40523_FRDA	KO	K00244	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_40523_FRDB	KO	K00245	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_12460_FUMC	KO	K01679	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_12460_FUMA	KO	K01676	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_12460_FUMA_ALPHA	KO	K01677	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_12460_FUMB_BETA	KO	K01678	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_21432_CATALYTIC	KO	K00024	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_21432_CATALYTIC	KO	K00025	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_21432_CATALYTIC	KO	K00026	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_46012_CATALYTIC	KO	K00116	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_14717_CLASSI	KO	K01626	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_14717_CLASSII	KO	K03856	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	The class II family; 1857 bacteria and 96 archaea, and the only DAHP synthase of most Actinomycetota.
+COMP_14717_DAHPCM	KO	K13853	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_21968_CATALYTIC	KO	K01735	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_21968_AROKB	KO	K13829	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Fusion carrying both this reaction and the shikimate kinase step.
+COMP_21096_TYPEI	KO	K03785	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_21096_TYPEII	KO	K03786	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	The commoner of the two in bacteria, 7454 against 1666; the two are non-homologous and neither is derivable from the other.
+COMP_21096_ARODE	KO	K13832	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Fusion carrying both this reaction and the shikimate dehydrogenase step.
+COMP_17737_AROE	KO	K00014	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17737_AROE	TIGRFAM	TIGR00507	sequence_family	high-confidence	InterPro/NCBIfam, retrieved 2026-08-18	Added because K00014 has a taxonomic coverage hole rather than a specificity problem: Mycobacterium tuberculosis Rv2552c and Synechocystis slr1559 are annotated shikimate 5-dehydrogenase in RefSeq and carry no KO at all. A genome annotated against NCBIfam can satisfy the step that KEGG cannot see.
+COMP_17737_ARODE	KO	K13832	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17737_YDIB	KO	K05887	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	YdiB is a quinate/shikimate dehydrogenase, and Rhea records EC 1.1.1.282 against this master alongside EC 1.1.1.25, so the chemistry is right; whether YdiB carries the pathway flux in a genome that also has AroE is not something a marker can say. Adding it moves the route by 180 bacteria. K25901 qsuD is refused: EC 1.1.1.24 is the NAD(+) reaction RHEA:17741, a different master.
+COMP_13121_CATALYTIC	KO	K00891	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	KEGG assigns both the P-loop AroK/AroL kinases and the archaeal GHMP-family shikimate kinase, such as Methanocaldococcus jannaschii MJ_1440, to this KO, so the non-homologous replacement is real but not separable at KO level and is not curated as two systems.
+COMP_13121_AROKB	KO	K13829	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Fusion carrying both this reaction and the dehydroquinate synthase step.
+COMP_21256_CATALYTIC	KO	K00800	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_21256_FUSION	KO	K24018	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_21020_CATALYTIC	KO	K01736	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	The best-annotated step of the pathway, 9149 bacteria and 397 archaea.
+COMP_18985_PCHA	KO	K01851	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	KEGG names it the salicylate biosynthesis isochorismate synthase, but the reaction is the same isomerisation MenF and EntC catalyse. It is curated as a system of the reaction, not of one route, so it also satisfies the menaquinone route: that adds 7 genomes to menaquinone_biosynthesis.
+COMP_18985_MBTI	KO	K04781	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	MbtI, Irp9 and YbtS convert chorismate to salicylate through an enzyme-bound isochorismate and release free isochorismate slowly; KEGG assigns them both EC 5.4.4.2 and EC 4.2.99.21, and giftr accordingly curates them as a system of each reaction rather than as a route of their own.
+COMP_27874_CATALYTIC	KO	K04782	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	The one salicylate-specific step of the route, and the marker the claim rests on. 1017 bacteria carry it, but 706 of those carry no isochorismate synthase of any kind and so cannot complete the route. PchB shares the AroQ fold with chorismate mutase and has residual mutase activity; 90.3 percent of its carriers also carry a separate chorismate mutase KO, against an 84.6 percent baseline, so it is not systematically standing in for the mutase.
+COMP_27874_MBTI	KO	K04781	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	The same protein as the isochorismate synthase system of the preceding step; a genome carrying it alone completes the route.
+COMP_16165_CATALYTIC	KO	K00466	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	Tryptophan 2-monooxygenase, the committed and diagnostic step: 92 bacteria, almost all plant-associated Proteobacteria, and indole-3-acetamide has no bacterial fate other than hydrolysis to the auxin. This marker, not the hydrolase, carries the IAA claim.
+COMP_34371_CATALYTIC	KO	K21801	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	The dedicated iaaH orthology group, 362 bacteria. With K00466 it completes the route in 49 bacteria.
+COMP_34371_AMIDASE	KO	K01426	orthology	ambiguous	KEGG orthology and Rhea release 141, verified 2026-08-18	The broad amidase signature family, 4948 bacteria, and far too wide to license an auxin claim on its own. It is accepted only as a system of this reaction, which no other GIFT uses, and only because the preceding monooxygenase already restricts the route to 92 genomes. Accepting it moves the route from 49 to 86 bacteria; refusing it would call 37 genomes that carry IaaM and an amidase negative on an annotation boundary.
+COMP_21368_URICASE	KO	K00365	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_21368_URICASE	KO	K16838	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_27329_HPXO	KO	K16839	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_23736_HIUH	KO	K07127	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_23736_HIUH	KO	K16838	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_23736_HIUH	KO	K13484	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_26301_OHCUDC	KO	K16838	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_26301_OHCUDC	KO	K13484	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17029_ALLB	KO	K01466	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17029_ALLB	KO	K16842	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_11016_ALC	KO	K01477	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_27485_ALLC	KO	K02083	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_25241_YLBA	KO	K14977	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_11304_ALLA	KO	K01483	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_20557_ALPHA	KO	K01428	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_20557_BETA	KO	K01429	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_20557_BETA	KO	K14048	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_20557_GAMMA	KO	K01430	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_20557_GAMMA	KO	K14048	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_21068_CATALYTIC	KO	K00372	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_21828_NARB	KO	K00367	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_18041_NIRA	KO	K00366	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_24628_NIRB	KO	K00362	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_24628_NIRD	KO	K00363	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_24628_NASD	KO	K26139	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_24628_NASE	KO	K26138	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_45700_GBCA	KO	K00479	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_45700_GBCB	KO	K21832	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_74167_DGCA	KO	K21833	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_74167_DGCB	KO	K21834	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_52856_DMGDH	KO	K00315	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_17077_DMGO	KO	K00309	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_13313_SOXA	KO	K00302	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_13313_SOXB	KO	K00303	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_13313_SOXG	KO	K00305	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_13313_SOXD	KO	K00304	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_13313_MONO	KO	K00301	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_74155_DGCA	KO	K21833	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_74155_DGCB	KO	K21834	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_14533_CRNA	KO	K01470	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_22456_CREA	KO	K08688	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_55396_CNTA	KO	K22443	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_55396_CNTB	KO	K22444	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_19265_CDHA	KO	K17735	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_19265_CDHA	KO	K27497	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_47044_CDHC	KO	K27837	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_45716_BCT	KO	K27497	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_30207_MAUA	KO	K15228	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_30207_MAUB	KO	K15229	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15909_TAUD	KO	K03119	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_10420_TPA	KO	K03851	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_18709_TAUX	KO	K07255	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_18709_TAUY	KO	K07256	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_24204_XSC	KO	K03852	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_14613_SBP	KO	K15551	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_14613_ATPASE	KO	K10831	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_14613_PERMEASE	KO	K15552	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_16169_GLNA	KO	K01915	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15501_GLTB	KO	K00265	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15501_GLTD	KO	K00266	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_12128_GLTS	KO	K00284	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_11612_GDHA	KO	K00262	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_11612_GDHA	KO	K00261	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15133_GDH	KO	K00260	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_15133_GDH	KO	K00261	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-18	
+COMP_12633_ALPHA	KO	K05549	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	KEGG names this orthologue a benzoate/toluate 1,2-dioxygenase. Benzoate is within the enzyme's range, so the benzoate claim is honest; the same accession may not be used to claim a methylbenzoate trait, which it could not be distinguished from.
+COMP_12633_BETA	KO	K05550	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_11560_CATALYTIC	KO	K05783	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_11072_ANTA	KO	K05599	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_11072_ANTB	KO	K05600	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_11072_ANDAC	KO	K16319	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_11072_ANDAD	KO	K16320	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_57952_P0	KO	K16249	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_57952_P1	KO	K16243	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_57952_P2	KO	K16244	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_57952_P3	KO	K16242	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	KEGG names the system a phenol/toluene 2-monooxygenase. Only the phenol reaction is claimed here; toluene hydroxylation by the same enzyme yields cresol and is not curated.
+COMP_57952_P4	KO	K16245	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_57952_P5	KO	K16246	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_23852_CATALYTIC	KO	K03381	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	KEGG separates chlorocatechol 1,2-dioxygenase as K15253, so this accession is not carrying the chlorinated chemistry.
+COMP_30031_CATALYTIC	KO	K01856	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_12348_CATALYTIC	KO	K03464	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_10184_PCAD	KO	K01055	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_10184_PCAL	KO	K14727	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	The same protein also decarboxylates 4-carboxymuconolactone in the protocatechuate branch, which giftr does not curate.
+COMP_12048_ALPHA	KO	K01031	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_12048_BETA	KO	K01032	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_19481_CATALYTIC	KO	K02615	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	The same orthologue carries the first thiolysis of the phenylacetate route, RHEA:34799, which is why the thiolysis is curated once as its own GIFT.
+COMP_17337_CATALYTIC	KO	K00446	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	K07104, KEGG's other catechol 2,3-dioxygenase orthologue, is deliberately refused: it is assigned in 2081 KEGG genomes dominated by Bacillus, Streptococcus, Staphylococcus and Listeria, of which only 276 carry any lower meta pathway gene.
+COMP_17337_CATALYTIC	TIGRFAM	TIGR03211	sequence_family	high-confidence	InterPro/NCBIfam, retrieved 2026-08-19	Corroborating sequence family for the same activity, used because the KO layer offers one specific and one over-broad orthologue and the family agrees with the specific one.
+COMP_14549_CATALYTIC	KO	K10216	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_34219_CATALYTIC	KO	K10217	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_33431_CATALYTIC	KO	K01821	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24260_CATALYTIC	KO	K01617	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_22580_MHPD	KO	K02554	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_22580_XYLJ	KO	K18364	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_22624_MHPE	KO	K01666	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_22624_XYLK	KO	K18365	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_23288_MHPF	KO	K04073	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_23288_XYLQ	KO	K18366	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_20956_CATALYTIC	KO	K01912	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_20956_CATALYTIC	TIGRFAM	TIGR02155	sequence_family	high-confidence	InterPro/NCBIfam, retrieved 2026-08-19	Corroborating sequence family built around PaaK specifically.
+COMP_32171_PAAA	KO	K02609	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_32171_PAAB	KO	K02610	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_32171_PAAC	KO	K02611	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_32171_PAAD	KO	K02612	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_32171_PAAE	KO	K02613	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_31843_CATALYTIC	KO	K15866	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_31755_CATALYTIC	KO	K02618	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	PaaZ is bifunctional, so one accession evidences two consecutive reactions of the route.
+COMP_31747_CATALYTIC	KO	K02618	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	Same accession as the preceding reaction, for the same bifunctional protein.
+COMP_34799_CATALYTIC	KO	K02615	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	The same thiolase catalyses the terminal thiolysis, curated as oxoadipyl_coa_thiolysis.
+COMP_76647_CATALYTIC	KO	K01692	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	Chain-generic enoyl-CoA hydratase orthologue; accepted because the route's specificity is established upstream.
+COMP_34851_CATALYTIC	KO	K00074	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	Already curated for butyrate formation. A multifunctional marker supporting two unrelated routes is the intended behaviour, not a collision.
+COMP_20357_ALPHA	KO	K05708	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	KEGG and NCBIfam alike name this a 3-phenylpropionate/trans-cinnamate dioxygenase. Only the phenylpropanoate substrate is claimed; cinnamate cannot be distinguished and is deliberately not curated as a trait.
+COMP_20357_BETA	KO	K05709	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_25062_CATALYTIC	KO	K05711	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24785_CATALYTIC	KO	K05712	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_23840_CATALYTIC	KO	K05713	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_34187_CATALYTIC	KO	K05714	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_10532_TRPAB_ALPHA	KO	K01695	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_10532_TRPAB_BETA	KO	K01696	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_10532_TRPAB_BETA	KO	K06001	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_10532_TRPAB_FUSED_CATALYTIC	KO	K01694	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_10676_LEUCD_LARGE	KO	K01703	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_10676_LEUCD_SMALL	KO	K01704	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_10676_LEUC_SINGLE_CATALYTIC	KO	K01702	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_10932_CATALYTIC	KO	K01940	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_11040_HISB_DEHYDRATASE_CATALYTIC	KO	K01693	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_11040_HISB_BIFUNCTIONAL_CATALYTIC	KO	K01089	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_11372_CATALYTIC	KO	K01914	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_11768_CATALYTIC	KO	K00766	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_11768_CATALYTIC	KO	K13497	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_11960_CATALYTIC	KO	K00821	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_11960_CATALYTIC	KO	K14267	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_12228_CATALYTIC	KO	K01953	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_13085_CATALYTIC	KO	K05822	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_13493_CATALYTIC	KO	K00053	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_13561_CATALYTIC	KO	K03340	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_13869_CATALYTIC	KO	K04517	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_13869_CATALYTIC	KO	K14187	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_13897_CATALYTIC	KO	K04092	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_13897_CATALYTIC	KO	K14170	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_13897_CATALYTIC	KO	K14187	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_13897_CATALYTIC	KO	K04093	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_13897_CATALYTIC	KO	K04516	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_13897_CATALYTIC	KO	K06208	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_13897_CATALYTIC	KO	K06209	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_14109_CATALYTIC	KO	K00286	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_14465_HISN_CATALYTIC	KO	K04486	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_14465_HISN_CATALYTIC	KO	K05602	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_14465_HISN_CATALYTIC	KO	K18649	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_14465_HISN_CATALYTIC	KO	K28842	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_14465_HISB_BIFUNCTIONAL_CATALYTIC	KO	K01089	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_14629_CATALYTIC	KO	K00930	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_14629_CATALYTIC	KO	K22478	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_14629_CATALYTIC	KO	K12659	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_14877_PROB_CATALYTIC	KO	K00931	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_14877_P5CS_CATALYTIC	KO	K12657	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_15093_CATALYTIC	KO	K00832	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_15093_CATALYTIC	KO	K05821	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_15093_CATALYTIC	KO	K00812	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_15093_CATALYTIC	KO	K00813	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_15093_CATALYTIC	KO	K11358	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_15093_CATALYTIC	KO	K00826	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_15101_CATALYTIC	KO	K01586	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_15101_CATALYTIC	KO	K12526	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_15349_CATALYTIC	KO	K00620	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_15393_CATALYTIC	KO	K01778	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_15469_CATALYTIC	KO	K01814	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_15469_CATALYTIC	KO	K24017	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_15941_CATALYTIC	KO	K01438	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_15941_CATALYTIC	KO	K14677	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_16293_LEUCD_LARGE	KO	K01703	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_16293_LEUCD_SMALL	KO	K01704	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_16293_LEUC_SINGLE_CATALYTIC	KO	K01702	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_17325_CATALYTIC	KO	K00674	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_18049_CATALYTIC	KO	K00818	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_18049_CATALYTIC	KO	K00821	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_18321_CATALYTIC	KO	K00826	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_18405_CATALYTIC	KO	K00259	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_18405_CATALYTIC	KO	K19244	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_18473_CATALYTIC	KO	K00765	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_19045_CATALYTIC	KO	K09011	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_19453_ALAA_CATALYTIC	KO	K14260	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_19453_ALAA_CATALYTIC	KO	K14261	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_19453_ALAA_CATALYTIC	KO	K00814	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_19453_AVTA_CATALYTIC	KO	K00835	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_19513_CATALYTIC	KO	K00611	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_19541_PROA_CATALYTIC	KO	K00147	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_19541_P5CS_CATALYTIC	KO	K12657	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_20049_CATALYTIC	KO	K01496	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_20049_CATALYTIC	KO	K11755	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_20049_CATALYTIC	KO	K14152	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_20405_CATALYTIC	KO	K05823	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21524_CATALYTIC	KO	K01649	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21540_CATALYTIC	KO	K01817	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21540_CATALYTIC	KO	K24017	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21540_CATALYTIC	KO	K13498	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21540_CATALYTIC	KO	K13501	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21588_CATALYTIC	KO	K00145	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21588_CATALYTIC	KO	K12659	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21640_CATALYTIC	KO	K00211	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21648_CATALYTIC	KO	K01713	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21648_CATALYTIC	KO	K04518	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21648_CATALYTIC	KO	K05359	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21648_CATALYTIC	KO	K14170	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21732_TRPEG_COMP1	KO	K01657	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21732_TRPEG_COMP2	KO	K01658	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21732_TRPEG_FUSED_CATALYTIC	KO	K13503	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21732_TRPEG_FUSED_CATALYTIC	KO	K13501	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21732_TRPEG_FUSED_CATALYTIC	KO	K01656	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21824_CATALYTIC	KO	K00812	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21824_CATALYTIC	KO	K00813	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21824_CATALYTIC	KO	K11358	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_22068_CATALYTIC	KO	K00053	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_22332_LARGE	KO	K01703	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_22332_SMALL	KO	K01704	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_22608_CATALYTIC	KO	K01439	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_22828_CATALYTIC	KO	K01523	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_22828_CATALYTIC	KO	K11755	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_22828_CATALYTIC	KO	K14152	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_23476_CATALYTIC	KO	K01609	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_23476_CATALYTIC	KO	K13498	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_23476_CATALYTIC	KO	K13501	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_23476_CATALYTIC	KO	K01656	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_23744_CATALYTIC	KO	K00817	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_23988_CATALYTIC	KO	K10206	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24020_CATALYTIC	KO	K01755	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24020_CATALYTIC	KO	K14681	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24292_CATALYTIC	KO	K00618	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24292_CATALYTIC	KO	K00619	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24292_CATALYTIC	KO	K14681	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24292_CATALYTIC	KO	K14682	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24292_CATALYTIC	KO	K22477	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24292_CATALYTIC	KO	K22478	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24292_CATALYTIC	KO	K00620	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24793_HISFH_CYCLASE	KO	K02500	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24793_HISFH_AMIDOTRANSFERASE	KO	K02501	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24793_HISF_FUSED_CATALYTIC	KO	K01663	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24801_CATALYTIC	KO	K00826	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24809_CATALYTIC	KO	K01687	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24813_CATALYTIC	KO	K00826	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_25152_CATALYTIC	KO	K00832	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_25152_CATALYTIC	KO	K05821	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_25152_CATALYTIC	KO	K00812	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_25152_CATALYTIC	KO	K00813	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_25152_CATALYTIC	KO	K11358	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_25152_CATALYTIC	KO	K00826	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_25315_CATALYTIC	KO	K00841	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_27654_CATALYTIC	KO	K01652	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_27694_CATALYTIC	KO	K01687	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_32271_CATALYTIC	KO	K00052	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_32715_CATALYTIC	KO	K00052	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_33799_CATALYTIC	KO	K00013	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_33799_CATALYTIC	KO	K14152	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_33803_CATALYTIC	KO	K00013	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_33803_CATALYTIC	KO	K14152	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_34171_CATALYTIC	KO	K01714	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_35331_CATALYTIC	KO	K00215	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_42424_LARGE	KO	K01703	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_42424_SMALL	KO	K01704	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_10152_CATALYTIC	KO	K00926	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_10680_CATALYTIC	KO	K01777	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_12232_SELA	KO	K10670	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_12232_B_ALPHABETA	KO	K10671	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_12232_B_GAMMA	KO	K10672	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_12232_C_ALPHA	KO	K21576	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_12232_C_BETA	KO	K21577	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_12737_PRDA	KO	K10793	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_12737_PRDB	KO	K10794	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_13101_CATALYTIC	KO	K01712	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_17785_CATALYTIC	KO	K01580	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_19169_CATALYTIC	KO	K01752	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_19169_CATALYTIC	KO	K17989	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_19553_CATALYTIC	KO	K01667	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_19597_CATALYTIC	KO	K01478	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_21232_CATALYTIC	KO	K01745	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_22108_CATALYTIC	KO	K01754	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_22108_CATALYTIC	KO	K17989	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_22492_CATALYTIC	KO	K01479	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_23660_CATALYTIC	KO	K01468	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_23800_CATALYTIC	KO	K01761	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24931_CATALYTIC	KO	K20021	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24931_CATALYTIC	KO	K26607	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_24931_CATALYTIC	KO	K28981	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	

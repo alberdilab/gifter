@@ -4,11 +4,13 @@ test_that("canonical source tables validate", {
 
   expect_true(report$valid)
   expect_length(report$errors, 0L)
-  expect_equal(unname(report$rows[c("gifts", "anchors", "reactions")]), c(36L, 43L, 91L))
+  expect_equal(
+    unname(report$rows[c("gifts", "anchors", "reactions")]), c(130L, 140L, 384L)
+  )
   # Every typed model now ships curated content.
   expect_equal(
     unname(report$rows[c("gift_architectures", "gift_circuits", "gift_mechanisms")]),
-    c(3L, 4L, 2L)
+    c(3L, 4L, 3L)
   )
 })
 
@@ -73,24 +75,68 @@ test_that("database accessors return stable definitions", {
   expect_equal(
     gifts$gift_id,
     c(
-      "adenylate_biosynthesis", "arabinose_degradation",
-      "arabinose_uptake_abc", "arabinoxylan_debranching",
-      "aspartate_chemoreception",
-      "aspartate_semialdehyde_biosynthesis", "chemotaxis_signal_transduction",
-      "collagen_cleavage",
+     "acetate_interconversion", "acetoin_formation",
+      "acetyl_coa_to_oxoglutarate", "adenylate_biosynthesis",
+      "alanine_biosynthesis", "allantoin_degradation",
+      "ammonium_assimilation", "anthranilate_degradation_catechol",
+      "arabinose_degradation", "arabinose_uptake_abc",
+      "arabinoxylan_debranching", "arginine_biosynthesis",
+      "arginine_deiminase_pathway", "asparagine_biosynthesis",
+      "aspartate_biosynthesis", "aspartate_chemoreception",
+      "aspartate_semialdehyde_biosynthesis", "benzoate_degradation_catechol",
+      "betaine_demethylation", "biotin_biosynthesis", "butyrate_formation",
+      "carnitine_degradation_trimethylamine", "carnitine_to_betaine",
+      "catechol_meta_cleavage", "catechol_ortho_cleavage",
+      "chemotaxis_signal_transduction", "chorismate_biosynthesis",
+      "citrate_fermentation", "cobamide_nucleotide_loop_assembly",
+      "cobinamide_biosynthesis", "collagen_cleavage",
+      "corrin_ring_biosynthesis", "creatinine_degradation",
       "cysteine_biosynthesis_homocysteine", "cysteine_biosynthesis_sulfide",
-      "cytidylate_biosynthesis", "flagellar_apparatus",
-      "fucose_degradation_isomerase", "galactose_degradation_leloir",
+      "cysteine_degradation_sulfide", "cytidylate_biosynthesis",
+      "dap_biosynthesis", "dihydroxyphenylpropanoate_degradation",
+      "dmb_biosynthesis_aerobic", "ethanol_formation", "flagellar_apparatus",
+      "folate_biosynthesis", "fucose_degradation_isomerase",
+      "fumarate_oxaloacetate_interconversion", "galactose_degradation_leloir",
       "galacturonate_degradation", "glcnac_degradation",
-      "glucuronate_degradation", "glycine_biosynthesis",
-      "guanylate_biosynthesis", "homoserine_biosynthesis",
-      "methionine_biosynthesis_sulfhydrylation", "methionine_biosynthesis_transsulfuration",
-      "neuac_degradation", "phosphate_starvation_response",
-      "purine_core_biosynthesis",
-      "pyrimidine_core_biosynthesis", "rhamnose_degradation",
-      "serine_biosynthesis", "starch_degradation",
-      "threonine_biosynthesis", "type_i_e_crispr_cas_machinery",
-      "type_i_restriction_modification", "type_iva_pilus", "xylan_degradation",
+      "glucuronate_degradation", "glutamate_decarboxylation_gaba",
+      "glutamine_biosynthesis", "glycine_biosynthesis",
+      "glycine_reduction_stickland", "guanylate_biosynthesis",
+      "histidine_biosynthesis", "histidine_degradation_glutamate",
+      "hmp_phosphate_biosynthesis", "homoserine_biosynthesis",
+      "hydroxyphenylpropanoate_hydroxylation",
+      "indole_3_acetate_biosynthesis", "isoleucine_biosynthesis",
+      "lactate_formation", "lactate_racemisation", "leucine_biosynthesis",
+      "lysine_biosynthesis_dap", "malolactic_fermentation",
+      "menaquinone_biosynthesis", "mercury_detoxification", "methionine_biosynthesis_sulfhydrylation",
+      "methionine_biosynthesis_transsulfuration",
+      "methionine_degradation_methanethiol", "methylamine_degradation",
+      "nad_biosynthesis_namn", "namn_biosynthesis_quinolinate",
+      "namn_salvage_nicotinate", "neuac_degradation", "nitrate_assimilation",
+      "ornithine_biosynthesis", "oxoadipate_activation",
+      "oxoadipyl_coa_thiolysis", "oxobutanoate_biosynthesis_citramalate",
+      "oxoglutarate_to_succinate", "oxoisovalerate_biosynthesis",
+      "oxopentenoate_degradation", "paba_biosynthesis",
+      "pantothenate_biosynthesis", "phenol_hydroxylation",
+      "phenylacetate_degradation", "phenylalanine_biosynthesis",
+      "phenylpropanoate_dihydroxylation", "phosphate_starvation_response",
+      "plp_biosynthesis_dxp", "plp_biosynthesis_r5p", "proline_biosynthesis",
+      "proline_reduction_stickland", "propanediol_formation",
+      "propionate_formation_acrylate", "propionate_formation_propanediol",
+      "purine_core_biosynthesis", "pyrimidine_core_biosynthesis",
+      "pyruvate_to_acetyl_coa", "quinolinate_biosynthesis_aspartate",
+      "rhamnose_degradation", "riboflavin_biosynthesis",
+      "salicylate_biosynthesis", "sarcosine_demethylation",
+      "serine_biosynthesis", "serine_deamination", "starch_degradation",
+      "succinate_fumarate_interconversion",
+      "taurine_degradation_sulfoacetaldehyde",
+      "taurine_desulfonation_aerobic", "taurine_uptake_abc",
+      "thiamine_phosphate_biosynthesis", "thiamine_precursor_salvage",
+      "thiazole_phosphate_biosynthesis", "threonine_biosynthesis",
+      "threonine_deamination", "tryptophan_biosynthesis",
+      "tryptophan_degradation_indole", "type_i_e_crispr_cas_machinery",
+      "type_i_restriction_modification", "type_iva_pilus",
+      "tyrosine_biosynthesis", "urate_degradation", "urea_hydrolysis",
+      "valine_biosynthesis", "xylan_degradation",
       "xylose_degradation_isomerase", "xylose_uptake_abc"
     )
   )
@@ -152,7 +198,7 @@ test_that("database accessors return stable definitions", {
 test_that("database and schema versions are independent", {
   version <- giftr_db_version()
   expect_equal(version$package_version, "0.1.0")
-  expect_equal(version$giftr_db_version, "2026.12.3")
+  expect_equal(version$giftr_db_version, "2026.19.1")
   expect_equal(version$schema_version, 6L)
   expect_equal(version$rhea_release, "141")
 })
@@ -275,7 +321,9 @@ test_that("the anchor network links GIFTs only through declared anchors", {
   data <- giftr:::.giftr_report_data(db)
 
   svg <- giftr:::.report_anchor_network_svg(data)
-  nodes <- regmatches(svg, gregexpr('class="graph-node[^"]*"', svg))[[1]]
+  # The trailing space keeps the `dot-nodes` group that holds them out of the
+  # count.
+  nodes <- regmatches(svg, gregexpr('class="dot-node [^"]*"', svg))[[1]]
 
   expect_equal(
     length(nodes),
@@ -287,11 +335,109 @@ test_that("the anchor network links GIFTs only through declared anchors", {
   expect_equal(sum(grepl("anchor shared", nodes, fixed = TRUE)), length(shared))
   expect_setequal(shared, c(
     "IMP", "ASA", "HOMOSERINE", "SERINE", "CYSTEINE", "XYLOSE_IN", "ARABINOSE_IN",
-    "XYLAN", "XYLOSE_EX", "ARABINOSE_EX"
+    "XYLAN", "XYLOSE_EX", "ARABINOSE_EX",
+    # The SCFA layer connects catabolism to fermentation, so central metabolites
+    # become shared boundaries for the first time.
+    "PYRUVATE", "ACETYL_COA", "ACETATE", "LACTALDEHYDE", "PROPANEDIOL",
+    # Both lactate enantiomers are shared, through the racemase: it is what
+    # gives propionate_formation_acrylate a producer for its input at last.
+    "LACTATE_L", "LACTATE",
+    # The vitamin layer shares boundaries only inside itself: the two thiamine
+    # moieties, the folate aromatic half, the pyridine mononucleotide that NAD
+    # and the cobamide lower loop both consume, and the corrinoid chain.
+    "HMP_PP", "THZ_P", "PABA", "QUINOLINATE", "NAMN",
+    "COBYRINATE_DIAMIDE", "ADENOSYLCOBINAMIDE_P", "DMB",
+    # The citric acid cycle segments share all four of their new boundaries,
+    # because the ring closes: every one of them is an output of one segment and
+    # an input of the next. ACETYL_COA is already in this list and is where the
+    # cycle attaches to the curated catabolic content.
+    "OXOGLUTARATE", "SUCCINATE", "FUMARATE", "OXALOACETATE",
+    # The shikimate layer supplies a producer for a boundary two GIFTs already
+    # consumed, so chorismate becomes shared without a new consumer being added.
+    "CHORISMATE",
+    # The nitrogen layer shares the ureide chain, the two methylamine
+    # intermediates, the taurine it takes up, and the ammonium every
+    # deaminating route releases into assimilation.
+    "UREA", "ALLANTOIN", "BETAINE", "SARCOSINE", "TAURINE_IN", "AMMONIUM",
+    # The aromatic degradation layer shares its funnel intermediates.
+    "CATECHOL", "DHPP", "OXOPENTENOATE", "OXOADIPATE", "OXOADIPYL_COA",
+    # The amino acid layer is the first content whose members mostly connect to
+    # each other: the family entry points that were declared inputs with no
+    # producer -- aspartate, glutamine, 2-oxoisovalerate -- now have one, the
+    # two branchpoint intermediates the layer cut at are shared by construction,
+    # and five amino acids are shared because a catabolic capability consumes
+    # what a biosynthetic one makes. Sulfide is shared in the other direction:
+    # cysteine desulfidation supplies two GIFTs that had no producer.
+    "ASPARTATE", "GLUTAMINE", "GLUTAMATE", "OXOISOVALERATE", "OXOBUTANOATE",
+    "MESO_DAP", "ORNITHINE", "THREONINE", "TRYPTOPHAN", "METHIONINE",
+    "HISTIDINE", "PROLINE", "ARGININE", "GLYCINE", "SULFIDE"
   ))
-  expect_match(svg, "IMP is an output boundary of purine_core_biosynthesis", fixed = TRUE)
-  expect_match(svg, "IMP is an input boundary of adenylate_biosynthesis", fixed = TRUE)
+  # The drawn edges are the boundary declarations themselves: one from the GIFT
+  # that outputs the anchor, one to the GIFT that takes it as an input.
+  expect_match(
+    svg,
+    'data-edge-from="gift:purine_core_biosynthesis" data-edge-to="anchor:IMP"',
+    fixed = TRUE
+  )
+  expect_match(
+    svg,
+    'data-edge-from="anchor:IMP" data-edge-to="gift:adenylate_biosynthesis"',
+    fixed = TRUE
+  )
   expect_false(grepl("GAR", svg, fixed = TRUE))
+})
+
+test_that("the overview network is unlabelled dots that carry their own detail", {
+  db <- giftr_db_connect()
+  on.exit(giftr_db_disconnect(db), add = TRUE)
+  data <- giftr:::.giftr_report_data(db)
+
+  network <- giftr:::.report_anchor_network_svg(data)
+  # The drawing carries no text at all: every identifier, boundary, and count a
+  # reader needs is an attribute the hover card is built from.
+  expect_false(grepl("<text", network, fixed = TRUE))
+  expect_match(network, 'data-node-gift="purine_core_biosynthesis"', fixed = TRUE)
+  expect_match(network, "Out|IMP", fixed = TRUE)
+
+  # Only GIFT dots open a detail. An anchor is a boundary between traits, not a
+  # trait, and has nothing of its own to open.
+  expect_equal(
+    length(regmatches(network, gregexpr("data-node-gift=", network))[[1]]),
+    nrow(data$gifts)
+  )
+})
+
+test_that("the overview network can be coloured by curated metadata", {
+  db <- giftr_db_connect()
+  on.exit(giftr_db_disconnect(db), add = TRUE)
+  data <- giftr:::.giftr_report_data(db)
+  network <- giftr:::.report_anchor_network_svg(data)
+
+  # Every dot carries the colour each scheme would paint it, so switching a menu
+  # is a repaint rather than a redraw.
+  for (family in names(giftr:::.report_dot_schemes)) {
+    for (scheme in giftr:::.report_dot_schemes[[family]]) {
+      attribute <- paste0("data-fill-", scheme[["key"]], '="')
+      expect_true(grepl(attribute, network, fixed = TRUE), info = scheme[["key"]])
+      expect_match(
+        network, paste0('data-legend="', family, ":", scheme[["key"]], '"'),
+        fixed = TRUE
+      )
+    }
+  }
+
+  # The palette is assigned in a fixed order and never cycled: a scheme with
+  # more values than slots folds the rest into the unassigned ring instead of
+  # inventing an eighth hue.
+  fills <- regmatches(network, gregexpr('data-fill-substrate="[^"]*"', network))[[1]]
+  used <- setdiff(unique(sub('.*="([^"]*)"$', "\\1", fills)), "")
+  expect_lte(length(used), length(giftr:::.report_dot_palette))
+  expect_true(all(used %in% giftr:::.report_dot_palette))
+
+  # Uniform is the default, so the drawing opens exactly as it did before any
+  # metadata was applied.
+  menu <- giftr:::.report_scheme_menu("gift", "Colour GIFTs by")
+  expect_match(menu, '<option value="">Uniform</option>', fixed = TRUE)
 })
 
 test_that("network markers stay unique across the report", {
@@ -299,9 +445,12 @@ test_that("network markers stay unique across the report", {
   on.exit(unlink(output), add = TRUE)
   html <- paste(readLines(write_giftr_database_html(output), warn = FALSE), collapse = "\n")
 
+  # Each graph defines a matched pair of arrowheads: the forward head every edge
+  # uses, and the mirrored head drawn at the start of a bidirectional edge.
   markers <- regmatches(html, gregexpr('<marker id="[^"]+"', html))[[1]]
-  expect_equal(length(markers), nrow(list_gifts()) + 2L)
+  expect_equal(length(markers), 2L * (nrow(list_gifts()) + 1L))
   expect_equal(anyDuplicated(markers), 0L)
+  expect_equal(sum(grepl('-start"$', markers)), (nrow(list_gifts()) + 1L))
   expect_match(html, 'data-graph-panel="anchors"', fixed = TRUE)
   expect_match(html, "route-network-svg", fixed = TRUE)
 })

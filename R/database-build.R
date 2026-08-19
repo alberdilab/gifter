@@ -11,6 +11,12 @@
 # other GIFT types have no direction between molecules and must leave it empty.
 .giftr_gift_modes <- c("anabolic", "catabolic", "transport", "interconversion")
 
+# The modes that declare a direction between molecules, and therefore the modes
+# in which a composition cycle is evidence of a badly chosen boundary. See the
+# cycle scan in `validate_giftr_sources()` for why `interconversion` is not one
+# of them.
+.giftr_directed_gift_modes <- setdiff(.giftr_gift_modes, "interconversion")
+
 # The non-metabolic GIFT types share a Boolean shape but not their biology, so
 # each keeps its own named tables. This map is the only place the shape is
 # stated once: validation, compilation and evaluation are driven by it, which is
@@ -690,25 +696,64 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
     if (!any(anchors$role == "input")) errors <- c(errors, paste0(gift_id, " has no input anchor"))
     if (!any(anchors$role == "output")) errors <- c(errors, paste0(gift_id, " has no output anchor"))
     if (!nrow(routes)) errors <- c(errors, paste0(gift_id, " has no route"))
-    if (any(anchors$anchor_id[anchors$role == "input"] %in% anchors$anchor_id[anchors$role == "output"])) {
-      errors <- c(errors, paste0(gift_id, " uses the same anchor as input and output"))
-    }
+    mode <- unname(gift_mode[gift_id])
+    inputs <- anchors$anchor_id[anchors$role == "input"]
+    outputs <- anchors$anchor_id[anchors$role == "output"]
 
-    # A transport GIFT moves one molecule across a boundary; a chemistry GIFT
-    # changes the molecule. The declared anchors must say which this is, or the
-    # compartment layer carries no meaning and transport stops being required
-    # to reach the cytoplasm.
-    translocated <- intersect(
-      unname(anchor_molecule[anchors$anchor_id[anchors$role == "input"]]),
-      unname(anchor_molecule[anchors$anchor_id[anchors$role == "output"]])
+    # Three ways a molecule can appear on both sides of a boundary, and the
+    # mode is what says which one is meant.
+    #
+    #   the same anchor, so the same molecule in the same compartment
+    #     -> a reversible node: the chemistry runs both ways and the evidence
+    #        does not say which, so both directions are declared. Only an
+    #        `interconversion` GIFT may say this.
+    #   different anchors of one molecule, so two compartments
+    #     -> translocation, which is what `transport` means.
+    #   neither
+    #     -> ordinary directed chemistry.
+    #
+    # Collapsing the first two would cost the compartment layer its meaning:
+    # transport would stop being required to reach the cytoplasm.
+    mirrored <- intersect(inputs, outputs)
+    translocated <- setdiff(
+      intersect(
+        unname(anchor_molecule[inputs]), unname(anchor_molecule[outputs])
+      ),
+      unname(anchor_molecule[mirrored])
     )
-    if (identical(unname(gift_mode[gift_id]), "transport") && !length(translocated)) {
+
+    if (length(mirrored) && !identical(mode, "interconversion")) {
+      errors <- c(
+        errors,
+        paste0(
+          gift_id, " declares ", paste(sort(mirrored), collapse = ", "),
+          " as both input and output; only mode = interconversion may do that"
+        )
+      )
+    }
+    # The contract runs both ways. A GIFT that declares itself reversible must
+    # declare every boundary reversibly, or it is asserting a direction for
+    # some of them while denying one for the rest.
+    if (identical(mode, "interconversion")) {
+      one_way <- setdiff(union(inputs, outputs), mirrored)
+      if (length(one_way)) {
+        errors <- c(
+          errors,
+          paste0(
+            gift_id, " is an interconversion GIFT, so every anchor must be ",
+            "declared as both input and output, but these are not: ",
+            paste(sort(one_way), collapse = ", ")
+          )
+        )
+      }
+    }
+    if (identical(mode, "transport") && !length(translocated)) {
       errors <- c(
         errors,
         paste0(gift_id, " is a transport GIFT but no molecule appears as both input and output")
       )
     }
-    if (!identical(unname(gift_mode[gift_id]), "transport") && length(translocated)) {
+    if (!identical(mode, "transport") && length(translocated)) {
       warnings <- c(
         warnings,
         paste0(
@@ -995,8 +1040,15 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
   if (nrow(edges)) {
     edges <- data.frame(from = edges$gift_id_from, to = edges$gift_id_to, stringsAsFactors = FALSE)
     edges <- edges[edges$from != edges$to, , drop = FALSE]
-    # Cycles are forbidden within a mode and expected between modes.
-    for (mode in intersect(.giftr_gift_modes, unique(tables$gifts$mode))) {
+    # Cycles are forbidden within a directed mode and expected between modes.
+    #
+    # `interconversion` is exempt, and the exemption is not a concession to any
+    # particular biology. That mode's boundary contract requires every anchor to
+    # be declared in both roles, so two interconversion GIFTs that share one
+    # anchor produce an edge in each direction by construction. The loop is made
+    # by the mode, not by the boundary, and reporting it would be the check
+    # reading its own contract back as a curation error.
+    for (mode in intersect(.giftr_directed_gift_modes, unique(tables$gifts$mode))) {
       # `%in%` rather than `==` so that a GIFT whose mode is missing -- which is
       # a separate, already reported error -- drops out of the scan instead of
       # producing an NA row the traversal cannot name.

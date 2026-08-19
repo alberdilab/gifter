@@ -20,6 +20,13 @@ CREATE TABLE gift (
   -- anchor-derived composition are forbidden within a mode and expected between
   -- modes, because a catabolic route back to a metabolite that an anabolic GIFT
   -- produces is real biology, not a boundary error.
+  --
+  -- `interconversion` is the mode for a near-equilibrium node whose enzymes run
+  -- both ways and whose markers cannot say which. It carries a boundary
+  -- contract the source validator enforces: every anchor of an interconversion
+  -- GIFT is declared as both input and output, and no other mode may declare an
+  -- anchor that way. Two compartments of one molecule remain the signature of
+  -- `transport`, which is what keeps transport required to reach the cytoplasm.
   mode TEXT CHECK (mode IS NULL OR mode IN (
     'anabolic', 'catabolic', 'transport', 'interconversion'
   )),

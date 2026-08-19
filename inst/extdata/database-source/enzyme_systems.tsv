@@ -97,3 +97,347 @@ SYS_PULLULANASE	RXN_STARCH_DEBRANCH_1_6	pullulanase	Single-protein catalytic sys
 SYS_GLUCOSIDASE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	Single-protein catalytic system; CAZy families and orthologues are alternative evidence for the same role.
 SYS_DEACETYL	RXN_XYLAN_DEACETYL	acetylxylan esterase	Single-protein catalytic system; CAZy families and orthologues are alternative evidence for the same role.
 SYS_COLLAGENASE_M9	RXN_COLLAGEN_HELIX_CLEAVAGE	microbial collagenase	Single-protein catalytic system; the orthologue and the Pfam domain are alternative evidence for the same protein, not alternative enzymes.
+SYS_28042_PDH_E1AB	RHEA:28042	alpha/beta-E1 pyruvate dehydrogenase complex	Four jointly required components; the E1 decarboxylase is a separate alpha and beta subunit pair.
+SYS_28042_PDH_E1	RHEA:28042	fused-E1 pyruvate dehydrogenase complex	Three jointly required components; the E1 decarboxylase is a single polypeptide, as in Escherichia coli AceE.
+SYS_12765_POR_FOUR_SUBUNIT	RHEA:12765	four-subunit pyruvate:ferredoxin oxidoreductase	Four jointly required subunits of the archaeal and clostridial PorABCD architecture.
+SYS_12765_NIFJ	RHEA:12765	fused pyruvate:ferredoxin/flavodoxin oxidoreductase	Single fused polypeptide carrying all four domains.
+SYS_11844_PFL	RHEA:11844	pyruvate formate-lyase with its activating enzyme	Two jointly required proteins: the lyase is inactive until the activating enzyme installs its glycyl radical.
+SYS_19521_PTA	RHEA:19521	phosphate acetyltransferase	Single-protein catalytic system with alternative orthology markers.
+SYS_11352_ACKA	RHEA:11352	acetate kinase	Single catalytic protein system.
+SYS_21036_THIOLASE	RHEA:21036	acetyl-CoA C-acetyltransferase	Single catalytic protein system.
+SYS_16197_HBD	RHEA:16197	3-hydroxybutanoyl-CoA dehydrogenase	Single catalytic protein system.
+SYS_26558_CROTONASE	RHEA:26558	3-hydroxybutanoyl-CoA dehydratase	Single catalytic protein system.
+SYS_24004_BCD	RHEA:24004	butanoyl-CoA dehydrogenase	Single catalytic protein system. The electron-transfer flavoprotein partner is not a required component: K03521 and K03522 are the generic fixA and fixB orthologues shared with nitrogen fixation, present in 7729 KEGG organisms, so requiring them would cost recall without adding specificity.
+SYS_30071_BUT	RHEA:30071	butyryl-CoA:acetate CoA-transferase	Single catalytic protein system evidenced by a substrate-specific sequence family rather than an orthology group.
+SYS_15933_FUCO	RHEA:15933	lactaldehyde reductase	Single catalytic protein system.
+SYS_14569_PDUCDE	RHEA:14569	coenzyme-B12-dependent propanediol dehydratase	Three jointly required subunits of the PduCDE holoenzyme.
+SYS_36027_PDUP	RHEA:36027	CoA-acylating propionaldehyde dehydrogenase	Single catalytic protein system.
+SYS_28046_PDUL	RHEA:28046	phosphate propanoyltransferase	Single catalytic protein system.
+SYS_23148_PROPIONATE_KINASE	RHEA:23148	propionate kinase	Single-protein catalytic system with alternative orthology markers.
+SYS_LACTATE_COAT_PCT	RXN_LACTATE_COA_TRANSFER	propionate CoA-transferase	Single catalytic protein system.
+SYS_34691_LCD	RHEA:34691	lactoyl-CoA dehydratase	Two jointly required subunits. The LcdC activator has no orthology group and is not required evidence.
+SYS_34471_ACRC	RHEA:34471	acryloyl-CoA reductase	Single catalytic protein system.
+SYS_23444_LDH	RHEA:23444	NAD-dependent L-lactate dehydrogenase	Single catalytic protein system. Only the NAD-dependent enzyme is accepted; the quinone- and cytochrome-dependent L-lactate dehydrogenases are separate orthology groups and evidence the consuming direction, which is what makes this trait's direction evidenced rather than asserted.
+SYS_10960_LAR	RHEA:10960	lactate racemase	Single catalytic protein system. The LarBCE maturation proteins that install the nickel-pincer cofactor are not required evidence: they are a maturation pathway rather than part of the racemase, and requiring them would make the trait a cofactor claim.
+SYS_46276_MLE	RHEA:46276	malolactic enzyme	Single catalytic protein system.
+SYS_10760_CITLYASE	RHEA:10760	citrate lyase holoenzyme	Three subunits and the ligase that activates them. Apo-citrate lyase carries an unacetylated acyl-carrier subunit and is inactive, so the ligase is required rather than accessory; 912 of the 960 genomes with the three subunits carry it, so requiring it costs almost nothing.
+SYS_15641_OAD_NA	RHEA:15641	sodium-extruding oxaloacetate decarboxylase	Membrane-bound decarboxylase of the Enterobacteriaceae and the lactic acid bacteria. Only the alpha subunit is required: KEGG assigns the beta subunit group K01572 in a single organism, so requiring it would refuse the trait everywhere.
+SYS_15641_OAD_SOLUBLE	RHEA:15641	soluble oxaloacetate decarboxylase	Alternative single-protein system, accepted as an OR alternative to the sodium-extruding complex.
+SYS_23288_ADHE	RHEA:23288	bifunctional acetaldehyde dehydrogenase	Single catalytic protein system. The same protein carries the alcohol dehydrogenase activity of the next step, so the route rests on one marker across two reactions.
+SYS_25290_ADHE	RHEA:25290	bifunctional alcohol dehydrogenase	Single catalytic protein system, the second activity of the same protein.
+SYS_25249_ALS	RHEA:25249	acetolactate synthase	Single catalytic protein system for a step the route does not require. Its orthology group is the anabolic branched-chain amino acid synthase, so it is curated for the chemistry and excluded from the evidence.
+SYS_21580_BUDA	RHEA:21580	acetolactate decarboxylase	Single catalytic protein system, and the step the trait rests on. The enzyme exists only for this pathway.
+SYS_23704_RIBA	RHEA:23704	GTP cyclohydrolase II	Single catalytic protein system.
+SYS_23704_RIBAB	RHEA:23704	bifunctional RibAB	Single catalytic protein system.
+SYS_21868_RIBD	RHEA:21868	pyrimidine deaminase RibD	Single catalytic protein system.
+SYS_21868_RIBG	RHEA:21868	bifunctional deaminase-reductase RibG	Single catalytic protein system.
+SYS_17845_RIBD2	RHEA:17845	pyrimidine reductase RibD	Single catalytic protein system.
+SYS_17845_RIBG2	RHEA:17845	bifunctional deaminase-reductase RibG	Single catalytic protein system.
+SYS_25197_PHOSPHATASE	RHEA:25197	5-amino-6-(5-phospho-D-ribitylamino)uracil phosphatase	Single catalytic protein system.
+SYS_18457_RIBB	RHEA:18457	3,4-dihydroxy-2-butanone 4-phosphate synthase	Single catalytic protein system.
+SYS_18457_RIBAB2	RHEA:18457	bifunctional RibAB	Single catalytic protein system.
+SYS_26152_RIBH	RHEA:26152	6,7-dimethyl-8-ribityllumazine synthase	Single catalytic protein system.
+SYS_20772_RIBE	RHEA:20772	riboflavin synthase	Single catalytic protein system.
+SYS_11672_PABB	RHEA:11672	4-amino-4-deoxychorismate synthase	Single catalytic protein system.
+SYS_11672_PABBC	RHEA:11672	bifunctional PabBC	Single catalytic protein system.
+SYS_16201_PABC	RHEA:16201	4-amino-4-deoxychorismate lyase	Single catalytic protein system.
+SYS_16201_PABBC2	RHEA:16201	bifunctional PabBC	Single catalytic protein system.
+SYS_17473_FOLE	RHEA:17473	GTP cyclohydrolase I	Single catalytic protein system.
+SYS_25302_NUDB	RHEA:25302	dihydroneopterin triphosphate diphosphatase	Single catalytic protein system.
+SYS_10540_FOLB	RHEA:10540	dihydroneopterin aldolase	Single catalytic protein system.
+SYS_11412_FOLK	RHEA:11412	6-hydroxymethyl-7,8-dihydropterin pyrophosphokinase	Single catalytic protein system.
+SYS_19949_FOLP	RHEA:19949	dihydropteroate synthase	Single catalytic protein system.
+SYS_23584_FOLC	RHEA:23584	dihydrofolate synthase	Single catalytic protein system.
+SYS_15009_FOLA	RHEA:15009	dihydrofolate reductase	Single catalytic protein system.
+SYS_24840_THIC	RHEA:24840	phosphomethylpyrimidine synthase ThiC	Single catalytic protein system.
+SYS_19893_THID	RHEA:19893	phosphomethylpyrimidine kinase ThiD	Single catalytic protein system.
+SYS_26361_THIH	RHEA:26361	2-iminoacetate synthase ThiH	Single catalytic protein system.
+SYS_26297_THIG	RHEA:26297	thiazole synthase ThiG	Single catalytic protein system.
+SYS_33343_THIO	RHEA:33343	glycine oxidase ThiO	Single catalytic protein system.
+SYS_22328_THIE	RHEA:22328	thiamine phosphate synthase ThiE	Single catalytic protein system.
+SYS_23096_THID_HMP	RHEA:23096	hydroxymethylpyrimidine kinase ThiD	Single catalytic protein system.
+SYS_24212_THIM	RHEA:24212	hydroxyethylthiazole kinase ThiM	Single catalytic protein system.
+SYS_11824_PANB	RHEA:11824	3-methyl-2-oxobutanoate hydroxymethyltransferase PanB	Single catalytic protein system.
+SYS_16233_PANE	RHEA:16233	2-dehydropantoate 2-reductase PanE	Single catalytic protein system.
+SYS_16233_ILVC	RHEA:16233	ketol-acid reductoisomerase IlvC	Single catalytic protein system.
+SYS_19497_PAND	RHEA:19497	aspartate 1-decarboxylase PanD	Single catalytic protein system.
+SYS_10912_PANC	RHEA:10912	pantothenate synthetase PanC	Single catalytic protein system.
+SYS_31507_PDXST	RHEA:31507	pyridoxal 5-phosphate synthase complex	Two jointly required subunits: the synthase and its glutaminase partner.
+SYS_12056_EPD	RHEA:12056	D-erythrose 4-phosphate dehydrogenase Epd	Single catalytic protein system.
+SYS_18829_PDXB	RHEA:18829	erythronate-4-phosphate dehydrogenase PdxB	Single catalytic protein system.
+SYS_16573_SERC	RHEA:16573	phosphoserine aminotransferase SerC	Single catalytic protein system.
+SYS_32275_PDXA	RHEA:32275	4-hydroxythreonine-4-phosphate dehydrogenase PdxA	Single catalytic protein system.
+SYS_15265_PDXJ	RHEA:15265	pyridoxine 5-phosphate synthase PdxJ	Single catalytic protein system.
+SYS_15149_PDXH	RHEA:15149	pyridoxine 5-phosphate oxidase PdxH	Single catalytic protein system.
+SYS_20712_BIOF	RHEA:20712	8-amino-7-oxononanoate synthase BioF	Single catalytic protein system.
+SYS_16861_BIOA	RHEA:16861	adenosylmethionine-dependent DAPA transaminase BioA	Single catalytic protein system.
+SYS_15805_BIOD	RHEA:15805	dethiobiotin synthetase BioD	Single catalytic protein system.
+SYS_22060_BIOB	RHEA:22060	biotin synthase BioB	Single catalytic protein system.
+SYS_26329_BIOA_LYS	RHEA:26329	lysine-dependent DAPA transaminase BioA	Single catalytic protein system.
+SYS_25876_NADB	RHEA:25876	L-aspartate oxidase NadB	Single catalytic protein system.
+SYS_25888_NADA	RHEA:25888	quinolinate synthase NadA	Single catalytic protein system.
+SYS_42440_NADX	RHEA:42440	aspartate dehydrogenase NadX	Single catalytic protein system.
+SYS_12733_NADC	RHEA:12733	nicotinate-nucleotide pyrophosphorylase NadC	Single catalytic protein system.
+SYS_22860_NADD	RHEA:22860	nicotinate-nucleotide adenylyltransferase NadD	Single catalytic protein system.
+SYS_21188_NADE	RHEA:21188	NAD synthetase NadE	Single catalytic protein system.
+SYS_24384_NADE_GLN	RHEA:24384	glutamine-hydrolysing NAD synthetase	Single catalytic protein system.
+SYS_36163_PNCB	RHEA:36163	nicotinate phosphoribosyltransferase PncB	Single catalytic protein system.
+SYS_32459_COBA	RHEA:32459	uroporphyrin-III C-methyltransferase CobA	Single catalytic protein system.
+SYS_32459_CYSG	RHEA:32459	multifunctional siroheme synthase CysG	Single catalytic protein system.
+SYS_15613_SIRC	RHEA:15613	precorrin-2 dehydrogenase SirC	Single catalytic protein system.
+SYS_15613_CYSG2	RHEA:15613	multifunctional siroheme synthase CysG	Single catalytic protein system.
+SYS_15893_CBIK	RHEA:15893	sirohydrochlorin cobaltochelatase	Single catalytic protein system.
+SYS_17997_CBIL	RHEA:17997	cobalt-factor II C20-methyltransferase CbiL	Single catalytic protein system.
+SYS_36155_CBIH	RHEA:36155	cobalt-factor III methyltransferase CbiH	Single catalytic protein system.
+SYS_26277_CBIF	RHEA:26277	cobalt-precorrin-4 C11-methyltransferase CbiF	Single catalytic protein system.
+SYS_26281_CBIG	RHEA:26281	cobalt-precorrin-5A hydrolase CbiG	Single catalytic protein system.
+SYS_26285_CBID	RHEA:26285	cobalt-precorrin-5B C1-methyltransferase CbiD	Single catalytic protein system.
+SYS_15625_CBIJ	RHEA:15625	cobalt-precorrin-6A reductase CbiJ	Single catalytic protein system.
+SYS_36067_CBIT	RHEA:36067	cobalt-precorrin-6B C15-methyltransferase CbiT	Single catalytic protein system.
+SYS_34591_CBIE	RHEA:34591	cobalt-precorrin-7 C5-methyltransferase CbiE	Single catalytic protein system.
+SYS_16209_CBIC	RHEA:16209	cobalt-precorrin-8 methylmutase CbiC	Single catalytic protein system.
+SYS_26289_CBIA	RHEA:26289	cobyrinate a,c-diamide synthase CbiA	Single catalytic protein system.
+SYS_16841_COBI	RHEA:16841	precorrin-2 C20-methyltransferase CobI	Single catalytic protein system.
+SYS_17293_COBG	RHEA:17293	precorrin-3B synthase CobG	Single catalytic protein system.
+SYS_12761_COBJ	RHEA:12761	precorrin-3B C17-methyltransferase CobJ	Single catalytic protein system.
+SYS_22012_COBM	RHEA:22012	precorrin-4 C11-methyltransferase CobM	Single catalytic protein system.
+SYS_18261_COBF	RHEA:18261	precorrin-6A synthase CobF	Single catalytic protein system.
+SYS_23408_COBK	RHEA:23408	precorrin-6A reductase CobK	Single catalytic protein system.
+SYS_17477_COBL	RHEA:17477	precorrin-6B C5,C15-methyltransferase CobL	Single catalytic protein system.
+SYS_22512_COBH	RHEA:22512	precorrin-8X methylmutase CobH	Single catalytic protein system.
+SYS_12544_COBB	RHEA:12544	hydrogenobyrinate a,c-diamide synthase CobB	Single catalytic protein system.
+SYS_15341_COBNST	RHEA:15341	cobaltochelatase CobNST	Three jointly required subunits; late cobalt insertion is what distinguishes the aerobic route.
+SYS_11528_COBA_ADO	RHEA:11528	cob(I)yrinate a,c-diamide adenosyltransferase	Single catalytic protein system.
+SYS_23256_CBIP	RHEA:23256	adenosylcobyric acid synthase CbiP	Single catalytic protein system.
+SYS_21896_CBIB	RHEA:21896	adenosylcobinamide-phosphate synthase	Single catalytic protein system.
+SYS_22712_COBU	RHEA:22712	adenosylcobinamide-phosphate guanylyltransferase CobU	Single catalytic protein system.
+SYS_11196_COBT	RHEA:11196	nicotinate-nucleotide dimethylbenzimidazole phosphoribosyltransferase CobT	Single catalytic protein system.
+SYS_24456_COBC_P	RHEA:24456	alpha-ribazole phosphatase CobC	Single catalytic protein system.
+SYS_16049_COBS_TRANSFERASE	RHEA:16049	adenosylcobinamide-GDP ribazoletransferase CobS	Single catalytic protein system.
+SYS_27345_BLUB	RHEA:27345	5,6-dimethylbenzimidazole synthase BluB	Single catalytic protein system.
+SYS_18985_MENF	RHEA:18985	menaquinone-specific isochorismate synthase MenF	Single catalytic protein system.
+SYS_18985_ENTC	RHEA:18985	isochorismate synthase EntC	Single catalytic protein system.
+SYS_25593_MEND	RHEA:25593	SEPHCHC synthase MenD	Single catalytic protein system.
+SYS_25597_MENH	RHEA:25597	SHCHC synthase MenH	Single catalytic protein system.
+SYS_10196_MENC	RHEA:10196	o-succinylbenzoate synthase MenC	Single catalytic protein system.
+SYS_17009_MENE	RHEA:17009	o-succinylbenzoate-CoA ligase MenE	Single catalytic protein system.
+SYS_26562_MENB	RHEA:26562	1,4-dihydroxy-2-naphthoyl-CoA synthase MenB	Single catalytic protein system.
+SYS_26309_MENI	RHEA:26309	1,4-dihydroxy-2-naphthoyl-CoA hydrolase MenI	Single catalytic protein system.
+SYS_26478_MENA	RHEA:26478	1,4-dihydroxy-2-naphthoate polyprenyltransferase MenA	Single catalytic protein system.
+SYS_42640_MENG	RHEA:42640	demethylmenaquinol methyltransferase MenG	Single catalytic protein system.
+SYS_40051_MQNA	RHEA:40051	chorismate dehydratase MqnA	Single catalytic protein system.
+SYS_33075_MQNE	RHEA:33075	aminodeoxyfutalosine synthase MqnE	Single catalytic protein system.
+SYS_40075_MQNX	RHEA:40075	aminodeoxyfutalosine deaminase MqnX	Single catalytic protein system.
+SYS_25904_MQNB	RHEA:25904	futalosine hydrolase MqnB	Single catalytic protein system.
+SYS_33083_MQNC	RHEA:33083	cyclic dehypoxanthinyl futalosine synthase MqnC	Single catalytic protein system.
+SYS_33087_MQND	RHEA:33087	1,4-dihydroxy-6-naphthoate synthase MqnD	Single catalytic protein system.
+SYS_16845_CS_SI	RHEA:16845	si-citrate synthase	Single catalytic protein, EC 2.3.3.1, the canonical gltA group.
+SYS_16845_CS_RE	RHEA:16845	Re-citrate synthase	Single catalytic protein, EC 2.3.3.3. Same reaction, unrelated protein: a non-homologous replacement.
+SYS_16845_CS_METHYLCITRATE_GROUP	RHEA:16845	citrate synthase of the 2-methylcitrate synthase orthology group	The group KEGG names prpC. It is accepted because it carries genuine citrate synthases, including Staphylococcus aureus citZ and Bacteroides thetaiotaomicron BT_2070, and because KEGG lists it as a citrate synthase alternative in modules M00009 and M00010. It also carries true 2-methylcitrate synthases, so the evidence is recorded as ambiguous.
+SYS_10336_ACONITASE	RHEA:10336	aconitate hydratase	Single catalytic protein with three alternative orthology groups. K01682 and K27802 are bifunctional with 2-methylisocitrate dehydratase and still catalyse this reaction.
+SYS_19629_ICDH_NADP	RHEA:19629	NADP-dependent isocitrate dehydrogenase	Single catalytic protein.
+SYS_23632_ICDH_NAD	RHEA:23632	NAD-dependent isocitrate dehydrogenase	Single catalytic protein.
+SYS_27786_ODH_COMPLEX	RHEA:27786	2-oxoglutarate dehydrogenase multienzyme complex	Three jointly required components. The E3 dihydrolipoyl dehydrogenase is shared with pyruvate dehydrogenase, which is why it is required together with the 2-oxoglutarate-specific E1 and E2 rather than alone.
+SYS_17297_KOR	RHEA:17297	2-oxoglutarate:ferredoxin oxidoreductase	Two jointly required catalytic subunits. Four-subunit forms exist and their gamma and delta subunits are not required, because requiring them would call the two-subunit enzymes negative.
+SYS_17661_SUCCD	RHEA:17661	succinyl-CoA synthetase, sucCD type	Two jointly required subunits.
+SYS_17661_LSC	RHEA:17661	succinyl-CoA synthetase, LSC type	Two jointly required subunits. KEGG records both the ADP- and the GDP-forming EC numbers for this group, which is why the two nucleotide specificities are not curated as separate reactions.
+SYS_10524_KGD	RHEA:10524	2-oxoglutarate decarboxylase	Single multifunctional catalytic protein.
+SYS_13217_SSADH_NAD	RHEA:13217	NAD-dependent succinate-semialdehyde dehydrogenase	Single catalytic protein with alternative orthology groups.
+SYS_13213_SSADH_NADP	RHEA:13213	NADP-dependent succinate-semialdehyde dehydrogenase	Single catalytic protein with alternative orthology groups.
+SYS_40523_SDH_FRD_SHARED	RHEA:40523	succinate dehydrogenase and fumarate reductase, shared orthology group	Two jointly required catalytic subunits. KEGG names these groups sdhA, frdA and sdhB, frdB because outside the Enterobacteriaceae the two enzymes are not separated. The membrane anchor subunits are not required: they are poorly conserved and requiring them would call 402 further genomes negative.
+SYS_40523_SDH_MITOCHONDRIAL	RHEA:40523	succinate dehydrogenase, mitochondrial type	Two jointly required catalytic subunits of the eukaryotic and alphaproteobacterial-type complex.
+SYS_40523_FRD_DEDICATED	RHEA:40523	fumarate reductase, dedicated group	Two jointly required catalytic subunits. This group exists as a separate orthology group almost only in the Enterobacteriaceae, where it is a paralogue of the succinate dehydrogenase the same genomes also carry.
+SYS_12460_FUMC	RHEA:12460	fumarate hydratase class II	Single catalytic protein.
+SYS_12460_FUMA_SINGLE	RHEA:12460	fumarate hydratase class I, single chain	Single catalytic protein.
+SYS_12460_FUMAB	RHEA:12460	fumarate hydratase class I, two subunits	Two jointly required subunits of the split class I enzyme.
+SYS_21432_MDH	RHEA:21432	NAD-dependent malate dehydrogenase	Single catalytic protein with alternative orthology groups for the bacterial and the eukaryotic enzymes.
+SYS_46012_MQO	RHEA:46012	malate:quinone oxidoreductase	Single catalytic protein.
+SYS_14717_CLASSI	RHEA:14717	class I DAHP synthase	Single catalytic protein system. The AroF/AroG/AroH family of allosterically regulated enzymes.
+SYS_14717_CLASSII	RHEA:14717	class II DAHP synthase	Single catalytic protein system. A structurally unrelated family found in Mycobacterium, Streptomyces and many archaea; a non-homologous replacement for class I rather than a variant of it.
+SYS_14717_DAHPCM	RHEA:14717	bifunctional DAHP synthase/chorismate mutase	Single catalytic protein system carrying both the first step of the pathway and the first step of the phenylalanine and tyrosine branch.
+SYS_21968_AROB	RHEA:21968	3-dehydroquinate synthase AroB	Single catalytic protein system.
+SYS_21968_AROKB	RHEA:21968	bifunctional AroKB	Single catalytic protein system carrying both the dehydroquinate synthase and the shikimate kinase activity.
+SYS_21096_TYPEI	RHEA:21096	type I 3-dehydroquinate dehydratase	Single catalytic protein system. A Schiff-base enzyme, mechanistically and structurally unrelated to type II.
+SYS_21096_TYPEII	RHEA:21096	type II 3-dehydroquinate dehydratase	Single catalytic protein system. A dodecameric enzyme with an anti elimination mechanism; a non-homologous replacement for type I.
+SYS_21096_ARODE	RHEA:21096	bifunctional AroDE	Single catalytic protein system carrying both the dehydratase and the shikimate dehydrogenase activity.
+SYS_17737_AROE	RHEA:17737	shikimate dehydrogenase AroE	Single catalytic protein system.
+SYS_17737_ARODE	RHEA:17737	bifunctional AroDE	Single catalytic protein system carrying both the dehydroquinate dehydratase and the shikimate dehydrogenase activity.
+SYS_17737_YDIB	RHEA:17737	quinate/shikimate dehydrogenase YdiB	Single catalytic protein system. An AroE paralogue that accepts both quinate and shikimate, and that Rhea records against this master reaction alongside AroE.
+SYS_13121_AROKL	RHEA:13121	shikimate kinase AroK or AroL	Single catalytic protein system.
+SYS_13121_AROKB	RHEA:13121	bifunctional AroKB	Single catalytic protein system carrying both the shikimate kinase and the dehydroquinate synthase activity.
+SYS_21256_AROA	RHEA:21256	EPSP synthase AroA	Single catalytic protein system.
+SYS_21256_FUSION	RHEA:21256	bifunctional prephenate dehydrogenase/EPSP synthase	Single catalytic protein system carrying the carboxyvinyl transfer fused to a branch-pathway dehydrogenase.
+SYS_21020_AROC	RHEA:21020	chorismate synthase AroC	Single catalytic protein system.
+SYS_18985_PCHA	RHEA:18985	salicylate biosynthesis isochorismate synthase PchA	Single catalytic protein system.
+SYS_18985_MBTI	RHEA:18985	salicylate synthase MbtI	Single catalytic protein system. Bifunctional: it isomerises chorismate and eliminates pyruvate in one active site, and releases free isochorismate slowly enough to have been characterised as an isochorismate synthase in its own right.
+SYS_27874_PCHB	RHEA:27874	isochorismate pyruvate lyase PchB	Single catalytic protein system.
+SYS_27874_MBTI	RHEA:27874	salicylate synthase MbtI	Single catalytic protein system carrying the second half of the salicylate synthase reaction.
+SYS_16165_IAAM	RHEA:16165	tryptophan 2-monooxygenase IaaM	Single catalytic protein system.
+SYS_34371_IAAH	RHEA:34371	indole-3-acetamide hydrolase IaaH	Single catalytic protein system.
+SYS_34371_AMIDASE	RHEA:34371	amidase signature family hydrolase	Single catalytic protein system. The broad amidase group, accepted here only because the preceding monooxygenase carries the pathway claim.
+SYS_21368_URICASE	RHEA:21368	urate oxidase	Single-protein catalytic system.
+SYS_27329_HPXO	RHEA:27329	HpxO urate hydroxylase	Single-protein catalytic system; a flavin-dependent alternative to the cofactor-independent urate oxidase.
+SYS_23736_HIUH	RHEA:23736	5-hydroxyisourate hydrolase	Single-protein catalytic system; the transthyretin-like protein.
+SYS_26301_OHCUDC	RHEA:26301	OHCU decarboxylase	Single-protein catalytic system. The step also proceeds spontaneously to racemic allantoin, which is why the routes curate it with required = 0.
+SYS_17029_ALLB	RHEA:17029	allantoinase	Single-protein catalytic system.
+SYS_11016_ALC	RHEA:11016	allantoicase	Single-protein catalytic system.
+SYS_27485_ALLC	RHEA:27485	allantoate deiminase	Single-protein catalytic system.
+SYS_25241_YLBA	RHEA:25241	ureidoglycine aminohydrolase	Single-protein catalytic system.
+SYS_11304_ALLA	RHEA:11304	ureidoglycolate lyase	Single-protein catalytic system.
+SYS_20557_UREABC	RHEA:20557	urease catalytic core	Three jointly required subunits. The nickel maturation proteins UreD, UreE, UreF and UreG are deliberately excluded: they perform metallocentre assembly rather than catalysis, and requiring all four costs 984 genomes.
+SYS_21068_NASAC	RHEA:21068	NasA/NasC assimilatory nitrate reductase	Single catalytic subunit. The NasB diaphorase subunit is not required: it is annotated in 439 bacteria against 2796 for the catalytic subunit.
+SYS_21828_NARB	RHEA:21828	NarB ferredoxin-nitrate reductase	Single-protein catalytic system.
+SYS_18041_NIRA	RHEA:18041	NirA ferredoxin-nitrite reductase	Single-protein catalytic system.
+SYS_24628_NIRBD	RHEA:24628	NirBD nitrite reductase	Two jointly required subunits.
+SYS_24628_NASDE	RHEA:24628	NasDE nitrite reductase	Two jointly required subunits of the nitrate-assimilation operon.
+SYS_45700_GBCAB	RHEA:45700	GbcAB glycine betaine monooxygenase	Two jointly required subunits: the Rieske oxygenase and its reductase.
+SYS_74167_DGCAB	RHEA:74167	DgcAB dimethylglycine dehydrogenase	Two jointly required subunits. The same protein pair also carries the sarcosine reaction RHEA:74155, so it is a multifunctional system represented at both reactions.
+SYS_52856_DMGDH	RHEA:52856	dimethylglycine dehydrogenase	Single-protein catalytic system.
+SYS_17077_DMGO	RHEA:17077	dimethylglycine oxidase	Single-protein catalytic system.
+SYS_13313_SOXABGD	RHEA:13313	heterotetrameric sarcosine oxidase	Four jointly required subunits.
+SYS_13313_SOXMONO	RHEA:13313	monomeric sarcosine oxidase	Single-protein alternative to the heterotetramer.
+SYS_74155_DGCAB	RHEA:74155	DgcAB sarcosine dehydrogenase	Two jointly required subunits; the same multifunctional pair that carries RHEA:74167.
+SYS_14533_CRNA	RHEA:14533	creatininase	Single-protein catalytic system.
+SYS_22456_CREA	RHEA:22456	creatinase	Single-protein catalytic system.
+SYS_55396_CNTAB	RHEA:55396	CntAB carnitine monooxygenase	Two jointly required subunits: the Rieske oxygenase and its reductase.
+SYS_19265_CDHA	RHEA:19265	carnitine 3-dehydrogenase	Single-protein catalytic system; K27497 is a bifunctional protein that also carries the thioesterase step.
+SYS_47044_CDHC	RHEA:47044	CdhC 3-dehydrocarnitine transferase	Single-protein catalytic system. Despite the enzyme name, the product is the betainyl thioester and no free trimethylamine is released.
+SYS_45716_BCT	RHEA:45716	betainyl-CoA thioesterase	Single-protein catalytic system. Its only orthology group is bifunctional with carnitine 3-dehydrogenase, so the step is curated with required = 0.
+SYS_30207_MAUAB	RHEA:30207	MauAB methylamine dehydrogenase	Two jointly required subunits of the tryptophan-tryptophylquinone enzyme.
+SYS_15909_TAUD	RHEA:15909	TauD taurine dioxygenase	Single-protein catalytic system.
+SYS_10420_TPA	RHEA:10420	Tpa taurine-pyruvate aminotransferase	Single-protein catalytic system.
+SYS_18709_TAUXY	RHEA:18709	TauXY taurine dehydrogenase	Two jointly required subunits.
+SYS_24204_XSC	RHEA:24204	Xsc sulfoacetaldehyde acetyltransferase	Single-protein catalytic system.
+SYS_14613_TAUABC	RHEA:14613	TauABC ABC importer	Three jointly required subunits.
+SYS_16169_GLNA	RHEA:16169	glutamine synthetase	Single-protein catalytic system.
+SYS_15501_GLTBD	RHEA:15501	GltBD glutamate synthase	Two jointly required chains.
+SYS_12128_GLTS	RHEA:12128	GltS ferredoxin-dependent glutamate synthase	Single-protein catalytic system.
+SYS_11612_GDHA	RHEA:11612	NADP-dependent glutamate dehydrogenase	Single-protein catalytic system.
+SYS_15133_GDH	RHEA:15133	NAD-dependent glutamate dehydrogenase	Single-protein catalytic system.
+SYS_12633_BENAB	RHEA:12633	benzoate 1,2-dioxygenase oxygenase component	Two-subunit oxygenase. The shared ferredoxin and ferredoxin reductase components of this system are deliberately not curated: they are interchangeable between Rieske systems and are annotated two to three times less often than the substrate-determining subunits, so requiring them would turn an annotation gap into a missing capability.
+SYS_11560_BEND	RHEA:11560	dihydroxycyclohexadiene carboxylate dehydrogenase	Single-protein catalytic system.
+SYS_11072_ANTAB	RHEA:11072	anthranilate 1,2-dioxygenase, antAB system	Two-subunit oxygenase of the ant type. The shared ferredoxin and ferredoxin reductase components of this system are deliberately not curated: they are interchangeable between Rieske systems and are annotated two to three times less often than the substrate-determining subunits, so requiring them would turn an annotation gap into a missing capability.
+SYS_11072_ANDA	RHEA:11072	anthranilate 1,2-dioxygenase, andAcAd system	Alternative two-subunit oxygenase annotated to a different orthology group. The shared ferredoxin and ferredoxin reductase components of this system are deliberately not curated: they are interchangeable between Rieske systems and are annotated two to three times less often than the substrate-determining subunits, so requiring them would turn an annotation gap into a missing capability.
+SYS_57952_DMP	RHEA:57952	multicomponent phenol 2-monooxygenase	Six jointly required subunits. Unlike the Rieske systems in this layer these components are the enzyme itself, not interchangeable electron carriers, so all six are required.
+SYS_23852_CATA	RHEA:23852	catechol 1,2-dioxygenase	Single-protein catalytic system.
+SYS_30031_CATB	RHEA:30031	muconate cycloisomerase	Single-protein catalytic system.
+SYS_12348_CATC	RHEA:12348	muconolactone isomerase	Single-protein catalytic system.
+SYS_10184_PCAD	RHEA:10184	3-oxoadipate enol-lactonase	Single-protein catalytic system.
+SYS_10184_PCAL	RHEA:10184	fused enol-lactonase/decarboxylase PcaL	Alternative single-protein system in which the hydrolase is fused to a 4-carboxymuconolactone decarboxylase.
+SYS_12048_PCAIJ	RHEA:12048	3-oxoadipate CoA-transferase	Two jointly required subunits of the heterotetrameric transferase.
+SYS_19481_PCAF	RHEA:19481	3-oxoadipyl-CoA thiolase	Single-protein catalytic system.
+SYS_17337_XYLE	RHEA:17337	catechol 2,3-dioxygenase	Single-protein catalytic system with two accepted markers in different namespaces.
+SYS_14549_XYLF	RHEA:14549	2-hydroxymuconate semialdehyde hydrolase	Single-protein catalytic system.
+SYS_34219_XYLG	RHEA:34219	2-hydroxymuconate semialdehyde dehydrogenase	Single-protein catalytic system.
+SYS_33431_XYLH	RHEA:33431	2-hydroxymuconate tautomerase	Single-protein catalytic system.
+SYS_24260_XYLI	RHEA:24260	4-oxalocrotonate decarboxylase	Single-protein catalytic system.
+SYS_22580_MHPD	RHEA:22580	2-oxopent-4-enoate hydratase, mhp type	Single-protein catalytic system.
+SYS_22580_XYLJ	RHEA:22580	2-oxopent-4-enoate hydratase, bph/xyl type	Alternative single-protein system annotated to a separate orthology group.
+SYS_22624_MHPE	RHEA:22624	4-hydroxy-2-oxovalerate aldolase, mhp type	Single-protein catalytic system.
+SYS_22624_XYLK	RHEA:22624	4-hydroxy-2-oxovalerate aldolase, bph/xyl type	Alternative single-protein system annotated to a separate orthology group.
+SYS_23288_MHPF	RHEA:23288	acylating acetaldehyde dehydrogenase, mhp type	Alternative system for a reaction already curated for ethanol formation. MhpF is the standalone counterpart of the AdhE aldehyde domain and carries no alcohol dehydrogenase activity.
+SYS_23288_XYLQ	RHEA:23288	acylating acetaldehyde dehydrogenase, bph/xyl type	Alternative system annotated to a separate orthology group.
+SYS_20956_PAAK	RHEA:20956	phenylacetate-CoA ligase	Single-protein catalytic system with two accepted markers in different namespaces.
+SYS_32171_PAAABCDE	RHEA:32171	ring-1,2-phenylacetyl-CoA epoxidase	Five jointly required subunits of the epoxidase complex.
+SYS_31843_PAAG	RHEA:31843	epoxyphenylacetyl-CoA isomerase	Single-protein catalytic system.
+SYS_31755_PAAZ	RHEA:31755	oxepin-CoA hydrolase	Single-protein catalytic system; the same bifunctional PaaZ protein carries the next step.
+SYS_31747_PAAZ	RHEA:31747	3-oxo-5,6-dehydrosuberyl-CoA semialdehyde dehydrogenase	Single-protein catalytic system; the same bifunctional PaaZ protein carries the preceding step.
+SYS_34799_PAAJ	RHEA:34799	3-oxo-5,6-didehydrosuberyl-CoA thiolase	Single-protein catalytic system.
+SYS_76647_PAAF	RHEA:76647	2,3-didehydroadipoyl-CoA hydratase	Single-protein catalytic system using a chain-generic beta-oxidation orthologue.
+SYS_34851_PAAH	RHEA:34851	3-hydroxyadipyl-CoA dehydrogenase	Single-protein catalytic system using a chain-generic beta-oxidation orthologue.
+SYS_20357_HCAEF	RHEA:20357	3-phenylpropanoate dioxygenase oxygenase component	Two-subunit Rieske oxygenase. The shared ferredoxin and ferredoxin reductase components of this system are deliberately not curated: they are interchangeable between Rieske systems and are annotated two to three times less often than the substrate-determining subunits, so requiring them would turn an annotation gap into a missing capability.
+SYS_25062_HCAB	RHEA:25062	cis-dihydrodiol dehydrogenase	Single-protein catalytic system.
+SYS_24785_MHPA	RHEA:24785	3-(3-hydroxyphenyl)propanoate hydroxylase	Single-protein flavin monooxygenase system.
+SYS_23840_MHPB	RHEA:23840	2,3-dihydroxyphenylpropanoate 1,2-dioxygenase	Single-protein catalytic system.
+SYS_34187_MHPC	RHEA:34187	2-hydroxy-6-oxononadienedioate hydrolase	Single-protein catalytic system.
+SYS_10532_TRPAB	RHEA:10532	tryptophan synthase complex	Alpha and beta subunits are jointly required.
+SYS_10532_TRPAB_FUSED	RHEA:10532	tryptophan synthase, fused	Single polypeptide carrying both chains.
+SYS_10676_LEUCD	RHEA:10676	3-isopropylmalate dehydratase complex	Large and small subunits are jointly required.
+SYS_10676_LEUC_SINGLE	RHEA:10676	3-isopropylmalate dehydratase, single-chain	Single-chain isopropylmalate isomerase.
+SYS_10932_ARGG	RHEA:10932	argininosuccinate synthase	Single catalytic protein.
+SYS_11040_HISB_DEHYDRATASE	RHEA:11040	imidazoleglycerol-phosphate dehydratase	Single catalytic protein.
+SYS_11040_HISB_BIFUNCTIONAL	RHEA:11040	bifunctional imidazoleglycerol-phosphate dehydratase/histidinol-phosphatase	The Enterobacterial HisB carries both activities on one chain.
+SYS_11372_ASNA	RHEA:11372	aspartate--ammonia ligase	Single catalytic protein.
+SYS_11768_TRPD	RHEA:11768	anthranilate phosphoribosyltransferase	Single catalytic protein.
+SYS_11960_DAPC	RHEA:11960	N-succinyldiaminopimelate aminotransferase	Single catalytic protein; alternative orthologs are OR.
+SYS_12228_ASNB	RHEA:12228	asparagine synthase (glutamine-hydrolysing)	Single catalytic protein.
+SYS_13085_DAPH	RHEA:13085	tetrahydrodipicolinate N-acetyltransferase	Single catalytic protein.
+SYS_13493_ILVC	RHEA:13493	ketol-acid reductoisomerase	Single catalytic protein.
+SYS_13561_DDH	RHEA:13561	diaminopimelate dehydrogenase	Single catalytic protein.
+SYS_13869_PDH	RHEA:13869	prephenate dehydrogenase	Single catalytic protein; TyrA is bifunctional with the mutase.
+SYS_13897_CM	RHEA:13897	chorismate mutase	Single catalytic protein; the bifunctional P-protein and T-protein forms are alternatives.
+SYS_14109_PROC	RHEA:14109	pyrroline-5-carboxylate reductase	Single catalytic protein.
+SYS_14465_HISN	RHEA:14465	histidinol-phosphate phosphatase	Single catalytic protein; three non-homologous phosphatase families are known.
+SYS_14465_HISB_BIFUNCTIONAL	RHEA:14465	bifunctional imidazoleglycerol-phosphate dehydratase/histidinol-phosphatase	The Enterobacterial HisB carries both activities on one chain.
+SYS_14629_ARGB	RHEA:14629	acetylglutamate kinase	Single catalytic protein; several bifunctional forms exist.
+SYS_14877_PROB	RHEA:14877	glutamate 5-kinase	Single catalytic protein.
+SYS_14877_P5CS	RHEA:14877	delta-1-pyrroline-5-carboxylate synthetase	Bifunctional kinase and dehydrogenase on one chain.
+SYS_15093_AROAT	RHEA:15093	aromatic aminotransferase	Single catalytic protein; alternative orthologs are OR.
+SYS_15101_LYSA	RHEA:15101	diaminopimelate decarboxylase	Single catalytic protein.
+SYS_15349_ARGJ	RHEA:15349	glutamate N-acetyltransferase	Single catalytic protein.
+SYS_15393_DAPF	RHEA:15393	diaminopimelate epimerase	Single catalytic protein.
+SYS_15469_HISA	RHEA:15469	phosphoribosylformimino-AICAR-phosphate isomerase	Single catalytic protein.
+SYS_15941_ARGE	RHEA:15941	acetylornithine deacetylase	Single catalytic protein.
+SYS_16293_LEUCD	RHEA:16293	3-isopropylmalate dehydratase complex	Large and small subunits are jointly required.
+SYS_16293_LEUC_SINGLE	RHEA:16293	3-isopropylmalate dehydratase, single-chain	Single-chain isopropylmalate isomerase.
+SYS_17325_DAPD	RHEA:17325	tetrahydrodipicolinate N-succinyltransferase	Single catalytic protein.
+SYS_18049_ARGD	RHEA:18049	acetylornithine aminotransferase	Single catalytic protein.
+SYS_18321_ILVE	RHEA:18321	branched-chain aminotransferase	Single catalytic protein.
+SYS_18405_ALD	RHEA:18405	alanine dehydrogenase	Single catalytic protein.
+SYS_18473_HISG	RHEA:18473	ATP phosphoribosyltransferase	Catalytic subunit. The HisZ regulatory subunit found in some Firmicutes is not required.
+SYS_19045_CIMA	RHEA:19045	citramalate synthase	Single catalytic protein.
+SYS_19453_ALAA	RHEA:19453	alanine-synthesising transaminase	Single catalytic protein; alternative orthologs are OR.
+SYS_19453_AVTA	RHEA:19453	valine-pyruvate transaminase	Transaminase C, which forms alanine using L-valine as the amino donor.
+SYS_19513_ARGF	RHEA:19513	ornithine carbamoyltransferase	Single catalytic protein.
+SYS_19541_PROA	RHEA:19541	glutamate-5-semialdehyde dehydrogenase	Single catalytic protein.
+SYS_19541_P5CS	RHEA:19541	delta-1-pyrroline-5-carboxylate synthetase	Bifunctional kinase and dehydrogenase on one chain.
+SYS_20049_HISI	RHEA:20049	phosphoribosyl-AMP cyclohydrolase	Single catalytic protein; several bifunctional forms exist.
+SYS_20405_DAPL	RHEA:20405	N-acetyldiaminopimelate deacetylase	Single catalytic protein.
+SYS_21524_LEUA	RHEA:21524	2-isopropylmalate synthase	Single catalytic protein.
+SYS_21540_TRPF	RHEA:21540	phosphoribosylanthranilate isomerase	Single catalytic protein.
+SYS_21588_ARGC	RHEA:21588	N-acetyl-gamma-glutamyl-phosphate reductase	Single catalytic protein.
+SYS_21640_PDHN	RHEA:21640	prephenate dehydrogenase (NADP+)	Single catalytic protein.
+SYS_21648_PDT	RHEA:21648	prephenate dehydratase	Single catalytic protein; PheA is bifunctional with the mutase.
+SYS_21732_TRPEG	RHEA:21732	anthranilate synthase complex	Component I and the glutamine amidotransferase component II are jointly required.
+SYS_21732_TRPEG_FUSED	RHEA:21732	anthranilate synthase, fused	Single polypeptide carrying both anthranilate synthase functions.
+SYS_21824_ASPAT	RHEA:21824	aspartate aminotransferase	Single catalytic protein; alternative orthologs are OR.
+SYS_22068_ILVC	RHEA:22068	ketol-acid reductoisomerase	Single catalytic protein.
+SYS_22332_LEUCD	RHEA:22332	3-isopropylmalate/2-methylmalate dehydratase complex	Large and small subunits are jointly required.
+SYS_22608_DAPE	RHEA:22608	succinyl-diaminopimelate desuccinylase	Single catalytic protein.
+SYS_22828_HISE	RHEA:22828	phosphoribosyl-ATP pyrophosphohydrolase	Single catalytic protein; several bifunctional forms exist.
+SYS_23476_TRPC	RHEA:23476	indole-3-glycerol-phosphate synthase	Single catalytic protein.
+SYS_23744_HISC	RHEA:23744	histidinol-phosphate aminotransferase	Single catalytic protein.
+SYS_23988_DAPLT	RHEA:23988	LL-diaminopimelate aminotransferase	Single catalytic protein.
+SYS_24020_ARGH	RHEA:24020	argininosuccinate lyase	Single catalytic protein.
+SYS_24292_ARGA	RHEA:24292	amino-acid N-acetyltransferase	Single catalytic protein; several bifunctional forms exist.
+SYS_24793_HISFH	RHEA:24793	imidazole glycerol-phosphate synthase complex	The cyclase and the glutamine amidotransferase subunits are jointly required.
+SYS_24793_HISF_FUSED	RHEA:24793	imidazole glycerol-phosphate synthase, fused	Single polypeptide carrying both functions.
+SYS_24801_ILVE	RHEA:24801	branched-chain aminotransferase	Single catalytic protein.
+SYS_24809_ILVD	RHEA:24809	dihydroxy-acid dehydratase	Single catalytic protein.
+SYS_24813_ILVE	RHEA:24813	branched-chain aminotransferase	Single catalytic protein.
+SYS_25152_AROAT	RHEA:25152	aromatic aminotransferase	Single catalytic protein; alternative orthologs are OR.
+SYS_25315_DAPX	RHEA:25315	N-acetyldiaminopimelate aminotransferase	Single catalytic protein.
+SYS_27654_ILVBN	RHEA:27654	acetohydroxyacid synthase	Catalytic large subunit. The IlvN/IlvH small subunit is regulatory and is not required, on the precedent already recorded for the PyrI regulatory subunit of aspartate carbamoyltransferase.
+SYS_27694_ILVD	RHEA:27694	dihydroxy-acid dehydratase	Single catalytic protein.
+SYS_32271_LEUB	RHEA:32271	3-isopropylmalate dehydrogenase	Single catalytic protein.
+SYS_32715_LEUB	RHEA:32715	3-isopropylmalate dehydrogenase	Single catalytic protein.
+SYS_33799_HISD	RHEA:33799	histidinol dehydrogenase	Single catalytic protein carrying out both oxidations.
+SYS_33803_HISD	RHEA:33803	histidinol dehydrogenase	Single catalytic protein carrying out both oxidations.
+SYS_34171_DAPA	RHEA:34171	4-hydroxy-tetrahydrodipicolinate synthase	Single catalytic protein.
+SYS_35331_DAPB	RHEA:35331	4-hydroxy-tetrahydrodipicolinate reductase	Single catalytic protein.
+SYS_42424_LEUCD	RHEA:42424	3-isopropylmalate/2-methylmalate dehydratase complex	Large and small subunits are jointly required.
+SYS_10152_ARCC	RHEA:10152	carbamate kinase	Single catalytic protein.
+SYS_10680_PRDF	RHEA:10680	proline racemase	Single catalytic protein.
+SYS_12232_GRD	RHEA:12232	glycine reductase complex	Selenoprotein A, the substrate-specific protein B subunits and both protein C subunits are jointly required.
+SYS_12737_PRD	RHEA:12737	D-proline reductase complex	PrdA and the selenocysteine-containing PrdB are jointly required. The PrdD and PrdE stabilising proteins are not required, on the precedent recorded for the PyrI regulatory subunit.
+SYS_13101_HUTU	RHEA:13101	urocanate hydratase	Single catalytic protein.
+SYS_17785_GAD	RHEA:17785	glutamate decarboxylase	Single catalytic protein.
+SYS_19169_SDAA	RHEA:19169	L-serine ammonia-lyase	Single catalytic protein.
+SYS_19553_TNAA	RHEA:19553	tryptophanase	Single catalytic protein.
+SYS_19597_ARCA	RHEA:19597	arginine deiminase	Single catalytic protein.
+SYS_21232_HUTH	RHEA:21232	histidine ammonia-lyase	Single catalytic protein.
+SYS_22108_ILVA	RHEA:22108	threonine ammonia-lyase	Single catalytic protein; the biosynthetic IlvA and the catabolic TdcB belong to the same orthology group.
+SYS_22492_HUTG	RHEA:22492	formimidoylglutamase	Single catalytic protein.
+SYS_23660_HUTI	RHEA:23660	imidazolonepropionase	Single catalytic protein.
+SYS_23800_MGL	RHEA:23800	methionine gamma-lyase	Single catalytic protein.
+SYS_24931_CDS	RHEA:24931	L-cysteine desulfidase	Single catalytic protein. The promiscuous PLP enzymes that also carry this activity -- cystathionine beta-lyase, cystathionine gamma-lyase, MalY -- are deliberately excluded: accepting them would make every transsulfuration genome a sulfide producer, and MetC is already curated as evidence for cysteine biosynthesis.
