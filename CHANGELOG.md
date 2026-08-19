@@ -15,6 +15,48 @@ versioned with the package.
 
 ## Package 0.1.0 (in development)
 
+### 2026-08-19T04:45Z — Community resource-handoff topology, bounded by the compartment model
+
+**Change.** One new exported function, `community_network()`, in the new
+`R/community-network.R`. **No schema, database content or evaluation change.**
+This is phase 3 of `inst/doc/proposal-quantitative-traits.md`.
+
+**Why.** `gift_graph` already decides when one GIFT's declared output anchor
+reaches another's declared input. Projecting that decision onto a pair of
+genomes is the whole of community topology, and inventing a second
+compatibility rule for it would put a biological definition in two places.
+
+**Effect.** A directed edge means one genome supports a GIFT whose output anchor
+another genome's supported GIFT consumes. Edges carry the `from_gift`,
+`to_gift`, `shared_anchor` and the `edge_quality` of the GIFT edge beneath them,
+so a handoff resting on an unlicensed compartment reads as
+`compartment_inexact` rather than as an ordinary edge. `chain_coverage`
+classifies every curated composition link as completed `within_genome`,
+completed only `community_distributed`, `not_transferable`, or
+`not_represented`, retaining the genomes behind each. `cycle_coverage` asks the
+same question of the elementary cycles of the anchor graph.
+
+**One rule was added that the plan did not anticipate, and it changes results.**
+A cross-genome edge requires the producing GIFT's output anchor to be declared
+`extracellular`. Without it, the arabinoxylan fixture produced edges C → D and
+D → C through `XYLOSE_IN` — a **cytoplasmic** anchor — which asserts that one
+organism hands another a molecule that never leaves a cell. A `cytoplasmic`
+anchor is inside one cell by construction and an `unspecified` one was never
+evidenced as leaving it, so neither licenses a transfer. The same link inside a
+single genome is an ordinary composition step and is still reported as one,
+which is why `chain_coverage` gained the `not_transferable` status: when the two
+halves of an internal link fall in different genomes, nothing completes it, and
+calling that distributed would be exactly the error the anchor compartment
+qualifier exists to prevent. Distributed cycle closure carries the same
+restriction and therefore reports `not_closed` for the oxidative citric acid
+cycle however the community is composed, because central metabolism runs on
+intermediates that never leave a cell.
+
+With the rule in place the fixture yields the three edges the design predicted —
+A → B, B → C, B → D — and no others.
+
+49 new tests in `test-community-network.R`; full suite green at 3538.
+
 ### 2026-08-19T04:20Z — Genome-resolved communities and distributional traits
 
 **Change.** Two new exported functions, `giftr_community()` and
