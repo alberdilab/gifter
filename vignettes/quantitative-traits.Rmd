@@ -1,0 +1,245 @@
+---
+title: "2. From calls to quantitative traits"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{2. From calls to quantitative traits}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+Vignette 1 produced 130 calls for one genome. This one turns them into numbers
+you can compare between genomes — and shows why a number of that kind is
+meaningless until you say what it was counted over.
+
+```{r}
+library(giftr)
+```
+
+We reuse the illustrative gut anaerobe from vignette 1.
+
+```{r}
+gut_anaerobe <- data.frame(
+  gene_id = paste0("g", sprintf("%04d", 1:33)),
+  namespace = c(rep("CAZY", 3), rep("KO", 30)),
+  accession = c(
+    "GH11", "GH39", "CE1",
+    "K10543", "K10544", "K10545", "K01805", "K00854",
+    "K00764", "K01945", "K00601", "K01952", "K01587", "K01756", "K00602",
+    "K03412", "K00575", "K03407", "K03408", "K03776", "K03413", "K03410",
+    "K03427", "K01153", "K01154",
+    "K00812", "K01915", "K00600", "K00826", "K00259",
+    "K02945", "K02863", "K01873"
+  ),
+  stringsAsFactors = FALSE
+)
+
+result <- evaluate_gifts(gut_anaerobe)
+sum(result$gifts$complete)
+```
+
+## The problem: five is not a result
+
+This genome supports ten GIFTs. Is that a lot?
+
+The question has no answer until you say ten *out of what*. Out of the 130
+GIFTs curated today? Out of the 122 metabolic ones? Out of the amino-acid
+biosynthetic capabilities, of which this genome was tested for none? And when
+the next curation campaign adds forty GIFTs, does "ten" still mean the same
+thing?
+
+giftr's answer is that every quantitative trait names its **reference
+universe**, and carries that name in the output beside the number.
+
+## Step 1: define a universe
+
+`gift_universe()` builds one from curated metadata — the GIFT type, the
+metabolic mode, the registered facet vocabulary, the derived profile view. You
+never write a list of GIFT identifiers yourself; that would move biological
+content out of the database, where it can be validated and versioned, and into
+your script, where it cannot.
+
+```{r}
+gift_universe(type = "metabolic")
+
+gift_universe(mode = "catabolic")
+
+gift_universe(facet = "substrate_class", value = "polysaccharide")
+```
+
+Filters combine with AND:
+
+```{r}
+gift_universe(mode = "catabolic", resource_strategy = "uptake")
+```
+
+Note that `mode` partitions this database far better than `gift_type` does —
+122 of the 130 GIFTs are metabolic, so "metabolic GIFTs" is nearly the whole
+catalogue, while anabolic/catabolic/transport/interconversion splits it 57 /
+58 / 3 / 4.
+
+## Step 2: compute traits
+
+```{r}
+traits <- genome_traits(result, genome_id = "MAG_001")
+traits
+```
+
+With no universes supplied you get a default set that partitions the catalogue
+by type, by mode, and by resource strategy. The result is a long-form table:
+
+```{r}
+names(traits$metrics)
+```
+
+Every row carries its numerator, its denominator, how many members of the
+universe were assessable, the universe itself, and the database version. That
+is what lets a number be taken apart six months later.
+
+```{r}
+richness <- traits$metrics[traits$metrics$metric_id == "gift_richness", ]
+richness[, c("reference_universe", "value", "assessable")]
+```
+
+## Step 3: ask why a number is what it is
+
+Every metric keeps the GIFTs that produced it.
+
+```{r}
+trace <- traits$trace[
+  traits$trace$metric_id == "gift_richness" &
+    traits$trace$reference_universe == "catabolic GIFTs",
+]
+trace[, c("metric_id", "gift_id")]
+```
+
+This is the point of the long-form shape. A trait you cannot decompose is a
+trait you cannot defend.
+
+## Step 4: breadth is not richness
+
+Counting GIFTs overcounts wherever the ontology happens to be finely
+subdivided. Breadth counts distinct classifications instead:
+
+```{r}
+breadth <- traits$metrics[
+  startsWith(traits$metrics$metric_id, "breadth_") &
+    traits$metrics$reference_universe == "all curated GIFTs",
+]
+breadth[, c("metric_id", "value", "denominator")]
+```
+
+`breadth_substrate_class` counts how many curated substrate classes this genome
+can act on, out of the classes present in the universe. Two GIFTs acting on the
+same class contribute one class, not two.
+
+## Step 5: fractions, and when giftr refuses to give you one
+
+Here is a metric that is **not** in the output above:
+
+```{r}
+"supported_fraction" %in% richness$metric_id
+```
+
+giftr will not tell you what fraction of the metabolic catalogue this genome
+supports. Supporting 8 of 122 does not mean a genome lacks 114 capabilities; it
+means the catalogue currently stops at 122 and will not tomorrow. A fraction of
+an open, growing set reads as "the share of microbial function this organism
+carries", which is not what it measures.
+
+A fraction is offered only for a universe you explicitly declare **bounded** —
+a claim that curation intends to cover that set completely.
+
+```{r}
+autonomy <- gift_universe(
+  mode = "anabolic", auxotrophy_indicator = TRUE, bounded = TRUE,
+  label = "biomass-essential anabolic GIFTs"
+)
+autonomy
+
+autonomy_traits <- genome_traits(
+  result, universes = list(autonomy), genome_id = "MAG_001"
+)
+autonomy_traits$metrics[
+  autonomy_traits$metrics$metric_id %in%
+    c("gift_richness", "supported_fraction"),
+  c("metric_id", "value", "numerator", "denominator")
+]
+```
+
+Over that universe the fraction *is* meaningful: it is genomic coverage of the
+curated biomass-essential anabolic capabilities. It still does not mean the
+organism grows without supplementation — it means the genes for those
+capabilities are or are not there.
+
+## Step 6: MAG completeness, and the honesty of a denominator
+
+Everything above assumed that a negative call means absence. For a closed
+isolate genome that is reasonable. For a 55%-complete metagenome-assembled
+genome it is not: the organism was never fully observed, so it has not been
+shown to lack anything.
+
+By default giftr makes the optimistic assumption and *tells you it did*:
+
+```{r}
+assessable <- traits$metrics[
+  traits$metrics$metric_id == "assessable_fraction" &
+    traits$metrics$reference_universe == "all curated GIFTs",
+]
+assessable[, c("value", "numerator", "denominator")]
+```
+
+Supply a completeness estimate and a threshold, and negative calls on a genome
+below that threshold leave every denominator:
+
+```{r}
+fragmented <- genome_traits(
+  result, universes = list(autonomy), genome_id = "MAG_001",
+  quality = c(MAG_001 = 0.55), policy = "completeness", threshold = 0.9
+)
+fragmented$metrics[
+  fragmented$metrics$metric_id %in%
+    c("gift_richness", "supported_fraction", "assessable_fraction"),
+  c("metric_id", "value", "numerator", "denominator")
+]
+```
+
+Read that carefully, because it is the most misusable output in the package.
+`supported_fraction` went from 0.125 to **1.0**, and the genome did not gain a
+single capability: `gift_richness` is 5 in both runs. All that happened is that
+the 35 negative calls left the denominator, because a 55%-complete genome has
+not been shown to lack them. The number now means "of the five capabilities we
+could assess, five are supported", which is nearly content-free.
+`assessable_fraction` is what says so — 5 of 40 — and the warning giftr emitted
+points at exactly that.
+
+The honest reading of a fragmented genome is `gift_richness` beside
+`assessable_fraction`, not the fraction on its own.
+
+Two guarantees hold whatever policy you choose:
+
+- **no policy can make an unsupported GIFT supported.** Genome quality changes
+  how absence is read and nothing else. The complete calls are identical in
+  both runs above.
+- there is **no default threshold**. How complete a genome must be before its
+  silence is informative is your declared choice, and a package default would be
+  read as a recommendation.
+
+## What these numbers may not say
+
+- richness counts encoded capabilities in the current giftr ontology within a
+  stated universe. It is not a measure of biological complexity or of metabolic
+  versatility in any particular environment.
+- a supported fraction is genomic coverage, never growth independence,
+  activity, flux or phenotype.
+- nothing here has become more certain than the calls underneath it. A trait
+  built on an `ambiguous` call inherits that ambiguity.
+
+## Where to go next
+
+Vignette 3, *A genome-resolved community*, applies the same discipline across
+many genomes: how redundantly a capability is provided, which genome is its only
+provider, and which chains the community completes that no single member does.

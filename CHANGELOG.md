@@ -15,6 +15,48 @@ versioned with the package.
 
 ## Package 0.1.0 (in development)
 
+### 2026-08-19T06:10Z — Three tutorial vignettes covering a complete analysis
+
+**Change.** A new `vignettes/` directory with three executed `.Rmd` tutorials,
+`knitr` and `rmarkdown` added to `Suggests` with `VignetteBuilder: knitr`, a
+*Tutorials* section in `README.md`, and a row in the AGENTS work table. **No
+code, schema or database change.**
+
+**Why.** The package had reference documentation and design records but no path
+in. A newcomer holding an annotation table could not find out, from anything
+shipped, how to get from that table to a call, or what a call was allowed to
+mean once they had one.
+
+**Effect.** `evaluating-a-genome` covers the input format, which markers giftr
+could use, reading complete and incomplete calls, and tracing a call to genes.
+`quantitative-traits` covers reference universes and why a count without one is
+not a result. `community-analysis` covers provider counts, presence versus
+abundance, and the handoff network.
+
+They are `.Rmd` rather than static markdown so that every chunk is executed at
+`R CMD build` and re-executed at `R CMD check`. A tutorial whose output is
+pasted in by hand starts drifting from the package the day it is written; these
+cannot, because the check fails first.
+
+**The vignettes teach the refusals, not only the API.** Each one is built around
+a case where giftr declines to answer, because those are the places a newcomer
+will otherwise misread the output: the genome that completes
+`chemotaxis_signal_transduction` and not `aspartate_chemoreception`, on a
+generic chemoreceptor accession that cannot license a ligand-specific claim; the
+absent `supported_fraction` over an open catalogue; the 55%-complete MAG whose
+fraction rises to 1.0 while its richness does not move; and the two genomes that
+each encode xylose uptake and xylose catabolism and still produce no edge
+between them, because `XYLOSE_IN` is cytoplasmic.
+
+The illustrative genomes are labelled as fixtures built from the curated
+database, not presented as annotation output from named organisms, and the AGENTS
+work table now records that as the standard for tutorial content. The
+arabinoxylan community is the same curated chain the community tests use.
+
+`R CMD check --no-manual` on the built tarball, vignettes included: one NOTE,
+the pre-existing installed size. `Config/build/clean-inst-doc: FALSE` keeps the
+design proposals in `inst/doc` alongside the built vignettes.
+
 ### 2026-08-19T05:25Z — The quantitative layer is documented and its invariants are rules
 
 **Change.** Documentation only. `inst/doc/architecture.md` gains a

@@ -1,0 +1,287 @@
+---
+title: "1. Evaluating a genome"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{1. Evaluating a genome}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+This is the first of three tutorials and covers the whole of one analysis: from
+an annotation table to a set of calls, and from a call back down to the genes
+that produced it.
+
+```{r}
+library(giftr)
+```
+
+## What giftr answers, and what it does not
+
+A **GIFT** is a genome-inferred functional trait: a biologically meaningful
+capability whose genomic support is decided by an explicit, curated model.
+giftr answers one question per GIFT:
+
+> Do the markers observed in this genome support at least one complete curated
+> implementation of this capability?
+
+It does not answer whether the capability is expressed, active, used, or
+consequential. Keep that separation in mind from the start, because every
+number later in these tutorials inherits it.
+
+## Step 1: get your annotations into three columns
+
+giftr takes a plain data frame. Whatever tool produced your annotations —
+kofamscan, dbCAN, eggNOG-mapper, DRAM, bakta — the job is to reshape its output
+into one row per observed marker:
+
+| column | meaning |
+|---|---|
+| `gene_id` | your identifier for the gene. Optional, but it is what makes a call traceable back to a locus |
+| `namespace` | which accession system: `KO`, `EC`, `PFAM`, `TIGRFAM`, `CAZY` |
+| `accession` | the accession itself |
+
+Long form matters: a gene hit by both a KO and a CAZy family is **two rows**,
+not one row with two columns.
+
+Here is an illustrative genome. It stands for an anaerobic gut bacterium that
+degrades xylan, and it is a fixture chosen to exercise the model rather than
+annotation output from a sequenced organism.
+
+```{r}
+gut_anaerobe <- data.frame(
+  gene_id = c(
+    # xylan backbone cleavage and debranching
+    "g0101", "g0102", "g0103",
+    # xylose transport and catabolism
+    "g0210", "g0211", "g0212", "g0330", "g0331",
+    # purine biosynthesis
+    "g0450", "g0451", "g0452", "g0453", "g0454", "g0455", "g0456",
+    # chemotaxis
+    "g0620", "g0621", "g0622", "g0623", "g0624", "g0625", "g0626",
+    # restriction-modification
+    "g0810", "g0811", "g0812",
+    # amino acid biosynthesis
+    "g0910", "g0911", "g0912", "g0913", "g0914",
+    # housekeeping genes giftr does not use
+    "g1001", "g1002", "g1003"
+  ),
+  namespace = c(rep("CAZY", 3), rep("KO", 30)),
+  accession = c(
+    "GH11", "GH39", "CE1",
+    "K10543", "K10544", "K10545", "K01805", "K00854",
+    "K00764", "K01945", "K00601", "K01952", "K01587", "K01756", "K00602",
+    "K03412", "K00575", "K03407", "K03408", "K03776", "K03413", "K03410",
+    "K03427", "K01153", "K01154",
+    "K00812", "K01915", "K00600", "K00826", "K00259",
+    "K02945", "K02863", "K01873"
+  ),
+  stringsAsFactors = FALSE
+)
+
+nrow(gut_anaerobe)
+```
+
+If you only have a bare vector of accessions, giftr will infer the namespace
+for KO, EC, Pfam, TIGRFAM and CAZy patterns. Supplying `namespace` explicitly
+is safer.
+
+## Step 2: see which markers giftr can use
+
+Before evaluating anything, check how much of your annotation the reference
+database actually recognises. `map_markers()` keeps every observation,
+including the ones nothing matched, so marker use is auditable rather than
+silent.
+
+```{r}
+mapped <- map_markers(gut_anaerobe)
+
+# One row per (observation, curated component) pair, plus unmatched rows.
+table(mapped$matched)
+```
+
+The unmatched markers are not a problem — a genome carries thousands of genes
+and giftr curates a specific catalogue — but you should know which they are:
+
+```{r}
+unique(mapped$accession[!mapped$matched])
+```
+
+Those three are ribosomal and tRNA-synthetase orthologues. They are real genes;
+giftr simply makes no capability claim that rests on them.
+
+## Step 3: evaluate
+
+```{r}
+result <- evaluate_gifts(gut_anaerobe)
+result
+```
+
+Every curated GIFT is evaluated, so the result always has the same number of
+rows. That matters later: a genome's negative calls are part of the answer, not
+an absence of one.
+
+```{r}
+nrow(result$gifts)
+```
+
+### The calls that came out complete
+
+```{r}
+complete <- result$gifts[result$gifts$complete, ]
+complete[, c("gift_id", "gift_type", "evidence_confidence")]
+```
+
+Read the `gift_type` column. It tells you which completeness model produced the
+call, and therefore what the call is allowed to mean:
+
+- **metabolic** — at least one complete curated enzymatic route between the
+  declared boundary molecules;
+- **regulatory** — at least one complete curated circuit that senses a signal
+  and executes a response;
+- **defense** — at least one complete curated defense mechanism;
+- **structural** — at least one complete curated architecture of a cellular
+  structure.
+
+Note `evidence_confidence` on `xylan_degradation`: **ambiguous**. The call rests
+on CAZy family-level accessions, and a glycoside hydrolase family is
+polyspecific. giftr reports the call at the confidence its weakest accepted
+marker allows rather than presenting it as equal to a call built on
+characterised orthologues.
+
+## Step 4: read the incomplete calls, because they are informative
+
+An incomplete call is not a blank. giftr reports the **closest** implementation
+and exactly what it was missing, so you can tell a capability that is one step
+short from one that is entirely absent.
+
+```{r}
+gifts <- result$gifts
+near <- gifts[!gifts$complete & gifts$minimum_missing_requirements == 1, ]
+near <- near[order(-near$completeness_score), ]
+head(near[, c("gift_id", "gift_type", "completeness_score")], 5)
+```
+
+Take the top one:
+
+```{r}
+purine <- gifts[gifts$gift_id == "purine_core_biosynthesis", ]
+purine$best_route
+purine$minimum_missing_reactions
+unlist(purine$missing_reactions_best_route)
+length(unlist(purine$supporting_reactions))
+```
+
+Nine of the ten reactions of the closest route are supported and one is not.
+That is a specific, checkable claim — go and look at whether `RHEA:23032` is
+genuinely absent or whether your annotation missed it — and it is a very
+different situation from a capability with no evidence at all.
+
+Note what giftr did **not** do: it did not call the GIFT complete because 90% of
+its genes were present. Completeness comes from route logic. The score is a
+secondary summary, never the decision.
+
+## Step 5: the specificity lesson
+
+Look at these two regulatory calls together:
+
+```{r}
+regulatory <- gifts[gifts$gift_type == "regulatory", ]
+regulatory[, c("gift_id", "complete", "minimum_missing_requirements")]
+```
+
+The genome completes `chemotaxis_signal_transduction` but not
+`aspartate_chemoreception`. What is missing from the second?
+
+```{r}
+aspartate <- gifts[gifts$gift_id == "aspartate_chemoreception", ]
+unlist(aspartate$missing_requirements)
+```
+
+The genome carries a generic methyl-accepting chemoreceptor. That accession is
+assigned to dozens of receptors in a single genome, so it supports the claim
+"this organism has a chemosensory pathway" and cannot support "this organism
+senses aspartate". A curated marker anchored on the characterised aspartate
+receptor would be needed for the second.
+
+This is a rule, not an accident: **the specificity of a claim never exceeds the
+specificity of its evidence.** Widening the generic marker to make the specific
+GIFT fire would damage every other trait that marker also matches.
+
+The same logic runs the other way between types:
+
+```{r}
+gifts[gifts$gift_id == "flagellar_apparatus",
+      c("complete", "minimum_missing_requirements")]
+```
+
+This genome has a complete chemosensory pathway and no flagellum. Fusing the
+two into a "motility" trait would have hidden exactly that.
+
+## Step 6: trace a call back to genes
+
+This is the step that makes a call reviewable. `trace_gift()` walks the whole
+evidence chain down to your own gene identifiers.
+
+```{r}
+trace <- trace_gift(result, "xylose_degradation_isomerase")
+trace[, c("reaction_id", "system_id", "component_id", "accession", "gene_id")]
+```
+
+The chain for a metabolic GIFT runs route → reaction → enzyme system →
+component → marker → gene. For a machinery GIFT it runs implementation →
+function → system → component → marker → gene, under that type's own names:
+
+```{r}
+defense_trace <- trace_gift(result, "type_i_restriction_modification")
+head(defense_trace[, c("function_id", "system_id", "accession", "gene_id")])
+```
+
+If a reviewer disagrees with a call, this is where the disagreement becomes
+concrete: a specific marker accepted for a specific component.
+
+## Step 7: how the calls connect
+
+Metabolic GIFTs compose through their declared boundary molecules — anchors —
+and nothing else. Internal reaction intermediates never create a connection.
+
+```{r}
+edges <- gift_graph()
+touching <- edges$from_gift %in% complete$gift_id |
+            edges$to_gift %in% complete$gift_id
+edges[touching, c("from_gift", "shared_anchor", "to_gift", "edge_quality")]
+```
+
+`edge_quality` is worth reading. `exact` means both GIFTs declared the same
+anchor. `compartment_inexact` means they declared the same molecule but one
+side left its compartment unresolved, so the link assumes a location curation
+did not license.
+
+Circular metabolism is derived from this graph rather than curated:
+
+```{r}
+evaluate_gift_cycles(result)
+```
+
+`status` is assembled from calls that were already made. Whether a genome closes
+a cycle never changes whether any member GIFT is complete.
+
+## What a positive call still does not mean
+
+Worth restating now that you have some:
+
+- it does not mean the machinery is expressed or the pathway carries flux;
+- it does not mean the substrate is available in the organism's environment;
+- `type_i_restriction_modification` does not mean the genome is phage-resistant;
+- `chemotaxis_signal_transduction` does not mean the organism is motile — this
+  genome is the proof, since it has no flagellum.
+
+## Where to go next
+
+Vignette 2, *From calls to quantitative traits*, turns a set of calls into
+numbers that can be compared between genomes — and shows why every such number
+needs a stated denominator. Vignette 3, *A genome-resolved community*, does the
+same across many genomes at once.

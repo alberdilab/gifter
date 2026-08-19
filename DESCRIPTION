@@ -18,7 +18,10 @@ Imports:
     tibble
 Suggests:
     testthat (>= 3.0.0),
-    withr
+    withr,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
 Config/testthat/edition: 3
 Config/build/clean-inst-doc: FALSE
 RoxygenNote: 7.3.3

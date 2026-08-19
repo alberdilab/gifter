@@ -1,0 +1,297 @@
+---
+title: "3. A genome-resolved community"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{3. A genome-resolved community}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+Vignettes 1 and 2 worked on one genome. This one asks the questions that only
+make sense across several: how redundantly is a capability provided, which
+genome is its only provider, and which chains does the community complete that
+no single member does.
+
+```{r}
+library(giftr)
+```
+
+## The community
+
+Four illustrative genomes, built around a real curated chain: the stepwise
+breakdown of arabinoxylan, a plant cell-wall polysaccharide that reaches the
+large intestine undigested.
+
+```{r}
+markers <- function(namespace, accession) {
+  data.frame(
+    gene_id = paste0("gene_", seq_along(accession)),
+    namespace = namespace, accession = accession,
+    stringsAsFactors = FALSE
+  )
+}
+
+# A: strips arabinose side chains off the xylan backbone.
+debrancher <- evaluate_gifts(markers("KO", "K01209"))
+
+# B: cleaves the exposed backbone and releases xylose outside the cell.
+backbone_degrader <- evaluate_gifts(markers("CAZY", c("GH11", "GH39")))
+
+# C and D: take up free xylose and catabolise it. Two genomes, same capability.
+consumer <- evaluate_gifts(markers(
+  "KO", c("K10543", "K10544", "K10545", "K01805", "K00854")
+))
+```
+
+Each supports exactly what its name says:
+
+```{r}
+lapply(
+  list(A = debrancher, B = backbone_degrader, C = consumer),
+  function(x) x$gifts$gift_id[x$gifts$complete]
+)
+```
+
+These four capabilities are connected in the curated database already — this is
+not an arrangement invented for the tutorial:
+
+```{r}
+chain <- c("arabinoxylan_debranching", "xylan_degradation",
+           "xylose_uptake_abc", "xylose_degradation_isomerase")
+edges <- gift_graph()
+edges[edges$from_gift %in% chain & edges$to_gift %in% chain,
+      c("from_gift", "shared_anchor", "to_gift")]
+```
+
+## Step 1: bind the genomes together
+
+```{r}
+community <- giftr_community(
+  A = debrancher,
+  B = backbone_degrader,
+  C = consumer,
+  D = consumer
+)
+community
+```
+
+The argument names become the genome identifiers, and the container refuses two
+things that would silently produce nonsense: genomes evaluated against different
+database releases, and an abundance vector that does not name exactly these
+genomes.
+
+## Step 2: how is capability distributed?
+
+```{r}
+traits <- community_traits(
+  community,
+  universes = list(gift_universe(label = "all curated GIFTs"))
+)
+metrics <- traits$metrics
+```
+
+Start with the community as a whole:
+
+```{r}
+metrics[metrics$target_type == "community",
+        c("metric_id", "value", "numerator", "denominator")]
+```
+
+Four capabilities are present somewhere, while the average genome carries 1.5.
+Both numbers are reported rather than only their ratio, because the ratio alone
+hides which of the two moved.
+
+Now per capability — how many genomes provide each?
+
+```{r}
+providers <- metrics[metrics$metric_id == "provider_count", ]
+providers[, c("target_id", "value", "denominator")]
+```
+
+Two of the four capabilities rest on a single genome. That is the
+`singleton_fraction` above: 0.5. Which genomes are those single points?
+
+```{r}
+unique_rows <- metrics[metrics$metric_id == "unique_contribution", ]
+unique_rows[, c("target_id", "value")]
+```
+
+A and B each provide something nobody else does. C and D are duplicates of each
+other, so neither is anyone's only provider.
+
+Read that last sentence carefully. `unique_contribution` is a property of **this
+sample**, not of the organism. Sequence one more xylose consumer and C and D
+stay at zero; miss B in your assembly and its unique contribution disappears
+along with it.
+
+## Step 3: presence and abundance are different questions
+
+If you have relative abundances, supply them — but note that giftr keeps them in
+separate rows from the presence-based counts, deliberately.
+
+```{r}
+weighted <- giftr_community(
+  A = debrancher, B = backbone_degrader, C = consumer, D = consumer,
+  abundance = c(A = 0.05, B = 0.10, C = 0.35, D = 0.50)
+)
+weighted_metrics <- community_traits(
+  weighted, universes = list(gift_universe(label = "all curated GIFTs"))
+)$metrics
+
+comparison <- weighted_metrics[
+  weighted_metrics$metric_id %in% c("provider_count", "abundance_coverage"), ]
+comparison[, c("target_id", "metric_id", "value")]
+```
+
+Xylan degradation has one provider carrying 10% of the community; xylose uptake
+has two carrying 85%. Those are different facts and neither substitutes for the
+other. A capability held only by a rare genome is a different situation from one
+held only by a dominant genome, and collapsing them into a single "importance"
+score would destroy the distinction.
+
+`abundance_coverage` is the fraction of observed genome abundance carrying the
+capability. It is **not** a fraction of activity, transcription, flux or
+ecological effect.
+
+## Step 4: who could hand what to whom
+
+```{r}
+network <- community_network(community)
+network
+```
+
+```{r}
+network$edges
+```
+
+Three edges: A feeds B, and B feeds both consumers. Each edge names the two
+GIFTs and the anchor molecule that connects them, so it can be checked.
+
+```{r}
+network$nodes
+```
+
+B is the hub — it receives from A and provides to both C and D.
+
+### The rule that stops this from being nonsense
+
+C and D both encode xylose uptake *and* xylose catabolism, and those two are
+connected in the GIFT graph through `XYLOSE_IN`. So why is there no C → D edge?
+
+```{r}
+anchors <- get_gift_anchors("xylose_uptake_abc")
+anchors[, c("anchor_id", "role", "compartment")]
+```
+
+`XYLOSE_IN` is **cytoplasmic**. A molecule inside a cell cannot be handed to
+another organism, so a cross-genome edge requires the producing GIFT's output
+anchor to be declared `extracellular`. Without that rule the network would
+assert that one bacterium passes another a metabolite that never crosses a
+membrane.
+
+The same link inside a single genome is an ordinary composition step, and it is
+still reported as one:
+
+```{r}
+coverage <- network$chain_coverage
+coverage[, c("from_gift", "shared_anchor", "status", "within_genome")]
+```
+
+Four statuses are possible; three of them appear here.
+
+- `within_genome` — some genome holds both ends. C and D each complete the
+  uptake-to-catabolism step internally.
+- `community_distributed` — no genome holds both ends, both are present, and the
+  molecule is extracellular. **This is the interesting one**: the community
+  completes a chain no member completes.
+- `not_represented` — one half is missing entirely. A releases arabinose and
+  nobody in this community takes it up.
+- `not_transferable` — the two halves are in different genomes but the molecule
+  stays inside a cell, so nothing completes the link. It does not arise above,
+  because C and D each hold both halves. Split them and it does:
+
+```{r}
+uptake_only <- evaluate_gifts(markers("KO", c("K10543", "K10544", "K10545")))
+catabolism_only <- evaluate_gifts(markers("KO", c("K01805", "K00854")))
+
+split_coverage <- community_network(
+  giftr_community(U = uptake_only, V = catabolism_only)
+)$chain_coverage
+
+split_coverage[split_coverage$shared_anchor == "XYLOSE_IN",
+               c("status", "providers", "recipients")]
+```
+
+  Both halves are encoded, by different organisms, and the community still
+  completes nothing: cytoplasmic xylose does not travel. Reporting that as
+  `community_distributed` would be the error the status exists to prevent.
+
+### What an edge is not
+
+An edge is a **potential** compatibility relationship between what one genome
+encodes and what another encodes. It is not evidence that:
+
+- either GIFT is expressed;
+- the molecule is released at a useful concentration;
+- the two organisms co-occur in space or time;
+- exchange actually happens.
+
+Cross-feeding is a hypothesis an edge can support. It is never a conclusion an
+edge establishes. giftr will not name it cross-feeding, and neither should a
+figure legend built on this output.
+
+## Step 5: fragmented genomes in a community
+
+Real communities are assembled from MAGs of uneven quality. As in vignette 2,
+completeness changes how a *negative* call is read — and here it is resolved per
+genome, so one fragmented member does not contaminate everyone's denominators.
+
+```{r}
+mixed <- giftr_community(
+  A = debrancher, B = backbone_degrader, C = consumer,
+  quality = c(A = 0.98, B = 0.96, C = 0.45),
+  policy = "completeness", threshold = 0.9
+)
+
+mixed_metrics <- community_traits(
+  mixed, universes = list(gift_universe(label = "all curated GIFTs"))
+)$metrics
+
+fractions <- mixed_metrics[mixed_metrics$metric_id == "provider_fraction", ]
+fractions[, c("target_id", "value", "numerator", "denominator")]
+```
+
+`arabinoxylan_debranching` is divided by 2, not 3: C is too fragmented to say it
+lacks debranching, so it is not counted as a genome that was asked. Meanwhile C's
+own positive calls survive untouched — quality only ever changes the reading of
+absence.
+
+```{r}
+sum(mixed$matrix[, "C"] %in% TRUE)
+```
+
+## Putting the three tutorials together
+
+```text
+annotation table
+      |  evaluate_gifts()
+      v
+  GIFT calls  ------------------------------> trace_gift()
+      |
+      |  genome_traits()          within a declared gift_universe()
+      v
+genome traits
+      |
+      |  giftr_community() + community_traits()
+      v
+community traits  ---------------------------> community_network()
+```
+
+At every step the same discipline applies: the number carries the set it was
+counted over, the evidence that produced it stays attached, and nothing becomes
+more certain than the calls underneath. A GIFT call is what a genome encodes —
+not what an organism is doing.

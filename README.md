@@ -86,9 +86,27 @@ Every refusal is recorded in the database changelog and in the type proposals:
 ## Install
 
 ```r
-remotes::install_github("alberdilab/giftr")
+remotes::install_github("alberdilab/giftr", build_vignettes = TRUE)
 library(giftr)
 ```
+
+## Tutorials
+
+Three vignettes walk through a complete analysis. Start at the first if giftr
+is new to you.
+
+```r
+vignette("evaluating-a-genome", package = "giftr")   # annotations -> calls -> evidence
+vignette("quantitative-traits", package = "giftr")   # calls -> comparable numbers
+vignette("community-analysis", package = "giftr")    # many genomes -> distribution and topology
+browseVignettes("giftr")
+```
+
+| Vignette | Covers |
+|---|---|
+| [1. Evaluating a genome](vignettes/evaluating-a-genome.Rmd) | the input format, which markers were used, reading complete and incomplete calls, why evidence specificity bounds a claim, tracing a call back to genes |
+| [2. From calls to quantitative traits](vignettes/quantitative-traits.Rmd) | reference universes, richness and breadth, when giftr refuses to give you a fraction, MAG completeness and honest denominators |
+| [3. A genome-resolved community](vignettes/community-analysis.Rmd) | provider counts and redundancy, presence versus abundance, potential resource handoffs, and why a cytoplasmic molecule never crosses between genomes |
 
 ## Evaluate a genome
 

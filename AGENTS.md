@@ -240,6 +240,7 @@ for examples and rationale.
 | GIFT graph or database reports | `R/database-visualization.R` | declared-anchor behavior, composition tests |
 | Biological source provenance | `inst/extdata/database-source/SOURCES.md`, `database_release.tsv` | affected TSV records |
 | Architecture or curator guidance | `AGENTS.md`, `inst/doc/architecture.md`, `README.md` | behavior and links remain consistent |
+| User-facing tutorials | `vignettes/*.Rmd` | every chunk executes at `R CMD check`; illustrative marker sets are labelled as fixtures, never presented as annotation output from a named organism |
 | Biological curation decisions | `database_changes.tsv`, `change_gifts.tsv` | affected GIFTs, `database_release.tsv`, atlas changelog view |
 | Code, API, or report decisions | `CHANGELOG.md` | the entry states change, reason, and effect |
 
