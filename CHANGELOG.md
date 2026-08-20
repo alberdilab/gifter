@@ -15,6 +15,19 @@ versioned with the package.
 
 ## Package 0.1.0 (in development)
 
+### 2026-08-20T09:03Z — Website adopts the gifter gear logo
+
+**Change.** The supplied three-gear SVG is now the package website and database
+atlas logo, with its oversized source artboard cropped at the SVG `viewBox` so
+that the artwork scales cleanly in the navigation bars and pkgdown page headers.
+The top-left wordmark now renders `gift` in forest green and `er` in the theme's
+muted grey. **No biological, schema, database, evaluation, or public API
+change.**
+
+**Effect.** The documentation site and self-contained atlas use the new logo at
+every viewport size and keep the full `gifter` name as one accessible home or
+overview link while presenting the requested two-color wordmark.
+
 ### 2026-08-20T08:35Z — Documentation and atlas share one visual environment
 
 **Change.** The pkgdown website now uses the database atlas's palette,

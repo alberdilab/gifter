@@ -215,6 +215,8 @@ test_that("database HTML atlas is self-contained and reflects compiled rows", {
 
   expect_true(file.exists(path))
   expect_match(html, "gifter reference atlas", fixed = TRUE)
+  expect_match(html, '<span class="brand-mark" aria-hidden="true"><svg', fixed = TRUE)
+  expect_match(html, '<b>gift<span>er</span></b>', fixed = TRUE)
   expect_match(html, "GIFT explorer", fixed = TRUE)
   expect_match(html, "purine_core_biosynthesis", fixed = TRUE)
   expect_match(html, "guanylate_biosynthesis", fixed = TRUE)

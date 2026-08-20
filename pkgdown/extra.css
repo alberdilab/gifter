@@ -99,10 +99,17 @@ a:hover { text-decoration-color: currentColor; }
   height: 34px;
   grid-column: 1;
   grid-row: 1 / span 2;
-  border-radius: 50%;
-  background-color: var(--forest);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Cpath d='M9 10l16 9M9 17l16-9M9 24l16 9' fill='none' stroke='%2390c9b5' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background: url("logo.svg") center / contain no-repeat;
   content: "";
+}
+
+.gifter-wordmark {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.gifter-wordmark-suffix {
+  color: var(--muted);
 }
 
 .navbar-brand::after {

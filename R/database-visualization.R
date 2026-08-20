@@ -2062,6 +2062,12 @@
   )
   css <- .gifter_report_asset("database-report.css")
   javascript <- .gifter_report_asset("database-report.js")
+  logo <- sub(
+    "^<\\?xml[^>]+>\\s*",
+    "",
+    .gifter_report_asset("gifter-logo.svg"),
+    perl = TRUE
+  )
 
   paste0(
     '<!doctype html><html lang="en"><head><meta charset="utf-8">',
@@ -2070,7 +2076,7 @@
     '<title>gifter reference atlas &middot; ', .html_text(release$gifter_db_version), "</title>",
     "<style>", css, "</style></head><body>",
     '<header class="site-header"><a class="brand" href="#overview" aria-label="gifter database overview">',
-    '<span class="brand-mark"><i></i><i></i><i></i></span><span><b>gifter</b>',
+    '<span class="brand-mark" aria-hidden="true">', logo, '</span><span><b>gift<span>er</span></b>',
     '<small>reference atlas</small></span></a>',
     '<nav class="view-nav" aria-label="Report sections">',
     '<button class="nav-button active" data-view-button="overview">Overview</button>',
