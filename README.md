@@ -90,7 +90,7 @@ Every refusal is recorded in the database changelog and in the type proposals:
 ## Install
 
 ```r
-remotes::install_github("alberdilab/giftr", build_vignettes = TRUE)
+remotes::install_github("alberdilab/gifter", build_vignettes = TRUE)
 library(gifter)
 ```
 

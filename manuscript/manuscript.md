@@ -674,7 +674,7 @@ modelling as a source of curated, non-gap-filled capability claims.]*
 
 *[Status: fill at submission.]*
 
-- Source code: <https://github.com/anttonalberdi/giftr> *[add release tag,
+- Source code: <https://github.com/alberdilab/gifter> *[add release tag,
   Zenodo DOI]*
 - Licence: MIT No Attribution (MIT-0)
 - Documentation: package manual, architecture guide, and the self-contained

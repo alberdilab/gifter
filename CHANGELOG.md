@@ -35,9 +35,8 @@ secondary class, and version metadata retains a deprecated
 
 **Effect.** New code installs and loads `gifter` and should use the canonical
 `gifter_*` names. GIFT definitions, routes, marker evidence, evaluation logic,
-database release, and schema version do not change. Existing GitHub URLs still
-name the current remote and must be updated only after that repository is
-renamed; this package rename does not perform that external operation.
+database release, and schema version do not change. The repository now lives at
+`https://github.com/alberdilab/gifter` following its separate external rename.
 
 ### 2026-08-19T06:10Z — Three tutorial vignettes covering a complete analysis
 
