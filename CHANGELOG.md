@@ -15,6 +15,28 @@ versioned with the package.
 
 ## Package 0.1.0 (in development)
 
+### 2026-08-20T12:19Z — Reference-universe atlas guides analytical choice
+
+**Change.** The HTML atlas adds a searchable Reference universes view generated
+from the curated registry. It presents every preset by biological question,
+current membership, open or bounded denominator, genome/community/network
+scope, recommended metrics and their rationales, interpretation limit, filter
+definition, and runnable `gift_universe()` call. The quantitative-traits
+tutorial includes a complete registry table and a short metric-selection guide,
+and the README links directly to the atlas chooser. **No biological, schema,
+database, evaluation, metric, or public API change.**
+
+**Why.** The registry made recurring analytical scopes machine-discoverable,
+but researchers unfamiliar with gifter still had to interpret a wide tibble or
+inspect three raw database tables before they could choose a suitable universe
+and analysis scale.
+
+**Effect.** Researchers can now begin with their biological question, narrow
+the available universes by data scale or valid coverage denominator, and see
+which metrics to report and which interpretations to avoid. Because the view is
+rendered from the database, future curated universes and recommendations appear
+without a second hand-maintained catalogue.
+
 ### 2026-08-20T11:35Z — Named reference universes make recurring analyses reusable
 
 **Change.** Schema 7 and biological database 2026.20.4 add a normalized registry

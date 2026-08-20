@@ -73,6 +73,47 @@ carbohydrate <- gift_universe(preset = "carbohydrate_degradation")
 carbohydrate
 ```
 
+### Choose a preset from your research question
+
+The searchable [Reference universes atlas](https://alberdilab.github.io/gifter/atlas/#universes)
+is the quickest chooser: search for a substrate, process or metric, then narrow
+the cards to genome, community, network or bounded-coverage analyses. The full
+registry is reproduced below so that the choice remains visible in this
+tutorial too. "Current GIFTs" describes this database release, not a fixed list
+stored in the preset.
+
+```{r universe-guide, echo = FALSE}
+guide <- presets[, c(
+  "label", "universe_id", "description", "member_count",
+  "recommended_metrics", "bounded"
+)]
+guide$bounded <- ifelse(
+  guide$bounded,
+  "Bounded: coverage fractions are valid",
+  "Open: use counts, breadth or distribution"
+)
+guide$recommended_metrics <- gsub(
+  " \\| ", ", ", guide$recommended_metrics
+)
+names(guide) <- c(
+  "Research question", "Preset", "Use it for", "Current GIFTs",
+  "Recommended starting metrics", "Denominator"
+)
+knitr::kable(guide, row.names = FALSE)
+```
+
+Choose the universe from the biological question first, then use its
+scope-specific metric recommendations:
+
+- for one genome, start with `gift_richness` or the recommended breadth metric;
+- for a community, use `community_richness` to count represented capabilities
+  and `provider_count` for redundancy, keeping abundance separate;
+- use a network metric only when the question depends on compatible,
+  extracellular GIFT boundaries;
+- use `supported_fraction` or `community_coverage` only where the table marks
+  the universe bounded, and always report `assessable_fraction` alongside a
+  genome fraction.
+
 Each preset carries its description, interpretation limits and recommended
 genome, community or network metrics. Its members are still resolved from the
 current release's metadata: the registry stores a query, never a list of GIFT

@@ -221,6 +221,7 @@
     values,
     list(
       machinery = machinery,
+      universes = list_gift_universes(db = connection),
       tables = tables,
       schema = schema,
       release = tables$database_release[1, , drop = FALSE],
@@ -2052,6 +2053,87 @@
   )
 }
 
+.report_reference_universes <- function(data) {
+  definitions <- data$tables$reference_universe
+  metric_table <- data$tables$reference_universe_metric
+  scope_order <- c("genome", "community", "network")
+
+  cards <- paste(vapply(seq_len(nrow(data$universes)), function(index) {
+    universe <- data$universes[index, , drop = FALSE]
+    universe_pk <- definitions$universe_pk[
+      match(universe$universe_id, definitions$universe_id)
+    ]
+    metrics <- metric_table[metric_table$universe_pk == universe_pk, , drop = FALSE]
+    scopes <- scope_order[scope_order %in% unique(metrics$scope)]
+    bounded <- isTRUE(universe$bounded[[1L]])
+    scope_sections <- paste(vapply(scopes, function(scope) {
+      rows <- metrics[metrics$scope == scope, , drop = FALSE]
+      items <- paste(vapply(seq_len(nrow(rows)), function(metric_index) {
+        metric <- rows[metric_index, , drop = FALSE]
+        paste0(
+          '<li><code>', .html_text(metric$metric_id), '</code><span>',
+          .html_text(metric$rationale), "</span></li>"
+        )
+      }, character(1)), collapse = "")
+      paste0(
+        '<section class="universe-scope"><h3>', .html_escape(.report_facet_label(scope)),
+        '</h3><ul>', items, "</ul></section>"
+      )
+    }, character(1)), collapse = "")
+    searchable <- .html_search_text(
+      universe, metrics$scope, metrics$metric_id, metrics$rationale
+    )
+
+    paste0(
+      '<article class="universe-card', if (bounded) " bounded" else "", '" ',
+      'data-universe-card data-universe-scopes=" ', paste(scopes, collapse = " "), ' " ',
+      'data-universe-bounded="', if (bounded) "true" else "false", '" data-search="',
+      .html_escape(searchable), '">',
+      '<header><div><div class="universe-id">', .html_text(universe$universe_id),
+      '</div><h2>', .html_text(universe$label), '</h2></div>',
+      '<span class="universe-bound ', if (bounded) "bounded" else "open", '">',
+      if (bounded) "bounded &middot; coverage valid" else "open &middot; counts and breadth",
+      '</span></header>',
+      '<p class="universe-description">', .html_text(universe$description), "</p>",
+      '<div class="universe-facts"><span><strong>', universe$member_count,
+      '</strong> current GIFT', if (universe$member_count == 1L) "" else "s", '</span>',
+      '<span><strong>', length(scopes), '</strong> analysis scale',
+      if (length(scopes) == 1L) "" else "s", "</span></div>",
+      '<div class="universe-call"><span>Use this preset</span><code>',
+      'gift_universe(preset = &quot;', .html_text(universe$universe_id), '&quot;)',
+      "</code></div>",
+      '<div class="universe-metrics"><h3>Recommended analyses</h3>',
+      scope_sections, "</div>",
+      '<aside class="universe-interpretation"><strong>Interpret carefully</strong><span>',
+      .html_text(universe$interpretation), "</span></aside>",
+      '<details class="universe-definition"><summary>How membership is defined</summary>',
+      '<code>', .html_text(universe$filter_expression), "</code></details></article>"
+    )
+  }, character(1)), collapse = "")
+
+  paste0(
+    '<section class="universe-intro" aria-label="How to choose a reference universe">',
+    '<div><span>1</span><strong>Start with the biological question</strong>',
+    '<p>Choose the card whose scope matches what you want to compare, not the metric ',
+    'whose name sounds most familiar.</p></div>',
+    '<div><span>2</span><strong>Match the unit of analysis</strong>',
+    '<p>Genome metrics describe one encoded repertoire; community metrics describe ',
+    'its distribution; network metrics require compatible extracellular boundaries.</p></div>',
+    '<div><span>3</span><strong>Read the denominator</strong>',
+    '<p>Open universes support counts and breadth. Coverage fractions are meaningful ',
+    'only for universes curated as bounded.</p></div></section>',
+    '<div class="universe-toolbar" aria-label="Filter reference universes by analysis scale">',
+    '<span>Show questions for</span>',
+    '<button type="button" class="active" data-universe-filter="all" aria-pressed="true">All data</button>',
+    '<button type="button" data-universe-filter="genome" aria-pressed="false">Genomes</button>',
+    '<button type="button" data-universe-filter="community" aria-pressed="false">Communities</button>',
+    '<button type="button" data-universe-filter="network" aria-pressed="false">Networks</button>',
+    '<button type="button" data-universe-filter="bounded" aria-pressed="false">Coverage fractions</button>',
+    "</div>",
+    '<div class="universe-grid">', cards, "</div>"
+  )
+}
+
 .render_gifter_report <- function(data) {
   release <- data$release
   metric_cards <- paste0(
@@ -2095,10 +2177,11 @@
     '<a class="site-nav-link active" href="#overview" aria-current="page">GIFT atlas</a></nav>',
     '<label class="global-search"><span class="search-icon">&#8981;</span>',
     '<span class="sr-only">Search the database</span><input id="global-search" type="search" ',
-    'placeholder="Search IDs, names, markers&hellip;" autocomplete="off">',
+    'placeholder="Search IDs, questions, markers&hellip;" autocomplete="off">',
     '<kbd>&#8984; K</kbd></label></header>',
     '<nav class="view-nav" aria-label="Atlas sections">',
     '<button class="nav-button active" data-view-button="overview">Overview</button>',
+    '<button class="nav-button" data-view-button="universes">Reference universes</button>',
     '<button class="nav-button" data-view-button="gifts">GIFT explorer</button>',
     '<button class="nav-button" data-view-button="changelog">Changelog</button>',
     '<button class="nav-button" data-view-button="schema">SQL schema</button>',
@@ -2112,6 +2195,12 @@
     '<span class="dot-hint">Hover a dot for its detail &middot; click a GIFT to open it</span></div>',
     '<div data-graph-panel="anchors">', .report_anchor_network_svg(data),
     "</div></section></section>",
+    '<section class="view" id="universes" data-view="universes"><div class="page-heading">',
+    '<div><div class="eyebrow">Quantitative analysis</div><h1>Choose a reference universe</h1></div>',
+    '<p>Find the curated comparison set that matches your biological question and ',
+    'data scale. Every recommendation below comes from this database release.</p></div>',
+    .report_reference_universes(data),
+    '<div class="no-results" data-no-results>No matching reference universes.</div></section>',
     '<section class="view" id="gifts" data-view="gifts"><div class="page-heading">',
     '<div><div class="eyebrow">Biological hierarchy</div><h1>GIFT explorer</h1></div>',
     '<p>Select a GIFT to inspect its boundaries, routes, reactions, and accepted genomic evidence.</p></div>',
@@ -2142,8 +2231,9 @@
 #' Write an interactive HTML atlas of the gifter database
 #'
 #' Creates a dependency-free HTML report containing release metadata, table
-#' counts, a complete biological hierarchy, the SQL schema, and a searchable
-#' browser for every table. Two network views are drawn as inline SVG. The
+#' counts, a searchable guide to curated reference universes, a complete
+#' biological hierarchy, the SQL schema, and a searchable browser for every
+#' table. Two network views are drawn as inline SVG. The
 #' overview network draws every GIFT together with its declared anchors as an
 #' unlabelled force directed map in which a GIFT is a large dot and an anchor a
 #' small one: hovering a dot dims everything it is not connected to and prints

@@ -495,6 +495,28 @@
       });
   }
 
+  var universeFilter = "all";
+  var universeButtons = Array.prototype.slice.call(
+    document.querySelectorAll("[data-universe-filter]")
+  );
+
+  function filterUniverses(query) {
+    var view = document.querySelector('[data-view="universes"]');
+    var cards = Array.prototype.slice.call(view.querySelectorAll("[data-universe-card]"));
+    var count = 0;
+    cards.forEach(function (card) {
+      var textMatches = !query || card.getAttribute("data-search").indexOf(query) !== -1;
+      var filterMatches = universeFilter === "all" ||
+        (universeFilter === "bounded" && card.getAttribute("data-universe-bounded") === "true") ||
+        card.getAttribute("data-universe-scopes").indexOf(" " + universeFilter + " ") !== -1;
+      var matches = textMatches && filterMatches;
+      card.hidden = !matches;
+      if (matches) count += 1;
+    });
+    setEmptyState(view, count === 0);
+    return count;
+  }
+
   function filterChangelog(query) {
     var view = document.querySelector('[data-view="changelog"]');
     var rows = Array.prototype.slice.call(view.querySelectorAll(".changelog-row"));
@@ -564,6 +586,10 @@
       }
       var giftCount = filterGifts(query);
       message = giftCount + (giftCount === 1 ? " matching GIFT" : " matching GIFTs");
+    } else if (section === "universes") {
+      var universeCount = filterUniverses(query);
+      message = universeCount +
+        (universeCount === 1 ? " matching reference universe" : " matching reference universes");
     } else if (section === "changelog") {
       var changeCount = filterChangelog(query);
       message = changeCount + (changeCount === 1 ? " matching change" : " matching changes");
@@ -580,7 +606,8 @@
 
     // An anchor filter narrows the list without any typed query, so the count
     // still needs announcing.
-    var filtered = section === "gifts" && Boolean(anchorFilter("input") || anchorFilter("output"));
+    var filtered = (section === "gifts" && Boolean(anchorFilter("input") || anchorFilter("output"))) ||
+      (section === "universes" && universeFilter !== "all");
     if (announce && (query || filtered)) showStatus(message);
     if (!query && !filtered) status.classList.remove("visible");
   }
@@ -588,6 +615,18 @@
   buttons.forEach(function (button) {
     button.addEventListener("click", function () {
       activateView(button.getAttribute("data-view-button"), true);
+    });
+  });
+
+  universeButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      universeFilter = button.getAttribute("data-universe-filter");
+      universeButtons.forEach(function (other) {
+        var active = other === button;
+        other.classList.toggle("active", active);
+        other.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+      applySearch(true);
     });
   });
 

@@ -208,6 +208,10 @@ fibre utilisation, nitrogen acquisition, fermentation products and vitamin
 biosynthesis. Membership is resolved from curated metadata in the current
 database release rather than stored as a list of GIFT identifiers:
 
+Browse the searchable [reference-universe chooser](https://alberdilab.github.io/gifter/atlas/#universes)
+to compare every preset by biological question, analysis scale, recommended
+metrics, denominator status and interpretation limits.
+
 ```r
 carbohydrate <- gift_universe(preset = "carbohydrate_degradation")
 genome_traits(result, universes = list(carbohydrate))

@@ -248,6 +248,29 @@ test_that("database HTML atlas is self-contained and reflects compiled rows", {
   expect_true(all(diff(tutorial_positions) > 0L))
   expect_match(html, 'aria-current="page">GIFT atlas</a>', fixed = TRUE)
   expect_match(html, 'aria-label="Atlas sections"', fixed = TRUE)
+  expect_match(
+    html,
+    '<button class="nav-button" data-view-button="universes">Reference universes</button>',
+    fixed = TRUE
+  )
+  expect_match(html, "Choose a reference universe", fixed = TRUE)
+  universe_cards <- regmatches(
+    html,
+    gregexpr('<article class="universe-card[^>]* data-universe-card', html)
+  )[[1]]
+  expect_length(universe_cards, 19L)
+  expect_match(html, 'data-universe-filter="genome"', fixed = TRUE)
+  expect_match(html, 'data-universe-filter="community"', fixed = TRUE)
+  expect_match(html, 'data-universe-filter="network"', fixed = TRUE)
+  expect_match(html, 'data-universe-filter="bounded"', fixed = TRUE)
+  expect_match(
+    html,
+    'gift_universe(preset = &quot;carbohydrate_degradation&quot;)',
+    fixed = TRUE
+  )
+  expect_match(html, "Count complete curated carbohydrate-degradation capabilities.", fixed = TRUE)
+  expect_match(html, "bounded &middot; coverage valid", fixed = TRUE)
+  expect_match(html, "function filterUniverses", fixed = TRUE)
   expect_match(html, "GIFT explorer", fixed = TRUE)
   expect_match(html, "purine_core_biosynthesis", fixed = TRUE)
   expect_match(html, "reference_universe", fixed = TRUE)

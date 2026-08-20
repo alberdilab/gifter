@@ -30,8 +30,9 @@ The normalized output path, invisibly.
 }
 \description{
 Creates a dependency-free HTML report containing release metadata, table
-counts, a complete biological hierarchy, the SQL schema, and a searchable
-browser for every table. Two network views are drawn as inline SVG. The
+counts, a searchable guide to curated reference universes, a complete
+biological hierarchy, the SQL schema, and a searchable browser for every
+table. Two network views are drawn as inline SVG. The
 overview network draws every GIFT together with its declared anchors as an
 unlabelled force directed map in which a GIFT is a large dot and an anchor a
 small one: hovering a dot dims everything it is not connected to and prints

@@ -451,7 +451,11 @@ Recurring analytical questions are registered as named reference universes in
 `reference_universe_metrics.tsv`. `list_gift_universes()` discovers them and
 `gift_universe(preset = ...)` resolves one against the current database release.
 The registry stores filter recipes, descriptions, interpretation limits and
-recommended metrics. It never stores GIFT membership.
+recommended metrics. It never stores GIFT membership. The HTML atlas renders
+that same registry as a searchable question-to-analysis guide, including the
+current member count and the rationale for every genome, community or network
+metric; the guide therefore changes with the database rather than becoming a
+second source of analytical curation.
 
 Filter values are ORed within one metadata key and distinct keys are ANDed. The
 `carbohydrate_degradation` preset, for example, selects catabolic GIFTs whose
