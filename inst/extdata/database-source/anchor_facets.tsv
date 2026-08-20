@@ -431,3 +431,12 @@ ACETYL_PHOSPHATE	resource_origin	central_metabolism
 AMINOPENTANOATE	molecular_tier	small_molecule	
 AMINOPENTANOATE	biomass_essential	no	
 AMINOPENTANOATE	resource_origin	microbially_derived	
+ISOCITRATE	molecular_tier	small_molecule	Curated with the isocitrate branch boundary in 2026.20.1.
+ISOCITRATE	resource_origin	central_metabolism	Curated with the isocitrate branch boundary in 2026.20.1.
+ISOCITRATE	biomass_essential	no	Curated with the isocitrate branch boundary in 2026.20.1.
+NITROGEN	molecular_tier	small_molecule	Curated with nitrogen fixation in 2026.20.1.
+NITROGEN	resource_origin	inorganic	Curated with nitrogen fixation in 2026.20.1.
+NITROGEN	biomass_essential	no	Curated with nitrogen fixation in 2026.20.1.
+SULFATE	molecular_tier	small_molecule	Curated with sulfate assimilation in 2026.20.1.
+SULFATE	resource_origin	inorganic	Curated with sulfate assimilation in 2026.20.1.
+SULFATE	biomass_essential	no	Curated with sulfate assimilation in 2026.20.1.

@@ -147,12 +147,16 @@ test_that("sulfide from cysteine is evidenced by dedicated desulfidases only", {
   # genome a sulfide producer, which is the failure invariant 16 describes.
   expect_false("cysteine_degradation_sulfide" %in% complete_gifts("K01760"))
   expect_true("cysteine_degradation_sulfide" %in% complete_gifts("K20021"))
-  # The product closes a boundary two biosynthesis GIFTs already consumed.
+  # Cysteine degradation and sulfate assimilation now supply the boundary two
+  # biosynthesis GIFTs consume; the promiscuous PLP marker remains refused.
   graph <- gift_graph()
   sulfide <- graph[graph$shared_anchor == "SULFIDE", ]
-  expect_setequal(sulfide$from_gift, "cysteine_degradation_sulfide")
   expect_setequal(
-    sulfide$to_gift,
+    unique(sulfide$from_gift),
+    c("cysteine_degradation_sulfide", "assimilatory_sulfate_reduction")
+  )
+  expect_setequal(
+    unique(sulfide$to_gift),
     c("cysteine_biosynthesis_sulfide", "methionine_biosynthesis_sulfhydrylation")
   )
 })
@@ -210,7 +214,10 @@ test_that("a biosynthesis/degradation pair is an edge pair, not a metabolic cycl
                         "cysteine_degradation_sulfide") %in% ids),
     logical(1)
   )))
-  expect_setequal(unique(cycles$named_cycle), "citric_acid_cycle_oxidative")
+  expect_setequal(
+    unique(cycles$named_cycle),
+    c("citric_acid_cycle_oxidative", "glyoxylate_cycle")
+  )
   # The edges themselves are untouched: the exclusion is about what counts as a
   # cycle, not about what counts as composition.
   graph <- gift_graph()

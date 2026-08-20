@@ -165,9 +165,10 @@ dmb_biosynthesis_aerobic	physiological_role	vitamin_biosynthesis
 menaquinone_biosynthesis	substrate_class	cofactor	
 menaquinone_biosynthesis	physiological_role	biosynthesis	
 menaquinone_biosynthesis	physiological_role	vitamin_biosynthesis	
-acetyl_coa_to_oxoglutarate	substrate_class	central_metabolite	
-acetyl_coa_to_oxoglutarate	physiological_role	central_carbon_metabolism	
-acetyl_coa_to_oxoglutarate	metabolic_cycle	citric_acid_cycle_oxidative	
+acetyl_coa_to_isocitrate	substrate_class	central_metabolite	The isocitrate branchpoint is shared central metabolism.
+acetyl_coa_to_isocitrate	physiological_role	central_carbon_metabolism	Upper segment shared by both derived central cycles.
+acetyl_coa_to_isocitrate	metabolic_cycle	citric_acid_cycle_oxidative	Membership is derived from declared anchors.
+acetyl_coa_to_isocitrate	metabolic_cycle	glyoxylate_cycle	Membership is derived from declared anchors.
 oxoglutarate_to_succinate	substrate_class	central_metabolite	
 oxoglutarate_to_succinate	physiological_role	central_carbon_metabolism	
 oxoglutarate_to_succinate	metabolic_cycle	citric_acid_cycle_oxidative	
@@ -321,3 +322,15 @@ glycine_reduction_stickland	physiological_role	central_carbon_metabolism
 proline_reduction_stickland	substrate_class	amino_acid	
 proline_reduction_stickland	physiological_role	fermentative_end_product	
 mercury_detoxification	defense_class	chemical_detoxification	
+isocitrate_to_oxoglutarate	substrate_class	central_metabolite	The oxidative fate of a central branchpoint.
+isocitrate_to_oxoglutarate	physiological_role	central_carbon_metabolism	Oxidative central-carbon segment.
+isocitrate_to_oxoglutarate	metabolic_cycle	citric_acid_cycle_oxidative	Membership is derived from declared anchors.
+glyoxylate_bypass	substrate_class	central_metabolite	Carbon-conserving branch of central metabolism.
+glyoxylate_bypass	physiological_role	central_carbon_metabolism	Carbon-conserving branch of central metabolism.
+glyoxylate_bypass	metabolic_cycle	glyoxylate_cycle	Membership is derived from declared anchors.
+succinate_fumarate_interconversion	metabolic_cycle	glyoxylate_cycle	Shared segment of both derived central cycles.
+fumarate_oxaloacetate_interconversion	metabolic_cycle	glyoxylate_cycle	Shared segment of both derived central cycles.
+nitrogen_fixation	substrate_class	inorganic_nitrogen	Dinitrogen is the input boundary.
+nitrogen_fixation	physiological_role	nitrogen_acquisition	Forms ammonium the cell can assimilate; incorporation is not claimed.
+assimilatory_sulfate_reduction	substrate_class	inorganic_sulfur	Sulfate is the input boundary.
+assimilatory_sulfate_reduction	physiological_role	sulfur_acquisition	Forms sulfide the cell can assimilate; incorporation is not claimed.

@@ -955,3 +955,26 @@ KO	K08365	merR; MerR family transcriptional regulator, mercuric resistance opero
 KO	K19058	merC; mercuric ion transport protein	KEGG orthology marker.
 KO	K19059	merE; mercuric ion transport protein	KEGG orthology marker.
 TIGRFAM	TIGR02053	mercury(II) reductase	NCBIfam sequence family marker for MerA, integrated as InterPro IPR021179. Built around the mercuric reductase itself rather than the wider pyridine nucleotide-disulfide oxidoreductase fold its catalytic core belongs to.
+KO	K01637	icl; isocitrate lyase	KEGG orthology marker.
+KO	K01638	aceB; malate synthase	KEGG orthology marker. K01639 is not an alternative: it is N-acetylneuraminate lyase.
+KO	K02588	nifH; nitrogenase iron protein	KEGG orthology marker.
+KO	K02586	nifD; nitrogenase molybdenum-iron protein alpha chain	KEGG orthology marker.
+KO	K02591	nifK; nitrogenase molybdenum-iron protein beta chain	KEGG orthology marker.
+KO	K02585	nifB; nitrogen fixation protein NifB	KEGG orthology marker.
+KO	K02587	nifE; nitrogenase molybdenum-cofactor synthesis protein NifE	KEGG orthology marker.
+KO	K02592	nifN, vnfN; nitrogenase cofactor synthesis protein NifN/VnfN	KEGG orthology marker shared by the molybdenum and vanadium cofactor scaffolds.
+KO	K22899	vnfH; vanadium nitrogenase iron protein	KEGG orthology marker.
+KO	K22896	vnfD; vanadium-dependent nitrogenase alpha chain	KEGG orthology marker.
+KO	K22897	vnfK; vanadium-dependent nitrogenase beta chain	KEGG orthology marker.
+KO	K22898	vnfG; vanadium nitrogenase delta subunit	KEGG orthology marker.
+KO	K22903	vnfE; nitrogenase vanadium-cofactor synthesis protein VnfE	KEGG orthology marker.
+KO	K00958	sat, met3; sulfate adenylyltransferase	KEGG orthology marker.
+KO	K00956	cysN; sulfate adenylyltransferase subunit 1	KEGG orthology marker.
+KO	K00957	cysD; sulfate adenylyltransferase subunit 2	KEGG orthology marker.
+KO	K00955	cysNC; bifunctional sulfate adenylyltransferase subunit 1/adenylylsulfate kinase	KEGG orthology marker.
+KO	K00860	cysC; adenylylsulfate kinase	KEGG orthology marker.
+EC	1.8.4.8	phosphoadenylyl-sulfate reductase (thioredoxin)	Reaction-specific activity marker used because KO K00390 also covers EC 1.8.4.10.
+EC	1.8.4.10	adenylyl-sulfate reductase (thioredoxin)	Reaction-specific activity marker used because KO K00390 also covers EC 1.8.4.8.
+KO	K00380	cysJ; sulfite reductase (NADPH) flavoprotein alpha-component	KEGG orthology marker.
+KO	K00381	cysI; sulfite reductase (NADPH) hemoprotein beta-component	KEGG orthology marker.
+KO	K00392	sir; sulfite reductase (ferredoxin)	KEGG orthology marker.

@@ -87,8 +87,7 @@ LOOP_DMB	cobamide_nucleotide_loop_assembly	Dimethylbenzimidazole loop route	Guan
 DMB_BLUB	dmb_biosynthesis_aerobic	BluB route	One oxygen-dependent reaction that dismantles reduced FMN.	curated	aerobic
 MK_CLASSIC	menaquinone_biosynthesis	Classical men route	Isochorismate through the naphthoate, then prenylation and methylation. The isochorismate synthase reaction accepts EntC as well as MenF: the two enzymes catalyse the same reaction, and route completeness supplies the pathway specificity.	curated	independent
 MK_FUTALOSINE	menaquinone_biosynthesis	Futalosine route	The chorismate-dehydratase route of Helicobacter, Campylobacter and Streptomyces, which shares only the terminal prenylation and methylation with the classical route. The deaminase step is not required, because the modified futalosine route omits it.	curated	independent
-TCA1_CS_ACN_ICDH_NADP	acetyl_coa_to_oxoglutarate	Citrate synthase, aconitase, NADP-isocitrate dehydrogenase route	Condensation to citrate, isomerisation to isocitrate, and NADP-dependent oxidative decarboxylation to 2-oxoglutarate.	curated	independent
-TCA1_CS_ACN_ICDH_NAD	acetyl_coa_to_oxoglutarate	Citrate synthase, aconitase, NAD-isocitrate dehydrogenase route	As the NADP route, with the NAD-dependent isocitrate dehydrogenase.	curated	independent
+TCA1_CS_ACN	acetyl_coa_to_isocitrate	Citrate synthase and aconitase route	Condensation to citrate and isomerisation to the isocitrate branchpoint.	curated	independent
 TCA2_ODH_SCS	oxoglutarate_to_succinate	2-oxoglutarate dehydrogenase complex route	Irreversible oxidative decarboxylation to succinyl-CoA by the multienzyme complex, then substrate-level phosphorylation to succinate.	curated	independent
 TCA2_OFOR_SCS	oxoglutarate_to_succinate	Ferredoxin oxidoreductase route	Ferredoxin-dependent oxidative decarboxylation to succinyl-CoA, then substrate-level phosphorylation. The same enzyme runs reductively in the reductive citric acid cycle.	curated	anaerobic
 TCA2_KGD_SSADH_NAD	oxoglutarate_to_succinate	2-oxoglutarate decarboxylase bypass, NAD-dependent	Decarboxylation to succinate semialdehyde followed by NAD-dependent oxidation to succinate. No succinyl-CoA intermediate and no substrate-level phosphorylation.	curated	independent
@@ -173,3 +172,12 @@ MGL_METHANETHIOL	methionine_degradation_methanethiol	Methionine gamma-lyase rout
 CYS_DESULFIDASE	cysteine_degradation_sulfide	Cysteine desulfidase route	Single beta-elimination by a dedicated L-cysteine desulfidase.	curated	independent
 GRD_STICKLAND	glycine_reduction_stickland	Glycine reductase route	Single reductive deamination by the multi-subunit selenoprotein complex.	curated	independent
 PRD_STICKLAND	proline_reduction_stickland	D-proline reductase route	Proline racemisation followed by reductive ring opening.	curated	independent
+TCA1_ICDH_NADP	isocitrate_to_oxoglutarate	NADP-isocitrate dehydrogenase route	NADP-dependent oxidative decarboxylation to 2-oxoglutarate.	curated	independent
+TCA1_ICDH_NAD	isocitrate_to_oxoglutarate	NAD-isocitrate dehydrogenase route	NAD-dependent oxidative decarboxylation to 2-oxoglutarate.	curated	independent
+GLYOXYLATE_BYPASS_DIRECT	glyoxylate_bypass	Direct isocitrate-lyase and malate-synthase route	Cleavage to succinate and glyoxylate followed by condensation of glyoxylate with acetyl-CoA to malate.	curated	independent
+N_FIX_MO	nitrogen_fixation	Molybdenum nitrogenase route	NifHDK catalysis with NifEN and NifB cofactor assembly.	curated	anaerobic
+N_FIX_V	nitrogen_fixation	Vanadium nitrogenase route	VnfHDGK catalysis with VnfEN and NifB cofactor assembly.	curated	anaerobic
+SULFATE_APS_NADPH	assimilatory_sulfate_reduction	APS branch with NADPH sulfite reductase	Sulfate activation to APS, direct APS reduction to sulfite, and NADPH-dependent reduction to sulfide.	curated	independent
+SULFATE_APS_FD	assimilatory_sulfate_reduction	APS branch with ferredoxin sulfite reductase	Sulfate activation to APS, direct APS reduction to sulfite, and ferredoxin-dependent reduction to sulfide.	curated	independent
+SULFATE_PAPS_NADPH	assimilatory_sulfate_reduction	PAPS branch with NADPH sulfite reductase	Sulfate activation and APS phosphorylation, PAPS reduction to sulfite, and NADPH-dependent reduction to sulfide.	curated	independent
+SULFATE_PAPS_FD	assimilatory_sulfate_reduction	PAPS branch with ferredoxin sulfite reductase	Sulfate activation and APS phosphorylation, PAPS reduction to sulfite, and ferredoxin-dependent reduction to sulfide.	curated	independent

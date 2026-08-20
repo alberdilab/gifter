@@ -1,12 +1,18 @@
-# Circular central metabolism, curated as four composable segments plus derived
-# closure. The assessment is inst/doc/proposal-central-metabolic-cycles.md.
+# Circular central metabolism, curated as atomic composable segments plus
+# derived closure. The assessment is inst/doc/proposal-central-metabolic-cycles.md.
 #
 # Most of these tests protect two things the layer exists to get right: that a
 # segment is a capability with its own Boolean call, and that whether the cycle
 # closes is derived from those calls and never feeds back into one.
 
 cycle_gifts <- c(
-  "acetyl_coa_to_oxoglutarate", "oxoglutarate_to_succinate",
+  "acetyl_coa_to_isocitrate", "isocitrate_to_oxoglutarate",
+  "oxoglutarate_to_succinate",
+  "succinate_fumarate_interconversion", "fumarate_oxaloacetate_interconversion"
+)
+
+glyoxylate_cycle_gifts <- c(
+  "acetyl_coa_to_isocitrate", "glyoxylate_bypass",
   "succinate_fumarate_interconversion", "fumarate_oxaloacetate_interconversion"
 )
 
@@ -74,7 +80,8 @@ test_that("a reversible segment declares every anchor in both roles", {
       expect_length(intersect(inputs, outputs), 0L)
     }
   }
-  expect_equal(get_gift("acetyl_coa_to_oxoglutarate")$mode, "catabolic")
+  expect_equal(get_gift("acetyl_coa_to_isocitrate")$mode, "catabolic")
+  expect_equal(get_gift("isocitrate_to_oxoglutarate")$mode, "catabolic")
   expect_equal(get_gift("oxoglutarate_to_succinate")$mode, "catabolic")
   expect_equal(get_gift("succinate_fumarate_interconversion")$mode, "interconversion")
   expect_equal(get_gift("fumarate_oxaloacetate_interconversion")$mode, "interconversion")
@@ -123,7 +130,7 @@ test_that("the ambiguous citrate synthase group is accepted and reported as such
   canonical <- evaluate_gifts(markers_of("K01647", aconitase_icdh))
   ambiguous <- evaluate_gifts(markers_of("K01659", aconitase_icdh))
   row <- function(result) {
-    result$gifts[result$gifts$gift_id == "acetyl_coa_to_oxoglutarate", ]
+    result$gifts[result$gifts$gift_id == "acetyl_coa_to_isocitrate", ]
   }
   expect_true(row(canonical)$complete)
   expect_true(row(ambiguous)$complete)
@@ -136,26 +143,26 @@ test_that("aconitase accepts all three orthology groups", {
   # Mycobacterium tuberculosis are wrongly called aconitase-negative.
   for (aconitase in c("K01681", "K01682", "K27802")) {
     expect_true(
-      "acetyl_coa_to_oxoglutarate" %in% complete_gifts("K01647", aconitase, "K00031")
+      "acetyl_coa_to_isocitrate" %in% complete_gifts("K01647", aconitase)
     )
   }
 })
 
 test_that("the oxidative citric acid cycle is derived, not curated", {
   cycles <- gift_cycles()
-  expect_gte(nrow(cycles), 4L)
+  expect_gte(nrow(cycles), 9L)
 
   named <- unique(cycles[c("cycle_id", "named_cycle", "cycle_length")])
   tca <- named$cycle_id[named$named_cycle %in% "citric_acid_cycle_oxidative"]
   expect_length(tca, 1L)
 
   members <- cycles[cycles$cycle_id == tca, ]
-  expect_equal(members$cycle_length[[1]], 4L)
+  expect_equal(members$cycle_length[[1]], 5L)
   expect_setequal(members$gift_id, cycle_gifts)
   # The ring closes through the four declared boundaries and nothing else.
   expect_setequal(
     members$shared_anchor,
-    c("OXOGLUTARATE", "SUCCINATE", "FUMARATE", "OXALOACETATE")
+    c("ISOCITRATE", "OXOGLUTARATE", "SUCCINATE", "FUMARATE", "OXALOACETATE")
   )
 
   # Every edge of the derived cycle is a real edge of the composition graph.
@@ -185,7 +192,11 @@ test_that("closure is derived from calls and never changes one", {
   open <- evaluate_gifts(markers_of(architecture$branched))
   absent <- evaluate_gifts(markers_of(architecture$none))
 
-  status <- function(result) evaluate_gift_cycles(result)$status
+  cycle_result <- function(result) {
+    evaluated <- evaluate_gift_cycles(result)
+    evaluated[evaluated$named_cycle == "citric_acid_cycle_oxidative", ]
+  }
+  status <- function(result) cycle_result(result)$status
   expect_equal(status(closed), "closed")
   expect_equal(status(open), "open")
   expect_equal(status(absent), "absent")
@@ -194,11 +205,12 @@ test_that("closure is derived from calls and never changes one", {
   # same as they would be in isolation. An open cycle must not downgrade a
   # member: inferring absence from a neighbour's absence is the opposite of what
   # the composition model is for.
-  branched <- evaluate_gift_cycles(open)
-  expect_equal(branched$supported, 2L)
-  expect_true("acetyl_coa_to_oxoglutarate" %in% complete_gifts(architecture$branched))
+  branched <- cycle_result(open)
+  expect_equal(branched$supported, 3L)
+  expect_true("acetyl_coa_to_isocitrate" %in% complete_gifts(architecture$branched))
   alone <- complete_gifts("K01647", "K01682", "K00031")
-  expect_true("acetyl_coa_to_oxoglutarate" %in% alone)
+  expect_true("acetyl_coa_to_isocitrate" %in% alone)
+  expect_true("isocitrate_to_oxoglutarate" %in% alone)
   expect_false("oxoglutarate_to_succinate" %in% alone)
 
   # And the broken members are named rather than summarised as a percentage.
@@ -210,7 +222,9 @@ test_that("closure is derived from calls and never changes one", {
 
 test_that("the actinobacterial bypass closes the cycle without the E1o complex", {
   result <- evaluate_gifts(markers_of(architecture$kgd_bypass))
-  expect_equal(evaluate_gift_cycles(result)$status, "closed")
+  evaluated <- evaluate_gift_cycles(result)
+  oxidative <- evaluated[evaluated$named_cycle == "citric_acid_cycle_oxidative", ]
+  expect_equal(oxidative$status, "closed")
   route <- result$gifts$best_implementation[
     result$gifts$gift_id == "oxoglutarate_to_succinate"
   ]
@@ -221,7 +235,7 @@ test_that("the segments connect to the curated catabolic content", {
   # The composition dividend: acetyl-CoA was a terminal boundary before this
   # layer and now carries the entry edge into the cycle.
   graph <- gift_graph()
-  into_cycle <- graph[graph$to_gift == "acetyl_coa_to_oxoglutarate", ]
+  into_cycle <- graph[graph$to_gift == "acetyl_coa_to_isocitrate", ]
   expect_true(all(into_cycle$edge_quality == "exact"))
   expect_true(all(
     c("pyruvate_to_acetyl_coa", "acetate_interconversion") %in% into_cycle$from_gift
@@ -229,24 +243,26 @@ test_that("the segments connect to the curated catabolic content", {
   expect_true("ACETYL_COA" %in% into_cycle$shared_anchor)
 })
 
-test_that("citrate and malate stay input-only boundaries", {
-  # Section 6.6: exposing citrate as an output closes a second, unrelated cycle
-  # against citrate_fermentation and pyruvate_to_acetyl_coa. Both acids remain
-  # internal to the cycle segments and boundaries only of what consumes them.
+test_that("citrate stays input-only while bypass malate composes", {
+  # Citrate remains internal to the upper segment and cannot create the
+  # unrelated fermentation loop. Malate is now a justified bypass output and
+  # therefore connects specifically to malolactic fermentation.
   connection <- giftr_db_connect()
   withr::defer(giftr_db_disconnect(connection))
-  for (molecule in c("CITRATE", "MALATE")) {
-    roles <- DBI::dbGetQuery(
-      connection,
-      "SELECT DISTINCT ga.role FROM gift_anchor ga
-         JOIN anchor a ON a.anchor_pk = ga.anchor_pk
-        WHERE a.molecule = ?",
-      params = list(molecule)
-    )$role
-    expect_equal(roles, "input")
-  }
+  roles <- DBI::dbGetQuery(
+    connection,
+    "SELECT DISTINCT ga.role FROM gift_anchor ga
+       JOIN anchor a ON a.anchor_pk = ga.anchor_pk
+      WHERE a.molecule = 'CITRATE'"
+  )$role
+  expect_equal(roles, "input")
   graph <- gift_graph()
-  expect_false(any(graph$shared_anchor %in% c("CITRATE", "MALATE")))
+  expect_false(any(graph$shared_anchor == "CITRATE"))
+  expect_true(any(
+    graph$from_gift == "glyoxylate_bypass" &
+      graph$to_gift == "malolactic_fermentation" &
+      graph$shared_anchor == "MALATE"
+  ))
 })
 
 test_that("declaring FUMARATE creates no edge between purine and pyrimidine", {
@@ -268,4 +284,20 @@ test_that("declaring FUMARATE creates no edge between purine and pyrimidine", {
 test_that("the cycle facet names a cycle and classifies nothing else", {
   members <- gifts_by_facet("metabolic_cycle", "citric_acid_cycle_oxidative")
   expect_setequal(members$gift_id, cycle_gifts)
+
+  bypass <- gifts_by_facet("metabolic_cycle", "glyoxylate_cycle")
+  expect_setequal(bypass$gift_id, glyoxylate_cycle_gifts)
+})
+
+test_that("the glyoxylate cycle is derived from the isocitrate cut", {
+  cycles <- gift_cycles()
+  ids <- unique(cycles$cycle_id[cycles$named_cycle == "glyoxylate_cycle"])
+  expect_length(ids, 1L)
+  members <- cycles[cycles$cycle_id == ids, ]
+  expect_equal(unique(members$cycle_length), 4L)
+  expect_setequal(members$gift_id, glyoxylate_cycle_gifts)
+  expect_setequal(
+    members$shared_anchor,
+    c("ISOCITRATE", "SUCCINATE", "FUMARATE", "OXALOACETATE")
+  )
 })

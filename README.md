@@ -16,14 +16,18 @@ GIFT
 └── defense       the machinery to execute a defined defense mechanism
 ```
 
-All four carry curated content: 61 metabolic capabilities, the flagellar
-apparatus and type IVa pilus, chemotaxis and phosphate-response signalling, and
-type I restriction-modification and type I-E CRISPR-Cas machinery.
+All four carry curated content: 126 metabolic capabilities; the flagellar
+apparatus and type IVa pilus; chemotaxis, aspartate chemoreception and
+phosphate-response signalling; and type I restriction-modification, type I-E
+CRISPR-Cas and mercury-detoxification machinery.
 
 "Functional" is intentionally broad; the precision comes from the type and from
 the completeness contract it carries. giftr deliberately does not model media,
-metabolite availability, flux, thermodynamics, growth, compartments, or
-genome-scale stoichiometry.
+metabolite availability, flux, thermodynamics, growth, or genome-scale
+stoichiometry. Anchors carry only a narrow `extracellular`, `cytoplasmic`, or
+`unspecified` compartment qualifier so that transport boundaries can be stated;
+giftr models no compartment-aware reactions, mass balance or localisation
+inference.
 
 ## The evaluation model
 

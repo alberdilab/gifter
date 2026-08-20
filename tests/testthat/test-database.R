@@ -5,7 +5,7 @@ test_that("canonical source tables validate", {
   expect_true(report$valid)
   expect_length(report$errors, 0L)
   expect_equal(
-    unname(report$rows[c("gifts", "anchors", "reactions")]), c(130L, 140L, 384L)
+    unname(report$rows[c("gifts", "anchors", "reactions")]), c(134L, 143L, 394L)
   )
   # Every typed model now ships curated content.
   expect_equal(
@@ -76,14 +76,15 @@ test_that("database accessors return stable definitions", {
     gifts$gift_id,
     c(
      "acetate_interconversion", "acetoin_formation",
-      "acetyl_coa_to_oxoglutarate", "adenylate_biosynthesis",
+      "acetyl_coa_to_isocitrate", "adenylate_biosynthesis",
       "alanine_biosynthesis", "allantoin_degradation",
       "ammonium_assimilation", "anthranilate_degradation_catechol",
       "arabinose_degradation", "arabinose_uptake_abc",
       "arabinoxylan_debranching", "arginine_biosynthesis",
       "arginine_deiminase_pathway", "asparagine_biosynthesis",
       "aspartate_biosynthesis", "aspartate_chemoreception",
-      "aspartate_semialdehyde_biosynthesis", "benzoate_degradation_catechol",
+      "aspartate_semialdehyde_biosynthesis", "assimilatory_sulfate_reduction",
+      "benzoate_degradation_catechol",
       "betaine_demethylation", "biotin_biosynthesis", "butyrate_formation",
       "carnitine_degradation_trimethylamine", "carnitine_to_betaine",
       "catechol_meta_cleavage", "catechol_ortho_cleavage",
@@ -100,11 +101,12 @@ test_that("database accessors return stable definitions", {
       "galacturonate_degradation", "glcnac_degradation",
       "glucuronate_degradation", "glutamate_decarboxylation_gaba",
       "glutamine_biosynthesis", "glycine_biosynthesis",
-      "glycine_reduction_stickland", "guanylate_biosynthesis",
+      "glycine_reduction_stickland", "glyoxylate_bypass", "guanylate_biosynthesis",
       "histidine_biosynthesis", "histidine_degradation_glutamate",
       "hmp_phosphate_biosynthesis", "homoserine_biosynthesis",
       "hydroxyphenylpropanoate_hydroxylation",
-      "indole_3_acetate_biosynthesis", "isoleucine_biosynthesis",
+      "indole_3_acetate_biosynthesis", "isocitrate_to_oxoglutarate",
+      "isoleucine_biosynthesis",
       "lactate_formation", "lactate_racemisation", "leucine_biosynthesis",
       "lysine_biosynthesis_dap", "malolactic_fermentation",
       "menaquinone_biosynthesis", "mercury_detoxification", "methionine_biosynthesis_sulfhydrylation",
@@ -112,6 +114,7 @@ test_that("database accessors return stable definitions", {
       "methionine_degradation_methanethiol", "methylamine_degradation",
       "nad_biosynthesis_namn", "namn_biosynthesis_quinolinate",
       "namn_salvage_nicotinate", "neuac_degradation", "nitrate_assimilation",
+      "nitrogen_fixation",
       "ornithine_biosynthesis", "oxoadipate_activation",
       "oxoadipyl_coa_thiolysis", "oxobutanoate_biosynthesis_citramalate",
       "oxoglutarate_to_succinate", "oxoisovalerate_biosynthesis",
@@ -198,7 +201,7 @@ test_that("database accessors return stable definitions", {
 test_that("database and schema versions are independent", {
   version <- giftr_db_version()
   expect_equal(version$package_version, "0.1.0")
-  expect_equal(version$giftr_db_version, "2026.19.1")
+  expect_equal(version$giftr_db_version, "2026.20.1")
   expect_equal(version$schema_version, 6L)
   expect_equal(version$rhea_release, "141")
 })
@@ -347,11 +350,11 @@ test_that("the anchor network links GIFTs only through declared anchors", {
     # and the cobamide lower loop both consume, and the corrinoid chain.
     "HMP_PP", "THZ_P", "PABA", "QUINOLINATE", "NAMN",
     "COBYRINATE_DIAMIDE", "ADENOSYLCOBINAMIDE_P", "DMB",
-    # The citric acid cycle segments share all four of their new boundaries,
-    # because the ring closes: every one of them is an output of one segment and
-    # an input of the next. ACETYL_COA is already in this list and is where the
-    # cycle attaches to the curated catabolic content.
-    "OXOGLUTARATE", "SUCCINATE", "FUMARATE", "OXALOACETATE",
+    # The isocitrate re-cut gives the oxidative and glyoxylate branches a
+    # shared boundary. Malate becomes shared only from the bypass to the
+    # existing malolactic capability.
+    "ISOCITRATE", "MALATE", "OXOGLUTARATE", "SUCCINATE", "FUMARATE",
+    "OXALOACETATE",
     # The shikimate layer supplies a producer for a boundary two GIFTs already
     # consumed, so chorismate becomes shared without a new consumer being added.
     "CHORISMATE",

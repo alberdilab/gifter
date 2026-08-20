@@ -1006,3 +1006,59 @@ continues past one (M00432); and `related` for the two routes refused on
 evidence. Capabilities with no module at all -- alanine, aspartate, asparagine,
 glutamine, and six of the ten catabolic GIFTs -- link to the KEGG pathway map as
 `overlaps`.
+
+## Nitrogen fixation, sulfate assimilation and glyoxylate bypass, release 2026.20.1
+
+Curated 2026-08-20 against Rhea release 141, ChEBI release 253 and the KEGG
+REST records retrieved that day. The full candidate assessment and the
+non-metabolic deferrals are in
+[the release proposal](../../doc/proposal-next-gift-release.md).
+
+### Primary database records
+
+- Rhea `RHEA:21448` and `RHEA:55543`; KEGG M00175 and R05185/R12084 for the Mo
+  and V nitrogenase routes.
+- Rhea `RHEA:18136`, `RHEA:24152`, `RHEA:11724`, `RHEA:21976`, `RHEA:13804`
+  and `RHEA:23132`; KEGG M00176 for sulfate activation and assimilatory
+  reduction.
+- Rhea `RHEA:13245` and `RHEA:18181`; KEGG M00012 for the glyoxylate cycle.
+- ChEBI `CHEBI:17997` dinitrogen, `CHEBI:16189` sulfate and `CHEBI:15562`
+  D-threo-isocitrate. Existing ammonium, sulfide, succinate, malate and
+  acetyl-CoA anchors retain their ChEBI identities.
+
+### Specialist and primary literature
+
+- Dos Santos PC et al. *BMC Genomics* 2012, “Distribution of nitrogen fixation
+  and nitrogenase-like sequences amongst microbial genomes.” The comparative
+  minimum signature is NifHDKENB.
+- Yang J et al. *PNAS* 2014, “Reconstruction and minimal gene requirements for
+  the alternative iron-only nitrogenase in Escherichia coli.” Used to assess,
+  and ultimately defer, the Fe-only architecture rather than generalise the Mo
+  minimum.
+- Jasniewski AJ et al. *mBio* 2021, “Specificity of NifEN and VnfEN for the
+  assembly of nitrogenase active site cofactors in Azotobacter vinelandii.”
+  Supports the separate Mo and V cofactor scaffolds and shared NifB precursor.
+- Bick JA et al. *Applied and Environmental Microbiology* 2000,
+  “Identification of a new class of 5'-adenylylsulfate (APS) reductases from
+  sulfate-assimilating bacteria.” Supports the direct assimilatory APS branch
+  and its distinction from dissimilatory APS reductase.
+- Abby SS et al. *Scientific Reports* 2016, “Identification of protein
+  secretion systems in bacterial genomes.” Used for the T3SS/T6SS deferral:
+  TXSScan/MacSyFinder combines HMM profiles with system-level genomic
+  organisation to distinguish homologous machinery.
+
+### Curation decisions not imported from those sources
+
+giftr chose the molecular cut points, which assembly proteins are indispensable
+to its nitrogen-fixation claim, the four route materialisations for sulfate,
+the refusal of `K00390` as a branch-resolving marker, and the isocitrate re-cut.
+KEGG M00175 does not require the NifB/EN assembly proteins; giftr does because a
+positive call must support a complete active-site architecture rather than a
+catalytic-subunit checklist. KEGG K00390 spans EC 1.8.4.8 and EC 1.8.4.10;
+giftr stores those reaction-specific EC markers instead. KEGG M00012 accepts
+K19282; giftr defers it because its two-reaction malyl-CoA implementation is
+not an enzyme-system alternative for direct malate synthase.
+
+All marker-level acceptances and refusals are recorded in
+`component_markers.tsv`, `markers.tsv` and `database_changes.tsv`, linked to the
+affected GIFTs in `change_gifts.tsv`.

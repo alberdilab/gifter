@@ -441,3 +441,16 @@ SYS_22492_HUTG	RHEA:22492	formimidoylglutamase	Single catalytic protein.
 SYS_23660_HUTI	RHEA:23660	imidazolonepropionase	Single catalytic protein.
 SYS_23800_MGL	RHEA:23800	methionine gamma-lyase	Single catalytic protein.
 SYS_24931_CDS	RHEA:24931	L-cysteine desulfidase	Single catalytic protein. The promiscuous PLP enzymes that also carry this activity -- cystathionine beta-lyase, cystathionine gamma-lyase, MalY -- are deliberately excluded: accepting them would make every transsulfuration genome a sulfide producer, and MetC is already curated as evidence for cysteine biosynthesis.
+SYS_13245_ICL	RHEA:13245	isocitrate lyase	Single catalytic protein.
+SYS_18181_MALS	RHEA:18181	malate synthase	Single direct malate-synthase protein; the two-step malyl-CoA implementation is not folded into this reaction.
+SYS_21448_NIF	RHEA:21448	molybdenum nitrogenase with cofactor assembly	NifHDK catalysis and electron delivery plus the NifEN scaffold and NifB precursor synthesis. Every component is required.
+SYS_55543_VNF	RHEA:55543	vanadium nitrogenase with cofactor assembly	VnfHDGK catalysis and electron delivery plus the VnfEN scaffold and shared NifB precursor synthesis. Every component is required.
+SYS_18136_MET3	RHEA:18136	monomeric sulfate adenylyltransferase	Single catalytic Met3/Sat protein.
+SYS_18136_CYSDN	RHEA:18136	heterodimeric CysDN sulfate adenylyltransferase	Both CysN and CysD are required.
+SYS_18136_CYSD_CYSNC	RHEA:18136	CysD with bifunctional CysNC sulfate adenylyltransferase	CysNC supplies the CysN sulfurylase subunit and CysD supplies its required partner.
+SYS_24152_CYSC	RHEA:24152	APS kinase CysC	Single catalytic protein.
+SYS_24152_CYSNC	RHEA:24152	APS kinase domain of CysNC	The bifunctional fusion supplies the complete kinase activity.
+SYS_11724_CYSH_PAPS	RHEA:11724	PAPS reductase	Reaction-specific activity marker used because the CysH KO also spans APS reductase.
+SYS_21976_CYSH_APS	RHEA:21976	APS reductase	Reaction-specific activity marker used because the CysH KO also spans PAPS reductase.
+SYS_13804_CYSJI	RHEA:13804	NADPH sulfite reductase CysJI	Both the flavoprotein and siroheme subunits are required.
+SYS_23132_SIR	RHEA:23132	ferredoxin sulfite reductase	Single catalytic siroheme protein.

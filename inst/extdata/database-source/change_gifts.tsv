@@ -154,7 +154,8 @@ DBC-20260818-GTP-LINK-OPEN	folate_biosynthesis
 DBC-20260818-VITAMIN-UPTAKE-REFUSED	cobamide_nucleotide_loop_assembly
 DBC-20260818-VITAMIN-UPTAKE-REFUSED	corrin_ring_biosynthesis
 DBC-20260818-COSUBSTRATE-ANCHORS	plp_biosynthesis_r5p
-DBC-20260818-CENTRAL-CYCLE-LAYER	acetyl_coa_to_oxoglutarate
+DBC-20260818-CENTRAL-CYCLE-LAYER	acetyl_coa_to_isocitrate
+DBC-20260818-CENTRAL-CYCLE-LAYER	isocitrate_to_oxoglutarate
 DBC-20260818-CENTRAL-CYCLE-LAYER	oxoglutarate_to_succinate
 DBC-20260818-CENTRAL-CYCLE-LAYER	succinate_fumarate_interconversion
 DBC-20260818-CENTRAL-CYCLE-LAYER	fumarate_oxaloacetate_interconversion
@@ -300,3 +301,10 @@ DBC-20260819-ASPARTATE-GLUTAMINE-ESSENTIAL	glutamine_biosynthesis
 DBC-20260819-MERCURY-DEFENSE	mercury_detoxification
 DBC-20260819-CHEMICAL-DETOXIFICATION-CLASS	mercury_detoxification
 DBC-20260819-MER-EVIDENCE-REFUSALS	mercury_detoxification
+DBC-20260820-ISOCITRATE-RECUT	acetyl_coa_to_isocitrate
+DBC-20260820-ISOCITRATE-RECUT	isocitrate_to_oxoglutarate
+DBC-20260820-ISOCITRATE-RECUT	glyoxylate_bypass
+DBC-20260820-ISOCITRATE-RECUT	succinate_fumarate_interconversion
+DBC-20260820-ISOCITRATE-RECUT	fumarate_oxaloacetate_interconversion
+DBC-20260820-NITROGEN-FIXATION	nitrogen_fixation
+DBC-20260820-SULFATE-ASSIMILATION	assimilatory_sulfate_reduction

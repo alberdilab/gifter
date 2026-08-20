@@ -1032,3 +1032,30 @@ COMP_23800_CATALYTIC	KO	K01761	orthology	curated	KEGG orthology and Rhea release
 COMP_24931_CATALYTIC	KO	K20021	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
 COMP_24931_CATALYTIC	KO	K26607	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
 COMP_24931_CATALYTIC	KO	K28981	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_13245_CATALYTIC	KO	K01637	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-20	Direct isocitrate-lyase evidence.
+COMP_18181_CATALYTIC	KO	K01638	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-20	K01639 is refused because KEGG defines it as N-acetylneuraminate lyase.
+COMP_21448_NIFH	KO	K02588	orthology	curated	KEGG orthology and nitrogenase assembly literature, verified 2026-08-20	NifH alone is not evidence of a complete nitrogenase.
+COMP_21448_NIFD	KO	K02586	orthology	curated	KEGG orthology and nitrogenase assembly literature, verified 2026-08-20	Required Mo nitrogenase catalytic chain.
+COMP_21448_NIFK	KO	K02591	orthology	curated	KEGG orthology and nitrogenase assembly literature, verified 2026-08-20	Required Mo nitrogenase catalytic chain.
+COMP_21448_NIFB	KO	K02585	orthology	curated	KEGG orthology and nitrogenase assembly literature, verified 2026-08-20	Required because NifB makes the cofactor precursor and cannot be replaced by housekeeping Fe-S assembly.
+COMP_21448_NIFE	KO	K02587	orthology	curated	KEGG orthology and nitrogenase assembly literature, verified 2026-08-20	Required Mo-cofactor scaffold component.
+COMP_21448_NIFN	KO	K02592	orthology	curated	KEGG orthology and nitrogenase assembly literature, verified 2026-08-20	Required Mo-cofactor scaffold component.
+COMP_55543_VNFH	KO	K22899	orthology	curated	KEGG orthology and nitrogenase assembly literature, verified 2026-08-20	Required V nitrogenase electron-delivery component.
+COMP_55543_VNFD	KO	K22896	orthology	curated	KEGG orthology and nitrogenase assembly literature, verified 2026-08-20	Required V nitrogenase catalytic chain.
+COMP_55543_VNFK	KO	K22897	orthology	curated	KEGG orthology and nitrogenase assembly literature, verified 2026-08-20	Required V nitrogenase catalytic chain.
+COMP_55543_VNFG	KO	K22898	orthology	curated	KEGG orthology and nitrogenase assembly literature, verified 2026-08-20	Required V nitrogenase delta subunit.
+COMP_55543_NIFB	KO	K02585	orthology	curated	KEGG orthology and nitrogenase assembly literature, verified 2026-08-20	Shared precursor synthase required by all three nitrogenase cofactors.
+COMP_55543_VNFE	KO	K22903	orthology	curated	KEGG orthology and nitrogenase assembly literature, verified 2026-08-20	Required V-cofactor scaffold component.
+COMP_55543_VNFN	KO	K02592	orthology	curated	KEGG orthology and nitrogenase assembly literature, verified 2026-08-20	KEGG's K02592 entry is named NifN but also annotates vnfN in validated vanadium clusters.
+COMP_18136_MET3	KO	K00958	orthology	curated	KEGG module M00176 and Rhea release 141, verified 2026-08-20	Monomeric sulfate adenylyltransferase.
+COMP_18136_CYSN	KO	K00956	orthology	curated	KEGG module M00176 and Rhea release 141, verified 2026-08-20	Required with CysD.
+COMP_18136_CYSD	KO	K00957	orthology	curated	KEGG module M00176 and Rhea release 141, verified 2026-08-20	Required with CysN.
+COMP_18136_CYSNC	KO	K00955	orthology	curated	KEGG module M00176 and Rhea release 141, verified 2026-08-20	Fusion supplies the CysN activity.
+COMP_18136_CYSD_FUS	KO	K00957	orthology	curated	KEGG module M00176 and Rhea release 141, verified 2026-08-20	Required partner of CysNC.
+COMP_24152_CYSC	KO	K00860	orthology	curated	KEGG module M00176 and Rhea release 141, verified 2026-08-20	Standalone APS kinase.
+COMP_24152_CYSNC	KO	K00955	orthology	curated	KEGG module M00176 and Rhea release 141, verified 2026-08-20	Fusion supplies the APS kinase activity.
+COMP_11724_CYSH	EC	1.8.4.8	activity	curated	Rhea release 141 and KEGG K00390 definition, verified 2026-08-20	KO K00390 is deliberately refused because it spans this activity and APS reductase.
+COMP_21976_CYSH	EC	1.8.4.10	activity	curated	Rhea release 141 and KEGG K00390 definition, verified 2026-08-20	KO K00390 is deliberately refused because it spans this activity and PAPS reductase.
+COMP_13804_CYSJ	KO	K00380	orthology	curated	KEGG module M00176 and Rhea release 141, verified 2026-08-20	Required with CysI.
+COMP_13804_CYSI	KO	K00381	orthology	curated	KEGG module M00176 and Rhea release 141, verified 2026-08-20	Required with CysJ.
+COMP_23132_SIR	KO	K00392	orthology	curated	KEGG module M00176 and Rhea release 141, verified 2026-08-20	Ferredoxin-dependent terminal reductase.

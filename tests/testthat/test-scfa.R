@@ -270,7 +270,7 @@ test_that("the new anchors create no edge through internal metabolites", {
       # The citric acid cycle layer attaches here, which is the whole point of
       # declaring the anchor: acetyl-CoA is where fermentation and the cycle
       # compete for the same carbon.
-      "acetyl_coa_to_oxoglutarate"
+      "acetyl_coa_to_isocitrate", "glyoxylate_bypass"
     )
   )
   # Serine and homoserine acetylation consume acetyl-CoA inside their reactions

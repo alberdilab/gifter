@@ -211,10 +211,10 @@ Every type carries curated content:
 
 | Type | Curated GIFTs |
 |---|---|
-| `metabolic` | 29, from purine biosynthesis to polysaccharide saccharification |
+| `metabolic` | 126, from purine biosynthesis and central metabolism to nutrient acquisition and polysaccharide saccharification |
 | `structural` | `flagellar_apparatus`, `type_iva_pilus` |
 | `regulatory` | `chemotaxis_signal_transduction`, `aspartate_chemoreception`, `phosphate_starvation_response` |
-| `defense` | `type_i_restriction_modification`, `type_i_e_crispr_cas_machinery` |
+| `defense` | `type_i_restriction_modification`, `type_i_e_crispr_cas_machinery`, `mercury_detoxification` |
 
 ### Type-scoped structure
 
@@ -860,15 +860,16 @@ deleting an edge to satisfy the validator.
 
 ### Cycles in the composition graph
 
-Some real metabolism closes a ring. The oxidative citric acid cycle is the
-worked example, and giftr represents it with no new kind of object: four
-ordinary metabolic GIFTs whose declared anchors happen to close.
+Some real metabolism closes a ring. The oxidative citric acid and glyoxylate
+cycles are the worked examples, and giftr represents them with no new kind of
+object: ordinary metabolic GIFTs whose declared anchors happen to close.
 
 ```text
 reaction              RHEA:16845, RHEA:10336, RHEA:19629, ...
    |                  identity from Rhea, direction from route_reaction
    v
-atomic GIFT           acetyl_coa_to_oxoglutarate, oxoglutarate_to_succinate,
+atomic GIFT           acetyl_coa_to_isocitrate, isocitrate_to_oxoglutarate,
+   |                  glyoxylate_bypass, oxoglutarate_to_succinate,
    |                  succinate_fumarate_interconversion,
    |                  fumarate_oxaloacetate_interconversion
    v
@@ -877,9 +878,9 @@ topology              chains, branches, convergences, CYCLES
 ```
 
 `gift_cycles()` enumerates the elementary cycles of that graph. It is graph
-code and contains no biology, so it will find the reductive citric acid cycle,
-the glyoxylate bypass or the Calvin cycle on the day those are curated, without
-being changed. There is no circuit table, and there should not be one: a
+code and contains no biology, so it already finds both curated central cycles
+and will find the reductive citric acid cycle or Calvin cycle on the day those
+are curated, without being changed. There is no circuit table, and there should not be one: a
 curated list of member GIFTs would duplicate `role` and shape the graph already
 knows, and could then disagree with it. It would also collide with
 `gift_circuit`, which is the **regulatory** model's implementation table.
@@ -888,7 +889,7 @@ The one thing derivation cannot supply is a name, so that much is curated, as a
 facet rather than a table:
 
 ```text
-metabolic_cycle = citric_acid_cycle_oxidative
+metabolic_cycle = citric_acid_cycle_oxidative | glyoxylate_cycle
 ```
 
 `gift_cycles()` reports that value as `named_cycle` when every member of a
@@ -913,8 +914,8 @@ derived from Boolean calls and never changes one.** A segment is complete on its
 own routes and markers whether or not its neighbours are; inferring a
 capability's absence from a neighbour's absence is the opposite of what the
 composition model is for. And a `closed` cycle is a statement about encoded
-chemistry, not about flux, direction or expression -- two of the citric acid
-cycle's four segments are `interconversion` precisely because giftr cannot say
+chemistry, not about flux, direction or expression -- two of the oxidative
+cycle's five segments are `interconversion` precisely because giftr cannot say
 which way they run.
 
 A two-node loop between two `interconversion` GIFTs is not reported, for the

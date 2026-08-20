@@ -524,3 +524,30 @@ COMP_22492_CATALYTIC	SYS_22492_HUTG	formimidoylglutamase protein	Required cataly
 COMP_23660_CATALYTIC	SYS_23660_HUTI	imidazolonepropionase protein	Required catalytic protein.
 COMP_23800_CATALYTIC	SYS_23800_MGL	methionine gamma-lyase protein	Required catalytic protein.
 COMP_24931_CATALYTIC	SYS_24931_CDS	L-cysteine desulfidase protein	Required catalytic protein.
+COMP_13245_CATALYTIC	SYS_13245_ICL	isocitrate lyase	Required catalytic protein.
+COMP_18181_CATALYTIC	SYS_18181_MALS	malate synthase	Required catalytic protein.
+COMP_21448_NIFH	SYS_21448_NIF	NifH nitrogenase iron protein	Required ATP-dependent electron-delivery component.
+COMP_21448_NIFD	SYS_21448_NIF	NifD molybdenum-iron alpha chain	Required catalytic component.
+COMP_21448_NIFK	SYS_21448_NIF	NifK molybdenum-iron beta chain	Required catalytic component.
+COMP_21448_NIFB	SYS_21448_NIF	NifB cofactor precursor synthase	Required nitrogenase-specific cofactor assembly enzyme.
+COMP_21448_NIFE	SYS_21448_NIF	NifE cofactor scaffold component	Required nitrogenase-specific cofactor assembly component.
+COMP_21448_NIFN	SYS_21448_NIF	NifN cofactor scaffold component	Required nitrogenase-specific cofactor assembly component.
+COMP_55543_VNFH	SYS_55543_VNF	VnfH vanadium nitrogenase iron protein	Required ATP-dependent electron-delivery component.
+COMP_55543_VNFD	SYS_55543_VNF	VnfD vanadium nitrogenase alpha chain	Required catalytic component.
+COMP_55543_VNFK	SYS_55543_VNF	VnfK vanadium nitrogenase beta chain	Required catalytic component.
+COMP_55543_VNFG	SYS_55543_VNF	VnfG vanadium nitrogenase delta subunit	Required catalytic component specific to the alternative nitrogenase architecture.
+COMP_55543_NIFB	SYS_55543_VNF	NifB cofactor precursor synthase	Required shared nitrogenase cofactor assembly enzyme.
+COMP_55543_VNFE	SYS_55543_VNF	VnfE cofactor scaffold component	Required vanadium-cofactor assembly component.
+COMP_55543_VNFN	SYS_55543_VNF	VnfN cofactor scaffold component	Required vanadium-cofactor assembly component.
+COMP_18136_MET3	SYS_18136_MET3	sulfate adenylyltransferase	Required catalytic protein.
+COMP_18136_CYSN	SYS_18136_CYSDN	CysN sulfurylase subunit	Required catalytic subunit.
+COMP_18136_CYSD	SYS_18136_CYSDN	CysD sulfurylase subunit	Required catalytic subunit.
+COMP_18136_CYSNC	SYS_18136_CYSD_CYSNC	CysNC sulfurylase-kinase fusion	Required sulfurylase subunit supplied by the fusion.
+COMP_18136_CYSD_FUS	SYS_18136_CYSD_CYSNC	CysD sulfurylase subunit	Required partner of the sulfurylase domain in CysNC.
+COMP_24152_CYSC	SYS_24152_CYSC	APS kinase	Required catalytic protein.
+COMP_24152_CYSNC	SYS_24152_CYSNC	CysNC sulfurylase-kinase fusion	Required kinase domain supplied by the fusion.
+COMP_11724_CYSH	SYS_11724_CYSH_PAPS	PAPS reductase	Required catalytic activity.
+COMP_21976_CYSH	SYS_21976_CYSH_APS	APS reductase	Required catalytic activity.
+COMP_13804_CYSJ	SYS_13804_CYSJI	CysJ sulfite-reductase flavoprotein	Required electron-transfer subunit.
+COMP_13804_CYSI	SYS_13804_CYSJI	CysI sulfite-reductase hemoprotein	Required catalytic subunit.
+COMP_23132_SIR	SYS_23132_SIR	ferredoxin sulfite reductase	Required catalytic protein.

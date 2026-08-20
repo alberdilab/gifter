@@ -149,9 +149,9 @@ dmb_biosynthesis_aerobic	FMNH2	input	1
 dmb_biosynthesis_aerobic	DMB	output	1
 menaquinone_biosynthesis	CHORISMATE	input	1
 menaquinone_biosynthesis	MENAQUINONE	output	1
-acetyl_coa_to_oxoglutarate	ACETYL_COA	input	1
-acetyl_coa_to_oxoglutarate	OXALOACETATE	input	2
-acetyl_coa_to_oxoglutarate	OXOGLUTARATE	output	1
+acetyl_coa_to_isocitrate	ACETYL_COA	input	1
+acetyl_coa_to_isocitrate	OXALOACETATE	input	2
+acetyl_coa_to_isocitrate	ISOCITRATE	output	1
 oxoglutarate_to_succinate	OXOGLUTARATE	input	1
 oxoglutarate_to_succinate	SUCCINATE	output	1
 succinate_fumarate_interconversion	SUCCINATE	input	1
@@ -299,3 +299,13 @@ glycine_reduction_stickland	ACETYL_PHOSPHATE	output	1
 glycine_reduction_stickland	AMMONIUM	output	2
 proline_reduction_stickland	PROLINE	input	1
 proline_reduction_stickland	AMINOPENTANOATE	output	1
+isocitrate_to_oxoglutarate	ISOCITRATE	input	1
+isocitrate_to_oxoglutarate	OXOGLUTARATE	output	1
+glyoxylate_bypass	ISOCITRATE	input	1
+glyoxylate_bypass	ACETYL_COA	input	2
+glyoxylate_bypass	SUCCINATE	output	1
+glyoxylate_bypass	MALATE	output	2
+nitrogen_fixation	NITROGEN	input	1
+nitrogen_fixation	AMMONIUM	output	1
+assimilatory_sulfate_reduction	SULFATE	input	1
+assimilatory_sulfate_reduction	SULFIDE	output	1

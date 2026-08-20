@@ -1,6 +1,7 @@
 # Design proposal: circular central metabolism and higher-order metabolic topology
 
-Status: **accepted and implemented in database version 2026.16.1 (schema 6).**
+Status: **accepted and implemented in database version 2026.16.1, then extended
+with the isocitrate re-cut and glyoxylate cycle in 2026.20.1 (schema 6).**
 Evidence test and graph experiments performed 2026-08-18 against database
 version 2026.15.1. Section 16's recommendation — option 1, atomic segment GIFTs
 plus derived cycle detection — was the one taken. The implementation record,
@@ -1485,3 +1486,54 @@ rather than against a fixture.
 
 **Final counts.** 72 GIFTs, 89 anchors, 226 reactions, 97 routes, 700 markers,
 65 recorded biological changes. The full suite is 2406 passing tests.
+
+---
+
+## 19. Phase 3 implementation: isocitrate and the glyoxylate bypass, 2026-08-20
+
+Database release **2026.20.1** implements the first Phase 3 item and supersedes
+the earlier statement that malate must remain input-only. No schema or R API
+change was required.
+
+The decisive cut is `ISOCITRATE` (`CHEBI:15562`):
+
+```text
+ACETYL_COA + OXALOACETATE
+  --acetyl_coa_to_isocitrate--> ISOCITRATE
+     |--isocitrate_to_oxoglutarate--> OXOGLUTARATE
+     `--glyoxylate_bypass + ACETYL_COA--> SUCCINATE + MALATE
+```
+
+The former `acetyl_coa_to_oxoglutarate` is replaced by two atomic GIFTs.
+`acetyl_coa_to_isocitrate` retains `RHEA:16845` and `RHEA:10336` and all their
+existing enzyme-system decisions. `isocitrate_to_oxoglutarate` owns the
+NADP-dependent `RHEA:19629` and NAD-dependent `RHEA:23632` alternatives.
+`glyoxylate_bypass` owns only isocitrate lyase (`RHEA:13245`, `K01637`) and
+direct malate synthase (`RHEA:18181`, `K01638`). Thus no reaction is duplicated
+and each branch is independently callable.
+
+Glyoxylate is deliberately **not** an input anchor of the bypass. The complete
+route produces it in step one and consumes it in step two; declaring it as an
+input would change the route boundary. It remains an output-only boundary of
+allantoin degradation. Malate, in contrast, is the final product of the bypass
+and becomes a justified output boundary, creating one new edge to
+`malolactic_fermentation`.
+
+Two proposed markers were rejected or deferred:
+
+- `K01639` is N-acetylneuraminate lyase and is not malate synthase. It is
+  already valid evidence in sialic-acid degradation and accepting it here would
+  equate unrelated traits.
+- `K19282` implements the alternative via (S)-malyl-CoA lyase plus thioesterase
+  (`R00473` and `R10612`). It is not an alternative system for the one-step
+  `RHEA:18181` reaction and is deferred until those two masters and their
+  route-level evidence are curated.
+
+The graph now derives two named cycles. The oxidative cycle has five members,
+because its upper segment is split at isocitrate. The glyoxylate cycle has four:
+`acetyl_coa_to_isocitrate`, `glyoxylate_bypass`,
+`succinate_fumarate_interconversion` and
+`fumarate_oxaloacetate_interconversion`. The shared anchors are respectively
+`ISOCITRATE`, `SUCCINATE`, `FUMARATE` and `OXALOACETATE`. The
+`metabolic_cycle = glyoxylate_cycle` facet supplies only the name; membership
+and closure remain derived, and neither cycle can change a member call.

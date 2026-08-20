@@ -28,6 +28,7 @@ test_that("ammonium is a boundary only where a reaction liberates or assimilates
     c(
       "ammonium_assimilation", "glcnac_degradation", "methylamine_degradation",
       "neuac_degradation", "nitrate_assimilation", "urea_hydrolysis",
+      "nitrogen_fixation",
       # The amino acid layer applies the same rule in both directions: the
       # capabilities whose chemistry is aimed at liberating ammonium declare it,
       # and glutamine synthetase declares it because it assimilates it.
@@ -220,8 +221,8 @@ test_that("neither taurine capability claims hydrogen sulfide or nitrogen", {
     outputs <- get_gift_anchors(id)
     expect_setequal(outputs$anchor_id[outputs$role == "output"], "SULFITE")
   }
-  # SULFITE is output-only: nothing consumes it, because that would be
-  # respiration.
+  # SULFITE remains output-only. Assimilatory sulfate reduction passes through
+  # it internally and therefore creates no composition edge from taurine.
   expect_setequal(anchor_users("SULFITE")$role, "output")
 })
 

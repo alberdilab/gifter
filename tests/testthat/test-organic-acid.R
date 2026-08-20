@@ -78,20 +78,23 @@ test_that("no citric acid cycle acid is claimed as a released product", {
   withr::defer(giftr_db_disconnect(connection))
   anchors <- DBI::dbGetQuery(connection, "SELECT anchor_id, molecule FROM anchor")
 
-  # Malate and citrate are consumed and never produced. Nothing in the database
-  # outputs them, so a substrate anchor still makes no claim about how the
-  # genome obtained the substrate.
+  # Citrate is consumed and never produced. Malate is now the justified output
+  # of the glyoxylate bypass and composes to malolactic fermentation.
   expect_true(all(c("MALATE", "CITRATE") %in% anchors$molecule))
-  for (molecule in c("MALATE", "CITRATE")) {
-    roles <- DBI::dbGetQuery(
-      connection,
-      "SELECT DISTINCT ga.role FROM gift_anchor ga
-         JOIN anchor a ON a.anchor_pk = ga.anchor_pk
-        WHERE a.molecule = ?",
-      params = list(molecule)
-    )$role
-    expect_equal(roles, "input")
-  }
+  citrate_roles <- DBI::dbGetQuery(
+    connection,
+    "SELECT DISTINCT ga.role FROM gift_anchor ga
+       JOIN anchor a ON a.anchor_pk = ga.anchor_pk
+      WHERE a.molecule = 'CITRATE'"
+  )$role
+  expect_equal(citrate_roles, "input")
+  malate_roles <- DBI::dbGetQuery(
+    connection,
+    "SELECT DISTINCT ga.role FROM gift_anchor ga
+       JOIN anchor a ON a.anchor_pk = ga.anchor_pk
+      WHERE a.molecule = 'MALATE'"
+  )$role
+  expect_setequal(malate_roles, c("input", "output"))
 
   # The refused formation traits stay refused. Succinate, fumarate and
   # oxaloacetate are boundaries of segments of a cycle, and every GIFT that
@@ -112,7 +115,7 @@ test_that("no citric acid cycle acid is claimed as a released product", {
     )
     expect_true(all(producers$gift_id %in% c(
       gifts_by_facet("metabolic_cycle", "citric_acid_cycle_oxidative")$gift_id,
-      ring_cleavage_producers
+      ring_cleavage_producers, "glyoxylate_bypass"
     )))
     expect_false(any(grepl("_formation$", producers$gift_id)))
   }
@@ -210,15 +213,19 @@ test_that("the two lactate anchors stay distinct", {
   expect_false("propionate_formation_acrylate" %in% complete_gifts("K00016", "K22373"))
 })
 
-test_that("malolactic fermentation is the one place a cycle acid is a boundary", {
+test_that("bypass malate composes specifically to malolactic fermentation", {
   expect_true("malolactic_fermentation" %in% complete_gifts("K22212"))
   anchors <- get_gift_anchors("malolactic_fermentation")
   expect_equal(anchors$anchor_id[anchors$role == "input"], "MALATE")
   expect_equal(anchors$anchor_id[anchors$role == "output"], "LACTATE_L")
 
-  # Nothing produces malate, and the acyclicity argument is the HOMOCYSTEINE one.
+  # The glyoxylate bypass is now the justified producer. No internal malate
+  # reaction elsewhere acquires an edge merely because the anchor exists.
   graph <- gift_graph()
-  expect_false(any(graph$shared_anchor == "MALATE"))
+  malate <- graph[graph$shared_anchor == "MALATE", ]
+  expect_equal(nrow(malate), 1L)
+  expect_equal(malate$from_gift, "glyoxylate_bypass")
+  expect_equal(malate$to_gift, "malolactic_fermentation")
 })
 
 test_that("citrate fermentation needs the whole holoenzyme and a decarboxylase", {

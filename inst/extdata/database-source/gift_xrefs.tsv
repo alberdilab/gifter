@@ -93,12 +93,15 @@ dmb_biosynthesis_aerobic	KEGG_MODULE	M00122	Cobalamin biosynthesis, cobyrinate a
 menaquinone_biosynthesis	KEGG_MODULE	M00116	Menaquinone biosynthesis, chorismate (+ polyprenyl-PP) => menaquinol	overlaps	Same boundaries, but giftr accepts EntC for the isochorismate synthase reaction and does not require MenH or the thioesterase.
 menaquinone_biosynthesis	KEGG_MODULE	M00930	Menaquinone biosynthesis, futalosine pathway	subset_of	giftr curates the futalosine route as one route of this capability and carries it through to the methylated quinone.
 menaquinone_biosynthesis	KEGG_MODULE	M00931	Menaquinone biosynthesis, modified futalosine pathway	related	The modified route differs only in the deaminase step, which is curated as not required here.
-acetyl_coa_to_oxoglutarate	KEGG_MODULE	M00010	Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate	equivalent	Same three reactions and the same start and end. giftr additionally declares acetyl-CoA, the co-substrate the module name leaves implicit, as a second input boundary.
+acetyl_coa_to_isocitrate	KEGG_MODULE	M00010	Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate	subset_of	giftr cuts the module at the isocitrate branchpoint after citrate synthase and aconitase.
+isocitrate_to_oxoglutarate	KEGG_MODULE	M00010	Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate	subset_of	The oxidative branch from the isocitrate cut to the module output.
 oxoglutarate_to_succinate	KEGG_MODULE	M00011	Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate	subset_of	giftr cuts this module at succinate and fumarate, so each segment is part of it.
 succinate_fumarate_interconversion	KEGG_MODULE	M00011	Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate	subset_of	giftr cuts this module at succinate and fumarate, so each segment is part of it.
 fumarate_oxaloacetate_interconversion	KEGG_MODULE	M00011	Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate	subset_of	giftr cuts this module at succinate and fumarate, so each segment is part of it.
-acetyl_coa_to_oxoglutarate	KEGG_MODULE	M00009	Citrate cycle (TCA cycle, Krebs cycle)	subset_of	
-acetyl_coa_to_oxoglutarate	KEGG_PATHWAY	map00020	Citrate cycle (TCA cycle)	subset_of	
+acetyl_coa_to_isocitrate	KEGG_MODULE	M00009	Citrate cycle (TCA cycle, Krebs cycle)	subset_of	Upper segment ending at the isocitrate branchpoint.
+acetyl_coa_to_isocitrate	KEGG_PATHWAY	map00020	Citrate cycle (TCA cycle)	subset_of	Upper segment ending at the isocitrate branchpoint.
+isocitrate_to_oxoglutarate	KEGG_MODULE	M00009	Citrate cycle (TCA cycle, Krebs cycle)	subset_of	Oxidative isocitrate branch.
+isocitrate_to_oxoglutarate	KEGG_PATHWAY	map00020	Citrate cycle (TCA cycle)	subset_of	Oxidative isocitrate branch.
 oxoglutarate_to_succinate	KEGG_MODULE	M00009	Citrate cycle (TCA cycle, Krebs cycle)	subset_of	
 oxoglutarate_to_succinate	KEGG_PATHWAY	map00020	Citrate cycle (TCA cycle)	subset_of	
 succinate_fumarate_interconversion	KEGG_MODULE	M00009	Citrate cycle (TCA cycle, Krebs cycle)	subset_of	
@@ -168,3 +171,9 @@ methionine_degradation_methanethiol	KEGG_PATHWAY	map00270	Cysteine and methionin
 cysteine_degradation_sulfide	KEGG_PATHWAY	map00270	Cysteine and methionine metabolism	overlaps	KEGG has no module for cysteine desulfidation.
 glycine_reduction_stickland	KEGG_PATHWAY	map00260	Glycine, serine and threonine metabolism	overlaps	KEGG has no module for the glycine reductase complex.
 proline_reduction_stickland	KEGG_PATHWAY	map00330	Arginine and proline metabolism	overlaps	KEGG has no module for the proline reductase complex.
+glyoxylate_bypass	KEGG_MODULE	M00012	Glyoxylate cycle	subset_of	giftr curates the branch from isocitrate to succinate and malate; citrate synthase, aconitase and malate dehydrogenase remain separate composable GIFTs. The K19282 malyl-CoA alternative is deferred.
+glyoxylate_bypass	KEGG_PATHWAY	map00630	Glyoxylate and dicarboxylate metabolism	subset_of	The two-reaction carbon-conserving branch only.
+nitrogen_fixation	KEGG_MODULE	M00175	Nitrogen fixation, nitrogen => ammonia	equivalent	Same molecular boundaries. giftr requires the nitrogenase-specific NifB and EN cofactor assembly for the Mo route and separately materialises the V route.
+nitrogen_fixation	KEGG_PATHWAY	map00910	Nitrogen metabolism	subset_of	The nitrogen-fixation reaction only.
+assimilatory_sulfate_reduction	KEGG_MODULE	M00176	Assimilatory sulfate reduction, sulfate => H2S	equivalent	Same molecular boundaries. giftr additionally materialises the direct APS branch and refuses K00390 where it cannot distinguish APS from PAPS reductase activity.
+assimilatory_sulfate_reduction	KEGG_PATHWAY	map00920	Sulfur metabolism	subset_of	The assimilatory sulfate-to-sulfide route only; dissimilatory reduction is excluded.

@@ -383,3 +383,13 @@ RHEA:22492	RHEA:22492	formimidoylglutamase reaction	Hydrolysis of N-formimidoyl-
 RHEA:23660	RHEA:23660	imidazolonepropionase reaction	Ring hydrolysis to N-formimidoyl-L-glutamate.
 RHEA:23800	RHEA:23800	methionine gamma-lyase reaction	Gamma-elimination of L-methionine to methanethiol, 2-oxobutanoate and ammonium. The enzyme also accepts homocysteine and cysteine; the GIFT is named for methionine and this marker is deliberately not used as evidence for any cysteine trait.
 RHEA:24931	RHEA:24931	cysteine desulfidase reaction	Beta-elimination of L-cysteine to hydrogen sulfide, pyruvate and ammonium. Rhea files the same equation under the promiscuous cystathionine gamma-lyase, which is why only the dedicated desulfidase orthology groups are accepted as evidence here.
+RHEA:13245	RHEA:13245	isocitrate lyase reaction	D-threo-isocitrate = glyoxylate + succinate.
+RHEA:18181	RHEA:18181	malate synthase reaction	Glyoxylate + acetyl-CoA + water = (S)-malate + CoA + proton.
+RHEA:21448	RHEA:21448	molybdenum nitrogenase reaction	Dinitrogen + 8 reduced ferredoxin + 16 ATP + water is reduced to 2 ammonium with hydrogen, oxidised ferredoxin, ADP and phosphate. The electron carrier and energy coupling remain internal participants; the declared boundary is dinitrogen to ammonium.
+RHEA:55543	RHEA:55543	vanadium nitrogenase reaction	Vanadium-dependent reduction of dinitrogen to ammonium with ferredoxin oxidation, ATP hydrolysis and greater hydrogen formation than the molybdenum reaction.
+RHEA:18136	RHEA:18136	sulfate adenylyltransferase reaction	Sulfate + ATP + proton = adenosine 5'-phosphosulfate + diphosphate.
+RHEA:24152	RHEA:24152	adenylylsulfate kinase reaction	Adenosine 5'-phosphosulfate + ATP = 3'-phosphoadenylyl sulfate + ADP + proton.
+RHEA:11724	RHEA:11724	PAPS reductase reaction	Rhea writes sulfite + oxidised thioredoxin + adenosine 3',5'-bisphosphate = PAPS + reduced thioredoxin; the assimilatory route traverses it in reverse.
+RHEA:21976	RHEA:21976	APS reductase reaction	Rhea writes sulfite + oxidised thioredoxin + AMP = APS + reduced thioredoxin; the assimilatory route traverses it in reverse.
+RHEA:13804	RHEA:13804	NADPH sulfite reductase reaction	Rhea writes hydrogen sulfide oxidation to sulfite with NADP reduction; the assimilatory route traverses it in reverse.
+RHEA:23132	RHEA:23132	ferredoxin sulfite reductase reaction	Rhea writes hydrogen sulfide oxidation to sulfite with ferredoxin reduction; the assimilatory route traverses it in reverse.
