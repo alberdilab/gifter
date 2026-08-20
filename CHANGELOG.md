@@ -15,6 +15,27 @@ versioned with the package.
 
 ## Package 0.1.0 (in development)
 
+### 2026-08-20T08:35Z — Documentation and atlas share one visual environment
+
+**Change.** The pkgdown website now uses the database atlas's palette,
+typography, brand mark, header proportions, segmented navigation, search
+control, content surfaces, and responsive spacing across the home, tutorial,
+and API reference pages. Pkgdown's generated structure, navigation, search,
+table of contents, and reference content are unchanged. **No biological,
+schema, database, evaluation, or public API change.**
+
+**Why.** The documentation and reference atlas are adjacent parts of the same
+published site, but the former used the default Bootstrap presentation while
+the latter had its own complete visual system. Moving the documentation into
+that system makes transitions between explanation and database exploration
+feel continuous and gives future pages a common layout environment.
+
+**Effect.** Documentation pages and the atlas now share a warm paper ground,
+forest and mint controls, serif display headings, compact rounded navigation,
+and the same responsive visual rhythm. The atlas remains a self-contained
+offline-capable report, and the documentation remains standard generated
+pkgdown output.
+
 ### 2026-08-20T08:02Z — Database atlas published with the package website
 
 **Change.** The package now has a pkgdown website deployed to GitHub Pages by
