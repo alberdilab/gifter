@@ -1,0 +1,72 @@
+universe_id	scope	metric_id	rationale
+carbohydrate_degradation	genome	gift_richness	Count complete curated carbohydrate-degradation capabilities.
+carbohydrate_degradation	genome	breadth_substrate_class	Separate polymer, neutral-sugar, amino-sugar and uronate breadth from raw richness.
+carbohydrate_degradation	community	community_richness	Count carbohydrate-degradation capabilities represented anywhere in the community.
+carbohydrate_degradation	community	provider_count	Report redundancy separately for every carbohydrate-degradation capability.
+carbohydrate_degradation	community	abundance_coverage	When abundance is supplied, report how much observed abundance carries each capability.
+plant_fibre_utilisation	genome	gift_richness	Count supported fibre-processing, uptake and catabolic capabilities.
+plant_fibre_utilisation	community	community_richness	Count fibre-associated capabilities represented anywhere in the community.
+plant_fibre_utilisation	community	provider_count	Identify redundant and single-provider fibre capabilities.
+plant_fibre_utilisation	network	distributed_chain_links	Identify extracellular fibre-processing chains completed only across genomes.
+host_glycan_foraging	genome	gift_richness	Count supported host-glycan-associated sugar catabolic capabilities.
+host_glycan_foraging	community	provider_count	Report how many genomes carry each host-glycan-associated capability.
+host_glycan_foraging	community	abundance_coverage	When abundance is supplied, report the observed abundance carrying each capability.
+carbon_acquisition	genome	gift_richness	Count complete acquired-carbon catabolic capabilities.
+carbon_acquisition	genome	breadth_substrate_class	Count distinct curated substrate classes represented by supported GIFTs.
+carbon_acquisition	community	community_richness	Count acquired-carbon capabilities represented anywhere in the community.
+carbon_acquisition	community	provider_count	Report community redundancy for each acquired-carbon capability.
+aromatic_catabolism	genome	gift_richness	Count supported aromatic entry, cleavage and funnel capabilities.
+aromatic_catabolism	community	community_richness	Count aromatic-catabolic capabilities represented anywhere in the community.
+aromatic_catabolism	community	provider_count	Identify the providers of each aromatic-catabolic capability.
+aromatic_catabolism	network	distributed_chain_links	Identify anchor-compatible aromatic chains split between genomes.
+nitrogen_acquisition	genome	gift_richness	Count complete curated nitrogen-acquisition capabilities.
+nitrogen_acquisition	genome	breadth_substrate_class	Count distinct nitrogen-bearing substrate classes represented.
+nitrogen_acquisition	community	community_richness	Count nitrogen-acquisition capabilities represented anywhere in the community.
+nitrogen_acquisition	community	provider_count	Report provider redundancy for each nitrogen-acquisition capability.
+sulfur_acquisition	genome	gift_richness	Count complete curated sulfur-acquisition capabilities.
+sulfur_acquisition	community	community_richness	Count sulfur-acquisition capabilities represented anywhere in the community.
+sulfur_acquisition	community	provider_count	Report provider redundancy for each sulfur-acquisition capability.
+fermentation_products	genome	gift_richness	Count supported terminal product-forming capabilities.
+fermentation_products	genome	breadth_substrate_class	Separate short-chain fatty acids, organic acids and neutral products.
+fermentation_products	community	community_richness	Count product-forming capabilities represented anywhere in the community.
+fermentation_products	community	provider_count	Report providers without conflating presence with abundance.
+short_chain_fatty_acids	genome	gift_richness	Count supported short-chain-fatty-acid formation or interconversion capabilities.
+short_chain_fatty_acids	community	community_richness	Count short-chain-fatty-acid capabilities represented anywhere in the community.
+short_chain_fatty_acids	community	provider_count	Report provider redundancy for each capability.
+short_chain_fatty_acids	community	abundance_coverage	When abundance is supplied, report how much observed abundance carries each capability.
+vitamin_biosynthesis	genome	gift_richness	Count supported atomic vitamin and cofactor biosynthetic capabilities.
+vitamin_biosynthesis	community	community_richness	Count vitamin-biosynthetic capabilities represented anywhere in the community.
+vitamin_biosynthesis	community	provider_count	Report providers of each independently meaningful biosynthetic capability.
+released_bioactive_products	genome	gift_richness	Count supported product-forming chemistries.
+released_bioactive_products	community	provider_count	Report which genomes encode each product-forming capability.
+released_bioactive_products	community	abundance_coverage	When abundance is supplied, keep carrier abundance separate from capability presence.
+chemical_detoxification	genome	gift_richness	Count complete curated chemical-detoxification mechanisms.
+chemical_detoxification	community	community_richness	Count mechanisms represented anywhere in the community.
+chemical_detoxification	community	provider_count	Report redundancy for each complete mechanism.
+shikimate_derived_biosynthesis	genome	gift_richness	Count supported independently meaningful shikimate-derived biosynthetic capabilities.
+shikimate_derived_biosynthesis	community	community_richness	Count shikimate-derived capabilities represented anywhere in the community.
+shikimate_derived_biosynthesis	community	provider_count	Report providers for each shikimate-derived capability.
+biomass_essential_anabolism	genome	supported_fraction	Report coverage only because this universe is curated as bounded.
+biomass_essential_anabolism	genome	assessable_fraction	Expose how much of the bounded denominator could be assessed.
+biomass_essential_anabolism	community	community_coverage	Report bounded-universe coverage by at least one community member.
+biomass_essential_anabolism	community	provider_count	Report redundancy for each biomass-essential anabolic capability.
+amino_acid_autonomy	genome	supported_fraction	Report coverage of assessable biomass-essential amino-acid capabilities.
+amino_acid_autonomy	genome	assessable_fraction	Expose how much of the amino-acid denominator could be assessed.
+amino_acid_autonomy	community	community_coverage	Report bounded amino-acid capability coverage across the community.
+amino_acid_autonomy	community	provider_count	Report redundancy for each amino-acid anabolic capability.
+nucleotide_autonomy	genome	supported_fraction	Report coverage of assessable biomass-essential nucleotide capabilities.
+nucleotide_autonomy	genome	assessable_fraction	Expose how much of the nucleotide denominator could be assessed.
+nucleotide_autonomy	community	community_coverage	Report bounded nucleotide capability coverage across the community.
+nucleotide_autonomy	community	provider_count	Report redundancy for each nucleotide anabolic capability.
+cofactor_autonomy	genome	supported_fraction	Report coverage of assessable biomass-essential cofactor capabilities.
+cofactor_autonomy	genome	assessable_fraction	Expose how much of the cofactor denominator could be assessed.
+cofactor_autonomy	community	community_coverage	Report bounded cofactor capability coverage across the community.
+cofactor_autonomy	community	provider_count	Report redundancy for each cofactor anabolic capability.
+extracellular_public_goods	genome	gift_richness	Count encoded extracellular processing interfaces.
+extracellular_public_goods	community	provider_count	Report the providers of each extracellular processing interface.
+extracellular_public_goods	community	abundance_coverage	When abundance is supplied, report how much observed abundance carries each interface.
+extracellular_public_goods	network	handoff_edges	Report only anchor-compatible potential handoffs across genomes.
+nutrient_uptake	genome	gift_richness	Count complete curated nutrient-uptake capabilities.
+nutrient_uptake	community	provider_count	Report provider redundancy for each uptake capability.
+nutrient_uptake	community	abundance_coverage	When abundance is supplied, report how much observed abundance carries each uptake capability.
+nutrient_uptake	network	distributed_chain_links	Test whether extracellular supply and uptake are split across genomes.

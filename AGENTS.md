@@ -236,7 +236,7 @@ for examples and rationale.
 | Source validation or compilation | `R/database-build.R`, `inst/schema/gifter.sql` | every source table, database tests, version metadata |
 | Runtime queries or public accessors | `R/database.R` | schema, generated `.Rd` files, database tests |
 | Evaluation behavior or traceability | `R/evaluation.R` | Boolean invariants, synthetic fixtures, evaluation tests |
-| Quantitative genome or community traits | `R/universe.R`, `R/traits.R`, `R/community.R`, `R/community-network.R`, `R/assessability.R` | `proposal-quantitative-traits.md`, reference universes, denominators, trait tests |
+| Quantitative genome or community traits | `R/universe.R`, `R/traits.R`, `R/community.R`, `R/community-network.R`, `R/assessability.R`, `reference_universes.tsv`, `reference_universe_filters.tsv`, `reference_universe_metrics.tsv` | `proposal-quantitative-traits.md`, schema/compiler, reference universes, denominators, trait tests |
 | GIFT graph or database reports | `R/database-visualization.R` | declared-anchor behavior, composition tests |
 | Biological source provenance | `inst/extdata/database-source/SOURCES.md`, `database_release.tsv` | affected TSV records |
 | Architecture or curator guidance | `AGENTS.md`, `inst/doc/architecture.md`, `README.md` | behavior and links remain consistent |

@@ -28,6 +28,8 @@ test_that("database compilation creates constrained SQLite schema", {
     "gift", "anchor", "gift_anchor", "reaction", "gift_route",
     "route_reaction", "enzyme_system", "enzyme_component", "marker",
     "component_marker", "gift_xref", "database_release",
+    "reference_universe", "reference_universe_filter",
+    "reference_universe_metric",
     "gift_architecture", "architecture_function", "structural_function",
     "structural_system", "structural_component", "structural_component_marker",
     "gift_circuit", "circuit_function", "gift_mechanism", "mechanism_function"
@@ -206,8 +208,8 @@ test_that("database accessors return stable definitions", {
 test_that("database and schema versions are independent", {
   version <- gifter_db_version()
   expect_equal(version$package_version, "0.1.0")
-  expect_equal(version$gifter_db_version, "2026.20.3")
-  expect_equal(version$schema_version, 6L)
+  expect_equal(version$gifter_db_version, "2026.20.4")
+  expect_equal(version$schema_version, 7L)
   expect_equal(version$rhea_release, "141")
 })
 
@@ -248,6 +250,8 @@ test_that("database HTML atlas is self-contained and reflects compiled rows", {
   expect_match(html, 'aria-label="Atlas sections"', fixed = TRUE)
   expect_match(html, "GIFT explorer", fixed = TRUE)
   expect_match(html, "purine_core_biosynthesis", fixed = TRUE)
+  expect_match(html, "reference_universe", fixed = TRUE)
+  expect_match(html, "carbohydrate_degradation", fixed = TRUE)
   expect_match(html, "guanylate_biosynthesis", fixed = TRUE)
   expect_match(html, "cytidylate_biosynthesis", fixed = TRUE)
   expect_match(html, "RHEA:14905", fixed = TRUE)

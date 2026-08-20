@@ -118,6 +118,46 @@ CREATE TABLE anchor_facet (
   FOREIGN KEY (facet, value) REFERENCES facet_term(facet, value)
 );
 
+-- Curated, reusable reference universes for quantitative genome and community
+-- traits. A universe is analytical metadata, not a GIFT and not a stored list
+-- of GIFT identifiers. Its membership is resolved from the filters below
+-- against the current release, so additions to the ontology enter a preset
+-- only when their curated metadata says they should.
+CREATE TABLE reference_universe (
+  universe_pk INTEGER PRIMARY KEY,
+  universe_id TEXT NOT NULL UNIQUE,
+  label TEXT NOT NULL UNIQUE,
+  description TEXT NOT NULL,
+  bounded INTEGER NOT NULL CHECK (bounded IN (0, 1)),
+  interpretation TEXT NOT NULL
+);
+
+-- Filters are ANDed across filter_key values and ORed within one filter_key.
+-- Facet filters use `facet:<facet-name>`; the source validator checks their
+-- vocabulary against facet_term because SQLite cannot express that polymorphic
+-- foreign key without duplicating the facet model.
+CREATE TABLE reference_universe_filter (
+  universe_pk INTEGER NOT NULL REFERENCES reference_universe(universe_pk),
+  filter_key TEXT NOT NULL CHECK (
+    filter_key IN (
+      'type', 'mode', 'status', 'resource_strategy', 'auxotrophy_indicator'
+    ) OR filter_key GLOB 'facet:*'
+  ),
+  value TEXT NOT NULL,
+  PRIMARY KEY (universe_pk, filter_key, value)
+);
+
+-- Recommendations help users choose among metrics already emitted by
+-- genome_traits(), community_traits() and community_network(). They never
+-- change evaluation or trigger an extra calculation.
+CREATE TABLE reference_universe_metric (
+  universe_pk INTEGER NOT NULL REFERENCES reference_universe(universe_pk),
+  scope TEXT NOT NULL CHECK (scope IN ('genome', 'community', 'network')),
+  metric_id TEXT NOT NULL,
+  rationale TEXT NOT NULL,
+  PRIMARY KEY (universe_pk, scope, metric_id)
+);
+
 -- Chemistry identity. A Rhea master ID is preferred and is used as the stable
 -- `reaction_id` wherever one exists. Polymer-acting chemistry frequently has no
 -- Rhea master, because a polysaccharide is a substrate class rather than a

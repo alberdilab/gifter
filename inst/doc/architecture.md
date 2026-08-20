@@ -444,6 +444,24 @@ anything is:
 
 > Why does this genome have `supported_fraction = 0.82`?
 
+### Named reference universes
+
+Recurring analytical questions are registered as named reference universes in
+`reference_universes.tsv`, `reference_universe_filters.tsv` and
+`reference_universe_metrics.tsv`. `list_gift_universes()` discovers them and
+`gift_universe(preset = ...)` resolves one against the current database release.
+The registry stores filter recipes, descriptions, interpretation limits and
+recommended metrics. It never stores GIFT membership.
+
+Filter values are ORed within one metadata key and distinct keys are ANDed. The
+`carbohydrate_degradation` preset, for example, selects catabolic GIFTs whose
+`substrate_class` is polysaccharide, monosaccharide, amino sugar or uronate. A
+new GIFT enters that universe only through those curated assignments; no R list
+needs updating. Presets do not become GIFTs, change calls, or add completeness
+logic. Cycle closure and cross-genome handoffs remain dedicated derived
+operations because their meaning depends on connections among GIFTs, not set
+membership alone.
+
 ### Bounded and unbounded universes
 
 `supported_fraction` is reported only for a universe explicitly declared
@@ -1199,6 +1217,9 @@ remain present in both forms.
 | `enzyme_components.tsv` | `enzyme_component` | Required protein within a system; `component_id` |
 | `markers.tsv` | `marker` | Reusable genomic evidence; `namespace + accession` |
 | `component_markers.tsv` | `component_marker` | Evidence mapping with source and confidence |
+| `reference_universes.tsv` | `reference_universe` | Named analytical universe, boundedness claim and interpretation limits; `universe_id` |
+| `reference_universe_filters.tsv` | `reference_universe_filter` | Metadata query defining dynamic membership; never a GIFT-ID list |
+| `reference_universe_metrics.tsv` | `reference_universe_metric` | Scope-specific metric recommendations and rationale |
 | `gift_architectures.tsv` | `gift_architecture` | Alternative complete architecture of a structural GIFT; `architecture_id` |
 | `architecture_functions.tsv` | `architecture_function` | Architecture membership, ordinal, and required flag |
 | `structural_functions.tsv` | `structural_function` | Reusable structural or assembly function; `function_id` |

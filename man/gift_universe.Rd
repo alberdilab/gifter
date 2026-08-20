@@ -14,7 +14,8 @@ gift_universe(
   status = NULL,
   bounded = FALSE,
   label = NULL,
-  db = NULL
+  db = NULL,
+  preset = NULL
 )
 }
 \arguments{
@@ -42,11 +43,17 @@ details.}
 omitted.}
 
 \item{db}{Optional open gifter database connection.}
+
+\item{preset}{Optional identifier from [list_gift_universes()]. A preset
+supplies its versioned filters, label, interpretation and boundedness.
+Direct filters cannot be combined with a preset. `label` may override its
+display label, but an unbounded preset cannot be promoted with `bounded`.}
 }
 \value{
 A `gifter_universe`: the member `gift_id`s, the `label`, the filters
   that produced it, whether it is `bounded`, and the `database_version` it
-  was resolved against.
+  was resolved against. Preset universes also carry their identifier,
+  description, interpretation limits and recommended metrics.
 }
 \description{
 A quantitative trait is only interpretable relative to the set of GIFTs that
@@ -76,4 +83,6 @@ biological claim rather than a formatting option. It defaults to `FALSE`.
 universe <- gift_universe(mode = "anabolic", auxotrophy_indicator = TRUE,
                           bounded = TRUE, label = "biomass-essential anabolic")
 length(universe$gift_id)
+carbohydrate <- gift_universe(preset = "carbohydrate_degradation")
+carbohydrate$gift_id
 }

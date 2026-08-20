@@ -1222,3 +1222,20 @@ reaction-specific components without collapsing the reaction layer. A positive
 call says only that the complete siroheme-forming chemistry is encoded. It does
 not claim cofactor incorporation, reductase activity, sulfur or nitrogen
 assimilation, alternative heme formation, expression, activity or phenotype.
+
+## Named reference universes, release 2026.20.4
+
+The 19 named reference universes introduce no external biological facts and no
+new GIFT membership assertions. Their filters reuse the database's curated
+`gift_type`, `mode` and facet assignments plus the anchor-derived `gift_profile`
+view. The definitions, boundedness claims and interpretation limits are gifter
+analytical curation governed by the quantitative-trait contract in
+`inst/doc/proposal-quantitative-traits.md` and `inst/doc/architecture.md`.
+
+Membership is deliberately not stored. It is resolved from the current release
+by ANDing distinct filter keys and ORing values within one key. This lets a new
+GIFT enter a preset only through its normal curated metadata and preserves the
+database as the source of biological meaning. Only the existing
+biomass-essential anabolic universe and its amino-acid, nucleotide and cofactor
+subsets are declared bounded. The other presets remain open catalogues and do
+not license coverage fractions.

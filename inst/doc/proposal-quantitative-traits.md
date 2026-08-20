@@ -1,6 +1,7 @@
 # Design proposal: quantitative genome and community traits derived from GIFT calls
 
-Status: **accepted and implemented, phases 1-4, in package 0.1.0.**
+Status: **accepted and implemented, phases 1-4 plus the named-universe
+registry, in package 0.1.0.**
 Assessment performed 2026-08-19 against database version 2026.19.1 (130 GIFTs).
 This document supersedes the externally drafted
 `proposal-quantitative-genome-community-traits.md`, which was the starting
@@ -631,8 +632,10 @@ assessment adds. These are the candidates for AGENTS.md rules 20–23.
 
 Phases 1 to 4 shipped in package 0.1.0 across four commits, each with its own
 `CHANGELOG.md` entry. No schema, database content or evaluation change was
-required at any phase: the compiled artifact is byte-identical and no Boolean
-call moved. The full suite went from 3435 to 3566 assertions.
+required for those phases: the compiled artifact was byte-identical and no
+Boolean call moved. The later named-universe registry described in §13.7 adds
+analytical metadata and schema, while still changing no Boolean call. The full
+suite went from 3435 to 3566 assertions before that extension.
 
 | Phase | Files | Exports |
 |---|---|---|
@@ -640,6 +643,7 @@ call moved. The full suite went from 3435 to 3566 assertions.
 | 2 | `R/community.R` | `gifter_community()`, `community_traits()` |
 | 3 | `R/community-network.R` | `community_network()` |
 | 4 | `R/assessability.R` | `quality`, `policy`, `threshold` arguments |
+| Named universes | `R/universe.R`, three database-source tables, schema 7 | `list_gift_universes()`, `gift_universe(preset = ...)` |
 
 ### 13.1 Departure: a cross-genome edge requires an extracellular anchor
 
@@ -709,7 +713,9 @@ same quantity: autonomy is `supported_fraction` computed over the bounded
 biomass-essential anabolic universe. Implementing it separately would have put
 one biological definition in two places and given the ontology a special case in
 R, so the metric was dropped and the universe kept. The default universe set
-includes it, and it is the only bounded universe gifter ships.
+includes it. The named registry also exposes bounded amino-acid, nucleotide and
+cofactor subsets of that same curated universe; these refine its denominator
+rather than making independent completeness claims.
 
 ### 13.4 Two metrics added that the plan did not list
 
@@ -747,6 +753,23 @@ decides:
   density beside the genome-pair one (§3.5);
 - whether the typed repertoire metrics of §3.4 become worth reporting as
   curation grows the structural, regulatory and defense catalogues past their
-  current 2, 3 and 3 members;
+  current small memberships;
 - whether `"near_miss"` can be validated against fragmented genomes of known
   content.
+
+### 13.7 Extension: named reference universes
+
+Database release 2026.20.4 and schema 7 add 19 reusable reference-universe
+presets. The source is normalized into definitions, metadata filters and metric
+recommendations. Filters are ORed within one key and ANDed across keys, and the
+runtime resolves membership against the current release. No source or runtime
+table stores a GIFT identifier as universe membership.
+
+This is analytical curation rather than a new completeness layer. Presets make
+questions such as carbohydrate degradation, fibre utilisation, nitrogen
+acquisition, fermentation-product formation and vitamin biosynthesis
+discoverable, but `genome_traits()` and `community_traits()` compute the same
+metrics over the same calls as before. An open preset cannot be promoted to
+bounded at runtime. Only biomass-essential anabolism and its class-specific
+subsets are bounded; graph-dependent handoffs and cycle closure remain derived
+by their existing dedicated functions.

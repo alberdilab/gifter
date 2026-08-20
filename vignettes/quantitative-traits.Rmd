@@ -62,6 +62,24 @@ never write a list of GIFT identifiers yourself; that would move biological
 content out of the database, where it can be validated and versioned, and into
 your script, where it cannot.
 
+Common questions already have named, versioned presets. Inspect them before
+writing a custom filter:
+
+```{r}
+presets <- list_gift_universes()
+presets[, c("universe_id", "bounded", "member_count")]
+
+carbohydrate <- gift_universe(preset = "carbohydrate_degradation")
+carbohydrate
+```
+
+Each preset carries its description, interpretation limits and recommended
+genome, community or network metrics. Its members are still resolved from the
+current release's metadata: the registry stores a query, never a list of GIFT
+identifiers. An open preset cannot be promoted to `bounded = TRUE` at runtime.
+
+For a question that has no preset, build a custom universe directly:
+
 ```{r}
 gift_universe(type = "metabolic")
 
@@ -154,10 +172,7 @@ A fraction is offered only for a universe you explicitly declare **bounded** —
 a claim that curation intends to cover that set completely.
 
 ```{r}
-autonomy <- gift_universe(
-  mode = "anabolic", auxotrophy_indicator = TRUE, bounded = TRUE,
-  label = "biomass-essential anabolic GIFTs"
-)
+autonomy <- gift_universe(preset = "biomass_essential_anabolism")
 autonomy
 
 autonomy_traits <- genome_traits(

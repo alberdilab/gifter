@@ -11,6 +11,15 @@ genome-inferred functional traits (GIFTs) and preserves the evidence chain
 behind each call. See [evaluate_gifts()] to evaluate annotations and
 [list_gifts()] to inspect the reference catalogue.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://alberdilab.github.io/gifter/}
+  \item \url{https://github.com/alberdilab/gifter}
+  \item Report bugs at \url{https://github.com/alberdilab/gifter/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Antton Alberdi \email{antton.alberdi@sund.ku.dk}
 

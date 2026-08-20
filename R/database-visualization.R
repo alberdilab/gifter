@@ -7,7 +7,9 @@
   "regulatory_system", "regulatory_component", "regulatory_component_marker",
   "gift_mechanism", "mechanism_function", "defense_function",
   "defense_system", "defense_component", "defense_component_marker",
-  "marker", "component_marker", "database_change", "change_gift",
+  "marker", "component_marker", "reference_universe",
+  "reference_universe_filter", "reference_universe_metric",
+  "database_change", "change_gift",
   "database_release"
 )
 

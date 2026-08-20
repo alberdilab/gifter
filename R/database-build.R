@@ -1,4 +1,4 @@
-.gifter_schema_version <- 6L
+.gifter_schema_version <- 7L
 
 # The kinds of biologically meaningful capability gifter can state. This is not a
 # facet: it selects the completeness model that produces a call, decides which
@@ -10,6 +10,32 @@
 # route back to a metabolite an anabolic GIFT produces is real biology. The
 # other GIFT types have no direction between molecules and must leave it empty.
 .gifter_gift_modes <- c("anabolic", "catabolic", "transport", "interconversion")
+
+# Derived resource strategies exposed by the gift_profile view. Named reference
+# universes may select these values, but the view remains their single source of
+# biological meaning.
+.gifter_resource_strategies <- c("uptake", "public_good", "private", "unresolved")
+
+# Metrics that the named-universe registry may recommend. Recommendations are
+# discovery metadata only: they do not cause a metric to be computed and cannot
+# change a GIFT call. Keeping the vocabulary closed catches misspelled or
+# nonexistent output names during source validation.
+.gifter_reference_metric_ids <- list(
+  genome = c(
+    "gift_richness", "supported_fraction", "assessable_fraction",
+    "breadth_substrate_class", "breadth_physiological_role",
+    "handoff_out_degree", "handoff_in_degree", "multi_implementation_gifts"
+  ),
+  community = c(
+    "community_richness", "community_coverage", "mean_genome_richness",
+    "provider_count", "provider_fraction", "abundance_coverage",
+    "singleton_fraction", "unique_contribution", "repertoire_overlap"
+  ),
+  network = c(
+    "interaction_density", "handoff_edges", "distributed_chain_links",
+    "distributed_cycles"
+  )
+)
 
 # The modes that declare a direction between molecules, and therefore the modes
 # in which a composition cycle is evidence of a badly chosen boundary. See the
@@ -135,6 +161,11 @@
   facet_terms = c("facet", "value", "applies_to", "definition"),
   gift_facets = c("gift_id", "facet", "value", "notes"),
   anchor_facets = c("anchor_id", "facet", "value", "notes"),
+  reference_universes = c(
+    "universe_id", "label", "description", "bounded", "interpretation"
+  ),
+  reference_universe_filters = c("universe_id", "filter_key", "value"),
+  reference_universe_metrics = c("universe_id", "scope", "metric_id", "rationale"),
   anchors = c("anchor_id", "molecule", "compartment", "name", "chebi_id", "description"),
   gift_anchors = c("gift_id", "anchor_id", "role", "ordinal"),
   gift_xrefs = c("gift_id", "namespace", "accession", "name", "relation", "notes"),
@@ -318,7 +349,10 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
     enzyme_components = "component_id", markers = "namespace",
     component_markers = "component_id", database_changes = "change_id",
     change_gifts = "change_id", database_release = "gifter_db_version",
-    facet_terms = "facet", gift_facets = "gift_id", anchor_facets = "anchor_id"
+    facet_terms = "facet", gift_facets = "gift_id", anchor_facets = "anchor_id",
+    reference_universes = "universe_id",
+    reference_universe_filters = "universe_id",
+    reference_universe_metrics = "universe_id"
   )
   for (table in names(required_nonempty)) {
     column <- required_nonempty[[table]]
@@ -336,7 +370,8 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
     gift_circuits = "circuit_id", regulatory_functions = "function_id",
     regulatory_systems = "system_id", regulatory_components = "component_id",
     gift_mechanisms = "mechanism_id", defense_functions = "function_id",
-    defense_systems = "system_id", defense_components = "component_id"
+    defense_systems = "system_id", defense_components = "component_id",
+    reference_universes = "universe_id"
   )
   for (table in names(unique_ids)) {
     column <- unique_ids[[table]]
@@ -407,7 +442,17 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
     list("change_gifts.change_id", tables$change_gifts$change_id, tables$database_changes$change_id),
     list("change_gifts.gift_id", tables$change_gifts$gift_id, tables$gifts$gift_id),
     list("gift_facets.gift_id", tables$gift_facets$gift_id, tables$gifts$gift_id),
-    list("anchor_facets.anchor_id", tables$anchor_facets$anchor_id, tables$anchors$anchor_id)
+    list("anchor_facets.anchor_id", tables$anchor_facets$anchor_id, tables$anchors$anchor_id),
+    list(
+      "reference_universe_filters.universe_id",
+      tables$reference_universe_filters$universe_id,
+      tables$reference_universes$universe_id
+    ),
+    list(
+      "reference_universe_metrics.universe_id",
+      tables$reference_universe_metrics$universe_id,
+      tables$reference_universes$universe_id
+    )
   )
   marker_keys <- paste(tables$markers$namespace, tables$markers$accession, sep = "\r")
   component_marker_keys <- paste(
@@ -483,6 +528,195 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
         )
       )
     }
+  }
+
+  # Named reference universes are curated analytical metadata, not stored GIFT
+  # memberships. Filters are ANDed across keys and ORed within a key, so every
+  # preset remains a reproducible query over the ontology rather than a list of
+  # stable IDs that would drift as the catalogue grows.
+  universes <- tables$reference_universes
+  universe_filters <- tables$reference_universe_filters
+  universe_metrics <- tables$reference_universe_metrics
+  if (length(.duplicate_values(universes$label))) {
+    errors <- c(errors, "reference_universes.label must be unique")
+  }
+  invalid_universe_ids <- universes$universe_id[
+    is.na(universes$universe_id) |
+      !grepl("^[a-z][a-z0-9_]*$", universes$universe_id)
+  ]
+  if (length(invalid_universe_ids)) {
+    errors <- c(
+      errors,
+      paste0(
+        "Invalid reference_universes.universe_id: ",
+        paste(unique(invalid_universe_ids), collapse = ", ")
+      )
+    )
+  }
+  for (column in c("label", "description", "interpretation")) {
+    empty <- universes$universe_id[
+      is.na(universes[[column]]) | !nzchar(trimws(universes[[column]]))
+    ]
+    if (length(empty)) {
+      errors <- c(
+        errors,
+        paste0(
+          "reference_universes.", column, " must be recorded for: ",
+          paste(empty, collapse = ", ")
+        )
+      )
+    }
+  }
+  bounded <- suppressWarnings(as.integer(universes$bounded))
+  invalid_bounded <- universes$universe_id[is.na(bounded) | !bounded %in% c(0L, 1L)]
+  if (length(invalid_bounded)) {
+    errors <- c(
+      errors,
+      paste0(
+        "reference_universes.bounded must be 0 or 1 for: ",
+        paste(invalid_bounded, collapse = ", ")
+      )
+    )
+  }
+  if (length(.duplicate_keys(
+    universe_filters, c("universe_id", "filter_key", "value")
+  ))) {
+    errors <- c(errors, "reference_universe_filters contains duplicate filters")
+  }
+  missing_filters <- setdiff(universes$universe_id, universe_filters$universe_id)
+  if (length(missing_filters)) {
+    errors <- c(
+      errors,
+      paste0(
+        "Every named reference universe needs a metadata filter: ",
+        paste(missing_filters, collapse = ", ")
+      )
+    )
+  }
+  empty_filter_values <- universe_filters$universe_id[
+    is.na(universe_filters$value) | !nzchar(trimws(universe_filters$value))
+  ]
+  if (length(empty_filter_values)) {
+    errors <- c(
+      errors,
+      paste0(
+        "reference_universe_filters.value must be recorded for: ",
+        paste(unique(empty_filter_values), collapse = ", ")
+      )
+    )
+  }
+  simple_filter_keys <- c(
+    "type", "mode", "status", "resource_strategy", "auxotrophy_indicator"
+  )
+  is_facet_filter <- grepl("^facet:[a-z][a-z0-9_]*$", universe_filters$filter_key)
+  invalid_filter_keys <- universe_filters$filter_key[
+    is.na(universe_filters$filter_key) |
+      !(universe_filters$filter_key %in% simple_filter_keys | is_facet_filter)
+  ]
+  if (length(invalid_filter_keys)) {
+    errors <- c(
+      errors,
+      paste0(
+        "Invalid reference_universe_filters.filter_key: ",
+        paste(unique(invalid_filter_keys), collapse = ", ")
+      )
+    )
+  }
+  validate_filter_values <- function(key, allowed) {
+    values <- universe_filters$value[universe_filters$filter_key == key]
+    invalid <- setdiff(values, allowed)
+    if (length(invalid)) {
+      errors <<- c(
+        errors,
+        paste0(
+          "Invalid ", key, " reference-universe filter value: ",
+          paste(invalid, collapse = ", ")
+        )
+      )
+    }
+  }
+  validate_filter_values("type", .gifter_gift_types)
+  validate_filter_values("mode", .gifter_gift_modes)
+  validate_filter_values("status", unique(tables$gifts$status))
+  validate_filter_values("resource_strategy", .gifter_resource_strategies)
+  validate_filter_values("auxotrophy_indicator", c("true", "false"))
+  facet_filter_rows <- universe_filters[is_facet_filter, , drop = FALSE]
+  if (nrow(facet_filter_rows)) {
+    facet_filter_rows$facet <- sub("^facet:", "", facet_filter_rows$filter_key)
+    gift_terms <- tables$facet_terms[
+      tables$facet_terms$applies_to == "gift", c("facet", "value"), drop = FALSE
+    ]
+    registered_gift_terms <- paste(gift_terms$facet, gift_terms$value, sep = "\r")
+    requested_gift_terms <- paste(
+      facet_filter_rows$facet, facet_filter_rows$value, sep = "\r"
+    )
+    unknown <- setdiff(requested_gift_terms, registered_gift_terms)
+    if (length(unknown)) {
+      errors <- c(
+        errors,
+        paste0(
+          "Unregistered reference-universe facet filters: ",
+          paste(sub("\r", "=", unknown, fixed = TRUE), collapse = ", ")
+        )
+      )
+    }
+  }
+  if (length(.duplicate_keys(
+    universe_metrics, c("universe_id", "scope", "metric_id")
+  ))) {
+    errors <- c(errors, "reference_universe_metrics contains duplicate recommendations")
+  }
+  invalid_scopes <- setdiff(unique(universe_metrics$scope), names(.gifter_reference_metric_ids))
+  if (length(invalid_scopes)) {
+    errors <- c(
+      errors,
+      paste0(
+        "Invalid reference_universe_metrics.scope: ",
+        paste(invalid_scopes, collapse = ", ")
+      )
+    )
+  }
+  for (scope in intersect(unique(universe_metrics$scope), names(.gifter_reference_metric_ids))) {
+    invalid <- setdiff(
+      universe_metrics$metric_id[universe_metrics$scope == scope],
+      .gifter_reference_metric_ids[[scope]]
+    )
+    if (length(invalid)) {
+      errors <- c(
+        errors,
+        paste0(
+          "Invalid ", scope, " reference-universe metric: ",
+          paste(invalid, collapse = ", ")
+        )
+      )
+    }
+  }
+  empty_metric_rationale <- universe_metrics$universe_id[
+    is.na(universe_metrics$rationale) |
+      !nzchar(trimws(universe_metrics$rationale))
+  ]
+  if (length(empty_metric_rationale)) {
+    errors <- c(
+      errors,
+      paste0(
+        "reference_universe_metrics.rationale must be recorded for: ",
+        paste(unique(empty_metric_rationale), collapse = ", ")
+      )
+    )
+  }
+  open_ids <- universes$universe_id[bounded == 0L]
+  invalid_fraction_recommendations <- universe_metrics$universe_id[
+    universe_metrics$universe_id %in% open_ids &
+      universe_metrics$metric_id %in% c("supported_fraction", "community_coverage")
+  ]
+  if (length(invalid_fraction_recommendations)) {
+    errors <- c(
+      errors,
+      paste0(
+        "Unbounded reference universes may not recommend coverage fractions: ",
+        paste(unique(invalid_fraction_recommendations), collapse = ", ")
+      )
+    )
   }
 
   # Required facets are scoped by GIFT type: a substrate class is meaningless for
@@ -1257,6 +1491,37 @@ build_gifter_database <- function(source_dir, output, overwrite = FALSE, source_
       facet = tables$anchor_facets$facet,
       value = tables$anchor_facets$value,
       notes = tables$anchor_facets$notes
+    ),
+    append = TRUE, row.names = FALSE
+  )
+
+  reference_universes <- tables$reference_universes
+  reference_universes$bounded <- as.integer(reference_universes$bounded)
+  DBI::dbWriteTable(
+    connection, "reference_universe", reference_universes,
+    append = TRUE, row.names = FALSE
+  )
+  universe_pk <- .db_key_map(
+    connection, "reference_universe", "universe_id", "universe_pk"
+  )
+  DBI::dbWriteTable(
+    connection, "reference_universe_filter",
+    data.frame(
+      universe_pk = unname(universe_pk[tables$reference_universe_filters$universe_id]),
+      filter_key = tables$reference_universe_filters$filter_key,
+      value = tables$reference_universe_filters$value,
+      stringsAsFactors = FALSE
+    ),
+    append = TRUE, row.names = FALSE
+  )
+  DBI::dbWriteTable(
+    connection, "reference_universe_metric",
+    data.frame(
+      universe_pk = unname(universe_pk[tables$reference_universe_metrics$universe_id]),
+      scope = tables$reference_universe_metrics$scope,
+      metric_id = tables$reference_universe_metrics$metric_id,
+      rationale = tables$reference_universe_metrics$rationale,
+      stringsAsFactors = FALSE
     ),
     append = TRUE, row.names = FALSE
   )

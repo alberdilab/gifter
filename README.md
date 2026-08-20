@@ -197,11 +197,20 @@ GIFTs does not mean a genome lacks 110 capabilities, so no such fraction is
 offered:
 
 ```r
-autonomy <- gift_universe(
-  mode = "anabolic", auxotrophy_indicator = TRUE, bounded = TRUE,
-  label = "biomass-essential anabolic GIFTs"
-)
+list_gift_universes()  # reusable, versioned universes and recommended metrics
+
+autonomy <- gift_universe(preset = "biomass_essential_anabolism")
 genome_traits(result, universes = list(autonomy))
+```
+
+The same registry exposes questions such as carbohydrate degradation, plant
+fibre utilisation, nitrogen acquisition, fermentation products and vitamin
+biosynthesis. Membership is resolved from curated metadata in the current
+database release rather than stored as a list of GIFT identifiers:
+
+```r
+carbohydrate <- gift_universe(preset = "carbohydrate_degradation")
+genome_traits(result, universes = list(carbohydrate))
 ```
 
 For several genomes, bind them into a community and ask how capability is

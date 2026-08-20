@@ -15,6 +15,30 @@ versioned with the package.
 
 ## Package 0.1.0 (in development)
 
+### 2026-08-20T11:35Z — Named reference universes make recurring analyses reusable
+
+**Change.** Schema 7 and biological database 2026.20.4 add a normalized registry
+of 19 named reference universes, their metadata filters, boundedness claims,
+interpretation limits and scope-specific metric recommendations. The new
+`list_gift_universes()` accessor discovers them, and
+`gift_universe(preset = ...)` resolves a preset against the current database
+release. Documentation now demonstrates the carbohydrate-degradation and
+biomass-essential-anabolism presets. **No GIFT definition, evaluation logic or
+Boolean call changes.**
+
+**Why.** Questions such as carbohydrate degradation, nitrogen acquisition,
+fermentation-product formation and vitamin biosynthesis were already expressible
+with `gift_universe()`, but every analysis had to restate their biological
+scope. A versioned registry makes those scopes easy to find and consistent
+between genome and community analyses without hard-coding GIFT identifiers.
+
+**Effect.** Preset filters are ORed within a metadata key and ANDed across keys;
+membership therefore follows `gift_type`, `mode`, curated facets and the derived
+`gift_profile` as the catalogue changes. Open presets cannot be promoted to
+bounded at runtime. Only biomass-essential anabolism and its amino-acid,
+nucleotide and cofactor subsets ship as bounded. Cycle closure and community
+handoffs remain graph-derived rather than being reduced to set membership.
+
 ### 2026-08-20T09:35Z — Documentation and Atlas share one navigation model
 
 **Change.** The package website and GIFT Atlas now expose the same primary
