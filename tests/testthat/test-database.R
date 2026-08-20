@@ -5,12 +5,12 @@ test_that("canonical source tables validate", {
   expect_true(report$valid)
   expect_length(report$errors, 0L)
   expect_equal(
-    unname(report$rows[c("gifts", "anchors", "reactions")]), c(134L, 143L, 394L)
+    unname(report$rows[c("gifts", "anchors", "reactions")]), c(142L, 149L, 417L)
   )
   # Every typed model now ships curated content.
   expect_equal(
     unname(report$rows[c("gift_architectures", "gift_circuits", "gift_mechanisms")]),
-    c(3L, 4L, 3L)
+    c(3L, 4L, 5L)
   )
 })
 
@@ -88,21 +88,24 @@ test_that("database accessors return stable definitions", {
       "betaine_demethylation", "biotin_biosynthesis", "butyrate_formation",
       "carnitine_degradation_trimethylamine", "carnitine_to_betaine",
       "catechol_meta_cleavage", "catechol_ortho_cleavage",
-      "chemotaxis_signal_transduction", "chorismate_biosynthesis",
+      "chemotaxis_signal_transduction", "choline_to_betaine",
+      "chorismate_biosynthesis",
       "citrate_fermentation", "cobamide_nucleotide_loop_assembly",
       "cobinamide_biosynthesis", "collagen_cleavage",
       "corrin_ring_biosynthesis", "creatinine_degradation",
       "cysteine_biosynthesis_homocysteine", "cysteine_biosynthesis_sulfide",
       "cysteine_degradation_sulfide", "cytidylate_biosynthesis",
-      "dap_biosynthesis", "dihydroxyphenylpropanoate_degradation",
-      "dmb_biosynthesis_aerobic", "ethanol_formation", "flagellar_apparatus",
+      "dap_biosynthesis", "dihydroxybenzoate_biosynthesis",
+      "dihydroxyphenylpropanoate_degradation", "dmb_biosynthesis_aerobic",
+      "ectoine_biosynthesis", "enterobactin_biosynthesis", "ethanol_formation",
+      "flagellar_apparatus",
       "folate_biosynthesis", "fucose_degradation_isomerase",
       "fumarate_oxaloacetate_interconversion", "galactose_degradation_leloir",
       "galacturonate_degradation", "glcnac_degradation",
       "glucuronate_degradation", "glutamate_decarboxylation_gaba",
       "glutamine_biosynthesis", "glycine_biosynthesis",
       "glycine_reduction_stickland", "glyoxylate_bypass", "guanylate_biosynthesis",
-      "histidine_biosynthesis", "histidine_degradation_glutamate",
+      "heme_b_biosynthesis", "histidine_biosynthesis", "histidine_degradation_glutamate",
       "hmp_phosphate_biosynthesis", "homoserine_biosynthesis",
       "hydroxyphenylpropanoate_hydroxylation",
       "indole_3_acetate_biosynthesis", "isocitrate_to_oxoglutarate",
@@ -112,6 +115,7 @@ test_that("database accessors return stable definitions", {
       "menaquinone_biosynthesis", "mercury_detoxification", "methionine_biosynthesis_sulfhydrylation",
       "methionine_biosynthesis_transsulfuration",
       "methionine_degradation_methanethiol", "methylamine_degradation",
+      "methylglyoxal_detoxification",
       "nad_biosynthesis_namn", "namn_biosynthesis_quinolinate",
       "namn_salvage_nicotinate", "neuac_degradation", "nitrate_assimilation",
       "nitrogen_fixation",
@@ -129,8 +133,9 @@ test_that("database accessors return stable definitions", {
       "pyruvate_to_acetyl_coa", "quinolinate_biosynthesis_aspartate",
       "rhamnose_degradation", "riboflavin_biosynthesis",
       "salicylate_biosynthesis", "sarcosine_demethylation",
-      "serine_biosynthesis", "serine_deamination", "starch_degradation",
-      "succinate_fumarate_interconversion",
+      "serine_biosynthesis", "serine_deamination", "siroheme_biosynthesis",
+      "starch_degradation",
+      "succinate_fumarate_interconversion", "superoxide_detoxification",
       "taurine_degradation_sulfoacetaldehyde",
       "taurine_desulfonation_aerobic", "taurine_uptake_abc",
       "thiamine_phosphate_biosynthesis", "thiamine_precursor_salvage",
@@ -201,7 +206,7 @@ test_that("database accessors return stable definitions", {
 test_that("database and schema versions are independent", {
   version <- gifter_db_version()
   expect_equal(version$package_version, "0.1.0")
-  expect_equal(version$gifter_db_version, "2026.20.1")
+  expect_equal(version$gifter_db_version, "2026.20.3")
   expect_equal(version$schema_version, 6L)
   expect_equal(version$rhea_release, "141")
 })
@@ -399,7 +404,9 @@ test_that("the anchor network links GIFTs only through declared anchors", {
     # cysteine desulfidation supplies two GIFTs that had no producer.
     "ASPARTATE", "GLUTAMINE", "GLUTAMATE", "OXOISOVALERATE", "OXOBUTANOATE",
     "MESO_DAP", "ORNITHINE", "THREONINE", "TRYPTOPHAN", "METHIONINE",
-    "HISTIDINE", "PROLINE", "ARGININE", "GLYCINE", "SULFIDE"
+    "HISTIDINE", "PROLINE", "ARGININE", "GLYCINE", "SULFIDE",
+    # The enterobactin split exposes its reusable catecholate branchpoint.
+    "DIHYDROXYBENZOATE_2_3"
   ))
   # The drawn edges are the boundary declarations themselves: one from the GIFT
   # that outputs the anchor, one to the GIFT that takes it as an input.

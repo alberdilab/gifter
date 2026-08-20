@@ -18,3 +18,12 @@ COMP_DF_MERC	KO	K19058	orthology	curated	KEGG orthology, verified against KEGG R
 COMP_DF_MERE	KO	K19059	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-19	
 COMP_DF_MERR	KO	K08365	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-19	K19057 (MerD) is not accepted here: it is a co-regulator that modulates MerR-driven transcription, not an alternative activator.
 COMP_DF_MERB	KO	K00221	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-19	NF033555 (NCBIfam, organomercurial lyase MerB) names the enzyme more specifically but is not curated: it is not integrated into InterPro and gifter's evidence layer recognises no NCBIfam NF namespace.
+COMP_DF_MG_GLOA	KO	K01759	orthology	curated	KEGG orthology, Rhea release 141 and PMID 21143325, verified 2026-08-20	Specific glyoxalase-I chemistry. Broad aldo-keto reductases and Hsp31/DJ-1 families are deliberately not accepted.
+COMP_DF_MG_GLOB	KO	K01069	orthology	curated	KEGG orthology, Rhea release 141 and PMID 21143325, verified 2026-08-20	Accepted only as the second required function after GloA context establishes S-lactoylglutathione formation.
+COMP_DF_SOD_FEMN	KO	K04564	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-20	Iron and manganese enzymes catalyse the same RHEA:20696 chemistry.
+COMP_DF_SOD_CUZN	KO	K04565	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-20	Cu/Zn superoxide dismutase is an alternative complete system for the first required function.
+COMP_DF_CATALASE	KO	K03781	orthology	curated	KEGG orthology, Rhea release 141 and PMID 22609271, verified 2026-08-20	Exact hydrogen-peroxide dismutation activity.
+COMP_DF_KATG	KO	K03782	orthology	curated	KEGG orthology, Rhea release 141 and PMID 15547258, verified 2026-08-20	Catalase-peroxidase EC 1.11.1.21 includes the RHEA:20309 catalase reaction.
+COMP_DF_MN_CATALASE	KO	K07217	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-20	Non-heme alternative catalysing the same hydrogen-peroxide dismutation.
+COMP_DF_AHPC	KO	K03386	orthology	curated	KEGG orthology, Rhea release 141 and PMID 22609271, verified 2026-08-20	Accepted only in the two-component AhpC-AhpF system; K03386 alone does not satisfy peroxide removal here.
+COMP_DF_AHPF	KO	K03387	orthology	curated	KEGG orthology and PMID 22609271, verified 2026-08-20	Required reductase partner for the curated AhpC system.

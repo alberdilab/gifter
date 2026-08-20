@@ -181,3 +181,18 @@ SULFATE_APS_NADPH	assimilatory_sulfate_reduction	APS branch with NADPH sulfite r
 SULFATE_APS_FD	assimilatory_sulfate_reduction	APS branch with ferredoxin sulfite reductase	Sulfate activation to APS, direct APS reduction to sulfite, and ferredoxin-dependent reduction to sulfide.	curated	independent
 SULFATE_PAPS_NADPH	assimilatory_sulfate_reduction	PAPS branch with NADPH sulfite reductase	Sulfate activation and APS phosphorylation, PAPS reduction to sulfite, and NADPH-dependent reduction to sulfide.	curated	independent
 SULFATE_PAPS_FD	assimilatory_sulfate_reduction	PAPS branch with ferredoxin sulfite reductase	Sulfate activation and APS phosphorylation, PAPS reduction to sulfite, and ferredoxin-dependent reduction to sulfide.	curated	independent
+ECT_ABC	ectoine_biosynthesis	EctABC route	EctB forms L-2,4-diaminobutanoate from ASA, EctA acetylates it, and EctC cyclises the acetylated intermediate to L-ectoine.	curated	independent
+HEME_PROTO_HEMF_HEMY	heme_b_biosynthesis	Classical HemF-HemY route	Oxygen-dependent coproporphyrinogen and protoporphyrinogen oxidation followed by ferrochelation.	curated	aerobic
+HEME_PROTO_HEMF_HEMG	heme_b_biosynthesis	Classical HemF-HemG route	Oxygen-dependent HemF followed by menaquinone-dependent HemG and ferrochelation.	curated	aerobic
+HEME_PROTO_HEMF_HEMJ	heme_b_biosynthesis	Classical HemF-HemJ route	Oxygen-dependent HemF followed by HemJ with an unresolved electron acceptor and ferrochelation.	curated	aerobic
+HEME_PROTO_HEMN_HEMY	heme_b_biosynthesis	Classical HemN-HemY route	Oxygen-independent HemN followed by oxygen-dependent HemY and ferrochelation.	curated	aerobic
+HEME_PROTO_HEMN_HEMG	heme_b_biosynthesis	Classical HemN-HemG route	Oxygen-independent radical-SAM HemN and menaquinone-dependent HemG followed by ferrochelation.	curated	independent
+HEME_PROTO_HEMN_HEMJ	heme_b_biosynthesis	Classical HemN-HemJ route	Oxygen-independent HemN and HemJ followed by ferrochelation; the HemJ electron acceptor remains abstract.	curated	independent
+HEME_COPRO	heme_b_biosynthesis	Coproporphyrin-dependent HemY-HemH-HemQ route	HemY oxidises coproporphyrinogen, HemH inserts iron into coproporphyrin, and HemQ converts coproheme to heme b.	curated	aerobic
+DHB_CHORISMATE	dihydroxybenzoate_biosynthesis	EntC-EntB-EntA catecholate head route	Chorismate isomerisation, isochorismate hydrolysis and dehydrogenation form 2,3-dihydroxybenzoate.	curated	independent
+ENTEROBACTIN_ENTBDEF	enterobactin_biosynthesis	EntB-EntD-EntE-EntF assembly route	The activated aryl carrier, phosphopantetheinyl transferase, DHB ligase and serine-activating NRPS jointly assemble enterobactin.	curated	independent
+BETAINE_BETA	choline_to_betaine	BetA-BetB route	Acceptor-dependent choline dehydrogenase followed by NAD-dependent betaine-aldehyde dehydrogenase.	curated	independent
+BETAINE_GBS	choline_to_betaine	GbsB-GbsA route	NAD-dependent choline dehydrogenase followed by NAD-dependent betaine-aldehyde dehydrogenase.	curated	independent
+BETAINE_CMO	choline_to_betaine	Choline monooxygenase-BADH route	Ferredoxin- and oxygen-dependent choline monooxygenase followed by NAD-dependent betaine-aldehyde dehydrogenase.	curated	aerobic
+BETAINE_CODA	choline_to_betaine	Choline oxidase route	One choline oxidase catalyses both oxygen-dependent oxidations from choline through betaine aldehyde to glycine betaine.	curated	aerobic
+SIROHEME_UROGEN	siroheme_biosynthesis	Siroheme route from uroporphyrinogen III	Two SAM-dependent methyl transfers, precorrin-2 dehydrogenation and iron insertion form siroheme through multifunctional or split enzyme systems.	curated	independent

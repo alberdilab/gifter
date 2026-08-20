@@ -142,3 +142,9 @@ AMINOPENTANOATE	AMINOPENTANOATE	unspecified	5-aminopentanoate	CHEBI:356010	Relea
 ISOCITRATE	ISOCITRATE	unspecified	D-threo-isocitrate	CHEBI:15562	Central branchpoint exposed so the oxidative decarboxylation and glyoxylate bypass are separately composable without duplicating citrate synthase and aconitase.
 NITROGEN	NITROGEN	unspecified	dinitrogen	CHEBI:17997	Atmospheric dinitrogen at the boundary of nitrogen fixation. The unspecified compartment records no localisation or environmental availability claim.
 SULFATE	SULFATE	unspecified	sulfate	CHEBI:16189	Inorganic sulfur source at the boundary of assimilatory sulfate reduction. The unspecified compartment records no uptake claim.
+ECTOINE	ECTOINE	unspecified	L-ectoine	CHEBI:58515	Compatible-solute product of the EctABC route. Declaring it as an output does not claim accumulation, export or osmotic protection.
+HEME_B	HEME_B	unspecified	heme b	CHEBI:60344	Iron porphyrin product at the end of the protoporphyrin and coproporphyrin route families. It is distinct from siroheme and downstream heme derivatives.
+DIHYDROXYBENZOATE_2_3	DIHYDROXYBENZOATE_2_3	unspecified	2,3-dihydroxybenzoate	CHEBI:36654	Catecholate branchpoint between chorismate-derived head synthesis and enterobactin or other siderophore assembly.
+ENTEROBACTIN	ENTEROBACTIN	unspecified	enterobactin	CHEBI:77805	Cyclic catecholate siderophore product. The boundary does not assert secretion, metal binding in situ or uptake.
+CHOLINE	CHOLINE	unspecified	choline	CHEBI:15354	Quaternary ammonium precursor of glycine betaine. The unspecified compartment records no uptake or environmental-availability claim.
+SIROHEME	SIROHEME	unspecified	siroheme	CHEBI:60052	Iron isobacteriochlorin cofactor and branchpoint product of siroheme biosynthesis. Declaring it does not imply cofactor incorporation, reductase activity, sulfur or nitrogen metabolism, or conversion through the alternative heme pathway.

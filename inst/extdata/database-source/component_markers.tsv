@@ -1059,3 +1059,34 @@ COMP_21976_CYSH	EC	1.8.4.10	activity	curated	Rhea release 141 and KEGG K00390 de
 COMP_13804_CYSJ	KO	K00380	orthology	curated	KEGG module M00176 and Rhea release 141, verified 2026-08-20	Required with CysI.
 COMP_13804_CYSI	KO	K00381	orthology	curated	KEGG module M00176 and Rhea release 141, verified 2026-08-20	Required with CysJ.
 COMP_23132_SIR	KO	K00392	orthology	curated	KEGG module M00176 and Rhea release 141, verified 2026-08-20	Ferredoxin-dependent terminal reductase.
+COMP_11160_ECTB	KO	K00836	orthology	curated	KEGG M00033 and Rhea release 141, verified 2026-08-20	The reaction runs opposite the Rhea master in ectoine biosynthesis.
+COMP_16901_ECTA	KO	K06718	orthology	curated	KEGG M00033 and Rhea release 141, verified 2026-08-20	Substrate-specific ectoine-pathway acetyltransferase.
+COMP_17281_ECTC	KO	K06720	orthology	curated	KEGG M00033 and Rhea release 141, verified 2026-08-20	Ectoine synthase closes the trait-specific ring.
+COMP_19865_HEME	KO	K01599	orthology	curated	KEGG M00121/M00926 and Rhea release 141, verified 2026-08-20	Shared first reaction of every curated UROGEN_III-to-heme route.
+COMP_18257_HEMF	KO	K00228	orthology	curated	KEGG M00121 and Rhea release 141, verified 2026-08-20	Oxygen-dependent HemF.
+COMP_15425_HEMN	KO	K02495	orthology	curated	KEGG M00121 and Rhea release 141, verified 2026-08-20	Oxygen-independent radical-SAM HemN.
+COMP_25576_HEMY	KO	K00231	orthology	curated	KEGG M00121 and Rhea release 141, verified 2026-08-20	The same KO also supports its experimentally established coproporphyrinogen oxidase activity in the copro route.
+COMP_27409_HEMG	KO	K00230	orthology	curated	KEGG M00121 and Rhea release 141, verified 2026-08-20	KEGG maps K00230 to R09489, but Rhea 141 does not cross-reference that KEGG reaction to RHEA:27409; only the exact Rhea EC cross-reference is stored.
+COMP_62000_HEMJ	KO	K08973	orthology	curated	KEGG M00121 and Rhea release 141, verified 2026-08-20	HemJ identifies the protoporphyrinogen oxidase while Rhea leaves its electron acceptor abstract.
+COMP_22584_HEMH	KO	K01772	orthology	curated	KEGG M00121 and Rhea release 141, verified 2026-08-20	The same KO also supports coproferrochelatase in its separate reaction-specific component.
+COMP_43436_HEMY	KO	K00231	orthology	curated	KEGG M00926, Rhea release 141 and PMID 25646457, verified 2026-08-20	Multifunctional HemY marker attached to the copro-specific reaction component.
+COMP_49572_HEMH	KO	K01772	orthology	curated	KEGG M00926, Rhea release 141 and PMID 25646457, verified 2026-08-20	Multifunctional HemH marker attached to the copro-specific reaction component.
+COMP_56516_HEMQ	KO	K00435	orthology	curated	KEGG M00926, Rhea release 141 and PMID 25646457, verified 2026-08-20	Hydrogen peroxide-dependent conversion of coproheme to heme b.
+COMP_11112_ENTB	KO	K01252	orthology	curated	KEGG map01053 and Rhea release 141, verified 2026-08-20	This component uses the isochorismate-lyase domain; the same protein's carrier domain is separately required downstream.
+COMP_23824_ENTA	KO	K00216	orthology	curated	KEGG map01053 and Rhea release 141, verified 2026-08-20	EntA identifies the 2,3-dihydroxybenzoate-forming dehydrogenase.
+COMP_30571_ENTB	KO	K01252	orthology	curated	KEGG map01053, Rhea release 141 and PMID 10375542, verified 2026-08-20	The aryl-carrier function is distinct from the same protein's upstream lyase function.
+COMP_30571_ENTD	KO	K02362	orthology	curated	KEGG map01053, Rhea release 141 and PMID 10375542, verified 2026-08-20	Required carrier-domain phosphopantetheinyl transferase, not an accessory annotation.
+COMP_30571_ENTE	KO	K02363	orthology	curated	KEGG map01053, Rhea release 141 and PMID 10375542, verified 2026-08-20	Required 2,3-dihydroxybenzoate-activating ligase.
+COMP_30571_ENTF	KO	K02364	orthology	curated	KEGG map01053, Rhea release 141 and PMID 10375542, verified 2026-08-20	Required serine-activating and cyclising NRPS component.
+COMP_17433_BETA	KO	K00108	orthology	curated	KEGG M00555 and Rhea release 141, verified 2026-08-20	BetA architecture represented by MetaCyc BETSYN-PWY.
+COMP_33051_GBSB	KO	K11440	orthology	curated	KEGG M00555, Rhea release 141 and PMID 8752328, verified 2026-08-20	GbsB architecture represented by MetaCyc PWY-3722.
+COMP_17769_CMO	KO	K00499	orthology	curated	KEGG M00555 and Rhea release 141, verified 2026-08-20	The reaction consumes oxygen and reduced ferredoxin.
+COMP_13505_CODA	KO	K17755	orthology	curated	KEGG M00555 and Rhea release 141, verified 2026-08-20	The same choline oxidase catalyses both steps and is attached to both reaction-specific components.
+COMP_20369_CODA	KO	K17755	orthology	curated	KEGG M00555 and Rhea release 141, verified 2026-08-20	The same choline oxidase catalyses both steps and is attached to both reaction-specific components.
+COMP_15305_BADH	KO	K00130	orthology	curated	KEGG M00555 and Rhea release 141, verified 2026-08-20	K14085 is deliberately refused: ALDH7A1 spans many aldehydes and cannot identify betaine aldehyde even though KEGG includes it in M00555.
+COMP_32459_CATALYTIC	KO	K00589	orthology	curated	KEGG M00846 and Rhea release 141, verified 2026-08-20	MET1 supplies the same two-methyl-transfer conversion as the accepted CobA orthologues.
+COMP_32459_CATALYTIC	KO	K02496	orthology	curated	KEGG M00846 and Rhea release 141, verified 2026-08-20	HemX is explicitly assigned uroporphyrinogen-III C-methyltransferase activity.
+COMP_32459_CATALYTIC	KO	K13543	orthology	curated	KEGG M00846 and Rhea release 141, verified 2026-08-20	The HemDX fusion establishes the methyltransferase reaction; its uroporphyrinogen synthase activity is outside this GIFT boundary.
+COMP_24360_CYSG	KO	K02302	orthology	curated	KEGG M00846, Rhea release 141 and PMID 9461500, verified 2026-08-20	The maintained KO explicitly includes sirohydrochlorin ferrochelatase activity, so the same CysG observation can support all three reaction-specific components.
+COMP_24360_MET8	KO	K02304	orthology	curated	KEGG M00846, Rhea release 141 and PMID 11980703, verified 2026-08-20	Met8 is bifunctional: its same observation supplies both precorrin-2 dehydrogenation and iron insertion.
+COMP_24360_SIRB	KO	K03794	orthology	curated	KEGG M00846, Rhea release 141 and PMID 12408752, verified 2026-08-20	SirB is the split iron-specific chelatase. Broader CbiX-family KOs are refused because sequence alone does not resolve iron from cobalt or nickel insertion.

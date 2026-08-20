@@ -334,3 +334,19 @@ nitrogen_fixation	substrate_class	inorganic_nitrogen	Dinitrogen is the input bou
 nitrogen_fixation	physiological_role	nitrogen_acquisition	Forms ammonium the cell can assimilate; incorporation is not claimed.
 assimilatory_sulfate_reduction	substrate_class	inorganic_sulfur	Sulfate is the input boundary.
 assimilatory_sulfate_reduction	physiological_role	sulfur_acquisition	Forms sulfide the cell can assimilate; incorporation is not claimed.
+ectoine_biosynthesis	substrate_class	compatible_solute	Ectoine is the product boundary.
+ectoine_biosynthesis	physiological_role	compatible_solute_biosynthesis	Names the encoded product, not an osmotic-tolerance phenotype.
+heme_b_biosynthesis	substrate_class	cofactor	Heme b is the product boundary.
+heme_b_biosynthesis	physiological_role	biosynthesis	Builds the heme cofactor from the shared tetrapyrrole branchpoint.
+dihydroxybenzoate_biosynthesis	substrate_class	aromatic_compound	The catecholate ring is built from chorismate.
+dihydroxybenzoate_biosynthesis	physiological_role	secondary_metabolite_biosynthesis	Produces a reusable siderophore precursor; no downstream effect is claimed.
+dihydroxybenzoate_biosynthesis	biosynthetic_family	shikimate_derived_aromatic	The aromatic ring descends from chorismate.
+enterobactin_biosynthesis	substrate_class	aromatic_compound	The product carries three 2,3-dihydroxybenzoate catecholate groups.
+enterobactin_biosynthesis	physiological_role	secondary_metabolite_biosynthesis	Produces enterobactin; secretion and iron acquisition are not claimed.
+enterobactin_biosynthesis	biosynthetic_family	shikimate_derived_aromatic	The three catecholate groups descend from chorismate through the upstream GIFT.
+methylglyoxal_detoxification	defense_class	chemical_detoxification	The mechanism enzymatically converts a reactive electrophile to D-lactate.
+superoxide_detoxification	defense_class	chemical_detoxification	The mechanism converts superoxide and its peroxide product to less reactive chemical species.
+choline_to_betaine	substrate_class	methylated_amine	Choline and glycine betaine are quaternary ammonium compounds.
+choline_to_betaine	physiological_role	compatible_solute_biosynthesis	Names the glycine-betaine product without claiming accumulation or osmotic protection.
+siroheme_biosynthesis	substrate_class	cofactor	Siroheme is the exact product boundary.
+siroheme_biosynthesis	physiological_role	biosynthesis	Builds the siroheme cofactor from the shared uroporphyrinogen III tetrapyrrole branchpoint.

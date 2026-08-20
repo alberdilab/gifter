@@ -454,3 +454,28 @@ SYS_11724_CYSH_PAPS	RHEA:11724	PAPS reductase	Reaction-specific activity marker 
 SYS_21976_CYSH_APS	RHEA:21976	APS reductase	Reaction-specific activity marker used because the CysH KO also spans PAPS reductase.
 SYS_13804_CYSJI	RHEA:13804	NADPH sulfite reductase CysJI	Both the flavoprotein and siroheme subunits are required.
 SYS_23132_SIR	RHEA:23132	ferredoxin sulfite reductase	Single catalytic siroheme protein.
+SYS_11160_ECTB	RHEA:11160	EctB diaminobutanoate aminotransferase	Single catalytic protein.
+SYS_16901_ECTA	RHEA:16901	EctA diaminobutanoate acetyltransferase	Single catalytic protein.
+SYS_17281_ECTC	RHEA:17281	EctC ectoine synthase	Single catalytic protein.
+SYS_19865_HEME	RHEA:19865	HemE uroporphyrinogen decarboxylase	Single catalytic protein shared by every curated heme-b route.
+SYS_18257_HEMF	RHEA:18257	HemF oxygen-dependent coproporphyrinogen oxidase	Single catalytic protein.
+SYS_15425_HEMN	RHEA:15425	HemN oxygen-independent coproporphyrinogen oxidase	Single radical-SAM catalytic protein.
+SYS_25576_HEMY	RHEA:25576	HemY protoporphyrinogen oxidase	Single catalytic protein; the same KO also supplies the copro-specific reaction in its own system.
+SYS_27409_HEMG	RHEA:27409	HemG menaquinone-dependent protoporphyrinogen oxidase	Single catalytic protein.
+SYS_62000_HEMJ	RHEA:62000	HemJ protoporphyrinogen oxidase	Single catalytic protein; the electron acceptor remains abstract in Rhea.
+SYS_22584_HEMH	RHEA:22584	HemH protoporphyrin ferrochelatase	Single catalytic protein; the same KO also supplies coproferrochelatase in its own system.
+SYS_43436_HEMY	RHEA:43436	HemY coproporphyrinogen oxidase	Single catalytic protein using the copro-specific activity of HemY.
+SYS_49572_HEMH	RHEA:49572	HemH coproporphyrin ferrochelatase	Single catalytic protein using the copro-specific activity of HemH.
+SYS_56516_HEMQ	RHEA:56516	HemQ hydrogen peroxide-dependent heme synthase	Single catalytic protein.
+SYS_11112_ENTB	RHEA:11112	EntB isochorismate lyase	Single bifunctional protein; this system uses its lyase domain.
+SYS_23824_ENTA	RHEA:23824	EntA dihydroxybenzoate dehydrogenase	Single catalytic protein.
+SYS_30571_ENTBDEF	RHEA:30571	Enterobactin synthetase machinery	EntB, EntD, EntE and EntF are jointly required for carrier activation, substrate loading, condensation and cyclisation.
+SYS_17433_BETA	RHEA:17433	BetA choline dehydrogenase	Single catalytic protein.
+SYS_33051_GBSB	RHEA:33051	GbsB choline dehydrogenase	Single catalytic protein of the Gram-positive GbsAB architecture.
+SYS_17769_CMO	RHEA:17769	choline monooxygenase	Single catalytic protein.
+SYS_13505_CODA	RHEA:13505	choline oxidase, first oxidation	Single catalytic protein; the same marker is required again for the second reaction.
+SYS_20369_CODA	RHEA:20369	choline oxidase, second oxidation	Single catalytic protein; the same marker supplies the first reaction too.
+SYS_15305_BADH	RHEA:15305	betaine-aldehyde dehydrogenase	Single catalytic protein accepted only on the substrate-specific KO.
+SYS_24360_CYSG	RHEA:24360	multifunctional siroheme synthase CysG ferrochelatase	Single catalytic protein system; the same CysG marker also supplies the preceding methylation and dehydrogenation reactions.
+SYS_24360_MET8	RHEA:24360	bifunctional precorrin-2 dehydrogenase and sirohydrochlorin ferrochelatase Met8	Single catalytic protein system; the same Met8 marker also supplies the preceding dehydrogenation reaction.
+SYS_24360_SIRB	RHEA:24360	sirohydrochlorin ferrochelatase SirB	Single catalytic protein system.

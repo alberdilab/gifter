@@ -309,3 +309,16 @@ nitrogen_fixation	NITROGEN	input	1
 nitrogen_fixation	AMMONIUM	output	1
 assimilatory_sulfate_reduction	SULFATE	input	1
 assimilatory_sulfate_reduction	SULFIDE	output	1
+ectoine_biosynthesis	ASA	input	1
+ectoine_biosynthesis	ECTOINE	output	1
+heme_b_biosynthesis	UROGEN_III	input	1
+heme_b_biosynthesis	HEME_B	output	1
+dihydroxybenzoate_biosynthesis	CHORISMATE	input	1
+dihydroxybenzoate_biosynthesis	DIHYDROXYBENZOATE_2_3	output	1
+enterobactin_biosynthesis	DIHYDROXYBENZOATE_2_3	input	1
+enterobactin_biosynthesis	SERINE	input	2
+enterobactin_biosynthesis	ENTEROBACTIN	output	1
+choline_to_betaine	CHOLINE	input	1
+choline_to_betaine	BETAINE	output	1
+siroheme_biosynthesis	UROGEN_III	input	1
+siroheme_biosynthesis	SIROHEME	output	1

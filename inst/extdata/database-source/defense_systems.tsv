@@ -11,3 +11,11 @@ SYS_DF_MERC	DF_MER_HG_DELIVERY	MerC transporter	Single protein, an alternative t
 SYS_DF_MERE	DF_MER_HG_DELIVERY	MerE transporter	Single protein, an alternative to MerT-MerP and the one that also carries organomercurials.
 SYS_DF_MERR	DF_MER_HG_INDUCTION	MerR activator	Single protein.
 SYS_DF_MERB	DF_MER_ORGANOMERCURIAL_LYSIS	MerB organomercurial lyase	Single catalytic protein.
+SYS_DF_MG_GLOA	DF_MG_GLYOXALASE_I	GloA glyoxalase I	Single catalytic protein.
+SYS_DF_MG_GLOB	DF_MG_GLYOXALASE_II	GloB glyoxalase II	Single catalytic protein.
+SYS_DF_SOD_FEMN	DF_SUPEROXIDE_REMOVAL	Fe/Mn superoxide dismutase	Single catalytic protein; the KO does not distinguish iron from manganese but both catalyse the same reaction.
+SYS_DF_SOD_CUZN	DF_SUPEROXIDE_REMOVAL	Cu/Zn superoxide dismutase	Single catalytic protein.
+SYS_DF_CATALASE	DF_PEROXIDE_REMOVAL	monofunctional catalase	Single catalytic protein.
+SYS_DF_KATG	DF_PEROXIDE_REMOVAL	catalase-peroxidase KatG	Single catalytic protein with catalase activity.
+SYS_DF_MN_CATALASE	DF_PEROXIDE_REMOVAL	manganese catalase	Single catalytic protein.
+SYS_DF_AHPCF	DF_PEROXIDE_REMOVAL	AhpC-AhpF peroxide-removal system	The peroxiredoxin catalytic subunit and its NADH-dependent reductase are jointly required.

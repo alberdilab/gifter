@@ -978,3 +978,37 @@ EC	1.8.4.10	adenylyl-sulfate reductase (thioredoxin)	Reaction-specific activity 
 KO	K00380	cysJ; sulfite reductase (NADPH) flavoprotein alpha-component	KEGG orthology marker.
 KO	K00381	cysI; sulfite reductase (NADPH) hemoprotein beta-component	KEGG orthology marker.
 KO	K00392	sir; sulfite reductase (ferredoxin)	KEGG orthology marker.
+KO	K00836	ectB; diaminobutyrate-2-oxoglutarate transaminase	KEGG orthology marker specific to the first ectoine-tail reaction.
+KO	K06718	ectA; L-2,4-diaminobutyric acid acetyltransferase	KEGG orthology marker.
+KO	K06720	ectC; L-ectoine synthase	KEGG orthology marker.
+KO	K01599	hemE; uroporphyrinogen decarboxylase	KEGG orthology marker.
+KO	K00228	hemF; coproporphyrinogen III oxidase	KEGG orthology marker for the oxygen-dependent enzyme.
+KO	K02495	hemN; oxygen-independent coproporphyrinogen III oxidase	KEGG orthology marker.
+KO	K00230	hemG; menaquinone-dependent protoporphyrinogen oxidase	KEGG orthology marker.
+KO	K00231	hemY; protoporphyrinogen/coproporphyrinogen III oxidase	KEGG orthology marker with two reaction-specific uses.
+KO	K08973	hemJ; protoporphyrinogen IX oxidase	KEGG orthology marker.
+KO	K01772	hemH; protoporphyrin/coproporphyrin ferrochelatase	KEGG orthology marker with two reaction-specific uses.
+KO	K00435	hemQ; hydrogen peroxide-dependent heme synthase	KEGG orthology marker.
+KO	K01252	entB; bifunctional isochorismate lyase and aryl carrier protein	KEGG orthology marker with two component-specific uses.
+KO	K00216	entA; 2,3-dihydro-2,3-dihydroxybenzoate dehydrogenase	KEGG orthology marker.
+KO	K02362	entD; enterobactin synthetase component D and phosphopantetheinyl transferase	KEGG orthology marker.
+KO	K02363	entE; 2,3-dihydroxybenzoate aryl-carrier-protein ligase	KEGG orthology marker.
+KO	K02364	entF; serine-activating enterobactin synthetase component F	KEGG orthology marker.
+KO	K01759	gloA; lactoylglutathione lyase	KEGG orthology marker for glyoxalase I.
+KO	K01069	gloB; hydroxyacylglutathione hydrolase	KEGG orthology marker for glyoxalase II.
+KO	K04564	sodA/sodB; superoxide dismutase, Fe-Mn family	KEGG orthology marker.
+KO	K04565	sodC; superoxide dismutase, Cu-Zn family	KEGG orthology marker.
+KO	K03781	katE; catalase	KEGG orthology marker.
+KO	K03782	katG; catalase-peroxidase	KEGG orthology marker.
+KO	K07217	manganese catalase	KEGG orthology marker.
+KO	K03386	ahpC; peroxiredoxin 2/4 family catalytic subunit	KEGG orthology marker accepted only with AhpF for this mechanism.
+KO	K03387	ahpF; NADH-dependent peroxiredoxin subunit F	KEGG orthology marker accepted only with AhpC for this mechanism.
+KO	K00108	betA; choline dehydrogenase	KEGG orthology marker.
+KO	K11440	gbsB; choline dehydrogenase	KEGG orthology marker for the Gram-positive architecture.
+KO	K00499	choline monooxygenase	KEGG orthology marker.
+KO	K17755	choline oxidase	KEGG orthology marker whose enzyme catalyses both route reactions.
+KO	K00130	betB/gbsA; betaine-aldehyde dehydrogenase	KEGG orthology marker specific to the aldehyde at the requested boundary.
+KO	K00589	MET1; uroporphyrin-III C-methyltransferase	KEGG orthology marker.
+KO	K02496	hemX; uroporphyrin-III C-methyltransferase	KEGG orthology marker.
+KO	K13543	hemDX; uroporphyrinogen III methyltransferase / synthase	KEGG orthology marker whose fusion supplies the methyltransferase reaction.
+KO	K03794	sirB; sirohydrochlorin ferrochelatase	KEGG orthology marker specific to EC 4.99.1.4.

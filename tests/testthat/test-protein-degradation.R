@@ -97,7 +97,10 @@ test_that("refused substrates have no GIFT and no marker evidence", {
   )
   claimed <- tolower(paste(gift_text$gift_id, gift_text$name))
   for (substrate in refused_substrates) {
-    expect_false(any(grepl(substrate, claimed, fixed = TRUE)))
+    # Match a whole lexical token: enterobactin contains the letters "actin"
+    # but is not a protein-substrate claim.
+    pattern <- sprintf("(^|[^a-z])%s([^a-z]|$)", substrate)
+    expect_false(any(grepl(pattern, claimed)))
   }
 
   accepted <- DBI::dbGetQuery(

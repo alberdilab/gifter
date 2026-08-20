@@ -393,3 +393,26 @@ RHEA:11724	RHEA:11724	PAPS reductase reaction	Rhea writes sulfite + oxidised thi
 RHEA:21976	RHEA:21976	APS reductase reaction	Rhea writes sulfite + oxidised thioredoxin + AMP = APS + reduced thioredoxin; the assimilatory route traverses it in reverse.
 RHEA:13804	RHEA:13804	NADPH sulfite reductase reaction	Rhea writes hydrogen sulfide oxidation to sulfite with NADP reduction; the assimilatory route traverses it in reverse.
 RHEA:23132	RHEA:23132	ferredoxin sulfite reductase reaction	Rhea writes hydrogen sulfide oxidation to sulfite with ferredoxin reduction; the assimilatory route traverses it in reverse.
+RHEA:11160	RHEA:11160	diaminobutanoate aminotransferase reaction	L-2,4-diaminobutanoate + 2-oxoglutarate = L-aspartate 4-semialdehyde + L-glutamate. Ectoine biosynthesis traverses the master in reverse.
+RHEA:16901	RHEA:16901	diaminobutanoate acetyltransferase reaction	L-2,4-diaminobutanoate + acetyl-CoA = N-acetyl-L-2,4-diaminobutanoate + CoA + H(+).
+RHEA:17281	RHEA:17281	ectoine synthase reaction	N-acetyl-L-2,4-diaminobutanoate = L-ectoine + water.
+RHEA:19865	RHEA:19865	uroporphyrinogen III decarboxylase reaction	uroporphyrinogen III + 4 H(+) = coproporphyrinogen III + 4 carbon dioxide.
+RHEA:18257	RHEA:18257	oxygen-dependent coproporphyrinogen oxidase reaction	coproporphyrinogen III + oxygen + 2 H(+) = protoporphyrinogen IX + 2 carbon dioxide + 2 water.
+RHEA:15425	RHEA:15425	oxygen-independent coproporphyrinogen oxidase reaction	coproporphyrinogen III + 2 S-adenosyl-L-methionine = protoporphyrinogen IX + 2 5'-deoxyadenosine + 2 L-methionine + 2 carbon dioxide.
+RHEA:25576	RHEA:25576	oxygen-dependent protoporphyrinogen oxidase reaction	protoporphyrinogen IX + 3 oxygen = protoporphyrin IX + 3 hydrogen peroxide.
+RHEA:27409	RHEA:27409	menaquinone-dependent protoporphyrinogen oxidase reaction	protoporphyrinogen IX + 3 menaquinone = protoporphyrin IX + 3 menaquinol.
+RHEA:62000	RHEA:62000	HemJ protoporphyrinogen oxidase reaction	protoporphyrinogen IX + 3 A = protoporphyrin IX + 3 AH2. Rhea leaves the electron acceptor abstract; the HemJ marker identifies the enzyme.
+RHEA:22584	RHEA:22584	protoporphyrin ferrochelatase reaction	heme b + 2 H(+) = protoporphyrin IX + Fe(2+). Heme biosynthesis traverses the master in reverse.
+RHEA:43436	RHEA:43436	coproporphyrinogen III oxidase reaction	coproporphyrinogen III + 3 oxygen = coproporphyrin III + 3 hydrogen peroxide.
+RHEA:49572	RHEA:49572	coproporphyrin ferrochelatase reaction	Fe-coproporphyrin III + 2 H(+) = coproporphyrin III + Fe(2+). Heme biosynthesis traverses the master in reverse.
+RHEA:56516	RHEA:56516	hydrogen peroxide-dependent heme synthase reaction	Fe-coproporphyrin III + 2 hydrogen peroxide + 2 H(+) = heme b + 2 carbon dioxide + 4 water.
+RHEA:11112	RHEA:11112	isochorismate lyase reaction	isochorismate + water = 2,3-dihydro-2,3-dihydroxybenzoate + pyruvate.
+RHEA:23824	RHEA:23824	2,3-dihydro-2,3-dihydroxybenzoate dehydrogenase reaction	2,3-dihydro-2,3-dihydroxybenzoate + NAD(+) = 2,3-dihydroxybenzoate + NADH + H(+).
+RHEA:30571	RHEA:30571	enterobactin synthetase aggregate reaction	3 2,3-dihydroxybenzoate + 3 L-serine + 6 ATP = enterobactin + 6 AMP + 6 diphosphate + 4 H(+). The complete enzyme system includes carrier activation and both NRPS substrates.
+RHEA:17433	RHEA:17433	acceptor-dependent choline dehydrogenase reaction	choline + A = betaine aldehyde + AH2.
+RHEA:33051	RHEA:33051	NAD-dependent choline dehydrogenase reaction	choline + NAD(+) = betaine aldehyde + NADH + H(+).
+RHEA:17769	RHEA:17769	choline monooxygenase reaction	choline + reduced ferredoxin + oxygen + protons = betaine aldehyde hydrate + oxidized ferredoxin + water.
+RHEA:13505	RHEA:13505	choline oxidase first reaction	choline + oxygen = betaine aldehyde + hydrogen peroxide.
+RHEA:20369	RHEA:20369	choline oxidase second reaction	betaine aldehyde + oxygen + water = glycine betaine + hydrogen peroxide + H(+).
+RHEA:15305	RHEA:15305	betaine-aldehyde dehydrogenase reaction	betaine aldehyde + NAD(+) + water = glycine betaine + NADH + 2 H(+). The NADP reaction is not materialised because the same accepted KO serves both and adds no genomic discrimination.
+RHEA:24360	RHEA:24360	sirohydrochlorin ferrochelatase reaction	siroheme + 2 H(+) = sirohydrochlorin + Fe(2+).

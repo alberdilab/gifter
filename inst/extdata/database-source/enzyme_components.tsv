@@ -551,3 +551,31 @@ COMP_21976_CYSH	SYS_21976_CYSH_APS	APS reductase	Required catalytic activity.
 COMP_13804_CYSJ	SYS_13804_CYSJI	CysJ sulfite-reductase flavoprotein	Required electron-transfer subunit.
 COMP_13804_CYSI	SYS_13804_CYSJI	CysI sulfite-reductase hemoprotein	Required catalytic subunit.
 COMP_23132_SIR	SYS_23132_SIR	ferredoxin sulfite reductase	Required catalytic protein.
+COMP_11160_ECTB	SYS_11160_ECTB	EctB	Required catalytic protein.
+COMP_16901_ECTA	SYS_16901_ECTA	EctA	Required catalytic protein.
+COMP_17281_ECTC	SYS_17281_ECTC	EctC	Required catalytic protein.
+COMP_19865_HEME	SYS_19865_HEME	HemE	Required catalytic protein.
+COMP_18257_HEMF	SYS_18257_HEMF	HemF	Required catalytic protein.
+COMP_15425_HEMN	SYS_15425_HEMN	HemN	Required catalytic protein.
+COMP_25576_HEMY	SYS_25576_HEMY	HemY protoporphyrinogen oxidase	Required catalytic protein.
+COMP_27409_HEMG	SYS_27409_HEMG	HemG	Required catalytic protein.
+COMP_62000_HEMJ	SYS_62000_HEMJ	HemJ	Required catalytic protein.
+COMP_22584_HEMH	SYS_22584_HEMH	HemH protoporphyrin ferrochelatase	Required catalytic protein.
+COMP_43436_HEMY	SYS_43436_HEMY	HemY coproporphyrinogen oxidase	Required catalytic protein.
+COMP_49572_HEMH	SYS_49572_HEMH	HemH coproporphyrin ferrochelatase	Required catalytic protein.
+COMP_56516_HEMQ	SYS_56516_HEMQ	HemQ	Required catalytic protein.
+COMP_11112_ENTB	SYS_11112_ENTB	EntB isochorismate lyase	Required catalytic protein; its aryl-carrier domain is separately required downstream.
+COMP_23824_ENTA	SYS_23824_ENTA	EntA	Required catalytic protein.
+COMP_30571_ENTB	SYS_30571_ENTBDEF	EntB aryl carrier	Required phosphopantetheinylated carrier component.
+COMP_30571_ENTD	SYS_30571_ENTBDEF	EntD phosphopantetheinyl transferase	Required to activate the EntB and EntF carrier domains.
+COMP_30571_ENTE	SYS_30571_ENTBDEF	EntE dihydroxybenzoate ligase	Required to load 2,3-dihydroxybenzoate onto holo-EntB.
+COMP_30571_ENTF	SYS_30571_ENTBDEF	EntF nonribosomal peptide synthetase	Required for serine activation, condensation and trilactone cyclisation.
+COMP_17433_BETA	SYS_17433_BETA	BetA	Required catalytic protein.
+COMP_33051_GBSB	SYS_33051_GBSB	GbsB	Required catalytic protein.
+COMP_17769_CMO	SYS_17769_CMO	choline monooxygenase	Required catalytic protein.
+COMP_13505_CODA	SYS_13505_CODA	choline oxidase	Required catalytic protein.
+COMP_20369_CODA	SYS_20369_CODA	choline oxidase	Required catalytic protein.
+COMP_15305_BADH	SYS_15305_BADH	betaine-aldehyde dehydrogenase	Required catalytic protein.
+COMP_24360_CYSG	SYS_24360_CYSG	multifunctional siroheme synthase CysG	Required catalytic protein.
+COMP_24360_MET8	SYS_24360_MET8	precorrin-2 dehydrogenase and sirohydrochlorin ferrochelatase Met8	Required catalytic protein.
+COMP_24360_SIRB	SYS_24360_SIRB	sirohydrochlorin ferrochelatase SirB	Required catalytic protein.

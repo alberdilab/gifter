@@ -41,7 +41,8 @@ test_that("gift_type reaches the browsing API and the call summary", {
     list_gifts(type = "defense")$gift_id,
     c(
       "type_i_restriction_modification", "type_i_e_crispr_cas_machinery",
-      "mercury_detoxification"
+      "mercury_detoxification", "methylglyoxal_detoxification",
+      "superoxide_detoxification"
     )
   )
   expect_equal(nrow(list_gifts(type = "regulatory")), 3L)

@@ -440,3 +440,22 @@ NITROGEN	biomass_essential	no	Curated with nitrogen fixation in 2026.20.1.
 SULFATE	molecular_tier	small_molecule	Curated with sulfate assimilation in 2026.20.1.
 SULFATE	resource_origin	inorganic	Curated with sulfate assimilation in 2026.20.1.
 SULFATE	biomass_essential	no	Curated with sulfate assimilation in 2026.20.1.
+ECTOINE	molecular_tier	small_molecule	Ectoine is the molecular output of the curated EctABC route.
+ECTOINE	resource_origin	microbially_derived	Microorganisms synthesize ectoine; this annotation does not imply extracellular release.
+ECTOINE	biomass_essential	no	The capability does not make an essentiality or osmotic-tolerance claim.
+HEME_B	molecular_tier	small_molecule	Heme b is the molecular output shared by the curated routes.
+HEME_B	resource_origin	central_metabolism	Produced from the uroporphyrinogen III tetrapyrrole branchpoint.
+HEME_B	biomass_essential	yes	A cellular cofactor product on the same curation convention as cobamides and menaquinone; the facet does not assert universal auxotrophy.
+DIHYDROXYBENZOATE_2_3	molecular_tier	small_molecule	The catecholate is exposed as a reusable biosynthetic branchpoint.
+DIHYDROXYBENZOATE_2_3	resource_origin	microbially_derived	Produced from chorismate; release is not claimed.
+DIHYDROXYBENZOATE_2_3	biomass_essential	no	No requirement for biomass formation is claimed.
+ENTEROBACTIN	molecular_tier	small_molecule	The anchor denotes the assembled siderophore without secretion or iron-uptake context.
+ENTEROBACTIN	resource_origin	microbially_derived	Produced by microbial siderophore assembly; secretion is not claimed.
+ENTEROBACTIN	biomass_essential	no	No requirement for biomass formation is claimed.
+CHOLINE	molecular_tier	small_molecule	Choline is the input boundary of the oxidation routes.
+CHOLINE	resource_origin	animal_derived	Abundant in phosphatidylcholine and other animal-derived material.
+CHOLINE	resource_origin	host_derived	A host-associated choline pool may derive from host phospholipids.
+CHOLINE	biomass_essential	no	No requirement for biomass formation is claimed.
+SIROHEME	molecular_tier	small_molecule	Siroheme is the exact molecular output of the curated route and a branchpoint toward siroheme-dependent proteins and alternative heme chemistry.
+SIROHEME	resource_origin	central_metabolism	Produced from the uroporphyrinogen III tetrapyrrole branchpoint.
+SIROHEME	biomass_essential	yes	A cellular cofactor product on the same convention as heme b; the facet does not assert universal auxotrophy or cofactor use.

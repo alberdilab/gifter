@@ -1,4 +1,15 @@
 change_id	gift_id
+DBC-20260820-COMPATIBLE-SOLUTES	ectoine_biosynthesis
+DBC-20260820-COMPATIBLE-SOLUTES	choline_to_betaine
+DBC-20260820-HEME-B	heme_b_biosynthesis
+DBC-20260820-ENTEROBACTIN-SPLIT	dihydroxybenzoate_biosynthesis
+DBC-20260820-ENTEROBACTIN-SPLIT	enterobactin_biosynthesis
+DBC-20260820-CHEMICAL-DETOX-EXPANSION	methylglyoxal_detoxification
+DBC-20260820-CHEMICAL-DETOX-EXPANSION	superoxide_detoxification
+DBC-20260820-SIROHEME-BIOSYNTHESIS	siroheme_biosynthesis
+DBC-20260820-AHB-DECARBOXYLASE-REFUSAL	siroheme_biosynthesis
+DBC-20260820-AHB-DECARBOXYLASE-REFUSAL	heme_b_biosynthesis
+DBC-20260820-PHB-REFUSED	pyruvate_to_acetyl_coa
 DBC-20260817-INITIAL-CURATION	purine_core_biosynthesis
 DBC-20260817-INITIAL-CURATION	adenylate_biosynthesis
 DBC-20260817-INITIAL-CURATION	guanylate_biosynthesis

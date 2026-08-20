@@ -1062,3 +1062,163 @@ not an enzyme-system alternative for direct malate synthase.
 All marker-level acceptances and refusals are recorded in
 `component_markers.tsv`, `markers.tsv` and `database_changes.tsv`, linked to the
 affected GIFTs in `change_gifts.tsv`.
+
+## Compatible solutes, heme b, enterobactin and detoxification, release 2026.20.2
+
+Curated 2026-08-20 against Rhea release 141, ChEBI release 253 and KEGG records
+retrieved that day. The complete candidate assessment, boundaries, route table,
+refusals and retrigger conditions are in
+[the release proposal](../../doc/proposal-compatible-solutes-heme-enterobactin-detoxification.md).
+
+### Primary database records
+
+- Rhea `RHEA:11160`, `RHEA:16901` and `RHEA:17281`; KEGG M00033; MetaCyc
+  P101-PWY for the ectoine tail.
+- Rhea `RHEA:19865`, `RHEA:18257`, `RHEA:15425`, `RHEA:25576`,
+  `RHEA:27409`, `RHEA:62000`, `RHEA:22584`, `RHEA:43436`, `RHEA:49572`
+  and `RHEA:56516`; KEGG M00121 and M00926; MetaCyc HEME-BIOSYNTHESIS-II,
+  HEMESYN2-PWY and PWY-7766 for heme b.
+- Rhea `RHEA:18985`, `RHEA:11112`, `RHEA:23824` and `RHEA:30571`; KEGG
+  map01053; MetaCyc ENTBACSYN-PWY for the two enterobactin segments.
+- Rhea `RHEA:17433`, `RHEA:33051`, `RHEA:17769`, `RHEA:13505`,
+  `RHEA:20369` and `RHEA:15305`; KEGG M00555; MetaCyc BETSYN-PWY and
+  PWY-3722 for choline oxidation.
+- Rhea `RHEA:19069` and `RHEA:25245`; MetaCyc PWY-5386 for the
+  glutathione-dependent methylglyoxal mechanism.
+- Rhea `RHEA:20696`, `RHEA:20309` and the generic hydroperoxide reaction
+  `RHEA:62620`; MetaCyc DETOX1-PWY and DETOX1-PWY-1 for complete superoxide
+  detoxification.
+- ChEBI `CHEBI:58515` L-ectoine, `CHEBI:60344` heme b, `CHEBI:36654`
+  2,3-dihydroxybenzoate, `CHEBI:77805` enterobactin and `CHEBI:15354`
+  choline, taken from the accepted Rhea reaction participants.
+
+The Rhea 141 `rhea2kegg_reaction.tsv` file does not map KEGG R09489 to
+`RHEA:27409`, so no KEGG reaction xref was asserted for the HemG reaction.
+Rhea leaves HemJ's electron acceptor abstract in `RHEA:62000`, and that lower
+chemical specificity is stated in the reaction and evidence notes.
+
+### Specialist and primary literature
+
+- Richter AA et al. *Frontiers in Microbiology* 2019, PMID 31921013, for the
+  reversible EctB reaction and the EctABC tail.
+- Boynton TO et al. *Biochemistry* 2009, PMID 19583219, for HemG; Kato K et al.
+  *PNAS* 2010, PMID 20823222, for HemJ; Dailey HA et al. *PNAS* 2015,
+  PMID 25646457, for the HemY-HemH-HemQ coproporphyrin pathway.
+- Shaw-Reid CA et al. *Chemistry & Biology* 1999, PMID 10375542, for EntB,
+  EntD, EntE and EntF assembly-line roles.
+- Ozyamak E et al. *Molecular Microbiology* 2010, PMID 21143325, for the two
+  glutathione-dependent glyoxalases; Ko J et al. *Journal of Bacteriology*
+  2005, PMID 16077126, for the broad reductases that were assessed and refused.
+- Panek HR and O'Brian MR *Journal of Bacteriology* 2004, PMID 15547258, and
+  Mishra S and Imlay JA *Archives of Biochemistry and Biophysics* 2012,
+  PMID 22609271, for catalase and Ahp peroxide clearance; Eitinger T
+  *Journal of Bacteriology* 2004, PMID 15516600, for the NiSOD maturation
+  limitation; Kurtz DM and Coulter ED 2002, PMID 12072973, for the unresolved
+  superoxide-reductase electron-delivery context.
+- Boch J et al. *Journal of Bacteriology* 1996, PMID 8752328, for the GbsAB
+  choline-to-betaine architecture.
+- Rehm BHA and colleagues' class-specific PhaC experiments, PMID 15205419,
+  PMID 24564904 and PMID 21261834, for the PHB specificity refusal.
+
+### Access and prevalence record
+
+Anonymous requests to the addressed MetaCyc pathway pages and BioCyc web
+service redirected to account creation on 2026-08-20. The identifiers and
+reaction memberships were cross-checked against the pathway export, but this
+release does not repeat the earlier claim that the web service remains
+anonymously accessible. A KEGG `link/genes/ko:` prevalence pass was also
+attempted; DNS resolution failed during the pass, and the failed empty results
+were discarded rather than reported as zero prevalence. No acceptance or
+refusal in this release depends on a prevalence threshold.
+
+### Curation decisions not imported from those sources
+
+gifter chose the ASA cut for ectoine, the UROGEN_III cut and independent route
+materialisation for heme, the 2,3-dihydroxybenzoate split for enterobactin, and
+the point at which both defense mechanisms are chemically complete. It also
+requires EntD inside the enterobactin system and both stages of superoxide
+detoxification. The database does not import MetaCyc pathway completeness as a
+call.
+
+`K14085` is refused for betaine-aldehyde specificity, `K00518` for incomplete
+NiSOD maturation, and broad methylglyoxal reductases for substrate ambiguity.
+The requested PHB GIFT is not present: `K03821` identifies PHA polymerases with
+different chain-length preferences and cannot license a PHB-specific claim.
+Those durable refusals and their retriggers are in the proposal; accepted
+call-changing decisions are in `database_changes.tsv` and `change_gifts.tsv`.
+
+## Siroheme branch, release 2026.20.3
+
+The release implements only the evidence-complete upstream half of the
+MetaCyc-expansion recommendation. `siroheme_biosynthesis` is a metabolic,
+anabolic GIFT from `UROGEN_III` to `SIROHEME`. The proposed downstream
+`siroheme_to_heme_b` GIFT is refused because its first reaction requires two
+homologous subunits that the current maintained marker vocabulary cannot tell
+apart.
+
+### Primary database records
+
+- Rhea release 141 `RHEA:32459`, `RHEA:15613` and `RHEA:24360` define the
+  three curated reactions and their master directions. The ferrochelatase
+  master is written as siroheme dechelation, so the route uses it in reverse.
+- Rhea identifies siroheme as `CHEBI:60052`. That exact microspecies is the
+  new anchor; no internal precorrin or sirohydrochlorin intermediate is
+  promoted to an anchor.
+- MetaCyc 30.0 `PWY-5194` has the same `UROGEN_III`-to-siroheme boundaries.
+  Its four direct reaction records split the two sequential methyl transfers;
+  gifter uses the chemically equivalent overall methyltransferase master
+  `RHEA:32459`, followed by the dehydrogenase and ferrochelatase masters.
+- KEGG M00846 was retrieved on 2026-08-20. It supports multifunctional CysG
+  `K02302`; methyltransferases `K00589`, `K02303`, `K02496`, `K13542` and
+  `K13543`; bifunctional Met8 `K02304`; and split SirC `K24866` plus SirB
+  `K03794`. The GIFT starts downstream of the module's glutamyl-tRNA head.
+
+The official KEGG genome and KO-to-gene tables contained 10,151 bacterial and
+470 archaeal genomes on 2026-08-20. The accepted route expression called 4,161
+bacteria and one archaeon: 3,742 bacteria carried multifunctional CysG, and a
+further 419 bacteria plus one archaeon carried a complete accepted split
+implementation. This is an evidence audit, not a prevalence threshold.
+
+### Specialist and primary literature
+
+- Woodcock et al., PMID 9461500, established the separate methyltransferase and
+  dehydrogenase/chelatase domains of multifunctional CysG.
+- Schubert et al., PMID 11980703, established bifunctional Met8 dehydrogenase
+  and ferrochelatase activity.
+- Raux et al., PMID 12408752, established the split SirA, SirC and SirB
+  methyltransferase, dehydrogenase and ferrochelatase system.
+- Kuhner et al., PMID 24669201, showed that AhbA and AhbB together form the
+  siroheme decarboxylase, followed by AhbC and AhbD.
+- Palmer et al., PMID 24865947, resolved the decarboxylase as an AhbA-AhbB
+  heterodimer and showed why both subunits are part of the complete system.
+
+### Refusal and under-call boundaries
+
+`siroheme_to_heme_b` is not implemented. Both experimentally required
+*Methanosarcina barkeri* genes, `Mbar_A1459` and `Mbar_A1460`, are assigned to
+the same KEGG orthology group, `K22225`. gifter's evidence model evaluates the
+presence of a namespaced accession and cannot require two distinct observed
+genes carrying that accession. Adding `K22225` to two components would
+therefore let one gene complete the heterodimer. Among 190 bacterial and 122
+archaeal genomes carrying the full KEGG M00847 marker expression, 45 bacteria
+and three archaea had only one `K22225` gene row, demonstrating the false
+positive rather than merely anticipating it. Reconsider the downstream GIFT
+only with AhbA/AhbB-distinguishing markers, a fusion-specific marker, or an
+explicit multiplicity-aware evidence contract.
+
+The upstream GIFT is also deliberately conservative. CbiX-family sequences can
+insert iron, cobalt or nickel into sirohydrochlorin, and primary sequence alone
+does not consistently separate those metal specificities in archaea. Only the
+iron-specific `K03794` SirB group is accepted for the split ferrochelatase.
+This under-calls real archaeal siroheme synthesis but does not promote a broad
+chelatase into an iron-specific claim.
+
+### Curation decisions not imported from those sources
+
+gifter chose `UROGEN_III` and `SIROHEME` as the only boundaries, treats the
+two MetaCyc methyl-transfer records as the one overall Rhea reaction they
+jointly instantiate, and lets the same multifunctional marker support separate
+reaction-specific components without collapsing the reaction layer. A positive
+call says only that the complete siroheme-forming chemistry is encoded. It does
+not claim cofactor incorporation, reductase activity, sulfur or nitrogen
+assimilation, alternative heme formation, expression, activity or phenotype.

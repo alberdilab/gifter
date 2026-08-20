@@ -177,3 +177,22 @@ nitrogen_fixation	KEGG_MODULE	M00175	Nitrogen fixation, nitrogen => ammonia	equi
 nitrogen_fixation	KEGG_PATHWAY	map00910	Nitrogen metabolism	subset_of	The nitrogen-fixation reaction only.
 assimilatory_sulfate_reduction	KEGG_MODULE	M00176	Assimilatory sulfate reduction, sulfate => H2S	equivalent	Same molecular boundaries. gifter additionally materialises the direct APS branch and refuses K00390 where it cannot distinguish APS from PAPS reductase activity.
 assimilatory_sulfate_reduction	KEGG_PATHWAY	map00920	Sulfur metabolism	subset_of	The assimilatory sulfate-to-sulfide route only; dissimilatory reduction is excluded.
+ectoine_biosynthesis	METACYC	P101-PWY	Ectoine biosynthesis	subset_of	The GIFT starts at L-aspartate 4-semialdehyde and retains only the EctB-EctA-EctC tail; the record also contains aspartate kinase and aspartate-semialdehyde dehydrogenase.
+ectoine_biosynthesis	KEGG_MODULE	M00033	Ectoine biosynthesis, aspartate => ectoine	subset_of	The module starts at aspartate; gifter starts at the existing ASA branchpoint.
+heme_b_biosynthesis	METACYC	HEME-BIOSYNTHESIS-II	Heme b biosynthesis I (aerobic)	equivalent	Same UROGEN_III-to-heme-b boundaries; gifter materialises additional valid enzyme combinations as separate minimal routes.
+heme_b_biosynthesis	METACYC	HEMESYN2-PWY	Heme b biosynthesis II (oxygen-independent)	equivalent	Same UROGEN_III-to-heme-b boundaries; represented by the HemN-HemG and HemN-HemJ minimal routes.
+heme_b_biosynthesis	METACYC	PWY-7766	Heme b biosynthesis IV (Gram-positive bacteria)	equivalent	Same UROGEN_III-to-heme-b boundaries through coproporphyrin and coproheme.
+heme_b_biosynthesis	KEGG_MODULE	M00121	Heme biosynthesis, plants and bacteria, glutamate => heme	subset_of	The module starts upstream of UROGEN_III; gifter retains its complete heme-b tail and materialises its independent enzyme alternatives.
+heme_b_biosynthesis	KEGG_MODULE	M00926	Heme biosynthesis, bacteria, glutamyl-tRNA => coproporphyrin III => heme	subset_of	The module starts upstream of UROGEN_III; gifter retains the HemE-HemY-HemH-HemQ tail.
+dihydroxybenzoate_biosynthesis	METACYC	ENTBACSYN-PWY	Enterobactin biosynthesis	subset_of	The GIFT is the chorismate-to-2,3-dihydroxybenzoate head only.
+dihydroxybenzoate_biosynthesis	KEGG_PATHWAY	map01053	Biosynthesis of siderophore group nonribosomal peptides	subset_of	The GIFT is the reusable catecholate-head segment only.
+enterobactin_biosynthesis	METACYC	ENTBACSYN-PWY	Enterobactin biosynthesis	subset_of	The GIFT starts at 2,3-dihydroxybenzoate plus serine and retains only enterobactin assembly.
+enterobactin_biosynthesis	KEGG_PATHWAY	map01053	Biosynthesis of siderophore group nonribosomal peptides	subset_of	The GIFT is the EntB-EntD-EntE-EntF enterobactin assembly segment only.
+methylglyoxal_detoxification	METACYC	PWY-5386	Methylglyoxal degradation I	subset_of	The defense mechanism stops at D-lactate and regenerated glutathione; the pathway record continues with D-lactate oxidation.
+superoxide_detoxification	METACYC	DETOX1-PWY	Superoxide radicals degradation	equivalent	Same chemical extent: superoxide dismutation followed by catalase removal of the peroxide product; gifter admits equivalent peroxide-removal systems.
+superoxide_detoxification	METACYC	DETOX1-PWY-1	Reactive oxygen species degradation	subset_of	The GIFT covers the superoxide-to-peroxide-to-water branch, not the record's wider peroxide and glutathione reactions.
+choline_to_betaine	METACYC	BETSYN-PWY	Glycine betaine biosynthesis I (Gram-negative bacteria)	equivalent	Same choline and glycine-betaine boundaries through the BetA-BetB architecture.
+choline_to_betaine	METACYC	PWY-3722	Glycine betaine biosynthesis II (Gram-positive bacteria)	equivalent	Same choline and glycine-betaine boundaries through the GbsB-GbsA architecture.
+choline_to_betaine	KEGG_MODULE	M00555	Betaine biosynthesis, choline => betaine	equivalent	Same boundaries; gifter materialises the genomically distinct first-enzyme and choline-oxidase alternatives and refuses broad ALDH7A1.
+siroheme_biosynthesis	METACYC	PWY-5194	Siroheme biosynthesis	equivalent	Same UROGEN_III-to-siroheme boundaries. MetaCyc records the two methyl transfers separately; gifter reuses the single overall Rhea master for that enzyme-catalysed conversion.
+siroheme_biosynthesis	KEGG_MODULE	M00846	Siroheme biosynthesis, glutamyl-tRNA => siroheme	subset_of	The module begins upstream of UROGEN_III. gifter retains the three-reaction tail and excludes broad CbiX-family evidence that cannot establish iron insertion.

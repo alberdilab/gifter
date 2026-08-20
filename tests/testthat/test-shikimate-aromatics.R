@@ -207,7 +207,10 @@ test_that("biosynthetic_family groups the layer without duplicating substrate_cl
       # are built by the shikimate pathway, and the facet says so although
       # their substrate_class is amino_acid rather than aromatic_compound.
       "phenylalanine_biosynthesis", "tyrosine_biosynthesis",
-      "tryptophan_biosynthesis"
+      "tryptophan_biosynthesis",
+      # The enterobactin head and assembly tail are both derived from the
+      # chorismate branch, even though their substrate classes differ.
+      "dihydroxybenzoate_biosynthesis", "enterobactin_biosynthesis"
     )
   )
   # If the two facets always agreed, one of them would be redundant. They do not.

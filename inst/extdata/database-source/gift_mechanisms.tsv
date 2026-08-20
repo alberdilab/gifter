@@ -2,3 +2,5 @@ mechanism_id	gift_id	name	description	status
 MECH_TYPE_I_RM	type_i_restriction_modification	type I restriction-modification system	Recognition, host protection and restriction, all three required.	curated
 MECH_TYPE_I_E_CRISPR	type_i_e_crispr_cas_machinery	type I-E CRISPR-Cas protein machinery	Cascade surveillance and Cas3 interference, with spacer acquisition accessory. The CRISPR array itself is outside what protein markers can evidence.	curated
 MECH_MER_HG	mercury_detoxification	mer operon mercury detoxification	Reduction of Hg(II) to Hg(0) by MerA, required, with metal delivery, mercury-responsive induction and organomercurial lysis accessory.	curated
+MECH_MG_GLYOXALASE	methylglyoxal_detoxification	glutathione-dependent glyoxalase mechanism	Glyoxalase I and glyoxalase II are both required to convert methylglyoxal to D-lactate and regenerate glutathione.	curated
+MECH_SUPEROXIDE_COMPLETE	superoxide_detoxification	complete superoxide-to-water detoxification	One superoxide-removal system and one hydrogen-peroxide-removal system are both required.	curated

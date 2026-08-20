@@ -17,3 +17,12 @@ COMP_DF_MERC	SYS_DF_MERC	MerC transporter	Alternative inner-membrane mercury tra
 COMP_DF_MERE	SYS_DF_MERE	MerE transporter	Alternative transporter, permeable to organomercurials as well as Hg(II).
 COMP_DF_MERR	SYS_DF_MERR	MerR activator	Binds Hg(II) and activates the operon promoter.
 COMP_DF_MERB	SYS_DF_MERB	MerB organomercurial lyase	Cleaves the carbon-mercury bond.
+COMP_DF_MG_GLOA	SYS_DF_MG_GLOA	GloA glyoxalase I	Forms S-lactoylglutathione from the methylglyoxal-glutathione adduct.
+COMP_DF_MG_GLOB	SYS_DF_MG_GLOB	GloB glyoxalase II	Hydrolyses S-lactoylglutathione and regenerates glutathione.
+COMP_DF_SOD_FEMN	SYS_DF_SOD_FEMN	Fe/Mn superoxide dismutase	Dismutates superoxide.
+COMP_DF_SOD_CUZN	SYS_DF_SOD_CUZN	Cu/Zn superoxide dismutase	Dismutates superoxide.
+COMP_DF_CATALASE	SYS_DF_CATALASE	catalase	Dismutates hydrogen peroxide.
+COMP_DF_KATG	SYS_DF_KATG	catalase-peroxidase	Removes hydrogen peroxide through its catalase activity.
+COMP_DF_MN_CATALASE	SYS_DF_MN_CATALASE	manganese catalase	Dismutates hydrogen peroxide without heme.
+COMP_DF_AHPC	SYS_DF_AHPCF	AhpC peroxiredoxin catalytic subunit	Reduces peroxide and becomes oxidised.
+COMP_DF_AHPF	SYS_DF_AHPCF	AhpF NADH-dependent reductase	Regenerates reduced AhpC.
