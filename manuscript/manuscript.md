@@ -678,7 +678,8 @@ modelling as a source of curated, non-gap-filled capability claims.]*
   Zenodo DOI]*
 - Licence: MIT No Attribution (MIT-0)
 - Documentation: package manual, architecture guide, and the self-contained
-  database atlas shipped with the package.
+  database atlas published with the package website and reproducible locally
+  from the packaged database.
 - Reference database version used in this paper: *[version, schema, and the
   upstream Rhea/ChEBI/KEGG releases it was curated against]*
 - Analysis code and data for Section 7: *[repository/DOI]*

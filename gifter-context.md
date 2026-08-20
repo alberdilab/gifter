@@ -799,8 +799,10 @@ containing: release metadata and row counts; two whole-database network views
 (GIFT composition, and GIFTs drawn with their declared anchors); a merged route
 network per GIFT; the complete GIFT-to-marker evidence hierarchy; the curation
 changelog linked to the traits each change affects; an entity map; and a
-searchable browser for every SQLite table. A packaged snapshot lives at
-`inst/extdata/gifter-database.html` and is refreshed by the build script.
+searchable browser for every SQLite table. The current public atlas lives at
+`https://alberdilab.github.io/gifter/atlas/`; the package website workflow
+generates it from the installed SQLite database. The installed package keeps
+the generator and database, not a duplicate rendered snapshot.
 
 ---
 
@@ -970,7 +972,6 @@ gifter/
 │   ├── schema/gifter.sql           the relational contract (18 tables, 2 views)
 │   ├── extdata/database-source/   the 18 hand-curated TSVs — the source of truth
 │   ├── extdata/gifter.sqlite       compiled artifact (never hand-edited)
-│   ├── extdata/gifter-database.html packaged atlas snapshot
 │   ├── templates/                 atlas CSS and JS
 │   └── doc/
 │       ├── architecture.md        the full development and architecture guide

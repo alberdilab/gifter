@@ -10,6 +10,9 @@ Description: Infers whether a genome encodes a biologically defined enzymatic
     complete and closest incomplete routes together with auditable genomic
     evidence.
 License: file LICENSE
+URL: https://alberdilab.github.io/gifter/,
+    https://github.com/alberdilab/gifter
+BugReports: https://github.com/alberdilab/gifter/issues
 Encoding: UTF-8
 Depends: R (>= 4.1.0)
 Imports:
@@ -24,4 +27,5 @@ Suggests:
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 Config/build/clean-inst-doc: FALSE
+Config/Needs/website: pkgdown
 RoxygenNote: 7.3.3

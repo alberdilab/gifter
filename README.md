@@ -83,9 +83,9 @@ completes the first and not the second, and the fix is never to widen the
 generic marker.
 
 Every refusal is recorded in the database changelog and in the type proposals:
-[structural](inst/doc/proposal-structural-gifts.md),
-[regulatory](inst/doc/proposal-regulatory-gifts.md),
-[defense](inst/doc/proposal-defense-gifts.md).
+[structural](https://github.com/alberdilab/gifter/blob/main/inst/doc/proposal-structural-gifts.md),
+[regulatory](https://github.com/alberdilab/gifter/blob/main/inst/doc/proposal-regulatory-gifts.md),
+[defense](https://github.com/alberdilab/gifter/blob/main/inst/doc/proposal-defense-gifts.md).
 
 ## Install
 
@@ -108,9 +108,9 @@ browseVignettes("gifter")
 
 | Vignette | Covers |
 |---|---|
-| [1. Evaluating a genome](vignettes/evaluating-a-genome.Rmd) | the input format, which markers were used, reading complete and incomplete calls, why evidence specificity bounds a claim, tracing a call back to genes |
-| [2. From calls to quantitative traits](vignettes/quantitative-traits.Rmd) | reference universes, richness and breadth, when gifter refuses to give you a fraction, MAG completeness and honest denominators |
-| [3. A genome-resolved community](vignettes/community-analysis.Rmd) | provider counts and redundancy, presence versus abundance, potential resource handoffs, and why a cytoplasmic molecule never crosses between genomes |
+| [1. Evaluating a genome](https://alberdilab.github.io/gifter/articles/evaluating-a-genome.html) | the input format, which markers were used, reading complete and incomplete calls, why evidence specificity bounds a claim, tracing a call back to genes |
+| [2. From calls to quantitative traits](https://alberdilab.github.io/gifter/articles/quantitative-traits.html) | reference universes, richness and breadth, when gifter refuses to give you a fraction, MAG completeness and honest denominators |
+| [3. A genome-resolved community](https://alberdilab.github.io/gifter/articles/community-analysis.html) | provider counts and redundancy, presence versus abundance, potential resource handoffs, and why a cytoplasmic molecule never crosses between genomes |
 
 ## Evaluate a genome
 
@@ -249,7 +249,7 @@ orotidine 5'-phosphate are intentionally absent from the anchor vocabulary.
 ## Curating and rebuilding
 
 The reviewable source of truth is
-[`inst/extdata/database-source`](inst/extdata/database-source). The SQLite file
+[`inst/extdata/database-source`](https://github.com/alberdilab/gifter/tree/main/inst/extdata/database-source). The SQLite file
 is a compiled artifact, never the hand-curated source.
 
 ```r
@@ -268,6 +268,12 @@ database:
 write_gifter_database_html("gifter-database.html", open = TRUE)
 ```
 
+The current reference atlas is also published at
+[alberdilab.github.io/gifter/atlas](https://alberdilab.github.io/gifter/atlas/).
+It is generated from the packaged SQLite database by the documentation workflow;
+the public page is a view of that versioned artifact, not a separate source of
+biological definitions.
+
 The report includes release metadata and row counts, a whole-database network
 view drawing every GIFT together with its declared anchors, in which a GIFT is a
 large dot and an anchor a small one -- hover a dot for its identifier and
@@ -285,9 +291,12 @@ database_changelog("pyrimidine_core_biosynthesis")
 ```
 
 Package and API changes are tracked separately in
-[CHANGELOG.md](CHANGELOG.md). The package build script also refreshes the
-packaged snapshot at `inst/extdata/gifter-database.html`.
+[CHANGELOG.md](CHANGELOG.md). The package build script refreshes the compiled
+SQLite database. The HTML atlas is generated on demand locally and by the
+package website workflow, so the installed package does not carry a second copy
+of the same database content.
 
-See [the architecture guide](inst/doc/architecture.md) for the schema, curation
-rules, version model, and design boundaries. Contributors and coding agents
-should also follow the repository-wide [agent instructions](AGENTS.md).
+See [the architecture guide](https://github.com/alberdilab/gifter/blob/main/inst/doc/architecture.md)
+for the schema, curation rules, version model, and design boundaries.
+Contributors and coding agents should also follow the repository-wide
+[agent instructions](https://github.com/alberdilab/gifter/blob/main/AGENTS.md).

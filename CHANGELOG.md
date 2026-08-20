@@ -15,6 +15,26 @@ versioned with the package.
 
 ## Package 0.1.0 (in development)
 
+### 2026-08-20T08:02Z — Database atlas published with the package website
+
+**Change.** The package now has a pkgdown website deployed to GitHub Pages by
+GitHub Actions. The workflow installs the package, builds its reference and
+vignette documentation, and generates `atlas/index.html` from the SQLite
+database in that same installation. The atlas is checked on pull requests and
+deployed from `main`. **No schema, database content, or evaluation change.**
+
+**Why.** The 8.7 MB self-contained atlas was installed beside the 1.6 MB SQLite
+database from which it can be reproduced. That duplicated database content,
+inflated every installation, and gave a generated report the appearance of a
+second packaged source artifact.
+
+**Effect.** The current atlas is browsable at
+`https://alberdilab.github.io/gifter/atlas/`. Users can still create an offline
+or shareable report with `write_gifter_database_html()`, but
+`inst/extdata/gifter-database.html` is no longer shipped. The curated TSV
+sources remain authoritative and the SQLite database remains the compiled
+runtime artifact.
+
 ### 2026-08-20T06:16Z — Package renamed from giftr to gifter
 
 **Change.** The R package is now named `gifter`, avoiding the

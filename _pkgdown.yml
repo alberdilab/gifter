@@ -1,0 +1,13 @@
+url: https://alberdilab.github.io/gifter/
+
+template:
+  bootstrap: 5
+
+navbar:
+  structure:
+    left: [reference, articles, atlas]
+    right: [search, github]
+  components:
+    atlas:
+      text: Database atlas
+      href: atlas/

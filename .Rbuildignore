@@ -12,3 +12,6 @@
 ^gifter-context\.md$
 ^doc$
 ^Meta$
+^_pkgdown\.yml$
+^docs$
+^\.github$

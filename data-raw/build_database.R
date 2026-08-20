@@ -9,9 +9,3 @@ build_gifter_database(
   output = "inst/extdata/gifter.sqlite",
   overwrite = TRUE
 )
-
-# Keep the browsable database snapshot in sync with the compiled artifact.
-write_gifter_database_html(
-  output = "inst/extdata/gifter-database.html",
-  database = "inst/extdata/gifter.sqlite"
-)
