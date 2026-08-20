@@ -1,7 +1,17 @@
 # gifter
 
+[![pkgdown](https://github.com/alberdilab/gifter/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/alberdilab/gifter/actions/workflows/pkgdown.yaml)
+[![Documentation](https://img.shields.io/badge/docs-pkgdown-1f425f.svg)](https://alberdilab.github.io/gifter/)
+![Status: under development](https://img.shields.io/badge/status-under%20development-orange.svg)
+[![License: MIT-0](https://img.shields.io/badge/license-MIT--0-blue.svg)](LICENSE)
+
 gifter infers whether a genome encodes a biologically defined capability, and
 shows the curated evidence behind every call.
+
+> [!NOTE]
+> **Development status:** gifter is under active development. Its API and
+> curated reference database may change as its completeness models and content
+> mature.
 
 A genome-inferred functional trait (GIFT) is a biologically meaningful
 capability whose genomic support is evaluated through an explicit, curated and
@@ -21,13 +31,33 @@ apparatus and type IVa pilus; chemotaxis, aspartate chemoreception and
 phosphate-response signalling; and type I restriction-modification, type I-E
 CRISPR-Cas and mercury-detoxification machinery.
 
-"Functional" is intentionally broad; the precision comes from the type and from
-the completeness contract it carries. gifter deliberately does not model media,
-metabolite availability, flux, thermodynamics, growth, or genome-scale
-stoichiometry. Anchors carry only a narrow `extracellular`, `cytoplasmic`, or
-`unspecified` compartment qualifier so that transport boundaries can be stated;
-gifter models no compartment-aware reactions, mass balance or localisation
-inference.
+## What gifter does
+
+- Determines whether genomic marker evidence supports a biologically defined
+  capability, with the precision of each claim set by its `gift_type` and
+  completeness contract.
+- Evaluates metabolic routes and structural, regulatory, and defense machinery
+  through explicit Boolean models of alternatives and jointly required parts.
+- Reports complete calls and the closest incomplete implementation, including
+  the missing requirements and the markers and genes behind the result.
+- Connects metabolic capabilities only through declared molecular anchors, so
+  composition follows curated biological boundaries rather than incidental
+  shared intermediates.
+- Produces traceable genome- and community-level summaries using declared
+  reference universes and explicit denominators.
+
+## What gifter does not
+
+- Infer expression, activity, physiological state, environmental relevance, or
+  phenotype from the presence of encoded machinery.
+- Model media, nutrient or metabolite availability, concentrations, or whether
+  a capability will operate in a particular environment.
+- Perform flux balance analysis or model flux, thermodynamics, growth, biomass,
+  exchange reactions, or genome-scale stoichiometry and mass balance.
+- Infer cellular localisation. Anchors carry only a narrow `extracellular`,
+  `cytoplasmic`, or `unspecified` compartment qualifier so that transport
+  boundaries can be stated; reactions, intermediates, and markers are not
+  compartment-aware.
 
 ## The evaluation model
 
@@ -62,17 +92,12 @@ edge. Structural GIFTs declare no anchors at all: a flagellum has no input
 molecule, and inventing one to fit the metabolic schema would be a boundary
 claim nobody could defend.
 
-## What a positive call does not mean
+## Evidence specificity bounds every call
 
-A call says the genome encodes the curated machinery. It does not say the
-machinery is expressed, active, or consequential. `flagellar_apparatus` is not
-motility; `type_iva_pilus` is not twitching, competence or adhesion.
-
-The same limit applies to specificity: the specificity of a claim never exceeds
-the specificity of the evidence. KEGG assigns the sodium-driven PomA/PomB stator
-of *Vibrio* to the same orthologues as the proton-driven MotA/MotB of *E. coli*,
-so gifter curates one ion-agnostic `flagellar_apparatus` rather than two traits
-its evidence cannot separate.
+The specificity of a claim never exceeds the specificity of the evidence. KEGG
+assigns the sodium-driven PomA/PomB stator of *Vibrio* to the same orthologues as
+the proton-driven MotA/MotB of *E. coli*, so gifter curates one ion-agnostic
+`flagellar_apparatus` rather than two traits its evidence cannot separate.
 
 Where evidence *does* separate two claims, both are curated and kept apart. A
 generic chemoreceptor accession is assigned to 34 genes in one *Vibrio cholerae*
