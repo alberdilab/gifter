@@ -217,6 +217,30 @@ test_that("database HTML atlas is self-contained and reflects compiled rows", {
   expect_match(html, "gifter reference atlas", fixed = TRUE)
   expect_match(html, '<span class="brand-mark" aria-hidden="true"><svg', fixed = TRUE)
   expect_match(html, '<b>gift<span>er</span></b>', fixed = TRUE)
+  expect_match(html, 'aria-label="Site sections"', fixed = TRUE)
+  expect_match(
+    html,
+    'href="https://alberdilab.github.io/gifter/reference/index.html">Reference</a>',
+    fixed = TRUE
+  )
+  expect_match(
+    html,
+    '<details class="site-menu"><summary class="site-nav-link">Articles</summary>',
+    fixed = TRUE
+  )
+  tutorial_positions <- vapply(
+    c(
+      "1. Evaluating a genome",
+      "2. From calls to quantitative traits",
+      "3. A genome-resolved community"
+    ),
+    function(title) regexpr(title, html, fixed = TRUE)[[1]],
+    integer(1)
+  )
+  expect_true(all(tutorial_positions > 0L))
+  expect_true(all(diff(tutorial_positions) > 0L))
+  expect_match(html, 'aria-current="page">GIFT atlas</a>', fixed = TRUE)
+  expect_match(html, 'aria-label="Atlas sections"', fixed = TRUE)
   expect_match(html, "GIFT explorer", fixed = TRUE)
   expect_match(html, "purine_core_biosynthesis", fixed = TRUE)
   expect_match(html, "guanylate_biosynthesis", fixed = TRUE)

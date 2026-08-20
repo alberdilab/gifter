@@ -3,11 +3,19 @@ url: https://alberdilab.github.io/gifter/
 template:
   bootstrap: 5
 
+articles:
+- title: Tutorials
+  navbar: ~
+  contents:
+  - evaluating-a-genome
+  - quantitative-traits
+  - community-analysis
+
 navbar:
   structure:
     left: [reference, articles, atlas]
     right: [search, github]
   components:
     atlas:
-      text: Database atlas
+      text: GIFT atlas
       href: atlas/

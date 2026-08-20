@@ -15,6 +15,24 @@ versioned with the package.
 
 ## Package 0.1.0 (in development)
 
+### 2026-08-20T09:35Z — Documentation and Atlas share one navigation model
+
+**Change.** The package website and GIFT Atlas now expose the same primary
+destinations: API reference, ordered tutorial articles, and the Atlas. The
+Atlas keeps its Overview, GIFT explorer, Changelog, SQL schema, and Tables
+controls as a separate local navigation row. The article index and menu now
+declare the intended tutorial sequence explicitly: 1, 2, then 3. **No
+biological, schema, database, evaluation, or public API change.**
+
+**Why.** Atlas-only controls previously occupied the position used for global
+documentation navigation, leaving no direct route back to the API reference or
+vignettes. Pkgdown also inferred article order from filenames, which displayed
+tutorial 3 before tutorials 1 and 2.
+
+**Effect.** Users can move between the reference, articles, and Atlas from the
+same place on either surface, while Atlas views remain close at hand. Both the
+article landing page and its menu present the tutorials in reading order.
+
 ### 2026-08-20T09:03Z — Website adopts the gifter gear logo
 
 **Change.** The supplied three-gear SVG is now the package website and database

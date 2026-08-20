@@ -108,6 +108,7 @@ a { color: inherit; }
 
 .brand-mark svg { display: block; width: 100%; height: 100%; }
 
+.site-nav,
 .view-nav {
   display: flex;
   padding: 4px;
@@ -116,6 +117,7 @@ a { color: inherit; }
   background: rgba(255, 253, 248, .7);
 }
 
+.site-nav-link,
 .nav-button {
   padding: 8px 13px;
   border: 0;
@@ -129,12 +131,82 @@ a { color: inherit; }
   transition: color .18s, background .18s, box-shadow .18s;
 }
 
+.site-nav-link { text-decoration: none; }
+
+.site-menu {
+  position: relative;
+  display: flex;
+}
+
+.site-menu > summary {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.site-menu > summary::-webkit-details-marker { display: none; }
+
+.site-menu > summary::after {
+  width: 0;
+  height: 0;
+  border-top: 4px solid currentColor;
+  border-right: 3.5px solid transparent;
+  border-left: 3.5px solid transparent;
+  content: "";
+}
+
+.site-menu[open] > summary {
+  color: var(--forest);
+  background: var(--surface);
+  box-shadow: 0 2px 8px rgba(23, 51, 48, .09);
+}
+
+.site-menu-list {
+  position: absolute;
+  z-index: 70;
+  top: calc(100% + 8px);
+  left: 50%;
+  width: 270px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transform: translateX(-50%);
+}
+
+.site-menu-list a {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: var(--ink);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.site-menu-list a:hover,
+.site-menu-list a:focus {
+  color: var(--forest);
+  background: var(--mint-pale);
+}
+
+.site-nav-link:hover,
 .nav-button:hover { color: var(--forest); }
 
+.site-nav-link.active,
 .nav-button.active {
   color: var(--forest);
   background: var(--surface);
   box-shadow: 0 2px 8px rgba(23, 51, 48, .09);
+}
+
+.view-nav {
+  width: max-content;
+  max-width: calc(100% - 40px);
+  margin: 18px auto 34px;
+  overflow-x: auto;
 }
 
 .global-search {
@@ -2104,8 +2176,8 @@ footer {
 
 @media (max-width: 1180px) {
   .site-header { grid-template-columns: auto 1fr auto; gap: 12px; }
-  .view-nav { justify-self: center; }
-  .nav-button { padding-inline: 9px; font-size: 11px; }
+  .site-nav { justify-self: center; }
+  .site-nav-link, .nav-button { padding-inline: 9px; font-size: 11px; }
   .global-search { width: 240px; }
   .metric-grid { grid-template-columns: repeat(3, 1fr); gap: 22px 12px; }
   .schema-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -2129,8 +2201,9 @@ footer {
   .dot-legend-block { align-items: flex-start; }
   .dot-key { flex-direction: row; }
   .site-header { position: relative; grid-template-columns: 1fr auto; padding-block: 12px; }
-  .view-nav { grid-column: 1 / -1; grid-row: 2; order: 3; width: 100%; overflow-x: auto; }
-  .nav-button { flex: 1; }
+  .site-nav { grid-column: 1 / -1; grid-row: 2; order: 3; width: 100%; }
+  .site-nav > .site-nav-link, .site-menu { flex: 1; }
+  .site-nav-link { justify-content: center; width: 100%; text-align: center; }
   .global-search { width: min(45vw, 300px); }
   .schema-layout { grid-template-columns: 1fr; }
   .relationships { position: static; }
@@ -2139,7 +2212,14 @@ footer {
 @media (max-width: 650px) {
   .site-header { grid-template-columns: 1fr; }
   .global-search { grid-row: 2; justify-self: stretch; width: 100%; }
-  .view-nav { grid-row: 3; }
+  .site-nav { grid-row: 3; }
+  .view-nav {
+    max-width: calc(100% - 26px);
+    margin-block: 14px 28px;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: visible;
+  }
   main { padding-inline: 13px; }
   .metric-grid { grid-template-columns: repeat(2, 1fr); gap: 22px 12px; }
   .page-heading { align-items: flex-start; flex-direction: column; gap: 14px; }
@@ -2172,7 +2252,7 @@ footer {
 }
 
 @media print {
-  .site-header, .global-search, .view-nav, .search-status, .gift-controls, .gift-pager { display: none; }
+  .site-header, .global-search, .site-nav, .view-nav, .search-status, .gift-controls, .gift-pager { display: none; }
   body { background: white; }
   main { max-width: none; padding: 0; }
   .view { display: block !important; break-before: page; }
