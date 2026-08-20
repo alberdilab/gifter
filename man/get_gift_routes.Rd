@@ -9,7 +9,7 @@ get_gift_routes(gift_id, db = NULL)
 \arguments{
 \item{gift_id}{Stable GIFT identifier.}
 
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 }
 \value{
 A tibble with one row per route.

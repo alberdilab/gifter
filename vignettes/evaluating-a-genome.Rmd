@@ -16,14 +16,14 @@ an annotation table to a set of calls, and from a call back down to the genes
 that produced it.
 
 ```{r}
-library(giftr)
+library(gifter)
 ```
 
-## What giftr answers, and what it does not
+## What gifter answers, and what it does not
 
 A **GIFT** is a genome-inferred functional trait: a biologically meaningful
 capability whose genomic support is decided by an explicit, curated model.
-giftr answers one question per GIFT:
+gifter answers one question per GIFT:
 
 > Do the markers observed in this genome support at least one complete curated
 > implementation of this capability?
@@ -34,7 +34,7 @@ number later in these tutorials inherits it.
 
 ## Step 1: get your annotations into three columns
 
-giftr takes a plain data frame. Whatever tool produced your annotations —
+gifter takes a plain data frame. Whatever tool produced your annotations —
 kofamscan, dbCAN, eggNOG-mapper, DRAM, bakta — the job is to reshape its output
 into one row per observed marker:
 
@@ -66,7 +66,7 @@ gut_anaerobe <- data.frame(
     "g0810", "g0811", "g0812",
     # amino acid biosynthesis
     "g0910", "g0911", "g0912", "g0913", "g0914",
-    # housekeeping genes giftr does not use
+    # housekeeping genes gifter does not use
     "g1001", "g1002", "g1003"
   ),
   namespace = c(rep("CAZY", 3), rep("KO", 30)),
@@ -85,11 +85,11 @@ gut_anaerobe <- data.frame(
 nrow(gut_anaerobe)
 ```
 
-If you only have a bare vector of accessions, giftr will infer the namespace
+If you only have a bare vector of accessions, gifter will infer the namespace
 for KO, EC, Pfam, TIGRFAM and CAZy patterns. Supplying `namespace` explicitly
 is safer.
 
-## Step 2: see which markers giftr can use
+## Step 2: see which markers gifter can use
 
 Before evaluating anything, check how much of your annotation the reference
 database actually recognises. `map_markers()` keeps every observation,
@@ -104,14 +104,14 @@ table(mapped$matched)
 ```
 
 The unmatched markers are not a problem — a genome carries thousands of genes
-and giftr curates a specific catalogue — but you should know which they are:
+and gifter curates a specific catalogue — but you should know which they are:
 
 ```{r}
 unique(mapped$accession[!mapped$matched])
 ```
 
 Those three are ribosomal and tRNA-synthetase orthologues. They are real genes;
-giftr simply makes no capability claim that rests on them.
+gifter simply makes no capability claim that rests on them.
 
 ## Step 3: evaluate
 
@@ -148,13 +148,13 @@ call, and therefore what the call is allowed to mean:
 
 Note `evidence_confidence` on `xylan_degradation`: **ambiguous**. The call rests
 on CAZy family-level accessions, and a glycoside hydrolase family is
-polyspecific. giftr reports the call at the confidence its weakest accepted
+polyspecific. gifter reports the call at the confidence its weakest accepted
 marker allows rather than presenting it as equal to a call built on
 characterised orthologues.
 
 ## Step 4: read the incomplete calls, because they are informative
 
-An incomplete call is not a blank. giftr reports the **closest** implementation
+An incomplete call is not a blank. gifter reports the **closest** implementation
 and exactly what it was missing, so you can tell a capability that is one step
 short from one that is entirely absent.
 
@@ -180,7 +180,7 @@ That is a specific, checkable claim — go and look at whether `RHEA:23032` is
 genuinely absent or whether your annotation missed it — and it is a very
 different situation from a capability with no evidence at all.
 
-Note what giftr did **not** do: it did not call the GIFT complete because 90% of
+Note what gifter did **not** do: it did not call the GIFT complete because 90% of
 its genes were present. Completeness comes from route logic. The score is a
 secondary summary, never the decision.
 

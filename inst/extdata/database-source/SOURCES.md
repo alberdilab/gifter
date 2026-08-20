@@ -26,10 +26,10 @@ Direction is curated per route in `route_reactions.tsv`; for example,
 RHEA:14905 and RHEA:18445 are reversed for PRPP-to-IMP biosynthesis, while
 RHEA:24296 and RHEA:10380 are reversed for UMP biosynthesis.
 
-KEGG M00049 extends from IMP through AMP to ADP and ATP. giftr intentionally
+KEGG M00049 extends from IMP through AMP to ADP and ATP. gifter intentionally
 uses only RHEA:15753 and RHEA:16853 because AMP is the declared output anchor.
 
-KEGG M00050 extends from IMP through GMP to GDP and GTP. giftr ends the
+KEGG M00050 extends from IMP through GMP to GDP and GTP. gifter ends the
 guanylate GIFT at GMP, the first stable product establishing guanylate identity,
 and excludes the broadly shared guanylate-kinase and nucleoside-diphosphate-
 kinase reactions. The retained IMP-to-XMP and XMP-to-GMP chemistry uses
@@ -40,11 +40,11 @@ K01951 enzyme and is not treated as a genomically distinct route.
 KEGG M00051 contains fumarate-, quinone-, and NAD-dependent alternatives for
 dihydroorotate oxidation. These are represented as three routes using
 RHEA:30059, RHEA:30187, and RHEA:13513, respectively. KEGG R01868 also maps to
-the generic-acceptor RHEA:18073; giftr uses the chemically specific quinone
+the generic-acceptor RHEA:18073; gifter uses the chemically specific quinone
 reaction RHEA:30187 because the corresponding K00254 ortholog is annotated as
 quinone-dependent.
 
-Where giftr departs from KEGG module logic in a way that changes which
+Where gifter departs from KEGG module logic in a way that changes which
 markers count as evidence, the decision, its evidence, and its effect on GIFT
 calls are recorded in `database_changes.tsv` rather than here, linked to the
 GIFTs affected. Release 2026.08.2 contains two such departures in M00051: the
@@ -54,7 +54,7 @@ dihydroorotate oxidation. This file remains the record of dataset-level
 sources and pathway-derivation choices.
 
 KEGG M00052 combines shared UMP/UDP phosphorylation and CTP/CDP
-interconversion with the cytidylate-specific UTP-to-CTP step. giftr uses UTP
+interconversion with the cytidylate-specific UTP-to-CTP step. gifter uses UTP
 and CTP as the boundaries and retains only the complete glutamine-dependent CTP
 synthase reaction RHEA:26426. This single reaction is kept as a GIFT because it
 establishes cytidine nucleotide identity and is independently meaningful, not
@@ -82,7 +82,7 @@ so only the KEGG reference is recorded: RHEA:30931, RHEA:13965 and RHEA:27826.
 No EC number was copied from KEGG into `reaction_xrefs.tsv`, because that table
 holds identity resolved against Rhea.
 
-KEGG M00018 and M00017 share the aspartate-to-homoserine trunk. giftr
+KEGG M00018 and M00017 share the aspartate-to-homoserine trunk. gifter
 curates that chemistry once, as `aspartate_semialdehyde_biosynthesis` and
 `homoserine_biosynthesis`, and composes the threonine and methionine GIFTs
 through the L-aspartate 4-semialdehyde and L-homoserine anchors. The
@@ -127,10 +127,10 @@ recorded here through database 2026.17.1 — that no public MetaCyc endpoint cou
 be reached — was **corrected on 2026-08-18**: `https://websvc.biocyc.org/getxml`
 returns full pathway records for objects addressed by ID, though the search
 endpoint remains HTML- and captcha-gated, so records can be cited but not
-discovered programmatically. The reason giftr cites no MetaCyc row is therefore
+discovered programmatically. The reason gifter cites no MetaCyc row is therefore
 structural rather than practical: a pathway record fixes no input and output
 boundary a genome can be scored against, states no alternative minimal routes as
-separate objects, and carries no marker layer. giftr's boundaries come from where
+separate objects, and carries no marker layer. gifter's boundaries come from where
 genomes measurably differ. See `inst/doc/proposal-nitrogen-compound-catabolism.md`
 section 4.
 
@@ -163,7 +163,7 @@ returns to metabolites biosynthesis produces.
 Planned evidence sources for the degradation layer, not yet used by any record:
 the CAZy database for family definitions and characterised activities, and
 dbCAN3 / dbCAN-sub for the family and subfamily assignments that annotation
-pipelines emit. Earlier giftr releases are not an evidence source for that
+pipelines emit. Earlier gifter releases are not an evidence source for that
 content.
 
 ## Sugar degradation (database 2026.09.3)
@@ -311,7 +311,7 @@ verified against the KEGG REST API on 2026-08-18. Each accession used here was
 read back from `rest.kegg.jp` rather than transcribed from memory or from a
 secondary source. KEGG supplies the orthology assignments; the decomposition
 into structural functions, the choice of two flagellar architectures, and the
-decision about what each claim excludes are giftr curation.
+decision about what each claim excludes are gifter curation.
 
 Provenance of the structural decomposition:
 
@@ -360,7 +360,7 @@ The schema is unchanged; this is a content release. Every accession was read
 back from `rest.kegg.jp` on 2026-08-18 rather than transcribed. KEGG supplies
 the orthology assignments and the gene counts; the decomposition into functions,
 the choice of alternative circuits and mechanisms, and what each claim excludes
-are giftr curation.
+are gifter curation.
 
 ### Measurements, not assumptions
 
@@ -416,7 +416,7 @@ candidates that were refused, is
 
 - KEGG module M00579: <https://www.kegg.jp/module/M00579>. The only module in
   the layer; KEGG has none for butyrate formation and none for propionate
-  formation, so five of the six GIFTs are giftr curation rather than a KEGG
+  formation, so five of the six GIFTs are gifter curation rather than a KEGG
   import.
 - KEGG orthology-to-gene links, `https://rest.kegg.jp/link/genes/ko:<KO>`,
   reduced to organism codes and intersected locally. 49 orthology groups over
@@ -634,7 +634,7 @@ which is what the organisms actually do — of the ten KEGG genomes behind
 |---|---|---:|---|
 | Succinate formation, `frdABCD` | K00244–K00247 with a carboxylase, malate dehydrogenase and fumarase | 1049 | *Vibrio* 91, *Escherichia* 70, *Klebsiella* 55 — fumarate respirers. *Bacteroides*, *Prevotella* and *Fibrobacter*, the dominant gut succinate producers, are all negative |
 | Succinate formation, fused group | K00239/K00240 accepted as alternatives | 7276 | 61% of the universe, led by *Streptomyces*, *Pseudomonas*, *Bacillus* and *Chlamydia*. This is "has a citric acid cycle" |
-| Fumarate formation | K01756 (`purB`); K01679 (`fumC`) | 11115; 9098 | 93.8% of organisms. giftr already curates the fumarate-releasing chemistry inside `purine_core_biosynthesis` and `adenylate_biosynthesis` |
+| Fumarate formation | K01756 (`purB`); K01679 (`fumC`) | 11115; 9098 | 93.8% of organisms. gifter already curates the fumarate-releasing chemistry inside `purine_core_biosynthesis` and `adenylate_biosynthesis` |
 | Citrate formation | K01647 (`gltA`) | 8467 | 71% of organisms; citrate is a cycle intermediate, not an excretion product |
 | Formate formation | K00656 + K04069 | 2843 | Not an evidence failure. Anchors are per GIFT, and pyruvate formate-lyase is one of three routes of `pyruvate_to_acetyl_coa` |
 
@@ -676,7 +676,7 @@ Both decisions repeat the butyrate precedent.
   decarboxylase K01575 (1649 organisms), which exists only for this pathway.
 - **Citrate.** The trait is the lyase, not the transporter. *E. coli* K-12
   carries CitT and is aerobically Cit-negative because the gene is not expressed
-  under oxygen; giftr models gene content, not regulation, so requiring K09477
+  under oxygen; gifter models gene content, not regulation, so requiring K09477
   would look like a phenotype claim without being one.
 
 ### External links
@@ -792,7 +792,7 @@ This layer **reverses a recorded finding**. The organic acid assessment
 concluded that citric acid cycle intermediates cannot be anchors. That was right
 about product claims — whether a genome can be said to form and release citrate,
 fumarate or succinate — and those five refusals stand unchanged. It was wrong
-about capability claims, which is what every other giftr GIFT makes.
+about capability claims, which is what every other gifter GIFT makes.
 
 ### Sources used
 
@@ -815,7 +815,7 @@ about capability claims, which is what every other giftr GIFT makes.
 | Which aconitase groups are needed? | `K01681` ∪ `K01682` alone is 4565 and calls *B. subtilis* and *M. tuberculosis* negative; adding `K27802` gives 10 031 | All three. `K27802` was split out of `K01681` by KEGG. |
 | Should the cytochrome b anchor be required of succinate dehydrogenase? | `K00239`+`K00240` 8047; adding `K00241` 7645 | **No.** 402 genomes would be called negative on a poorly conserved membrane subunit. |
 | Do the three routes to succinate earn their place? | dehydrogenase complex 6902, ferredoxin oxidoreductase 3288, decarboxylase bypass 1420; 8932 complete at least one | Yes. The bypass is what makes *M. tuberculosis* and *C. glutamicum* positive without an E1o component. |
-| Is exposing citrate safe? | giftr's own edge derivation closes `citrate_fermentation -> pyruvate_to_acetyl_coa -> citrate_synthesis -> citrate_fermentation` | **No.** Citrate stays an internal intermediate and an input-only boundary. |
+| Is exposing citrate safe? | gifter's own edge derivation closes `citrate_fermentation -> pyruvate_to_acetyl_coa -> citrate_synthesis -> citrate_fermentation` | **No.** Citrate stays an internal intermediate and an input-only boundary. |
 
 ### The acyclicity check was scoped, not relaxed for this content
 
@@ -837,7 +837,7 @@ GIFT facet, so structure and naming cannot drift apart.
 
 `gift_xrefs.tsv` records 13 links for this layer. One is `equivalent`
 (`acetyl_coa_to_oxoglutarate` to `M00010`, the same three reactions between the
-same endpoints); the other twelve are `subset_of`, because giftr cuts `M00011`
+same endpoints); the other twelve are `subset_of`, because gifter cuts `M00011`
 at succinate and fumarate and cuts `M00009` four ways.
 
 ## Nitrogen compound catabolism (database 2026.18.1, schema 6)
@@ -870,13 +870,13 @@ GIFTs. The assessment behind them, including everything refused, is
   definitions that do not survive the marker specificity invariant.
 - MetaCyc is not cited by any row; see the correction above.
 
-### Where giftr departs from KEGG
+### Where gifter departs from KEGG
 
 `M00531` is the one module in this layer whose boundaries match a GIFT exactly,
 and it is linked `equivalent`. Everything else is `subset_of`. `map00910` is the
 clearest case: it carries assimilation, respiration, denitrification and
-nitrification on one map, and giftr curates only the first, because the other
-three need an electron acceptor giftr does not model.
+nitrification on one map, and gifter curates only the first, because the other
+three need an electron acceptor gifter does not model.
 
 Two KEGG orthology groups were examined and refused rather than used. `K00370`
 is named by KEGG as `nitrate reductase / nitrite oxidoreductase` — one accession
@@ -947,7 +947,7 @@ only in the proposal.
 ### External links
 
 `gift_xrefs.tsv` records four links for this layer. `M00022` is `overlaps`
-rather than `equivalent` — the endpoints match but giftr does not require the
+rather than `equivalent` — the endpoints match but gifter does not require the
 shikimate dehydrogenase step, accepts YdiB, and drops `K13830`. The three
 pathway maps are `subset_of`, because each carries chemistry beyond the curated
 boundary: `map00400` continues to the aromatic amino acids, `map01053` to the
@@ -958,7 +958,7 @@ assembled siderophores, and `map00380` to every other fate of tryptophan.
 Curated 2026-08-19 against KEGG release of 2026-08-18 (11 949 genomes, of which
 10 151 bacterial, taken from BRITE `br08601`), Rhea release 141 and ChEBI
 release 253. Twenty-eight GIFTs: eighteen biosynthetic, completing the fifteen
-proteinogenic amino acids giftr did not cover, and ten degradation or
+proteinogenic amino acids gifter did not cover, and ten degradation or
 transformation capabilities. The full assessment, including the twelve
 candidates that were refused or deferred, is
 [the amino acid metabolism proposal](../../doc/proposal-amino-acid-metabolism.md).
@@ -970,9 +970,9 @@ M00432, M00525, M00526, M00527, M00535, M00570, M00763, M00844. KEGG supplied
 pathway organisation and orthology assignment; every reaction identity,
 direction and cross-reference comes from Rhea.
 
-### Where giftr's boundaries are its own, and why
+### Where gifter's boundaries are its own, and why
 
-| Decision | KEGG | giftr | Reason |
+| Decision | KEGG | gifter | Reason |
 |---|---|---|---|
 | Lysine | four modules from L-aspartate to L-lysine, each repeating the aspartate trunk | one `dap_biosynthesis` with four routes, cut at meso-diaminopimelate, plus `lysine_biosynthesis_dap` | The four are alternative implementations of one capability: 51.4, 5.6, 6.8 and 17.2% of bacterial genomes separately, 75.3% as routes of one GIFT. meso-DAP is also the peptidoglycan cross-link residue. |
 | Branched-chain | M00019 fuses valine and isoleucine because the enzymes are shared | cut at 3-methyl-2-oxobutanoate and at 2-oxobutanoate, one GIFT per amino acid | The shared enzymes act on different substrates, so the reactions differ; the 2-oxo acid supply is what separates the traits, and 2-oxoisovalerate was already an anchor pantothenate consumed. |
@@ -999,7 +999,7 @@ the proposal; the last is recorded in `database_changes.tsv` as
 `gift_xrefs.tsv` records 33 links for this layer. `equivalent` is used only
 where the boundaries match exactly (M00015, M00023, M00026, M00028, M00535,
 M00844, M00045, and M00024/M00025 where only the marker set is wider);
-`subset_of` where giftr curates part of a module (M00016, M00019 twice, M00570
+`subset_of` where gifter curates part of a module (M00016, M00019 twice, M00570
 twice, M00027); `overlaps` where the diaminopimelate branch crosses all four
 lysine modules without matching any of their boundaries; `superset_of` where it
 continues past one (M00432); and `related` for the two routes refused on
@@ -1049,14 +1049,14 @@ non-metabolic deferrals are in
 
 ### Curation decisions not imported from those sources
 
-giftr chose the molecular cut points, which assembly proteins are indispensable
+gifter chose the molecular cut points, which assembly proteins are indispensable
 to its nitrogen-fixation claim, the four route materialisations for sulfate,
 the refusal of `K00390` as a branch-resolving marker, and the isocitrate re-cut.
-KEGG M00175 does not require the NifB/EN assembly proteins; giftr does because a
+KEGG M00175 does not require the NifB/EN assembly proteins; gifter does because a
 positive call must support a complete active-site architecture rather than a
 catalytic-subunit checklist. KEGG K00390 spans EC 1.8.4.8 and EC 1.8.4.10;
-giftr stores those reaction-specific EC markers instead. KEGG M00012 accepts
-K19282; giftr defers it because its two-reaction malyl-CoA implementation is
+gifter stores those reaction-specific EC markers instead. KEGG M00012 accepts
+K19282; gifter defers it because its two-reaction malyl-CoA implementation is
 not an enzyme-system alternative for direct malate synthase.
 
 All marker-level acceptances and refusals are recorded in

@@ -39,7 +39,7 @@ DEFENSE GIFT
                                                                       +-- OR --> EVIDENCE
 ```
 
-As everywhere else in giftr, completeness is discrete. "Seven of the nine
+As everywhere else in gifter, completeness is discrete. "Seven of the nine
 expected *cas* genes" is not a defense call.
 
 ## Curated: type I restriction-modification

@@ -22,7 +22,7 @@
 # exchange occurs, that either GIFT is expressed, or that the two organisms
 # ever meet.
 
-.giftr_interaction_types <- c("metabolic_handoff")
+.gifter_interaction_types <- c("metabolic_handoff")
 
 # The anchors a molecule can actually cross a cell boundary through. Only a
 # declared `extracellular` anchor licenses that claim: `cytoplasmic` is inside
@@ -163,7 +163,7 @@
     }, logical(1))
     # A cycle can only be closed across organisms if every molecule handed from
     # one segment to the next actually leaves a cell. Central metabolism runs on
-    # intermediates that never do, so this is `FALSE` for the cycles giftr
+    # intermediates that never do, so this is `FALSE` for the cycles gifter
     # currently derives -- and reporting a distributed citric acid cycle would
     # pass oxaloacetate between organisms.
     crosses_boundary <- all(cycle$shared_anchor %in% transferable)
@@ -226,15 +226,15 @@
 #' completes it, and calling it distributed would hand a cytoplasmic
 #' intermediate from one organism to another.
 #'
-#' @param community A community from [giftr_community()].
+#' @param community A community from [gifter_community()].
 #' @param interaction Interaction type. Only `"metabolic_handoff"` is defined.
 #' @param universe Optional [gift_universe()] restricting which GIFTs may form
 #'   edges.
 #' @param quality Optional `gift_graph()` edge quality filter, `"exact"` or
 #'   `"compartment_inexact"`.
 #' @param limit Passed to [gift_cycles()] for distributed cycle closure.
-#' @param db Optional open giftr database connection.
-#' @return A `giftr_network` list with `nodes` (one row per genome, with
+#' @param db Optional open gifter database connection.
+#' @return A `gifter_network` list with `nodes` (one row per genome, with
 #'   provider and recipient degrees), `edges`, `chain_coverage` (each curated
 #'   composition link classified as `within_genome`, `community_distributed`,
 #'   `not_transferable` or `not_represented`), `cycle_coverage`, and `metrics`.
@@ -242,23 +242,25 @@
 community_network <- function(community, interaction = "metabolic_handoff",
                               universe = NULL, quality = NULL, limit = 100L,
                               db = NULL) {
-  if (!inherits(community, "giftr_community")) {
-    stop("community must come from giftr_community()", call. = FALSE)
+  if (!inherits(community, c("gifter_community", "giftr_community"))) {
+    stop("community must come from gifter_community()", call. = FALSE)
   }
-  interaction <- match.arg(interaction, .giftr_interaction_types)
+  interaction <- match.arg(interaction, .gifter_interaction_types)
   if (!is.null(quality)) {
     quality <- match.arg(quality, c("exact", "compartment_inexact"))
   }
-  if (!is.null(universe) && !inherits(universe, "giftr_universe")) {
+  if (!is.null(universe) &&
+      !inherits(universe, c("gifter_universe", "giftr_universe"))) {
     stop("universe must come from gift_universe()", call. = FALSE)
   }
 
-  .with_giftr_db(db, function(connection) {
-    version <- giftr_db_version(connection)$giftr_db_version
-    if (!identical(version, community$database_version$giftr_db_version)) {
+  .with_gifter_db(db, function(connection) {
+    version <- gifter_db_version(connection)$gifter_db_version
+    community_version <- .gifter_database_version_value(community$database_version)
+    if (!identical(version, community_version)) {
       stop(
         "The community was evaluated against database version ",
-        community$database_version$giftr_db_version,
+        community_version,
         " but the supplied connection serves ", version, ".",
         call. = FALSE
       )
@@ -328,14 +330,14 @@ community_network <- function(community, interaction = "metabolic_handoff",
         universe = universe,
         database_version = community$database_version
       ),
-      class = c("giftr_network", "list")
+      class = c("gifter_network", "giftr_network", "list")
     )
   })
 }
 
 #' @export
-print.giftr_network <- function(x, ...) {
-  cat("<giftr_network>", x$interaction, "\n")
+print.gifter_network <- function(x, ...) {
+  cat("<gifter_network>", x$interaction, "\n")
   cat("  genomes:", nrow(x$nodes), "\n")
   cat("  potential handoffs:", nrow(x$edges))
   if (nrow(x$edges)) {
@@ -347,6 +349,9 @@ print.giftr_network <- function(x, ...) {
   within <- sum(x$chain_coverage$status == "within_genome")
   cat("  composition links: ", within, " within a genome, ", distributed,
       " completed only across the community\n", sep = "")
-  cat("  database version:", x$database_version$giftr_db_version, "\n")
+  cat("  database version:", .gifter_database_version_value(x$database_version), "\n")
   invisible(x)
 }
+
+#' @export
+print.giftr_network <- print.gifter_network

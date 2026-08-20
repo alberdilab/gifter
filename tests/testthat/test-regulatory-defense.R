@@ -26,7 +26,7 @@ test_that("an empty marker set still produces an auditable answer for every type
 test_that("a regulatory circuit needs every required regulatory function", {
   # A compact sensor/regulator circuit: a signal has to be detected and a
   # response executed. Encoding one without the other is not the capability.
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   add_test_machinery_gift(
     source_dir, "fixture_signal_response", "regulatory", "CIRCUIT_FIXTURE",
     list(
@@ -72,7 +72,7 @@ test_that("regulatory specificity cannot exceed evidence specificity", {
   # which needs its own evidence -- so the ligand-specific GIFT stays incomplete
   # on a genome carrying only the generic receptor, instead of the broad marker
   # being widened to fire it.
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   add_test_machinery_gift(
     source_dir, "fixture_chemotaxis_core", "regulatory", "CIRCUIT_FIXTURE_CHEMOTAXIS_CORE",
     list(
@@ -131,7 +131,7 @@ test_that("a defense mechanism needs every required defense function", {
   # A multisubunit restriction-modification fixture: recognition, restriction
   # and methylation are separate functions, and the restriction machine is a
   # complex whose subunits are jointly required.
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   add_test_machinery_gift(
     source_dir, "fixture_restriction_modification", "defense", "MECH_FIXTURE_RM",
     list(
@@ -192,7 +192,7 @@ test_that("a defense mechanism needs every required defense function", {
 })
 
 test_that("a machinery model of one type cannot borrow another type's tables", {
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   add_test_machinery_gift(
     source_dir, "fixture_defense", "defense", "MECH_FIXTURE_ONLY",
     list(list(id = "DF_FIXTURE_ONLY", systems = list(
@@ -208,7 +208,7 @@ test_that("a machinery model of one type cannot borrow another type's tables", {
     stringsAsFactors = FALSE
   )[names(circuits)]))
   expect_error(
-    validate_giftr_sources(source_dir),
+    validate_gifter_sources(source_dir),
     "gift_circuits describes the regulatory model"
   )
 })
@@ -616,7 +616,7 @@ test_that("merD and the unmatchable namespaces are not mer evidence", {
   )
 
   # NF033555 and the InterPro entries name the enzymes more precisely than the
-  # curated accessions do, and giftr's evidence layer can never match them.
+  # curated accessions do, and gifter's evidence layer can never match them.
   expect_false(any(grepl("^(NF|IPR)[0-9]", machinery$accession)))
   expect_equal(
     unique(machinery$accession[

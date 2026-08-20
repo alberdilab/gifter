@@ -288,16 +288,16 @@ test_that("trace_gift retains route-to-gene evidence", {
 
 test_that("CAZy families and subfamilies are recognised without an explicit namespace", {
   expect_equal(
-    giftr:::.infer_marker_namespace(c("GH5", "GH5_4", "PL1", "CE8", "AA9", "CBM6")),
+    gifter:::.infer_marker_namespace(c("GH5", "GH5_4", "PL1", "CE8", "AA9", "CBM6")),
     rep("CAZY", 6L)
   )
   # A subfamily is its own accession. Recognising it must not silently promote
   # it to the parent family, whose other activities it is not evidence for.
   expect_equal(
-    giftr:::.normalize_marker_accession("CAZY", "gh5_4"), "GH5_4"
+    gifter:::.normalize_marker_accession("CAZY", "gh5_4"), "GH5_4"
   )
-  expect_equal(giftr:::.infer_marker_namespace("K01945"), "KO")
-  expect_true(is.na(giftr:::.infer_marker_namespace("GHX")))
+  expect_equal(gifter:::.infer_marker_namespace("K01945"), "KO")
+  expect_true(is.na(gifter:::.infer_marker_namespace("GHX")))
 
   mapped <- map_markers(c("GH5_4", "K00764"))
   expect_equal(mapped$namespace[mapped$accession == "GH5_4"], "CAZY")
@@ -306,13 +306,13 @@ test_that("CAZy families and subfamilies are recognised without an explicit name
 
 test_that("a call reports the weakest confidence behind it", {
   expect_equal(
-    giftr:::.weakest_confidence(c("curated", "ambiguous", "high-confidence")),
+    gifter:::.weakest_confidence(c("curated", "ambiguous", "high-confidence")),
     "ambiguous"
   )
-  expect_equal(giftr:::.weakest_confidence(c("curated", "curated")), "curated")
-  expect_true(is.na(giftr:::.weakest_confidence(character())))
+  expect_equal(gifter:::.weakest_confidence(c("curated", "curated")), "curated")
+  expect_true(is.na(gifter:::.weakest_confidence(character())))
   # An unrecognised term is never promoted above a known one.
-  expect_equal(giftr:::.weakest_confidence(c("curated", "invented")), "invented")
+  expect_equal(gifter:::.weakest_confidence(c("curated", "invented")), "invented")
 
   result <- evaluate_gifts(ko_annotations(direct_purine_markers()))
   purine <- result$gifts[result$gifts$gift_id == "purine_core_biosynthesis", ]

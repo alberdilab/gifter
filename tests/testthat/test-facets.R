@@ -5,18 +5,18 @@ test_that("the facet vocabulary is open across facets and closed within one", {
   expect_false(any(duplicated(paste(terms$facet, terms$value))))
 
   # Closed within a facet: an unregistered value must not compile.
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   append_source(source_dir, "gift_facets",
     gift_id = "xylan_degradation", facet = "physiological_role", value = "invented_role")
-  expect_error(validate_giftr_sources(source_dir), "Unregistered gift_facets terms")
+  expect_error(validate_gifter_sources(source_dir), "Unregistered gift_facets terms")
 })
 
 test_that("a facet registered for anchors cannot classify a GIFT", {
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   append_source(source_dir, "gift_facets",
     gift_id = "xylan_degradation", facet = "molecular_tier", value = "polymer")
   expect_error(
-    validate_giftr_sources(source_dir),
+    validate_gifter_sources(source_dir),
     "registered for another target"
   )
 })
@@ -45,10 +45,10 @@ test_that("substrate_class partitions and physiological_role does not", {
 })
 
 test_that("a repeated substrate_class is rejected", {
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   append_source(source_dir, "gift_facets",
     gift_id = "xylan_degradation", facet = "substrate_class", value = "monosaccharide")
-  expect_error(validate_giftr_sources(source_dir), "must be single-valued")
+  expect_error(validate_gifter_sources(source_dir), "must be single-valued")
 })
 
 test_that("the derived profile reads the compartment layer, not curation", {
@@ -100,14 +100,14 @@ test_that("auxotrophy is flagged from biomass-essential anabolic outputs", {
 })
 
 test_that("every route declares an oxygen requirement", {
-  connection <- giftr_db_connect()
-  withr::defer(giftr_db_disconnect(connection))
+  connection <- gifter_db_connect()
+  withr::defer(gifter_db_disconnect(connection))
   routes <- DBI::dbGetQuery(connection, "SELECT oxygen_requirement FROM gift_route")
   expect_true(all(routes$oxygen_requirement %in% c("aerobic", "anaerobic", "independent")))
 
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   gift_routes <- read_source(source_dir, "gift_routes")
   gift_routes$oxygen_requirement[[1]] <- "microaerophilic"
   write_source(source_dir, "gift_routes", gift_routes)
-  expect_error(validate_giftr_sources(source_dir), "Invalid gift_routes.oxygen_requirement")
+  expect_error(validate_gifter_sources(source_dir), "Invalid gift_routes.oxygen_requirement")
 })

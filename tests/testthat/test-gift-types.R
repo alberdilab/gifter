@@ -60,48 +60,48 @@ test_that("gift_type reaches the browsing API and the call summary", {
 })
 
 test_that("an unknown or missing gift_type is rejected", {
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   gifts <- read_source(source_dir, "gifts")
   gifts$gift_type[gifts$gift_id == "glycine_biosynthesis"] <- "phenotypic"
   write_source(source_dir, "gifts", gifts)
-  expect_error(validate_giftr_sources(source_dir), "Invalid gifts.gift_type")
+  expect_error(validate_gifter_sources(source_dir), "Invalid gifts.gift_type")
 
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   gifts <- read_source(source_dir, "gifts")
   gifts$gift_type[gifts$gift_id == "glycine_biosynthesis"] <- NA_character_
   write_source(source_dir, "gifts", gifts)
-  expect_error(validate_giftr_sources(source_dir), "gift_type must be recorded")
+  expect_error(validate_gifter_sources(source_dir), "gift_type must be recorded")
 })
 
 test_that("mode belongs to the metabolic model only", {
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   gifts <- read_source(source_dir, "gifts")
   gifts$mode[gifts$gift_id == "flagellar_apparatus"] <- "anabolic"
   write_source(source_dir, "gifts", gifts)
-  expect_error(validate_giftr_sources(source_dir), "mode applies to metabolic GIFTs only")
+  expect_error(validate_gifter_sources(source_dir), "mode applies to metabolic GIFTs only")
 
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   gifts <- read_source(source_dir, "gifts")
   gifts$mode[gifts$gift_id == "glycine_biosynthesis"] <- NA_character_
   write_source(source_dir, "gifts", gifts)
-  expect_error(validate_giftr_sources(source_dir), "Every metabolic GIFT needs a mode")
+  expect_error(validate_gifter_sources(source_dir), "Every metabolic GIFT needs a mode")
 })
 
 test_that("a structural GIFT may not borrow the metabolic anchor and route model", {
   # The point of the type is that a flagellum has no molecular boundaries. A
   # structural GIFT that declared them would be inventing anchors to satisfy a
   # schema rather than describing a structure.
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   append_source(
     source_dir, "gift_anchors",
     gift_id = "flagellar_apparatus", anchor_id = "PRPP", role = "input", ordinal = "1"
   )
   expect_error(
-    validate_giftr_sources(source_dir),
+    validate_gifter_sources(source_dir),
     "gift_anchors describes the metabolic model"
   )
 
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   append_source(
     source_dir, "gift_routes",
     route_id = "FAKE_ROUTE", gift_id = "flagellar_apparatus", name = "fake",
@@ -113,25 +113,25 @@ test_that("a structural GIFT may not borrow the metabolic anchor and route model
     step_order = "1", required = "1"
   )
   expect_error(
-    validate_giftr_sources(source_dir),
+    validate_gifter_sources(source_dir),
     "gift_routes describes the metabolic model"
   )
 })
 
 test_that("typed source rows cannot be attached to the wrong GIFT type", {
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   architectures <- read_source(source_dir, "gift_architectures")
   architectures$gift_id[architectures$architecture_id == "ARCH_T4AP_CORE"] <-
     "purine_core_biosynthesis"
   write_source(source_dir, "gift_architectures", architectures)
   expect_error(
-    validate_giftr_sources(source_dir),
+    validate_gifter_sources(source_dir),
     "gift_architectures describes the structural model"
   )
 })
 
 test_that("a GIFT of a machinery type needs an implementation", {
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   append_source(
     source_dir, "gifts",
     gift_id = "empty_structure", gift_type = "structural", name = "empty",
@@ -144,7 +144,7 @@ test_that("a GIFT of a machinery type needs an implementation", {
     value = "cell_surface_appendage"
   )
   expect_error(
-    validate_giftr_sources(source_dir),
+    validate_gifter_sources(source_dir),
     "Every structural GIFT needs at least one architecture"
   )
 })
@@ -160,7 +160,7 @@ test_that("required facets are scoped by GIFT type", {
 
   # Each class facet partitions its own type.
   for (type in c("metabolic", "structural", "regulatory", "defense")) {
-    facet <- giftr:::.giftr_required_gift_facets[[type]]$single
+    facet <- gifter:::.gifter_required_gift_facets[[type]]$single
     of_type <- list_gifts(type = type)$gift_id
     values <- vapply(of_type, function(id) {
       assigned <- get_facets(id)
@@ -169,22 +169,22 @@ test_that("required facets are scoped by GIFT type", {
     expect_equal(length(values), length(of_type))
   }
 
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   facets <- read_source(source_dir, "gift_facets")
   facets <- facets[facets$gift_id != "flagellar_apparatus", , drop = FALSE]
   write_source(source_dir, "gift_facets", facets)
   expect_error(
-    validate_giftr_sources(source_dir),
+    validate_gifter_sources(source_dir),
     "Every structural GIFT needs one structural_class"
   )
 
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   append_source(
     source_dir, "gift_facets",
     gift_id = "flagellar_apparatus", facet = "substrate_class", value = "protein"
   )
   expect_error(
-    validate_giftr_sources(source_dir),
+    validate_gifter_sources(source_dir),
     "carries a facet required of another GIFT type"
   )
 })
@@ -192,7 +192,7 @@ test_that("required facets are scoped by GIFT type", {
 test_that("identifiers stay unique across the typed models", {
   # A trace prints a component identifier without saying which table it came
   # from, so the same identifier may not mean two different things.
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   components <- read_source(source_dir, "structural_components")
   components$component_id[[1]] <- "COMP_15753_CATALYTIC"
   write_source(source_dir, "structural_components", components)
@@ -200,7 +200,7 @@ test_that("identifiers stay unique across the typed models", {
   markers$component_id[markers$component_id == "COMP_SF_FLHA"] <- "COMP_15753_CATALYTIC"
   write_source(source_dir, "structural_component_markers", markers)
   expect_error(
-    validate_giftr_sources(source_dir),
+    validate_gifter_sources(source_dir),
     "component identifier is used by more than one GIFT model"
   )
 })
@@ -243,7 +243,7 @@ test_that("the metabolic model is unchanged by the presence of other types", {
   # Compile a database from which the structural content has been removed and
   # compare it with the shipped one. Any drift in a metabolic call or trace
   # caused by the migration shows up here rather than in a reviewer's memory.
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   non_metabolic <- list_gifts()$gift_id[list_gifts()$gift_type != "metabolic"]
   gifts <- read_source(source_dir, "gifts")
   write_source(source_dir, "gifts", gifts[!gifts$gift_id %in% non_metabolic, , drop = FALSE])
@@ -260,7 +260,7 @@ test_that("the metabolic model is unchanged by the presence of other types", {
       , drop = FALSE
     ]
   )
-  for (model in giftr:::.giftr_machinery_models) {
+  for (model in gifter:::.gifter_machinery_models) {
     for (table in c(
       model$implementation_source, model$membership_source, model$function_source,
       model$system_source, model$component_source, model$evidence_source

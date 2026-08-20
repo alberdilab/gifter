@@ -9,7 +9,7 @@
 
 test_that("an unfiltered universe is the whole curated catalogue", {
   universe <- gift_universe()
-  expect_s3_class(universe, "giftr_universe")
+  expect_s3_class(universe, "gifter_universe")
   expect_setequal(universe$gift_id, list_gifts()$gift_id)
   expect_false(universe$bounded)
 })
@@ -82,14 +82,14 @@ test_that("bounded is a declared claim, defaulting to FALSE", {
 test_that("a universe records the database version it was resolved against", {
   expect_identical(
     gift_universe()$database_version,
-    giftr_db_version()$giftr_db_version
+    gifter_db_version()$gifter_db_version
   )
 })
 
 test_that("the default universe set partitions by type, mode and strategy and bounds only one", {
-  db <- giftr_db_connect()
-  on.exit(giftr_db_disconnect(db))
-  universes <- giftr:::.default_universes(db)
+  db <- gifter_db_connect()
+  on.exit(gifter_db_disconnect(db))
+  universes <- gifter:::.default_universes(db)
   labels <- vapply(universes, function(u) u$label, character(1))
   expect_true("all curated GIFTs" %in% labels)
   expect_true("metabolic GIFTs" %in% labels)

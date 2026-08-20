@@ -11,7 +11,7 @@ get_facets(id, target = c("gift", "anchor"), db = NULL)
 
 \item{target}{Whether `id` names a GIFT or an anchor.}
 
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 }
 \value{
 A tibble with one row per assigned facet value.

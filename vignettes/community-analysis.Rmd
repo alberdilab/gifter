@@ -17,7 +17,7 @@ genome is its only provider, and which chains does the community complete that
 no single member does.
 
 ```{r}
-library(giftr)
+library(gifter)
 ```
 
 ## The community
@@ -70,7 +70,7 @@ edges[edges$from_gift %in% chain & edges$to_gift %in% chain,
 ## Step 1: bind the genomes together
 
 ```{r}
-community <- giftr_community(
+community <- gifter_community(
   A = debrancher,
   B = backbone_degrader,
   C = consumer,
@@ -130,11 +130,11 @@ along with it.
 
 ## Step 3: presence and abundance are different questions
 
-If you have relative abundances, supply them — but note that giftr keeps them in
+If you have relative abundances, supply them — but note that gifter keeps them in
 separate rows from the presence-based counts, deliberately.
 
 ```{r}
-weighted <- giftr_community(
+weighted <- gifter_community(
   A = debrancher, B = backbone_degrader, C = consumer, D = consumer,
   abundance = c(A = 0.05, B = 0.10, C = 0.35, D = 0.50)
 )
@@ -219,7 +219,7 @@ uptake_only <- evaluate_gifts(markers("KO", c("K10543", "K10544", "K10545")))
 catabolism_only <- evaluate_gifts(markers("KO", c("K01805", "K00854")))
 
 split_coverage <- community_network(
-  giftr_community(U = uptake_only, V = catabolism_only)
+  gifter_community(U = uptake_only, V = catabolism_only)
 )$chain_coverage
 
 split_coverage[split_coverage$shared_anchor == "XYLOSE_IN",
@@ -241,7 +241,7 @@ encodes and what another encodes. It is not evidence that:
 - exchange actually happens.
 
 Cross-feeding is a hypothesis an edge can support. It is never a conclusion an
-edge establishes. giftr will not name it cross-feeding, and neither should a
+edge establishes. gifter will not name it cross-feeding, and neither should a
 figure legend built on this output.
 
 ## Step 5: fragmented genomes in a community
@@ -251,7 +251,7 @@ completeness changes how a *negative* call is read — and here it is resolved p
 genome, so one fragmented member does not contaminate everyone's denominators.
 
 ```{r}
-mixed <- giftr_community(
+mixed <- gifter_community(
   A = debrancher, B = backbone_degrader, C = consumer,
   quality = c(A = 0.98, B = 0.96, C = 0.45),
   policy = "completeness", threshold = 0.9
@@ -286,7 +286,7 @@ annotation table
       v
 genome traits
       |
-      |  giftr_community() + community_traits()
+      |  gifter_community() + community_traits()
       v
 community traits  ---------------------------> community_network()
 ```

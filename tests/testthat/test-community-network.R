@@ -54,7 +54,7 @@ test_that("a link split across genomes through an internal anchor completes nowh
     c("KO:K10543", "KO:K10544", "KO:K10545")
   ))
   catabolism <- evaluate_gifts(namespaced_annotations(c("KO:K01805", "KO:K00854")))
-  network <- community_network(giftr_community(U = uptake, V = catabolism))
+  network <- community_network(gifter_community(U = uptake, V = catabolism))
   link <- network$chain_coverage[
     network$chain_coverage$shared_anchor == "XYLOSE_IN", ,
     drop = FALSE
@@ -69,7 +69,7 @@ test_that("a genome holding both ends composes internally rather than trading", 
   whole <- evaluate_gifts(namespaced_annotations(c(
     "CAZY:GH11", "CAZY:GH39", "KO:K10543", "KO:K10544", "KO:K10545"
   )))
-  network <- community_network(giftr_community(solo = whole, other = whole))
+  network <- community_network(gifter_community(solo = whole, other = whole))
   # Both genomes hold both ends of the XYLOSE_EX link, so it is completed within
   # a genome. Edges between the two duplicates are still potential handoffs --
   # the molecule is extracellular -- but the link is not one the community
@@ -82,7 +82,7 @@ test_that("a genome holding both ends composes internally rather than trading", 
   expect_equal(link$within_genome, "other, solo")
 
   # A single genome trades with nobody.
-  alone <- community_network(giftr_community(solo = whole))
+  alone <- community_network(gifter_community(solo = whole))
   expect_equal(nrow(alone$edges), 0L)
   expect_equal(alone$nodes$provider_degree, 0L)
 })
@@ -157,7 +157,7 @@ test_that("a cycle is not closed across organisms through internal intermediates
 
 test_that("only defined interaction types and matching versions are accepted", {
   community <- arabinoxylan_community()
-  expect_error(community_network(list()), "must come from giftr_community")
+  expect_error(community_network(list()), "must come from gifter_community")
   expect_error(
     community_network(community, interaction = "signal_response"),
     'should be "metabolic_handoff"'

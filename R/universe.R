@@ -8,7 +8,7 @@
 # gift_ids written in R source: that would move biological content out of the
 # database and into code, where it cannot be validated or versioned.
 
-.giftr_resource_strategies <- c("uptake", "public_good", "private", "unresolved")
+.gifter_resource_strategies <- c("uptake", "public_good", "private", "unresolved")
 
 .universe_label <- function(filters) {
   if (!length(filters)) return("all curated GIFTs")
@@ -54,8 +54,8 @@
 #'   details.
 #' @param label Optional human-readable name. Derived from the filters if
 #'   omitted.
-#' @param db Optional open giftr database connection.
-#' @return A `giftr_universe`: the member `gift_id`s, the `label`, the filters
+#' @param db Optional open gifter database connection.
+#' @return A `gifter_universe`: the member `gift_id`s, the `label`, the filters
 #'   that produced it, whether it is `bounded`, and the `database_version` it
 #'   was resolved against.
 #' @examples
@@ -67,11 +67,11 @@ gift_universe <- function(type = NULL, mode = NULL, facet = NULL, value = NULL,
                           resource_strategy = NULL, auxotrophy_indicator = NULL,
                           status = NULL, bounded = FALSE, label = NULL,
                           db = NULL) {
-  if (!is.null(type)) type <- match.arg(type, .giftr_gift_types, several.ok = TRUE)
-  if (!is.null(mode)) mode <- match.arg(mode, .giftr_gift_modes, several.ok = TRUE)
+  if (!is.null(type)) type <- match.arg(type, .gifter_gift_types, several.ok = TRUE)
+  if (!is.null(mode)) mode <- match.arg(mode, .gifter_gift_modes, several.ok = TRUE)
   if (!is.null(resource_strategy)) {
     resource_strategy <- match.arg(
-      resource_strategy, .giftr_resource_strategies, several.ok = TRUE
+      resource_strategy, .gifter_resource_strategies, several.ok = TRUE
     )
   }
   if (!is.null(value) && is.null(facet)) {
@@ -81,7 +81,7 @@ gift_universe <- function(type = NULL, mode = NULL, facet = NULL, value = NULL,
     stop("bounded must be TRUE or FALSE", call. = FALSE)
   }
 
-  .with_giftr_db(db, function(connection) {
+  .with_gifter_db(db, function(connection) {
     if (!is.null(facet)) {
       known <- .as_tibble_query(
         connection,
@@ -156,9 +156,9 @@ gift_universe <- function(type = NULL, mode = NULL, facet = NULL, value = NULL,
         label = if (is.null(label)) .universe_label(filters) else as.character(label),
         filters = filters,
         bounded = isTRUE(bounded),
-        database_version = giftr_db_version(connection)$giftr_db_version
+        database_version = gifter_db_version(connection)$gifter_db_version
       ),
-      class = c("giftr_universe", "list")
+      class = c("gifter_universe", "giftr_universe", "list")
     )
   })
 }
@@ -168,13 +168,16 @@ gift_universe <- function(type = NULL, mode = NULL, facet = NULL, value = NULL,
 }
 
 #' @export
-print.giftr_universe <- function(x, ...) {
-  cat("<giftr_universe>", x$label, "\n")
+print.gifter_universe <- function(x, ...) {
+  cat("<gifter_universe>", x$label, "\n")
   cat("  GIFTs:  ", length(x$gift_id), "\n")
   cat("  bounded:", x$bounded, "\n")
   cat("  database version:", x$database_version, "\n")
   invisible(x)
 }
+
+#' @export
+print.giftr_universe <- print.gifter_universe
 
 # The universes reported when the caller supplies none. Types and modes
 # partition the catalogue two ways, because gift_type barely partitions a

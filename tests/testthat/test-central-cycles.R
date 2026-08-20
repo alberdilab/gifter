@@ -247,8 +247,8 @@ test_that("citrate stays input-only while bypass malate composes", {
   # Citrate remains internal to the upper segment and cannot create the
   # unrelated fermentation loop. Malate is now a justified bypass output and
   # therefore connects specifically to malolactic fermentation.
-  connection <- giftr_db_connect()
-  withr::defer(giftr_db_disconnect(connection))
+  connection <- gifter_db_connect()
+  withr::defer(gifter_db_disconnect(connection))
   roles <- DBI::dbGetQuery(
     connection,
     "SELECT DISTINCT ga.role FROM gift_anchor ga
@@ -268,7 +268,7 @@ test_that("citrate stays input-only while bypass malate composes", {
 test_that("declaring FUMARATE creates no edge between purine and pyrimidine", {
   # This assertion existed before FUMARATE was an anchor and protected a
   # hypothetical. It now protects a live risk: the chemistry is curated, the
-  # co-product is real, and the edge must still not exist, because giftr derives
+  # co-product is real, and the edge must still not exist, because gifter derives
   # edges from declared boundaries and not from shared reaction participants.
   graph <- gift_graph()
   expect_false(any(

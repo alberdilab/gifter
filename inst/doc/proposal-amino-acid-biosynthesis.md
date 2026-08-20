@@ -24,7 +24,7 @@ What changed between the proposal and the implementation:
   compare with the external pathway records it derives from.
 
 Scope: evaluate the incorporation of KEGG modules M00020, M00018, M00021,
-M00338, M00609 and M00017 as giftr GIFTs, and decide where the boundaries
+M00338, M00609 and M00017 as gifter GIFTs, and decide where the boundaries
 should actually fall.
 
 ---
@@ -132,7 +132,7 @@ plus a homoserine acyltransferase:
 
 3910 organisms complete methionine biosynthesis by sulfhydrylation and would be
 called **incomplete** by M00017 as written. Following the module here would be a
-worse claim than giftr is capable of making.
+worse claim than gifter is capable of making.
 
 These are not merely alternative enzymes for one reaction. They have different
 nutritional meaning: one consumes cysteine, the other consumes inorganic
@@ -310,7 +310,7 @@ Critical note on step 3: 1622 of 8379 organisms carrying serA+serC carry **no**
 recognised phosphoserine phosphatase KO. This is a well-known annotation gap
 (promiscuous HAD-family phosphatases), not a real absence of the capability in
 all 1622. I recommend **keeping the phosphatase required** rather than making it
-optional: the chemistry is required, and giftr's value over KEGG here is
+optional: the chemistry is required, and gifter's value over KEGG here is
 precisely that it reports the closest route and names RHEA:21208 as the missing
 reaction, instead of silently scoring 2/3. This should be stated in the GIFT
 `notes` so it is not later "fixed" by dropping the step.
@@ -399,7 +399,7 @@ Two acylation variants x two methionine synthases = four routes.
 Then methionine synthase (a) or (b) as in GIFT 5.
 
 This GIFT exists in no KEGG module and is the main biological addition of this
-proposal. Its provenance must be recorded as giftr curation, not KEGG import.
+proposal. Its provenance must be recorded as gifter curation, not KEGG import.
 
 ### GIFT 7 — `cysteine_biosynthesis_sulfide` (SERINE + SULFIDE → CYSTEINE)
 
@@ -486,7 +486,7 @@ Recorded so they are not re-proposed:
   `reactions.tsv` +24, `route_reactions.tsv` +52, `reaction_xrefs.tsv` +48,
   `enzyme_systems.tsv` ~+28, `enzyme_components.tsv` ~+28,
   `markers.tsv` +36, `component_markers.tsv` ~+55.
-- No schema change; no code change. Version bump of `giftr_db_version` only.
+- No schema change; no code change. Version bump of `gifter_db_version` only.
 - New tests required: the acyclicity constraint of section 4; composition
   `PG3 → SERINE → CYSTEINE → METHIONINE`; alternative-route OR across
   `CYS_RT_SERINE` / `CYS_RT_OAS`; alternative-route OR across the sulfhydrylation
@@ -496,7 +496,7 @@ Recorded so they are not re-proposed:
   reduction (`call_effect: broadens`), the M00338/M00609 merge, the M00017
   sulfhydrylation extension (`broadens`), and the homocysteine
   output-anchor prohibition (`clarification`).
-- `SOURCES.md` must distinguish KEGG-imported orthology from giftr's boundary
+- `SOURCES.md` must distinguish KEGG-imported orthology from gifter's boundary
   decisions, which here are substantial.
 
 ## 10. Evidence sources

@@ -9,7 +9,7 @@ list_facets(facet = NULL, db = NULL)
 \arguments{
 \item{facet}{Optional facet name to filter by.}
 
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 }
 \value{
 A tibble of registered terms with their definitions.

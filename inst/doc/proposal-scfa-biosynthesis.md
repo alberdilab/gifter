@@ -5,13 +5,13 @@ Evidence test applied 2026-08-18 against database version 2026.12.3. The
 implementation record, including where it departed from this proposal, is §14.
 
 Scope: decide whether and how bacterial short-chain fatty acid (SCFA) formation
-should be expressed under the giftr ontology, and identify what must be
+should be expressed under the gifter ontology, and identify what must be
 architecturally true before any of it can be curated.
 
 The short answer is that the ontology and the runtime need **no change at all**,
 that KEGG orthology is **not sufficient evidence for butyrate** — the single most
 requested trait in this layer — and that the marker which *is* sufficient already
-lives in a namespace giftr's evaluator recognises but no curated row has ever
+lives in a namespace gifter's evaluator recognises but no curated row has ever
 used. Two of the eight candidates survive on KEGG evidence alone, one survives
 only by moving to that second namespace, and four are refused.
 
@@ -53,7 +53,7 @@ only by moving to that second namespace, and four are refused.
 8. **Refuse `lactate_formation` and `formate_formation` on scope**, not on
    evidence: neither is an SCFA under the C2–C6 definition this layer uses. §2.
 9. **Curate `pyruvate_to_acetyl_coa` as a prerequisite**, not as an SCFA GIFT.
-   Without it the whole SCFA layer is an island: giftr's catabolic content
+   Without it the whole SCFA layer is an island: gifter's catabolic content
    currently ends at `PYRUVATE`, and the SCFA layer begins at acetyl-CoA. §7.2.
 10. **Accept one honest limitation and record it**: with SCFA anchors declared
     `unspecified`, `gift_profile.cross_feeding_output` stays 0 for the whole
@@ -73,7 +73,7 @@ Three neighbours are deliberately outside it.
 
 - **Formate (C1)** is excluded by chain length. Pyruvate formate-lyase is
   nonetheless good chemistry with clean markers (K00656 + activase K04069,
-  2843 organisms), and it belongs in giftr as one route of
+  2843 organisms), and it belongs in gifter as one route of
   `pyruvate_to_acetyl_coa` (§7.2), where formate is a co-product rather than
   the claim.
 - **Lactate (C3)** is a 2-hydroxy acid, not a fatty acid, and is conventionally
@@ -97,7 +97,7 @@ Nothing in this layer requires a migration. Four things were checked.
 
 **The marker namespace vocabulary is open, and already wider than the curated
 content.** `marker.namespace` is `TEXT NOT NULL` with no `CHECK` constraint
-(`inst/schema/giftr.sql:180`). More usefully,
+(`inst/schema/gifter.sql:180`). More usefully,
 `.infer_marker_namespace()` (`R/evaluation.R:13`) already maps
 `^TIGR[0-9]{5}$` to `TIGRFAM`, `.normalize_marker_namespace()` already carries
 `TIGRFAM` in its alias table, and `.normalize_marker_accession()` already
@@ -133,12 +133,12 @@ protein layers opened. §10 lists the identifiers.
 | **Rhea** | A master reaction for every step, including the substrate-specific `RHEA:30071` for the butyryl-CoA:acetate transfer | Nothing about which genes do it |
 | **KEGG modules** | `M00579` only (Pta–AckA). There is **no KEGG module for butyrate formation and none for propionate formation** | Module boundaries for 3 of the 4 candidate GIFTs |
 | **KEGG orthology** | Clean KOs for the acetate node and the propanediol route; chain-length-generic KOs for the butyrate core; a fused KO (`K01034`/`K01035`, EC 2.8.3.8 *and* 2.8.3.9) where butyrate needs specificity | Any orthologue specific to butyryl-CoA:acetate CoA-transferase |
-| **MetaCyc** | Pathway boundaries (`CENTFERM-PWY`, `P108-PWY`, `PWY0-1312`) that agree with the cuts proposed here | Machine-readable, licence-clean markers. The pathway pages are subscription-gated and returned no content on 2026-08-18; giftr cites no MetaCyc record today and this layer gives no reason to start |
+| **MetaCyc** | Pathway boundaries (`CENTFERM-PWY`, `P108-PWY`, `PWY0-1312`) that agree with the cuts proposed here | Machine-readable, licence-clean markers. The pathway pages are subscription-gated and returned no content on 2026-08-18; gifter cites no MetaCyc record today and this layer gives no reason to start |
 | **InterPro / NCBIfam / HAMAP** | The one marker that makes butyrate curatable: `IPR023990`, `TIGR03948`, `MF_03227` | Coverage — 178 proteins, see §6.2 |
 | **ChEBI** | Anchor identity for every new anchor | — |
 
 The headline is the middle two rows. **KEGG organises this layer worse than it
-organises any layer giftr has curated so far**, and the gap is not one of
+organises any layer gifter has curated so far**, and the gap is not one of
 pathway bookkeeping — it is that the terminal enzyme defining the trait has no
 orthology group of its own.
 
@@ -162,7 +162,7 @@ does a marker exist whose specificity matches the product named in the trait?
                         +-- yes --> curate
 ```
 
-The second clause is new, and this layer is why. Every trait giftr has curated
+The second clause is new, and this layer is why. Every trait gifter has curated
 so far is directionally unambiguous: nothing runs serine biosynthesis backwards
 to make 3-phosphoglycerate, and no genome encodes a xylanase in order to
 polymerise xylose. Fermentative end-product formation is different. The
@@ -172,7 +172,7 @@ decarboxylase of the succinate route are the same genes KEGG module `M00741`
 uses to *degrade* propanoyl-CoA, and butyryl-CoA:acetate CoA-transferase is the
 enzyme *Syntrophomonas wolfei* uses to consume butyrate.
 
-giftr stores direction per route, in `route_reaction.orientation`. That is a
+gifter stores direction per route, in `route_reaction.orientation`. That is a
 curatorial claim about the chemistry, not an inference from the evidence. For
 this layer the distinction has to be stated out loud in every GIFT description,
 because the markers are direction-blind.
@@ -321,7 +321,7 @@ Typhimurium LT2 completes it; *Propionibacterium freudenreichii*, which carries
 `pduCDE` and `pduP` for a different purpose, correctly does not.
 
 This route also does something no other candidate does: **it composes with
-already-curated giftr content through an existing anchor.** `fucose_degradation_isomerase`
+already-curated gifter content through an existing anchor.** `fucose_degradation_isomerase`
 and `rhamnose_degradation` both terminate at `LACTALDEHYDE`
 ((S)-lactaldehyde, CHEBI:18041), and lactaldehyde reductase FucO (`K00048`,
 `RHEA:15933`, 629 organisms) reduces exactly that anchor to
@@ -339,7 +339,7 @@ and four other clostridia. Precision is perfect; recall is negligible, because
 `K20626`/`K20627` are assigned in only 14 and 13 organisms respectively.
 
 The catch is the acrylyl-CoA reductase step. `K20143` (`acrC`, NADH-dependent)
-is assigned in 22 organisms total and in only **4 of the 13**. giftr's existing
+is assigned in 22 organisms total and in only **4 of the 13**. gifter's existing
 policy decides this: the serine phosphatase step is kept required even though a
 fifth of `serA`/`serC` genomes carry no recognised phosphatase orthologue,
 because "the chemistry is required and the missing reaction is reported rather
@@ -393,7 +393,7 @@ the biosynthetic from the degradative direction.
 in metabolism and invariant 3 asks for restraint. Two curated reactions already
 consume acetyl-CoA internally — serine O-acetyltransferase (`RHEA:24560`) and
 homoserine O-acetyltransferase (`RHEA:13701`) — and declaring the anchor does
-**not** retroactively connect them to anything, because giftr derives edges from
+**not** retroactively connect them to anything, because gifter derives edges from
 declared anchors only and never from shared reaction participants. The model
 protects itself here by construction; this is a good demonstration of why
 invariant 2 is written the way it is.
@@ -404,7 +404,7 @@ one already recorded for the methionine layer.
 
 ### 7.2 The prerequisite: pyruvate to acetyl-CoA
 
-giftr's catabolic content currently ends at `PYRUVATE`, `GAP`, `DHAP`,
+gifter's catabolic content currently ends at `PYRUVATE`, `GAP`, `DHAP`,
 `FRUCTOSE_6P`, `GLUCOSE_1P` and `XYLULOSE_5P`. The SCFA layer starts at
 acetyl-CoA. Without a GIFT spanning that gap, `acetate_interconversion` and
 `butyrate_formation` are isolated nodes in `gift_graph` and
@@ -454,12 +454,12 @@ straightforwardly `catabolic`.
 
 SCFA cross-feeding — acetate released by one organism and consumed by a
 butyrate producer — is the single most cited interaction in gut microbial
-ecology, and giftr already has machinery for it: `gift_profile.cross_feeding_output`
+ecology, and gifter already has machinery for it: `gift_profile.cross_feeding_output`
 fires when a GIFT declares an **extracellular** output anchor that another GIFT
 consumes as input. The butyrate transferase route consumes acetate. The wiring
 is there.
 
-It cannot be used, because the compartment claim cannot be evidenced. giftr's
+It cannot be used, because the compartment claim cannot be evidenced. gifter's
 rule is that a compartment split is licensed by a transport GIFT, and the
 `GLUCOSE` anchor is already left `unspecified` for exactly this reason: "glucose
 is moved mainly by promiscuous carriers, so no uptake GIFT licenses a split".
@@ -492,7 +492,7 @@ Every reaction has a Rhea master. Two need care.
 | Crotonase | **`RHEA:26558`** | (3S)-3-hydroxybutanoyl-CoA = (2E)-butenoyl-CoA + H2O. **Not `RHEA:17849`**, which is the (3R) reaction, and not `RHEA:52664`, which is the generic short-chain parent |
 | Butyryl-CoA dehydrogenase | `RHEA:24004` | ETF-coupled |
 | Butyryl-CoA:acetate CoA-transferase | **`RHEA:30071`** | butanoate + acetyl-CoA = butanoyl-CoA + acetate, reversed. **Not `RHEA:13381`**, the generic "an acyl-CoA + acetate" parent that EC 2.8.3.8 maps to |
-| Propanediol dehydratase | `RHEA:14569` | Stereochemically unspecified: Rhea has only generic `propane-1,2-diol` (CHEBI:16997) here, while FucO makes the (S) form (CHEBI:29002). Anchor the (S) compound, matching the existing (S)-`LACTALDEHYDE` anchor, and record that the reaction is stated at lower stereochemical specificity than the boundary. B12-dependent; giftr models no cofactor availability |
+| Propanediol dehydratase | `RHEA:14569` | Stereochemically unspecified: Rhea has only generic `propane-1,2-diol` (CHEBI:16997) here, while FucO makes the (S) form (CHEBI:29002). Anchor the (S) compound, matching the existing (S)-`LACTALDEHYDE` anchor, and record that the reaction is stated at lower stereochemical specificity than the boundary. B12-dependent; gifter models no cofactor availability |
 | Propionaldehyde dehydrogenase | `RHEA:36027` | |
 | Phosphate propanoyltransferase | `RHEA:28046` | |
 | Propionate kinase | `RHEA:23148` | reversed |
@@ -515,7 +515,7 @@ specific as the trait, for the same reason marker identity does.
    that `K03521`/`K03522` are the generic `fixA`/`fixB` orthologues present in
    7729 organisms and carry no butyrate-specific information, while requiring
    them costs 11 of 31 reference genomes. The counter-argument is that the
-   electron-bifurcating complex genuinely needs them and giftr models machines,
+   electron-bifurcating complex genuinely needs them and gifter models machines,
    not minimum sufficient marker sets. §6.2.
 2. **Whether `propionate_formation_acrylate` earns curation at four complete
    calls.** Evidence quality is the highest in the layer; coverage is the

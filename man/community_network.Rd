@@ -14,7 +14,7 @@ community_network(
 )
 }
 \arguments{
-\item{community}{A community from [giftr_community()].}
+\item{community}{A community from [gifter_community()].}
 
 \item{interaction}{Interaction type. Only `"metabolic_handoff"` is defined.}
 
@@ -26,10 +26,10 @@ edges.}
 
 \item{limit}{Passed to [gift_cycles()] for distributed cycle closure.}
 
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 }
 \value{
-A `giftr_network` list with `nodes` (one row per genome, with
+A `gifter_network` list with `nodes` (one row per genome, with
   provider and recipient degrees), `edges`, `chain_coverage` (each curated
   composition link classified as `within_genome`, `community_distributed`,
   `not_transferable` or `not_represented`), `cycle_coverage`, and `metrics`.

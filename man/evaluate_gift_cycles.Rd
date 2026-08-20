@@ -9,7 +9,7 @@ evaluate_gift_cycles(result, db = NULL, limit = 100L)
 \arguments{
 \item{result}{A result returned by [evaluate_gifts()].}
 
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 
 \item{limit}{Passed to [gift_cycles()].}
 }
@@ -40,5 +40,5 @@ A `closed` cycle means the genome encodes at least one complete route for
 every segment of a ring in the composition graph. It does not mean the cycle
 carries flux, runs in the direction the name suggests, or is expressed. Two
 of the citric acid cycle's segments are curated as `interconversion`
-precisely because giftr cannot say which way they run.
+precisely because gifter cannot say which way they run.
 }

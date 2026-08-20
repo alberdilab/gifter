@@ -62,8 +62,12 @@
 #'   member's is not.
 #' @param threshold Completeness below which a negative call is treated as
 #'   indeterminate. Required by the `"completeness"` policy.
-#' @return A `giftr_community` list holding the genome identifiers, the call
+#' @return A `gifter_community` list holding the genome identifiers, the call
 #'   matrix, the abundance vector if supplied, and the `database_version`.
+#' @section Compatibility:
+#' `giftr_community()` is retained as an alias, and returned objects retain
+#' `giftr_community` as a secondary class, for code written before the package
+#' was renamed to gifter.
 #' @examples
 #' donor <- evaluate_gifts(data.frame(
 #'   gene_id = "g1", namespace = "KO", accession = "K01198"
@@ -71,16 +75,16 @@
 #' recipient <- evaluate_gifts(data.frame(
 #'   gene_id = "g1", namespace = "KO", accession = "K01805"
 #' ))
-#' community <- giftr_community(donor = donor, recipient = recipient)
+#' community <- gifter_community(donor = donor, recipient = recipient)
 #' community$genome_id
 #' @export
-giftr_community <- function(..., abundance = NULL, quality = NULL,
+gifter_community <- function(..., abundance = NULL, quality = NULL,
                             policy = "none", threshold = NULL) {
   results <- list(...)
   if (!length(results)) {
     stop("Supply at least one evaluated genome", call. = FALSE)
   }
-  if (!all(vapply(results, inherits, logical(1), "giftr_result"))) {
+  if (!all(vapply(results, inherits, logical(1), c("gifter_result", "giftr_result")))) {
     stop("Every genome must be a result from evaluate_gifts()", call. = FALSE)
   }
   genomes <- names(results)
@@ -92,7 +96,7 @@ giftr_community <- function(..., abundance = NULL, quality = NULL,
   }
 
   versions <- vapply(results, function(result) {
-    result$database_version$giftr_db_version
+    .gifter_database_version_value(result$database_version)
   }, character(1))
   if (length(unique(versions)) > 1L) {
     # Calls made against different releases were made against different
@@ -145,19 +149,32 @@ giftr_community <- function(..., abundance = NULL, quality = NULL,
       results = results,
       database_version = results[[1L]]$database_version
     ),
-    class = c("giftr_community", "list")
+    class = c("gifter_community", "giftr_community", "list")
+  )
+}
+
+#' @rdname gifter_community
+#' @export
+giftr_community <- function(..., abundance = NULL, quality = NULL,
+                            policy = "none", threshold = NULL) {
+  gifter_community(
+    ..., abundance = abundance, quality = quality,
+    policy = policy, threshold = threshold
   )
 }
 
 #' @export
-print.giftr_community <- function(x, ...) {
-  cat("<giftr_community>", length(x$genome_id), "genomes\n")
+print.gifter_community <- function(x, ...) {
+  cat("<gifter_community>", length(x$genome_id), "genomes\n")
   cat("  genomes:", paste(x$genome_id, collapse = ", "), "\n")
   cat("  GIFTs evaluated:", length(x$gift_id), "\n")
   cat("  abundance:", if (is.null(x$abundance)) "not supplied" else "supplied", "\n")
-  cat("  database version:", x$database_version$giftr_db_version, "\n")
+  cat("  database version:", .gifter_database_version_value(x$database_version), "\n")
   invisible(x)
 }
+
+#' @export
+print.giftr_community <- print.gifter_community
 
 .community_universe_metrics <- function(community, universe, version) {
   label <- universe$label
@@ -343,30 +360,33 @@ print.giftr_community <- function(x, ...) {
 #' capability. It is not a fraction of activity, flux, transcript production or
 #' ecological effect, which is why it never merges with `provider_count`.
 #'
-#' @param community A community from [giftr_community()].
+#' @param community A community from [gifter_community()].
 #' @param universes Optional list of [gift_universe()] objects. The default set
 #'   is used if omitted.
-#' @param db Optional open giftr database connection.
-#' @return A `giftr_traits` list with `metrics` and `trace`, whose
+#' @param db Optional open gifter database connection.
+#' @return A `gifter_traits` list with `metrics` and `trace`, whose
 #'   `target_type` distinguishes community, GIFT, genome and genome-pair rows.
 #' @export
 community_traits <- function(community, universes = NULL, db = NULL) {
-  if (!inherits(community, "giftr_community")) {
-    stop("community must come from giftr_community()", call. = FALSE)
+  if (!inherits(community, c("gifter_community", "giftr_community"))) {
+    stop("community must come from gifter_community()", call. = FALSE)
   }
-  .with_giftr_db(db, function(connection) {
-    version <- giftr_db_version(connection)$giftr_db_version
-    if (!identical(version, community$database_version$giftr_db_version)) {
+  .with_gifter_db(db, function(connection) {
+    version <- gifter_db_version(connection)$gifter_db_version
+    community_version <- .gifter_database_version_value(community$database_version)
+    if (!identical(version, community_version)) {
       stop(
         "The community was evaluated against database version ",
-        community$database_version$giftr_db_version,
+        community_version,
         " but the supplied connection serves ", version, ".",
         call. = FALSE
       )
     }
     if (is.null(universes)) universes <- .default_universes(connection)
     if (!is.list(universes) || !length(universes) ||
-        !all(vapply(universes, inherits, logical(1), "giftr_universe"))) {
+        !all(vapply(
+          universes, inherits, logical(1), c("gifter_universe", "giftr_universe")
+        ))) {
       stop("universes must be a non-empty list of gift_universe() objects", call. = FALSE)
     }
     stale <- vapply(universes, function(u) !identical(u$database_version, version), logical(1))
@@ -392,7 +412,7 @@ community_traits <- function(community, universes = NULL, db = NULL) {
         assessability = community$assessability,
         database_version = community$database_version
       ),
-      class = c("giftr_traits", "list")
+      class = c("gifter_traits", "giftr_traits", "list")
     )
   })
 }

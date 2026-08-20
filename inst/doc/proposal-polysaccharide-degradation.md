@@ -31,7 +31,7 @@ is now pinned in `data-raw/reference/`. No open questions remain; one item is
 deferred (§15).
 
 Scope: decide how complex polysaccharide degradation and sugar degradation
-should be expressed under the giftr ontology, and identify what must
+should be expressed under the gifter ontology, and identify what must
 change in the schema and code before they can be curated honestly.
 
 All open questions were resolved on 2026-08-17. The answers are recorded in
@@ -39,7 +39,7 @@ section 12 and worked into the design below: compartment is part of the model,
 with no default and a transporter-evidence licence (§4); the legacy database is
 not an evidence source (§3); an explicit granularity rule constrains atomisation
 (§5); acetate and ferulate were assessed and settled (§9); genomic-context
-evidence is ruled out because giftr operates on chunked MAGs (§4.6);
+evidence is ruled out because gifter operates on chunked MAGs (§4.6);
 monosaccharide uptake breadth was assessed (§14); compartment-inexact graph
 edges are traversed and flagged (§8.7); and substrate-level reporting stays in
 the reporting layer (§12.5).
@@ -159,13 +159,13 @@ boundaries are wrong.
 CAZy and dbCAN are the reference for carbohydrate-active enzyme identity,
 family/subfamily assignment, and characterised activity. Substrate scope,
 family-to-activity mapping, and marker confidence are taken from them and from
-primary literature, not from any earlier giftr release.
+primary literature, not from any earlier gifter release.
 
 Planned additions to `SOURCES.md`:
 
 - CAZy database — family definitions and characterised-activity records
 - dbCAN3 / dbCAN-sub — HMM libraries and subfamily assignment used by the
-  annotation pipelines that produce giftr input
+  annotation pipelines that produce gifter input
 - Rhea, ChEBI, KEGG — as already used, for reaction chemistry, anchor identity
   and orthology markers
 
@@ -182,8 +182,8 @@ column.
 ## 4. Compartment
 
 Accepted as a scope extension. This is a deliberate, bounded amendment to the
-"giftr does not model compartments" statement in
-[architecture.md](architecture.md#what-giftr-deliberately-does-not-model),
+"gifter does not model compartments" statement in
+[architecture.md](architecture.md#what-gifter-deliberately-does-not-model),
 and both that file and `AGENTS.md` must be updated when it ships.
 
 ### 4.1 What is in scope
@@ -207,10 +207,10 @@ This is the sentence the whole design rests on.
 
 A KO or CAZy family identifies chemistry, not localisation. Signal peptides are
 not accessions and do not fit the `namespace + accession` marker model.
-giftr therefore **cannot infer from a genome whether a given hydrolase is
+gifter therefore **cannot infer from a genome whether a given hydrolase is
 secreted**, and must not pretend to.
 
-What giftr *can* do is state, as a curation decision, where a chemistry
+What gifter *can* do is state, as a curation decision, where a chemistry
 occurs for a given substrate class — exactly as it already states where a
 capability's boundaries fall. Two cases are evidenced without any genomic claim:
 
@@ -252,7 +252,7 @@ split by compartment only when **both** conditions hold:
   crossing.** Without them the split is an assertion, not an inference.
 
 If either fails, curate **one compartment-unspecified GIFT** for the chemistry
-and say so in its notes. This is the rule that keeps the model honest: giftr
+and say so in its notes. This is the rule that keeps the model honest: gifter
 splits where it can evidence the split and declines where it cannot, substrate
 by substrate, rather than applying a global prior.
 
@@ -260,7 +260,7 @@ The rule also protects against the worst failure mode. An unevidenced
 transporter that becomes a required reaction would silently break an otherwise
 complete catabolic chain, turning a missing annotation into a false negative for
 the whole capability. Coupling the split to transporter evidence means no chain
-can be broken by a transporter giftr was never able to identify.
+can be broken by a transporter gifter was never able to identify.
 
 ### 4.5 Separating exo-activities by compartment
 
@@ -324,7 +324,7 @@ Two nuances worth curating correctly:
   right biology: PTS possession is a real ecological signal.
 - **SusC/SusD substrate specificity cannot be assigned, and will not be.**
   It comes from PUL context — co-localisation with CAZymes — and genomic-context
-  evidence is ruled out because giftr operates on chunked MAGs where contig
+  evidence is ruled out because gifter operates on chunked MAGs where contig
   fragmentation makes gene neighbourhood unreliable (§12.6). Curate transport
   GIFTs only where substrate-specific markers exist: characterised ABC
   substrate-binding proteins, substrate-specific PTS components, and
@@ -505,7 +505,7 @@ reactions with location-qualified ChEBI participants.
 Add `anchor.compartment` with the three values of §4.1, defaulting existing rows
 to `unspecified`.
 
-**`chebi_id TEXT UNIQUE` at [giftr.sql:18](../schema/giftr.sql#L18) is a
+**`chebi_id TEXT UNIQUE` at [gifter.sql:18](../schema/gifter.sql#L18) is a
 hard blocker** — two location states of the same molecule cannot both carry
 their ChEBI ID. Relax to `UNIQUE (chebi_id, compartment)`.
 
@@ -566,7 +566,7 @@ the curator lists both.
 
 ### 8.6 Scope statement — documentation
 
-`AGENTS.md` and `architecture.md` both state that giftr does not model
+`AGENTS.md` and `architecture.md` both state that gifter does not model
 compartments. Amend to admit the two-valued anchor qualifier and to enumerate
 what remains excluded (§4.1). Shipping §8.2 without this leaves the repository
 contradicting itself.
@@ -692,7 +692,7 @@ community-level indices computed with the distillR database.
    1b. **No default compartment** (§4.4). Substrate physics decides what is
    possible; transporter evidence decides what is curated. Unlicensed
    chemistries stay compartment-unspecified.
-   1c. **No genomic-context evidence.** Ruled out because giftr operates on
+   1c. **No genomic-context evidence.** Ruled out because gifter operates on
    chunked MAGs, where contig fragmentation makes gene neighbourhood unreliable.
    Nothing in the evaluation may depend on co-localisation, operon structure or
    PUL membership. The cost is documented in §4.6.

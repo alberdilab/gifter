@@ -23,7 +23,7 @@ requires, and it uses that section's labels.
 
 Three things decide the layer, and none of them is chemistry.
 
-First, **giftr has no nitrogen boundary at all.** Ammonium appears in exactly
+First, **gifter has no nitrogen boundary at all.** Ammonium appears in exactly
 four curated reactions and in zero anchors. Nitrogen has never been a boundary
 molecule, only a co-product. Making it one is the layer's central architectural
 decision, and it needs a stated rule before the first anchor is added, exactly
@@ -34,12 +34,12 @@ what the genome actually gets — nitrogen, carbon, sulfur, or a bioactive
 product — and in three cases the compound's best-evidenced capability delivers
 something other than nitrogen. "Nitrogen compound degradation" is a chemical
 description of the substrate, not a capability, and it is not a facet value
-giftr can adopt.
+gifter can adopt.
 
 Third, **the largest single element of the legacy bundle is mostly
-uncurateable, and for an architectural reason giftr already committed to.**
+uncurateable, and for an architectural reason gifter already committed to.**
 distillR's `D0601 Nitrate` merges assimilatory nitrate reduction with
-respiratory nitrate reduction, denitrification and DNRA. giftr models no
+respiratory nitrate reduction, denitrification and DNRA. gifter models no
 electron acceptors. Only the assimilatory arm survives.
 
 **Eleven GIFTs are recommended and two more conditionally; one existing GIFT
@@ -69,7 +69,7 @@ database.** No schema migration and no R change is required.
    capabilities architecturally.** `nitrate_assimilation` (nitrate → ammonium)
    completes in 3045 bacteria on markers that are specific to the assimilatory
    enzymes. Respiratory NarGHI (2393), periplasmic NapAB (1326), DNRA NrfAH
-   (499) and denitrification (1512) all require an electron acceptor giftr does
+   (499) and denitrification (1512) all require an electron acceptor gifter does
    not model — the refusal already recorded on the `FUMARATE` anchor. NarG is
    independently disqualified: K00370 is *"nitrate reductase / nitrite
    oxidoreductase"*, one accession for two opposite reactions. §6.2, §8.
@@ -96,7 +96,7 @@ database.** No schema migration and no R change is required.
    transamination/deamination route through sulfoacetaldehyde (397) are both
    well evidenced. **"Taurine to hydrogen sulfide" must be refused**: the step
    that makes H2S is dissimilatory sulfite reduction, which is respiration.
-   giftr can state that a genome desulfonates taurine; it cannot state that
+   gifter can state that a genome desulfonates taurine; it cannot state that
    sulfide comes out. §6.7, §8.
 9. **Amend two existing GIFTs instead of writing a new one for GlcNAc.**
    `glcnac_degradation` and `neuac_degradation` both end at RHEA:12172, whose
@@ -169,7 +169,7 @@ re-import the legacy conflation.
 ## 3. What the ontology and the runtime already support
 
 Nothing in this layer requires a schema migration. Six things were checked
-against `inst/schema/giftr.sql`, `R/database-build.R` and `R/evaluation.R`.
+against `inst/schema/gifter.sql`, `R/database-build.R` and `R/evaluation.R`.
 
 **Multiple output anchors are curated and validated.** `fucose_degradation_isomerase`
 and `thiamine_precursor_salvage` both declare two. Allantoin degradation needs
@@ -186,10 +186,10 @@ O2-dependent and the Tpa/Xsc route is not, so `taurine_desulfonation_aerobic`
 and `taurine_degradation_sulfoacetaldehyde` differ in exactly this field.
 
 **The within-mode acyclicity check tolerates the proposed graph.** The check in
-`validate_giftr_sources()` (`R/database-build.R:1051`) scans directed modes
+`validate_gifter_sources()` (`R/database-build.R:1051`) scans directed modes
 separately. The proposed catabolic subgraph is a forest converging on
 `AMMONIUM` — urate → allantoin → urea → ammonium, creatinine → sarcosine →
-glycine, betaine → sarcosine — with no back edge, because nothing in giftr
+glycine, betaine → sarcosine — with no back edge, because nothing in gifter
 produces urate, allantoin, betaine, creatinine, carnitine or taurine. The one
 edge that crosses modes, catabolic ammonium into anabolic assimilation, is the
 case the rule explicitly expects.
@@ -228,18 +228,18 @@ this layer:
 | **KEGG orthology** | Clean, activity-specific KOs for the ureides, nitrate assimilation, the betaine demethylation chain, both carnitine routes, methylamine dehydrogenase and the whole taurine layer | Any KO that separates phenylethylamine oxidation from tyramine, histamine or putrescine oxidation (§6.6). Any KO for hypotaurine chemistry in bacteria (§6.7). A KO that separates nitrate reduction from nitrite oxidation — K00370 is *both* (§6.2) |
 | **KEGG modules** | Little. M00546 and the purine-degradation maps organise the ureides, but no module states any of the twelve as a capability | Usable boundaries — the same finding as the vitamin layer |
 | **ChEBI** | Identity for all proposed anchors | — |
-| **MetaCyc** | **Reachable again, and this is a change.** `https://websvc.biocyc.org/getxml?id=META:<id>` returned a full pathway record on 2026-08-18. Two earlier proposals recorded MetaCyc as subscription-gated and returning no content | Search. The `/search` endpoint is HTML- and captcha-gated, so records can be cited by ID but not discovered programmatically. **giftr still cites no MetaCyc row, and this layer gives no reason to start** — but `SOURCES.md` should be corrected, because the reason recorded there is now wrong |
+| **MetaCyc** | **Reachable again, and this is a change.** `https://websvc.biocyc.org/getxml?id=META:<id>` returned a full pathway record on 2026-08-18. Two earlier proposals recorded MetaCyc as subscription-gated and returning no content | Search. The `/search` endpoint is HTML- and captcha-gated, so records can be cited by ID but not discovered programmatically. **gifter still cites no MetaCyc row, and this layer gives no reason to start** — but `SOURCES.md` should be corrected, because the reason recorded there is now wrong |
 | **distillR 1.x `GIFT_db`** | A coverage check, and nothing else, per the rule set in the polysaccharide proposal §3. Used here to enumerate the twelve elements and, in §12, to identify three definitions that are wrong rather than merely coarse | Evidence. Three of its twelve definitions do not survive contact with the marker specificity invariant |
 
 The MetaCyc row is worth a sentence of its own, since the request raised it.
-distillR leaned on MetaCyc pathway boundaries; giftr does not, and the reason
+distillR leaned on MetaCyc pathway boundaries; gifter does not, and the reason
 is not access. It is that a pathway record is not a capability: it fixes no
 input and output boundary a genome can be scored against, states no alternative
 minimal routes as separate objects, and carries no marker layer. The
 boundaries this proposal cuts — at sarcosine, at allantoin, at ammonium — come
 from where genomes measurably differ, and MetaCyc agrees with some of them and
 not others. Restoring MetaCyc as a *citable* source is worthwhile for
-provenance; restoring it as a *structural* source would undo the reason giftr
+provenance; restoring it as a *structural* source would undo the reason gifter
 exists.
 
 ---
@@ -249,7 +249,7 @@ exists.
 The protein, SCFA and vitamin layers each added a clause to the same test. This
 layer adds a fourth, because its characteristic failure is new: the chemistry
 is fine, the markers are specific, and the capability still cannot be stated
-because its completion depends on something giftr does not model.
+because its completion depends on something gifter does not model.
 
 ```text
 does a marker exist whose specificity matches the compound named in the trait?
@@ -270,7 +270,7 @@ does a marker exist whose specificity matches the compound named in the trait?
                                                     require an external electron
                                                     acceptor, a membrane
                                                     potential, or any other
-                                                    quantity giftr does not
+                                                    quantity gifter does not
                                                     model?
                                                       |
                                                       +-- no  --> curate
@@ -378,7 +378,7 @@ biomass. Those are four different organisms.
 
 The markers are specific in the direction that matters: NasA/NasC and NarB are
 assimilatory enzymes, and NirA/NirBD/NasDE reduce nitrite all the way to
-ammonium rather than to nitric oxide. The output is ammonium, a molecule giftr
+ammonium rather than to nitric oxide. The output is ammonium, a molecule gifter
 can then assimilate, so the trait ends inside the model.
 
 **Refuse `nitrate_respiration`, `denitrification` and `dnra`.** Two independent
@@ -389,7 +389,7 @@ reasons, and either alone is sufficient.
    cytochrome as the electron donor and the nitrogen species as the terminal
    acceptor. Curating them would require quinone/quinol boundaries, and the
    trait's meaning — "can respire nitrate" — is a statement about energy
-   conservation that giftr has no layer for. This is the refusal already
+   conservation that gifter has no layer for. This is the refusal already
    recorded on the `FUMARATE` anchor, applied to a second acceptor.
 2. *Marker direction.* K00370 is named, by KEGG, **`narG, narZ, nxrA; nitrate
    reductase / nitrite oxidoreductase`**. The same accession identifies the
@@ -548,7 +548,7 @@ different pathway.
 
 **Refuse the trait as named.** The nearest defensible capability is "oxidative
 deamination of primary amines", which is an activity rather than a compound
-capability and which giftr has no business naming as a GIFT. Recorded as a
+capability and which gifter has no business naming as a GIFT. Recorded as a
 refusal with its evidence, per the standard set by the collagen and CAZy cases.
 
 ### 6.7 Taurine and hypotaurine — curate two, refuse two
@@ -582,7 +582,7 @@ with *Bilophila* and with taurine-conjugated bile acid metabolism.
 literature wants and the acceptor clause forbids. Both routes above end at
 sulfite. Converting sulfite to sulfide is dissimilatory sulfite reduction —
 DsrAB (K11180 + K11181, 228 genomes) or AsrABC (284) — which is respiration
-with sulfite as terminal electron acceptor. giftr can state that a genome
+with sulfite as terminal electron acceptor. gifter can state that a genome
 desulfonates taurine. It cannot state that H2S comes out, and a GIFT that
 implied it would be the layer's worst error.
 
@@ -599,7 +599,7 @@ rather than declared, which costs a graph edge into `acetate_interconversion`;
 Migration label: **redundant**, with a boundary amendment.
 
 `D0604` is `2.7.1.59 3.5.1.25 3.5.99.6` — GlcNAc kinase, GlcNAc-6-P deacetylase,
-glucosamine-6-P deaminase. giftr already curates exactly that chain as
+glucosamine-6-P deaminase. gifter already curates exactly that chain as
 `glcnac_degradation` (`GLCNAC` → `FRUCTOSE_6P`, route `GLCNAC_KINASE`,
 RHEA:17417 → RHEA:22936 → RHEA:12172). No new GIFT is warranted.
 
@@ -611,7 +611,7 @@ anchor. **The same reaction terminates `neuac_degradation`**, so both amino
 sugar GIFTs gain the boundary from one decision and one row each in
 `gift_anchors.tsv`.
 
-The effect is that the two capabilities giftr already scores as host-glycan
+The effect is that the two capabilities gifter already scores as host-glycan
 foraging become, correctly, nitrogen sources as well, and they connect to
 `ammonium_assimilation` in the graph. No route, reaction, system, component or
 marker changes, and no call changes. This is the cheapest result in the layer.
@@ -634,7 +634,7 @@ specific, but four jointly required subunits at that carriage make single
 missing annotations dominate the call.
 
 Formaldehyde, the carbon product, is left internal. Declaring it would create a
-boundary molecule that giftr has no consumer for and that is chemically a
+boundary molecule that gifter has no consumer for and that is chemically a
 transient the cell detoxifies immediately.
 
 ---
@@ -686,10 +686,10 @@ because TauD leaves the nitrogen on the aldehyde.
 
 ## 8. The electron-acceptor boundary, stated once
 
-giftr's scope statement excludes growth, flux balance, thermodynamics, media,
+gifter's scope statement excludes growth, flux balance, thermodynamics, media,
 metabolite concentrations, exchange reactions and runtime stoichiometry. It
 does not, in so many words, exclude respiration — but the `FUMARATE` anchor
-already records the consequence: *"giftr models no electron acceptors, so this
+already records the consequence: *"gifter models no electron acceptors, so this
 anchor supports no fumarate respiration claim."*
 
 This layer is where that sentence has to become a general rule, because it
@@ -710,7 +710,7 @@ Applied here:
 
 Two consequences worth stating plainly, because they are costs.
 
-**giftr will under-describe anaerobic ecology.** A genome with a complete
+**gifter will under-describe anaerobic ecology.** A genome with a complete
 denitrification pathway will score negative on everything in this layer except
 whatever else it carries. That is correct under the model and will still
 surprise users, so the refusals belong in `database_changes.tsv` where the
@@ -816,7 +816,7 @@ AMMONIUM ──ammonium_assimilation (anabolic)──────────▶
 ```
 
 No within-mode cycle exists, and none can arise from this content: nothing in
-giftr produces urate, allantoin, betaine, creatinine, carnitine, taurine or
+gifter produces urate, allantoin, betaine, creatinine, carnitine, taurine or
 nitrate, so every catabolic chain here is a path with a source outside the
 model. The single cross-mode edge, catabolic ammonium into anabolic
 assimilation, is the case the acyclicity rule explicitly expects — the same
@@ -985,7 +985,7 @@ ammonium is a reductive assimilation of an inorganic nutrient: it consumes
 reducing power rather than yielding it, produces no carbon, and exists to feed
 biosynthesis.
 
-**Recommended: `anabolic`**, on the `SULFIDE` precedent — giftr already treats
+**Recommended: `anabolic`**, on the `SULFIDE` precedent — gifter already treats
 assimilable inorganic sulfur as an input to anabolic GIFTs — and because the
 `gift_profile` consequence is correct: an anabolic GIFT whose output anchor
 carries `biomass_essential = yes` becomes an auxotrophy indicator, which is
@@ -1001,7 +1001,7 @@ layer would face the identical question.
 
 `RHEA:21068` is `nitrite + A + H2O = nitrate + AH2` — written on a generic
 acceptor, because the assimilatory nitrate reductase EC was deleted and its
-replacement is `1.7.99.-`. `SOURCES.md` records that giftr previously
+replacement is `1.7.99.-`. `SOURCES.md` records that gifter previously
 *avoided* a generic-acceptor reaction (`RHEA:18073`) in favour of the
 chemically specific quinone form, on the grounds that the corresponding
 ortholog is quinone-dependent.
@@ -1118,7 +1118,7 @@ capability the TMAO literature is actually about.
   addressed by ID, not for search. No MetaCyc record is cited by this proposal.
 - distillR 1.x `GIFT_db` as installed, read 2026-08-18, used only as a coverage
   checklist and, in §12, as the object of assessment.
-- giftr database version 2026.16.1, schema 6, and the validation logic in
+- gifter database version 2026.16.1, schema 6, and the validation logic in
   `R/database-build.R`.
 
 Every prevalence figure in this document was computed rather than recalled. No
@@ -1202,7 +1202,7 @@ derivations: `taurine_uptake_abc` is the layer's only `uptake` resource
 strategy, and `nitrate_assimilation` and `ammonium_assimilation` are the only
 new `auxotrophy_indicator` GIFTs, both of them because `AMMONIUM` and
 `GLUTAMATE` carry `biomass_essential = yes` and neither GIFT had to be told
-about nitrogen. No directed mode cycles: nothing in giftr
+about nitrogen. No directed mode cycles: nothing in gifter
 produces urate, allantoin, betaine, creatinine, carnitine, taurine or nitrate,
 so every catabolic chain has its source outside the model, and the one
 catabolic-to-anabolic edge is the case the acyclicity rule expects.

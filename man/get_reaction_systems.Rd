@@ -10,7 +10,7 @@ get_reaction_systems(reaction, db = NULL)
 \item{reaction}{A `reaction_id` or a Rhea master ID, with or without the
 `RHEA:` prefix.}
 
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 }
 \value{
 A long-form tibble. Multiple components within a system are AND;

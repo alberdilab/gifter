@@ -284,7 +284,7 @@
 #' behaviour. `"completeness"` requires a genome completeness estimate in
 #' `quality` and an explicit `threshold`, and treats every negative call on a
 #' genome below that threshold as indeterminate, removing it from every
-#' denominator. It is deliberately blunt: giftr has no validated model of how
+#' denominator. It is deliberately blunt: gifter has no validated model of how
 #' gene content is lost from a fragmented assembly, and a finer rule would imply
 #' a precision it cannot support. There is no default threshold, because how
 #' complete a genome must be before its silence is informative is the analyst's
@@ -295,7 +295,7 @@
 #'
 #' @section Interpretation:
 #'
-#' These traits count encoded capabilities in the current giftr ontology within
+#' These traits count encoded capabilities in the current gifter ontology within
 #' a stated universe. They are not measures of biological complexity, metabolic
 #' versatility in an environment, growth independence, activity, flux or
 #' phenotype. `supported_fraction = 0.8` over the biomass-essential anabolic
@@ -321,8 +321,8 @@
 #'   details.
 #' @param threshold Completeness below which a negative call is treated as
 #'   indeterminate. Required by the `"completeness"` policy and has no default.
-#' @param db Optional open giftr database connection.
-#' @return A `giftr_traits` list with `metrics` (one row per trait),
+#' @param db Optional open gifter database connection.
+#' @return A `gifter_traits` list with `metrics` (one row per trait),
 #'   `trace` (the GIFTs behind each trait), `universes`, and
 #'   `database_version`.
 #' @examples
@@ -341,7 +341,7 @@
 genome_traits <- function(result, universes = NULL, genome_id = "genome",
                           quality = NULL, policy = "none", threshold = NULL,
                           db = NULL) {
-  if (!inherits(result, "giftr_result")) {
+  if (!inherits(result, c("gifter_result", "giftr_result"))) {
     stop("result must come from evaluate_gifts()", call. = FALSE)
   }
   if (length(genome_id) != 1L || is.na(genome_id) || !nzchar(as.character(genome_id))) {
@@ -351,12 +351,13 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
   policy <- .resolve_policy(policy, quality, threshold)
   completeness <- .normalize_quality(quality, genome_id)
 
-  .with_giftr_db(db, function(connection) {
-    version <- giftr_db_version(connection)$giftr_db_version
-    if (!identical(version, result$database_version$giftr_db_version)) {
+  .with_gifter_db(db, function(connection) {
+    version <- gifter_db_version(connection)$gifter_db_version
+    result_version <- .gifter_database_version_value(result$database_version)
+    if (!identical(version, result_version)) {
       stop(
         "The result was evaluated against database version ",
-        result$database_version$giftr_db_version,
+        result_version,
         " but the supplied connection serves ", version,
         ". Traits computed across releases would compare different universes.",
         call. = FALSE
@@ -364,7 +365,9 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
     }
     if (is.null(universes)) universes <- .default_universes(connection)
     if (!is.list(universes) || !length(universes) ||
-        !all(vapply(universes, inherits, logical(1), "giftr_universe"))) {
+        !all(vapply(
+          universes, inherits, logical(1), c("gifter_universe", "giftr_universe")
+        ))) {
       stop("universes must be a non-empty list of gift_universe() objects", call. = FALSE)
     }
     stale <- vapply(universes, function(u) !identical(u$database_version, version), logical(1))
@@ -408,7 +411,7 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
         ),
         database_version = result$database_version
       ),
-      class = c("giftr_traits", "list")
+      class = c("gifter_traits", "giftr_traits", "list")
     )
   })
 }
@@ -434,16 +437,16 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
 }
 
 #' @export
-print.giftr_traits <- function(x, ...) {
+print.gifter_traits <- function(x, ...) {
   scope <- if (length(x$genome_id) > 1L) {
     paste(length(x$genome_id), "genomes")
   } else {
     x$genome_id
   }
-  cat("<giftr_traits>", scope, "\n")
+  cat("<gifter_traits>", scope, "\n")
   cat("  metrics: ", nrow(x$metrics), "rows across", length(x$universes),
       "reference universes\n")
-  cat("  database version:", x$database_version$giftr_db_version, "\n")
+  cat("  database version:", .gifter_database_version_value(x$database_version), "\n")
   headline <- if (any(x$metrics$target_type == "community")) {
     x$metrics[x$metrics$metric_id == "community_richness", , drop = FALSE]
   } else {
@@ -460,3 +463,6 @@ print.giftr_traits <- function(x, ...) {
   }
   invisible(x)
 }
+
+#' @export
+print.giftr_traits <- print.gifter_traits

@@ -1,7 +1,7 @@
-# giftr development and architecture guide
+# gifter development and architecture guide
 
 This guide explains the biological model, database schema, development workflow,
-and curation rules behind giftr. It is the detailed companion to the
+and curation rules behind gifter. It is the detailed companion to the
 repository-wide [agent instructions](../../AGENTS.md).
 
 Use the headings and keywords below as a search index. The same terms are used
@@ -88,8 +88,8 @@ inventing one to satisfy a schema would make the boundary layer meaningless for
 the GIFTs that genuinely use it. The build rejects it.
 
 External databases contribute chemistry, identifiers, pathway suggestions, and
-annotation evidence. They do not define the giftr ontology. A KEGG module is
-not automatically a GIFT, and giftr boundaries may intentionally differ from
+annotation evidence. They do not define the gifter ontology. A KEGG module is
+not automatically a GIFT, and gifter boundaries may intentionally differ from
 an external pathway's endpoints.
 
 ### What a positive call means
@@ -118,9 +118,9 @@ because the behaviours have names people already use:
 A structural call says the genome encodes the parts list and the machine that
 builds it. Everything after that is physiology.
 
-### What giftr deliberately does not model
+### What gifter deliberately does not model
 
-giftr is not a genome-scale metabolic model. Unless a future architectural
+gifter is not a genome-scale metabolic model. Unless a future architectural
 decision explicitly changes scope, it does not model:
 
 - growth or biomass reactions;
@@ -515,7 +515,7 @@ never reported as closed across a community however it is composed.
 
 ### What these numbers may not say
 
-A quantitative trait counts encoded capabilities in the current giftr ontology
+A quantitative trait counts encoded capabilities in the current gifter ontology
 within a stated universe. It is not a measure of biological complexity,
 metabolic versatility in an environment, growth independence, activity, flux,
 phenotype, or ecological effect.
@@ -549,7 +549,7 @@ Every GIFT type is evaluated through explicit Boolean layers, and the layers are
 never collapsed. This section describes the metabolic model; the machinery types
 are in [The machinery model](#the-machinery-model).
 
-giftr separates biological meaning, chemistry, enzymology, and genomic
+gifter separates biological meaning, chemistry, enzymology, and genomic
 evidence into explicit layers:
 
 ```text
@@ -861,7 +861,7 @@ deleting an edge to satisfy the validator.
 ### Cycles in the composition graph
 
 Some real metabolism closes a ring. The oxidative citric acid and glyoxylate
-cycles are the worked examples, and giftr represents them with no new kind of
+cycles are the worked examples, and gifter represents them with no new kind of
 object: ordinary metabolic GIFTs whose declared anchors happen to close.
 
 ```text
@@ -915,7 +915,7 @@ own routes and markers whether or not its neighbours are; inferring a
 capability's absence from a neighbour's absence is the opposite of what the
 composition model is for. And a `closed` cycle is a statement about encoded
 chemistry, not about flux, direction or expression -- two of the oxidative
-cycle's five segments are `interconversion` precisely because giftr cannot say
+cycle's five segments are `interconversion` precisely because gifter cannot say
 which way they run.
 
 A two-node loop between two `interconversion` GIFTs is not reported, for the
@@ -990,7 +990,7 @@ with a required `relation`:
 | `related` | Biologically adjacent context, no shared-chemistry claim |
 
 The relation is part of the biological claim. KEGG M00018 is `subset_of` for
-three different GIFTs because giftr cuts it at two branchpoints, and
+three different GIFTs because gifter cuts it at two branchpoints, and
 `cysteine_biosynthesis_homocysteine` is `superset_of` M00338 while only
 `overlaps` M00609. Never record a link that implies an equivalence the declared
 anchors do not support.
@@ -1028,7 +1028,7 @@ canonical reaction identity.
 
 ### Runtime chemistry boundary
 
-giftr may query or import Rhea chemistry while constructing and validating
+gifter may query or import Rhea chemistry while constructing and validating
 the database. It should not duplicate Rhea's complete metabolite and
 stoichiometric graph into the runtime database without a concrete need. The
 runtime ontology needs the curated anchor boundaries and the reaction IDs that
@@ -1077,7 +1077,7 @@ EC          6.3.4.4
 PFAM        PFxxxxx
 TIGRFAM     TIGRxxxxx
 CAZY        GHxx
-CUSTOM_HMM  giftr_purA
+CUSTOM_HMM  gifter_purA
 ```
 
 Do not add a fixed column for every evidence system. Namespaced rows let new
@@ -1211,7 +1211,7 @@ remain present in both forms.
 | `change_gifts.tsv` | `change_gift` | GIFTs a recorded change affects |
 | `database_release.tsv` | `database_release` | Database, schema, upstream-source, date, and commit metadata |
 
-The SQL contract is in `inst/schema/giftr.sql`; the compiler and structural
+The SQL contract is in `inst/schema/gifter.sql`; the compiler and structural
 validator are in `R/database-build.R`.
 
 ### Stable identifiers and foreign keys
@@ -1228,7 +1228,7 @@ different claim.
 ### Source of truth and provenance
 
 The version-controlled TSV files in `inst/extdata/database-source` are the
-biological source of truth. `inst/extdata/giftr.sqlite` is generated output.
+biological source of truth. `inst/extdata/gifter.sqlite` is generated output.
 Never curate the SQLite file directly.
 
 Provenance can come from Rhea, ChEBI, KEGG, MetaCyc, UniProt, primary literature,
@@ -1239,10 +1239,10 @@ supports:
 - ChEBI identifies an anchor molecule.
 - KEGG or MetaCyc may suggest a pathway organization or cross-reference.
 - UniProt, HMM resources, or literature may support enzyme/marker mappings.
-- giftr chooses the capability, boundaries, accepted routes, and curation
+- gifter chooses the capability, boundaries, accepted routes, and curation
   interpretation.
 
-Do not imply that an upstream database endorses a giftr-specific boundary or
+Do not imply that an upstream database endorses a gifter-specific boundary or
 trait interpretation. Dataset-level sources and deliberate curation choices are
 documented in `inst/extdata/database-source/SOURCES.md`; row-level evidence is
 kept in the relevant source columns.
@@ -1277,7 +1277,7 @@ implementation. Materialize each valid minimal route as its own `gift_routes.tsv
 record with ordered rows in `route_reactions.tsv`.
 
 Do not treat an upstream module as authoritative. Verify that its boundaries,
-reaction chemistry, alternatives, and direction match the giftr claim.
+reaction chemistry, alternatives, and direction match the gifter claim.
 
 ### 4. Curate enzymes and components
 
@@ -1350,8 +1350,8 @@ Rscript -e 'testthat::test_local(".")'
 ```
 
 `data-raw/build_database.R` loads the development package, calls
-`validate_giftr_sources()`, and compiles
-`inst/extdata/giftr.sqlite` with `build_giftr_database()`. Compilation is
+`validate_gifter_sources()`, and compiles
+`inst/extdata/gifter.sqlite` with `build_gifter_database()`. Compilation is
 atomic: the intended output is replaced only after the new database passes
 foreign-key and integrity checks.
 
@@ -1388,8 +1388,8 @@ debatable.
 Three versions describe different things:
 
 ```text
-giftr package version     code and public API release
-giftr database version    biological content release
+gifter package version     code and public API release
+gifter database version    biological content release
 schema version               relational contract/migration level
 ```
 
@@ -1411,7 +1411,7 @@ database provenance. A schema change requires an explicit schema-version bump
 and coordinated updates to the SQL schema, TSV source specification, compiler,
 validation, tests, and documentation. Update `database_release.tsv` with the
 database version, schema version, build date, upstream resource releases, and
-source commit. Keep upstream release identifiers distinct from giftr's own
+source commit. Keep upstream release identifiers distinct from gifter's own
 curation release.
 
 ### Two changelogs

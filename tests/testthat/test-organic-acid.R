@@ -74,8 +74,8 @@ test_that("no citric acid cycle acid is claimed as a released product", {
   # What survives is the part the refusals were actually about, and it is what
   # this test now asserts: no GIFT claims that a genome forms and releases one
   # of these acids as a product.
-  connection <- giftr_db_connect()
-  withr::defer(giftr_db_disconnect(connection))
+  connection <- gifter_db_connect()
+  withr::defer(gifter_db_disconnect(connection))
   anchors <- DBI::dbGetQuery(connection, "SELECT anchor_id, molecule FROM anchor")
 
   # Citrate is consumed and never produced. Malate is now the justified output
@@ -199,8 +199,8 @@ test_that("the racemase closes the acrylate route's open input", {
 test_that("the two lactate anchors stay distinct", {
   # Enantiomers, not compartment variants of one molecule. Collapsing them would
   # let the L-specific dehydrogenase evidence the acrylate route's substrate.
-  connection <- giftr_db_connect()
-  withr::defer(giftr_db_disconnect(connection))
+  connection <- gifter_db_connect()
+  withr::defer(gifter_db_disconnect(connection))
   lactate <- DBI::dbGetQuery(
     connection,
     "SELECT anchor_id, molecule, chebi_id FROM anchor WHERE anchor_id LIKE 'LACTATE%'"
@@ -250,7 +250,7 @@ test_that("citrate fermentation needs the whole holoenzyme and a decarboxylase",
   expect_equal(unlist(gift$missing_reactions_best_route), "RHEA:15641")
 
   # The transporter is not required evidence: the classic aerobic Cit-negative
-  # phenotype of Escherichia coli K-12 is regulation, which giftr does not model,
+  # phenotype of Escherichia coli K-12 is regulation, which gifter does not model,
   # so requiring CitT would look like a phenotype claim without being one.
   expect_setequal(
     complete_gifts(lyase, "K01571"),

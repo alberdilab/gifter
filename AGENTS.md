@@ -1,12 +1,12 @@
-# giftr agent instructions
+# gifter agent instructions
 
 These instructions apply to the entire repository. They define how automated
-agents should change giftr. The detailed rationale, schema reference, and
+agents should change gifter. The detailed rationale, schema reference, and
 curation procedures live in [the development and architecture guide](inst/doc/architecture.md).
 
 ## Mission
 
-giftr infers **genome-inferred functional traits (GIFTs)** from genomic
+gifter infers **genome-inferred functional traits (GIFTs)** from genomic
 evidence. A GIFT is a biologically meaningful capability whose genomic support is
 evaluated through an explicit, curated and traceable completeness model. Every
 GIFT declares a `gift_type`, which names that model:
@@ -31,11 +31,11 @@ least one complete curated architecture, circuit or defense mechanism. In no
 case does a positive call mean expression, activity, physiological state, actual
 motility, an actual defense outcome, environmental relevance, or phenotype.
 
-Keep giftr in the space between marker checklists and genome-scale metabolic
+Keep gifter in the space between marker checklists and genome-scale metabolic
 models. It should be biologically explicit, composable, traceable,
 curator-friendly, and focused on what a genome encodes.
 
-giftr does not infer whether a capability is active in a particular
+gifter does not infer whether a capability is active in a particular
 environment. Do not add growth, flux balance analysis, thermodynamics, media,
 metabolite concentrations, exchange reactions, biomass equations, or complete
 runtime stoichiometry without an explicit architectural decision.
@@ -44,7 +44,7 @@ One such decision has been taken. Declared anchors carry a two-state
 `compartment` qualifier, so that transport and extracellular chemistry can be
 stated explicitly. This is deliberately narrow: the qualifier applies to
 anchors only, never to reactions, internal intermediates or markers, and
-giftr still models no membrane potential, transport stoichiometry, proton
+gifter still models no membrane potential, transport stoichiometry, proton
 coupling, compartment-aware mass balance, or intracellular metabolite
 inventory. Compartment is a curated boundary claim, not a genomic inference —
 markers identify chemistry, not localisation.
@@ -155,7 +155,7 @@ alone. Revisit that only once all three carry curated content.
 11. Preserve traceability from every GIFT call to routes, reactions, systems,
     components, observed markers, and gene identifiers when supplied.
 12. Preserve provenance and distinguish facts imported from external resources
-    from giftr's own boundary and route curation decisions.
+    from gifter's own boundary and route curation decisions.
 13. Version the package, biological database, and database schema separately.
 14. Treat SQLite as a compiled runtime artifact and implementation detail, not
     the biological ontology or hand-edited source of truth.
@@ -224,7 +224,7 @@ for examples and rationale.
 
 | Change | Primary files | Also inspect |
 |---|---|---|
-| GIFT type or a new capability type | `gifts.tsv`, `inst/schema/giftr.sql`, `R/database-build.R` | `.giftr_machinery_models`, type tests, architecture guide |
+| GIFT type or a new capability type | `gifts.tsv`, `inst/schema/gifter.sql`, `R/database-build.R` | `.gifter_machinery_models`, type tests, architecture guide |
 | Structural GIFT content | `gift_architectures.tsv`, `architecture_functions.tsv`, `structural_functions.tsv`, `structural_systems.tsv`, `structural_components.tsv`, `structural_component_markers.tsv` | `test-structural.R`, `proposal-structural-gifts.md`, provenance |
 | Regulatory or defense content | `gift_circuits.tsv`/`gift_mechanisms.tsv` and their `regulatory_*`/`defense_*` tables | the matching proposal document, `test-regulatory-defense.R` |
 | GIFT boundaries or metadata | `gifts.tsv`, `anchors.tsv`, `gift_anchors.tsv` | routes, composition tests, provenance |
@@ -233,7 +233,7 @@ for examples and rationale.
 | Related external pathways | `gift_xrefs.tsv` | the relation must match the curated boundaries |
 | Reaction routes or direction | `reactions.tsv`, `reaction_xrefs.tsv`, `gift_routes.tsv`, `route_reactions.tsv` | Rhea evidence, evaluation tests |
 | Enzymes or marker evidence | `enzyme_systems.tsv`, `enzyme_components.tsv`, `markers.tsv`, `component_markers.tsv` | provenance, complex/alternative tests |
-| Source validation or compilation | `R/database-build.R`, `inst/schema/giftr.sql` | every source table, database tests, version metadata |
+| Source validation or compilation | `R/database-build.R`, `inst/schema/gifter.sql` | every source table, database tests, version metadata |
 | Runtime queries or public accessors | `R/database.R` | schema, generated `.Rd` files, database tests |
 | Evaluation behavior or traceability | `R/evaluation.R` | Boolean invariants, synthetic fixtures, evaluation tests |
 | Quantitative genome or community traits | `R/universe.R`, `R/traits.R`, `R/community.R`, `R/community-network.R`, `R/assessability.R` | `proposal-quantitative-traits.md`, reference universes, denominators, trait tests |
@@ -246,7 +246,7 @@ for examples and rationale.
 
 The reviewable database source is
 `inst/extdata/database-source/*.tsv`. The compiled
-`inst/extdata/giftr.sqlite` must never be edited manually. Change TSVs,
+`inst/extdata/gifter.sqlite` must never be edited manually. Change TSVs,
 validate them, and rebuild the database.
 
 ## Rules for biological curation
@@ -354,7 +354,7 @@ Rscript -e 'testthat::test_local(".")'
 # check run against the directory therefore fails on missing fields that the
 # built package has.
 R CMD build .
-R CMD check --no-manual giftr_*.tar.gz
+R CMD check --no-manual gifter_*.tar.gz
 ```
 
 Documentation-only changes do not require rebuilding SQLite. Biological source

@@ -14,7 +14,7 @@ accessions.}
 \item{namespace}{Namespace for a character-vector input. If omitted, KO, EC,
 Pfam, and TIGRFAM accessions are inferred where possible.}
 
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 }
 \value{
 A detailed result containing reaction, system, component, and marker

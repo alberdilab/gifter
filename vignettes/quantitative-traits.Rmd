@@ -16,7 +16,7 @@ you can compare between genomes — and shows why a number of that kind is
 meaningless until you say what it was counted over.
 
 ```{r}
-library(giftr)
+library(gifter)
 ```
 
 We reuse the illustrative gut anaerobe from vignette 1.
@@ -51,7 +51,7 @@ biosynthetic capabilities, of which this genome was tested for none? And when
 the next curation campaign adds forty GIFTs, does "ten" still mean the same
 thing?
 
-giftr's answer is that every quantitative trait names its **reference
+gifter's answer is that every quantitative trait names its **reference
 universe**, and carries that name in the output beside the number.
 
 ## Step 1: define a universe
@@ -136,7 +136,7 @@ breadth[, c("metric_id", "value", "denominator")]
 can act on, out of the classes present in the universe. Two GIFTs acting on the
 same class contribute one class, not two.
 
-## Step 5: fractions, and when giftr refuses to give you one
+## Step 5: fractions, and when gifter refuses to give you one
 
 Here is a metric that is **not** in the output above:
 
@@ -144,7 +144,7 @@ Here is a metric that is **not** in the output above:
 "supported_fraction" %in% richness$metric_id
 ```
 
-giftr will not tell you what fraction of the metabolic catalogue this genome
+gifter will not tell you what fraction of the metabolic catalogue this genome
 supports. Supporting 8 of 122 does not mean a genome lacks 114 capabilities; it
 means the catalogue currently stops at 122 and will not tomorrow. A fraction of
 an open, growing set reads as "the share of microbial function this organism
@@ -182,7 +182,7 @@ isolate genome that is reasonable. For a 55%-complete metagenome-assembled
 genome it is not: the organism was never fully observed, so it has not been
 shown to lack anything.
 
-By default giftr makes the optimistic assumption and *tells you it did*:
+By default gifter makes the optimistic assumption and *tells you it did*:
 
 ```{r}
 assessable <- traits$metrics[
@@ -213,7 +213,7 @@ single capability: `gift_richness` is 5 in both runs. All that happened is that
 the 35 negative calls left the denominator, because a 55%-complete genome has
 not been shown to lack them. The number now means "of the five capabilities we
 could assess, five are supported", which is nearly content-free.
-`assessable_fraction` is what says so — 5 of 40 — and the warning giftr emitted
+`assessable_fraction` is what says so — 5 of 40 — and the warning gifter emitted
 points at exactly that.
 
 The honest reading of a fragmented genome is `gift_richness` beside
@@ -230,7 +230,7 @@ Two guarantees hold whatever policy you choose:
 
 ## What these numbers may not say
 
-- richness counts encoded capabilities in the current giftr ontology within a
+- richness counts encoded capabilities in the current gifter ontology within a
   stated universe. It is not a measure of biological complexity or of metabolic
   versatility in any particular environment.
 - a supported fraction is genomic coverage, never growth independence,

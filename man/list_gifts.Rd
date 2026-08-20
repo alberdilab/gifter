@@ -12,7 +12,7 @@ list_gifts(status = NULL, type = NULL, db = NULL)
 \item{type}{Optional GIFT type filter: `"metabolic"`, `"structural"`,
 `"regulatory"` or `"defense"`.}
 
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 }
 \value{
 A tibble with one row per GIFT.

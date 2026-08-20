@@ -25,7 +25,7 @@ vitamin_complete <- function(...) {
 # public API: the oxygen requirement of a route, and whether a marker is in the
 # database at all. Both are read from the reviewable source tables.
 vitamin_source <- function(table) {
-  packaged <- system.file("extdata", "database-source", package = "giftr")
+  packaged <- system.file("extdata", "database-source", package = "gifter")
   if (!nzchar(packaged)) packaged <- file.path("inst", "extdata", "database-source")
   utils::read.delim(
     file.path(packaged, paste0(table, ".tsv")),

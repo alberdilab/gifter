@@ -174,7 +174,7 @@
 .marker_hierarchy_query <- function(connection, keys) {
   parts <- c(
     list(.metabolic_marker_hierarchy(connection, keys)),
-    lapply(.giftr_machinery_models, function(model) {
+    lapply(.gifter_machinery_models, function(model) {
       .machinery_marker_hierarchy(connection, model, keys)
     })
   )
@@ -196,7 +196,7 @@
 #'   accessions.
 #' @param namespace Namespace for a character-vector input. If omitted, KO, EC,
 #'   Pfam, and TIGRFAM accessions are inferred where possible.
-#' @param db Optional open giftr database connection.
+#' @param db Optional open gifter database connection.
 #' @return A long-form tibble linking each observation to zero or more curated
 #'   components. `gift_type` names the completeness model a row belongs to:
 #'   metabolic rows carry `reaction_id`, and the machinery types carry
@@ -205,7 +205,7 @@
 #' @export
 map_markers <- function(annotation_table, namespace = NULL, db = NULL) {
   observed <- .prepare_observed_markers(annotation_table, namespace)
-  .with_giftr_db(db, function(connection) {
+  .with_gifter_db(db, function(connection) {
     keys <- unique(observed[!is.na(observed$namespace) & !is.na(observed$accession), c("namespace", "accession")])
     hierarchy <- .marker_hierarchy_query(connection, keys)
     mapped <- merge(
@@ -226,12 +226,12 @@ map_markers <- function(annotation_table, namespace = NULL, db = NULL) {
 # weakest accepted marker, so the terms are ordered rather than scored: a GIFT
 # resting on an ambiguous polyspecific family must not read like one resting on
 # curated orthology.
-.giftr_confidence_order <- c(
+.gifter_confidence_order <- c(
   "insufficient evidence", "ambiguous", "putative", "high-confidence", "curated"
 )
 
 .confidence_rank <- function(confidence) {
-  rank <- match(confidence, .giftr_confidence_order)
+  rank <- match(confidence, .gifter_confidence_order)
   # An unrecognised term is never promoted above a known one.
   rank[is.na(rank)] <- 0L
   rank
@@ -682,7 +682,7 @@ map_markers <- function(annotation_table, namespace = NULL, db = NULL) {
 # name the implementation and the requirements missing from it; the metabolic
 # route columns are kept beside them so that a route-aware caller does not have
 # to translate, and are empty for the types that have no routes.
-.giftr_call_columns <- c(
+.gifter_call_columns <- c(
   "gift_pk", "gift_id", "gift_type", "name", "description", "mode", "status",
   "version", "notes", "substrate_class", "complete", "evidence_confidence",
   "best_implementation", "number_of_complete_implementations",
@@ -694,7 +694,7 @@ map_markers <- function(annotation_table, namespace = NULL, db = NULL) {
 
 .blank_call_columns <- function(gifts) {
   n <- nrow(gifts)
-  for (column in setdiff(.giftr_call_columns, names(gifts))) {
+  for (column in setdiff(.gifter_call_columns, names(gifts))) {
     gifts[[column]] <- switch(
       column,
       substrate_class = ,
@@ -709,7 +709,7 @@ map_markers <- function(annotation_table, namespace = NULL, db = NULL) {
       rep(list(character()), n)
     )
   }
-  gifts[.giftr_call_columns]
+  gifts[.gifter_call_columns]
 }
 
 .assemble_gift_calls <- function(metabolic_gifts, machinery_results) {
@@ -729,10 +729,10 @@ map_markers <- function(annotation_table, namespace = NULL, db = NULL) {
   combined[order(combined$gift_id), , drop = FALSE]
 }
 
-.evaluate_giftr_model <- function(annotation_table, namespace, connection) {
+.evaluate_gifter_model <- function(annotation_table, namespace, connection) {
   marker_map <- map_markers(annotation_table, namespace = namespace, db = connection)
   metabolic <- .evaluate_metabolic_model(connection, marker_map)
-  machinery <- lapply(.giftr_machinery_models, function(model) {
+  machinery <- lapply(.gifter_machinery_models, function(model) {
     .evaluate_machinery_model(connection, model, marker_map)
   })
 
@@ -756,9 +756,9 @@ map_markers <- function(annotation_table, namespace = NULL, db = NULL) {
       defense = .machinery_result_view(machinery$defense),
       marker_map = marker_map,
       observed_markers = tibble::as_tibble(observed),
-      database_version = giftr_db_version(connection)
+      database_version = gifter_db_version(connection)
     ),
-    class = c("giftr_result", "list")
+    class = c("gifter_result", "giftr_result", "list")
   )
 }
 
@@ -812,14 +812,14 @@ map_markers <- function(annotation_table, namespace = NULL, db = NULL) {
 #'   evidence tibbles.
 #' @export
 evaluate_reactions <- function(annotation_table, namespace = NULL, db = NULL) {
-  .with_giftr_db(db, function(connection) {
-    result <- .evaluate_giftr_model(annotation_table, namespace, connection)
+  .with_gifter_db(db, function(connection) {
+    result <- .evaluate_gifter_model(annotation_table, namespace, connection)
     structure(
       result[c(
         "reactions", "systems", "components", "marker_vocabulary", "evidence",
         "marker_map", "observed_markers", "database_version"
       )],
-      class = c("giftr_reaction_result", "list")
+      class = c("gifter_reaction_result", "giftr_reaction_result", "list")
     )
   })
 }
@@ -832,7 +832,7 @@ evaluate_reactions <- function(annotation_table, namespace = NULL, db = NULL) {
 #' the fewest unsupported reactions rather than a raw percentage of genes.
 #'
 #' @inheritParams map_markers
-#' @return A `giftr_result` list. Its `gifts` member is the call summary;
+#' @return A `gifter_result` list. Its `gifts` member is the call summary;
 #'   the remaining tibbles retain the full evidence chain.
 #' @examples
 #' markers <- data.frame(
@@ -847,14 +847,14 @@ evaluate_reactions <- function(annotation_table, namespace = NULL, db = NULL) {
 #' result$gifts[, c("gift_id", "complete", "best_route")]
 #' @export
 evaluate_gifts <- function(annotation_table, namespace = NULL, db = NULL) {
-  .with_giftr_db(db, function(connection) {
-    .evaluate_giftr_model(annotation_table, namespace, connection)
+  .with_gifter_db(db, function(connection) {
+    .evaluate_gifter_model(annotation_table, namespace, connection)
   })
 }
 
 #' @export
-print.giftr_result <- function(x, ...) {
-  cat("<giftr_result>\n")
+print.gifter_result <- function(x, ...) {
+  cat("<gifter_result>\n")
   print(x$gifts[c(
     "gift_id", "gift_type", "complete", "number_of_complete_implementations",
     "best_implementation", "minimum_missing_requirements"
@@ -863,14 +863,20 @@ print.giftr_result <- function(x, ...) {
 }
 
 #' @export
-print.giftr_reaction_result <- function(x, ...) {
-  cat("<giftr_reaction_result>\n")
+print.gifter_reaction_result <- function(x, ...) {
+  cat("<gifter_reaction_result>\n")
   print(x$reactions[c(
     "reaction_id", "supported", "number_of_complete_systems", "best_system",
     "minimum_missing_components"
   )], ...)
   invisible(x)
 }
+
+#' @export
+print.giftr_result <- print.gifter_result
+
+#' @export
+print.giftr_reaction_result <- print.gifter_reaction_result
 
 #' Trace the evidence chain for a GIFT call
 #'
@@ -890,7 +896,7 @@ print.giftr_reaction_result <- function(x, ...) {
 #'   markers and genes.
 #' @export
 trace_gift <- function(result, gift_id, route_id = NULL, implementation = NULL) {
-  if (!inherits(result, "giftr_result")) {
+  if (!inherits(result, c("gifter_result", "giftr_result"))) {
     stop("result must come from evaluate_gifts()", call. = FALSE)
   }
   gift_id <- .normalize_gift_id(gift_id)

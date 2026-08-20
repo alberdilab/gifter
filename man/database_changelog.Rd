@@ -10,7 +10,7 @@ database_changelog(gift_id = NULL, db = NULL)
 \item{gift_id}{Optional GIFT identifier. When supplied, only changes
 affecting that GIFT are returned.}
 
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 }
 \value{
 A tibble with one row per change. The `gifts` list column holds the

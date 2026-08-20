@@ -148,8 +148,8 @@ test_that("the pyruvate node carries three non-interchangeable routes", {
 
   # Oxygen requirement is a route property, and here the routes genuinely
   # differ: recording it on the GIFT would flatten exactly this distinction.
-  connection <- giftr_db_connect()
-  withr::defer(giftr_db_disconnect(connection))
+  connection <- gifter_db_connect()
+  withr::defer(gifter_db_disconnect(connection))
   oxygen <- DBI::dbGetQuery(
     connection,
     "SELECT route_id, oxygen_requirement FROM gift_route WHERE route_id LIKE 'PYR_ACOA_%'"
@@ -284,7 +284,7 @@ test_that("the new anchors create no edge through internal metabolites", {
 test_that("the atlas draws a reversible boundary as reversible", {
   output <- tempfile(fileext = ".html")
   withr::defer(unlink(output))
-  html <- paste(readLines(write_giftr_database_html(output), warn = FALSE), collapse = "\n")
+  html <- paste(readLines(write_gifter_database_html(output), warn = FALSE), collapse = "\n")
 
   # Each anchor is drawn once per side rather than listed under both roles, so
   # the boundary reads ACETYL_COA <-> ACETATE and not
@@ -322,7 +322,7 @@ test_that("the atlas draws a reversible boundary as reversible", {
 test_that("the route network of a reversible GIFT is drawn both ways", {
   output <- tempfile(fileext = ".html")
   withr::defer(unlink(output))
-  html <- paste(readLines(write_giftr_database_html(output), warn = FALSE), collapse = "\n")
+  html <- paste(readLines(write_gifter_database_html(output), warn = FALSE), collapse = "\n")
 
   network <- function(gift_id) {
     regmatches(

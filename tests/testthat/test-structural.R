@@ -8,7 +8,7 @@
 # and type IVa pilus content.
 
 structural_fixture_db <- function(envir = parent.frame()) {
-  source_dir <- giftr_source_copy(envir)
+  source_dir <- gifter_source_copy(envir)
   add_structural_fixture(source_dir)
   build_test_database(source_dir, envir)
 }
@@ -89,7 +89,7 @@ test_that("a multisubunit structural system fails when a component is missing", 
 })
 
 test_that("alternative architectures complete independently and deterministically", {
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   # Two architectures of one structure that share a function and differ in a
   # second: the structural analogue of alternative routes.
   add_test_machinery_gift(
@@ -171,7 +171,7 @@ test_that("alternative architectures complete independently and deterministicall
 })
 
 test_that("an accessory function does not determine completeness", {
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   add_test_machinery_gift(
     source_dir, "accessory_structure", "structural", "ARCH_ACCESSORY",
     list(
@@ -202,7 +202,7 @@ test_that("an accessory function does not determine completeness", {
 
   # An implementation whose functions are all accessory could never be
   # defensibly complete, so the build refuses it.
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   add_test_machinery_gift(
     source_dir, "all_accessory", "structural", "ARCH_ALL_ACCESSORY",
     list(
@@ -214,7 +214,7 @@ test_that("an accessory function does not determine completeness", {
     )
   )
   expect_error(
-    validate_giftr_sources(source_dir),
+    validate_gifter_sources(source_dir),
     "ARCH_ALL_ACCESSORY has no required structural function"
   )
 })

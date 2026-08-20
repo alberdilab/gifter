@@ -22,8 +22,8 @@ amino_acid_catabolism <- c(
   "glycine_reduction_stickland", "proline_reduction_stickland"
 )
 
-giftr_source_dir <- function() {
-  packaged <- system.file("extdata", "database-source", package = "giftr")
+gifter_source_dir <- function() {
+  packaged <- system.file("extdata", "database-source", package = "gifter")
   if (nzchar(packaged)) packaged else file.path("inst", "extdata", "database-source")
 }
 
@@ -225,7 +225,7 @@ test_that("a biosynthesis/degradation pair is an edge pair, not a metabolic cycl
 })
 
 test_that("branchpoints that were deliberately left internal create no edges", {
-  anchors <- read_source(giftr_source_dir(), "anchors")$anchor_id
+  anchors <- read_source(gifter_source_dir(), "anchors")$anchor_id
   # Citrulline and carbamoyl phosphate are shared by arginine biosynthesis and
   # the deiminase pathway; prephenate, AICAR and the indole-3-glycerol phosphate
   # of tryptophan synthase are internal to one route each. None is a boundary.
@@ -276,7 +276,7 @@ test_that("the layer supplies the boundaries other GIFTs already consumed", {
 })
 
 test_that("amino acid anchors are biomass building blocks and 2-oxo acids are not", {
-  facets <- read_source(giftr_source_dir(), "anchor_facets")
+  facets <- read_source(gifter_source_dir(), "anchor_facets")
   essential <- facets$anchor_id[
     facets$facet == "biomass_essential" & facets$value == "yes"
   ]

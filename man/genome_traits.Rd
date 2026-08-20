@@ -32,10 +32,10 @@ details.}
 \item{threshold}{Completeness below which a negative call is treated as
 indeterminate. Required by the `"completeness"` policy and has no default.}
 
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 }
 \value{
-A `giftr_traits` list with `metrics` (one row per trait),
+A `gifter_traits` list with `metrics` (one row per trait),
   `trace` (the GIFTs behind each trait), `universes`, and
   `database_version`.
 }
@@ -79,7 +79,7 @@ implementation. On a fragmented genome that is not the same as absence, so
 behaviour. `"completeness"` requires a genome completeness estimate in
 `quality` and an explicit `threshold`, and treats every negative call on a
 genome below that threshold as indeterminate, removing it from every
-denominator. It is deliberately blunt: giftr has no validated model of how
+denominator. It is deliberately blunt: gifter has no validated model of how
 gene content is lost from a fragmented assembly, and a finer rule would imply
 a precision it cannot support. There is no default threshold, because how
 complete a genome must be before its silence is informative is the analyst's
@@ -92,7 +92,7 @@ of absence and nothing else.
 \section{Interpretation}{
 
 
-These traits count encoded capabilities in the current giftr ontology within
+These traits count encoded capabilities in the current gifter ontology within
 a stated universe. They are not measures of biological complexity, metabolic
 versatility in an environment, growth independence, activity, flux or
 phenotype. `supported_fraction = 0.8` over the biomass-essential anabolic

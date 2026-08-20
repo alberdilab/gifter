@@ -1,4 +1,4 @@
-# giftr package changelog
+# gifter package changelog
 
 Code, public API, evaluation logic, and report changes. Newest first.
 Timestamps are UTC.
@@ -15,6 +15,30 @@ versioned with the package.
 
 ## Package 0.1.0 (in development)
 
+### 2026-08-20T06:16Z — Package renamed from giftr to gifter
+
+**Change.** The R package is now named `gifter`, avoiding the
+case-insensitive CRAN name collision with the archived package `GIFTr`.
+Package loading, qualified calls, help aliases, S3 classes, internal
+package-prefixed identifiers, tests, vignettes, development files, and the
+packaged database/schema/report filenames now use `gifter`. The
+package-prefixed database release column is `gifter_db_version`; its value and
+the independent biological database and schema versions are unchanged.
+
+**Compatibility.** The exported functions `giftr_community()`,
+`giftr_db_connect()`, `giftr_db_disconnect()`, `giftr_db_version()`,
+`validate_giftr_sources()`, `build_giftr_database()`, and
+`write_giftr_database_html()` remain as documented aliases of their `gifter_*`
+replacements. Returned objects carry their former `giftr_*` S3 class as a
+secondary class, and version metadata retains a deprecated
+`giftr_db_version` field mirroring `gifter_db_version`.
+
+**Effect.** New code installs and loads `gifter` and should use the canonical
+`gifter_*` names. GIFT definitions, routes, marker evidence, evaluation logic,
+database release, and schema version do not change. Existing GitHub URLs still
+name the current remote and must be updated only after that repository is
+renamed; this package rename does not perform that external operation.
+
 ### 2026-08-19T06:10Z — Three tutorial vignettes covering a complete analysis
 
 **Change.** A new `vignettes/` directory with three executed `.Rmd` tutorials,
@@ -27,7 +51,7 @@ in. A newcomer holding an annotation table could not find out, from anything
 shipped, how to get from that table to a call, or what a call was allowed to
 mean once they had one.
 
-**Effect.** `evaluating-a-genome` covers the input format, which markers giftr
+**Effect.** `evaluating-a-genome` covers the input format, which markers gifter
 could use, reading complete and incomplete calls, and tracing a call to genes.
 `quantitative-traits` covers reference universes and why a count without one is
 not a result. `community-analysis` covers provider counts, presence versus
@@ -39,7 +63,7 @@ pasted in by hand starts drifting from the package the day it is written; these
 cannot, because the check fails first.
 
 **The vignettes teach the refusals, not only the API.** Each one is built around
-a case where giftr declines to answer, because those are the places a newcomer
+a case where gifter declines to answer, because those are the places a newcomer
 will otherwise misread the output: the genome that completes
 `chemotaxis_signal_transduction` and not `aspartate_chemoreception`, on a
 generic chemoreceptor accession that cannot license a ligand-specific claim; the
@@ -102,7 +126,7 @@ installed size of the compiled database and HTML atlas. Full suite green at
 
 **Change.** A new internal layer in `R/assessability.R`, and `quality`,
 `policy` and `threshold` arguments on `genome_traits()` and
-`giftr_community()`. Two new metrics, `assessable_fraction` and
+`gifter_community()`. Two new metrics, `assessable_fraction` and
 `provider_fraction`. **No schema, database content or evaluation change.**
 This is phase 4 of `inst/doc/proposal-quantitative-traits.md`, and the gap that
 made the externally drafted proposal unimplementable as written.
@@ -133,7 +157,7 @@ Three refusals. The `"completeness"` policy has **no default threshold**,
 because how complete a genome must be before its silence is informative is the
 analyst's declared choice and a package default would be read as a
 recommendation. The policy is deliberately blunt — it does not try to guess
-which capability a fragmented assembly lost — because giftr has no validated
+which capability a fragmented assembly lost — because gifter has no validated
 model of gene loss and a finer rule would imply a precision it cannot support;
 the graduated `"near_miss"` policy stays recorded as a candidate rather than
 shipped. And a proportion computed over a universe that has quietly collapsed
@@ -187,7 +211,7 @@ A → B, B → C, B → D — and no others.
 
 ### 2026-08-19T04:20Z — Genome-resolved communities and distributional traits
 
-**Change.** Two new exported functions, `giftr_community()` and
+**Change.** Two new exported functions, `gifter_community()` and
 `community_traits()`, in the new `R/community.R`. **No schema, database content
 or evaluation change.** This is phase 2 of
 `inst/doc/proposal-quantitative-traits.md`.
@@ -199,7 +223,7 @@ which genome is its only provider, how much of the sampled abundance carries it
 proposal assumed such an object into existence without defining it, which is
 why defining it is a phase of its own rather than a detail of the metrics.
 
-**Effect.** `giftr_community()` binds named results into one call matrix and
+**Effect.** `gifter_community()` binds named results into one call matrix and
 refuses two comparisons that are not comparable: genomes evaluated against
 different database releases, because a provider count over two releases counts
 capabilities that were not offered to every genome, and an abundance vector
@@ -274,7 +298,7 @@ anchors and reporting zero would imply a test the genome failed. And traits
 computed against a database version other than the one that produced the calls
 are an error, not a warning.
 
-`assessable` currently equals the size of the universe: giftr accepts no
+`assessable` currently equals the size of the universe: gifter accepts no
 genome-quality information, so every member is treated as assessed. That column
 exists now so its shape is stable when phase 4 adds the assessability policy.
 Nothing in this layer can change a Boolean call, and `closed_cycles` reads
@@ -374,13 +398,13 @@ is about what counts as a cycle, not about what counts as composition.
 ### 2026-08-19T05:00Z — Amino acid metabolism curated: 28 GIFTs
 
 **Change.** Database version **2026.19.1**. The fifteen proteinogenic amino
-acids giftr did not cover are curated as eighteen composable biosynthesis GIFTs,
+acids gifter did not cover are curated as eighteen composable biosynthesis GIFTs,
 and amino acid degradation arrives with ten more. Schema unchanged at 6; no R
 change other than the cycle exclusion above.
 
 **Why.** The assessment is `inst/doc/proposal-amino-acid-metabolism.md`, whose
 §16 records where the implementation departed from it. Six boundaries are
-giftr's own rather than KEGG's, each at a branchpoint where genomes measurably
+gifter's own rather than KEGG's, each at a branchpoint where genomes measurably
 differ — meso-diaminopimelate, the two branched-chain 2-oxo acids, threonine
 deamination as catabolism, glutamine as its own capability, and the widened
 aromatic transaminase.
@@ -419,7 +443,7 @@ hydroxylates; the register is `DBC-20260819-AROMATIC-REFUSALS`.
 
 Four decisions worth reading in the proposal's §16.
 
-- **Where KEGG bundles, giftr cuts.** The lower *meta* route that five modules
+- **Where KEGG bundles, gifter cuts.** The lower *meta* route that five modules
   duplicate is curated once as `oxopentenoate_degradation`; the thiolysis that
   ends both the ortho funnel and the phenylacetate route is curated once as
   `oxoadipyl_coa_thiolysis`; and M00545, which ORs two different input
@@ -506,7 +530,7 @@ between different boundaries and is deferred, not refused.
 neighbour and move from `entry` to `intermediate` in `gift_profile`; `CHORISMATE`
 is the first of the four orphan input anchors named in the amino acid assessment
 to close. `indole_3_acetate_biosynthesis` reports as `isolated`, which is the
-correct answer while nothing in giftr produces tryptophan. Three inventory
+correct answer while nothing in gifter produces tryptophan. Three inventory
 assertions in `test-database.R` — the GIFT roster, the shared-anchor set and the
 database version — were refreshed against the compiled database.
 
@@ -516,7 +540,7 @@ The assessment is `inst/doc/proposal-amino-acid-metabolism.md`. **No code,
 schema or biological content change** — this entry records that the layer was
 tested and what the test found.
 
-**Change.** The fifteen proteinogenic amino acids giftr does not curate, plus
+**Change.** The fifteen proteinogenic amino acids gifter does not curate, plus
 amino acid degradation and microbial transformation for all twenty, were tested
 against KEGG orthology over the 10 151 bacterial genomes of KEGG, Rhea 141 and
 ChEBI 253. Twenty biosynthesis GIFTs and ten degradation or transformation GIFTs
@@ -602,7 +626,7 @@ module category plus mercury. Twenty-four candidates were tested against KEGG
 orthology prevalence (11 949 genomes), Rhea, and InterPro/NCBIfam. Six are
 recommended for curation, two conditionally, two deferred, and **fourteen
 refused** — nine of them for one reason: substrate specificity in
-ring-hydroxylating dioxygenases is not resolvable by any marker giftr can use,
+ring-hydroxylating dioxygenases is not resolvable by any marker gifter can use,
 and unlike the butyrate case in the SCFA proposal, no namespace change rescues
 them. The families available are `IPR001663` and `PS00570`, which are the family
 signature itself.
@@ -614,7 +638,7 @@ Four findings are worth reading even if the layer is never curated.
   Rhea's master for the EC KEGG itself assigns that system is toluene →
   4-methylphenol; side-chain hydroxylation is a different enzyme in a different
   module. M00548 attaches a phenol 2-monooxygenase to benzene oxidation. Both
-  were found only because giftr requires a Rhea master per reaction.
+  were found only because gifter requires a Rhea master per reaction.
 - **`enzyme_component` has no `required` flag, and this layer is the first
   content to want one.** Rieske ferredoxin and reductase subunits are shared,
   interchangeable and annotated 2–3× less often than the catalytic subunits they
@@ -653,7 +677,7 @@ call: both already ended at the deaminase that liberates it.
 admits ammonium as an anchor only where the reaction's purpose is to liberate or
 assimilate it, and it sits beside the cofactor-anchor rule under *Keeping the
 anchor vocabulary small*. The **electron-acceptor rule** is now an explicit item
-in *What giftr deliberately does not model*, generalising the refusal that was
+in *What gifter deliberately does not model*, generalising the refusal that was
 previously recorded only on the `FUMARATE` anchor.
 
 **Three departures from the proposal, all found by checking Rhea before
@@ -713,7 +737,7 @@ a coverage checklist and never an evidence source.
 
 **One correction is owed to `SOURCES.md`.** MetaCyc is reachable again through
 `websvc.biocyc.org/getxml` for records addressed by ID, so the recorded reason
-for not citing it — subscription gating — is now wrong. giftr still cites no
+for not citing it — subscription gating — is now wrong. gifter still cites no
 MetaCyc row, and the proposal's §4 gives the structural reason that does not
 depend on access.
 
@@ -730,7 +754,7 @@ is a bug fix and is independent of any citric acid cycle content. The
 two interconversion GIFTs that share one anchor produce an edge in each
 direction *by construction*; the check reported that as a circular composition
 error. Two synthetic reversible GIFTs sharing one fixture anchor reproduce it
-with no biology involved. `.giftr_directed_gift_modes` now names the three modes
+with no biology involved. `.gifter_directed_gift_modes` now names the three modes
 that declare a direction, and the scan iterates those. Loops in `anabolic`,
 `catabolic` and `transport` are still errors, which `test-composition.R` asserts
 alongside the new exemption.
@@ -823,7 +847,7 @@ candidates are refused and the refusals are in `database_changes.tsv`:
   positive — fumarate respirers — and *Bacteroides*, *Prevotella* and
   *Fibrobacter* negative. Allowing the fused group instead fires in 7276 of
   11 855 organisms including *Chlamydia*. KEGG names that group `sdhA, frdA`.
-- *Fumarate.* `K01756` is in 11 115 organisms, and giftr already curates the
+- *Fumarate.* `K01756` is in 11 115 organisms, and gifter already curates the
   fumarate-releasing chemistry inside `purine_core_biosynthesis` and
   `adenylate_biosynthesis`.
 - *Citrate synthesis.* `K01647` is in 8467 organisms; the trait would mean "has
@@ -835,7 +859,7 @@ candidates are refused and the refusals are in `database_changes.tsv`:
   racemase, which is what the acrylate-route organisms actually do.
 
 **The one result worth carrying forward.** `lactate_formation` is the first
-fermentation end product in giftr whose direction is *evidenced* rather than
+fermentation end product in gifter whose direction is *evidenced* rather than
 asserted. Acetate had to become an interconversion because Pta–AckA runs both
 ways on one pair of genes; lactate does not, because forming it is an
 NADH-consuming reduction and consuming it feeds a quinone or a cytochrome, and
@@ -1058,7 +1082,7 @@ that it could be.
 against the evidence available in KEGG, Rhea, ChEBI, MetaCyc and
 InterPro/NCBIfam. Three are recommended for curation, one conditionally, and
 four are refused. A prerequisite `pyruvate_to_acetyl_coa` GIFT is recommended
-alongside them, because giftr's catabolic content currently ends at `PYRUVATE`
+alongside them, because gifter's catabolic content currently ends at `PYRUVATE`
 and the SCFA layer would otherwise be an island in `gift_graph`.
 
 **Why it is worth reading before the next content release.** The layer needs no
@@ -1074,7 +1098,7 @@ existing proposals had not met:
   `.infer_marker_namespace()` already recognises and no curated row has ever
   used. The refusal is a marker-namespace gap, not an ontology gap, and the fix
   is the same one the collagenase `PFAM PF01752` row already took.
-- *Fermentative end-product markers are direction-blind.* Every trait giftr
+- *Fermentative end-product markers are direction-blind.* Every trait gifter
   carries today is directionally unambiguous. Pta–AckA runs both ways, and the
   methylmalonyl-CoA genes of the propionate succinate route are the same genes
   KEGG module M00741 uses to degrade propanoyl-CoA. The proposal adds a second
@@ -1096,7 +1120,7 @@ and `phosphate_starvation_response` (regulatory), and
 version 6** — this is a content release, which is the point: adding a
 capability of an existing type is a data change plus tests, not an R branch.
 
-**Code.** One line: `.giftr_required_gift_facets` now requires
+**Code.** One line: `.gifter_required_gift_facets` now requires
 `regulatory_class` of regulatory GIFTs and `defense_class` of defense ones, and
 `facet_terms.tsv` registers the four values those two vocabularies use. Each
 vocabulary was registered when the first content of its type was curated, not
@@ -1448,12 +1472,12 @@ searchable from the GIFT explorer.
 **Why.** Users arrive from the resource they already know, but a GIFT is a
 curated capability between declared anchors and is usually not the same object
 as a pathway record. A bare cross-reference would imply an equivalence that is
-false for most GIFTs — giftr splits KEGG M00018 across three traits and
+false for most GIFTs — gifter splits KEGG M00018 across three traits and
 merges M00338 with part of M00609. Storing the set relation makes the link
 useful without weakening the claim. The namespace is deliberately open so that
 resources beyond KEGG can be linked without a schema change.
 
-**Effect.** No GIFT call changes. `giftr_db_version()` reports schema
+**Effect.** No GIFT call changes. `gifter_db_version()` reports schema
 version 3. Consumers reading `gift_xref` should treat `namespace` as an open
 vocabulary and `relation` as closed.
 
@@ -1489,7 +1513,7 @@ re-running an analysis actually has.
 
 ### 2026-08-17T16:49Z — Network visualisations in the database atlas
 
-**Change.** `write_giftr_database_html()` now renders three inline SVG
+**Change.** `write_gifter_database_html()` now renders three inline SVG
 network views: the existing directed GIFT composition graph, a new network
 drawing GIFTs together with their declared anchors, and a merged route network
 for every GIFT. A shared layered-graph engine in `R/database-visualization.R`

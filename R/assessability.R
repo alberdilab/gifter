@@ -17,7 +17,7 @@
 #      `assessable` in the output saying so rather than the assumption being
 #      implied.
 
-.giftr_assessability_policies <- c("none", "completeness")
+.gifter_assessability_policies <- c("none", "completeness")
 
 .normalize_quality <- function(quality, genomes) {
   if (is.null(quality)) return(NULL)
@@ -63,7 +63,7 @@
   if (identical(policy, "none")) return(state)
   # Below the declared completeness, a genome has not been observed well enough
   # for any absence to be informative. This is deliberately blunt: it makes no
-  # claim about which capability was lost, because giftr has no validated model
+  # claim about which capability was lost, because gifter has no validated model
   # of how gene content is lost from a fragmented assembly.
   if (identical(policy, "completeness") && completeness < threshold) {
     state[!state] <- NA
@@ -72,7 +72,7 @@
 }
 
 .resolve_policy <- function(policy, quality, threshold) {
-  policy <- match.arg(policy, .giftr_assessability_policies)
+  policy <- match.arg(policy, .gifter_assessability_policies)
   if (identical(policy, "completeness")) {
     if (is.null(quality)) {
       stop(

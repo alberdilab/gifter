@@ -1,10 +1,10 @@
-.giftr_database_path <- function() {
-  path <- system.file("extdata", "giftr.sqlite", package = "giftr")
+.gifter_database_path <- function() {
+  path <- system.file("extdata", "gifter.sqlite", package = "gifter")
   if (nzchar(path) && file.exists(path)) return(path)
-  candidate <- file.path("inst", "extdata", "giftr.sqlite")
+  candidate <- file.path("inst", "extdata", "gifter.sqlite")
   if (file.exists(candidate)) return(normalizePath(candidate, winslash = "/"))
   stop(
-    "The packaged giftr reference database is unavailable. Reinstall the package or supply a database connection.",
+    "The packaged gifter reference database is unavailable. Reinstall the package or supply a database connection.",
     call. = FALSE
   )
 }
@@ -18,14 +18,20 @@
   tibble::as_tibble(value)
 }
 
-.with_giftr_db <- function(db, code) {
+.with_gifter_db <- function(db, code) {
   owned <- is.null(db)
-  if (owned) db <- giftr_db_connect()
+  if (owned) db <- gifter_db_connect()
   if (!inherits(db, "DBIConnection") || !DBI::dbIsValid(db)) {
     stop("db must be a valid DBI connection", call. = FALSE)
   }
   if (owned) on.exit(DBI::dbDisconnect(db), add = TRUE)
   code(db)
+}
+
+.gifter_database_version_value <- function(version) {
+  value <- version$gifter_db_version
+  if (is.null(value)) value <- version$giftr_db_version
+  value
 }
 
 .normalize_gift_id <- function(gift_id) {
@@ -48,16 +54,19 @@
   value
 }
 
-#' Connect to a giftr SQLite database
+#' Connect to a gifter SQLite database
 #'
 #' @param path SQLite database path. By default, the packaged reference
 #'   database is opened.
 #' @param read_only Open the database read-only. This is recommended for
 #'   annotation workflows.
-#' @return A DBI connection. Close it with [giftr_db_disconnect()].
+#' @return A DBI connection. Close it with [gifter_db_disconnect()].
+#' @section Compatibility:
+#' `giftr_db_connect()` is retained as an alias for code written before the
+#' package was renamed to gifter.
 #' @export
-giftr_db_connect <- function(path = NULL, read_only = TRUE) {
-  if (is.null(path)) path <- .giftr_database_path()
+gifter_db_connect <- function(path = NULL, read_only = TRUE) {
+  if (is.null(path)) path <- .gifter_database_path()
   if (length(path) != 1L || !file.exists(path)) {
     stop("SQLite database does not exist: ", path, call. = FALSE)
   }
@@ -67,41 +76,68 @@ giftr_db_connect <- function(path = NULL, read_only = TRUE) {
   connection
 }
 
-#' Disconnect from a giftr database
+#' Disconnect from a gifter database
 #'
-#' @param db A connection returned by [giftr_db_connect()].
+#' @param db A connection returned by [gifter_db_connect()].
 #' @return `TRUE`, invisibly, when the connection is closed.
+#' @section Compatibility:
+#' `giftr_db_disconnect()` is retained as an alias for code written before the
+#' package was renamed to gifter.
 #' @export
-giftr_db_disconnect <- function(db) {
+gifter_db_disconnect <- function(db) {
   if (!inherits(db, "DBIConnection")) stop("db must be a DBI connection", call. = FALSE)
   DBI::dbDisconnect(db)
 }
 
-#' Report giftr package and database versions
+#' Report gifter package and database versions
 #'
 #' The biological database version is deliberately independent of the R
 #' package version.
 #'
-#' @param db Optional open giftr database connection.
+#' @param db Optional open gifter database connection.
 #' @return A one-row tibble containing package, database, schema, and upstream
-#'   source versions.
+#'   source versions. The deprecated `giftr_db_version` column duplicates
+#'   `gifter_db_version` for compatibility with existing result consumers.
+#' @section Compatibility:
+#' `giftr_db_version()` is retained as an alias for code written before the
+#' package was renamed to gifter.
 #' @export
-giftr_db_version <- function(db = NULL) {
-  .with_giftr_db(db, function(connection) {
+gifter_db_version <- function(db = NULL) {
+  .with_gifter_db(db, function(connection) {
     result <- .as_tibble_query(
       connection,
       paste(
-        "SELECT giftr_db_version, schema_version, build_date,",
+        "SELECT gifter_db_version, schema_version, build_date,",
         "rhea_release, chebi_release, kegg_release, source_commit",
         "FROM database_release WHERE release_pk = 1"
       )
     )
-    result$package_version <- as.character(utils::packageVersion("giftr"))
+    result$package_version <- as.character(utils::packageVersion("gifter"))
+    result$giftr_db_version <- result$gifter_db_version
     result[c(
-      "package_version", "giftr_db_version", "schema_version", "build_date",
+      "package_version", "gifter_db_version", "giftr_db_version",
+      "schema_version", "build_date",
       "rhea_release", "chebi_release", "kegg_release", "source_commit"
     )]
   })
+}
+
+#' @rdname gifter_db_connect
+#' @export
+giftr_db_connect <- function(path = NULL, read_only = TRUE) {
+  gifter_db_connect(path = path, read_only = read_only)
+}
+
+#' @rdname gifter_db_disconnect
+#' @export
+giftr_db_disconnect <- function(db) {
+  gifter_db_disconnect(db)
+}
+
+#' @rdname gifter_db_version
+#' @export
+giftr_db_version <- function(db = NULL) {
+  gifter_db_version(db)
 }
 
 #' List curated genome-inferred functional traits
@@ -115,12 +151,12 @@ giftr_db_version <- function(db = NULL) {
 #' @param status Optional status filter such as `"curated"`.
 #' @param type Optional GIFT type filter: `"metabolic"`, `"structural"`,
 #'   `"regulatory"` or `"defense"`.
-#' @param db Optional open giftr database connection.
+#' @param db Optional open gifter database connection.
 #' @return A tibble with one row per GIFT.
 #' @export
 list_gifts <- function(status = NULL, type = NULL, db = NULL) {
-  if (!is.null(type)) type <- match.arg(type, .giftr_gift_types, several.ok = TRUE)
-  .with_giftr_db(db, function(connection) {
+  if (!is.null(type)) type <- match.arg(type, .gifter_gift_types, several.ok = TRUE)
+  .with_gifter_db(db, function(connection) {
     sql <- paste(
       "SELECT gift_id, gift_type, name, description, mode, status, version, notes",
       "FROM gift"
@@ -147,12 +183,12 @@ list_gifts <- function(status = NULL, type = NULL, db = NULL) {
 #' Get a GIFT definition
 #'
 #' @param gift_id Stable GIFT identifier.
-#' @param db Optional open giftr database connection.
+#' @param db Optional open gifter database connection.
 #' @return A zero- or one-row tibble.
 #' @export
 get_gift <- function(gift_id, db = NULL) {
   gift_id <- .normalize_gift_id(gift_id)
-  .with_giftr_db(db, function(connection) {
+  .with_gifter_db(db, function(connection) {
     .as_tibble_query(
       connection,
       paste(
@@ -171,7 +207,7 @@ get_gift <- function(gift_id, db = NULL) {
 #' @export
 get_gift_anchors <- function(gift_id, db = NULL) {
   gift_id <- .normalize_gift_id(gift_id)
-  .with_giftr_db(db, function(connection) {
+  .with_gifter_db(db, function(connection) {
     .as_tibble_query(
       connection,
       paste(
@@ -205,7 +241,7 @@ get_gift_anchors <- function(gift_id, db = NULL) {
 #' @export
 get_gift_pathways <- function(gift_id, namespace = NULL, db = NULL) {
   gift_id <- .normalize_gift_id(gift_id)
-  .with_giftr_db(db, function(connection) {
+  .with_gifter_db(db, function(connection) {
     sql <- paste(
       "SELECT g.gift_id, gx.namespace, gx.accession, gx.name, gx.relation, gx.notes",
       "FROM gift g",
@@ -229,7 +265,7 @@ get_gift_pathways <- function(gift_id, namespace = NULL, db = NULL) {
 #'
 #' @param accession External pathway accession such as `"M00018"`.
 #' @param namespace Optional namespace filter such as `"KEGG_MODULE"`.
-#' @param db Optional open giftr database connection.
+#' @param db Optional open gifter database connection.
 #' @return A tibble with one row per related GIFT.
 #' @export
 gifts_for_pathway <- function(accession, namespace = NULL, db = NULL) {
@@ -237,7 +273,7 @@ gifts_for_pathway <- function(accession, namespace = NULL, db = NULL) {
     stop("accession must be one non-empty value", call. = FALSE)
   }
   accession <- trimws(as.character(accession))
-  .with_giftr_db(db, function(connection) {
+  .with_gifter_db(db, function(connection) {
     sql <- paste(
       "SELECT gx.namespace, gx.accession, gx.name, gx.relation, g.gift_id,",
       "g.name AS gift_name, gx.notes",
@@ -262,7 +298,7 @@ gifts_for_pathway <- function(accession, namespace = NULL, db = NULL) {
 #' @export
 get_gift_routes <- function(gift_id, db = NULL) {
   gift_id <- .normalize_gift_id(gift_id)
-  .with_giftr_db(db, function(connection) {
+  .with_gifter_db(db, function(connection) {
     .as_tibble_query(
       connection,
       paste(
@@ -286,7 +322,7 @@ get_gift_routes <- function(gift_id, db = NULL) {
 #' @export
 get_gift_reactions <- function(gift_id, db = NULL) {
   gift_id <- .normalize_gift_id(gift_id)
-  .with_giftr_db(db, function(connection) {
+  .with_gifter_db(db, function(connection) {
     .as_tibble_query(
       connection,
       paste(
@@ -305,7 +341,7 @@ get_gift_reactions <- function(gift_id, db = NULL) {
   })
 }
 
-#' Get a reaction used by giftr
+#' Get a reaction used by gifter
 #'
 #' Reactions are identified by a stable `reaction_id`, which is the Rhea master
 #' identifier wherever Rhea covers the chemistry. Polymer-acting reactions
@@ -315,12 +351,12 @@ get_gift_reactions <- function(gift_id, db = NULL) {
 #'
 #' @param reaction A `reaction_id` or a Rhea master ID, with or without the
 #'   `RHEA:` prefix.
-#' @param db Optional open giftr database connection.
+#' @param db Optional open gifter database connection.
 #' @return A zero- or one-row tibble.
 #' @export
 get_reaction <- function(reaction, db = NULL) {
   key <- .normalize_reaction_key(reaction)
-  .with_giftr_db(db, function(connection) {
+  .with_gifter_db(db, function(connection) {
     .as_tibble_query(
       connection,
       paste(
@@ -340,7 +376,7 @@ get_reaction <- function(reaction, db = NULL) {
 #' @export
 get_reaction_systems <- function(reaction, db = NULL) {
   key <- .normalize_reaction_key(reaction)
-  .with_giftr_db(db, function(connection) {
+  .with_gifter_db(db, function(connection) {
     .as_tibble_query(
       connection,
       paste(
@@ -369,13 +405,13 @@ get_reaction_systems <- function(reaction, db = NULL) {
 #'
 #' @param gift_id Optional GIFT identifier. When supplied, only changes
 #'   affecting that GIFT are returned.
-#' @param db Optional open giftr database connection.
+#' @param db Optional open gifter database connection.
 #' @return A tibble with one row per change. The `gifts` list column holds the
 #'   affected GIFT identifiers.
 #' @export
 database_changelog <- function(gift_id = NULL, db = NULL) {
   if (!is.null(gift_id)) gift_id <- .normalize_gift_id(gift_id)
-  .with_giftr_db(db, function(connection) {
+  .with_gifter_db(db, function(connection) {
     sql <- paste(
       "SELECT c.change_pk, c.change_id, c.released, c.changed_at, c.layer,",
       "c.category, c.call_effect, c.summary, c.rationale, c.evidence, c.effect",
@@ -416,13 +452,13 @@ database_changelog <- function(gift_id = NULL, db = NULL) {
 #'
 #' @param id A `gift_id`, or an `anchor_id` when `target = "anchor"`.
 #' @param target Whether `id` names a GIFT or an anchor.
-#' @param db Optional open giftr database connection.
+#' @param db Optional open gifter database connection.
 #' @return A tibble with one row per assigned facet value.
 #' @export
 get_facets <- function(id, target = c("gift", "anchor"), db = NULL) {
   target <- match.arg(target)
   id <- .normalize_gift_id(id)
-  .with_giftr_db(db, function(connection) {
+  .with_gifter_db(db, function(connection) {
     sql <- if (identical(target, "gift")) {
       paste(
         "SELECT g.gift_id AS id, f.facet, f.value, t.definition, f.notes",
@@ -448,11 +484,11 @@ get_facets <- function(id, target = c("gift", "anchor"), db = NULL) {
 #' rejects any assignment whose `facet`/`value` pair is not registered here.
 #'
 #' @param facet Optional facet name to filter by.
-#' @param db Optional open giftr database connection.
+#' @param db Optional open gifter database connection.
 #' @return A tibble of registered terms with their definitions.
 #' @export
 list_facets <- function(facet = NULL, db = NULL) {
-  .with_giftr_db(db, function(connection) {
+  .with_gifter_db(db, function(connection) {
     sql <- "SELECT facet, value, applies_to, definition FROM facet_term"
     params <- NULL
     if (!is.null(facet)) {
@@ -467,11 +503,11 @@ list_facets <- function(facet = NULL, db = NULL) {
 #'
 #' @param facet Facet name, such as `"physiological_role"`.
 #' @param value Facet value, such as `"fibre_degradation"`.
-#' @param db Optional open giftr database connection.
+#' @param db Optional open gifter database connection.
 #' @return A tibble of matching GIFTs.
 #' @export
 gifts_by_facet <- function(facet, value, db = NULL) {
-  .with_giftr_db(db, function(connection) {
+  .with_gifter_db(db, function(connection) {
     .as_tibble_query(
       connection,
       paste(
@@ -497,11 +533,11 @@ gifts_by_facet <- function(facet, value, db = NULL) {
 #' internal, and `unresolved` means a compartment was never licensed, which is a
 #' real answer rather than a gap.
 #'
-#' @param db Optional open giftr database connection.
+#' @param db Optional open gifter database connection.
 #' @return A tibble with one row per metabolic GIFT.
 #' @export
 gift_profile <- function(db = NULL) {
-  .with_giftr_db(db, function(connection) {
+  .with_gifter_db(db, function(connection) {
     .as_tibble_query(
       connection,
       paste(
@@ -527,7 +563,7 @@ gift_profile <- function(db = NULL) {
 #' specified and different are never connected, so a transport GIFT is required
 #' to cross that boundary.
 #'
-#' @param db Optional open giftr database connection.
+#' @param db Optional open gifter database connection.
 #' @param quality Optional filter, `"exact"` or `"compartment_inexact"`.
 #' @return A tibble with `from_gift`, `shared_anchor`, `to_anchor`,
 #'   `shared_molecule`, `edge_quality`, and `to_gift`.
@@ -536,7 +572,7 @@ gift_graph <- function(db = NULL, quality = NULL) {
   if (!is.null(quality)) {
     quality <- match.arg(quality, c("exact", "compartment_inexact"))
   }
-  .with_giftr_db(db, function(connection) {
+  .with_gifter_db(db, function(connection) {
     sql <- paste(
       "SELECT from_gift, shared_anchor, to_anchor, shared_molecule,",
       "edge_quality, to_gift FROM gift_graph"
@@ -572,7 +608,7 @@ gift_graph <- function(db = NULL, quality = NULL) {
 #' @export
 get_gift_machinery <- function(gift_id, db = NULL) {
   gift_id <- .normalize_gift_id(gift_id)
-  .with_giftr_db(db, function(connection) {
+  .with_gifter_db(db, function(connection) {
     type <- .as_tibble_query(
       connection, "SELECT gift_type FROM gift WHERE gift_id = ?", list(gift_id)
     )
@@ -585,7 +621,7 @@ get_gift_machinery <- function(gift_id, db = NULL) {
         call. = FALSE
       )
     }
-    model <- .giftr_machinery_models[[type]]
+    model <- .gifter_machinery_models[[type]]
     result <- .as_tibble_query(
       connection,
       paste0(

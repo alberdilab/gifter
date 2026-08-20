@@ -10,7 +10,7 @@ identify what must be architecturally true before any of it can be curated.
 
 The short answer is that the four metabolites named in the request **do not form
 one class**, and the assessment splits them two against two. Lactate is the
-best-evidenced fermentation end product giftr has examined — better than
+best-evidenced fermentation end product gifter has examined — better than
 acetate, because unlike acetate its forming and consuming enzymes are different
 orthology groups, so it passes the direction clause outright. Citrate,
 fumarate and succinate fail, each for a different reason, and one of those
@@ -55,8 +55,8 @@ refused. No schema migration and no code change is required.
    bacterial excretion product, and the trait would mean "has a citric acid
    cycle". A marker that is near-universal is not evidence. §6.6.
 7. **Refuse `fumarate_formation`**, on three independent grounds, the first of
-   which is giftr's own curated content: adenylosuccinate lyase (`K01756`,
-   **11 115 of 11 855 organisms**) releases fumarate, and giftr already curates
+   which is gifter's own curated content: adenylosuccinate lyase (`K01756`,
+   **11 115 of 11 855 organisms**) releases fumarate, and gifter already curates
    that reaction twice, inside `purine_core_biosynthesis` and
    `adenylate_biosynthesis`. Essentially every genome forms fumarate. §6.5.
 8. **Refuse `succinate_formation`.** Curated on `frdABCD` it calls *Vibrio*,
@@ -100,7 +100,7 @@ succinate   (both, and that is     fumarate
 
 **A fermentation end product is a boundary metabolite**: the organism makes it,
 stops, and releases it, because the reaction is the terminal disposal of
-reducing equivalents. That is a capability, and giftr can express it.
+reducing equivalents. That is a capability, and gifter can express it.
 
 **A cycle intermediate is not a boundary.** It is consumed by the same pathway
 that makes it, its concentration is set by flux rather than by gene content,
@@ -122,7 +122,7 @@ oxaloacetate, 2-oxoglutarate and citrate-as-product do not.
 Two neighbours are deliberately outside the assessment. **Fumarate respiration**
 — fumarate as a terminal electron acceptor rather than as a product — is a real,
 well-evidenced trait with clean markers, and it is the trait most people
-actually mean when they ask about fumarate. giftr has no model for respiration
+actually mean when they ask about fumarate. gifter has no model for respiration
 or electron acceptors at all, so it is out of scope here rather than refused;
 §11 records it as the largest deferred capability the assessment touched.
 **Itaconate, oxalate and the other specialist acids** are single-organism traits
@@ -149,7 +149,7 @@ physiological while a racemase's is definitional. §9.
 **Input-only anchors are established practice.** `HOMOCYSTEINE` is declared
 input-only to keep the sulfur layer acyclic, and `LACTATE` is already input-only
 today for the acrylate route. `MALATE` would be the third, and for the same
-reason: malolactic fermentation consumes malate and nothing in giftr should
+reason: malolactic fermentation consumes malate and nothing in gifter should
 claim to produce it. §6.3.
 
 **`oxygen_requirement` is a route property, and this layer needs it.** Every
@@ -181,10 +181,10 @@ acrylate content opened. §10.
 | **Rhea** | A master for all fifteen ECs, including `RHEA:10960` for the racemase and `RHEA:10760` for citrate lyase, which resolves a three-subunit enzyme into one reaction | Nothing about which genes do it, and nothing about direction |
 | **ChEBI** | Stereochemically explicit identities for both lactate enantiomers, which this layer needs and the SCFA layer did not | — |
 | **InterPro / NCBIfam** | Not required. Unlike butyrate, every trait recommended here is evidenceable at the KO level | — |
-| **MetaCyc** | Not consulted; the pathway pages remain subscription-gated and giftr cites no MetaCyc record | — |
+| **MetaCyc** | Not consulted; the pathway pages remain subscription-gated and gifter cites no MetaCyc record | — |
 
 The contrast with the SCFA layer is the headline of this table. **KEGG organises
-lactate better than it organises any fermentation product giftr has examined,
+lactate better than it organises any fermentation product gifter has examined,
 and it organises succinate worse than any.** In the first case the orthology
 groups encode the cofactor, and the cofactor is the direction. In the second
 KEGG puts a single name, `sdhA, frdA`, on the group that would have to carry the
@@ -219,7 +219,7 @@ does a marker exist whose specificity matches the product named in the trait?
 The third clause is new, and citrate and fumarate are why. Both pass clause 1
 cleanly — citrate synthase makes citrate and nothing else, adenylosuccinate
 lyase makes fumarate and nothing else — and neither is a trait, because both
-markers are near-universal. giftr states the underlying rule as *marker
+markers are near-universal. gifter states the underlying rule as *marker
 specificity bounds trait specificity*; this is its other edge. A marker that
 discriminates nothing because everything has it bounds the trait at "is a
 living cell".
@@ -326,7 +326,7 @@ fermentation layer where that sentence is a claim rather than a caveat.
 
 ### 6.2 The stereochemistry problem, and the GIFT that resolves it
 
-Lactate is chiral, and giftr has already committed to one enantiomer. The
+Lactate is chiral, and gifter has already committed to one enantiomer. The
 `LACTATE` anchor is **(R)-lactate**, `CHEBI:16004`, because
 `propionate_formation_acrylate` consumes the D form. The enzyme recommended
 above makes the **(S)** form. Naïvely curating `lactate_formation` therefore
@@ -401,7 +401,7 @@ test.
 *Staphylococcus* (21), *Limosilactobacillus* (14), *Lactiplantibacillus* (13),
 *Lactobacillus* (13), *Leuconostoc* (10). That is the lactic acid bacteria and
 essentially nothing else — one of the most taxonomically coherent marker sets in
-any giftr assessment.
+any gifter assessment.
 
 It passes clause 2 outright and for a reason no other candidate in this
 assessment can claim: **the reaction releases CO2**, so it is irreversible under
@@ -412,7 +412,7 @@ blind to.
 `HOMOCYSTEINE` and like `LACTATE` today. Nothing produces it, no malate-forming
 GIFT is curated, and §7 explains why none can be. This is worth stating plainly
 because it is the assessment's answer to the general question: a citric acid
-cycle metabolite can appear in giftr as the **substrate** of a capability, and
+cycle metabolite can appear in gifter as the **substrate** of a capability, and
 that costs nothing, because a substrate anchor makes no claim about how the
 genome obtained it.
 
@@ -483,12 +483,12 @@ separates fumarate reductase from succinate dehydrogenase outside the
 Enterobacteriaceae, or a marker for the *Bacteroides* succinate release step
 that KEGG does not currently resolve.
 
-### 6.5 Fumarate — refuse, three ways, and the first way is giftr's own content
+### 6.5 Fumarate — refuse, three ways, and the first way is gifter's own content
 
-Fumarate fails clause 3 harder than any candidate examined in any giftr
+Fumarate fails clause 3 harder than any candidate examined in any gifter
 assessment, and the demonstration is inside the curated database.
 
-**Ground 1: giftr already curates fumarate formation, twice, and correctly did
+**Ground 1: gifter already curates fumarate formation, twice, and correctly did
 not call it a trait.** Adenylosuccinate lyase releases fumarate; the reaction is
 `RHEA:16853`, curated in `adenylate_biosynthesis`. The SAICAR lyase step,
 `RHEA:23920`, releases fumarate too and is curated in
@@ -520,7 +520,7 @@ Both are chemically true and both are meaningless. Purine biosynthesis does not
 feed pyrimidine biosynthesis in any sense a user of `gift_graph()` would want;
 they share a co-product that happens to serve as an electron acceptor in one
 step of one route. This is the concrete demonstration of the rule §7.1 of the
-SCFA proposal stated abstractly for acetyl-CoA — that giftr derives edges from
+SCFA proposal stated abstractly for acetyl-CoA — that gifter derives edges from
 **declared anchors only**, so a hub metabolite is harmless until someone
 declares it, and harmful the moment they do.
 
@@ -580,14 +580,14 @@ requiring the lyase, the ligase and an oxaloacetate decarboxylase — the 369-ge
 setting. Oxaloacetate is an **internal intermediate of the route, not an
 anchor**; §7.2 is about why that distinction carries the whole assessment.
 Stopping at oxaloacetate instead would force a citric-acid-cycle anchor for no
-gain, and the two products of the full route are anchors giftr already has.
+gain, and the two products of the full route are anchors gifter already has.
 
 **Whether to require the transporter.** Recommendation: **no**, and make it a
 separate GIFT if anyone wants it. The classic phenotype is a transport
 phenotype — *E. coli* K-12 is Cit− aerobically because CitT is not expressed
 under oxygen, not because the chemistry is missing, and the Lenski long-term
 evolution experiment's famous Cit+ mutant is a promoter rearrangement in front
-of that transporter. giftr models gene content, not regulation, so a
+of that transporter. gifter models gene content, not regulation, so a
 transporter-requiring GIFT would still call *E. coli* K-12 positive and would
 merely look as if it had said something about the phenotype. Declare the route
 `anaerobic` — which is true for the facultative organisms and is exactly what
@@ -645,7 +645,7 @@ ethanol should curate the AdhE route first and accept that the eukaryotic and
 pyruvate formate-lyase with its activase (`K00656`+`K04069`) is complete in 2843
 organisms and the reaction is effectively irreversible toward formate in vivo.
 The obstruction is structural, and it is worth recording because it is the only
-place in this assessment where giftr's data model, rather than the biology or
+place in this assessment where gifter's data model, rather than the biology or
 the markers, is the binding constraint.
 
 `gift_anchor` is keyed on `(gift_pk, role, ordinal)` — **anchors are declared
@@ -697,7 +697,7 @@ Circular catabolic GIFT composition:
   citrate_formation
 ```
 
-The build fails, and it fails correctly. giftr's guidance when a cycle appears
+The build fails, and it fails correctly. gifter's guidance when a cycle appears
 is to *ask which boundary is the weakest biological claim* rather than to delete
 an edge — and here the answer is that **every** boundary is weak, because none
 of the six metabolites is a boundary. The sulfur layer resolved its cycle by
@@ -720,10 +720,10 @@ four recommendations still touch citric-acid-cycle chemistry:
 
 `citrate_fermentation` passes through oxaloacetate and does not anchor it.
 `malolactic_fermentation` consumes malate and anchors it only as an input.
-Every curated giftr GIFT already relies on this: `purine_core_biosynthesis`
+Every curated gifter GIFT already relies on this: `purine_core_biosynthesis`
 runs ten or eleven reactions per route and declares exactly two anchors,
 `PRPP` and `IMP`. The
-question "can giftr express the capacity to form citrate" therefore has two
+question "can gifter express the capacity to form citrate" therefore has two
 different answers depending on which thing is being asked, and separating them
 is most of the value of this assessment:
 
@@ -786,7 +786,7 @@ succinate. The first three are internal route intermediates; the last two are
 All compartments are `unspecified`, and the SCFA layer's limitation carries
 over unchanged: `cross_feeding_output` will stay 0 for this layer too. Lactate
 cross-feeding to butyrate producers is as well documented as acetate
-cross-feeding and giftr still cannot say it, because the compartment split needs
+cross-feeding and gifter still cannot say it, because the compartment split needs
 a transport GIFT and lactate crosses membranes by permeases too broad to
 evidence and by undissociated-acid diffusion that no marker can evidence. The
 trigger condition is the same: a substrate-specific lactate transporter marker.
@@ -860,7 +860,7 @@ the trait, and no more specific than the enzyme.
    and it should not be done as a side effect of wanting formate. §6.7.
 6. **Whether fumarate respiration justifies an electron-acceptor model.** It is
    the largest capability this assessment touched and could not express: a real
-   trait, with clean markers, that giftr has no vocabulary for. Anaerobic
+   trait, with clean markers, that gifter has no vocabulary for. Anaerobic
    respiration on nitrate, sulfate, TMAO and DMSO would all arrive through the
    same door. Deferred, not refused. §6.5.
 
@@ -904,7 +904,7 @@ All figures were retrieved on 2026-08-18.
   equation and ChEBI lookups by Rhea ID. Every ChEBI identifier in §8 was taken
   from the `chebi-id` column of the reaction that uses it.
 - The three graph results in §6.5, §7.1 and §7.3 were produced by running
-  giftr's own edge derivation (`R/database-build.R`, the `gift_graph` rules) and
+  gifter's own edge derivation (`R/database-build.R`, the `gift_graph` rules) and
   `.find_graph_cycle()` over the current `gift_anchors.tsv` plus the
   hypothetical rows, in a scratch script. They are observations, not
   predictions. No file in the repository was modified.

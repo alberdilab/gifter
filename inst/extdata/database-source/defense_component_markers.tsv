@@ -11,10 +11,10 @@ COMP_DF_CAS3	KO	K07012	orthology	curated	KEGG orthology, verified against KEGG R
 COMP_DF_CAS1	KO	K15342	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
 COMP_DF_CAS2	KO	K09951	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
 COMP_DF_MERA	KO	K00520	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-19	Defined as mercuric reductase, EC 1.16.1.1.
-COMP_DF_MERA	TIGRFAM	TIGR02053	sequence_family	high-confidence	InterPro/NCBIfam, retrieved 2026-08-19	An alternative to the orthology group, not a second requirement. InterPro IPR021179 is the integrated entry; the InterPro accession itself is not curated, because giftr's evidence layer has no InterPro namespace and would store an accession it can never match.
+COMP_DF_MERA	TIGRFAM	TIGR02053	sequence_family	high-confidence	InterPro/NCBIfam, retrieved 2026-08-19	An alternative to the orthology group, not a second requirement. InterPro IPR021179 is the integrated entry; the InterPro accession itself is not curated, because gifter's evidence layer has no InterPro namespace and would store an accession it can never match.
 COMP_DF_MERT	KO	K08363	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-19	
 COMP_DF_MERP	KO	K08364	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-19	
 COMP_DF_MERC	KO	K19058	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-19	
 COMP_DF_MERE	KO	K19059	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-19	
 COMP_DF_MERR	KO	K08365	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-19	K19057 (MerD) is not accepted here: it is a co-regulator that modulates MerR-driven transcription, not an alternative activator.
-COMP_DF_MERB	KO	K00221	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-19	NF033555 (NCBIfam, organomercurial lyase MerB) names the enzyme more specifically but is not curated: it is not integrated into InterPro and giftr's evidence layer recognises no NCBIfam NF namespace.
+COMP_DF_MERB	KO	K00221	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-19	NF033555 (NCBIfam, organomercurial lyase MerB) names the enzyme more specifically but is not curated: it is not integrated into InterPro and gifter's evidence layer recognises no NCBIfam NF namespace.

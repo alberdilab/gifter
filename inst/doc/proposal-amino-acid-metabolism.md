@@ -8,7 +8,7 @@ version 2026.16.1 (schema 6, 72 GIFTs, 89 anchors, 97 routes, 226 reactions,
 bacterial), Rhea release 141, ChEBI release 253. Every count below is over
 those 10 151 bacterial genomes unless stated otherwise.
 
-Scope: decide whether the fifteen proteinogenic amino acids giftr does not yet
+Scope: decide whether the fifteen proteinogenic amino acids gifter does not yet
 cover can be curated, and whether amino acid **degradation** and **microbial
 transformation** — deamination, decarboxylation to biogenic amines, Stickland
 chemistry, indole and cresol formation, sulfur volatiles — can be expressed
@@ -18,7 +18,7 @@ The short answer is that **biosynthesis is ready now and is the largest single
 gain available to the database**: twenty new capabilities close four of the
 thirty-three orphan input anchors, turn `auxotrophy_indicator` from a five-amino
 acid partial view into a twenty amino acid one, and need no schema or code
-change. **Degradation is where giftr becomes distinctive for host–microbiota
+change. **Degradation is where gifter becomes distinctive for host–microbiota
 work and is also where the evidence breaks**: of the candidates assessed, ten
 are supported at the specificity their names imply — two of them only by
 deliberately under-calling — six are deferred pending a boundary decision
@@ -99,7 +99,7 @@ vitamin layer did. §13.
 
 ## 2. What is covered today, and what is missing
 
-giftr curates five amino acids: serine, glycine, cysteine, methionine and
+gifter curates five amino acids: serine, glycine, cysteine, methionine and
 threonine, plus the two aspartate-family branchpoint GIFTs
 (`aspartate_semialdehyde_biosynthesis`, `homoserine_biosynthesis`). All of it is
 biosynthesis. There is no amino acid degradation content of any kind, for the
@@ -245,7 +245,7 @@ Under the rule:
   already declare it (`pyrimidine_core_biosynthesis`, `plp_biosynthesis_r5p`)
   and stays that way; the layer adds a producer, not a new convention.
 
-This is the nitrogen analogue of a decision giftr has already taken twice. The
+This is the nitrogen analogue of a decision gifter has already taken twice. The
 methionine and cysteine GIFTs are split by *sulfur source* and declare `SULFIDE`,
 `CYSTEINE` and `HOMOCYSTEINE` as inputs, because which sulfur a genome can use
 is the trait. And `DBC-20260818-COSUBSTRATE-ANCHORS` records the general form:
@@ -255,7 +255,7 @@ would have produced edges "no reader would have read as biology".
 
 Consequence to accept openly: a genome that cannot make glutamate but has every
 transaminase will still be called positive for valine biosynthesis. That is
-correct under giftr's contract — the GIFT claims the encoded chemistry between
+correct under gifter's contract — the GIFT claims the encoded chemistry between
 2-oxoisovalerate and valine, not the availability of the donor — and the
 nitrogen limitation is reported by `glutamate_biosynthesis` being negative,
 which is where a reader should look for it.
@@ -268,7 +268,7 @@ Every count is the number of the 10 151 KEGG bacterial genomes carrying a gene
 in each orthology group, combined by the Boolean logic shown, retrieved from the
 KEGG REST API on 2026-08-18. Where a count is attributed to a KEGG module, the
 module's own `DEFINITION` expression was evaluated unchanged, so module figures
-and giftr figures are directly comparable. Reaction identity and direction were
+and gifter figures are directly comparable. Reaction identity and direction were
 checked against Rhea release 141; the EC-to-Rhea mapping was verified for every
 unusual reaction in Layers B–D, including the two Stickland reductases
 (`RHEA:12232`, `RHEA:12737`), 4-hydroxyphenylacetate decarboxylase
@@ -305,7 +305,7 @@ one route would misclassify a fifth of bacteria.
 
 **The collision.** Written as the biology reads — GS makes glutamine from
 glutamate, GOGAT makes glutamate from glutamine — the two GIFTs form an
-anabolic 2-cycle in the anchor graph, and `validate_giftr_sources()` rejects it:
+anabolic 2-cycle in the anchor graph, and `validate_gifter_sources()` rejects it:
 `.find_graph_cycle()` runs per directed mode and errors with "Circular anabolic
 GIFT composition". The check is right to fire. The rule it enforces assumes a
 cycle within one mode indicates a badly chosen boundary; here the cycle is real,
@@ -356,7 +356,7 @@ warning: `K00814` (`GPT`, the textbook alanine transaminase) is annotated in
 trait nobody has.
 
 Note honestly in the GIFT description that alanine dehydrogenase runs
-catabolically in *Bacillus* and several Firmicutes. giftr claims encoded
+catabolically in *Bacillus* and several Firmicutes. gifter claims encoded
 chemistry between boundaries, not flux direction, so an anabolic declaration is
 defensible; a separate catabolic alanine GIFT is deferred rather than refused
 (§12.6).
@@ -386,7 +386,7 @@ rather than a co-substrate.
 
 **The lysine cut is the layer's clearest win.** KEGG draws four separate modules
 from L-aspartate to lysine, each repeating the aspartate kinase and
-semialdehyde steps giftr already curates, and each scoring badly alone:
+semialdehyde steps gifter already curates, and each scoring badly alone:
 
 | Route from ASA to meso-DAP | KEGG module | Module complete | Route alone |
 |---|---|---|---|
@@ -516,7 +516,7 @@ Enterobacteriaceae. The LysW-carrier route (M00763) is refused for bacteria:
 `arginine_biosynthesis` runs ornithine → citrulline → argininosuccinate →
 arginine. **Citrulline stays internal.** It is tempting to anchor it, because
 the arginine deiminase pathway (§8.1) also passes through citrulline, but the
-two GIFTs run in opposite directions with opposite modes, and giftr composes
+two GIFTs run in opposite directions with opposite modes, and gifter composes
 through declared anchors only — an internal citrulline in each is exactly the
 "absence of an implicit edge" behaviour the composition tests protect. Anchoring
 it would additionally require deciding whether ornithine carbamoyltransferase,
@@ -590,7 +590,7 @@ Mode: catabolic. `arcA` (`K01478`, 2839), ornithine carbamoyltransferase
 (`K00611`, 8042) and carbamate kinase (`K00926`, 2466); all three: **1733
 (17.1%)**.
 
-The trait giftr users mean when they say "arginine metabolism". It is the
+The trait gifter users mean when they say "arginine metabolism". It is the
 principal acid-resistance and ATP-generating strategy of streptococci,
 lactobacilli, *Mycoplasma* and many oral and vaginal taxa. Ornithine
 carbamoyltransferase is shared with `arginine_biosynthesis` running the other
@@ -671,7 +671,7 @@ per-decarboxylase.
 The arginine decarboxylase split is worth flagging now. `speA` (4652) is the
 biosynthetic polyamine enzyme and `adiA` (1386) is the acid-resistance enzyme;
 they share EC 4.1.1.19 and produce the same molecule but are different traits
-physiologically. giftr has no way to distinguish them except by orthology group,
+physiologically. gifter has no way to distinguish them except by orthology group,
 which here is sufficient — two systems, one reaction, and a note in each
 description.
 
@@ -702,7 +702,7 @@ acetyl phosphate, which `acetate_interconversion` currently holds *internally*
 between phosphotransacetylase and acetate kinase. The nitrogen catabolism
 assessment reached this question first, from the taurine route, and recommended
 leaving the intermediate internal and recording the missing edge (§14.4 there).
-That resolution is not available here: `validate_giftr_sources()` rejects any
+That resolution is not available here: `validate_gifter_sources()` rejects any
 metabolic GIFT with no output anchor, and acetyl phosphate is the *only* product
 of glycine reductase. The choices are therefore to promote it, to include the
 acetate kinase step in the route — which duplicates a reaction of an existing
@@ -749,7 +749,7 @@ Microbial hydrogen sulfide production from cysteine is one of the most requested
 traits in gut microbiome work, and the reason it is hard is that the activity is
 carried out by many PLP enzymes as a side activity — CysK in reverse, MetC,
 MalY, CyuA. Accepting those broad markers would raise the count and destroy the
-claim: `K01760` (`metC`, 4117 genomes) is curated in giftr today as evidence for
+claim: `K01760` (`metC`, 4117 genomes) is curated in gifter today as evidence for
 cysteine *biosynthesis* via transsulfuration, and accepting it here would make
 every transsulfuration genome a sulfide producer. That is exactly the damage
 invariant 16 warns about.
@@ -896,7 +896,7 @@ of Layers B–D:
 | `gift_facets.tsv` | ~60 |
 | `anchor_facets.tsv` | ~84 |
 
-No schema migration. No R change. `giftr_db_version` bumps; `schema_version`
+No schema migration. No R change. `gifter_db_version` bumps; `schema_version`
 does not.
 
 New facet values needed: `substrate_class = amino_acid` already exists and
@@ -932,7 +932,7 @@ fermentation.
 
 `SOURCES.md` must list every KEGG module consulted, and must distinguish the
 modules used as pathway organisation from the six boundary decisions that are
-giftr's own: the meso-DAP cut, the 2-oxoisovalerate and 2-oxobutanoate cuts, the
+gifter's own: the meso-DAP cut, the 2-oxoisovalerate and 2-oxobutanoate cuts, the
 chorismate cut, the transaminase widening, the GS/GOGAT merge, and the
 citrulline-internal decision.
 
@@ -941,7 +941,7 @@ citrulline-internal decision.
 ## 14. Open questions for the curator
 
 **Q1 — the anchor vocabulary.** This layer adds roughly 28 anchors, the largest
-single addition giftr has made, and invariant 3 says to keep the vocabulary
+single addition gifter has made, and invariant 3 says to keep the vocabulary
 small. Proposed: `AMMONIUM`, `GLUTAMATE`, `ALANINE`, `VALINE`, `LEUCINE`,
 `ISOLEUCINE`, `OXOBUTANOATE`, `MESO_DAP`, `LYSINE`, `ORNITHINE`, `ARGININE`,
 `PROLINE`, `ASPARAGINE`, `HISTIDINE`, `PHENYLALANINE`, `TYROSINE`,
@@ -1010,7 +1010,7 @@ Sibling assessments consulted and reconciled against:
 phosphate question) and `proposal-aromatic-degradation.md` (the ring-degradation
 funnels that begin where this layer's aromatic transformations end).
 
-Existing giftr curation records consulted for precedent:
+Existing gifter curation records consulted for precedent:
 `DBC-20260818-COSUBSTRATE-ANCHORS` (the co-substrate rule), the L-homocysteine
 input-only decision of release 2026.09.1 (acyclicity), the orphan-step rule of
 the vitamin layer, and the TIGRFAM marker decision of the SCFA layer.

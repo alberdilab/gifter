@@ -1,6 +1,6 @@
 # Cyclic metabolic topology, derived rather than curated.
 #
-# giftr composes GIFTs through declared anchors, and some real metabolism closes
+# gifter composes GIFTs through declared anchors, and some real metabolism closes
 # a ring: the oxidative citric acid cycle, the glyoxylate bypass, the reductive
 # citric acid cycle, the Calvin cycle. None of those is a new kind of object.
 # Each is a cycle in the graph `gift_graph()` already derives, so this file
@@ -85,7 +85,7 @@
 #' member, and `NA` when the members share none. Naming is the only curated part
 #' of a cycle; membership and shape are derived, so the two cannot disagree.
 #'
-#' @param db Optional open giftr database connection.
+#' @param db Optional open gifter database connection.
 #' @param limit Maximum number of cycles to enumerate. Elementary-cycle
 #'   enumeration is exponential in the worst case, so the search stops at this
 #'   many and warns rather than running unbounded.
@@ -100,7 +100,7 @@ gift_cycles <- function(db = NULL, limit = 100L) {
   if (length(limit) != 1L || is.na(limit) || limit < 1L) {
     stop("limit must be one positive number", call. = FALSE)
   }
-  .with_giftr_db(db, function(connection) {
+  .with_gifter_db(db, function(connection) {
     graph <- .as_tibble_query(
       connection,
       "SELECT from_gift, shared_anchor, to_gift FROM gift_graph"
@@ -213,17 +213,17 @@ gift_cycles <- function(db = NULL, limit = 100L) {
 #' every segment of a ring in the composition graph. It does not mean the cycle
 #' carries flux, runs in the direction the name suggests, or is expressed. Two
 #' of the citric acid cycle's segments are curated as `interconversion`
-#' precisely because giftr cannot say which way they run.
+#' precisely because gifter cannot say which way they run.
 #'
 #' @param result A result returned by [evaluate_gifts()].
-#' @param db Optional open giftr database connection.
+#' @param db Optional open gifter database connection.
 #' @param limit Passed to [gift_cycles()].
 #' @return A tibble with one row per cycle: `cycle_id`, `named_cycle`,
 #'   `cycle_length`, `supported`, `status`, and `broken_at`, a comma-separated
 #'   list of the members that are not complete.
 #' @export
 evaluate_gift_cycles <- function(result, db = NULL, limit = 100L) {
-  if (!inherits(result, "giftr_result")) {
+  if (!inherits(result, c("gifter_result", "giftr_result"))) {
     stop("result must come from evaluate_gifts()", call. = FALSE)
   }
   cycles <- gift_cycles(db = db, limit = limit)

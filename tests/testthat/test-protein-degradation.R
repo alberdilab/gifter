@@ -64,8 +64,8 @@ test_that("EC alone cannot carry a single-reaction protein cleavage call", {
   # is never sufficient evidence for a required reaction. This GIFT has exactly
   # one required reaction, so admitting the EC as a marker would let it carry
   # the whole call. It is the reaction cross-reference instead.
-  connection <- giftr_db_connect()
-  withr::defer(giftr_db_disconnect(connection))
+  connection <- gifter_db_connect()
+  withr::defer(gifter_db_disconnect(connection))
 
   markers <- DBI::dbGetQuery(connection, paste(
     "SELECT m.namespace FROM component_marker cm",
@@ -89,8 +89,8 @@ test_that("EC alone cannot carry a single-reaction protein cleavage call", {
 test_that("refused substrates have no GIFT and no marker evidence", {
   # A regression guard rather than a tautology: it fails the day a
   # substrate-specific trait is added on family-level protease evidence.
-  connection <- giftr_db_connect()
-  withr::defer(giftr_db_disconnect(connection))
+  connection <- gifter_db_connect()
+  withr::defer(gifter_db_disconnect(connection))
 
   gift_text <- DBI::dbGetQuery(
     connection, "SELECT gift_id, name, description FROM gift"
@@ -109,8 +109,8 @@ test_that("refused substrates have no GIFT and no marker evidence", {
 test_that("protein anchors work without a ChEBI identity or a Rhea master", {
   # Anchors were never restricted to small molecules and reactions were never
   # restricted to Rhea-covered chemistry. Collagenolysis needed neither.
-  connection <- giftr_db_connect()
-  withr::defer(giftr_db_disconnect(connection))
+  connection <- gifter_db_connect()
+  withr::defer(gifter_db_disconnect(connection))
 
   anchors <- DBI::dbGetQuery(connection, paste(
     "SELECT anchor_id, compartment, chebi_id FROM anchor",
@@ -130,8 +130,8 @@ test_that("the cleavage product is a substrate-specific boundary, not a pool", {
   # product anchor is substrate-specific and terminal instead, so the trait is
   # isolated in the composition graph until a peptide tier is licensed by
   # transporter evidence.
-  connection <- giftr_db_connect()
-  withr::defer(giftr_db_disconnect(connection))
+  connection <- gifter_db_connect()
+  withr::defer(gifter_db_disconnect(connection))
 
   anchors <- DBI::dbGetQuery(connection, "SELECT anchor_id FROM anchor")$anchor_id
   expect_false(any(anchors %in% c("PEPTIDES", "AMINO_ACIDS")))

@@ -2,7 +2,7 @@
 % Please edit documentation in R/database.R
 \name{get_reaction}
 \alias{get_reaction}
-\title{Get a reaction used by giftr}
+\title{Get a reaction used by gifter}
 \usage{
 get_reaction(reaction, db = NULL)
 }
@@ -10,7 +10,7 @@ get_reaction(reaction, db = NULL)
 \item{reaction}{A `reaction_id` or a Rhea master ID, with or without the
 `RHEA:` prefix.}
 
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 }
 \value{
 A zero- or one-row tibble.

@@ -4,7 +4,7 @@
 # nitrogen-anchor rule and the electron-acceptor scope -- and the marker
 # specificity refusals that decided four of its candidate traits.
 
-# giftr exposes anchors per GIFT rather than GIFTs per anchor, so the inverse
+# gifter exposes anchors per GIFT rather than GIFTs per anchor, so the inverse
 # lookup these tests need is assembled here rather than added to the API.
 anchor_users <- function(anchor_id) {
   ids <- list_gifts()$gift_id

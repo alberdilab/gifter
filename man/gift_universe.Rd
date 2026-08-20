@@ -41,10 +41,10 @@ details.}
 \item{label}{Optional human-readable name. Derived from the filters if
 omitted.}
 
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 }
 \value{
-A `giftr_universe`: the member `gift_id`s, the `label`, the filters
+A `gifter_universe`: the member `gift_id`s, the `label`, the filters
   that produced it, whether it is `bounded`, and the `database_version` it
   was resolved against.
 }

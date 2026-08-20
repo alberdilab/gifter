@@ -37,7 +37,7 @@ grouped above the GIFT level.
 4. **Chorismate is the right terminal anchor** and PEP + E4P the right input
    pair. The pathway is not cut at 3-dehydroquinate or 3-dehydroshikimate
    despite an archaeal argument for doing so, because neither is a branchpoint
-   in giftr today. §3.
+   in gifter today. §3.
 5. **Curate the shikimate dehydrogenase step as not required.** Requiring it
    drops the route from 7644 to 5420 bacteria and removes 201 of 213
    Cyanobacteriota and 1061 of 1642 Actinomycetota — organisms that make
@@ -46,7 +46,7 @@ grouped above the GIFT level.
    specificity problem, and it is the one place this layer widens a call. §4.
 6. **PchA/PchB and MbtI are alternative enzyme systems, not alternative
    routes.** They run the same two transformations; MbtI merely does both in one
-   active site. giftr already curates that shape once, as the bifunctional
+   active site. gifter already curates that shape once, as the bifunctional
    PabBC. Materialising a second route would assert a different minimal chemical
    path where there is none. §5.
 7. **Curate only the IAM route to the auxin.** The indole-3-pyruvate, tryptamine,
@@ -131,7 +131,7 @@ fate, so it is not a branchpoint, and invariant 3 asks for a branchpoint, a
 stable product or an environmental compound rather than any metabolite that
 happens to sit at a convenient join. The resulting upstream GIFT would be a
 two-step fragment, which invariant 9 rules out. And in bacteria — the domain
-giftr's content is aimed at — the split distinguishes only 119 genomes.
+gifter's content is aimed at — the split distinguishes only 119 genomes.
 
 The archaeal route is therefore recorded as a **deliberate exclusion, not an
 omission**: it consumes different precursors, so it cannot be a route between
@@ -144,7 +144,7 @@ protocatechuate is the obvious candidate — the cut should be revisited.
 
 M00022 has the same endpoints, which is worth stating rather than hiding. The
 curated definition differs in three ways, and the xref relation is `overlaps`
-rather than `equivalent` because of them: giftr does not require the shikimate
+rather than `equivalent` because of them: gifter does not require the shikimate
 dehydrogenase step (§4), accepts YdiB for it, and drops `K13830`, the
 pentafunctional AROM polypeptide, which **no prokaryotic genome in KEGG
 carries** — 0 of 10 151 bacteria and 0 of 470 archaea.
@@ -218,7 +218,7 @@ the isochorismate enzyme-bound, releasing it slowly enough that they have been
 characterised as isochorismate synthases in their own right. KEGG assigns
 `K04781` **both** EC 5.4.4.2 and EC 4.2.99.21, which is the same reading.
 
-giftr already curates this exact shape once. The bifunctional PabBC (`K03342`)
+gifter already curates this exact shape once. The bifunctional PabBC (`K03342`)
 appears as a system of the 4-amino-4-deoxychorismate synthase reaction *and* as a
 system of the lyase reaction, inside one route. The salicylate GIFT follows it:
 one route, two reactions, `K04781` attached to both.
@@ -398,7 +398,7 @@ One new `substrate_class` value, `aromatic_compound`, and one new
 registered. The role exists because neither `biosynthesis` ("builds a cellular
 building block") nor `fermentative_end_product` describes a siderophore precursor
 or a phytohormone: salicylate and the auxin are not building blocks and are not
-fermentation products. The role names what the chemistry produces; giftr has no
+fermentation products. The role names what the chemistry produces; gifter has no
 evidence layer for secretion, for the receiving organism, or for any effect on it,
 and the definition says so.
 
@@ -417,7 +417,7 @@ pABA; 598 complete both chorismate and salicylate. The graph gains three edges,
 all `exact`, all out of `chorismate_biosynthesis`, and `paba_biosynthesis` moves
 from `entry` to `intermediate` in the derived profile.
 
-`indole_3_acetate_biosynthesis` is `isolated`: nothing in giftr produces
+`indole_3_acetate_biosynthesis` is `isolated`: nothing in gifter produces
 tryptophan yet. That is the correct report rather than a defect, and it names the
 next thing worth curating.
 

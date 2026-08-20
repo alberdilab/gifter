@@ -1,6 +1,6 @@
 test_that("canonical source tables validate", {
-  source_dir <- system.file("extdata", "database-source", package = "giftr")
-  report <- validate_giftr_sources(source_dir)
+  source_dir <- system.file("extdata", "database-source", package = "gifter")
+  report <- validate_gifter_sources(source_dir)
 
   expect_true(report$valid)
   expect_length(report$errors, 0L)
@@ -15,13 +15,13 @@ test_that("canonical source tables validate", {
 })
 
 test_that("database compilation creates constrained SQLite schema", {
-  source_dir <- system.file("extdata", "database-source", package = "giftr")
+  source_dir <- system.file("extdata", "database-source", package = "gifter")
   output <- tempfile(fileext = ".sqlite")
   on.exit(unlink(output), add = TRUE)
 
-  expect_silent(build_giftr_database(source_dir, output))
-  db <- giftr_db_connect(output)
-  on.exit(giftr_db_disconnect(db), add = TRUE)
+  expect_silent(build_gifter_database(source_dir, output))
+  db <- gifter_db_connect(output)
+  on.exit(gifter_db_disconnect(db), add = TRUE)
 
   tables <- DBI::dbListTables(db)
   expect_true(all(c(
@@ -47,8 +47,8 @@ test_that("database compilation creates constrained SQLite schema", {
 })
 
 test_that("source validation rejects duplicate stable IDs", {
-  source_dir <- system.file("extdata", "database-source", package = "giftr")
-  fixture <- tempfile("giftr-source-")
+  source_dir <- system.file("extdata", "database-source", package = "gifter")
+  fixture <- tempfile("gifter-source-")
   dir.create(fixture)
   on.exit(unlink(fixture, recursive = TRUE), add = TRUE)
   expect_true(all(file.copy(list.files(source_dir, full.names = TRUE), fixture)))
@@ -58,15 +58,15 @@ test_that("source validation rejects duplicate stable IDs", {
   gifts <- rbind(gifts, gifts[1, ])
   utils::write.table(gifts, gifts_path, sep = "\t", quote = FALSE, row.names = FALSE, na = "")
 
-  report <- validate_giftr_sources(fixture, stop_on_error = FALSE)
+  report <- validate_gifter_sources(fixture, stop_on_error = FALSE)
   expect_false(report$valid)
   expect_true(any(grepl("Duplicated gifts.gift_id", report$errors, fixed = TRUE)))
-  expect_error(validate_giftr_sources(fixture), "source validation failed")
+  expect_error(validate_gifter_sources(fixture), "source validation failed")
 })
 
 test_that("foreign key enforcement is enabled on runtime connections", {
-  db <- giftr_db_connect()
-  on.exit(giftr_db_disconnect(db), add = TRUE)
+  db <- gifter_db_connect()
+  on.exit(gifter_db_disconnect(db), add = TRUE)
   expect_equal(DBI::dbGetQuery(db, "PRAGMA foreign_keys")[[1]], 1L)
 })
 
@@ -199,9 +199,9 @@ test_that("database accessors return stable definitions", {
 })
 
 test_that("database and schema versions are independent", {
-  version <- giftr_db_version()
+  version <- gifter_db_version()
   expect_equal(version$package_version, "0.1.0")
-  expect_equal(version$giftr_db_version, "2026.20.1")
+  expect_equal(version$gifter_db_version, "2026.20.1")
   expect_equal(version$schema_version, 6L)
   expect_equal(version$rhea_release, "141")
 })
@@ -210,11 +210,11 @@ test_that("database HTML atlas is self-contained and reflects compiled rows", {
   output <- tempfile(fileext = ".html")
   on.exit(unlink(output), add = TRUE)
 
-  path <- write_giftr_database_html(output)
+  path <- write_gifter_database_html(output)
   html <- paste(readLines(path, warn = FALSE), collapse = "\n")
 
   expect_true(file.exists(path))
-  expect_match(html, "giftr reference atlas", fixed = TRUE)
+  expect_match(html, "gifter reference atlas", fixed = TRUE)
   expect_match(html, "GIFT explorer", fixed = TRUE)
   expect_match(html, "purine_core_biosynthesis", fixed = TRUE)
   expect_match(html, "guanylate_biosynthesis", fixed = TRUE)
@@ -263,13 +263,13 @@ test_that("database HTML atlas is self-contained and reflects compiled rows", {
 })
 
 test_that("every metabolic GIFT gets a route network bounded by its declared anchors", {
-  db <- giftr_db_connect()
-  on.exit(giftr_db_disconnect(db), add = TRUE)
-  data <- giftr:::.giftr_report_data(db)
+  db <- gifter_db_connect()
+  on.exit(gifter_db_disconnect(db), add = TRUE)
+  data <- gifter:::.gifter_report_data(db)
 
   for (gift_id in data$gifts$gift_id[data$gifts$gift_type == "metabolic"]) {
     anchors <- data$anchors[data$anchors$gift_id == gift_id, , drop = FALSE]
-    svg <- giftr:::.report_gift_network_svg(
+    svg <- gifter:::.report_gift_network_svg(
       gift_id,
       anchors[anchors$role == "input", , drop = FALSE],
       anchors[anchors$role == "output", , drop = FALSE],
@@ -296,12 +296,12 @@ test_that("every metabolic GIFT gets a route network bounded by its declared anc
 })
 
 test_that("the merged route network overlays alternative routes on shared reactions", {
-  db <- giftr_db_connect()
-  on.exit(giftr_db_disconnect(db), add = TRUE)
-  data <- giftr:::.giftr_report_data(db)
+  db <- gifter_db_connect()
+  on.exit(gifter_db_disconnect(db), add = TRUE)
+  data <- gifter:::.gifter_report_data(db)
   anchors <- data$anchors[data$anchors$gift_id == "purine_core_biosynthesis", , drop = FALSE]
 
-  svg <- giftr:::.report_gift_network_svg(
+  svg <- gifter:::.report_gift_network_svg(
     "purine_core_biosynthesis",
     anchors[anchors$role == "input", , drop = FALSE],
     anchors[anchors$role == "output", , drop = FALSE],
@@ -319,11 +319,11 @@ test_that("the merged route network overlays alternative routes on shared reacti
 })
 
 test_that("the anchor network links GIFTs only through declared anchors", {
-  db <- giftr_db_connect()
-  on.exit(giftr_db_disconnect(db), add = TRUE)
-  data <- giftr:::.giftr_report_data(db)
+  db <- gifter_db_connect()
+  on.exit(gifter_db_disconnect(db), add = TRUE)
+  data <- gifter:::.gifter_report_data(db)
 
-  svg <- giftr:::.report_anchor_network_svg(data)
+  svg <- gifter:::.report_anchor_network_svg(data)
   # The trailing space keeps the `dot-nodes` group that holds them out of the
   # count.
   nodes <- regmatches(svg, gregexpr('class="dot-node [^"]*"', svg))[[1]]
@@ -391,11 +391,11 @@ test_that("the anchor network links GIFTs only through declared anchors", {
 })
 
 test_that("the overview network is unlabelled dots that carry their own detail", {
-  db <- giftr_db_connect()
-  on.exit(giftr_db_disconnect(db), add = TRUE)
-  data <- giftr:::.giftr_report_data(db)
+  db <- gifter_db_connect()
+  on.exit(gifter_db_disconnect(db), add = TRUE)
+  data <- gifter:::.gifter_report_data(db)
 
-  network <- giftr:::.report_anchor_network_svg(data)
+  network <- gifter:::.report_anchor_network_svg(data)
   # The drawing carries no text at all: every identifier, boundary, and count a
   # reader needs is an attribute the hover card is built from.
   expect_false(grepl("<text", network, fixed = TRUE))
@@ -411,15 +411,15 @@ test_that("the overview network is unlabelled dots that carry their own detail",
 })
 
 test_that("the overview network can be coloured by curated metadata", {
-  db <- giftr_db_connect()
-  on.exit(giftr_db_disconnect(db), add = TRUE)
-  data <- giftr:::.giftr_report_data(db)
-  network <- giftr:::.report_anchor_network_svg(data)
+  db <- gifter_db_connect()
+  on.exit(gifter_db_disconnect(db), add = TRUE)
+  data <- gifter:::.gifter_report_data(db)
+  network <- gifter:::.report_anchor_network_svg(data)
 
   # Every dot carries the colour each scheme would paint it, so switching a menu
   # is a repaint rather than a redraw.
-  for (family in names(giftr:::.report_dot_schemes)) {
-    for (scheme in giftr:::.report_dot_schemes[[family]]) {
+  for (family in names(gifter:::.report_dot_schemes)) {
+    for (scheme in gifter:::.report_dot_schemes[[family]]) {
       attribute <- paste0("data-fill-", scheme[["key"]], '="')
       expect_true(grepl(attribute, network, fixed = TRUE), info = scheme[["key"]])
       expect_match(
@@ -434,19 +434,19 @@ test_that("the overview network can be coloured by curated metadata", {
   # inventing an eighth hue.
   fills <- regmatches(network, gregexpr('data-fill-substrate="[^"]*"', network))[[1]]
   used <- setdiff(unique(sub('.*="([^"]*)"$', "\\1", fills)), "")
-  expect_lte(length(used), length(giftr:::.report_dot_palette))
-  expect_true(all(used %in% giftr:::.report_dot_palette))
+  expect_lte(length(used), length(gifter:::.report_dot_palette))
+  expect_true(all(used %in% gifter:::.report_dot_palette))
 
   # Uniform is the default, so the drawing opens exactly as it did before any
   # metadata was applied.
-  menu <- giftr:::.report_scheme_menu("gift", "Colour GIFTs by")
+  menu <- gifter:::.report_scheme_menu("gift", "Colour GIFTs by")
   expect_match(menu, '<option value="">Uniform</option>', fixed = TRUE)
 })
 
 test_that("network markers stay unique across the report", {
   output <- tempfile(fileext = ".html")
   on.exit(unlink(output), add = TRUE)
-  html <- paste(readLines(write_giftr_database_html(output), warn = FALSE), collapse = "\n")
+  html <- paste(readLines(write_gifter_database_html(output), warn = FALSE), collapse = "\n")
 
   # Each graph defines a matched pair of arrowheads: the forward head every edge
   # uses, and the mirrored head drawn at the start of a bidirectional edge.
@@ -504,10 +504,10 @@ test_that("the two curation corrections of release 2026.08.2 are recorded", {
 })
 
 test_that("changelog sources reject entries without a linked GIFT", {
-  source_dir <- file.path(tempfile("giftr-sources-"))
+  source_dir <- file.path(tempfile("gifter-sources-"))
   dir.create(source_dir, recursive = TRUE)
   on.exit(unlink(source_dir, recursive = TRUE), add = TRUE)
-  packaged <- system.file("extdata", "database-source", package = "giftr")
+  packaged <- system.file("extdata", "database-source", package = "gifter")
   if (!nzchar(packaged)) packaged <- file.path("inst", "extdata", "database-source")
   file.copy(list.files(packaged, full.names = TRUE), source_dir)
 
@@ -519,7 +519,7 @@ test_that("changelog sources reject entries without a linked GIFT", {
   )
 
   expect_error(
-    validate_giftr_sources(source_dir),
+    validate_gifter_sources(source_dir),
     "must name the GIFTs they affect"
   )
 })
@@ -527,7 +527,7 @@ test_that("changelog sources reject entries without a linked GIFT", {
 test_that("the atlas publishes the changelog linked to GIFT traits", {
   output <- tempfile(fileext = ".html")
   on.exit(unlink(output), add = TRUE)
-  html <- paste(readLines(write_giftr_database_html(output), warn = FALSE), collapse = "\n")
+  html <- paste(readLines(write_gifter_database_html(output), warn = FALSE), collapse = "\n")
 
   expect_match(html, 'data-view="changelog"', fixed = TRUE)
   expect_match(html, "changelog-table", fixed = TRUE)
@@ -536,7 +536,7 @@ test_that("the atlas publishes the changelog linked to GIFT traits", {
 
   changes <- database_changelog()
   for (id in changes$change_id) expect_match(html, id, fixed = TRUE)
-  for (summary in changes$summary) expect_match(html, giftr:::.html_escape(summary), fixed = TRUE)
+  for (summary in changes$summary) expect_match(html, gifter:::.html_escape(summary), fixed = TRUE)
 
   links <- regmatches(html, gregexpr('data-gift-link="[^"]+"', html))[[1]]
   expect_equal(

@@ -228,8 +228,8 @@ test_that("every aromatic route records an oxygen requirement that matches its c
   # chemistry, which uses O2 as a substrate, from everything after cleavage,
   # which does not -- and it is why this layer will be silent in strict
   # anaerobes without any of its calls being wrong.
-  connection <- giftr_db_connect()
-  withr::defer(giftr_db_disconnect(connection))
+  connection <- gifter_db_connect()
+  withr::defer(gifter_db_disconnect(connection))
   oxygen <- DBI::dbGetQuery(
     connection,
     "SELECT g.gift_id, r.oxygen_requirement FROM gift_route r

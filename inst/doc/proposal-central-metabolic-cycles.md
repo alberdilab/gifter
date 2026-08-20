@@ -7,7 +7,7 @@ version 2026.15.1. Section 16's recommendation — option 1, atomic segment GIFT
 plus derived cycle detection — was the one taken. The implementation record,
 including where it departed from this proposal, is section 18.
 
-Scope: decide how giftr should represent circular central metabolism, using the
+Scope: decide how gifter should represent circular central metabolism, using the
 citric acid cycle as the first worked example, without turning every reaction
 into a GIFT and without curating a monolithic "TCA cycle" GIFT. The design must
 solve a general topology problem, not a TCA-specific one.
@@ -33,7 +33,7 @@ reinforced by new evidence in §6.6 here.
    chosen for convenience.** `K00239` is named by KEGG `sdhA, frdA`: one
    orthology group for succinate dehydrogenase and fumarate reductase. 8047
    organisms carry it; the dedicated `frdAB` split exists in 1059, almost all
-   Enterobacteriaceae. giftr may not claim a direction its markers cannot
+   Enterobacteriaceae. gifter may not claim a direction its markers cannot
    distinguish (invariant 16), so `SUCCINATE > FUMARATE` and
    `FUMARATE > SUCCINATE` become one reversible boundary, not two GIFTs. §6.4.
 3. **Add four anchors and no others**: `OXALOACETATE`, `OXOGLUTARATE`,
@@ -41,7 +41,7 @@ reinforced by new evidence in §6.6 here.
 4. **Citrate stays internal, and the reason is new and empirical.** Exposing
    `CITRATE` as an output anchor closes a *second, unrelated* cycle against
    already-curated content — `citrate_fermentation -> pyruvate_to_acetyl_coa ->
-   citrate_synthesis -> citrate_fermentation` — which giftr's own edge
+   citrate_synthesis -> citrate_fermentation` — which gifter's own edge
    derivation reports. This is a stronger argument than the near-universality
    argument previously recorded. §6.6.
 5. **The citrate synthase step cannot be evidenced cleanly, and this is the
@@ -83,7 +83,7 @@ reinforced by new evidence in §6.6 here.
    which is exempt for the reason above. Verified, not predicted. §9.3.
 10. **Name the higher-order object with a facet, not a table.** If curators want
     to say "this GIFT belongs to the oxidative citric acid cycle", that is
-    *classification*, and giftr's mechanism for classification is
+    *classification*, and gifter's mechanism for classification is
     `facet_terms.tsv` + `gift_facets.tsv`, which is an open vocabulary needing no
     migration. Structure comes from the graph; naming comes from a facet. §8.4.
 11. **Add one general accessor, `gift_cycles()`**, that enumerates elementary
@@ -119,7 +119,7 @@ encodes a complete oxidative branch to 2-oxoglutarate, and *Erysipelatoclostridi
 which encodes none of it. Q2 separates those two, and Q2 is the question
 comparative genomics asks.
 
-giftr cannot answer Q2 today. It has no anchor for any citric acid cycle
+gifter cannot answer Q2 today. It has no anchor for any citric acid cycle
 metabolite except `MALATE` and `CITRATE`, and both are declared input-only.
 
 ### 2.2 The two failure modes to avoid
@@ -149,7 +149,7 @@ That is the right test for **`succinate_formation`**, a claim about what a
 genome excretes. It is the wrong test for **`succinate_oxidation`**, a claim
 about what chemistry a genome encodes between two boundaries. The distinction is
 not a technicality; it is the difference between a product claim and a
-capability claim, and giftr's other 68 GIFTs are capability claims.
+capability claim, and gifter's other 68 GIFTs are capability claims.
 
 `purine_core_biosynthesis` is the proof. It is complete in most genomes on
 Earth, it releases nothing, IMP is consumed by the same cell that made it, and
@@ -208,7 +208,7 @@ identical to *Mycoplasma genitalium*.
 
 A "percentage complete" summary is no better. It would put *H. pylori* and a
 genome missing a single dehydrogenase subunit at similar percentages while
-saying nothing about which chemistry either encodes, and giftr's evaluation
+saying nothing about which chemistry either encodes, and gifter's evaluation
 contract already refuses percentage completeness for exactly this reason.
 
 ---
@@ -273,7 +273,7 @@ enzyme is sometimes missing. Isocitrate is the case that shows the gap: it sits
 between two steps that are almost never separated — only 204 genomes carry a
 citrate synthase without an aconitase — so exposing it would buy a distinction
 almost no genome makes, while costing an anchor. The rule needs a second clause
-that giftr's existing content already implies:
+that gifter's existing content already implies:
 
 > **Expose a metabolite as a boundary when (a) hiding it would erase a
 > distinction between genomes that some other capability also cares about, and
@@ -385,7 +385,7 @@ Two of these carry design lessons.
 
 **`RHEA:16845` is returned by both EC 2.3.3.1 and EC 2.3.3.3.** The si- and
 Re-citrate synthases are different enzymes with the same chemistry, which is
-exactly the reaction/system split giftr's layers exist for: one reaction, two
+exactly the reaction/system split gifter's layers exist for: one reaction, two
 enzyme systems.
 
 **Succinate dehydrogenase and fumarate reductase share their Rhea masters.**
@@ -453,7 +453,7 @@ in the earlier proposal, one step upstream. Three responses were considered:
    Proteobacteria and calls the gut's dominant genus negative, which is the
    documented butyrate/succinate failure mode.
 3. **Accept `K01659` as an alternative enzyme system with
-   `confidence = ambiguous`.** Recommended. giftr already carries 165 markers at
+   `confidence = ambiguous`.** Recommended. gifter already carries 165 markers at
    that confidence, `evaluate_gifts()` propagates the weakest confidence into
    `evidence_confidence`, and a curator or user can filter on it. The claim
    becomes "supported, on an orthology group that also contains
@@ -461,7 +461,7 @@ in the earlier proposal, one step upstream. Three responses were considered:
 
 Response 3 has a cost that must be stated: **it over-broadens the GIFT for the
 2-methylcitrate cycle's own organisms.** Invariant 16 warns that accepting an
-over-broad marker damages the other traits it matches. giftr does not currently
+over-broad marker damages the other traits it matches. gifter does not currently
 curate a 2-methylcitrate/propionate-catabolism GIFT; on the day it does, `K01659`
 must be re-examined for both, and the honest resolution may be to refuse it here
 rather than to keep it. §15 Q1 records the trigger.
@@ -508,7 +508,7 @@ This is the section that changes the request's design.
 
 The request asks for `SUCCINATE -> FUMARATE` and notes that the opposite
 transformation is a different physiological role. Biologically that is correct.
-**Genomically it is not evidenced**, and giftr's invariant 16 makes evidence the
+**Genomically it is not evidenced**, and gifter's invariant 16 makes evidence the
 bound on the claim.
 
 | Marker set | KEGG's own name | Organisms | % |
@@ -587,7 +587,7 @@ proposal unchanged and should be kept as the durable protection.
 The earlier proposal refused `citrate_formation` because citrate synthase is
 present in 71% of genomes and citrate is consumed by the cell that makes it.
 That argument is sound. A stronger one is now available, and it was produced by
-running giftr's own edge derivation rather than reasoned about.
+running gifter's own edge derivation rather than reasoned about.
 
 Splitting `acetyl_coa_to_oxoglutarate` at citrate — a one-reaction
 `citrate_synthesis` GIFT with `ACETYL_COA + OXALOACETATE > CITRATE`, exactly the
@@ -738,7 +738,7 @@ third layer already exists and has never been read.
 
 The four proposed GIFTs plus a glyoxylate bypass and an anaplerotic
 oxaloacetate GIFT were added to the current `gift_anchors.tsv` and the full
-composition graph was derived with giftr's own rules. Enumerating **elementary
+composition graph was derived with gifter's own rules. Enumerating **elementary
 cycles** of the resulting 55-node, 72-edge graph returns exactly three:
 
 ```text
@@ -769,7 +769,7 @@ Derivation gives structure and not meaning. It finds cycle 2; it does not know
 that cycle 2 is called the citric acid cycle, that cycle 3 is called the
 glyoxylate bypass, or that cycle 1 is not a biological cycle at all.
 
-giftr has a mechanism for attaching curated meaning to a GIFT without changing
+gifter has a mechanism for attaching curated meaning to a GIFT without changing
 what the GIFT claims, and it is `facet_terms.tsv` + `gift_facets.tsv`. The facet
 vocabulary is explicitly open to new facets and closed within a facet, so
 registering one costs two source rows and no migration:
@@ -789,7 +789,7 @@ gift_facets.tsv
 
 `metabolic_cycle` must be **multi-valued** — `fumarate_oxaloacetate_interconversion`
 belongs to both named cycles — and must **not** be added to
-`.giftr_required_gift_facets`, since most metabolic GIFTs belong to no cycle.
+`.gifter_required_gift_facets`, since most metabolic GIFTs belong to no cycle.
 
 This is deliberately weaker than a `circuit_gift` table. It records membership
 and nothing else: no `required` flag, no `role`, no declared topology. Those
@@ -894,7 +894,7 @@ Implementation: one `setdiff()` in the loop that already exists.
 # interconversion GIFT declares every anchor in both roles, so two adjacent
 # interconversions cycle by construction; the mode, not the boundary, is what
 # makes the loop, and the check would be reporting its own contract back.
-for (mode in intersect(setdiff(.giftr_gift_modes, "interconversion"),
+for (mode in intersect(setdiff(.gifter_gift_modes, "interconversion"),
                        unique(tables$gifts$mode))) {
 ```
 
@@ -1070,7 +1070,7 @@ None of these is a phenotype. A `CLOSED` call means the genome encodes at least
 one complete route for every segment of a ring in the composition graph. It does
 not mean the cycle carries flux, that it runs oxidatively, that the organism
 respires, or that any of it is expressed. The `succinate_fumarate_interconversion`
-segment in particular is `interconversion` precisely because giftr cannot say
+segment in particular is `interconversion` precisely because gifter cannot say
 which way it runs, so a `CLOSED` oxidative cycle is a statement about encoded
 chemistry and not about the direction of that chemistry.
 
@@ -1103,7 +1103,7 @@ of the community's gene content covers every segment.** It does **not** mean:
 - that any exchange occurs, or could occur, in this environment;
 - that the community "has a citric acid cycle" in any physiological sense.
 
-giftr's compartment model is the only mechanism it has for even the *possibility*
+gifter's compartment model is the only mechanism it has for even the *possibility*
 of exchange, and none of the four segments' anchors is compartment-resolved:
 every one is `unspecified`, because no transporter marker is specific enough to
 license a split for these acids. The earlier proposal recorded the same
@@ -1172,7 +1172,7 @@ only consumer is the shunt. §15 Q6.
 Regenerative rather than catalytic in the same sense — it consumes CO2 and
 exports triose phosphate — but topologically identical: a ring through
 ribulose-1,5-bisphosphate, 3-phosphoglycerate and ribulose-5-phosphate with an
-export branch. giftr already has `PG3`, `GAP`, `DHAP`, `FRUCTOSE_6P` and
+export branch. gifter already has `PG3`, `GAP`, `DHAP`, `FRUCTOSE_6P` and
 `XYLULOSE_5P` as anchors, so the carbon-fixation segment
 (`PG3 > RIBULOSE_1_5_BP`, carboxylation, regeneration) would need one or two new
 anchors and would compose into the existing sugar-phosphate content. The
@@ -1292,7 +1292,7 @@ two-GIFT composition instead of a span that reuses two reactions; it costs an
 anchor whose only consumer is the shunt.
 
 **Q7 — fumarate respiration.** Still deferred, still the trait most users mean
-when they say "fumarate". It needs an electron-acceptor model giftr does not
+when they say "fumarate". It needs an electron-acceptor model gifter does not
 have. `succinate_fumarate_interconversion` deliberately does **not** claim it,
 and its `notes` should say so, because the anchor names will invite the reading.
 
@@ -1382,7 +1382,7 @@ All figures retrieved 2026-08-18 against database version 2026.15.1, schema 6.
   plus equation and `chebi-id` lookups by Rhea ID. Every ChEBI identifier in
   §14 was taken from the `chebi-id` column of a reaction that uses it.
 - **Graph results** in §6.6, §8.3, §9.2 and §9.3 were produced by running
-  giftr's own edge derivation (`R/database-build.R`, the `gift_graph` rules) and
+  gifter's own edge derivation (`R/database-build.R`, the `gift_graph` rules) and
   `.find_graph_cycle()` over the current `gift_anchors.tsv` plus hypothetical
   rows, in a scratch script. They are observations, not predictions. The
   elementary-cycle enumeration in §8.3 is a depth-first enumeration over the

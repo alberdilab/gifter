@@ -34,7 +34,7 @@ test_that("the fixture completes exactly the intended capabilities", {
 
 test_that("a community carries its genome identifiers and call matrix", {
   community <- arabinoxylan_community()
-  expect_s3_class(community, "giftr_community")
+  expect_s3_class(community, "gifter_community")
   expect_identical(community$genome_id, c("A", "B", "C", "D"))
   expect_equal(dim(community$matrix), c(length(community$gift_id), 4L))
   expect_true(community$matrix["arabinoxylan_debranching", "A"])
@@ -43,10 +43,10 @@ test_that("a community carries its genome identifiers and call matrix", {
 
 test_that("genomes must be named, and results must be calls", {
   genome <- arabinoxylan_genome("debrancher")
-  expect_error(giftr_community(genome), "distinct name")
-  expect_error(giftr_community(A = genome, A = genome), "distinct name")
-  expect_error(giftr_community(A = list()), "result from evaluate_gifts")
-  expect_error(giftr_community(), "at least one evaluated genome")
+  expect_error(gifter_community(genome), "distinct name")
+  expect_error(gifter_community(A = genome, A = genome), "distinct name")
+  expect_error(gifter_community(A = list()), "result from evaluate_gifts")
+  expect_error(gifter_community(), "at least one evaluated genome")
 })
 
 test_that("genomes evaluated against different releases are refused", {
@@ -54,9 +54,9 @@ test_that("genomes evaluated against different releases are refused", {
   # offered to every genome.
   genome <- arabinoxylan_genome("debrancher")
   other <- genome
-  other$database_version$giftr_db_version <- "0000.0.0"
+  other$database_version$gifter_db_version <- "0000.0.0"
   expect_error(
-    giftr_community(A = genome, B = other),
+    gifter_community(A = genome, B = other),
     "different database versions"
   )
 })
@@ -64,17 +64,17 @@ test_that("genomes evaluated against different releases are refused", {
 test_that("abundance is validated against the genomes it weights", {
   genome <- arabinoxylan_genome("debrancher")
   expect_error(
-    giftr_community(A = genome, abundance = c(B = 1)),
+    gifter_community(A = genome, abundance = c(B = 1)),
     "exactly the supplied genomes"
   )
   expect_error(
-    giftr_community(A = genome, abundance = c(A = -1)),
+    gifter_community(A = genome, abundance = c(A = -1)),
     "non-negative"
   )
-  expect_error(giftr_community(A = genome, abundance = c(A = 0)), "all zero")
-  expect_error(giftr_community(A = genome, abundance = 1), "named numeric")
+  expect_error(gifter_community(A = genome, abundance = c(A = 0)), "all zero")
+  expect_error(gifter_community(A = genome, abundance = 1), "named numeric")
   # Normalisation happens on read; the supplied values are kept.
-  community <- giftr_community(A = genome, B = genome, abundance = c(A = 3, B = 1))
+  community <- gifter_community(A = genome, B = genome, abundance = c(A = 3, B = 1))
   expect_equal(unname(community$abundance), c(0.75, 0.25))
   expect_equal(unname(community$abundance_supplied), c(3, 1))
 })
@@ -207,7 +207,7 @@ test_that("community coverage is reported only for a bounded universe", {
 })
 
 test_that("community traits refuse a bad container or a stale universe", {
-  expect_error(community_traits(list()), "must come from giftr_community")
+  expect_error(community_traits(list()), "must come from gifter_community")
   community <- arabinoxylan_community()
   stale <- gift_universe(type = "metabolic")
   stale$database_version <- "0000.0.0"

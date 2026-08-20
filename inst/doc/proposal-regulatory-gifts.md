@@ -146,7 +146,7 @@ refused.
   the same biology twice. A genome without it still encodes the signalling
   machinery, which is what the claim is about.
 - **The claim is about the circuit, not the regulon.** A circuit with no Pho box
-  genes to regulate is a machine with nothing to do, and giftr does not model
+  genes to regulate is a machine with nothing to do, and gifter does not model
   regulons. This is a real limit on what the trait means, not an oversight.
 
 ## Curated: core chemotaxis signal transduction

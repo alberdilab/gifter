@@ -74,7 +74,7 @@ PLP_R5P	plp_biosynthesis_r5p	PdxS and PdxT route	One reaction catalysed by a two
 PLP_DXP	plp_biosynthesis_dxp	Epd, PdxB, SerC, PdxA and PdxJ route	The transamination is curated in reverse relative to the Rhea master, which is written in the direction that consumes 4-phosphohydroxy-L-threonine.	curated	independent
 BIOTIN_SAM	biotin_biosynthesis	S-adenosylmethionine-dependent transaminase route	The BioA route used by Proteobacteria, in which the amino donor is S-adenosylmethionine.	curated	independent
 BIOTIN_LYS	biotin_biosynthesis	Lysine-dependent transaminase route	The BioA route used by Bacillus and many Firmicutes, in which the amino donor is L-lysine.	curated	independent
-QUIN_NADB	quinolinate_biosynthesis_aspartate	L-aspartate oxidase route	NadB oxidises L-aspartate to iminosuccinate using molecular oxygen; the same enzyme uses fumarate anaerobically, which giftr does not curate.	curated	aerobic
+QUIN_NADB	quinolinate_biosynthesis_aspartate	L-aspartate oxidase route	NadB oxidises L-aspartate to iminosuccinate using molecular oxygen; the same enzyme uses fumarate anaerobically, which gifter does not curate.	curated	aerobic
 QUIN_NADX	quinolinate_biosynthesis_aspartate	Aspartate dehydrogenase route	NadX forms iminosuccinate with NAD as the acceptor, the route used by many anaerobes and archaea.	curated	independent
 NAMN_NADC	namn_biosynthesis_quinolinate	Quinolinate phosphoribosyltransferase route	A single reaction.	curated	independent
 NAD_NH3	nad_biosynthesis_namn	Ammonia-dependent NAD synthetase route	NadE amidates deamido-NAD using ammonium.	curated	independent
@@ -139,7 +139,7 @@ HPP_MONOOXYGENASE	hydroxyphenylpropanoate_hydroxylation	Flavin monooxygenase rou
 DHPP_EXTRADIOL	dihydroxyphenylpropanoate_degradation	Extradiol cleavage and hydrolysis route	Ring cleavage by mhpB and hydrolysis by mhpC, releasing succinate.	curated	aerobic
 GLN_GS	glutamine_biosynthesis	Glutamine synthetase route	Single ATP-dependent amidation. The same reaction is the first step of the GS-GOGAT route of ammonium assimilation, where the glutamine formed is consumed internally by glutamate synthase rather than released.	curated	independent
 ALA_TRANSAMINASE	alanine_biosynthesis	Alanine transaminase route	Transamination of pyruvate using L-glutamate, or L-valine in the case of transaminase C.	curated	independent
-ALA_DEHYDROGENASE	alanine_biosynthesis	Alanine dehydrogenase route	Reductive amination of pyruvate with ammonium. The enzyme is freely reversible and runs catabolically in several Firmicutes; giftr claims the encoded chemistry between the boundaries, not the direction of flux.	curated	independent
+ALA_DEHYDROGENASE	alanine_biosynthesis	Alanine dehydrogenase route	Reductive amination of pyruvate with ammonium. The enzyme is freely reversible and runs catabolically in several Firmicutes; gifter claims the encoded chemistry between the boundaries, not the direction of flux.	curated	independent
 ASP_TRANSAMINASE	aspartate_biosynthesis	Aspartate aminotransferase route	Reversible transamination from L-glutamate, run in the aspartate-forming direction.	curated	independent
 ASN_AMMONIA	asparagine_biosynthesis	Ammonia-dependent ligase route	AsnA amidates aspartate using free ammonium.	curated	independent
 ASN_GLUTAMINE	asparagine_biosynthesis	Glutamine-hydrolysing synthase route	AsnB amidates aspartate using the amide nitrogen of L-glutamine.	curated	independent

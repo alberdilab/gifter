@@ -16,7 +16,7 @@ aromatic_complete <- function(...) {
 }
 
 aromatic_source <- function(table) {
-  packaged <- system.file("extdata", "database-source", package = "giftr")
+  packaged <- system.file("extdata", "database-source", package = "gifter")
   if (!nzchar(packaged)) packaged <- file.path("inst", "extdata", "database-source")
   utils::read.delim(
     file.path(packaged, paste0(table, ".tsv")),

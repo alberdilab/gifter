@@ -14,10 +14,10 @@ accessions.}
 \item{namespace}{Namespace for a character-vector input. If omitted, KO, EC,
 Pfam, and TIGRFAM accessions are inferred where possible.}
 
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 }
 \value{
-A `giftr_result` list. Its `gifts` member is the call summary;
+A `gifter_result` list. Its `gifts` member is the call summary;
   the remaining tibbles retain the full evidence chain.
 }
 \description{

@@ -1,4 +1,4 @@
-.giftr_report_tables <- c(
+.gifter_report_tables <- c(
   "gift", "anchor", "gift_anchor", "gift_xref", "gift_route", "route_reaction",
   "reaction", "reaction_xref", "enzyme_system", "enzyme_component",
   "gift_architecture", "architecture_function", "structural_function",
@@ -34,16 +34,16 @@
   tolower(paste(value, collapse = " "))
 }
 
-.giftr_report_asset <- function(name) {
-  path <- system.file("templates", name, package = "giftr")
+.gifter_report_asset <- function(name) {
+  path <- system.file("templates", name, package = "gifter")
   if (!nzchar(path)) path <- file.path("inst", "templates", name)
   if (!file.exists(path)) stop("Could not locate report asset: ", name, call. = FALSE)
   paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
 }
 
-.giftr_report_data <- function(connection) {
+.gifter_report_data <- function(connection) {
   available <- DBI::dbListTables(connection)
-  missing <- setdiff(.giftr_report_tables, available)
+  missing <- setdiff(.gifter_report_tables, available)
   if (length(missing)) {
     stop(
       "Database is missing report tables: ", paste(missing, collapse = ", "),
@@ -51,15 +51,15 @@
     )
   }
 
-  tables <- lapply(.giftr_report_tables, function(table) {
+  tables <- lapply(.gifter_report_tables, function(table) {
     DBI::dbReadTable(connection, table)
   })
-  names(tables) <- .giftr_report_tables
+  names(tables) <- .gifter_report_tables
 
   # Each typed machinery model is read through the same six shapes, named
   # generically here because the report renders them identically; the biological
   # names stay on the tables and on the identifiers the report prints.
-  machinery <- lapply(.giftr_machinery_models, function(model) {
+  machinery <- lapply(.gifter_machinery_models, function(model) {
     query <- function(sql) DBI::dbGetQuery(connection, sql)
     list(
       model = model,
@@ -202,7 +202,7 @@
   )
   values <- lapply(queries, function(sql) DBI::dbGetQuery(connection, sql))
 
-  schema <- lapply(.giftr_report_tables, function(table) {
+  schema <- lapply(.gifter_report_tables, function(table) {
     columns <- DBI::dbGetQuery(
       connection,
       paste0("PRAGMA table_info('", gsub("'", "''", table, fixed = TRUE), "')")
@@ -213,7 +213,7 @@
     )
     list(table = table, columns = columns, foreign_keys = foreign_keys)
   })
-  names(schema) <- .giftr_report_tables
+  names(schema) <- .gifter_report_tables
 
   c(
     values,
@@ -1939,7 +1939,7 @@
 }
 
 .report_schema <- function(data) {
-  table_cards <- paste(vapply(.giftr_report_tables, function(table) {
+  table_cards <- paste(vapply(.gifter_report_tables, function(table) {
     info <- data$schema[[table]]
     foreign_columns <- if (nrow(info$foreign_keys)) info$foreign_keys$from else character()
     column_rows <- paste(vapply(seq_len(nrow(info$columns)), function(index) {
@@ -2006,7 +2006,7 @@
 }
 
 .report_table_browser <- function(data) {
-  paste(vapply(.giftr_report_tables, function(table) {
+  paste(vapply(.gifter_report_tables, function(table) {
     values <- data$tables[[table]]
     header <- paste0("<tr>", paste0("<th>", .html_escape(names(values)), "</th>", collapse = ""), "</tr>")
     rows <- if (nrow(values)) paste(vapply(seq_len(nrow(values)), function(index) {
@@ -2050,7 +2050,7 @@
   )
 }
 
-.render_giftr_report <- function(data) {
+.render_gifter_report <- function(data) {
   release <- data$release
   metric_cards <- paste0(
     .report_count_card(data$counts[["gift"]], "GIFTs", "curated capabilities"),
@@ -2060,17 +2060,17 @@
     .report_count_card(data$counts[["enzyme_component"]], "Components", "required proteins"),
     .report_count_card(data$counts[["marker"]], "Markers", "accepted identifiers")
   )
-  css <- .giftr_report_asset("database-report.css")
-  javascript <- .giftr_report_asset("database-report.js")
+  css <- .gifter_report_asset("database-report.css")
+  javascript <- .gifter_report_asset("database-report.js")
 
   paste0(
     '<!doctype html><html lang="en"><head><meta charset="utf-8">',
     '<meta name="viewport" content="width=device-width, initial-scale=1">',
     '<meta name="color-scheme" content="light">',
-    '<title>giftr reference atlas &middot; ', .html_text(release$giftr_db_version), "</title>",
+    '<title>gifter reference atlas &middot; ', .html_text(release$gifter_db_version), "</title>",
     "<style>", css, "</style></head><body>",
-    '<header class="site-header"><a class="brand" href="#overview" aria-label="giftr database overview">',
-    '<span class="brand-mark"><i></i><i></i><i></i></span><span><b>giftr</b>',
+    '<header class="site-header"><a class="brand" href="#overview" aria-label="gifter database overview">',
+    '<span class="brand-mark"><i></i><i></i><i></i></span><span><b>gifter</b>',
     '<small>reference atlas</small></span></a>',
     '<nav class="view-nav" aria-label="Report sections">',
     '<button class="nav-button active" data-view-button="overview">Overview</button>',
@@ -2097,7 +2097,7 @@
     .report_gift_explorer(data), '<div class="no-results" data-no-results>No matching GIFTs.</div></section>',
     '<section class="view" id="changelog" data-view="changelog"><div class="page-heading">',
     '<div><div class="eyebrow">Curation history &middot; database ',
-    .html_text(release$giftr_db_version), '</div><h1>Database changelog</h1></div>',
+    .html_text(release$gifter_db_version), '</div><h1>Database changelog</h1></div>',
     '<p>Every change to the biological content, why it was made, the evidence behind it, ',
     'and the traits it affects. Package and API changes are tracked separately.</p></div>',
     .report_changelog(data),
@@ -2111,14 +2111,14 @@
     '<p>All compiled rows are shown here. Search globally, then expand a table to inspect exact values.</p></div>',
     '<div class="table-list">', .report_table_browser(data),
     '</div><div class="no-results" data-no-results>No matching table rows.</div></section></main>',
-    '<footer><span>giftr reference atlas</span><span>Generated from database release ',
-    .html_text(release$giftr_db_version), " &middot; ", .html_text(release$build_date), "</span></footer>",
+    '<footer><span>gifter reference atlas</span><span>Generated from database release ',
+    .html_text(release$gifter_db_version), " &middot; ", .html_text(release$build_date), "</span></footer>",
     '<div class="search-status" id="search-status" role="status" aria-live="polite"></div>',
     "<script>", javascript, "</script></body></html>"
   )
 }
 
-#' Write an interactive HTML atlas of the giftr database
+#' Write an interactive HTML atlas of the gifter database
 #'
 #' Creates a dependency-free HTML report containing release metadata, table
 #' counts, a complete biological hierarchy, the SQL schema, and a searchable
@@ -2139,12 +2139,15 @@
 #'
 #' @param output Path of the HTML file to create.
 #' @param database Optional SQLite path or open DBI connection. By default, the
-#'   packaged giftr reference database is used.
+#'   packaged gifter reference database is used.
 #' @param open Open the report in the default browser after writing it.
 #' @return The normalized output path, invisibly.
+#' @section Compatibility:
+#' `write_giftr_database_html()` is retained as an alias for code written
+#' before the package was renamed to gifter.
 #' @export
-write_giftr_database_html <- function(
-  output = "giftr-database.html",
+write_gifter_database_html <- function(
+  output = "gifter-database.html",
   database = NULL,
   open = FALSE
 ) {
@@ -2161,7 +2164,7 @@ write_giftr_database_html <- function(
     if (is.character(database) && (length(database) != 1L || !file.exists(database))) {
       stop("SQLite database does not exist: ", paste(database, collapse = ""), call. = FALSE)
     }
-    connection <- giftr_db_connect(if (is.character(database)) database else NULL)
+    connection <- gifter_db_connect(if (is.character(database)) database else NULL)
     owned <- TRUE
   }
   if (!inherits(connection, "DBIConnection") || !DBI::dbIsValid(connection)) {
@@ -2169,11 +2172,21 @@ write_giftr_database_html <- function(
   }
   if (owned) on.exit(DBI::dbDisconnect(connection), add = TRUE)
 
-  data <- .giftr_report_data(connection)
-  html <- .render_giftr_report(data)
+  data <- .gifter_report_data(connection)
+  html <- .render_gifter_report(data)
   output <- normalizePath(output, winslash = "/", mustWork = FALSE)
   dir.create(dirname(output), recursive = TRUE, showWarnings = FALSE)
   writeLines(html, output, useBytes = TRUE)
   if (isTRUE(open)) utils::browseURL(output)
   invisible(output)
+}
+
+#' @rdname write_gifter_database_html
+#' @export
+write_giftr_database_html <- function(
+  output = "gifter-database.html",
+  database = NULL,
+  open = FALSE
+) {
+  write_gifter_database_html(output = output, database = database, open = open)
 }

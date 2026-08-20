@@ -11,7 +11,7 @@ gifts_by_facet(facet, value, db = NULL)
 
 \item{value}{Facet value, such as `"fibre_degradation"`.}
 
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 }
 \value{
 A tibble of matching GIFTs.

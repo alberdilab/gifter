@@ -7,7 +7,7 @@
 gift_profile(db = NULL)
 }
 \arguments{
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 }
 \value{
 A tibble with one row per metabolic GIFT.

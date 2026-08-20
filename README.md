@@ -1,6 +1,6 @@
-# giftr
+# gifter
 
-giftr infers whether a genome encodes a biologically defined capability, and
+gifter infers whether a genome encodes a biologically defined capability, and
 shows the curated evidence behind every call.
 
 A genome-inferred functional trait (GIFT) is a biologically meaningful
@@ -22,11 +22,11 @@ phosphate-response signalling; and type I restriction-modification, type I-E
 CRISPR-Cas and mercury-detoxification machinery.
 
 "Functional" is intentionally broad; the precision comes from the type and from
-the completeness contract it carries. giftr deliberately does not model media,
+the completeness contract it carries. gifter deliberately does not model media,
 metabolite availability, flux, thermodynamics, growth, or genome-scale
 stoichiometry. Anchors carry only a narrow `extracellular`, `cytoplasmic`, or
 `unspecified` compartment qualifier so that transport boundaries can be stated;
-giftr models no compartment-aware reactions, mass balance or localisation
+gifter models no compartment-aware reactions, mass balance or localisation
 inference.
 
 ## The evaluation model
@@ -71,7 +71,7 @@ motility; `type_iva_pilus` is not twitching, competence or adhesion.
 The same limit applies to specificity: the specificity of a claim never exceeds
 the specificity of the evidence. KEGG assigns the sodium-driven PomA/PomB stator
 of *Vibrio* to the same orthologues as the proton-driven MotA/MotB of *E. coli*,
-so giftr curates one ion-agnostic `flagellar_apparatus` rather than two traits
+so gifter curates one ion-agnostic `flagellar_apparatus` rather than two traits
 its evidence cannot separate.
 
 Where evidence *does* separate two claims, both are curated and kept apart. A
@@ -91,25 +91,25 @@ Every refusal is recorded in the database changelog and in the type proposals:
 
 ```r
 remotes::install_github("alberdilab/giftr", build_vignettes = TRUE)
-library(giftr)
+library(gifter)
 ```
 
 ## Tutorials
 
-Three vignettes walk through a complete analysis. Start at the first if giftr
+Three vignettes walk through a complete analysis. Start at the first if gifter
 is new to you.
 
 ```r
-vignette("evaluating-a-genome", package = "giftr")   # annotations -> calls -> evidence
-vignette("quantitative-traits", package = "giftr")   # calls -> comparable numbers
-vignette("community-analysis", package = "giftr")    # many genomes -> distribution and topology
-browseVignettes("giftr")
+vignette("evaluating-a-genome", package = "gifter")   # annotations -> calls -> evidence
+vignette("quantitative-traits", package = "gifter")   # calls -> comparable numbers
+vignette("community-analysis", package = "gifter")    # many genomes -> distribution and topology
+browseVignettes("gifter")
 ```
 
 | Vignette | Covers |
 |---|---|
 | [1. Evaluating a genome](vignettes/evaluating-a-genome.Rmd) | the input format, which markers were used, reading complete and incomplete calls, why evidence specificity bounds a claim, tracing a call back to genes |
-| [2. From calls to quantitative traits](vignettes/quantitative-traits.Rmd) | reference universes, richness and breadth, when giftr refuses to give you a fraction, MAG completeness and honest denominators |
+| [2. From calls to quantitative traits](vignettes/quantitative-traits.Rmd) | reference universes, richness and breadth, when gifter refuses to give you a fraction, MAG completeness and honest denominators |
 | [3. A genome-resolved community](vignettes/community-analysis.Rmd) | provider counts and redundancy, presence versus abundance, potential resource handoffs, and why a cytoplasmic molecule never crosses between genomes |
 
 ## Evaluate a genome
@@ -208,7 +208,7 @@ For several genomes, bind them into a community and ask how capability is
 distributed:
 
 ```r
-community <- giftr_community(A = result_a, B = result_b, C = result_c)
+community <- gifter_community(A = result_a, B = result_b, C = result_c)
 community_traits(community)          # richness, provider counts, singletons
 community_network(community)         # potential resource handoffs
 ```
@@ -220,7 +220,7 @@ supplied, absences on fragmented genomes are withheld from every denominator
 rather than counted as capabilities the genome lacks:
 
 ```r
-giftr_community(
+gifter_community(
   A = result_a, B = result_b,
   quality = c(A = 0.98, B = 0.55),
   policy = "completeness", threshold = 0.9
@@ -238,7 +238,7 @@ get_gift_reactions("guanylate_biosynthesis")
 get_gift_reactions("pyrimidine_core_biosynthesis")
 get_gift_reactions("cytidylate_biosynthesis")
 get_reaction_systems("RHEA:17129")
-giftr_db_version()
+gifter_db_version()
 ```
 
 Rhea master IDs identify reactions. Reaction direction within a GIFT is stored
@@ -253,10 +253,10 @@ The reviewable source of truth is
 is a compiled artifact, never the hand-curated source.
 
 ```r
-validate_giftr_sources("inst/extdata/database-source")
-build_giftr_database(
+validate_gifter_sources("inst/extdata/database-source")
+build_gifter_database(
   "inst/extdata/database-source",
-  "inst/extdata/giftr.sqlite",
+  "inst/extdata/gifter.sqlite",
   overwrite = TRUE
 )
 ```
@@ -265,7 +265,7 @@ Generate a self-contained, interactive atlas after curating or rebuilding the
 database:
 
 ```r
-write_giftr_database_html("giftr-database.html", open = TRUE)
+write_gifter_database_html("gifter-database.html", open = TRUE)
 ```
 
 The report includes release metadata and row counts, a whole-database network
@@ -286,7 +286,7 @@ database_changelog("pyrimidine_core_biosynthesis")
 
 Package and API changes are tracked separately in
 [CHANGELOG.md](CHANGELOG.md). The package build script also refreshes the
-packaged snapshot at `inst/extdata/giftr-database.html`.
+packaged snapshot at `inst/extdata/gifter-database.html`.
 
 See [the architecture guide](inst/doc/architecture.md) for the schema, curation
 rules, version model, and design boundaries. Contributors and coding agents

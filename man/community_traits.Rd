@@ -7,15 +7,15 @@
 community_traits(community, universes = NULL, db = NULL)
 }
 \arguments{
-\item{community}{A community from [giftr_community()].}
+\item{community}{A community from [gifter_community()].}
 
 \item{universes}{Optional list of [gift_universe()] objects. The default set
 is used if omitted.}
 
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 }
 \value{
-A `giftr_traits` list with `metrics` and `trace`, whose
+A `gifter_traits` list with `metrics` and `trace`, whose
   `target_type` distinguishes community, GIFT, genome and genome-pair rows.
 }
 \description{

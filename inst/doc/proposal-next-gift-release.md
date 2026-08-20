@@ -149,7 +149,7 @@ route rather than the direct malate-synthase master.
 A secretion machine fits `structural`, not metabolic. The candidate is useful
 and the existing `secretion_machine` facet is ready, but TXSScan/MacSyFinder
 models discriminate homologous secretion and contractile systems by combining
-multiple HMM profiles with gene-cluster organisation. giftr currently receives
+multiple HMM profiles with gene-cluster organisation. gifter currently receives
 an unordered set of namespaced accessions; it cannot say that the components
 belong to one locus, or that orphan homologues assemble one machine. The trigger
 for reconsideration is a general context evidence layer with a tested locus

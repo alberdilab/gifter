@@ -17,7 +17,7 @@ part that survives, and that **the compounds that survive the evidence test are
 almost none of the xenobiotics**. Of 24 candidates examined, 6 are recommended
 for curation, 2 conditionally, 2 deferred, and 14 refused — the refusals almost
 all for the same reason, which is that ring-hydroxylating dioxygenase substrate
-specificity is not resolvable by any marker in any namespace giftr can use.
+specificity is not resolvable by any marker in any namespace gifter can use.
 What survives is the *natural* aromatic core: benzoate, catechol, phenylacetate,
 phenylpropanoate, anthranilate — plant, host and fermentation chemistry that
 happens to sit in KEGG's xenobiotics drawer. Mercury survives too, but not as a
@@ -44,7 +44,7 @@ metabolic GIFT.
    it once as `oxopentenoate_degradation` is what invariant 8 requires, and it is
    the anchor any future biphenyl, cumate or xylene route would attach to.
    M00545 ORs two *different input substrates* into one "*trans*-cinnamate"
-   module; giftr may not do that, because a route must connect the GIFT's own
+   module; gifter may not do that, because a route must connect the GIFT's own
    declared boundaries. §8.5, §8.6, §10.5.
 4. **Curate mercury as a `defense` GIFT, not a metabolic one.** Hg(II) → Hg(0)
    is real chemistry with a Rhea master, but it is neither anabolic, catabolic,
@@ -55,7 +55,7 @@ metabolic GIFT.
    specific NCBIfam HMM. It needs one new `defense_class` facet value,
    `chemical_detoxification` — named for the mechanism, because a class named
    for the metal would hold three curatable members ever and a class named for
-   resistance would name an outcome giftr does not claim. §8.8, §10.3, §10.6.
+   resistance would name an outcome gifter does not claim. §8.8, §10.3, §10.6.
 5. **Refuse every capability whose claim rests on a ring-hydroxylating
    dioxygenase α subunit**: toluene (both routes), benzene, xylene, cumate,
    *p*-cymene, biphenyl, carbazole, naphthalene, terephthalate. The refusal is
@@ -141,13 +141,13 @@ M00540 is not benzoate degradation: it is the **cyclohexanecarboxylate** entry
 into the anaerobic benzoyl-CoA route, and its input is an alicyclic acid. And
 the two "Catechol" lines are not two ways of describing one capability — ortho
 and meta cleavage produce entirely different products and connect to central
-metabolism at different points, which is exactly the OR-over-routes case giftr
+metabolism at different points, which is exactly the OR-over-routes case gifter
 exists to represent, except that here the two are different enough to be
 different GIFTs (§8.2, §8.3).
 
 ---
 
-## 3. "Xenobiotic" is not a giftr category
+## 3. "Xenobiotic" is not a gifter category
 
 A GIFT names a capability. `xenobiotic` names a *relationship between a compound
 and an organism that did not evolve with it*, which is neither chemistry nor
@@ -169,7 +169,7 @@ the group that fails the evidence test. The name for what survives is
 This also settles the facet question. There must be no
 `physiological_role = xenobiotic_degradation`, because a facet classifies what a
 call *is*, and the same enzyme set that acts on benzoate from a plant acts on
-benzoate from a factory. Compound origin belongs where giftr already puts
+benzoate from a factory. Compound origin belongs where gifter already puts
 origin: on the anchor, as `resource_origin`, multi-valued (§11).
 
 Invariant 18 is the deeper reason. "Pollutant degrader", "bioremediation
@@ -196,11 +196,11 @@ future anaerobic benzoyl-CoA route sit beside an aerobic one under the same
 GIFT without either claim contaminating the other.
 
 **Multifunctional markers are already handled, and this layer needs that too.**
-`K00074` (`paaH`/`hbd`/`fadB`/`mmgB`) is already curated in giftr as a component
+`K00074` (`paaH`/`hbd`/`fadB`/`mmgB`) is already curated in gifter as a component
 marker of `butyrate_formation`, and the phenylacetate route's β-oxidation tail
 needs the same KO. That is the multifunctional-marker case working as designed,
 not a collision. It is the only one of the 146 KOs in the requested modules that
-giftr already uses.
+gifter already uses.
 
 **The gap: `enzyme_component` has no `required` column.** The three machinery
 models can mark a function accessory (`architecture_function.required`,
@@ -217,7 +217,7 @@ migration.
 | Source | What it gives this layer | What it does not |
 |---|---|---|
 | **Rhea** | A master reaction for **all 66** ECs queried across all 24 candidates, including class-level ones (`RHEA:18777`, "an alkylmercury + H(+) = an alkane + Hg(2+)") | Nothing about which genes do it — and in two cases it *contradicts* KEGG's gene-to-reaction assignment (§10.5) |
-| **KEGG modules** | Boundaries for 23 of the 24 candidates, and the observation that its OR sometimes crosses substrates | A module for mercury; module boundaries that survive giftr's route contract unedited |
+| **KEGG modules** | Boundaries for 23 of the 24 candidates, and the observation that its OR sometimes crosses substrates | A module for mercury; module boundaries that survive gifter's route contract unedited |
 | **KEGG orthology** | 146 KOs, of which the substrate-determining ones are frequently explicit about their promiscuity in the KO *name* — `benzoate/toluate`, `benzene/toluene/chlorobenzene`, `phenol/toluene`, `3-phenylpropionate/trans-cinnamate` | Any orthology group that separates the substrates of a Rieske dioxygenase |
 | **InterPro / NCBIfam** | The markers that make three traits curatable: `TIGR02053` (MerA), `NF033555`/`IPR004927` (MerB), `TIGR02155` (PaaK), plus `TIGR03211` (catechol 2,3-dioxygenase) | Any substrate-specific family for a ring-hydroxylating dioxygenase α subunit. The closest entries are `IPR001663` and `PS00570`, both of which are *the family signature itself* |
 | **ChEBI** | Anchor identity for all 11 proposed anchors | — |
@@ -394,7 +394,7 @@ orientations are `forward` as written. All routes are `aerobic` unless stated.
 M00545 is named "*trans*-cinnamate degradation" and is complete in 417 genomes,
 but its first step is an OR between two enzymes acting on **two different
 substrates**: `hcaEFCD`+`hcaB` on 3-phenylpropanoate/*trans*-cinnamate, and
-`mhpA` on 3-(3-hydroxyphenyl)propanoate. A giftr route must connect the GIFT's
+`mhpA` on 3-(3-hydroxyphenyl)propanoate. A gifter route must connect the GIFT's
 own declared input anchor, so this cannot be one GIFT with two routes. It is
 three GIFTs around a shared anchor:
 
@@ -495,7 +495,7 @@ Design decisions to review:
    detoxifies Hg(II) that reaches the cytoplasm; that is the claim. Requiring the
    transporter would refuse 541 *merA* genomes on the strength of an operon
    architecture that varies (MerC and MerE substitute for MerT/MerP in several
-   lineages), and giftr has no evidence layer for "the metal gets in anyway".
+   lineages), and gifter has no evidence layer for "the metal gets in anyway".
 2. **Organomercurial lysis is accessory, not a second GIFT** — for now. Broad-
    spectrum (phenylmercury) resistance is a genuinely different claim from
    narrow-spectrum resistance and could be a second mechanism later; 124 genomes
@@ -533,7 +533,7 @@ Toluene (M00538, M00547), benzene (M00547, M00548 as requested), xylene
 Every one of these traits is named for a substrate whose recognition happens in
 the active site of a Rieske non-heme iron ring-hydroxylating oxygenase, and
 three independent lines of evidence say the substrate is not recoverable from
-sequence at the level giftr can use:
+sequence at the level gifter can use:
 
 1. **KEGG's own KO names admit it.** `K03268` is "benzene/toluene/chlorobenzene
    dioxygenase subunit alpha"; `K14579` is "naphthalene 1,2-dioxygenase subunit
@@ -547,7 +547,7 @@ sequence at the level giftr can use:
    alpha-subunit signature" and the Rieske domain profiles. These are the family,
    not the specificity. The only sub-family-level entries are CDD conserved
    domains (`cd08879`, `cd08881`) built from single named enzymes, which are not
-   HMMs giftr's evaluator accepts and would not be defensible as trait evidence
+   HMMs gifter's evaluator accepts and would not be defensible as trait evidence
    anyway.
 3. **Accepting one would damage the others.** These enzymes overlap in substrate
    range in the laboratory. A marker admitted as evidence of toluene
@@ -573,7 +573,7 @@ fumarate = 2-benzylsuccinate) is a glycyl radical enzyme with distinctive
 chemistry, and the *bbs* β-oxidation genes are specific to the route. Benzoyl-CoA
 reductase (`RHEA:30199`) is the central anaerobic ring-reduction step and has two
 alternative systems in KEGG (`bcrABCD` and `bamBC`), which is exactly the
-alternative-systems representation giftr wants. The problem is coverage: 12
+alternative-systems representation gifter wants. The problem is coverage: 12
 genomes at the `bbsC`/`bbsD` bottleneck, 16 at `bamC`, 24 at `badK`, and the
 complete-module positives are *Thauera*, *Azoarcus*, *Aromatoleum*, *Geobacter*
 and *Rhodopseudomonas* — sediment and soil denitrifiers, 29 and 23 genomes
@@ -592,7 +592,7 @@ in one step.
 10, and **no KEGG genome completes M00915**. Worse, the module is incomplete as
 chemistry: NdmA, NdmB and NdmC are all Rieske monooxygenases that require the
 NdmD reductase to turn over, and NdmD has no KO — so even a perfectly annotated
-*Pseudomonas putida* CBB5 would be curated in giftr as a system missing its
+*Pseudomonas putida* CBB5 would be curated in gifter as a system missing its
 reductase component. The alternative caffeine dehydrogenase (*cdhABC*) route to
 trimethyluric acid has no KO either.
 
@@ -661,7 +661,7 @@ reductase alone can perform the reaction.
 system, curate the components that determine the chemistry and the substrate,
 state in the system `description` that the shared electron-transfer components
 are deliberately not required, and record the reason in the component `notes`.
-This is a curation claim of the same kind giftr already makes when it chooses
+This is a curation claim of the same kind gifter already makes when it chooses
 which markers evidence a component, and it is reviewable in the TSV.
 
 Do **not** add `enzyme_component.required` for this layer. It would be a schema
@@ -699,7 +699,7 @@ so the next curator does not re-add it.
 §8.8 argues mercury into the `defense` type rather than inventing a fifth `mode`.
 The general form of that finding is worth stating: **a chemical transformation
 whose purpose is neither building, breaking down, nor moving a metabolite is not
-a metabolic GIFT in giftr's sense**, and the fact that Rhea has an equation for
+a metabolic GIFT in gifter's sense**, and the fact that Rhea has an equation for
 it does not make it one. Other capabilities in this space — tellurite
 methylation, Cu(I) oxidation, superoxide dismutation, methylglyoxal disposal —
 will raise the same question, and typing them as defense mechanisms with a
@@ -747,7 +747,7 @@ invariant 1.
   re-scopes the trait accordingly.
 
 Neither of these is discoverable from a module's KO list alone. They were found
-because giftr requires a Rhea master per reaction, which forced the comparison.
+because gifter requires a Rhea master per reaction, which forced the comparison.
 That is the invariant earning its cost.
 
 ### 10.6 A defense class is named for the mechanism, never for the challenge or the outcome
@@ -781,7 +781,7 @@ Three reasons that is not a `defense_class`:
    regulatory, some structural. A class that partitions the defense type cannot
    name a group whose members are mostly not defense GIFTs. The *ars* operon
    alone splits three ways: ArsC transformation, ArsB efflux, ArsR regulation.
-2. **Resistance is an outcome, and giftr does not claim outcomes.**
+2. **Resistance is an outcome, and gifter does not claim outcomes.**
    `proposal-defense-gifts.md` refuses it twice — "explicitly **not**: this
    organism resists phage", and "any claim about an outcome … is not curatable
    from a genome" — and §15 below already states that this GIFT does not claim
@@ -892,7 +892,7 @@ Eleven new anchors against 89 existing is a 12 % increase, the size of addition
 invariant 3 exists to scrutinise. It is defensible only because each one is a
 real cut point: two are entry substrates,
 one is the funnel hub every entry converges on, three are branch nodes shared by
-two or more GIFTs, and one (`SUCCINYL_COA`) is a central metabolite giftr will
+two or more GIFTs, and one (`SUCCINYL_COA`) is a central metabolite gifter will
 need regardless of this layer.
 
 **New facet values (4)**:
@@ -1006,7 +1006,7 @@ route has a KEGG module boundary and a Rhea master at every step.
 
 ## 14. Open questions for the reviewer
 
-1. **Is an environmental layer wanted at all?** giftr's anchors already admit
+1. **Is an environmental layer wanted at all?** gifter's anchors already admit
    "environmental or host compound", so nothing forbids it, but the curated
    content and the `physiological_role` vocabulary are currently gut-centric.
    Six of the nine proposed GIFTs will fire mostly in soil and water
@@ -1023,7 +1023,7 @@ route has a KEGG module boundary and a Rhea master at every step.
    class be narrower (`mercury_resistance`)?~~ **Resolved, 2026-08-19: neither.**
    The class is `chemical_detoxification`, named for the mechanism and scoped
    wider than metals. `metal_detoxification` would hold three curatable members
-   ever, and `metal_resistance` would name an outcome giftr does not claim and a
+   ever, and `metal_resistance` would name an outcome gifter does not claim and a
    roster that is mostly not defense GIFTs. §10.6 carries the evidence. Arsenate
    and chromate reduction are still assessed on their own evidence later, and
    §10.6 records that on today's markers both would be refused.
@@ -1042,7 +1042,7 @@ route has a KEGG module boundary and a Rhea master at every step.
   accepted route is aerobic and most positives are environmental isolates.
 - That a negative call means the capability is absent. Nine of the requested
   capabilities are refused because their markers cannot support them, not
-  because genomes lack them; a toluene degrader will be silent in giftr.
+  because genomes lack them; a toluene degrader will be silent in gifter.
 - That the layer covers "xenobiotic degradation". It covers nine capabilities,
   named for the chemistry each one performs, and the phrase "xenobiotic
   degradation" appears nowhere in the database.
@@ -1162,7 +1162,7 @@ systems, seven components and eight markers. §8.8 was implemented as written;
 four things were decided during curation and are recorded here.
 
 1. **The function is `DF_MER_HG_DELIVERY`, not "import".** Curating it as import
-   would have named a transport event the mechanism does not require and giftr
+   would have named a transport event the mechanism does not require and gifter
    cannot evidence. What the function claims is that the metal reaches MerA by a
    curated route, and it is accessory precisely because mercury reaches the
    cytoplasm without one.
@@ -1176,7 +1176,7 @@ four things were decided during curation and are recorded here.
    `high-confidence`.** Evidence rows are alternatives, so a genome hit only by
    the NCBIfam family calls the GIFT complete and reports the weaker confidence,
    which is the honest reading. `NF033555` for MerB and the InterPro entries
-   `IPR021179` and `IPR004927` are **refused**: giftr's evidence layer normalises
+   `IPR021179` and `IPR004927` are **refused**: gifter's evidence layer normalises
    KO, EC, Pfam, TIGRFAM, CAZy and custom HMMs, so an NF or IPR accession would
    be stored and never matched — worse than absent, because it reads as evidence.
    MerB is therefore evidenced by `K00221` alone. Recorded as

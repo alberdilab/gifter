@@ -127,7 +127,7 @@ test_that("quality may be supplied as a data frame", {
 test_that("indeterminacy is resolved per genome, not per community", {
   # A fragmented member's silence is uninformative while a complete member's is
   # not, and a provider denominator that mixed them would be meaningless.
-  community <- giftr_community(
+  community <- gifter_community(
     complete_genome = arabinoxylan_genome("debrancher"),
     fragmented = arabinoxylan_genome("backbone"),
     quality = c(complete_genome = 0.99, fragmented = 0.40),
@@ -141,7 +141,7 @@ test_that("indeterminacy is resolved per genome, not per community", {
 })
 
 test_that("a provider fraction counts only the genomes that could assess", {
-  community <- giftr_community(
+  community <- gifter_community(
     A = arabinoxylan_genome("debrancher"),
     B = arabinoxylan_genome("backbone"),
     C = arabinoxylan_genome("consumer"),
@@ -168,7 +168,7 @@ test_that("a provider fraction counts only the genomes that could assess", {
 })
 
 test_that("the community carries the policy it was built under", {
-  community <- giftr_community(
+  community <- gifter_community(
     A = arabinoxylan_genome("debrancher"),
     quality = c(A = 0.95), policy = "completeness", threshold = 0.9
   )

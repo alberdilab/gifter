@@ -3,7 +3,7 @@
 .RData
 .Ruserdata
 *.Rcheck
-giftr_*.tar.gz
+gifter_*.tar.gz
 bin
 data/source
 .DS_Store

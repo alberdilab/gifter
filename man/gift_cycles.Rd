@@ -7,7 +7,7 @@
 gift_cycles(db = NULL, limit = 100L)
 }
 \arguments{
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 
 \item{limit}{Maximum number of cycles to enumerate. Elementary-cycle
 enumeration is exponential in the worst case, so the search stops at this

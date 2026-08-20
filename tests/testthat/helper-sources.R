@@ -1,10 +1,10 @@
 # Copy the packaged source tables into a temporary directory so that a test can
 # mutate biological content and re-validate it without touching the repository.
-giftr_source_copy <- function(envir = parent.frame()) {
-  source_dir <- tempfile("giftr-sources-")
+gifter_source_copy <- function(envir = parent.frame()) {
+  source_dir <- tempfile("gifter-sources-")
   dir.create(source_dir, recursive = TRUE)
   withr::defer(unlink(source_dir, recursive = TRUE), envir = envir)
-  packaged <- system.file("extdata", "database-source", package = "giftr")
+  packaged <- system.file("extdata", "database-source", package = "gifter")
   if (!nzchar(packaged)) packaged <- file.path("inst", "extdata", "database-source")
   file.copy(list.files(packaged, full.names = TRUE), source_dir)
   source_dir
@@ -93,9 +93,9 @@ add_test_anchor <- function(source_dir, anchor_id, molecule, compartment) {
 
 # Compile a mutated source tree and hand the caller an open connection.
 build_test_database <- function(source_dir, envir = parent.frame()) {
-  output <- tempfile("giftr-test-", fileext = ".sqlite")
-  build_giftr_database(source_dir, output, overwrite = TRUE)
-  connection <- giftr_db_connect(output)
+  output <- tempfile("gifter-test-", fileext = ".sqlite")
+  build_gifter_database(source_dir, output, overwrite = TRUE)
+  connection <- gifter_db_connect(output)
   withr::defer(
     {
       if (DBI::dbIsValid(connection)) DBI::dbDisconnect(connection)
@@ -116,7 +116,7 @@ build_test_database <- function(source_dir, envir = parent.frame()) {
 #     list(id = , markers = c("KO:K90001")))))).
 add_test_machinery_gift <- function(source_dir, gift_id, gift_type, implementation_id,
                                     functions, facets = NULL) {
-  model <- giftr:::.giftr_machinery_models[[gift_type]]
+  model <- gifter:::.gifter_machinery_models[[gift_type]]
   if (is.null(model)) stop("Unknown machinery gift_type: ", gift_type)
 
   append_source(
@@ -127,7 +127,7 @@ add_test_machinery_gift <- function(source_dir, gift_id, gift_type, implementati
   )
   # Every type requires a single-valued class facet; a fixture must carry the
   # one its type requires, read from the same map the validator uses.
-  required <- giftr:::.giftr_required_gift_facets[[gift_type]]$single
+  required <- gifter:::.gifter_required_gift_facets[[gift_type]]$single
   if (length(required)) {
     terms <- read_source(source_dir, "facet_terms")
     value <- terms$value[terms$facet == required][[1]]

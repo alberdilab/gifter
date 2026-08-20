@@ -11,7 +11,7 @@ gifts_for_pathway(accession, namespace = NULL, db = NULL)
 
 \item{namespace}{Optional namespace filter such as `"KEGG_MODULE"`.}
 
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 }
 \value{
 A tibble with one row per related GIFT.

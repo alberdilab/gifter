@@ -35,7 +35,7 @@ arabinoxylan_genome <- function(role) {
 
 arabinoxylan_community <- function(abundance = NULL) {
   consumer <- arabinoxylan_genome("consumer")
-  giftr_community(
+  gifter_community(
     A = arabinoxylan_genome("debrancher"),
     B = arabinoxylan_genome("backbone"),
     C = consumer,

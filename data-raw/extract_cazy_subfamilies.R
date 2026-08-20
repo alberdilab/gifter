@@ -2,7 +2,7 @@
 # Derive a light CAZy subfamily -> EC table from the dbCAN-sub HMM library.
 #
 # The library itself is ~4.9 GB and is not redistributable at that size, but the
-# only part giftr needs is the profile NAME line, which encodes the eCAMI
+# only part gifter needs is the profile NAME line, which encodes the eCAMI
 # cluster, its parent family, the official CAZy subfamilies present in the
 # cluster, and the EC numbers its members carry, each with a member count:
 #

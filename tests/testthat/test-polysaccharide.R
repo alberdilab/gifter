@@ -15,8 +15,8 @@ test_that("a polysaccharide GIFT is a capability, not a single reaction", {
   }
 
   # Oligosaccharides are internal intermediates and must not be boundaries.
-  connection <- giftr_db_connect()
-  withr::defer(giftr_db_disconnect(connection))
+  connection <- gifter_db_connect()
+  withr::defer(gifter_db_disconnect(connection))
   anchors <- DBI::dbGetQuery(connection, "SELECT anchor_id FROM anchor")$anchor_id
   expect_false(any(grepl("OLIGOSACCHARIDE", anchors)))
 })
@@ -75,8 +75,8 @@ test_that("polymer chemistry is curated without a Rhea master", {
     expect_true(all(grepl("^RXN_", reactions$reaction_id)))
   }
 
-  connection <- giftr_db_connect()
-  withr::defer(giftr_db_disconnect(connection))
+  connection <- gifter_db_connect()
+  withr::defer(gifter_db_disconnect(connection))
   # Scoped to this layer's own chemistry. That a reaction without a Rhea master
   # carries a cross-reference instead is a general invariant, tested in
   # test-reaction-identity.R; here the claim is that all seven polymer-acting
@@ -154,8 +154,8 @@ test_that("a weak marker alongside a strong one does not weaken the call", {
     both$gifts$evidence_confidence[both$gifts$gift_id == "xylan_degradation"],
     "curated"
   )
-  expect_equal(giftr:::.call_confidence(c(1, 1), c("ambiguous", "curated")), "curated")
-  expect_equal(giftr:::.call_confidence(c(1, 2), c("curated", "ambiguous")), "ambiguous")
+  expect_equal(gifter:::.call_confidence(c(1, 1), c("ambiguous", "curated")), "curated")
+  expect_equal(gifter:::.call_confidence(c(1, 2), c("curated", "ambiguous")), "ambiguous")
 })
 
 test_that("bare dbCAN output is evaluated without an explicit namespace", {

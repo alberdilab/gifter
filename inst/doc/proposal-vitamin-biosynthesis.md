@@ -14,10 +14,10 @@ and the layer was curated the same day. §13 records each decision with the
 evidence behind it; §14 records what implementation changed.
 
 Scope: decide whether the capacity to produce vitamins can be expressed under
-the giftr ontology, at what boundaries, and which candidate traits the available
+the gifter ontology, at what boundaries, and which candidate traits the available
 evidence actually supports.
 
-The short answer is that this is the **largest layer giftr can currently curate
+The short answer is that this is the **largest layer gifter can currently curate
 without a schema migration or an R change**, that its main difficulty is neither
 ontology nor chemistry but a recurring evidence pattern this document names the
 **orphan step** — a reaction that is certainly present and has no marker that
@@ -99,7 +99,7 @@ spread evenly between.
 ## 2. Scope: what counts as a vitamin here
 
 "Vitamin" is a nutritional relation, not a chemical class or a capability, and
-the relation is to a *consumer* that cannot make the compound. giftr models
+the relation is to a *consumer* that cannot make the compound. gifter models
 neither consumers nor communities, so the layer needs a stated cut. This
 proposal uses:
 
@@ -120,12 +120,12 @@ Five neighbours are deliberately outside it.
   **zero** bacterial genomes. Refused on evidence, not on scope.
 - **Vitamin E (tocopherol).** 88 bacterial completions of M00112, essentially
   all phototrophs. Deferred: real chemistry, no relevance to the host-associated
-  communities giftr's curated content is aimed at.
+  communities gifter's curated content is aimed at.
 - **Provitamin A (β-carotene).** 751 bacterial completions of M01045, again
   dominated by phototrophs, and the carotenoid layer needs its own proposal to
   decide whether the markers can name an end product. Deferred as a layer.
 - **Heme, siroheme, lipoate, ubiquinone, molybdopterin.** Cofactors, not
-  vitamins for any consumer giftr describes. Out of scope — but note that
+  vitamins for any consumer gifter describes. Out of scope — but note that
   **uroporphyrinogen III**, added here as the input anchor of the corrin ring,
   is the exact branchpoint at which heme and siroheme leave, so this layer
   prepares that one without curating it.
@@ -142,11 +142,11 @@ does; the nutritional reading is a derivation.
 ## 3. What the ontology and the runtime already support
 
 Nothing in this layer requires a migration. Five things were checked against
-`inst/schema/giftr.sql` and `R/evaluation.R`.
+`inst/schema/gifter.sql` and `R/evaluation.R`.
 
 **`route_reaction.required = 0` exists and is used.** The column is
 `INTEGER NOT NULL DEFAULT 1 CHECK (required IN (0, 1))`
-(`inst/schema/giftr.sql:164`), `R/evaluation.R:376` counts only required
+(`inst/schema/gifter.sql:164`), `R/evaluation.R:376` counts only required
 reactions towards completeness, and four curated rows already use it:
 galactose mutarotase in `GAL_LELOIR`, acetylxylan esterase in
 `XYLAN_SACCHARIFICATION`, pullulanase in `STARCH_SACCHARIFICATION`, and the
@@ -155,7 +155,7 @@ mechanism §5 needs for orphan steps, and it keeps the step visible in
 `trace_gift()` rather than deleting it from the biology.
 
 **`oxygen_requirement = 'aerobic'` exists and has never been used.** The CHECK
-admits `aerobic`, `anaerobic` and `independent` (`inst/schema/giftr.sql:154`);
+admits `aerobic`, `anaerobic` and `independent` (`inst/schema/gifter.sql:154`);
 the 62 curated routes use only the last two. The two corrin ring routes differ
 in exactly this property and in nothing else the model records, which is what
 the field was for.
@@ -166,7 +166,7 @@ no new capability.
 
 **`gift_profile.auxotrophy_indicator` already covers vitamins.** The view derives
 it from `mode = 'anabolic'` plus an output anchor carrying
-`biomass_essential = yes` (`inst/schema/giftr.sql:570`). Declaring the vitamin
+`biomass_essential = yes` (`inst/schema/gifter.sql:570`). Declaring the vitamin
 anchors that way makes every GIFT in this layer an auxotrophy indicator without
 a line of new logic — and it is the correct claim, because a genome that cannot
 complete `biotin_biosynthesis` must import biotin.
@@ -192,7 +192,7 @@ Two additions are needed, and both are content, not schema:
 | Source | What it gives this layer | What it does not |
 |---|---|---|
 | **Rhea** | A reaction for all 100 ECs, including BluB and CbiZ | Nothing about which genes do it |
-| **KEGG modules** | Pathway organisation for every vitamin, and the aerobic/anaerobic corrin distinction giftr wants to keep | Usable trait boundaries. Its `DEFINITION` expressions are **not** the pathway: M00125 defines riboflavin completeness without lumazine synthase or riboflavin synthase, M00119 defines pantothenate without PanC or PanD, and M00127 defines thiamine as ThiF+ThiS+ThiI, without ThiC, ThiG or ThiE. Importing module completeness would import those defects |
+| **KEGG modules** | Pathway organisation for every vitamin, and the aerobic/anaerobic corrin distinction gifter wants to keep | Usable trait boundaries. Its `DEFINITION` expressions are **not** the pathway: M00125 defines riboflavin completeness without lumazine synthase or riboflavin synthase, M00119 defines pantothenate without PanC or PanD, and M00127 defines thiamine as ThiF+ThiS+ThiI, without ThiC, ThiG or ThiE. Importing module completeness would import those defects |
 | **KEGG orthology** | Clean, reaction-accurate KOs for most steps of B1, B2, B3, B5, B6, B7, B9 and K2 | Any KO for four orphan steps (§5); any KO for the anaerobic DMB pathway; any KO for the Bacteroidetes corrinoid receptors; and correct assignment of **fused** genes (§6.8) |
 | **ChEBI** | Anchor identity for all 24 new anchors | — |
 | **InterPro / Pfam** | Nothing this layer can use for its hardest case. The obvious rescue for the fused corrin methyltransferases is a domain marker, and PF00590 is "Tetrapyrrole (Corrin/Porphyrin) Methylases" — one family covering CbiE, CbiF, CbiH, CbiL, CobM and diphthine synthase. It cannot say which step a protein performs, so under invariant 16 it licenses none of them |
@@ -432,7 +432,7 @@ KEGG does not assign to the component KOs. The obvious rescue is a domain
 marker, and §4 shows why it fails: every cobalt-precorrin methyltransferase is
 PF00590.
 
-The recommendation is nonetheless to curate the ring, because giftr's incomplete
+The recommendation is nonetheless to curate the ring, because gifter's incomplete
 output is designed for exactly this: the call names the closest route and the
 three missing reactions, which is a true and useful statement about the
 evidence. The limitation belongs in the GIFT description and in
@@ -589,7 +589,7 @@ input anchor, `folate_biosynthesis` declares it as an output, and the anabolic
 graph acquires an edge that says folate biosynthesis is a precursor of glycine
 biosynthesis. Extend that to PLP and NAD and every anabolic GIFT in the database
 becomes downstream of this layer — no longer a graph of biosynthetic
-composition, but a graph of cofactor dependence, which giftr explicitly does not
+composition, but a graph of cofactor dependence, which gifter explicitly does not
 model. The `HOMOCYSTEINE` input-only precedent is the same instinct applied to a
 different problem.
 
@@ -690,7 +690,7 @@ Recorded as results, in the form `database_changes.tsv` expects.
 |---|---|---|---|
 | 1 | `cobalamin_biosynthesis` as one trait | 3044 of 4139 nucleotide-loop genomes have no ring | Would call salvagers producers |
 | 2 | Vitamin C, both routes | 0 of 10 151 bacteria complete M00114 or M00129 | No bacterial chemistry to curate |
-| 3 | NAD from tryptophan | 545 completions, 490 eukaryotic, 55 bacterial | Not a bacterial capability at giftr's scope |
+| 3 | NAD from tryptophan | 545 completions, 490 eukaryotic, 55 bacterial | Not a bacterial capability at gifter's scope |
 | 4 | Biotin precursor supply | ≥4 non-homologous solutions; BioI 42 and BioW 328 genomes | No marker set spans the trait |
 | 5 | Anaerobic DMB (*bza*) | no KO for any *bza* gene | Unevidenceable; makes BluB-negative calls provisional |
 | 6 | Cobalamin uptake (`btuBFCD`) | 734 genomes, Proteobacteria-biased; *B. thetaiotaomicron* carries none of the three | The dominant gut corrinoid importers would be called negative |
@@ -774,7 +774,7 @@ largest single content release the database would have taken.
 4. *The layer is not yet connected to a consumer.* No vitamin transport GIFT is
    evidenceable (refusal 6), so `cross_feeding_output` stays 0 for the whole
    layer, exactly as it does for SCFAs. Vitamin sharing is the most interesting
-   thing about these traits ecologically, and giftr still cannot say it.
+   thing about these traits ecologically, and gifter still cannot say it.
 
 **Build order, if accepted.** B2, B9 + pABA, and B7 first: they are the largest,
 cleanest, most discriminating traits and they exercise the orphan-step rule once
@@ -838,7 +838,7 @@ they partition almost nothing.
 `biosynthesis` and `vitamin_biosynthesis`.**
 
 Both terms can be kept, but not on the same facet.
-`.giftr_required_gift_facets` (`R/database-build.R:83`) declares
+`.gifter_required_gift_facets` (`R/database-build.R:83`) declares
 `substrate_class` the **single-valued** class facet of the metabolic type and `physiological_role` the multi-valued one, and
 `gift_profile.substrate_class` reads it with a scalar subquery, so a second
 `substrate_class` row would make that column non-deterministic. Multi-valued
@@ -876,7 +876,7 @@ distinction the layer does not make.
 therefore takes `FMNH2` as an input-only anchor with no producer GIFT, and does
 not compose with `riboflavin_biosynthesis`.
 
-This is the same decision as §13.1 and it should be read with it: giftr does not
+This is the same decision as §13.1 and it should be read with it: gifter does not
 curate the activation step between a product and its working form, whether that
 step is a phosphorylation or a kinase-plus-adenylyltransferase. The composition
 edge is the price, and it is the smaller cost — the alternative is a trait

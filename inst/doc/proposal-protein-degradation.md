@@ -4,7 +4,7 @@ Status: **evidence test applied 2026-08-18; one of eight candidates curated.**
 Prepared against database version 2026.11.1 (schema 5).
 
 Scope: decide whether and how host- and diet-derived protein degradation should
-be expressed under the giftr ontology, and identify what must be
+be expressed under the gifter ontology, and identify what must be
 architecturally true before any of it can be curated.
 
 The short answer is that the ontology needed **no schema change at all**, and
@@ -65,7 +65,7 @@ proteolytic cleavage of the triple helix. The reaction therefore carries
 Renaming `reaction` to `functional_step` was considered and rejected. It would
 touch roughly 400 references across the schema, the six chemistry source
 tables, `evaluation.R`, `database-build.R`, `database-visualization.R`, four
-exported functions, the `giftr_reaction_result` class and the
+exported functions, the `gifter_reaction_result` class and the
 `missing_reactions` field users read, in exchange for no expressiveness the
 layer does not already have. `AGENTS.md` forbids exactly this refactor.
 
@@ -284,7 +284,7 @@ negative for genomes annotated only to EC level; that is the conservative
 direction, and it is recorded here rather than silently accepted.
 
 **MEROPS is not used as a namespace.** Family M9 is the right concept, but
-MEROPS is not part of the default output of the annotation pipelines giftr
+MEROPS is not part of the default output of the annotation pipelines gifter
 targets, and its redistribution terms would need checking before a derived
 table could be shipped. `PF01752` covers the same clade and is standard
 pipeline output. Should MEROPS become available, adding it is a marker-layer

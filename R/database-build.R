@@ -1,27 +1,27 @@
-.giftr_schema_version <- 6L
+.gifter_schema_version <- 6L
 
-# The kinds of biologically meaningful capability giftr can state. This is not a
+# The kinds of biologically meaningful capability gifter can state. This is not a
 # facet: it selects the completeness model that produces a call, decides which
 # source tables may attach to a GIFT, and bounds what a positive call may mean.
-.giftr_gift_types <- c("metabolic", "structural", "regulatory", "defense")
+.gifter_gift_types <- c("metabolic", "structural", "regulatory", "defense")
 
 # Direction of a metabolic capability. Anchor-derived composition may not cycle
 # within a mode; it is expected to cycle between modes, because a catabolic
 # route back to a metabolite an anabolic GIFT produces is real biology. The
 # other GIFT types have no direction between molecules and must leave it empty.
-.giftr_gift_modes <- c("anabolic", "catabolic", "transport", "interconversion")
+.gifter_gift_modes <- c("anabolic", "catabolic", "transport", "interconversion")
 
 # The modes that declare a direction between molecules, and therefore the modes
 # in which a composition cycle is evidence of a badly chosen boundary. See the
-# cycle scan in `validate_giftr_sources()` for why `interconversion` is not one
+# cycle scan in `validate_gifter_sources()` for why `interconversion` is not one
 # of them.
-.giftr_directed_gift_modes <- setdiff(.giftr_gift_modes, "interconversion")
+.gifter_directed_gift_modes <- setdiff(.gifter_gift_modes, "interconversion")
 
 # The non-metabolic GIFT types share a Boolean shape but not their biology, so
 # each keeps its own named tables. This map is the only place the shape is
 # stated once: validation, compilation and evaluation are driven by it, which is
 # how dispatch happens by GIFT type rather than by trait identity.
-.giftr_machinery_models <- list(
+.gifter_machinery_models <- list(
   structural = list(
     gift_type = "structural",
     implementation = "architecture", implementation_plural = "architectures",
@@ -63,18 +63,18 @@
   )
 )
 
-# Two-state location qualifier on declared anchors. Nothing else in giftr is
+# Two-state location qualifier on declared anchors. Nothing else in gifter is
 # compartmentalised; see inst/doc/architecture.md.
-.giftr_compartments <- c("extracellular", "cytoplasmic", "unspecified")
+.gifter_compartments <- c("extracellular", "cytoplasmic", "unspecified")
 
 # Whether a route needs oxygen. This is a route property and not a GIFT
 # property: alternative routes to the same anchors genuinely differ, and
 # recording it on the GIFT would flatten the distinction the OR-over-routes
 # model exists to preserve.
-.giftr_oxygen_requirements <- c("aerobic", "anaerobic", "independent")
+.gifter_oxygen_requirements <- c("aerobic", "anaerobic", "independent")
 
 # What a facet may classify.
-.giftr_facet_targets <- c("gift", "anchor")
+.gifter_facet_targets <- c("gift", "anchor")
 
 # Facets a GIFT must carry, scoped by GIFT type because the questions differ.
 # `substrate_class` answers "what chemistry is this capability about" and is
@@ -86,7 +86,7 @@
 # question the type is about: what chemistry, what structure, what kind of
 # signalling machine, what kind of defense. Each vocabulary was registered when
 # the first content of its type was curated, not before.
-.giftr_required_gift_facets <- list(
+.gifter_required_gift_facets <- list(
   metabolic = list(single = "substrate_class", multi = "physiological_role"),
   structural = list(single = "structural_class", multi = character()),
   regulatory = list(single = "regulatory_class", multi = character()),
@@ -98,19 +98,19 @@
 # required. It is meant to be total, but a missing origin is warned rather than
 # rejected, so that a new anchor can be curated in two passes instead of
 # blocking the chemistry on a provenance judgement.
-.giftr_required_single_anchor_facets <- c("molecular_tier", "biomass_essential")
-.giftr_expected_anchor_facets <- c("resource_origin")
+.gifter_required_single_anchor_facets <- c("molecular_tier", "biomass_essential")
+.gifter_expected_anchor_facets <- c("resource_origin")
 
 # How a curated GIFT boundary compares with an external pathway record. A GIFT
 # is never defined as a pathway, so the relation is part of the biological
 # claim and not decoration.
-.giftr_xref_relations <- c(
+.gifter_xref_relations <- c(
   "equivalent", "subset_of", "superset_of", "overlaps", "related"
 )
 
 # Hierarchy layers a curation decision can touch. The metabolic layers come
 # first, then the layers of each typed machinery model.
-.giftr_change_layers <- c(
+.gifter_change_layers <- c(
   "gift", "anchor", "route", "reaction", "enzyme_system",
   "enzyme_component", "marker",
   "architecture", "structural_function", "structural_system", "structural_component",
@@ -121,13 +121,13 @@
 
 # Layers that make a biological claim about specific traits. A change to one of
 # them must name the GIFTs it affects; provenance and schema changes need not.
-.giftr_gift_bearing_layers <- setdiff(.giftr_change_layers, c("provenance", "schema"))
+.gifter_gift_bearing_layers <- setdiff(.gifter_change_layers, c("provenance", "schema"))
 
-.giftr_change_categories <- c("addition", "correction", "removal", "clarification")
+.gifter_change_categories <- c("addition", "correction", "removal", "clarification")
 
-.giftr_call_effects <- c("broadens", "narrows", "mixed", "none")
+.gifter_call_effects <- c("broadens", "narrows", "mixed", "none")
 
-.giftr_source_spec <- list(
+.gifter_source_spec <- list(
   gifts = c(
     "gift_id", "gift_type", "name", "description", "mode", "status", "version",
     "notes"
@@ -184,20 +184,20 @@
   ),
   change_gifts = c("change_id", "gift_id"),
   database_release = c(
-    "giftr_db_version", "schema_version", "build_date", "rhea_release",
+    "gifter_db_version", "schema_version", "build_date", "rhea_release",
     "chebi_release", "kegg_release", "source_commit"
   )
 )
 
-.read_giftr_sources <- function(source_dir) {
+.read_gifter_sources <- function(source_dir) {
   if (!dir.exists(source_dir)) {
     stop("Source directory does not exist: ", source_dir, call. = FALSE)
   }
 
-  tables <- lapply(names(.giftr_source_spec), function(table) {
+  tables <- lapply(names(.gifter_source_spec), function(table) {
     path <- file.path(source_dir, paste0(table, ".tsv"))
     if (!file.exists(path)) {
-      return(structure(list(path = path), class = "giftr_missing_source"))
+      return(structure(list(path = path), class = "gifter_missing_source"))
     }
     utils::read.delim(
       path,
@@ -211,7 +211,7 @@
       stringsAsFactors = FALSE
     )
   })
-  names(tables) <- names(.giftr_source_spec)
+  names(tables) <- names(.gifter_source_spec)
   tables
 }
 
@@ -268,29 +268,32 @@
   found
 }
 
-#' Validate human-readable giftr database sources
+#' Validate human-readable gifter database sources
 #'
 #' Performs structural validation before a SQLite database is compiled. Any
 #' duplicate identifiers, broken references, missing hierarchy levels, invalid
 #' directions, malformed anchor boundaries, graph cycles, or inconsistent
 #' release metadata are reported as build errors.
 #'
-#' @param source_dir Directory containing the giftr TSV source tables.
+#' @param source_dir Directory containing the gifter TSV source tables.
 #' @param stop_on_error If `TRUE`, stop when structural errors are found.
 #' @return A list with `valid`, `errors`, `warnings`, and table row counts.
+#' @section Compatibility:
+#' `validate_giftr_sources()` is retained as an alias for code written before
+#' the package was renamed to gifter.
 #' @export
-validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
-  tables <- .read_giftr_sources(source_dir)
+validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
+  tables <- .read_gifter_sources(source_dir)
   errors <- character()
   warnings <- character()
 
-  for (table in names(.giftr_source_spec)) {
+  for (table in names(.gifter_source_spec)) {
     value <- tables[[table]]
-    if (inherits(value, "giftr_missing_source")) {
+    if (inherits(value, "gifter_missing_source")) {
       errors <- c(errors, paste0("Missing source table: ", basename(value$path)))
       next
     }
-    missing_columns <- setdiff(.giftr_source_spec[[table]], names(value))
+    missing_columns <- setdiff(.gifter_source_spec[[table]], names(value))
     if (length(missing_columns)) {
       errors <- c(
         errors,
@@ -302,7 +305,7 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
   if (length(errors)) {
     report <- structure(
       list(valid = FALSE, errors = errors, warnings = warnings, rows = integer()),
-      class = "giftr_validation"
+      class = "gifter_validation"
     )
     if (isTRUE(stop_on_error)) stop(paste(errors, collapse = "\n"), call. = FALSE)
     return(report)
@@ -314,7 +317,7 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
     route_reactions = "route_id", enzyme_systems = "system_id",
     enzyme_components = "component_id", markers = "namespace",
     component_markers = "component_id", database_changes = "change_id",
-    change_gifts = "change_id", database_release = "giftr_db_version",
+    change_gifts = "change_id", database_release = "gifter_db_version",
     facet_terms = "facet", gift_facets = "gift_id", anchor_facets = "anchor_id"
   )
   for (table in names(required_nonempty)) {
@@ -427,7 +430,7 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
   if (length(.duplicate_keys(tables$facet_terms, c("facet", "value")))) {
     errors <- c(errors, "facet_terms contains duplicate facet/value pairs")
   }
-  invalid_targets <- setdiff(unique(tables$facet_terms$applies_to), .giftr_facet_targets)
+  invalid_targets <- setdiff(unique(tables$facet_terms$applies_to), .gifter_facet_targets)
   if (length(invalid_targets)) {
     errors <- c(
       errors,
@@ -448,7 +451,7 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
   }
 
   registered <- paste(tables$facet_terms$facet, tables$facet_terms$value, sep = "\r")
-  for (target in .giftr_facet_targets) {
+  for (target in .gifter_facet_targets) {
     table_name <- paste0(target, "_facets")
     assignments <- tables[[table_name]]
     if (length(.duplicate_keys(assignments, c(paste0(target, "_id"), "facet", "value")))) {
@@ -484,12 +487,12 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
 
   # Required facets are scoped by GIFT type: a substrate class is meaningless for
   # a flagellum, and a structural class is meaningless for a biosynthetic route.
-  for (type in names(.giftr_required_gift_facets)) {
+  for (type in names(.gifter_required_gift_facets)) {
     of_type <- tables$gifts$gift_id[
       !is.na(tables$gifts$gift_type) & tables$gifts$gift_type == type
     ]
     if (!length(of_type)) next
-    requirement <- .giftr_required_gift_facets[[type]]
+    requirement <- .gifter_required_gift_facets[[type]]
     for (facet in requirement$single) {
       assigned <- tables$gift_facets$gift_id[
         tables$gift_facets$facet == facet & tables$gift_facets$gift_id %in% of_type
@@ -532,8 +535,8 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
     # A facet required of one type must not silently classify another: a
     # structural GIFT with a substrate class would claim chemistry it has none of.
     foreign <- unlist(lapply(
-      setdiff(names(.giftr_required_gift_facets), type),
-      function(other) .giftr_required_gift_facets[[other]]$single
+      setdiff(names(.gifter_required_gift_facets), type),
+      function(other) .gifter_required_gift_facets[[other]]$single
     ))
     foreign <- setdiff(foreign, c(requirement$single, requirement$multi))
     misapplied <- sort(unique(tables$gift_facets$gift_id[
@@ -550,7 +553,7 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
     }
   }
 
-  for (facet in .giftr_required_single_anchor_facets) {
+  for (facet in .gifter_required_single_anchor_facets) {
     counts <- table(tables$anchor_facets$anchor_id[tables$anchor_facets$facet == facet])
     missing_facet <- setdiff(tables$anchors$anchor_id, names(counts))
     if (length(missing_facet)) {
@@ -574,7 +577,7 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
 
   # Provenance is meant to cover every boundary molecule, but an unstated origin
   # is a curation gap rather than a broken claim, so it does not fail the build.
-  for (facet in .giftr_expected_anchor_facets) {
+  for (facet in .gifter_expected_anchor_facets) {
     missing_facet <- setdiff(
       tables$anchors$anchor_id, tables$anchor_facets$anchor_id[tables$anchor_facets$facet == facet]
     )
@@ -589,7 +592,7 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
   }
 
   invalid_oxygen <- setdiff(
-    unique(tables$gift_routes$oxygen_requirement), .giftr_oxygen_requirements
+    unique(tables$gift_routes$oxygen_requirement), .gifter_oxygen_requirements
   )
   if (length(invalid_oxygen)) {
     errors <- c(
@@ -598,7 +601,7 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
     )
   }
 
-  invalid_compartments <- setdiff(unique(tables$anchors$compartment), .giftr_compartments)
+  invalid_compartments <- setdiff(unique(tables$anchors$compartment), .gifter_compartments)
   if (length(invalid_compartments)) {
     errors <- c(
       errors,
@@ -624,7 +627,7 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
       paste0("gifts.gift_type must be recorded for: ", paste(untyped, collapse = ", "))
     )
   }
-  invalid_types <- setdiff(declared_types[!is.na(declared_types)], .giftr_gift_types)
+  invalid_types <- setdiff(declared_types[!is.na(declared_types)], .gifter_gift_types)
   if (length(invalid_types)) {
     errors <- c(
       errors,
@@ -639,7 +642,7 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
   metabolic_gifts <- gifts_of_type("metabolic")
 
   invalid_modes <- setdiff(
-    unique(tables$gifts$mode[!is.na(tables$gifts$mode)]), .giftr_gift_modes
+    unique(tables$gifts$mode[!is.na(tables$gifts$mode)]), .gifter_gift_modes
   )
   if (length(invalid_modes)) {
     errors <- c(errors, paste0("Invalid gifts.mode: ", paste(invalid_modes, collapse = ", ")))
@@ -774,7 +777,7 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
     errors <- c(errors, "gift_anchors contains duplicate gift/role/ordinal values")
   }
 
-  invalid_relations <- setdiff(unique(tables$gift_xrefs$relation), .giftr_xref_relations)
+  invalid_relations <- setdiff(unique(tables$gift_xrefs$relation), .gifter_xref_relations)
   if (length(invalid_relations)) {
     errors <- c(
       errors,
@@ -866,7 +869,7 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
   # tables. The checks below are identical in shape because the Boolean contract
   # is identical; the tables they read are not, which is what keeps a regulatory
   # circuit from being curated as a flagellar architecture.
-  for (model in .giftr_machinery_models) {
+  for (model in .gifter_machinery_models) {
     implementations <- tables[[model$implementation_source]]
     membership <- tables[[model$membership_source]]
     functions <- tables[[model$function_source]]
@@ -1048,7 +1051,7 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
     # anchor produce an edge in each direction by construction. The loop is made
     # by the mode, not by the boundary, and reporting it would be the check
     # reading its own contract back as a curation error.
-    for (mode in intersect(.giftr_directed_gift_modes, unique(tables$gifts$mode))) {
+    for (mode in intersect(.gifter_directed_gift_modes, unique(tables$gifts$mode))) {
       # `%in%` rather than `==` so that a GIFT whose mode is missing -- which is
       # a separate, already reported error -- drops out of the scan instead of
       # producing an NA row the traversal cannot name.
@@ -1070,18 +1073,18 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
   if (length(.duplicate_keys(tables$change_gifts, c("change_id", "gift_id")))) {
     errors <- c(errors, "change_gifts contains duplicate change/gift pairs")
   }
-  invalid_layers <- setdiff(unique(changes$layer), .giftr_change_layers)
+  invalid_layers <- setdiff(unique(changes$layer), .gifter_change_layers)
   if (length(invalid_layers)) {
     errors <- c(errors, paste0("Invalid database_changes.layer: ", paste(invalid_layers, collapse = ", ")))
   }
-  invalid_categories <- setdiff(unique(changes$category), .giftr_change_categories)
+  invalid_categories <- setdiff(unique(changes$category), .gifter_change_categories)
   if (length(invalid_categories)) {
     errors <- c(
       errors,
       paste0("Invalid database_changes.category: ", paste(invalid_categories, collapse = ", "))
     )
   }
-  invalid_effects <- setdiff(unique(changes$call_effect), .giftr_call_effects)
+  invalid_effects <- setdiff(unique(changes$call_effect), .gifter_call_effects)
   if (length(invalid_effects)) {
     errors <- c(
       errors,
@@ -1111,7 +1114,7 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
     }
   }
   unlinked <- setdiff(
-    changes$change_id[changes$layer %in% .giftr_gift_bearing_layers],
+    changes$change_id[changes$layer %in% .gifter_gift_bearing_layers],
     tables$change_gifts$change_id
   )
   if (length(unlinked)) {
@@ -1128,13 +1131,13 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
   if (nrow(release) != 1L) {
     errors <- c(errors, "database_release must contain exactly one row")
   } else {
-    required_release <- .giftr_source_spec$database_release
+    required_release <- .gifter_source_spec$database_release
     if (any(is.na(release[1, required_release]))) {
       errors <- c(errors, "database_release contains missing version fields")
     }
     release_schema <- suppressWarnings(as.integer(release$schema_version[[1]]))
-    if (is.na(release_schema) || release_schema != .giftr_schema_version) {
-      errors <- c(errors, paste0("schema_version must be ", .giftr_schema_version))
+    if (is.na(release_schema) || release_schema != .gifter_schema_version) {
+      errors <- c(errors, paste0("schema_version must be ", .gifter_schema_version))
     }
     if (is.na(suppressWarnings(as.Date(release$build_date[[1]])))) {
       errors <- c(errors, "database_release.build_date must use YYYY-MM-DD")
@@ -1150,20 +1153,20 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
       warnings = warnings,
       rows = vapply(tables, nrow, integer(1))
     ),
-    class = "giftr_validation"
+    class = "gifter_validation"
   )
   if (length(errors) && isTRUE(stop_on_error)) {
-    stop(paste(c("giftr source validation failed:", paste0("- ", errors)), collapse = "\n"), call. = FALSE)
+    stop(paste(c("gifter source validation failed:", paste0("- ", errors)), collapse = "\n"), call. = FALSE)
   }
   report
 }
 
-.giftr_schema_path <- function() {
-  path <- system.file("schema", "giftr.sql", package = "giftr")
+.gifter_schema_path <- function() {
+  path <- system.file("schema", "gifter.sql", package = "gifter")
   if (nzchar(path)) return(path)
-  candidate <- file.path("inst", "schema", "giftr.sql")
+  candidate <- file.path("inst", "schema", "gifter.sql")
   if (file.exists(candidate)) return(candidate)
-  stop("Could not locate the giftr SQL schema", call. = FALSE)
+  stop("Could not locate the gifter SQL schema", call. = FALSE)
 }
 
 .db_key_map <- function(connection, table, id_column, pk_column) {
@@ -1183,33 +1186,36 @@ validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
   invisible(NULL)
 }
 
-#' Compile giftr source tables into SQLite
+#' Compile gifter source tables into SQLite
 #'
 #' Validates the human-readable TSV source tables and compiles a normalized,
 #' indexed SQLite database. The output is written atomically after all foreign
 #' key checks pass.
 #'
-#' @param source_dir Directory containing the giftr TSV source tables.
+#' @param source_dir Directory containing the gifter TSV source tables.
 #' @param output Path for the compiled SQLite database.
 #' @param overwrite Whether an existing output may be replaced.
 #' @param source_commit Optional source commit to store in release metadata.
 #' @return The normalized output path, invisibly.
+#' @section Compatibility:
+#' `build_giftr_database()` is retained as an alias for code written before the
+#' package was renamed to gifter.
 #' @export
-build_giftr_database <- function(source_dir, output, overwrite = FALSE, source_commit = NULL) {
-  validate_giftr_sources(source_dir, stop_on_error = TRUE)
-  tables <- .read_giftr_sources(source_dir)
+build_gifter_database <- function(source_dir, output, overwrite = FALSE, source_commit = NULL) {
+  validate_gifter_sources(source_dir, stop_on_error = TRUE)
+  tables <- .read_gifter_sources(source_dir)
   output <- normalizePath(output, winslash = "/", mustWork = FALSE)
   if (file.exists(output) && !isTRUE(overwrite)) {
     stop("Output already exists; set overwrite = TRUE to replace it: ", output, call. = FALSE)
   }
   dir.create(dirname(output), recursive = TRUE, showWarnings = FALSE)
-  temporary <- tempfile("giftr-build-", tmpdir = dirname(output), fileext = ".sqlite")
+  temporary <- tempfile("gifter-build-", tmpdir = dirname(output), fileext = ".sqlite")
   on.exit(if (file.exists(temporary)) unlink(temporary), add = TRUE)
 
   connection <- DBI::dbConnect(RSQLite::SQLite(), temporary)
   on.exit(if (DBI::dbIsValid(connection)) DBI::dbDisconnect(connection), add = TRUE)
   DBI::dbExecute(connection, "PRAGMA foreign_keys = ON")
-  .execute_schema(connection, .giftr_schema_path())
+  .execute_schema(connection, .gifter_schema_path())
   DBI::dbBegin(connection)
   committed <- FALSE
   on.exit(if (!committed && DBI::dbIsValid(connection)) DBI::dbRollback(connection), add = TRUE)
@@ -1327,7 +1333,7 @@ build_giftr_database <- function(source_dir, output, overwrite = FALSE, source_c
   # Compile each typed machinery model from its own named source tables. The
   # loop is generic because the relational shape is; the tables it reads are
   # biologically specific because the content is.
-  for (model in .giftr_machinery_models) {
+  for (model in .gifter_machinery_models) {
     functions <- tables[[model$function_source]]
     DBI::dbWriteTable(
       connection, model$function_table,
@@ -1430,7 +1436,7 @@ build_giftr_database <- function(source_dir, output, overwrite = FALSE, source_c
   release$release_pk <- 1L
   release$schema_version <- as.integer(release$schema_version)
   release <- release[c(
-    "release_pk", "giftr_db_version", "schema_version", "build_date",
+    "release_pk", "gifter_db_version", "schema_version", "build_date",
     "rhea_release", "chebi_release", "kegg_release", "source_commit"
   )]
   DBI::dbWriteTable(connection, "database_release", release, append = TRUE, row.names = FALSE)
@@ -1451,4 +1457,22 @@ build_giftr_database <- function(source_dir, output, overwrite = FALSE, source_c
     unlink(temporary)
   }
   invisible(output)
+}
+
+#' @rdname validate_gifter_sources
+#' @export
+validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
+  validate_gifter_sources(source_dir, stop_on_error = stop_on_error)
+}
+
+#' @rdname build_gifter_database
+#' @export
+build_giftr_database <- function(source_dir, output, overwrite = FALSE,
+                                 source_commit = NULL) {
+  build_gifter_database(
+    source_dir = source_dir,
+    output = output,
+    overwrite = overwrite,
+    source_commit = source_commit
+  )
 }

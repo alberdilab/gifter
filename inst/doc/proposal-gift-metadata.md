@@ -5,12 +5,12 @@ Prepared 2026-08-18 against database version 2026.10.1 (schema 4).
 
 Scope: decide how GIFTs should be classified beyond the single `category`
 column, so that the database supports ecological and physiological questions
-without extending giftr's modelling scope.
+without extending gifter's modelling scope.
 
 All open questions were resolved on 2026-08-18. The answers are recorded in
 section 8 and worked into the design below: `category` is retired at schema 5
 and reproduced losslessly from three facets (§8.1); `resource_origin` is
-multi-valued (§8.2); and giftr targets bacteria and archaea only, which
+multi-valued (§8.2); and gifter targets bacteria and archaea only, which
 removes the need for a taxon qualifier on `biomass_essential` (§8.3).
 
 ---
@@ -121,7 +121,7 @@ meant to be total; it does not constrain how many values an anchor carries.
 
 **`biomass_essential`** — whether the molecule is a required cellular building
 block (`yes` / `no`). Twenty of the current anchors settle in one pass, and it
-is what licenses the auxotrophy inference in §4. No taxon qualifier: giftr
+is what licenses the auxotrophy inference in §4. No taxon qualifier: gifter
 targets bacteria and archaea only (§8.3).
 
 **`molecular_tier`** — `polymer`, `oligosaccharide`, `monomer` or
@@ -235,7 +235,7 @@ payoff for the report.
   properties of a genome collection, not of a trait. They belong to the
   evaluation and reporting layer, computed per dataset. Curating "this GIFT is
   common" would bake one reference set into the ontology.
-- **Environment or habitat tags** (`gut`, `soil`, `rumen`). giftr states
+- **Environment or habitat tags** (`gut`, `soil`, `rumen`). gifter states
   what a genome encodes, not where it lives. `resource_origin` carries the
   usable part of this without the scope violation, because provenance is a
   property of the molecule.
@@ -311,7 +311,7 @@ Adopted as in §3.2. Two consequences worth stating:
 
 ### 8.3 No taxon qualifier on `biomass_essential`
 
-giftr targets **bacteria and archaea only**. Within that scope the amino
+gifter targets **bacteria and archaea only**. Within that scope the amino
 acid, nucleotide and cofactor building blocks are universal, so a plain
 `yes`/`no` carries no hidden taxonomic assumption.
 

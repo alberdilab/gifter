@@ -8,7 +8,7 @@ point. Sections 2 and 3 record what that draft got right, what it duplicated,
 and where it is not implementable as written. Section 13 is the implementation
 record, including the two places where the build departed from this plan.
 
-Scope: decide how giftr should summarise sets of GIFT calls into quantitative
+Scope: decide how gifter should summarise sets of GIFT calls into quantitative
 traits describing a genome and a genome-resolved community, without inventing a
 fifth GIFT type, without claiming activity or flux, and without letting a
 derived number outlive the evidence that produced it.
@@ -26,7 +26,7 @@ curated facets, and the two existing derived views.
    Its design rules (§49 of the draft — explicit denominators, declared
    reference universes, presence/abundance/context kept separate, no ecological
    inference from overlap) are correct and become this layer's invariants. Its
-   metric catalogue is about 30% redundant with machinery giftr already ships.
+   metric catalogue is about 30% redundant with machinery gifter already ships.
    §2, §3.
 2. **Three of its "new" metric families already exist and must be read, not
    re-derived.** `gift_profile` already classifies every metabolic GIFT as
@@ -38,13 +38,13 @@ curated facets, and the two existing derived views.
    against [rule 10](../../AGENTS.md). §3.1.
 3. **The draft's central data model has no producer, and this is the one real
    blocker.** Its `x_ig ∈ {1, 0, NA}` three-state matrix carries §6, §8, §20,
-   §43 and §44. giftr's evaluator emits Boolean `complete` and has no genome
+   §43 and §44. gifter's evaluator emits Boolean `complete` and has no genome
    quality input, no completeness estimate, and no notion of assessability.
    Every proportion in the draft therefore currently has an undefined
    denominator. §4 states the minimal honest fix. §3.2, §4.
 4. **There is no multi-genome container.** `evaluate_gifts()` evaluates one
    annotation table. The draft's `profiles` argument is assumed into existence
-   and never defined. A `giftr_community()` constructor is a prerequisite for
+   and never defined. A `gifter_community()` constructor is a prerequisite for
    all of Part II, not an implementation detail. §3.3, §6.
 5. **Typed repertoire breadth is currently near-vacuous and must not be a
    headline trait.** The database is 122 metabolic, 3 defense, 3 regulatory, 2
@@ -90,7 +90,7 @@ These become the invariants of this layer and are restated in §11.
   silently changes meaning between releases.
 - **Presence, abundance and context are three axes and never one** (§35). A
   GIFT present in a genome, a genome abundant in a sample, and a substrate
-  available in an environment are independent facts. giftr can speak to the
+  available in an environment are independent facts. gifter can speak to the
   first, can carry the second if supplied, and deliberately models nothing of
   the third.
 - **Traceability survives aggregation** (§40). This is
@@ -143,7 +143,7 @@ x_ig = NA   indeterminate / inadequate opportunity to infer absence
 and then builds `supported_fraction` (§6), `biosynthetic_autonomy` (§8),
 `coverage_C` (§20), "assessable genomes" (§21) and the whole of Part VI on it.
 
-giftr produces no such state. `evaluate_gifts()` returns `complete` as a
+gifter produces no such state. `evaluate_gifts()` returns `complete` as a
 Boolean over all 130 GIFTs, and the package has no genome-quality input at all —
 no completeness estimate, no contamination estimate, no assembly statistics, no
 argument anywhere that accepts them. The phrase "adequate opportunity to
@@ -158,14 +158,14 @@ It is also a genuinely hard biological question, not an engineering one. A MAG
 at 68% completeness that misses one of eight reactions in a route and a MAG at
 99% completeness that misses eight of eight are both `complete = FALSE`, and
 they mean very different things. Deciding when absence is informative is a
-claim about genomes that giftr has never made.
+claim about genomes that gifter has never made.
 
 §4 states the minimal version of that claim that can be defended today.
 
 ### 3.3 No multi-genome container is defined
 
 Part II is written against a `profiles` object that the draft never constructs.
-`evaluate_gifts()` takes one annotation table, returns one `giftr_result`, and
+`evaluate_gifts()` takes one annotation table, returns one `gifter_result`, and
 that result carries no genome identifier. Before any community metric exists
 there must be an object that binds named results together, refuses to mix
 database versions, and materialises the call matrix once. §6.
@@ -249,10 +249,10 @@ user's declared choice with no default, and it is recorded in the result.
 
 **`"near_miss"` — record as a candidate, do not ship.** A call missing `k` of
 `n` requirements is indeterminate when `k <= ceil((1 - c) * n)`. This uses only
-data giftr already returns (`minimum_missing_requirements` and the requirement
+data gifter already returns (`minimum_missing_requirements` and the requirement
 count of the best implementation) and is more discriminating than a flat
 threshold. It is also an unvalidated quantitative model of MAG gene loss, and
-giftr does not ship unvalidated quantitative models of genomes. It needs an
+gifter does not ship unvalidated quantitative models of genomes. It needs an
 empirical check against fragmented genomes of known content before it becomes a
 default — that check is a piece of work, not a code review comment.
 
@@ -273,14 +273,14 @@ gift_universe(type = NULL, mode = NULL, facet = NULL, value = NULL,
 genome_traits(result, universes = NULL, quality = NULL, policy = "none")
 ```
 
-`gift_universe()` returns a `giftr_universe`: a set of `gift_id`s, a
+`gift_universe()` returns a `gifter_universe`: a set of `gift_id`s, a
 human-readable `label`, the filter that produced it, and `database_version`.
 Universes are built **only** from curated metadata — `gift.gift_type`,
 `gift.mode`, `gift_facet`, `anchor_facet` and the `gift_profile` view. A
 universe may never be a literal list of `gift_id`s in R source; that would put
 biological content in code.
 
-`genome_traits()` returns a `giftr_traits` object: `$metrics` (long form),
+`genome_traits()` returns a `gifter_traits` object: `$metrics` (long form),
 `$trace` (metric → contributing GIFTs), `$universes`, `$quality`,
 `$database_version`.
 
@@ -338,7 +338,7 @@ defense_class terms in use              3
 
 ### 5.4 What a genome trait may not say
 
-A trait counts encoded capabilities in the current giftr ontology. It is not a
+A trait counts encoded capabilities in the current gifter ontology. It is not a
 measure of biological complexity, metabolic versatility in an environment,
 growth independence, or phenotype. `biosynthetic_autonomy = 0.82` means 82% of
 the curated biomass-essential anabolic capabilities that were assessable are
@@ -357,10 +357,10 @@ that no other metric in the draft captures.
 ## 6. The community container
 
 ```r
-giftr_community(..., abundance = NULL)
+gifter_community(..., abundance = NULL)
 ```
 
-Named `giftr_result` objects in, one `giftr_community` out. Responsibilities:
+Named `gifter_result` objects in, one `gifter_community` out. Responsibilities:
 
 - assign and validate genome identifiers from the argument names;
 - **refuse to combine results from different `database_version`s** — comparing
@@ -462,10 +462,10 @@ Not implemented, with reasons, so they are not silently reopened.
    are comparable across genomes in a way MAG relative abundance generally is
    not. `provider_count` and `abundance_coverage` carry the same information
    without the implied precision.
-3. **Context relevance weights `w_gc`** (§34, Tier 3). giftr does not model
+3. **Context relevance weights `w_gc`** (§34, Tier 3). gifter does not model
    media, metabolite concentrations, or environmental availability
    ([AGENTS.md, mission](../../AGENTS.md)). A user-supplied weight vector
-   multiplied through a call matrix would be presented as a giftr inference
+   multiplied through a call matrix would be presented as a gifter inference
    while being entirely the user's assumption. Deferred until a formal context
    model exists as an architectural decision — and that decision is not this
    proposal's to take.
@@ -527,8 +527,8 @@ exported.
 
 | File | Change |
 |---|---|
-| `R/universe.R` | new — `gift_universe()`, `giftr_universe` class, `print` method, bounded flag |
-| `R/traits.R` | new — `genome_traits()`, `giftr_traits` class, `print` method |
+| `R/universe.R` | new — `gift_universe()`, `gifter_universe` class, `print` method, bounded flag |
+| `R/traits.R` | new — `genome_traits()`, `gifter_traits` class, `print` method |
 | `NAMESPACE`, `man/` | regenerated |
 | `tests/testthat/test-universes.R` | new |
 | `tests/testthat/test-genome-traits.R` | new |
@@ -543,7 +543,7 @@ the result's.
 
 | File | Change |
 |---|---|
-| `R/community.R` | new — `giftr_community()`, `community_traits()` |
+| `R/community.R` | new — `gifter_community()`, `community_traits()` |
 | `tests/testthat/test-community.R` | new — container contract, version mismatch refusal, abundance validation |
 | `tests/testthat/test-community-traits.R` | new |
 
@@ -637,7 +637,7 @@ call moved. The full suite went from 3435 to 3566 assertions.
 | Phase | Files | Exports |
 |---|---|---|
 | 1 | `R/universe.R`, `R/traits.R` | `gift_universe()`, `genome_traits()` |
-| 2 | `R/community.R` | `giftr_community()`, `community_traits()` |
+| 2 | `R/community.R` | `gifter_community()`, `community_traits()` |
 | 3 | `R/community-network.R` | `community_network()` |
 | 4 | `R/assessability.R` | `quality`, `policy`, `threshold` arguments |
 
@@ -691,7 +691,7 @@ Two consequences followed:
 provenance, on the model of how the other proposals preserve superseded
 reasoning. It was not added.
 
-The precedent does not transfer. What the other proposals preserve is giftr's
+The precedent does not transfer. What the other proposals preserve is gifter's
 own reasoning at the moment a decision was taken — the refusal of
 `succinate_formation`, the evidence behind an ambiguous marker — and that
 reasoning is not recoverable from anywhere else. The source draft is an
@@ -709,7 +709,7 @@ same quantity: autonomy is `supported_fraction` computed over the bounded
 biomass-essential anabolic universe. Implementing it separately would have put
 one biological definition in two places and given the ontology a special case in
 R, so the metric was dropped and the universe kept. The default universe set
-includes it, and it is the only bounded universe giftr ships.
+includes it, and it is the only bounded universe gifter ships.
 
 ### 13.4 Two metrics added that the plan did not list
 

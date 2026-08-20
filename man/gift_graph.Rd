@@ -7,7 +7,7 @@
 gift_graph(db = NULL, quality = NULL)
 }
 \arguments{
-\item{db}{Optional open giftr database connection.}
+\item{db}{Optional open gifter database connection.}
 
 \item{quality}{Optional filter, `"exact"` or `"compartment_inexact"`.}
 }

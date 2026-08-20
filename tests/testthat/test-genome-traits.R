@@ -169,7 +169,7 @@ test_that("every metric names its universe, its assessable count and its version
   expect_true(all(traits$metrics$target_id == "MAG_042"))
   expect_true(all(traits$metrics$target_type == "genome"))
   expect_true(all(
-    traits$metrics$database_version == giftr_db_version()$giftr_db_version
+    traits$metrics$database_version == gifter_db_version()$gifter_db_version
   ))
   # Assessability is not yet modelled, so every member of a universe was
   # assessed. Phase 4 changes what fills this column, not its presence.

@@ -52,7 +52,7 @@ test_that("two adjacent reversible GIFTs are not a boundary error", {
   # made by the mode's own boundary contract, and reporting it would be the
   # check reading that contract back as a curation error. No citric acid
   # chemistry is involved, which is the point -- this is arithmetic, not biology.
-  source_dir <- giftr_source_copy()
+  source_dir <- gifter_source_copy()
   for (anchor in c("FIXTURE_X", "FIXTURE_Y", "FIXTURE_Z")) {
     add_test_anchor(source_dir, anchor, anchor, "unspecified")
   }
@@ -64,17 +64,17 @@ test_that("two adjacent reversible GIFTs are not a boundary error", {
     source_dir, "fixture_yz", "interconversion",
     c("FIXTURE_Y", "FIXTURE_Z"), c("FIXTURE_Y", "FIXTURE_Z")
   )
-  expect_true(validate_giftr_sources(source_dir)$valid)
+  expect_true(validate_gifter_sources(source_dir)$valid)
 
   # The exemption is scoped to that mode and to nothing else: the same loop
   # between two catabolic GIFTs is still an error.
-  directed <- giftr_source_copy()
+  directed <- gifter_source_copy()
   add_test_anchor(directed, "FIXTURE_X", "FIXTURE_X", "unspecified")
   add_test_anchor(directed, "FIXTURE_Y", "FIXTURE_Y", "unspecified")
   add_test_gift(directed, "fixture_out", "catabolic", "FIXTURE_X", "FIXTURE_Y")
   add_test_gift(directed, "fixture_back", "catabolic", "FIXTURE_Y", "FIXTURE_X")
   expect_error(
-    validate_giftr_sources(directed),
+    validate_gifter_sources(directed),
     "Circular catabolic GIFT composition"
   )
 })
@@ -83,8 +83,8 @@ test_that("the curated database has no cycle in any directed mode", {
   # The exemption must not become a licence for undeclared loops in the modes
   # that do declare a direction. Curating the citric acid cycle added a ring to
   # the graph and left every directed partition acyclic.
-  connection <- giftr_db_connect()
-  withr::defer(giftr_db_disconnect(connection))
+  connection <- gifter_db_connect()
+  withr::defer(gifter_db_disconnect(connection))
   modes <- DBI::dbGetQuery(connection, "SELECT gift_id, mode FROM gift")
   gift_mode <- stats::setNames(modes$mode, modes$gift_id)
   graph <- gift_graph()
@@ -96,6 +96,6 @@ test_that("the curated database has no cycle in any directed mode", {
       unname(gift_mode[edges$from]) %in% mode & unname(gift_mode[edges$to]) %in% mode,
       , drop = FALSE
     ]
-    expect_length(giftr:::.find_graph_cycle(within_mode), 0L)
+    expect_length(gifter:::.find_graph_cycle(within_mode), 0L)
   }
 })

@@ -1,6 +1,6 @@
 ---
-title: "giftr: auditable genome-inferred functional traits between curated molecular anchors"
-short_title: "Genome-inferred functional traits with giftr"
+title: "gifter: auditable genome-inferred functional traits between curated molecular anchors"
+short_title: "Genome-inferred functional traits with gifter"
 authors:
   - name: Antton Alberdi
     affiliation: 1
@@ -18,7 +18,7 @@ keywords:
   - microbial ecology
   - metabolic inference
 target: "Software/application paper (candidate venues: Bioinformatics, Microbiome, Methods in Ecology and Evolution, mSystems)"
-software_version: "giftr 0.1.0 (in development)"
+software_version: "gifter 0.1.0 (in development)"
 database_version: "2026.11.1 (schema 5)"
 status: "Working draft — grows with the software. See the drafting roadmap at the end."
 ---
@@ -45,8 +45,8 @@ whether a set of orthologue identifiers is present and report a percentage of
 expected genes, which is fast and transparent but biologically flat. Genome-scale
 metabolic models reconstruct a full stoichiometric network, which is
 biologically rich but expensive to curate, hard to audit, and dependent on gap
-filling that invents chemistry the genome does not encode. We present giftr,
-an R package that occupies the space between them. giftr evaluates
+filling that invents chemistry the genome does not encode. We present gifter,
+an R package that occupies the space between them. gifter evaluates
 **genome-inferred functional traits (GIFTs)**: directed biological capabilities
 defined between curated molecular anchors and resolved through an explicit
 Boolean hierarchy of routes, reactions, enzyme systems, protein components and
@@ -105,7 +105,7 @@ categories from literature or taxonomy. *[cite: FAPROTAX; MDB/ Madin et al.
 trait database; BacDive.]* They are biologically meaningful but are not derived
 from the genome at hand, so they cannot describe a novel or uncultured lineage.
 
-giftr's predecessor, distillR *[cite: distillR 1.x usage papers]*, belonged to
+gifter's predecessor, distillR *[cite: distillR 1.x usage papers]*, belonged to
 the first family. It matched KEGG orthologue and Enzyme Commission identifiers
 against roughly five hundred curated gene bundles and returned a fullness value
 per bundle, aggregated into compounds, functions and domains. That design was
@@ -116,7 +116,7 @@ routes, protein complexes, non-homologous replacements and multifunctional
 enzymes were all flattened into the same list; and a value could not be traced
 back to the genes that produced it.
 
-giftr is a redesign around a different primitive. Rather than scoring
+gifter is a redesign around a different primitive. Rather than scoring
 membership in a gene set, it asks whether a genome contains sufficient evidence
 for **at least one known enzymatic implementation of a biologically defined
 capability**, where the capability is defined by the molecules at its boundaries
@@ -126,8 +126,8 @@ anchor-based composition and compartment model that lets traits connect
 (Section 4), the curated reference database and its version and provenance
 model (Section 5), and the R implementation and interface (Section 6).
 
-We state the scope plainly, because a large part of the design is what giftr
-refuses to do. giftr reports what a genome *encodes*. It does not model
+We state the scope plainly, because a large part of the design is what gifter
+refuses to do. gifter reports what a genome *encodes*. It does not model
 growth, flux, thermodynamics, media, metabolite concentrations, transport
 stoichiometry or cellular mass balance, and a positive call is not a claim about
 expression, activity or phenotype in any particular environment.
@@ -158,14 +158,14 @@ Three consequences follow from defining a trait by its boundaries rather than by
 its contents.
 
 **A GIFT is not a pathway record.** It is not a KEGG module, an EC list, a KO
-list or a gene name, and giftr boundaries deliberately differ from external
+list or a gene name, and gifter boundaries deliberately differ from external
 pathway endpoints where the biology justifies it. External resources contribute
 chemistry, identifiers and evidence; they do not define the ontology. Links to
 external pathways are recorded explicitly, and each link must state how the
 curated boundaries compare with the external record — `equivalent`, `subset_of`,
 `superset_of`, `overlaps` or `related` — so that a familiar identifier never
 implies an equivalence the boundaries do not support. KEGG module M00018, for
-example, is `subset_of` three separate giftr traits, because giftr cuts
+example, is `subset_of` three separate gifter traits, because gifter cuts
 that module at two biologically meaningful branchpoints.
 
 **Boundaries are a modelling decision that must be defended.** The working rule
@@ -205,7 +205,7 @@ whole anchor vocabulary comprises 41 entries for 28 curated traits.
 
 *[Status: complete.]*
 
-giftr separates biological meaning, chemistry, enzymology and genomic
+gifter separates biological meaning, chemistry, enzymology and genomic
 evidence into five layers that alternate between disjunction and conjunction:
 
 ```text
@@ -266,7 +266,7 @@ reactions of any one route.
 
 ### 3.2 Diagnostics for incomplete traits
 
-An incomplete trait is more informative than a complete one, and giftr
+An incomplete trait is more informative than a complete one, and gifter
 reports it accordingly. For each trait the result gives the closest valid route,
 the minimum number of missing required reactions, the identity of those missing
 reactions, the supported reactions, and the systems, components, markers and
@@ -288,7 +288,7 @@ a score, because a call is only as strong as its weakest accepted marker.
 This matters most for sequence-family markers, where a family is not an
 activity. Polyspecific CAZy families such as GH5, GH13, GH30 and GH43 would
 silently attribute every activity in the family to a genome that carries any
-member; giftr prefers dbCAN subfamily accessions where they exist, accepts a
+member; gifter prefers dbCAN subfamily accessions where they exist, accepts a
 bare family only where it is effectively monoactivity, records the reason, and
 marks the mapping `ambiguous` where it is. A trait resting on an ambiguous
 family must not read like one resting on curated orthology.
@@ -325,7 +325,7 @@ purine_core_biosynthesis --IMP--> guanylate_biosynthesis
 ```
 
 A longer capability is a traversal of that graph, not a separate curated object.
-giftr does not store a `PRPP > AMP` trait that copies the reactions of the
+gifter does not store a `PRPP > AMP` trait that copies the reactions of the
 two atomic traits; it stores the atomic traits and lets the chain be read from
 the graph. Composition without duplication is what keeps the curation internally
 consistent as the database grows.
@@ -368,7 +368,7 @@ unevidenced transporter promoted to a required reaction would turn a missing
 annotation into a false negative for an entire catabolic chain. A trait with
 `mode = transport` must declare the same molecule as both input and output — the
 formal difference between moving a substance and changing it — and the validator
-enforces it. giftr still models no membrane potential, transport
+enforces it. gifter still models no membrane potential, transport
 stoichiometry, proton coupling or compartment-aware mass balance.
 
 Composition accounts for unresolved compartments explicitly:
@@ -513,13 +513,13 @@ Each source is credited with what it actually supports: Rhea defines reaction
 chemistry, ChEBI identifies anchor molecules, KEGG and MetaCyc may suggest a
 pathway organisation or cross-reference, and UniProt, curated HMM collections
 and primary literature support enzyme and marker mappings. The capability, its
-boundaries, the accepted routes and the curation interpretation are giftr's
+boundaries, the accepted routes and the curation interpretation are gifter's
 own, and the documentation is explicit that no upstream database endorses a
-giftr boundary decision.
+gifter boundary decision.
 
 ### 5.6 A self-contained database atlas
 
-`write_giftr_database_html()` renders the whole compiled database as a
+`write_gifter_database_html()` renders the whole compiled database as a
 single, self-contained interactive HTML report: release metadata and row counts,
 two whole-database network views (trait composition, and traits drawn with their
 declared anchors), a merged route network per trait, the full trait-to-marker
@@ -532,13 +532,13 @@ release. *[Candidate for a supplementary file and a figure.]*
 
 *[Status: written; revisit once the API is frozen for release.]*
 
-giftr is an R package (R >= 4.1) with a deliberately small dependency
+gifter is an R package (R >= 4.1) with a deliberately small dependency
 surface — DBI, RSQLite and tibble — and its public interface is concept-oriented
 rather than relational: users work with traits, anchors, routes, reactions,
 enzyme systems and markers, never with SQL keys.
 
 ```r
-library(giftr)
+library(gifter)
 
 annotations <- data.frame(
   gene_id   = paste0("gene_", 1:9),
@@ -565,8 +565,8 @@ The database accessors (`list_gifts()`, `get_gift()`, `get_gift_anchors()`,
 `get_gift_routes()`, `get_gift_reactions()`, `get_reaction_systems()`,
 `get_gift_pathways()`, `gifts_for_pathway()`, `list_facets()`, `get_facets()`,
 `gifts_by_facet()`, `gift_profile()`, `database_changelog()`,
-`giftr_db_version()`) expose the reference content, and
-`validate_giftr_sources()` and `build_giftr_database()` expose the
+`gifter_db_version()`) expose the reference content, and
+`validate_gifter_sources()` and `build_gifter_database()` expose the
 curation pipeline so that users can extend the database with their own content.
 
 Two implementation rules keep the design honest and are enforced in review.
@@ -607,7 +607,7 @@ Report call retention against genome completeness, and the distribution of
 `minimum_missing_reactions`.
 
 **7.2 Comparison with existing tools.** On a common genome set, compare
-giftr calls with KEGG module completeness and with the pathway summaries of
+gifter calls with KEGG module completeness and with the pathway summaries of
 DRAM and METABOLIC. This is a comparison of abstractions, not a benchmark with a
 winner: quantify where the tools agree, and characterise the disagreements by
 cause (alternative route, non-homologous enzyme, incomplete complex,
@@ -619,7 +619,7 @@ including a frank analysis of the disagreements. Candidate sources: curated
 phenotype databases, growth-substrate panels for gut isolates. *[Decide the
 reference set; this determines what can be claimed.]*
 
-**7.4 Ecological case study.** Apply giftr to a genome-resolved metagenomic
+**7.4 Ecological case study.** Apply gifter to a genome-resolved metagenomic
 dataset and show what the trait abstraction adds — for example, separating
 public-goods polysaccharide degraders from selfish foragers and cross-feeders
 using `resource_strategy`, and identifying candidate auxotrophies through the
@@ -644,7 +644,7 @@ resolved through explicit Boolean layers keeps both the biological alternatives
 and the audit trail.
 
 **Curation is the cost.** Every trait requires a defended boundary, materialised
-routes, enumerated enzyme systems and evidenced markers. giftr's answer is
+routes, enumerated enzyme systems and evidenced markers. gifter's answer is
 not to reduce that cost but to make it reviewable and cumulative: a
 human-readable source of truth, a validator that rejects incoherent structure, a
 biological changelog attached to the content, and composition that forbids
