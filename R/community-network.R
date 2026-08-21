@@ -242,7 +242,7 @@
 community_network <- function(community, interaction = "metabolic_handoff",
                               universe = NULL, quality = NULL, limit = 100L,
                               db = NULL) {
-  if (!inherits(community, c("gifter_community", "giftr_community"))) {
+  if (!inherits(community, "gifter_community")) {
     stop("community must come from gifter_community()", call. = FALSE)
   }
   interaction <- match.arg(interaction, .gifter_interaction_types)
@@ -250,7 +250,7 @@ community_network <- function(community, interaction = "metabolic_handoff",
     quality <- match.arg(quality, c("exact", "compartment_inexact"))
   }
   if (!is.null(universe) &&
-      !inherits(universe, c("gifter_universe", "giftr_universe"))) {
+      !inherits(universe, "gifter_universe")) {
     stop("universe must come from gift_universe()", call. = FALSE)
   }
 
@@ -330,7 +330,7 @@ community_network <- function(community, interaction = "metabolic_handoff",
         universe = universe,
         database_version = community$database_version
       ),
-      class = c("gifter_network", "giftr_network", "list")
+      class = c("gifter_network", "list")
     )
   })
 }
@@ -352,6 +352,3 @@ print.gifter_network <- function(x, ...) {
   cat("  database version:", .gifter_database_version_value(x$database_version), "\n")
   invisible(x)
 }
-
-#' @export
-print.giftr_network <- print.gifter_network

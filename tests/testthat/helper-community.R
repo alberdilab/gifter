@@ -33,6 +33,22 @@ arabinoxylan_genome <- function(role) {
   evaluate_gifts(namespaced_annotations(arabinoxylan_markers[[role]]))
 }
 
+# The same fixture as one multi-genome annotation table, which is what
+# evaluate_gifts_community() takes. Gene identifiers carry the role so that a
+# genome mixed into another would be visible in the evidence.
+arabinoxylan_table <- function(roles = names(arabinoxylan_markers)) {
+  do.call(rbind, lapply(roles, function(role) {
+    markers <- arabinoxylan_markers[[role]]
+    data.frame(
+      genome_id = role,
+      gene_id = paste0(role, "_", seq_along(markers)),
+      namespace = sub(":.*", "", markers),
+      accession = sub(".*:", "", markers),
+      stringsAsFactors = FALSE
+    )
+  }))
+}
+
 arabinoxylan_community <- function(abundance = NULL) {
   consumer <- arabinoxylan_genome("consumer")
   gifter_community(

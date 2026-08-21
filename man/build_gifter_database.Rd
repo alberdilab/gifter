@@ -2,17 +2,9 @@
 % Please edit documentation in R/database-build.R
 \name{build_gifter_database}
 \alias{build_gifter_database}
-\alias{build_giftr_database}
 \title{Compile gifter source tables into SQLite}
 \usage{
 build_gifter_database(
-  source_dir,
-  output,
-  overwrite = FALSE,
-  source_commit = NULL
-)
-
-build_giftr_database(
   source_dir,
   output,
   overwrite = FALSE,
@@ -36,9 +28,3 @@ Validates the human-readable TSV source tables and compiles a normalized,
 indexed SQLite database. The output is written atomically after all foreign
 key checks pass.
 }
-\section{Compatibility}{
-
-`build_giftr_database()` is retained as an alias for code written before the
-package was renamed to gifter.
-}
-

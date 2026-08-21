@@ -309,9 +309,6 @@
 #' @param source_dir Directory containing the gifter TSV source tables.
 #' @param stop_on_error If `TRUE`, stop when structural errors are found.
 #' @return A list with `valid`, `errors`, `warnings`, and table row counts.
-#' @section Compatibility:
-#' `validate_giftr_sources()` is retained as an alias for code written before
-#' the package was renamed to gifter.
 #' @export
 validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
   tables <- .read_gifter_sources(source_dir)
@@ -1431,9 +1428,6 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
 #' @param overwrite Whether an existing output may be replaced.
 #' @param source_commit Optional source commit to store in release metadata.
 #' @return The normalized output path, invisibly.
-#' @section Compatibility:
-#' `build_giftr_database()` is retained as an alias for code written before the
-#' package was renamed to gifter.
 #' @export
 build_gifter_database <- function(source_dir, output, overwrite = FALSE, source_commit = NULL) {
   validate_gifter_sources(source_dir, stop_on_error = TRUE)
@@ -1722,22 +1716,4 @@ build_gifter_database <- function(source_dir, output, overwrite = FALSE, source_
     unlink(temporary)
   }
   invisible(output)
-}
-
-#' @rdname validate_gifter_sources
-#' @export
-validate_giftr_sources <- function(source_dir, stop_on_error = TRUE) {
-  validate_gifter_sources(source_dir, stop_on_error = stop_on_error)
-}
-
-#' @rdname build_gifter_database
-#' @export
-build_giftr_database <- function(source_dir, output, overwrite = FALSE,
-                                 source_commit = NULL) {
-  build_gifter_database(
-    source_dir = source_dir,
-    output = output,
-    overwrite = overwrite,
-    source_commit = source_commit
-  )
 }

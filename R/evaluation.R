@@ -758,7 +758,7 @@ map_markers <- function(annotation_table, namespace = NULL, db = NULL) {
       observed_markers = tibble::as_tibble(observed),
       database_version = gifter_db_version(connection)
     ),
-    class = c("gifter_result", "giftr_result", "list")
+    class = c("gifter_genome", "list")
   )
 }
 
@@ -819,7 +819,7 @@ evaluate_reactions <- function(annotation_table, namespace = NULL, db = NULL) {
         "reactions", "systems", "components", "marker_vocabulary", "evidence",
         "marker_map", "observed_markers", "database_version"
       )],
-      class = c("gifter_reaction_result", "giftr_reaction_result", "list")
+      class = c("gifter_reaction_result", "list")
     )
   })
 }
@@ -972,11 +972,36 @@ evaluate_reactions <- function(annotation_table, namespace = NULL, db = NULL) {
   0L
 }
 
+# What is suspicious about an oversized input depends on how the genome was
+# delimited. A whole table taken for one genome may be a collection that was
+# never split; a group of one `genome_id` value has been split already, so what
+# is in doubt is the column, not the call.
+.single_genome_concern <- function(genes, max_genes, genome) {
+  if (is.null(genome)) {
+    return(c(
+      "{genes} distinct gene identifiers were supplied, more than the
+       {max_genes} expected of a single genome.",
+      "i" = "{.fn evaluate_gifts} evaluates one genome: markers pooled from
+             several genomes complete routes that no single genome encodes.",
+      "i" = "For a collection of genomes, use {.fn evaluate_gifts_community},
+             which evaluates each genome separately."
+    ))
+  }
+  c(
+    "Genome {.val {genome}} carries {genes} distinct gene identifiers, more
+     than the {max_genes} expected of a single genome.",
+    "i" = "Markers pooled under one genome identifier complete routes that no
+           single genome encodes.",
+    "i" = "Check that the genome column names one genome per value."
+  )
+}
+
 # Question an input too large to be one genome. The calls of a pooled table are
 # individually valid and collectively meaningless: a route completed by
 # reactions drawn from different genomes is a capability of the collection, not
-# of any member.
-.check_single_genome <- function(annotation_table, max_genes) {
+# of any member. `genome` names the group being checked when the input was
+# already split by genome, and is `NULL` for a whole table taken as one genome.
+.check_single_genome <- function(annotation_table, max_genes, genome = NULL) {
   if (is.null(max_genes)) return(invisible(NULL))
   if (!is.numeric(max_genes) || length(max_genes) != 1L || is.na(max_genes)) {
     cli::cli_abort(c(
@@ -987,20 +1012,18 @@ evaluate_reactions <- function(annotation_table, namespace = NULL, db = NULL) {
   genes <- .distinct_gene_count(annotation_table)
   if (genes <= max_genes) return(invisible(NULL))
 
-  concern <- c(
-    "{genes} distinct gene identifiers were supplied, more than the
-     {max_genes} expected of a single genome.",
-    "i" = "{.fn evaluate_gifts} evaluates one genome: markers pooled from
-           several genomes complete routes that no single genome encodes.",
-    "i" = "For a collection of genomes, use {.fn evaluate_gifts_community},
-           which evaluates each genome separately."
-  )
+  concern <- .single_genome_concern(genes, max_genes, genome)
+  escape <- if (is.null(genome)) {
+    "evaluate this table as one genome"
+  } else {
+    "accept every genome as the column defines it"
+  }
   approved <- .gifter_ask(concern, "Are these markers from a single genome?")
   if (isTRUE(approved)) return(invisible(NULL))
   if (isFALSE(approved)) {
     cli::cli_abort(c(
       concern,
-      "*" = "Set {.code max_genes = Inf} to evaluate this table as one genome anyway."
+      "*" = "Set {.code max_genes = Inf} to {escape} anyway."
     ), call = NULL)
   }
   # Nobody to ask: the input is still evaluated as one genome, because the count
@@ -1008,7 +1031,7 @@ evaluate_reactions <- function(annotation_table, namespace = NULL, db = NULL) {
   # not swallowed.
   cli::cli_warn(c(
     concern,
-    "*" = "Set {.code max_genes = Inf} to evaluate this table as one genome silently."
+    "*" = "Set {.code max_genes = Inf} to {escape} silently."
   ))
   invisible(NULL)
 }
@@ -1046,7 +1069,7 @@ evaluate_reactions <- function(annotation_table, namespace = NULL, db = NULL) {
 #' @param max_genes Number of distinct gene identifiers above which the input is
 #'   questioned as a possible collection of genomes. `Inf` evaluates any table
 #'   as a single genome without asking.
-#' @return A `gifter_result` list. Its `gifts` member is the call summary;
+#' @return A `gifter_genome` list. Its `gifts` member is the call summary;
 #'   the remaining tibbles retain the full evidence chain.
 #' @examples
 #' markers <- data.frame(
@@ -1079,8 +1102,8 @@ evaluate_gifts <- function(annotation_table, namespace = NULL, db = NULL,
 }
 
 #' @export
-print.gifter_result <- function(x, ...) {
-  cat("<gifter_result>\n")
+print.gifter_genome <- function(x, ...) {
+  cat("<gifter_genome>\n")
   print(x$gifts[c(
     "gift_id", "gift_type", "complete", "number_of_complete_implementations",
     "best_implementation", "minimum_missing_requirements"
@@ -1097,12 +1120,6 @@ print.gifter_reaction_result <- function(x, ...) {
   )], ...)
   invisible(x)
 }
-
-#' @export
-print.giftr_result <- print.gifter_result
-
-#' @export
-print.giftr_reaction_result <- print.gifter_reaction_result
 
 #' Trace the evidence chain for a GIFT call
 #'
@@ -1122,7 +1139,7 @@ print.giftr_reaction_result <- print.gifter_reaction_result
 #'   markers and genes.
 #' @export
 trace_gift <- function(result, gift_id, route_id = NULL, implementation = NULL) {
-  if (!inherits(result, c("gifter_result", "giftr_result"))) {
+  if (!inherits(result, "gifter_genome")) {
     stop("result must come from evaluate_gifts()", call. = FALSE)
   }
   gift_id <- .normalize_gift_id(gift_id)

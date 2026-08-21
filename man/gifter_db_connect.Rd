@@ -2,12 +2,9 @@
 % Please edit documentation in R/database.R
 \name{gifter_db_connect}
 \alias{gifter_db_connect}
-\alias{giftr_db_connect}
 \title{Connect to a gifter SQLite database}
 \usage{
 gifter_db_connect(path = NULL, read_only = TRUE)
-
-giftr_db_connect(path = NULL, read_only = TRUE)
 }
 \arguments{
 \item{path}{SQLite database path. By default, the packaged reference
@@ -22,9 +19,3 @@ A DBI connection. Close it with [gifter_db_disconnect()].
 \description{
 Connect to a gifter SQLite database
 }
-\section{Compatibility}{
-
-`giftr_db_connect()` is retained as an alias for code written before the
-package was renamed to gifter.
-}
-

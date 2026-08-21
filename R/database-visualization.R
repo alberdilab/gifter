@@ -2253,9 +2253,6 @@
 #'   packaged gifter reference database is used.
 #' @param open Open the report in the default browser after writing it.
 #' @return The normalized output path, invisibly.
-#' @section Compatibility:
-#' `write_giftr_database_html()` is retained as an alias for code written
-#' before the package was renamed to gifter.
 #' @export
 write_gifter_database_html <- function(
   output = "gifter-database.html",
@@ -2290,14 +2287,4 @@ write_gifter_database_html <- function(
   writeLines(html, output, useBytes = TRUE)
   if (isTRUE(open)) utils::browseURL(output)
   invisible(output)
-}
-
-#' @rdname write_gifter_database_html
-#' @export
-write_giftr_database_html <- function(
-  output = "gifter-database.html",
-  database = NULL,
-  open = FALSE
-) {
-  write_gifter_database_html(output = output, database = database, open = open)
 }

@@ -10,23 +10,18 @@ test_that("the installed package and packaged artifacts use the gifter name", {
   )
 })
 
-test_that("pre-rename public names and classes remain compatible", {
+test_that("no giftr name survives in the public surface", {
+  # gifter was never published as giftr, so the pre-rename aliases carried a
+  # compatibility promise to nobody. Their absence is the contract.
   exports <- getNamespaceExports("gifter")
-  expect_true(all(c(
-    "giftr_community", "giftr_db_connect", "giftr_db_disconnect",
-    "giftr_db_version", "validate_giftr_sources", "build_giftr_database",
-    "write_giftr_database_html"
-  ) %in% exports))
-
-  version <- gifter_db_version()
-  expect_identical(version$giftr_db_version, version$gifter_db_version)
-  expect_identical(giftr_db_version(), version)
+  expect_false(any(grepl("^giftr_|_giftr_", exports)))
+  expect_false("giftr_db_version" %in% names(gifter_db_version()))
 
   result <- evaluate_gifts(character())
-  expect_s3_class(result, "gifter_result")
-  expect_true(inherits(result, "giftr_result"))
+  expect_s3_class(result, "gifter_genome")
+  expect_false(any(grepl("^giftr_", class(result))))
 
-  community <- giftr_community(genome = result)
+  community <- gifter_community(genome = result)
   expect_s3_class(community, "gifter_community")
-  expect_true(inherits(community, "giftr_community"))
+  expect_false(any(grepl("^giftr_", class(community))))
 })

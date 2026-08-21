@@ -7,7 +7,7 @@ its data model and evaluation logic work, what its reference database
 currently contains, what its public interface looks like, and which rules
 govern changes to it.
 
-Snapshot date: 2026-08-21. Package version 0.1.2 (in development), database
+Snapshot date: 2026-08-21. Package version 0.2.0 (in development), database
 version 2026.12.1, schema version 5.
 
 ---
@@ -733,6 +733,8 @@ gift_graph(quality = NULL)       # quality: "exact" | "compartment_inexact"
 map_markers(annotation_table, namespace = NULL)
 evaluate_reactions(annotation_table, namespace = NULL)
 evaluate_gifts(annotation_table, namespace = NULL, gene_id = NULL, max_genes = 5000)
+evaluate_gifts_community(annotation_table, genome_id = NULL, gene_id = NULL,
+                         max_genes = 5000, workers = NULL)
 trace_gift(result, gift_id, route_id = NULL)
 ```
 
@@ -762,6 +764,13 @@ or number the markers with `gene_id = FALSE`. An input carrying more than
 genomes, whose pooled markers complete routes that no single genome encodes;
 `max_genes = Inf` evaluates any table as one genome.
 
+A table that really does span several genomes goes to
+`evaluate_gifts_community()`, which splits it on its `genome_id` column,
+evaluates each genome separately and in parallel, and returns the
+`gifter_community` that the quantitative trait layer reads. A genome evaluated
+there is identical to the same genome evaluated alone; the genome column is
+required and, unlike the gene column, is never inferred from column order.
+
 ```r
 annotations <- data.frame(
   gene_id   = paste0("gene_", 1:9),
@@ -774,7 +783,7 @@ result <- evaluate_gifts(annotations)
 
 ### Result structure
 
-`evaluate_gifts()` returns an S3 `gifter_result` list of tibbles, all of which
+`evaluate_gifts()` returns an S3 `gifter_genome` list of tibbles, all of which
 are retained so the call is auditable:
 
 - `gifts` — the call summary: `gift_id`, `name`, `mode`, `substrate_class`,

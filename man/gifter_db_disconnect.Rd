@@ -2,12 +2,9 @@
 % Please edit documentation in R/database.R
 \name{gifter_db_disconnect}
 \alias{gifter_db_disconnect}
-\alias{giftr_db_disconnect}
 \title{Disconnect from a gifter database}
 \usage{
 gifter_db_disconnect(db)
-
-giftr_db_disconnect(db)
 }
 \arguments{
 \item{db}{A connection returned by [gifter_db_connect()].}
@@ -18,9 +15,3 @@ giftr_db_disconnect(db)
 \description{
 Disconnect from a gifter database
 }
-\section{Compatibility}{
-
-`giftr_db_disconnect()` is retained as an alias for code written before the
-package was renamed to gifter.
-}
-

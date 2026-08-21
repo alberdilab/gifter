@@ -223,7 +223,7 @@ gift_cycles <- function(db = NULL, limit = 100L) {
 #'   list of the members that are not complete.
 #' @export
 evaluate_gift_cycles <- function(result, db = NULL, limit = 100L) {
-  if (!inherits(result, c("gifter_result", "giftr_result"))) {
+  if (!inherits(result, "gifter_genome")) {
     stop("result must come from evaluate_gifts()", call. = FALSE)
   }
   cycles <- gift_cycles(db = db, limit = limit)

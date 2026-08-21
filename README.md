@@ -169,6 +169,19 @@ first other column proposed for approval (`gene_id = "locus_tag"`,
 input carrying more than `max_genes` distinct genes is questioned as a possible
 collection of genomes.
 
+A table that really does span several genomes goes to
+`evaluate_gifts_community()`, which splits it on its `genome_id` column,
+evaluates every genome separately and in parallel, and returns the community
+container directly:
+
+```r
+community <- evaluate_gifts_community(annotations)   # genome_id, gene_id, namespace, accession
+community_traits(community)
+```
+
+A genome evaluated there is identical to the same genome evaluated alone, and
+the number of workers changes wall time and nothing else.
+
 `evaluate_gifts()` returns a transparent list of tibbles: `gifts`, `routes`,
 `reactions`, `systems`, `components`, and `evidence`, plus a `structural`,
 `regulatory` and `defense` view for the machinery types. Incomplete traits
@@ -250,10 +263,11 @@ carbohydrate <- gift_universe(preset = "carbohydrate_degradation")
 genome_traits(result, universes = list(carbohydrate))
 ```
 
-For several genomes, bind them into a community and ask how capability is
-distributed:
+For several genomes, evaluate them together — or bind results you already
+have — and ask how capability is distributed:
 
 ```r
+community <- evaluate_gifts_community(annotations)   # one table, split by genome_id
 community <- gifter_community(A = result_a, B = result_b, C = result_c)
 community_traits(community)          # richness, provider counts, singletons
 community_network(community)         # potential resource handoffs

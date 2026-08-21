@@ -2,7 +2,6 @@
 % Please edit documentation in R/community.R
 \name{gifter_community}
 \alias{gifter_community}
-\alias{giftr_community}
 \title{Bind genome results into a genome-resolved community}
 \usage{
 gifter_community(
@@ -12,18 +11,12 @@ gifter_community(
   policy = "none",
   threshold = NULL
 )
-
-giftr_community(
-  ...,
-  abundance = NULL,
-  quality = NULL,
-  policy = "none",
-  threshold = NULL
-)
 }
 \arguments{
-\item{...}{Named results from [evaluate_gifts()], one per genome. The
-argument names become the genome identifiers.}
+\item{...}{Named `gifter_genome` results from [evaluate_gifts()], one per
+genome. The argument names become the genome identifiers. A whole
+annotation table carrying a `genome_id` column is bound in one call by
+[evaluate_gifts_community()] instead.}
 
 \item{abundance}{Optional named numeric vector of relative abundances over
 the same genomes. Must be non-negative and not all zero.}
@@ -58,13 +51,6 @@ capability: a GIFT encoded by an abundant genome is not thereby more active,
 more expressed or more important, and [community_traits()] keeps
 presence-based and abundance-weighted quantities in separate rows for that
 reason.
-}
-
-\section{Compatibility}{
-
-`giftr_community()` is retained as an alias, and returned objects retain
-`giftr_community` as a secondary class, for code written before the package
-was renamed to gifter.
 }
 
 \examples{

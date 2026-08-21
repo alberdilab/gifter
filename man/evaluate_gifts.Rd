@@ -34,7 +34,7 @@ questioned as a possible collection of genomes. `Inf` evaluates any table
 as a single genome without asking.}
 }
 \value{
-A `gifter_result` list. Its `gifts` member is the call summary;
+A `gifter_genome` list. Its `gifts` member is the call summary;
   the remaining tibbles retain the full evidence chain.
 }
 \description{

@@ -284,7 +284,7 @@ gift_universe <- function(type = NULL, mode = NULL, facet = NULL, value = NULL,
             connection, definition$universe_pk[[1L]]
           )
         ),
-        class = c("gifter_universe", "giftr_universe", "list")
+        class = c("gifter_universe", "list")
       ))
     }
 
@@ -364,7 +364,7 @@ gift_universe <- function(type = NULL, mode = NULL, facet = NULL, value = NULL,
         bounded = isTRUE(bounded),
         database_version = gifter_db_version(connection)$gifter_db_version
       ),
-      class = c("gifter_universe", "giftr_universe", "list")
+      class = c("gifter_universe", "list")
     )
   })
 }
@@ -382,9 +382,6 @@ print.gifter_universe <- function(x, ...) {
   cat("  database version:", x$database_version, "\n")
   invisible(x)
 }
-
-#' @export
-print.giftr_universe <- print.gifter_universe
 
 # The universes reported when the caller supplies none. Types and modes
 # partition the catalogue two ways, because gift_type barely partitions a

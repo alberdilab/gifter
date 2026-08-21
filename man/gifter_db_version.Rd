@@ -2,28 +2,18 @@
 % Please edit documentation in R/database.R
 \name{gifter_db_version}
 \alias{gifter_db_version}
-\alias{giftr_db_version}
 \title{Report gifter package and database versions}
 \usage{
 gifter_db_version(db = NULL)
-
-giftr_db_version(db = NULL)
 }
 \arguments{
 \item{db}{Optional open gifter database connection.}
 }
 \value{
 A one-row tibble containing package, database, schema, and upstream
-  source versions. The deprecated `giftr_db_version` column duplicates
-  `gifter_db_version` for compatibility with existing result consumers.
+  source versions.
 }
 \description{
 The biological database version is deliberately independent of the R
 package version.
 }
-\section{Compatibility}{
-
-`giftr_db_version()` is retained as an alias for code written before the
-package was renamed to gifter.
-}
-

@@ -13,7 +13,85 @@ versioned with the package.
 
 ---
 
-## Package 0.1.2 (in development)
+## Package 0.2.0 (in development)
+
+Renumbered from 0.1.2, which was never released. The removal of the giftr names
+and the renaming of the genome result class are the first changes that break
+code written against a published gifter version, which a patch number would not
+have said.
+
+### 2026-08-21T04:55Z — The giftr names are removed
+
+**Change.** The pre-rename aliases are gone: the exported functions
+`giftr_community()`, `giftr_db_connect()`, `giftr_db_disconnect()`,
+`giftr_db_version()`, `validate_giftr_sources()`, `build_giftr_database()` and
+`write_giftr_database_html()`; the secondary `giftr_*` S3 classes carried by
+every result, community, universe, traits and network object, with their print
+methods; and the `giftr_db_version` column duplicated into `gifter_db_version()`.
+`test-package-rename.R` now asserts their absence instead of their presence.
+**No biological, schema, database or evaluation logic change:** every remaining
+name behaves exactly as before.
+
+**Why.** A compatibility alias is a promise to code that already exists. This
+package was never published as giftr, so the aliases carried that promise to
+nobody while doubling the public surface, the class vector of every object, and
+the columns of a version report that is read programmatically.
+
+**Effect.** Code written against the `gifter_*` names is unaffected. Anything
+matching on `giftr_` — a class test, an export, or the duplicated version
+column — has nothing left to match, which is the intent.
+
+### 2026-08-21T04:55Z — A genome result is a gifter_genome
+
+**Change.** The class of an `evaluate_gifts()` result is `gifter_genome`, not
+`gifter_result`, and it prints as `<gifter_genome>`. `trace_gift()`,
+`genome_traits()`, `evaluate_gift_cycles()` and `gifter_community()` accept the
+new class. `gifter_reaction_result`, which `evaluate_reactions()` returns, is
+unchanged. **No biological, schema, database, evaluation logic or
+result-structure change:** the same list of tibbles under a different class.
+
+**Why.** The result layer now has two members, one genome and one community.
+`gifter_result` named neither: beside `gifter_community` it read as *the*
+result rather than as one genome's, which is the distinction the whole
+community layer rests on.
+
+**Effect.** `inherits(x, "gifter_result")` no longer matches. Nothing else that
+reads a result is affected, since every accessor was updated with the class.
+
+### 2026-08-21T04:55Z — evaluate_gifts_community() evaluates a table of genomes
+
+**Change.** New exported `evaluate_gifts_community(annotation_table, namespace,
+db, genome_id, gene_id, max_genes, workers, abundance, quality, policy,
+threshold)`. It splits a multi-genome annotation table on its `genome_id`
+column, evaluates every genome separately through the same evaluator as
+`evaluate_gifts()`, and returns the `gifter_community()` the quantitative trait
+layer reads. Genomes are evaluated in forked workers, one read-only database
+connection each, defaulting to `getOption("mc.cores")` or one fewer than the
+number of physical cores and capped at the number of genomes; forking is
+unavailable on Windows and for a connection with no file behind it, where the
+genomes are evaluated one after another. A worker that fails or dies is refused
+rather than passed off as a result, and reports the error the failing genome
+raised. The single-genome guardrail is applied
+to each genome separately and names the genome it suspects. `parallel` is added
+to `Imports`, and `gifter_community()`'s body moves to an internal constructor
+taking a list, so that a genome named `policy` or `abundance` cannot be
+mistaken for an argument. **No biological, schema, database or evaluation logic
+change:** a genome evaluated in a community is identical to the same genome
+evaluated alone.
+
+**Why.** The single-genome guardrail added in 0.1.1 points at a function that
+did not exist. Markers pooled across genomes complete routes that no member
+encodes, so a collection needed a supported way in rather than a warning to
+work around — and the split, being per genome, is embarrassingly parallel.
+
+**Effect.** A community is built from one table in one call. The genome column
+is required and, unlike the gene column, is never proposed from column order: a
+misread gene column mislabels evidence inside a genome, while a misread genome
+column redraws the genomes themselves and leaves no call looking wrong. Workers
+change wall time only — the calls, their order and the assembled community are
+identical at any number, which `test-evaluate-community.R` asserts along with
+the per-genome identity against `evaluate_gifts()` and the pooled call the
+split prevents.
 
 ### 2026-08-21T04:25Z — Guardrail messages are readable at any console width
 

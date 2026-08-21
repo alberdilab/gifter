@@ -2,12 +2,9 @@
 % Please edit documentation in R/database-build.R
 \name{validate_gifter_sources}
 \alias{validate_gifter_sources}
-\alias{validate_giftr_sources}
 \title{Validate human-readable gifter database sources}
 \usage{
 validate_gifter_sources(source_dir, stop_on_error = TRUE)
-
-validate_giftr_sources(source_dir, stop_on_error = TRUE)
 }
 \arguments{
 \item{source_dir}{Directory containing the gifter TSV source tables.}
@@ -23,9 +20,3 @@ duplicate identifiers, broken references, missing hierarchy levels, invalid
 directions, malformed anchor boundaries, graph cycles, or inconsistent
 release metadata are reported as build errors.
 }
-\section{Compatibility}{
-
-`validate_giftr_sources()` is retained as an alias for code written before
-the package was renamed to gifter.
-}
-

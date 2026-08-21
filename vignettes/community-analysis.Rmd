@@ -9,6 +9,9 @@ vignette: >
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+# Keep the parallel evaluation below within the two workers a package check
+# allows; nothing about the calls depends on the number.
+options(mc.cores = 2)
 ```
 
 Vignettes 1 and 2 worked on one genome. This one asks the questions that only
@@ -83,6 +86,42 @@ The argument names become the genome identifiers, and the container refuses two
 things that would silently produce nonsense: genomes evaluated against different
 database releases, and an abundance vector that does not name exactly these
 genomes.
+
+### Starting from one annotation table
+
+Real annotations rarely arrive as one object per genome. When they arrive as a
+single table carrying a `genome_id` column, `evaluate_gifts_community()` does
+the split, the evaluation and the binding in one call:
+
+```{r}
+annotations <- data.frame(
+  genome_id = c("A", rep("B", 2), rep(c("C", "D"), each = 5)),
+  gene_id = c("g1", "g1", "g2", rep(paste0("g", 1:5), 2)),
+  namespace = c("KO", "CAZY", "CAZY", rep("KO", 10)),
+  accession = c(
+    "K01209", "GH11", "GH39",
+    rep(c("K10543", "K10544", "K10545", "K01805", "K00854"), 2)
+  ),
+  stringsAsFactors = FALSE
+)
+
+evaluate_gifts_community(annotations)
+```
+
+The genomes are evaluated separately and in parallel, one worker per genome up
+to the number of cores. That is a statement about wall time only: a genome
+evaluated in a community is identical to the same genome evaluated alone, and
+the calls do not depend on how many workers ran them.
+
+The `genome_id` column is required and is never inferred from column order. A
+misread gene column mislabels evidence inside a genome, which is why one may be
+proposed for approval; a misread genome column redraws the genomes themselves,
+and no call in the result would look wrong afterwards. Name a differently
+titled column with `genome_id = "bin"`.
+
+Pooling is what this avoids. Evaluated as one genome, the same table would
+report the whole arabinoxylan chain as a single capability — a true statement
+about the collection and a false one about every member of it.
 
 ## Step 2: how is capability distributed?
 

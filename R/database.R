@@ -29,9 +29,7 @@
 }
 
 .gifter_database_version_value <- function(version) {
-  value <- version$gifter_db_version
-  if (is.null(value)) value <- version$giftr_db_version
-  value
+  version$gifter_db_version
 }
 
 .normalize_gift_id <- function(gift_id) {
@@ -61,9 +59,6 @@
 #' @param read_only Open the database read-only. This is recommended for
 #'   annotation workflows.
 #' @return A DBI connection. Close it with [gifter_db_disconnect()].
-#' @section Compatibility:
-#' `giftr_db_connect()` is retained as an alias for code written before the
-#' package was renamed to gifter.
 #' @export
 gifter_db_connect <- function(path = NULL, read_only = TRUE) {
   if (is.null(path)) path <- .gifter_database_path()
@@ -80,9 +75,6 @@ gifter_db_connect <- function(path = NULL, read_only = TRUE) {
 #'
 #' @param db A connection returned by [gifter_db_connect()].
 #' @return `TRUE`, invisibly, when the connection is closed.
-#' @section Compatibility:
-#' `giftr_db_disconnect()` is retained as an alias for code written before the
-#' package was renamed to gifter.
 #' @export
 gifter_db_disconnect <- function(db) {
   if (!inherits(db, "DBIConnection")) stop("db must be a DBI connection", call. = FALSE)
@@ -96,11 +88,7 @@ gifter_db_disconnect <- function(db) {
 #'
 #' @param db Optional open gifter database connection.
 #' @return A one-row tibble containing package, database, schema, and upstream
-#'   source versions. The deprecated `giftr_db_version` column duplicates
-#'   `gifter_db_version` for compatibility with existing result consumers.
-#' @section Compatibility:
-#' `giftr_db_version()` is retained as an alias for code written before the
-#' package was renamed to gifter.
+#'   source versions.
 #' @export
 gifter_db_version <- function(db = NULL) {
   .with_gifter_db(db, function(connection) {
@@ -113,31 +101,12 @@ gifter_db_version <- function(db = NULL) {
       )
     )
     result$package_version <- as.character(utils::packageVersion("gifter"))
-    result$giftr_db_version <- result$gifter_db_version
     result[c(
-      "package_version", "gifter_db_version", "giftr_db_version",
+      "package_version", "gifter_db_version",
       "schema_version", "build_date",
       "rhea_release", "chebi_release", "kegg_release", "source_commit"
     )]
   })
-}
-
-#' @rdname gifter_db_connect
-#' @export
-giftr_db_connect <- function(path = NULL, read_only = TRUE) {
-  gifter_db_connect(path = path, read_only = read_only)
-}
-
-#' @rdname gifter_db_disconnect
-#' @export
-giftr_db_disconnect <- function(db) {
-  gifter_db_disconnect(db)
-}
-
-#' @rdname gifter_db_version
-#' @export
-giftr_db_version <- function(db = NULL) {
-  gifter_db_version(db)
 }
 
 #' List curated genome-inferred functional traits

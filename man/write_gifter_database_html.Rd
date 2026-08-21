@@ -2,16 +2,9 @@
 % Please edit documentation in R/database-visualization.R
 \name{write_gifter_database_html}
 \alias{write_gifter_database_html}
-\alias{write_giftr_database_html}
 \title{Write an interactive HTML atlas of the gifter database}
 \usage{
 write_gifter_database_html(
-  output = "gifter-database.html",
-  database = NULL,
-  open = FALSE
-)
-
-write_giftr_database_html(
   output = "gifter-database.html",
   database = NULL,
   open = FALSE
@@ -47,9 +40,3 @@ can be grouped by category and filtered by start and end anchor, and a
 selected GIFT opens in a dialog over the table. All styles, scripts, and data
 are embedded so the output can be opened or shared as one file.
 }
-\section{Compatibility}{
-
-`write_giftr_database_html()` is retained as an alias for code written
-before the package was renamed to gifter.
-}
-

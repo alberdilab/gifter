@@ -341,7 +341,7 @@
 genome_traits <- function(result, universes = NULL, genome_id = "genome",
                           quality = NULL, policy = "none", threshold = NULL,
                           db = NULL) {
-  if (!inherits(result, c("gifter_result", "giftr_result"))) {
+  if (!inherits(result, "gifter_genome")) {
     stop("result must come from evaluate_gifts()", call. = FALSE)
   }
   if (length(genome_id) != 1L || is.na(genome_id) || !nzchar(as.character(genome_id))) {
@@ -366,7 +366,7 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
     if (is.null(universes)) universes <- .default_universes(connection)
     if (!is.list(universes) || !length(universes) ||
         !all(vapply(
-          universes, inherits, logical(1), c("gifter_universe", "giftr_universe")
+          universes, inherits, logical(1), "gifter_universe"
         ))) {
       stop("universes must be a non-empty list of gift_universe() objects", call. = FALSE)
     }
@@ -411,7 +411,7 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
         ),
         database_version = result$database_version
       ),
-      class = c("gifter_traits", "giftr_traits", "list")
+      class = c("gifter_traits", "list")
     )
   })
 }
@@ -463,6 +463,3 @@ print.gifter_traits <- function(x, ...) {
   }
   invisible(x)
 }
-
-#' @export
-print.giftr_traits <- print.gifter_traits
