@@ -92,10 +92,10 @@ test_that("the worker count is bounded by the work and by the platform", {
 })
 
 test_that("a worker that fails or dies is not passed off as a result", {
-  # mclapply reports a failure as a value rather than by raising it, so a
+  # A child reports a failure as a value rather than by raising it, so a
   # community could otherwise come back quietly short of a genome.
   testthat::local_mocked_bindings(
-    .evaluate_genome_block = function(tables, namespace, path) {
+    .evaluate_genome_block = function(tables, namespace, path, ticker = NULL) {
       stop("no database in this worker")
     }
   )
@@ -108,7 +108,7 @@ test_that("a worker that fails or dies is not passed off as a result", {
 
   # A killed worker returns nothing at all, which is just as short a community.
   testthat::local_mocked_bindings(
-    .evaluate_genome_block = function(tables, namespace, path) NULL
+    .evaluate_genome_block = function(tables, namespace, path, ticker = NULL) NULL
   )
   expect_match(
     squished_condition(
@@ -116,6 +116,73 @@ test_that("a worker that fails or dies is not passed off as a result", {
     ),
     "Evaluation failed"
   )
+})
+
+test_that("progress counts genomes evaluated, however the work was spread", {
+  # The display exists because a large community runs for a long time, so what
+  # it counts has to be the work the caller asked for. Two workers over three
+  # genomes means the blocks land in two pieces; the count must still move
+  # genome by genome, and must end on every genome having been evaluated.
+  seen <- list()
+  recorder <- function(total, enabled) {
+    list(
+      enabled = TRUE,
+      update = function(evaluated) seen[[length(seen) + 1L]] <<- evaluated,
+      done = function() invisible(NULL),
+      dismiss = function() invisible(NULL)
+    )
+  }
+  testthat::local_mocked_bindings(.genome_progress = recorder)
+
+  for (workers in c(1, 2)) {
+    seen <- list()
+    community <- evaluate_gifts_community(
+      arabinoxylan_table(), workers = workers, progress = TRUE
+    )
+    counted <- unlist(seen)
+    expect_length(community$genome_id, 3L)
+    expect_equal(max(counted), 3L)
+    # A count that went backwards would report genomes as unevaluated again.
+    expect_false(is.unsorted(counted))
+  }
+})
+
+test_that("a forked child reports its genomes to the parent it cannot speak to", {
+  # The count crosses the process boundary through a file, one appended byte per
+  # genome, because a child has no console and the parent is waiting on results.
+  ticker <- .new_genome_ticker(TRUE)
+  on.exit(unlink(ticker), add = TRUE)
+  expect_equal(.ticked_genomes(ticker), 0L)
+
+  jobs <- lapply(1:3, function(job) {
+    parallel::mcparallel({
+      .tick_genome(ticker)
+      .tick_genome(ticker)
+      TRUE
+    })
+  })
+  parallel::mccollect(jobs)
+  # Six concurrent appends from three processes, and none of them lost.
+  expect_equal(.ticked_genomes(ticker), 6L)
+
+  # With the display off there is no file to write to, and a tick costs nothing.
+  expect_null(.new_genome_ticker(FALSE))
+  expect_null(.tick_genome(NULL))
+  expect_equal(.ticked_genomes(NULL), 0L)
+})
+
+test_that("progress is shown to a watching console and to nobody else", {
+  # A bar written into a log, a knitted document or a package check is noise,
+  # and one genome is never partway through.
+  expect_identical(.resolve_progress(NULL, genomes = 3), interactive())
+  expect_false(.resolve_progress(NULL, genomes = 1))
+  expect_true(.resolve_progress(TRUE, genomes = 1))
+  expect_false(.resolve_progress(FALSE, genomes = 3))
+  expect_error(.resolve_progress("yes", genomes = 3), "TRUE")
+
+  # The default is silent here, which is also what keeps the calls the only
+  # thing this function puts on the console.
+  expect_silent(evaluate_gifts_community(arabinoxylan_table(), workers = 2))
 })
 
 test_that("the genome column is required and never inferred", {

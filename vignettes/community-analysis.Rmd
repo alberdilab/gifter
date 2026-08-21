@@ -113,6 +113,13 @@ to the number of cores. That is a statement about wall time only: a genome
 evaluated in a community is identical to the same genome evaluated alone, and
 the calls do not depend on how many workers ran them.
 
+At an interactive console the run reports itself as it goes, in genomes
+evaluated out of genomes to evaluate, with an estimate of the time remaining.
+The count moves genome by genome whichever worker produced each one, so it
+measures the community and not the way the work was divided. A script or a
+document like this one is silent unless it asks for the display with
+`progress = TRUE`.
+
 The `genome_id` column is required and is never inferred from column order. A
 misread gene column mislabels evidence inside a genome, which is why one may be
 proposed for approval; a misread genome column redraws the genomes themselves,

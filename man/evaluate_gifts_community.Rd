@@ -12,6 +12,7 @@ evaluate_gifts_community(
   gene_id = NULL,
   max_genes = 5000,
   workers = NULL,
+  progress = NULL,
   abundance = NULL,
   quality = NULL,
   policy = "none",
@@ -40,6 +41,10 @@ every genome without asking.}
 \item{workers}{Number of genomes to evaluate at once. Defaults to the
 `mc.cores` option, or to one fewer than the number of physical cores, and
 is capped at the number of genomes.}
+
+\item{progress}{Whether to display a progress bar. Defaults to `TRUE` at an
+interactive console evaluating more than one genome, and to `FALSE`
+otherwise. The display never changes a call.}
 
 \item{abundance, quality, policy, threshold}{Passed to [gifter_community()].}
 }
@@ -77,6 +82,14 @@ read-only database connection. Parallelism changes wall time only: the calls,
 their order, and the assembled community are the same at any number of
 workers. Forking is unavailable on Windows and for a connection with no file
 behind it, where the genomes are evaluated one after another.
+
+A community of any size reports its progress at an interactive console, in
+genomes evaluated out of genomes to evaluate, with an estimate of the time
+remaining. The count advances genome by genome whether one worker or many
+produced them, so it measures the run rather than the way the work was
+spread out. Nothing is reported when there is nobody watching, which is why
+a script, a knitted document and a package check stay silent unless they ask
+for the display with `progress = TRUE`.
 }
 
 \examples{

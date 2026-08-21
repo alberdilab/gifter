@@ -180,7 +180,9 @@ community_traits(community)
 ```
 
 A genome evaluated there is identical to the same genome evaluated alone, and
-the number of workers changes wall time and nothing else.
+the number of workers changes wall time and nothing else. A large community
+reports its progress at an interactive console, in genomes evaluated out of
+genomes to evaluate, with an estimate of the time remaining.
 
 `evaluate_gifts()` returns a transparent list of tibbles: `gifts`, `routes`,
 `reactions`, `systems`, `components`, and `evidence`, plus a `structural`,

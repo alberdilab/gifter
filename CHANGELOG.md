@@ -13,6 +13,43 @@ versioned with the package.
 
 ---
 
+## Unreleased
+
+### 2026-08-21T12:20Z — A community evaluation reports its progress
+
+**Change.** `evaluate_gifts_community()` gains a `progress` argument and shows
+a cli progress bar while it runs: genomes evaluated out of genomes to evaluate,
+with a bar, a percentage and an estimate of the time remaining. It defaults to
+`TRUE` at an interactive console evaluating more than one genome and to `FALSE`
+otherwise, so scripts, knitted documents and `R CMD check` stay silent.
+
+The forked path was rebuilt around `parallel::mcparallel()` and
+`parallel::mccollect()` in place of `parallel::mclapply()`. Each block is still
+one child holding its own read-only connection, and blocks are still returned to
+the positions they were split from; what changed is that the parent now collects
+the children as they finish instead of blocking until the last one returns, and
+so has time between results to redraw the display. Children report the count
+through a file, one appended byte per genome evaluated, since a forked child has
+no console of its own. Abandoned children are killed rather than left running.
+
+**No evaluation logic change.** The calls, their evidence, their order and the
+assembled community are exactly what they were, at any number of workers and
+with the display on or off.
+
+**Why.** Parallel evaluation exists in this function for one reason — a
+community of thousands of genomes takes minutes to hours — and a run of that
+length with a silent console is indistinguishable from a hung one. Nothing in
+the old design could say how far along it was: `mclapply()` holds the parent
+until every child returns, and a child cannot write to the parent's console.
+
+**Effect.** Progress is reported in genomes, the unit the caller asked for,
+never in workers started or blocks finished, which are an implementation detail
+of how the same work was spread out. The count therefore reads the same at one
+worker and at thirty-two. A run that aborts clears the bar rather than leaving
+one behind that claims to have finished.
+
+---
+
 ## Package 0.2.0
 
 Released 2026-08-21. Renumbered from 0.1.2, which was never released. The
