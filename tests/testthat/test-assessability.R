@@ -98,14 +98,14 @@ test_that("the completeness policy refuses to invent its own parameters", {
     "missing completeness for"
   )
   expect_error(
-    genome_traits(result, quality = c(genome = 1.4), policy = "completeness",
+    genome_traits(result, quality = c(genome = 140), policy = "completeness",
                   threshold = 0.9),
-    "between 0 and 1"
+    "between 0 and 100"
   )
   expect_error(
     genome_traits(result, quality = c(genome = 0.5), policy = "completeness",
-                  threshold = 2),
-    "one proportion between 0 and 1"
+                  threshold = 200),
+    "one completeness value"
   )
   expect_error(genome_traits(result, policy = "guesswork"), "should be one of")
 })
@@ -121,6 +121,84 @@ test_that("quality may be supplied as a data frame", {
     genome_traits(purine_result(), quality = data.frame(genome_id = "genome"),
                   policy = "completeness", threshold = 0.9),
     "`genome_id` and `completeness`"
+  )
+})
+
+test_that("an unnamed completeness vector is refused by name", {
+  # The commonest mistake is a completeness column pulled out of a quality
+  # table. Aligning it by position would assign one genome's fragmentation to
+  # another, so the refusal says what is missing and how to supply it.
+  expect_error(
+    genome_traits(purine_result(), genome_id = "MAG", quality = c(0.99, 0.55),
+                  policy = "completeness", threshold = 0.9),
+    "without names"
+  )
+  expect_error(
+    genome_traits(purine_result(), genome_id = "MAG", quality = "0.99",
+                  policy = "completeness", threshold = 0.9),
+    "named numeric vector"
+  )
+})
+
+test_that("completeness may be stated as a percentage", {
+  # Every MAG quality table in circulation reports percentages. A proportion
+  # cannot exceed 1, so the scale is readable from the values themselves and
+  # the two statements of the same genome must agree exactly.
+  universe <- bounded_universe()
+  as_proportion <- suppressWarnings(genome_traits(
+    purine_result(), universes = list(universe), genome_id = "MAG",
+    quality = c(MAG = 0.55), policy = "completeness", threshold = 0.9
+  ))
+  as_percentage <- suppressWarnings(genome_traits(
+    purine_result(), universes = list(universe), genome_id = "MAG",
+    quality = c(MAG = 55), policy = "completeness", threshold = 90
+  ))
+  expect_equal(as_percentage$assessability$completeness[["MAG"]], 0.55)
+  expect_equal(as_percentage$assessability$threshold, 0.9)
+  expect_equal(as_percentage$metrics$value, as_proportion$metrics$value)
+  expect_equal(as_percentage$metrics$assessable, as_proportion$metrics$assessable)
+  # A data frame is read on the same terms, and 100 is a complete genome.
+  from_frame <- genome_traits(
+    purine_result(), universes = list(universe), genome_id = "MAG",
+    quality = data.frame(genome_id = c("MAG", "other"),
+                         completeness = c(98, 100)),
+    policy = "completeness", threshold = 90
+  )
+  expect_equal(from_frame$assessability$completeness[["MAG"]], 0.98)
+})
+
+test_that("the scale is decided over the table, not over one genome", {
+  # A 0.99 sitting in a percentage table is a genome that was barely recovered,
+  # not a nearly complete one. gifter reads it that way and says so, because
+  # the two readings differ by a factor of one hundred.
+  expect_warning(
+    community <- gifter_community(
+      A = arabinoxylan_genome("debrancher"),
+      B = arabinoxylan_genome("backbone"),
+      quality = c(A = 99, B = 0.99), policy = "completeness", threshold = 90
+    ),
+    "percentages"
+  )
+  expect_equal(community$assessability$completeness[["B"]], 0.0099)
+  expect_equal(sum(is.na(community$matrix[, "A"])), 0L)
+  expect_gt(sum(is.na(community$matrix[, "B"])), 0L)
+})
+
+test_that("a percentage scale cannot promote an unsupported GIFT", {
+  # The invariant holds on both scales: only the denominator may move.
+  universe <- gift_universe(label = "all curated GIFTs")
+  supported <- function(traits) {
+    sort(traits$trace$gift_id[traits$trace$metric_id == "gift_richness"])
+  }
+  baseline <- supported(
+    genome_traits(purine_result(), universes = list(universe))
+  )
+  expect_identical(
+    supported(suppressWarnings(genome_traits(
+      purine_result(), universes = list(universe), genome_id = "MAG",
+      quality = c(MAG = 20), policy = "completeness", threshold = 90
+    ))),
+    baseline
   )
 })
 

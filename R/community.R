@@ -57,13 +57,15 @@
 #' @param abundance Optional named numeric vector of relative abundances over
 #'   the same genomes. Must be non-negative and not all zero.
 #' @param quality Optional genome completeness, as a named numeric vector or a
-#'   data frame with `genome_id` and `completeness` columns, on a 0-1 scale.
+#'   data frame with `genome_id` and `completeness` columns. Read as
+#'   proportions, or as percentages when any value exceeds 1.
 #' @param policy Assessability policy: `"none"` or `"completeness"`. See
 #'   [genome_traits()]. Indeterminacy is resolved per genome, so a fragmented
 #'   member's silence is withheld from a provider count while a complete
 #'   member's is not.
 #' @param threshold Completeness below which a negative call is treated as
-#'   indeterminate. Required by the `"completeness"` policy.
+#'   indeterminate, on the same scale as `quality`. Required by the
+#'   `"completeness"` policy.
 #' @return A `gifter_community` list holding the genome identifiers, the call
 #'   matrix, the abundance vector if supplied, and the `database_version`.
 #' @examples
@@ -139,6 +141,7 @@ gifter_community <- function(..., abundance = NULL, quality = NULL,
     }
   }
 
+  threshold <- .normalize_threshold(threshold)
   policy <- .resolve_policy(policy, quality, threshold)
   completeness <- .normalize_quality(quality, genomes)
 

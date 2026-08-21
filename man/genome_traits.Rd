@@ -24,13 +24,15 @@ bounded biomass-essential anabolic universe, is used if omitted.}
 \item{genome_id}{Identifier reported in the `target_id` column.}
 
 \item{quality}{Optional genome completeness, as a named numeric vector or a
-data frame with `genome_id` and `completeness` columns, on a 0-1 scale.}
+data frame with `genome_id` and `completeness` columns. Read as
+proportions, or as percentages when any value exceeds 1.}
 
 \item{policy}{Assessability policy: `"none"` or `"completeness"`. See
 details.}
 
 \item{threshold}{Completeness below which a negative call is treated as
-indeterminate. Required by the `"completeness"` policy and has no default.}
+indeterminate, on the same scale as `quality`. Required by the
+`"completeness"` policy and has no default.}
 
 \item{db}{Optional open gifter database connection.}
 }

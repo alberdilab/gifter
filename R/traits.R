@@ -316,11 +316,13 @@
 #'   bounded biomass-essential anabolic universe, is used if omitted.
 #' @param genome_id Identifier reported in the `target_id` column.
 #' @param quality Optional genome completeness, as a named numeric vector or a
-#'   data frame with `genome_id` and `completeness` columns, on a 0-1 scale.
+#'   data frame with `genome_id` and `completeness` columns. Read as
+#'   proportions, or as percentages when any value exceeds 1.
 #' @param policy Assessability policy: `"none"` or `"completeness"`. See
 #'   details.
 #' @param threshold Completeness below which a negative call is treated as
-#'   indeterminate. Required by the `"completeness"` policy and has no default.
+#'   indeterminate, on the same scale as `quality`. Required by the
+#'   `"completeness"` policy and has no default.
 #' @param db Optional open gifter database connection.
 #' @return A `gifter_traits` list with `metrics` (one row per trait),
 #'   `trace` (the GIFTs behind each trait), `universes`, and
@@ -348,6 +350,7 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
     stop("genome_id must be one non-empty identifier", call. = FALSE)
   }
   genome_id <- as.character(genome_id)
+  threshold <- .normalize_threshold(threshold)
   policy <- .resolve_policy(policy, quality, threshold)
   completeness <- .normalize_quality(quality, genome_id)
 

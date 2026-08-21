@@ -507,6 +507,15 @@ nothing else. And **indeterminacy is resolved per genome**, so a fragmented
 member's silence is withheld from a community provider denominator while a
 complete member's is not.
 
+Completeness is read on either scale. A set of values whose largest member
+exceeds 1 can only be percentages, because a proportion cannot; a set that stays
+at or below 1 is read as proportions, so 1 is a complete genome rather than a 1%
+one. The scale is decided once over every value supplied and applies to the
+threshold too, so an analysis stated entirely in percentages and the same
+analysis stated in proportions are the same analysis. The one case the rule
+cannot settle — a genome below 1% inside a percentage table — is warned about
+rather than assumed.
+
 The `"completeness"` policy has no default threshold. How complete a genome must
 be before its silence is informative is the analyst's declared choice, and a
 package default would be read as a recommendation.

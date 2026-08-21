@@ -249,7 +249,10 @@ assessable[, c("value", "numerator", "denominator")]
 ```
 
 Supply a completeness estimate and a threshold, and negative calls on a genome
-below that threshold leave every denominator:
+below that threshold leave every denominator. Both may be stated as proportions
+or as the percentages CheckM and BUSCO report — a proportion cannot exceed 1, so
+gifter reads the scale from the values themselves, and `quality = c(MAG_001 =
+55), threshold = 90` is the same analysis as the call below:
 
 ```{r}
 fragmented <- genome_traits(

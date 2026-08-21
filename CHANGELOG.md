@@ -13,6 +13,52 @@ versioned with the package.
 
 ---
 
+## Package 0.3.1
+
+Released 2026-08-21. A patch version because no argument, function or return
+value changed: the change widens what an existing argument accepts, and every
+call written against 0.3.0 is read exactly as it was.
+
+### 2026-08-21T06:36Z — Genome completeness may be stated as a percentage
+
+**Change.** `quality` in `genome_traits()`, `gifter_community()` and
+`evaluate_gifts_community()`, and the `threshold` they are compared against,
+are now read on either scale. A set of completeness values whose largest member
+exceeds 1 is read as percentages and divided by 100; a set that stays at or
+below 1 is read as proportions, so `1` remains a complete genome rather than a
+1% one. The scale is decided once over every value supplied, not per genome, and
+a `threshold` is read the same way, so `quality = c(MAG = 55), threshold = 90`
+and `quality = c(MAG = 0.55), threshold = 0.9` are the same analysis.
+
+A percentage table that also holds a value strictly between 0 and 1 now warns:
+under the table's own scale that genome is almost empty, which is a hundredfold
+different from the proportion it may have been meant as, and the reading is
+stated rather than chosen silently. Values above 100, below 0, or missing are
+still refused, with an error naming both accepted scales.
+
+An unnamed numeric `quality` is still refused — the names are what say which
+genome each value belongs to, and aligning by position would assign one
+genome's fragmentation to another — but the refusal now names that case and
+shows how to supply the identifiers, instead of describing the accepted shapes.
+
+**No assessability change.** Completeness still informs the reading of absence
+and nothing else, on either scale: no policy promotes an unsupported GIFT to
+supported, and indeterminacy is still resolved per genome.
+
+**Why.** CheckM, BUSCO, GTDB and every MAG quality table in circulation report
+completeness as a percentage, so `quality = quality_table$completeness` is the
+natural call and it failed on the scale check. A proportion cannot exceed 1,
+which makes the two scales distinguishable from the values themselves; refusing
+to read a table that says what it means was pedantry, not rigour, and the
+guessing it avoided was never real.
+
+**Effect.** Callers working from a MAG quality table pass its completeness
+column unchanged, in whichever unit it was reported in. Existing proportional
+calls are untouched. The single ambiguity the rule cannot resolve — a genome
+below 1% inside a percentage table — is reported rather than assumed.
+
+---
+
 ## Package 0.3.0
 
 Released 2026-08-21. A minor version because the change adds an argument
