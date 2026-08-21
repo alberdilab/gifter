@@ -161,6 +161,14 @@ result$gifts[, c(
 )]
 ```
 
+One genome goes in per call. Because a mislabelled gene column and a pooled
+collection of genomes both produce calls that look correct, `evaluate_gifts()`
+settles both before evaluating: a table without a `gene_id` column has its
+first other column proposed for approval (`gene_id = "locus_tag"`,
+`gene_id = TRUE`, or `gene_id = FALSE` to number the markers instead), and an
+input carrying more than `max_genes` distinct genes is questioned as a possible
+collection of genomes.
+
 `evaluate_gifts()` returns a transparent list of tibbles: `gifts`, `routes`,
 `reactions`, `systems`, `components`, and `evidence`, plus a `structural`,
 `regulatory` and `defense` view for the machinery types. Incomplete traits

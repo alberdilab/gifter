@@ -7,7 +7,7 @@ its data model and evaluation logic work, what its reference database
 currently contains, what its public interface looks like, and which rules
 govern changes to it.
 
-Snapshot date: 2026-08-18. Package version 0.1.0 (in development), database
+Snapshot date: 2026-08-21. Package version 0.1.1 (in development), database
 version 2026.12.1, schema version 5.
 
 ---
@@ -732,7 +732,7 @@ gift_graph(quality = NULL)       # quality: "exact" | "compartment_inexact"
 ```r
 map_markers(annotation_table, namespace = NULL)
 evaluate_reactions(annotation_table, namespace = NULL)
-evaluate_gifts(annotation_table, namespace = NULL)
+evaluate_gifts(annotation_table, namespace = NULL, gene_id = NULL, max_genes = 5000)
 trace_gift(result, gift_id, route_id = NULL)
 ```
 
@@ -750,6 +750,17 @@ write_gifter_database_html(path, open = TRUE)
 columns; `gene_id` is optional but recommended, because it is what makes the
 evidence trace resolve to genes. Namespace can be supplied as a single argument
 instead of a column, and is inferred where unambiguous.
+
+Two input guardrails run before the evaluation, because both mistakes they
+catch produce a well-formed result that answers a question the user never
+asked. A table without a `gene_id` column is not guessed at: the first column
+that is neither `namespace` nor `accession` is proposed for approval, and
+without an answer the call fails rather than mislabelling the evidence chain.
+Approve it with `gene_id = TRUE`, name the column with `gene_id = "locus_tag"`,
+or number the markers with `gene_id = FALSE`. An input carrying more than
+`max_genes` distinct gene identifiers is questioned as a possible collection of
+genomes, whose pooled markers complete routes that no single genome encodes;
+`max_genes = Inf` evaluates any table as one genome.
 
 ```r
 annotations <- data.frame(

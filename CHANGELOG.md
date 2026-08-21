@@ -13,7 +13,37 @@ versioned with the package.
 
 ---
 
-## Package 0.1.0 (in development)
+## Package 0.1.1 (in development)
+
+### 2026-08-21T06:10Z — evaluate_gifts() questions inputs it cannot verify
+
+**Change.** `evaluate_gifts()` gains `gene_id` and `max_genes` and runs two
+input guardrails before evaluating. A table without a `gene_id` column no longer
+silently numbers its markers when another column could be the gene identifier:
+the first column that is neither `namespace` nor `accession` is proposed for
+approval, adopted with `gene_id = TRUE` or `gene_id = "column"`, refused with
+`gene_id = FALSE`, and left unresolved — an error — when there is nobody to ask.
+An input carrying more than `max_genes` distinct gene identifiers (5,000 by
+default) is questioned as a possible collection of genomes, declined with an
+error pointing at `evaluate_gifts_community()`, and reported as a warning when
+non-interactive, since a large genome is a legitimate input. `max_genes = Inf`
+skips the check. A table of markers alone, a named marker vector, and a table
+that already carries `gene_id` are evaluated unquestioned. **No biological,
+schema, database, evaluation logic or result-structure change:** the guardrails
+decide which input is evaluated, never what the calls are.
+
+**Why.** Both mistakes yield a well-formed result that answers a question the
+user never asked, and neither is visible in the calls. Adopting the wrong column
+attaches correct calls to the wrong loci, breaking every trace down to genes
+while nothing looks wrong. Pooling several genomes into one call completes
+routes from reactions drawn from different organisms, reporting a capability of
+the collection as a capability of a genome.
+
+**Effect.** An ambiguous gene column is settled by the user rather than by column
+order, and a pooled collection is caught at the input rather than published as a
+genome's capabilities. `map_markers()` and `evaluate_reactions()` are unchanged.
+
+## Package 0.1.0
 
 ### 2026-08-20T12:19Z — Reference-universe atlas guides analytical choice
 

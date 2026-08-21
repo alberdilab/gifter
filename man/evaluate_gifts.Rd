@@ -4,7 +4,13 @@
 \alias{evaluate_gifts}
 \title{Evaluate genome-inferred functional traits}
 \usage{
-evaluate_gifts(annotation_table, namespace = NULL, db = NULL)
+evaluate_gifts(
+  annotation_table,
+  namespace = NULL,
+  db = NULL,
+  gene_id = NULL,
+  max_genes = 5000
+)
 }
 \arguments{
 \item{annotation_table}{A data frame with `namespace` and `accession`
@@ -15,6 +21,17 @@ accessions.}
 Pfam, and TIGRFAM accessions are inferred where possible.}
 
 \item{db}{Optional open gifter database connection.}
+
+\item{gene_id}{Which column names genes when `annotation_table` has no
+`gene_id` column. `NULL`, the default, proposes the first column that is
+neither `namespace` nor `accession` and adopts it only with approval. A
+column name adopts that column, `TRUE` approves the proposal in advance,
+and `FALSE` numbers the markers rather than naming genes. Ignored when a
+`gene_id` column is already present, unless a column is named explicitly.}
+
+\item{max_genes}{Number of distinct gene identifiers above which the input is
+questioned as a possible collection of genomes. `Inf` evaluates any table
+as a single genome without asking.}
 }
 \value{
 A `gifter_result` list. Its `gifts` member is the call summary;
@@ -26,6 +43,24 @@ components AND into enzyme systems, systems OR into reactions, reactions AND
 into routes, and routes OR into GIFTs. Incomplete calls report the route with
 the fewest unsupported reactions rather than a raw percentage of genes.
 }
+\section{Input guardrails}{
+
+
+Two input mistakes yield a well-formed result that answers a question the
+user never asked, and neither is visible in the calls themselves.
+
+An unlabelled column taken for gene identifiers mislabels the whole evidence
+chain while leaving every call intact, so a table without a `gene_id` column
+is not guessed at: the first other column is proposed for approval, and
+without an answer the call fails rather than choosing.
+
+Markers pooled from several genomes complete routes that no single genome
+encodes, so an input carrying more than `max_genes` distinct gene identifiers
+is questioned before it is evaluated as one genome. A collection of genomes
+belongs in `evaluate_gifts_community()`, which evaluates each genome
+separately.
+}
+
 \examples{
 markers <- data.frame(
   gene_id = paste0("gene_", 1:9),
@@ -37,4 +72,13 @@ markers <- data.frame(
 )
 result <- evaluate_gifts(markers)
 result$gifts[, c("gift_id", "complete", "best_route")]
+
+# A table whose gene column is named something else: approve it explicitly
+# rather than leaving the choice to column order.
+locus_markers <- data.frame(
+  locus_tag = paste0("b", 1:2),
+  namespace = "KO",
+  accession = c("K01198", "K01805")
+)
+evaluate_gifts(locus_markers, gene_id = "locus_tag")$observed_markers$gene_id
 }

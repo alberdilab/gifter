@@ -824,6 +824,163 @@ evaluate_reactions <- function(annotation_table, namespace = NULL, db = NULL) {
   })
 }
 
+# Input guardrails for evaluate_gifts().
+#
+# Two input mistakes produce a well-formed result that answers a question the
+# user never asked: an unlabelled first column taken for gene identifiers, and a
+# whole collection of genomes evaluated as if it were a single genome. Neither
+# shows up in the calls themselves — pooled markers simply report capabilities
+# that no single member encodes — so both are settled with the user before the
+# evaluation rather than reported after it.
+
+# Ask a yes/no question. Returns TRUE, FALSE, or NA when there is nobody to ask;
+# each caller decides what an unanswerable question means for its own guardrail.
+# Isolated in one function so tests can answer without a console.
+.gifter_ask <- function(question) {
+  if (!interactive()) return(NA)
+  repeat {
+    answer <- tolower(trimws(readline(paste0(question, " [y/n]: "))))
+    if (answer %in% c("y", "yes")) return(TRUE)
+    if (answer %in% c("n", "no")) return(FALSE)
+    message("Please answer y or n.")
+  }
+}
+
+# The first column that is not part of the marker itself. Column order is the
+# only signal available, so the candidate is proposed, never assumed.
+.gene_id_candidate <- function(annotation_table) {
+  candidates <- setdiff(names(annotation_table), c("namespace", "accession"))
+  if (length(candidates)) candidates[[1]] else NA_character_
+}
+
+.adopt_gene_id_column <- function(annotation_table, column) {
+  if (!identical(column, "gene_id")) {
+    annotation_table$gene_id <- as.character(annotation_table[[column]])
+  }
+  annotation_table
+}
+
+.gene_id_preview <- function(values) {
+  values <- as.character(values)
+  if (!length(values)) return("")
+  shown <- values[seq_len(min(3L, length(values)))]
+  paste0(
+    " (", paste(shown, collapse = ", "),
+    if (length(values) > length(shown)) ", ...)" else ")"
+  )
+}
+
+# Resolve which column names genes, asking for approval before adopting one that
+# was never labelled as such. Gene identifiers carry the evidence chain down to
+# the genome, so adopting the wrong column mislabels every supporting gene in
+# the result while leaving the calls themselves looking correct.
+.resolve_gene_id_column <- function(annotation_table, gene_id) {
+  if (!is.data.frame(annotation_table)) {
+    if (!is.null(gene_id) && !isTRUE(gene_id) && !isFALSE(gene_id)) {
+      stop(
+        "gene_id names a column of a data frame; a marker vector carries its ",
+        "gene identifiers in its names",
+        call. = FALSE
+      )
+    }
+    return(annotation_table)
+  }
+  if (isFALSE(gene_id)) {
+    annotation_table$gene_id <- NULL
+    return(annotation_table)
+  }
+  if (is.character(gene_id)) {
+    if (length(gene_id) != 1L || is.na(gene_id) || !nzchar(gene_id)) {
+      stop("gene_id must be a single column name", call. = FALSE)
+    }
+    if (!gene_id %in% names(annotation_table)) {
+      stop("annotation_table has no column named ", gene_id, call. = FALSE)
+    }
+    return(.adopt_gene_id_column(annotation_table, gene_id))
+  }
+  if (!is.null(gene_id) && !isTRUE(gene_id)) {
+    stop("gene_id must be NULL, TRUE, FALSE, or a column name", call. = FALSE)
+  }
+  if ("gene_id" %in% names(annotation_table)) return(annotation_table)
+
+  candidate <- .gene_id_candidate(annotation_table)
+  # A table of nothing but markers holds no column to mistake for a gene
+  # identifier: the markers are numbered, and the evidence chain stops at the
+  # marker rather than at a wrong gene.
+  if (is.na(candidate)) return(annotation_table)
+  if (isTRUE(gene_id)) return(.adopt_gene_id_column(annotation_table, candidate))
+
+  approved <- .gifter_ask(paste0(
+    "annotation_table has no gene_id column. Treat the first column, '",
+    candidate, "'", .gene_id_preview(annotation_table[[candidate]]),
+    ", as the gene identifier?"
+  ))
+  if (isTRUE(approved)) return(.adopt_gene_id_column(annotation_table, candidate))
+  stop(
+    "annotation_table has no gene_id column. Name the gene column with ",
+    "gene_id = \"", candidate, "\", approve the first column with gene_id = TRUE, ",
+    "or number the markers instead with gene_id = FALSE.",
+    call. = FALSE
+  )
+}
+
+# The number of distinct gene identifiers the evaluation will see, computed the
+# way .prepare_observed_markers() will build them so that the guardrail counts
+# what is actually evaluated.
+.distinct_gene_count <- function(annotation_table) {
+  if (is.data.frame(annotation_table)) {
+    if ("gene_id" %in% names(annotation_table)) {
+      return(length(unique(as.character(annotation_table$gene_id))))
+    }
+    return(nrow(annotation_table))
+  }
+  if (is.character(annotation_table) && is.null(dim(annotation_table))) {
+    ids <- names(annotation_table)
+    return(if (is.null(ids)) length(annotation_table) else length(unique(ids)))
+  }
+  0L
+}
+
+# Question an input too large to be one genome. The calls of a pooled table are
+# individually valid and collectively meaningless: a route completed by
+# reactions drawn from different genomes is a capability of the collection, not
+# of any member.
+.check_single_genome <- function(annotation_table, max_genes) {
+  if (is.null(max_genes)) return(invisible(NULL))
+  if (!is.numeric(max_genes) || length(max_genes) != 1L || is.na(max_genes)) {
+    stop("max_genes must be a single number, or Inf to skip the check", call. = FALSE)
+  }
+  genes <- .distinct_gene_count(annotation_table)
+  if (genes <= max_genes) return(invisible(NULL))
+
+  concern <- paste0(
+    genes, " distinct gene identifiers were supplied, more than the ",
+    max_genes, " expected of a single genome. evaluate_gifts() evaluates one ",
+    "genome: markers pooled from several genomes complete routes that no single ",
+    "genome encodes. If this is a collection of genomes, use ",
+    "evaluate_gifts_community(), which splits the table by genome and evaluates ",
+    "each genome separately."
+  )
+  approved <- .gifter_ask(paste0(
+    concern, "\nAre these markers from a single genome?"
+  ))
+  if (isTRUE(approved)) return(invisible(NULL))
+  if (isFALSE(approved)) {
+    stop(
+      concern, " Set max_genes = Inf to evaluate this table as one genome anyway.",
+      call. = FALSE
+    )
+  }
+  # Nobody to ask: the input is still evaluated as one genome, because the count
+  # is a suspicion and a large genome is a legitimate input, but the suspicion is
+  # not swallowed.
+  warning(
+    concern, " Set max_genes = Inf to silence this warning.",
+    call. = FALSE
+  )
+  invisible(NULL)
+}
+
 #' Evaluate genome-inferred functional traits
 #'
 #' Evaluation follows explicit Boolean layers: markers OR into components,
@@ -831,7 +988,32 @@ evaluate_reactions <- function(annotation_table, namespace = NULL, db = NULL) {
 #' into routes, and routes OR into GIFTs. Incomplete calls report the route with
 #' the fewest unsupported reactions rather than a raw percentage of genes.
 #'
+#' @section Input guardrails:
+#'
+#' Two input mistakes yield a well-formed result that answers a question the
+#' user never asked, and neither is visible in the calls themselves.
+#'
+#' An unlabelled column taken for gene identifiers mislabels the whole evidence
+#' chain while leaving every call intact, so a table without a `gene_id` column
+#' is not guessed at: the first other column is proposed for approval, and
+#' without an answer the call fails rather than choosing.
+#'
+#' Markers pooled from several genomes complete routes that no single genome
+#' encodes, so an input carrying more than `max_genes` distinct gene identifiers
+#' is questioned before it is evaluated as one genome. A collection of genomes
+#' belongs in `evaluate_gifts_community()`, which evaluates each genome
+#' separately.
+#'
 #' @inheritParams map_markers
+#' @param gene_id Which column names genes when `annotation_table` has no
+#'   `gene_id` column. `NULL`, the default, proposes the first column that is
+#'   neither `namespace` nor `accession` and adopts it only with approval. A
+#'   column name adopts that column, `TRUE` approves the proposal in advance,
+#'   and `FALSE` numbers the markers rather than naming genes. Ignored when a
+#'   `gene_id` column is already present, unless a column is named explicitly.
+#' @param max_genes Number of distinct gene identifiers above which the input is
+#'   questioned as a possible collection of genomes. `Inf` evaluates any table
+#'   as a single genome without asking.
 #' @return A `gifter_result` list. Its `gifts` member is the call summary;
 #'   the remaining tibbles retain the full evidence chain.
 #' @examples
@@ -845,8 +1027,20 @@ evaluate_reactions <- function(annotation_table, namespace = NULL, db = NULL) {
 #' )
 #' result <- evaluate_gifts(markers)
 #' result$gifts[, c("gift_id", "complete", "best_route")]
+#'
+#' # A table whose gene column is named something else: approve it explicitly
+#' # rather than leaving the choice to column order.
+#' locus_markers <- data.frame(
+#'   locus_tag = paste0("b", 1:2),
+#'   namespace = "KO",
+#'   accession = c("K01198", "K01805")
+#' )
+#' evaluate_gifts(locus_markers, gene_id = "locus_tag")$observed_markers$gene_id
 #' @export
-evaluate_gifts <- function(annotation_table, namespace = NULL, db = NULL) {
+evaluate_gifts <- function(annotation_table, namespace = NULL, db = NULL,
+                           gene_id = NULL, max_genes = 5000) {
+  annotation_table <- .resolve_gene_id_column(annotation_table, gene_id)
+  .check_single_genome(annotation_table, max_genes)
   .with_gifter_db(db, function(connection) {
     .evaluate_gifter_model(annotation_table, namespace, connection)
   })

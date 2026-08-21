@@ -89,6 +89,39 @@ If you only have a bare vector of accessions, gifter will infer the namespace
 for KO, EC, Pfam, TIGRFAM and CAZy patterns. Supplying `namespace` explicitly
 is safer.
 
+### Two questions gifter asks before it evaluates
+
+Two input mistakes produce a result that is well formed, internally consistent,
+and about something other than what you asked. Neither is visible in the calls
+themselves, so `evaluate_gifts()` settles both before evaluating rather than
+reporting them afterwards.
+
+The first is the gene column. If your table has no `gene_id` column,
+`evaluate_gifts()` proposes the first column that is neither `namespace` nor
+`accession` and waits for your approval; without an answer — in a script, a
+knitted document, a batch job — it fails rather than choosing. Adopting the
+wrong column would leave every call intact while attaching the evidence to the
+wrong loci, which is worse than an error. Answer it in advance:
+
+```{r eval = FALSE}
+# The gene column under its own name.
+evaluate_gifts(annotations, gene_id = "locus_tag")
+
+# Approve the first column, whatever it is called.
+evaluate_gifts(annotations, gene_id = TRUE)
+
+# No gene column: number the markers and let the trace stop at the marker.
+evaluate_gifts(annotations, gene_id = FALSE)
+```
+
+The second is scale. `evaluate_gifts()` evaluates **one genome**. Markers pooled
+from several genomes complete routes that no single genome encodes, so a table
+carrying more than `max_genes` distinct gene identifiers (5,000 by default, more
+than most bacterial genomes annotate) is questioned before it is treated as one
+genome. If the input really is one large genome, raise or disable the threshold
+with `max_genes = Inf`. If it is a collection, split it by genome — the third
+tutorial builds a community from separately evaluated genomes.
+
 ## Step 2: see which markers gifter can use
 
 Before evaluating anything, check how much of your annotation the reference
