@@ -832,18 +832,30 @@ evaluate_reactions <- function(annotation_table, namespace = NULL, db = NULL) {
 # shows up in the calls themselves — pooled markers simply report capabilities
 # that no single member encodes — so both are settled with the user before the
 # evaluation rather than reported after it.
+#
+# Every guardrail speaks through cli. A guardrail the user cannot read is a
+# guardrail that does not work, and base warning() and stop() emit a paragraph
+# as one unbroken line however narrow the console. cli wraps to the console
+# width and keeps the concern, its reason, and the ways out on separate bullets.
 
-# Ask a yes/no question. Returns TRUE, FALSE, or NA when there is nobody to ask;
-# each caller decides what an unanswerable question means for its own guardrail.
-# Isolated in one function so tests can answer without a console.
-.gifter_ask <- function(question) {
+# Ask a yes/no question, after stating the concern. Returns TRUE, FALSE, or NA
+# when there is nobody to ask; each caller decides what an unanswerable question
+# means for its own guardrail. Isolated in one function so tests can answer
+# without a console.
+.gifter_ask <- function(concern, question) {
   if (!interactive()) return(NA)
-  repeat {
-    answer <- tolower(trimws(readline(paste0(question, " [y/n]: "))))
+  cli::cli_bullets(concern, .envir = parent.frame())
+  # A bounded number of attempts: an empty line is no answer, and at end of
+  # input readline() returns one forever, so an unbounded loop would hang a
+  # session that has nobody left to answer it.
+  for (attempt in seq_len(3L)) {
+    answer <- tolower(trimws(readline(paste0(question, " (y/n) "))))
     if (answer %in% c("y", "yes")) return(TRUE)
     if (answer %in% c("n", "no")) return(FALSE)
-    message("Please answer y or n.")
+    if (!nzchar(answer)) break
+    cli::cli_alert_info("Please answer {.kbd y} or {.kbd n}.")
   }
+  NA
 }
 
 # The first column that is not part of the marker itself. Column order is the
@@ -860,14 +872,21 @@ evaluate_reactions <- function(annotation_table, namespace = NULL, db = NULL) {
   annotation_table
 }
 
-.gene_id_preview <- function(values) {
+# What the proposed column actually holds. Seeing the values is what lets a user
+# recognise their locus tags, or recognise that the column is something else.
+.gene_id_concern <- function(candidate, values) {
   values <- as.character(values)
-  if (!length(values)) return("")
-  shown <- values[seq_len(min(3L, length(values)))]
-  paste0(
-    " (", paste(shown, collapse = ", "),
-    if (length(values) > length(shown)) ", ...)" else ")"
+  concern <- c(
+    "{.arg annotation_table} has no {.field gene_id} column.",
+    "i" = "Gene identifiers are what makes a call traceable to a locus, so the
+           column is never chosen by position alone."
   )
+  if (length(values)) {
+    c(concern, "i" = "The first column that is not a marker is
+                      {.field {candidate}}, holding {.val {values}}.")
+  } else {
+    c(concern, "i" = "The first column that is not a marker is {.field {candidate}}.")
+  }
 }
 
 # Resolve which column names genes, asking for approval before adopting one that
@@ -877,11 +896,10 @@ evaluate_reactions <- function(annotation_table, namespace = NULL, db = NULL) {
 .resolve_gene_id_column <- function(annotation_table, gene_id) {
   if (!is.data.frame(annotation_table)) {
     if (!is.null(gene_id) && !isTRUE(gene_id) && !isFALSE(gene_id)) {
-      stop(
-        "gene_id names a column of a data frame; a marker vector carries its ",
-        "gene identifiers in its names",
-        call. = FALSE
-      )
+      cli::cli_abort(c(
+        "{.arg gene_id} names a column of a data frame.",
+        "i" = "A marker vector carries its gene identifiers in its names."
+      ), call = NULL)
     }
     return(annotation_table)
   }
@@ -891,15 +909,21 @@ evaluate_reactions <- function(annotation_table, namespace = NULL, db = NULL) {
   }
   if (is.character(gene_id)) {
     if (length(gene_id) != 1L || is.na(gene_id) || !nzchar(gene_id)) {
-      stop("gene_id must be a single column name", call. = FALSE)
+      cli::cli_abort("{.arg gene_id} must be a single column name.", call = NULL)
     }
     if (!gene_id %in% names(annotation_table)) {
-      stop("annotation_table has no column named ", gene_id, call. = FALSE)
+      cli::cli_abort(c(
+        "{.arg annotation_table} has no column named {.field {gene_id}}.",
+        "i" = "Its columns are {.field {names(annotation_table)}}."
+      ), call = NULL)
     }
     return(.adopt_gene_id_column(annotation_table, gene_id))
   }
   if (!is.null(gene_id) && !isTRUE(gene_id)) {
-    stop("gene_id must be NULL, TRUE, FALSE, or a column name", call. = FALSE)
+    cli::cli_abort(
+      "{.arg gene_id} must be {.code NULL}, {.code TRUE}, {.code FALSE}, or a column name.",
+      call = NULL
+    )
   }
   if ("gene_id" %in% names(annotation_table)) return(annotation_table)
 
@@ -910,18 +934,25 @@ evaluate_reactions <- function(annotation_table, namespace = NULL, db = NULL) {
   if (is.na(candidate)) return(annotation_table)
   if (isTRUE(gene_id)) return(.adopt_gene_id_column(annotation_table, candidate))
 
-  approved <- .gifter_ask(paste0(
-    "annotation_table has no gene_id column. Treat the first column, '",
-    candidate, "'", .gene_id_preview(annotation_table[[candidate]]),
-    ", as the gene identifier?"
-  ))
-  if (isTRUE(approved)) return(.adopt_gene_id_column(annotation_table, candidate))
-  stop(
-    "annotation_table has no gene_id column. Name the gene column with ",
-    "gene_id = \"", candidate, "\", approve the first column with gene_id = TRUE, ",
-    "or number the markers instead with gene_id = FALSE.",
-    call. = FALSE
+  values <- annotation_table[[candidate]]
+  # cli truncates the preview itself, so a longer column shows that more values
+  # follow rather than implying the three shown are all of them.
+  values <- cli::cli_vec(
+    as.character(values),
+    list("vec-trunc" = 3L, "vec-trunc-style" = "head")
   )
+  concern <- .gene_id_concern(candidate, values)
+  approved <- .gifter_ask(
+    concern,
+    cli::format_inline("Treat {.field {candidate}} as the gene identifier?")
+  )
+  if (isTRUE(approved)) return(.adopt_gene_id_column(annotation_table, candidate))
+  cli::cli_abort(c(
+    concern,
+    "*" = "Name the gene column with {.code gene_id = \"{candidate}\"}.",
+    "*" = "Approve the first column with {.code gene_id = TRUE}.",
+    "*" = "Number the markers instead with {.code gene_id = FALSE}."
+  ), call = NULL)
 }
 
 # The number of distinct gene identifiers the evaluation will see, computed the
@@ -948,36 +979,37 @@ evaluate_reactions <- function(annotation_table, namespace = NULL, db = NULL) {
 .check_single_genome <- function(annotation_table, max_genes) {
   if (is.null(max_genes)) return(invisible(NULL))
   if (!is.numeric(max_genes) || length(max_genes) != 1L || is.na(max_genes)) {
-    stop("max_genes must be a single number, or Inf to skip the check", call. = FALSE)
+    cli::cli_abort(c(
+      "{.arg max_genes} must be a single number.",
+      "i" = "Use {.code max_genes = Inf} to skip the single-genome check."
+    ), call = NULL)
   }
   genes <- .distinct_gene_count(annotation_table)
   if (genes <= max_genes) return(invisible(NULL))
 
-  concern <- paste0(
-    genes, " distinct gene identifiers were supplied, more than the ",
-    max_genes, " expected of a single genome. evaluate_gifts() evaluates one ",
-    "genome: markers pooled from several genomes complete routes that no single ",
-    "genome encodes. If this is a collection of genomes, use ",
-    "evaluate_gifts_community(), which splits the table by genome and evaluates ",
-    "each genome separately."
+  concern <- c(
+    "{genes} distinct gene identifiers were supplied, more than the
+     {max_genes} expected of a single genome.",
+    "i" = "{.fn evaluate_gifts} evaluates one genome: markers pooled from
+           several genomes complete routes that no single genome encodes.",
+    "i" = "For a collection of genomes, use {.fn evaluate_gifts_community},
+           which evaluates each genome separately."
   )
-  approved <- .gifter_ask(paste0(
-    concern, "\nAre these markers from a single genome?"
-  ))
+  approved <- .gifter_ask(concern, "Are these markers from a single genome?")
   if (isTRUE(approved)) return(invisible(NULL))
   if (isFALSE(approved)) {
-    stop(
-      concern, " Set max_genes = Inf to evaluate this table as one genome anyway.",
-      call. = FALSE
-    )
+    cli::cli_abort(c(
+      concern,
+      "*" = "Set {.code max_genes = Inf} to evaluate this table as one genome anyway."
+    ), call = NULL)
   }
   # Nobody to ask: the input is still evaluated as one genome, because the count
   # is a suspicion and a large genome is a legitimate input, but the suspicion is
   # not swallowed.
-  warning(
-    concern, " Set max_genes = Inf to silence this warning.",
-    call. = FALSE
-  )
+  cli::cli_warn(c(
+    concern,
+    "*" = "Set {.code max_genes = Inf} to evaluate this table as one genome silently."
+  ))
   invisible(NULL)
 }
 

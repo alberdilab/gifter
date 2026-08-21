@@ -7,7 +7,7 @@ its data model and evaluation logic work, what its reference database
 currently contains, what its public interface looks like, and which rules
 govern changes to it.
 
-Snapshot date: 2026-08-21. Package version 0.1.1 (in development), database
+Snapshot date: 2026-08-21. Package version 0.1.2 (in development), database
 version 2026.12.1, schema version 5.
 
 ---
@@ -37,7 +37,7 @@ bump; no distillR 1.x code path survives, which is why the package was renamed
 and versioned afresh at 0.1.0.
 
 Author: Antton Alberdi (antton.alberdi@sund.ku.dk). Repository:
-`alberdilab/gifter`. Dependencies: DBI, RSQLite, tibble; R >= 4.1.0.
+`alberdilab/gifter`. Dependencies: cli, DBI, RSQLite, tibble; R >= 4.1.0.
 
 ---
 

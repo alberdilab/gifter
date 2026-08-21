@@ -13,9 +13,36 @@ versioned with the package.
 
 ---
 
-## Package 0.1.1 (in development)
+## Package 0.1.2 (in development)
 
-### 2026-08-21T06:10Z — evaluate_gifts() questions inputs it cannot verify
+### 2026-08-21T04:25Z — Guardrail messages are readable at any console width
+
+**Change.** The input guardrails of `evaluate_gifts()`, and the argument errors
+around them, report through cli instead of `warning()` and `stop()`. Each
+message now wraps to the console width and separates the concern, its reason,
+and the ways out onto their own bullets, and the proposed gene column is shown
+with the values it actually holds. The interactive prompt is bounded to three
+attempts and treats an empty line as no answer, falling through to the
+non-interactive behaviour. cli is added to `Imports`. **No biological, schema,
+database, evaluation logic, result-structure or public API change:** the
+guardrails decide the same inputs on the same terms.
+
+**Why.** `warning()` and `stop()` emit a paragraph as a single unbroken line
+however narrow the console, so a guardrail long enough to explain what it
+suspects and how to answer it could not be read in an RStudio console. A
+guardrail the user cannot read is a guardrail that does not work. The unbounded
+retry loop had the same character of fault: at end of input `readline()` returns
+an empty line forever, so a session with nobody left to answer would have hung
+rather than falling back.
+
+**Effect.** Both guardrails state their case in a form that fits the console
+they are printed in. cli is already a hard dependency of tibble, which gifter
+imports, so no additional package is installed. The package-version assertion in
+`test-database.R` tracks the version bumped in 0.1.1.
+
+## Package 0.1.1
+
+### 2026-08-21T04:10Z — evaluate_gifts() questions inputs it cannot verify
 
 **Change.** `evaluate_gifts()` gains `gene_id` and `max_genes` and runs two
 input guardrails before evaluating. A table without a `gene_id` column no longer
