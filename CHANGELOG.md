@@ -13,12 +13,12 @@ versioned with the package.
 
 ---
 
-## Package 0.2.0 (in development)
+## Package 0.2.0
 
-Renumbered from 0.1.2, which was never released. The removal of the giftr names
-and the renaming of the genome result class are the first changes that break
-code written against a published gifter version, which a patch number would not
-have said.
+Released 2026-08-21. Renumbered from 0.1.2, which was never released. The
+removal of the giftr names and the renaming of the genome result class are the
+first changes that break code written against a published gifter version, which
+a patch number would not have said.
 
 ### 2026-08-21T04:55Z — The giftr names are removed
 

@@ -7,7 +7,7 @@ its data model and evaluation logic work, what its reference database
 currently contains, what its public interface looks like, and which rules
 govern changes to it.
 
-Snapshot date: 2026-08-21. Package version 0.2.0 (in development), database
+Snapshot date: 2026-08-21. Package version 0.2.0, database
 version 2026.12.1, schema version 5.
 
 ---
