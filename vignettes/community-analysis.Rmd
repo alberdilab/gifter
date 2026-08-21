@@ -82,10 +82,12 @@ community <- gifter_community(
 community
 ```
 
-The argument names become the genome identifiers, and the container refuses two
-things that would silently produce nonsense: genomes evaluated against different
-database releases, and an abundance vector that does not name exactly these
-genomes.
+The argument names become the genome identifiers, and the container refuses
+genomes evaluated against different database releases, which would silently
+produce nonsense. Abundances and completeness estimates are not part of the
+community: they say how the calls are to be read, so they belong to
+`community_traits()`, which can then read one community under more than one
+threshold.
 
 ### Starting from one annotation table
 
@@ -180,12 +182,9 @@ If you have relative abundances, supply them — but note that gifter keeps them
 separate rows from the presence-based counts, deliberately.
 
 ```{r}
-weighted <- gifter_community(
-  A = debrancher, B = backbone_degrader, C = consumer, D = consumer,
-  abundance = c(A = 0.05, B = 0.10, C = 0.35, D = 0.50)
-)
 weighted_metrics <- community_traits(
-  weighted, universes = list(gift_universe(label = "all curated GIFTs"))
+  community, universes = list(gift_universe(label = "all curated GIFTs")),
+  abundance = c(A = 0.05, B = 0.10, C = 0.35, D = 0.50)
 )$metrics
 
 comparison <- weighted_metrics[
@@ -298,13 +297,13 @@ genome, so one fragmented member does not contaminate everyone's denominators.
 
 ```{r}
 mixed <- gifter_community(
-  A = debrancher, B = backbone_degrader, C = consumer,
-  quality = c(A = 0.98, B = 0.96, C = 0.45),
-  policy = "completeness", threshold = 0.9
+  A = debrancher, B = backbone_degrader, C = consumer
 )
 
 mixed_metrics <- community_traits(
-  mixed, universes = list(gift_universe(label = "all curated GIFTs"))
+  mixed, universes = list(gift_universe(label = "all curated GIFTs")),
+  quality = c(A = 0.98, B = 0.96, C = 0.45),
+  policy = "completeness", threshold = 0.9
 )$metrics
 
 fractions <- mixed_metrics[mixed_metrics$metric_id == "provider_fraction", ]

@@ -282,8 +282,8 @@ supplied, absences on fragmented genomes are withheld from every denominator
 rather than counted as capabilities the genome lacks:
 
 ```r
-gifter_community(
-  A = result_a, B = result_b,
+community_traits(
+  gifter_community(A = result_a, B = result_b),
   quality = c(A = 0.98, B = 0.55),
   policy = "completeness", threshold = 0.9
 )
