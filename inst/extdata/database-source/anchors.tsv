@@ -152,3 +152,4 @@ CHITIN	CHITIN	extracellular	chitin	CHEBI:17029	Beta-1,4-linked N-acetyl-D-glucos
 MUCIN_O_GLYCAN	MUCIN_O_GLYCAN	extracellular	mucin O-glycan		The O-linked glycan of secreted host mucins, a heterogeneous branched structure with no single repeating unit and no chemical formula.
 GALNAC	GALNAC	unspecified	N-acetyl-D-galactosamine	CHEBI:28037	N-acetyl-D-galactosamine, the sugar alpha-linked to serine or threonine at the mucin O-glycan core.
 PECTIN	PECTIN	extracellular	pectin	CHEBI:17309	Methyl-esterified alpha-1,4-D-galacturonan of the plant primary cell wall, the dominant soluble fibre of fruit and vegetable matter.
+KDG	KDG	unspecified	2-dehydro-3-deoxy-D-gluconate	CHEBI:57990	Entner-Doudoroff branchpoint. Galacturonate catabolism, glucuronate catabolism and the pectate lyase route all converge here, and the phosphorylation and aldol cleavage that follow are shared by all three.

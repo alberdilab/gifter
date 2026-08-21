@@ -425,3 +425,9 @@ RXN_MUCIN_GALNAC_RELEASE		mucin alpha-N-acetylgalactosaminidase reaction	Hydroly
 RXN_PECTIN_ENDO_PG		endo-polygalacturonase reaction	Random endohydrolysis of (1->4)-alpha-D-galactosiduronic linkages in pectate, releasing oligogalacturonides.
 RXN_OLIGOGALACTURONIDE_EXO		exo-polygalacturonase reaction	Hydrolysis of oligogalacturonides from the non-reducing end, releasing successive D-galacturonate residues.
 RXN_PECTIN_DEMETHYL		pectinesterase reaction	Hydrolysis of the methyl esters of the galacturonan backbone, exposing it to the depolymerising enzymes.
+RXN_PECTATE_ENDO_PL		pectate lyase reaction	Eliminative cleavage of (1->4)-alpha-D-galacturonan to give oligosaccharides carrying 4-deoxy-alpha-D-galact-4-enuronosyl groups at their non-reducing ends.
+RHEA:57104	RHEA:57104	pectate disaccharide-lyase reaction	[(1->4)-alpha-D-galacturonosyl](n) = 4-(4-deoxy-alpha-D-galact-4-enuronosyl)-D-galacturonate + [(1->4)-alpha-D-galacturonosyl](n-2).
+RHEA:20269	RHEA:20269	oligogalacturonide lyase reaction	4-(4-deoxy-alpha-D-galact-4-enuronosyl)-D-galacturonate = 2 5-dehydro-4-deoxy-D-glucuronate.
+RHEA:23896	RHEA:23896	4-deoxy-L-threo-5-hexosulose-uronate ketol-isomerase reaction	5-dehydro-4-deoxy-D-glucuronate = 3-deoxy-D-glycero-2,5-hexodiulosonate.
+RHEA:24232	RHEA:24232	2-dehydro-3-deoxy-D-gluconate 5-dehydrogenase reaction	2-dehydro-3-deoxy-D-gluconate + NAD+ = 3-deoxy-D-glycero-2,5-hexodiulosonate + NADH + H(+); used in reverse for catabolism.
+RXN_PECTIN_LYASE		pectin lyase reaction	Eliminative cleavage of (1->4)-alpha-D-galacturonan methyl ester, acting on the esterified backbone without prior de-esterification.

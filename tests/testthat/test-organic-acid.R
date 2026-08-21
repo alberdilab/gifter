@@ -290,12 +290,18 @@ test_that("one bifunctional protein evidences both ethanol steps", {
 
 test_that("the layer composes with existing catabolism and claims no cross-feeding", {
   graph <- gift_graph()
-  # Pyruvate is already an output of the uronic acid GIFTs, so curating anything
-  # that consumes it extends that layer without re-cutting it.
+  # Pyruvate is already an output of the uronate layer, so curating anything
+  # that consumes it extends that layer without re-cutting it. Since the
+  # 2026.21.3 branchpoint re-cut the pyruvate boundary belongs to
+  # kdg_degradation rather than to the two hexuronate heads, which now stop at
+  # 2-dehydro-3-deoxy-D-gluconate and compose onward through it.
   into_lactate <- graph[graph$to_gift == "lactate_formation", ]
-  expect_true(all(
+  expect_true("kdg_degradation" %in% into_lactate$from_gift)
+  expect_false(any(
     c("galacturonate_degradation", "glucuronate_degradation") %in% into_lactate$from_gift
   ))
+  expect_true(all(c("galacturonate_degradation", "glucuronate_degradation") %in%
+    graph$from_gift[graph$to_gift == "kdg_degradation"]))
 
   # Citrate fermentation lands on two anchors the database already had.
   from_citrate <- graph[graph$from_gift == "citrate_fermentation", ]

@@ -39,8 +39,8 @@ RHA_ISOMERASE	rhamnose_degradation	L-rhamnose isomerase route	Isomerisation to L
 GAL_LELOIR	galactose_degradation_leloir	Leloir route	Mutarotation, galactokinase, uridylyltransferase, and UDP-glucose regeneration.	curated	independent
 GLCNAC_KINASE	glcnac_degradation	N-acetylglucosamine kinase route	Phosphorylation, deacetylation, and deamination to fructose 6-phosphate.	curated	independent
 NEUAC_LYASE	neuac_degradation	N-acetylneuraminate lyase route	Lyase cleavage to N-acetylmannosamine, phosphorylation, epimerisation, deacetylation, and deamination.	curated	independent
-GALUA_ISOMERASE	galacturonate_degradation	Galacturonate isomerase route	Isomerisation, reduction, dehydration, phosphorylation, and aldol cleavage.	curated	independent
-GLCUA_ISOMERASE	glucuronate_degradation	Glucuronate isomerase route	Isomerisation, reduction, dehydration, phosphorylation, and aldol cleavage.	curated	independent
+GALUA_ISOMERASE	galacturonate_degradation	Galacturonate isomerase route	Isomerisation to keto-D-tagaturonate, reduction to D-altronate and dehydration to the Entner-Doudoroff branchpoint.	curated	independent
+GLCUA_ISOMERASE	glucuronate_degradation	Glucuronate isomerase route	Isomerisation to keto-D-fructuronate, reduction to D-mannonate and dehydration to the Entner-Doudoroff branchpoint.	curated	independent
 XYL_UPTAKE_ABC	xylose_uptake_abc	ABC importer route	ATP-driven translocation by a periplasmic-binding-protein-dependent importer.	curated	independent
 ARA_UPTAKE_ABC	arabinose_uptake_abc	ABC importer route	ATP-driven translocation by a periplasmic-binding-protein-dependent importer.	curated	independent
 XYLAN_SACCHARIFICATION	xylan_degradation	Endo-xylanase and beta-xylosidase route	Backbone endohydrolysis then exo-acting release of D-xylose, with acetyl de-blocking as accessory chemistry.	curated	independent
@@ -201,3 +201,5 @@ MUCIN_SIALIDASE	mucin_sialic_acid_release	Sialidase route	Hydrolysis of the term
 MUCIN_FUCOSIDASE	mucin_fucose_release	Alpha-L-fucosidase route	Hydrolysis of terminal alpha-L-fucosyl residues.	curated	independent
 MUCIN_GALNACASE	mucin_galnac_release	Alpha-N-acetylgalactosaminidase route	Hydrolysis of the core alpha-linked N-acetyl-D-galactosamine.	curated	independent
 PECTIN_SACCHARIFICATION	pectin_degradation	Endo- and exo-polygalacturonase route	Backbone endohydrolysis then exo-acting release of D-galacturonate, with methyl-ester removal as accessory chemistry.	curated	independent
+KDG_ED	kdg_degradation	Lower Entner-Doudoroff route	Phosphorylation of 2-dehydro-3-deoxy-D-gluconate and aldol cleavage of the product into pyruvate and D-glyceraldehyde 3-phosphate.	curated	independent
+PECTATE_LYASE	pectate_lyase_degradation	Pectate lyase route	Endo- then exo-acting beta-elimination of the galacturonan backbone, followed by oligogalacturonide lyase, ketol isomerase and 5-dehydrogenase chemistry into the branchpoint. Direct entry on esterified pectin and de-esterification are accessory.	curated	independent

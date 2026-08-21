@@ -38,7 +38,7 @@ cysteine_biosynthesis_homocysteine	KEGG_MODULE	M00609	Cysteine biosynthesis, met
 cysteine_biosynthesis_homocysteine	KEGG_PATHWAY	map00270	Cysteine and methionine metabolism	subset_of	
 galactose_degradation_leloir	KEGG_MODULE	M00632	Galactose degradation, Leloir pathway, galactose => alpha-D-glucose-1P	equivalent	Same boundaries.
 galactose_degradation_leloir	KEGG_PATHWAY	map00052	Galactose metabolism	subset_of	
-glucuronate_degradation	KEGG_MODULE	M00061	Glucuronate degradation, glucuronate => pyruvate + glyceraldehyde-3P	equivalent	Same boundaries.
+glucuronate_degradation	KEGG_MODULE	M00061	Glucuronate degradation, glucuronate => pyruvate + glyceraldehyde-3P	subset_of	Boundaries diverged at the 2026.21.3 re-cut: the module runs to pyruvate and glyceraldehyde-3P, this GIFT stops at the branchpoint and kdg_degradation completes it.
 glucuronate_degradation	KEGG_PATHWAY	map00040	Pentose and glucuronate interconversions	subset_of	
 galacturonate_degradation	KEGG_PATHWAY	map00040	Pentose and glucuronate interconversions	subset_of	No KEGG module covers the galacturonate-specific head of this route.
 xylose_degradation_isomerase	KEGG_PATHWAY	map00040	Pentose and glucuronate interconversions	subset_of	
@@ -201,3 +201,5 @@ mucin_sialic_acid_release	KEGG_PATHWAY	map00511	Other glycan degradation	subset_
 mucin_fucose_release	KEGG_PATHWAY	map00511	Other glycan degradation	subset_of	
 mucin_galnac_release	KEGG_PATHWAY	map00511	Other glycan degradation	subset_of	
 pectin_degradation	KEGG_PATHWAY	map00040	Pentose and glucuronate interconversions	subset_of	
+kdg_degradation	KEGG_PATHWAY	map00040	Pentose and glucuronate interconversions	subset_of	No KEGG module covers the shared lower segment on its own.
+pectate_lyase_degradation	KEGG_PATHWAY	map00040	Pentose and glucuronate interconversions	subset_of	

@@ -35,7 +35,7 @@ test_that("the carbohydrate preset is resolved from current curated metadata", {
       "glucuronate_degradation",
       "mucin_fucose_release", "mucin_galnac_release",
       "mucin_sialic_acid_release", "neuac_degradation",
-      "pectin_degradation",
+      "pectate_lyase_degradation", "pectin_degradation",
       "rhamnose_degradation", "starch_degradation",
       "xylan_degradation", "xylose_degradation_isomerase"
     )

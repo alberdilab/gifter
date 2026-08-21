@@ -49,11 +49,9 @@ glcnac_degradation	FRUCTOSE_6P	output	1
 neuac_degradation	NEUAC	input	1
 neuac_degradation	FRUCTOSE_6P	output	1
 galacturonate_degradation	GALACTURONATE	input	1
-galacturonate_degradation	PYRUVATE	output	1
-galacturonate_degradation	GAP	output	2
+galacturonate_degradation	KDG	output	1
 glucuronate_degradation	GLUCURONATE	input	1
-glucuronate_degradation	PYRUVATE	output	1
-glucuronate_degradation	GAP	output	2
+glucuronate_degradation	KDG	output	1
 xylose_uptake_abc	XYLOSE_EX	input	1
 xylose_uptake_abc	XYLOSE_IN	output	1
 arabinose_uptake_abc	ARABINOSE_EX	input	1
@@ -332,3 +330,8 @@ mucin_galnac_release	MUCIN_O_GLYCAN	input	1
 mucin_galnac_release	GALNAC	output	1
 pectin_degradation	PECTIN	input	1
 pectin_degradation	GALACTURONATE	output	1
+kdg_degradation	KDG	input	1
+kdg_degradation	PYRUVATE	output	1
+kdg_degradation	GAP	output	2
+pectate_lyase_degradation	PECTIN	input	1
+pectate_lyase_degradation	KDG	output	1

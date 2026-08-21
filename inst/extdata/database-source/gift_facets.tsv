@@ -364,3 +364,8 @@ mucin_galnac_release	physiological_role	host_glycan_foraging
 pectin_degradation	substrate_class	polysaccharide	
 pectin_degradation	physiological_role	carbon_acquisition	
 pectin_degradation	physiological_role	fibre_degradation	
+kdg_degradation	substrate_class	central_metabolite	The branchpoint is shared central metabolism, not an acquired nutrient.
+kdg_degradation	physiological_role	central_carbon_metabolism	Shared lower segment of every route that converges on the branchpoint.
+pectate_lyase_degradation	substrate_class	polysaccharide	
+pectate_lyase_degradation	physiological_role	carbon_acquisition	
+pectate_lyase_degradation	physiological_role	fibre_degradation	

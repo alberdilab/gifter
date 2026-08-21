@@ -471,3 +471,6 @@ MUCIN_O_GLYCAN	biomass_essential	no
 PECTIN	molecular_tier	polymer	
 PECTIN	resource_origin	plant_derived	
 PECTIN	biomass_essential	no	
+KDG	molecular_tier	small_molecule	Curated with the hexuronate branchpoint boundary in 2026.21.3.
+KDG	resource_origin	central_metabolism	Curated with the hexuronate branchpoint boundary in 2026.21.3.
+KDG	biomass_essential	no	Curated with the hexuronate branchpoint boundary in 2026.21.3.

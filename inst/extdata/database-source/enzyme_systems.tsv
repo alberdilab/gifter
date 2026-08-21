@@ -488,3 +488,9 @@ SYS_GALNACASE	RXN_MUCIN_GALNAC_RELEASE	alpha-N-acetylgalactosaminidase	Single ca
 SYS_ENDO_PG	RXN_PECTIN_ENDO_PG	endo-polygalacturonase	Single catalytic protein system; alternative markers are OR.
 SYS_EXO_PG	RXN_OLIGOGALACTURONIDE_EXO	exo-polygalacturonase	Single catalytic protein system; alternative markers are OR.
 SYS_PECTINESTERASE	RXN_PECTIN_DEMETHYL	pectinesterase	Single catalytic protein system; alternative markers are OR.
+SYS_ENDO_PL	RXN_PECTATE_ENDO_PL	endo-pectate lyase	Single catalytic protein system; alternative markers are OR.
+SYS_57104_PELWX	RHEA:57104	pectate disaccharide-lyase	Single-protein catalytic system.
+SYS_20269_OGL	RHEA:20269	oligogalacturonide lyase	Single-protein catalytic system.
+SYS_23896_KDUI	RHEA:23896	4-deoxy-L-threo-5-hexosulose-uronate ketol-isomerase	Single-protein catalytic system.
+SYS_24232_KDUD	RHEA:24232	2-dehydro-3-deoxy-D-gluconate 5-dehydrogenase	Single-protein catalytic system.
+SYS_PECTIN_LYASE	RXN_PECTIN_LYASE	pectin lyase	Single catalytic protein system; alternative markers are OR.

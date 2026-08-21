@@ -1217,3 +1217,56 @@ KO	K01051	pectinesterase orthologue	KEGG orthology marker.
 KO	K01184	polygalacturonase orthologue	KEGG orthology marker.
 KO	K01213	exo-polygalacturonase orthologue	KEGG orthology marker.
 KO	K22933	exo-polygalacturonase LplD orthologue	KEGG orthology marker.
+KO	K01728	pectate lyase orthologue	KEGG orthology marker.
+KO	K19551	pectate lyase C orthologue	KEGG orthology marker.
+KO	K01731	pectate disaccharide-lyase PelW orthologue	KEGG orthology marker.
+KO	K22994	pectate disaccharide-lyase PelX orthologue	KEGG orthology marker.
+KO	K01730	oligogalacturonide lyase orthologue	KEGG orthology marker.
+KO	K01815	4-deoxy-L-threo-5-hexosulose-uronate ketol-isomerase orthologue	KEGG orthology marker.
+KO	K00065	2-dehydro-3-deoxy-D-gluconate 5-dehydrogenase orthologue	KEGG orthology marker.
+KO	K01732	pectin lyase orthologue	KEGG orthology marker.
+CAZY	PL1	CAZy family PL1	CAZy sequence family; activity assignment from dbCAN.
+CAZY	PL10	CAZy family PL10	CAZy sequence family; activity assignment from dbCAN.
+CAZY	PL2	CAZy family PL2	CAZy sequence family; activity assignment from dbCAN.
+CAZY	PL3	CAZy family PL3	CAZy sequence family; activity assignment from dbCAN.
+CAZY	PL9	CAZy family PL9	CAZy sequence family; activity assignment from dbCAN.
+CAZY	PL10_e2	dbCAN-sub cluster PL10_e2	dbCAN-sub eCAMI cluster of CAZy family PL10.
+CAZY	PL10_e5	dbCAN-sub cluster PL10_e5	dbCAN-sub eCAMI cluster of CAZy family PL10.
+CAZY	PL1_e103	dbCAN-sub cluster PL1_e103	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e108	dbCAN-sub cluster PL1_e108	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e124	dbCAN-sub cluster PL1_e124	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e163	dbCAN-sub cluster PL1_e163	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e18	dbCAN-sub cluster PL1_e18	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e2	dbCAN-sub cluster PL1_e2	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e20	dbCAN-sub cluster PL1_e20	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e3	dbCAN-sub cluster PL1_e3	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e36	dbCAN-sub cluster PL1_e36	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e4	dbCAN-sub cluster PL1_e4	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e51	dbCAN-sub cluster PL1_e51	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e53	dbCAN-sub cluster PL1_e53	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e60	dbCAN-sub cluster PL1_e60	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e67	dbCAN-sub cluster PL1_e67	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e68	dbCAN-sub cluster PL1_e68	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e73	dbCAN-sub cluster PL1_e73	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e75	dbCAN-sub cluster PL1_e75	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e79	dbCAN-sub cluster PL1_e79	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e88	dbCAN-sub cluster PL1_e88	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL2_e0	dbCAN-sub cluster PL2_e0	dbCAN-sub eCAMI cluster of CAZy family PL2.
+CAZY	PL3_e0	dbCAN-sub cluster PL3_e0	dbCAN-sub eCAMI cluster of CAZy family PL3.
+CAZY	PL3_e10	dbCAN-sub cluster PL3_e10	dbCAN-sub eCAMI cluster of CAZy family PL3.
+CAZY	PL3_e12	dbCAN-sub cluster PL3_e12	dbCAN-sub eCAMI cluster of CAZy family PL3.
+CAZY	PL3_e16	dbCAN-sub cluster PL3_e16	dbCAN-sub eCAMI cluster of CAZy family PL3.
+CAZY	PL3_e18	dbCAN-sub cluster PL3_e18	dbCAN-sub eCAMI cluster of CAZy family PL3.
+CAZY	PL3_e8	dbCAN-sub cluster PL3_e8	dbCAN-sub eCAMI cluster of CAZy family PL3.
+CAZY	PL3_e9	dbCAN-sub cluster PL3_e9	dbCAN-sub eCAMI cluster of CAZy family PL3.
+CAZY	PL9_e23	dbCAN-sub cluster PL9_e23	dbCAN-sub eCAMI cluster of CAZy family PL9.
+CAZY	PL9_e31	dbCAN-sub cluster PL9_e31	dbCAN-sub eCAMI cluster of CAZy family PL9.
+CAZY	PL9_e8	dbCAN-sub cluster PL9_e8	dbCAN-sub eCAMI cluster of CAZy family PL9.
+CAZY	PL2_e1	dbCAN-sub cluster PL2_e1	dbCAN-sub eCAMI cluster of CAZy family PL2.
+CAZY	PL9_e1	dbCAN-sub cluster PL9_e1	dbCAN-sub eCAMI cluster of CAZy family PL9.
+CAZY	PL1_e16	dbCAN-sub cluster PL1_e16	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e165	dbCAN-sub cluster PL1_e165	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e25	dbCAN-sub cluster PL1_e25	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e33	dbCAN-sub cluster PL1_e33	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e71	dbCAN-sub cluster PL1_e71	dbCAN-sub eCAMI cluster of CAZy family PL1.
+CAZY	PL1_e8	dbCAN-sub cluster PL1_e8	dbCAN-sub eCAMI cluster of CAZy family PL1.

@@ -1,7 +1,8 @@
 # Curation proposal: complex polysaccharide and sugar degradation GIFTs
 
 Status: **steps 1-6 implemented; step 7 in progress — three of ten substrates
-curated.**
+curated, plus the pectate lyase route and the branchpoint anchor that unblocked
+it.**
 Prepared 2026-08-17 against database version 2026.09.1 (schema 3).
 
 Steps 1 and 2 of §13 shipped the same day as database 2026.09.2, schema 4:
@@ -33,12 +34,17 @@ layer that had been discarding it.
 
 Step 7 is **in progress**. Chitin and mucin O-glycan shipped on 2026-08-21 as
 database 2026.21.1, and the hydrolytic half of pectin as 2026.21.2 the same day;
-the other seven substrates remain outstanding, and every CAZy family, EC number
-and KO named for them is still a candidate. Two candidates named in §6.3 for
-mucin did not survive verification and are corrected in §16.3; the pectate lyase
-route is assessed and deferred in §16.5. The dbCAN family-to-substrate mapping
-that supplies the evidence is pinned in `data-raw/reference/`. No open questions
-remain; two items are deferred (§15, §16.5).
+seven substrates remain outstanding, and every CAZy family, EC number and KO
+named for them is still a candidate. Two candidates named in §6.3 for mucin did
+not survive verification and are corrected in §16.3.
+
+The deferral of §16.5 was resolved on 2026-08-21 and shipped as database
+2026.21.3, recorded in §17. 2-dehydro-3-deoxy-D-gluconate is promoted to an
+anchor, `galacturonate_degradation` and `glucuronate_degradation` are re-cut to
+end at it, their shared Entner-Doudoroff tail becomes `kdg_degradation`, and
+`pectate_lyase_degradation` is curated on top. The dbCAN family-to-substrate
+mapping that supplies the evidence is pinned in `data-raw/reference/`. No open
+questions remain; one item is deferred (§15).
 
 Scope: decide how complex polysaccharide degradation and sugar degradation
 should be expressed under the gifter ontology, and identify what must
@@ -986,3 +992,200 @@ Doing it means re-cutting `galacturonate_degradation` and
 `glucuronate_degradation` to declare it, which is a change to shipped GIFTs and
 belongs in its own proposal rather than inside a substrate addition. Nothing
 else in step 7 depends on the answer.
+
+---
+
+## 17. The 2-dehydro-3-deoxy-D-gluconate anchor, and the lyase route it unblocks
+
+Carried out 2026-08-21 against database 2026.21.2, resolving the deferral of
+§16.5. Shipped as database 2026.21.3.
+
+### 17.1 The question
+
+§16.5 deferred pectate lyase on an anchor gap rather than an evidence gap. The
+markers were never in doubt; the products were. A lyase cleaves by
+β-elimination into unsaturated oligogalacturonides, which are catabolised
+through 5-dehydro-4-deoxy-D-glucuronate to **2-dehydro-3-deoxy-D-gluconate**,
+while the hydrolytic route yields D-galacturonate proper. §7 already settled
+what follows: anchors are declared per GIFT, so routes ending at different
+metabolites are different GIFTs. A lyase GIFT could not state its output
+boundary, because that boundary was an internal intermediate of
+`galacturonate_degradation`.
+
+The question was therefore whether to promote it, judged against the §5
+granularity rule rather than against the convenience of the substrate that
+wanted it.
+
+### 17.2 The precedent that decides it
+
+This is not a new kind of decision. Database 2026.20.1 cut the upper oxidative
+TCA segment at **isocitrate** for the same reason, recorded in
+`DBC-20260820-ISOCITRATE-RECUT`: isocitrate is a real branchpoint, oxidative
+decarboxylation and isocitrate lyase are alternative fates, and *"keeping it
+internal forced a bypass GIFT either to repeat citrate synthase and aconitase or
+to start at an undeclared boundary."*
+
+Substitute pectate lyase for the glyoxylate bypass and kdgK and eda for citrate
+synthase and aconitase, and the sentence is unchanged. The precedent is
+governing, not merely analogous.
+
+One objection deserves an explicit answer, because it is the intuitive one:
+2-dehydro-3-deoxy-D-gluconate is not something anything eats, so "this genome
+can catabolise KDG" is not an ecological statement the way "this genome can
+degrade pectin" is. That is true and it is not an objection. DHAP, lactaldehyde,
+isocitrate and glyceraldehyde 3-phosphate are all anchors, and none of them is a
+traded metabolite either. **An anchor marks a branchpoint, not a substrate.**
+Requiring anchors to be ecologically interpretable in isolation would delete
+four of them.
+
+### 17.3 The three-part rule, applied
+
+**1. Chemically distinct boundaries — holds.** The heads consume a hexuronate
+and produce the branchpoint; the tail consumes the branchpoint and produces
+pyruvate and D-glyceraldehyde 3-phosphate. Distinct on both sides.
+
+**2. Independent variation — holds, and holds strongly.** This is the leg the
+rule exists to enforce, and it is the leg where promotion is usually refused.
+Here it is the strongest of the three. KdgK and Eda are not uronate-specific
+enzymes: they are the lower Entner-Doudoroff pathway, and they serve gluconate,
+alginate and 2-keto-3-deoxy sugar acid catabolism as well. Genomes carrying the
+tail with no hexuronate head at all are ordinary, which is the exact opposite of
+the noise case in §5's second clause ("if every genome carrying the endo-enzyme
+also carries the exo-enzyme, the intermediate anchor is noise").
+
+**3. Interpretive consequence — holds, on the reading §5 intends.** Read
+narrowly, as "is the isolated fragment independently interesting", this leg is
+weak: nobody reads a KDG catabolism call on its own. Read as the rule's own
+preamble frames it — the rule exists *"to prevent the tier design from
+atomising the database"* — it holds clearly, and the narrow reading is the wrong
+one, because the split here is not atomisation. Three consequences follow from
+it:
+
+- The pectate lyase route becomes expressible at all. Without the anchor,
+  `pectin_degradation` detects only the hydrolytic minority of gut pectin
+  degraders.
+- The two pectin chemistries become **visibly convergent** in the graph, meeting
+  at the branchpoint from different directions. That convergence is the
+  biological content of the anchor, and it was invisible while one arm could not
+  be written.
+- A negative hexuronate call now says which half is missing, instead of
+  collapsing a missing uronate isomerase and a missing aldolase into one
+  negative.
+
+**The rule passes on all three legs.** The cost — re-cutting two shipped GIFTs —
+is real and is the reason this was deferred out of a substrate addition rather
+than done inside one, which was the right call. It is not a reason to refuse.
+
+### 17.4 What the re-cut does
+
+`KDG` is a new anchor, `CHEBI:57990`, compartment `unspecified`, verified as the
+participant of `RHEA:14797` the database already carried.
+
+`galacturonate_degradation` and `glucuronate_degradation` keep their
+identifiers and end at `KDG`. `RHEA:14797` and `RHEA:17089`, which they carried
+twice between them, move to a new `kdg_degradation`. Nothing at the enzyme layer
+moves: systems, components and markers hang off reactions, not routes. Both
+re-cut GIFTs go to `version = 2`, the first use of that column for its purpose.
+
+Two consequences worth stating plainly, because they are behaviour changes
+rather than bookkeeping:
+
+- A genome with a uronate head and no `kdgK` or `eda` now calls
+  `galacturonate_degradation` complete where it previously did not. Reaching
+  pyruvate requires composing with `kdg_degradation`, which is what the graph is
+  for.
+- `glucuronate_degradation` no longer has the boundaries of KEGG M00061. Its
+  cross-reference drops from `equivalent` to `subset_of`.
+
+### 17.5 `pectate_lyase_degradation`
+
+PECTIN(extracellular) → KDG.
+
+| Step | Reaction | Required |
+|---|---|---|
+| 1 | endo-pectate lyase, EC 4.2.2.2 (`RXN_PECTATE_ENDO_PL`) | yes |
+| 2 | pectate disaccharide-lyase, EC 4.2.2.9 (`RHEA:57104`) | yes |
+| 3 | oligogalacturonide lyase, EC 4.2.2.6 (`RHEA:20269`) | yes |
+| 4 | ketol-isomerase KduI, EC 5.3.1.17 (`RHEA:23896`) | yes |
+| 5 | 5-dehydrogenase KduD, EC 1.1.1.127 (`RHEA:24232`, reverse) | yes |
+| 6 | pectin lyase, EC 4.2.2.10 (`RXN_PECTIN_LYASE`) | accessory |
+| 7 | pectinesterase, EC 3.1.1.11 (`RXN_PECTIN_DEMETHYL`, shared) | accessory |
+
+**Why the route runs past the polymer boundary.** Every other polysaccharide
+GIFT stops at the monomer it releases. This one does not, and the asymmetry is
+chemistry rather than inconsistency: the immediate product of β-elimination is
+an unsaturated oligogalacturonide, and §5 forbids promoting an oligosaccharide
+to an anchor. Steps 3 to 5 are folded in because they have no other substrate
+anywhere in the database — nothing else produces or consumes
+5-dehydro-4-deoxy-D-glucuronate or 3-deoxy-D-glycero-2,5-hexodiulosonate — so
+folding them in is §5's default disposition, not an exception to it.
+
+**Correction to a detail of §16.5.** That section described the lyase route as
+processed by "unsaturated glucuronyl hydrolase or oligogalacturonate lyase". On
+verification only the lyase applies: `RHEA:20269` gives
+4-(4-deoxy-α-D-galact-4-enuronosyl)-D-galacturonate = 2 5-dehydro-4-deoxy-D-glucuronate,
+so the disaccharide goes entirely to the branchpoint precursor and no
+galacturonate is released on this route. Unsaturated glucuronyl hydrolase, EC
+3.2.1.179, is **rejected**: its Rhea reactions are on gellan and
+glycosaminoglycan substrates, and the neighbouring EC 3.2.1.172 is
+rhamnogalacturonan chemistry. Neither supports a homogalacturonan claim.
+
+**Deviation from the polymer-reaction convention, deliberately.** §8.1 says Rhea
+"stays preferred and stays the identity wherever it exists"; the local `RXN_*`
+convention exists because the six polymer ECs of step 5 had no Rhea master, not
+as a rule that polymer chemistry may not have one. EC 4.2.2.9 does have one —
+`RHEA:57104`, written over `[(1->4)-α-D-galacturonosyl](n)` — so it is used.
+EC 4.2.2.2 and EC 4.2.2.10 have none and take local identifiers with EC
+cross-references, as before.
+
+### 17.6 Markers
+
+Mined from `cazy-subfamily-ec.tsv` at the pinned `db_v5-2-9_5-5-2026`, graded
+mechanically, CBM families excluded, nothing below 50% agreement.
+
+| EC | Admitted | Curated | High-confidence |
+|---|---|---|---|
+| 4.2.2.2 | 32 clusters across PL1, PL2, PL3, PL9, PL10 | 10 | 22 |
+| 4.2.2.9 | 2 clusters, PL2_e1 and PL9_e1 | 0 | 2 |
+| 4.2.2.10 | 6 clusters, all PL1 | 2 | 4 |
+
+Bare families graded on characterised dbCAN activity count: **PL3** and **PL10**
+`curated` at one activity each, **PL2** `high-confidence` at two, **PL1** and
+**PL9** `ambiguous` at four and five.
+
+PL1 and PL9 are both `ambiguous` **for different reasons, and the notes say
+which**, as §16 requires. PL1's four activities are pectate lyase, exo-pectate
+lyase, pectin lyase and a poly-α-D-N-acetylgalactosaminuronate lyase on
+bacterial outer-membrane polysaccharide: three of four are the same pectin
+chemistry differing only in endo versus exo action and in backbone
+esterification, so the family is close to substrate-coherent but cannot separate
+the steps it is a marker for. PL9 additionally carries a **thiopeptidoglycan
+lyase**, which is a different substrate entirely — a PL9 hit may not be acting
+on pectin at all. That is the GH28-versus-GH2 distinction of §16.3, and it is
+the more serious of the two failures.
+
+**Rejections recorded.** `CBM13_e184`, `CBM2_e111` and `CBM35_e12` appear under
+EC 4.2.2.2 and are excluded because a binding module catalyses nothing.
+`PL1_e2` is excluded from EC 4.2.2.9 at 5 of 20 annotated members, below the
+floor, while the same cluster is admitted for EC 4.2.2.2 at 15 of 20 — the floor
+discriminating between two claims about one cluster, which is what it is for.
+
+**A known conservatism, stated rather than hidden.** Step 2 is required
+chemistry — Ogl acts on the unsaturated *di*saccharide, so without exo-lyase
+action there is nothing for it to work on — but its marker support is the
+thinnest in the route: two eCAMI clusters, two orthologues, three bare families,
+two of them `ambiguous`. A genome with endo-lyase and the full intracellular
+trio but no recognisable exo-lyase is called negative. Requiring the step
+follows the settled endo-plus-exo convention and the chemistry; the cost is a
+false-negative risk concentrated at one step, and it is accepted knowingly.
+
+### 17.7 What remains
+
+Seven substrates of §6.3 are outstanding: β-mannan, mixed-linkage glucan,
+β-galactan, cellulose, and the rhamnogalacturonan, xyloglucan and fructan
+layers. The cheapest batch is β-mannan, mixed-linkage glucan and β-galactan;
+cellulose should be held until last, because it has the most clusters of any
+substrate and GH5 is §10's own worked example of the polyspecificity failure
+mode. PL11's rhamnogalacturonan lyases are now the obvious next use of the PL
+class, and unlike homogalacturonan they would need a rhamnogalacturonan anchor
+of their own.

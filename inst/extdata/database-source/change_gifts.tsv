@@ -327,3 +327,8 @@ DBC-20260821-MUCIN-O-GLYCAN	mucin_sialic_acid_release
 DBC-20260821-MUCIN-O-GLYCAN	mucin_fucose_release
 DBC-20260821-MUCIN-O-GLYCAN	mucin_galnac_release
 DBC-20260821-PECTIN-DEGRADATION	pectin_degradation
+DBC-20260821-KDG-ANCHOR	galacturonate_degradation
+DBC-20260821-KDG-ANCHOR	glucuronate_degradation
+DBC-20260821-KDG-ANCHOR	kdg_degradation
+DBC-20260821-PECTATE-LYASE	pectate_lyase_degradation
+DBC-20260821-PECTATE-LYASE	pectin_degradation

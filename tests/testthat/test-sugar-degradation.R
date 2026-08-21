@@ -2,7 +2,7 @@ sugar_gifts <- c(
   "xylose_degradation_isomerase", "arabinose_degradation",
   "fucose_degradation_isomerase", "rhamnose_degradation",
   "galactose_degradation_leloir", "glcnac_degradation", "neuac_degradation",
-  "galacturonate_degradation", "glucuronate_degradation"
+  "galacturonate_degradation", "glucuronate_degradation", "kdg_degradation"
 )
 
 full_sugar_markers <- c(
@@ -83,7 +83,8 @@ test_that("catabolism does not connect to biosynthesis through internal metaboli
     unique(nitrogen$from_gift), c("glcnac_degradation", "neuac_degradation")
   )
   expect_setequal(
-    unique(outgoing$shared_anchor), c("PYRUVATE", "LACTALDEHYDE", "AMMONIUM")
+    unique(outgoing$shared_anchor),
+    c("PYRUVATE", "LACTALDEHYDE", "AMMONIUM", "KDG")
   )
   expect_setequal(
     unique(outgoing$to_gift),
@@ -91,17 +92,35 @@ test_that("catabolism does not connect to biosynthesis through internal metaboli
       "pyruvate_to_acetyl_coa", "propanediol_formation",
       "lactate_formation", "acetoin_formation", "ammonium_assimilation",
       "glutamine_biosynthesis", "alanine_biosynthesis",
-      "oxoisovalerate_biosynthesis", "oxobutanoate_biosynthesis_citramalate"
+      "oxoisovalerate_biosynthesis", "oxobutanoate_biosynthesis_citramalate",
+      "kdg_degradation"
     )
   )
 
   # A degradation GIFT is reached on an exact edge only through its own uptake
   # step. Nothing reaches one through a shared cytoplasmic intermediate.
+  # Two kinds of exact edge reach this layer, and the difference is the point.
+  # An uptake GIFT reaches the catabolism of the sugar it imports, which is what
+  # keeps transport GIFTs load-bearing. Since the 2026.21.3 re-cut, the two
+  # hexuronate heads also reach the shared Entner-Doudoroff tail -- but through
+  # 2-dehydro-3-deoxy-D-gluconate, a *declared* branchpoint anchor. That is the
+  # licensed case; what this test still forbids is a connection made through an
+  # undeclared internal metabolite.
   incoming <- graph[graph$to_gift %in% sugar_gifts, ]
   exact <- incoming[incoming$edge_quality == "exact", ]
-  modes <- vapply(unique(exact$from_gift), function(id) get_gift(id)$mode, character(1))
+  expect_setequal(
+    paste(exact$from_gift, exact$to_gift),
+    c(
+      "xylose_uptake_abc xylose_degradation_isomerase",
+      "arabinose_uptake_abc arabinose_degradation",
+      "galacturonate_degradation kdg_degradation",
+      "glucuronate_degradation kdg_degradation"
+    )
+  )
+  uptake <- exact[exact$to_gift != "kdg_degradation", ]
+  modes <- vapply(unique(uptake$from_gift), function(id) get_gift(id)$mode, character(1))
   expect_true(all(modes == "transport"))
-  expect_setequal(exact$from_gift, c("xylose_uptake_abc", "arabinose_uptake_abc"))
+  expect_true(all(exact$shared_anchor[exact$to_gift == "kdg_degradation"] == "KDG"))
 
   # Extracellular saccharification reaches the matching catabolic GIFT, but only
   # on a compartment-inexact edge. The released sugar is outside the cell and the
@@ -116,7 +135,8 @@ test_that("catabolism does not connect to biosynthesis through internal metaboli
       "chitin_degradation glcnac_degradation",
       "mucin_sialic_acid_release neuac_degradation",
       "mucin_fucose_release fucose_degradation_isomerase",
-      "pectin_degradation galacturonate_degradation"
+      "pectin_degradation galacturonate_degradation",
+      "pectate_lyase_degradation kdg_degradation"
     )
   )
   expect_true(all(vapply(
@@ -218,8 +238,22 @@ test_that("uronate isomerase evidence is shared without merging the capabilities
   glucuronate <- get_gift_reactions("glucuronate_degradation")$reaction_id
   expect_true("RHEA:27702" %in% galacturonate)
   expect_false("RHEA:27702" %in% glucuronate)
-  # They converge only on the final two shared reactions.
-  expect_setequal(intersect(galacturonate, glucuronate), c("RHEA:14797", "RHEA:17089"))
+  # Since the 2026.21.3 re-cut they share no reaction at all. The two reactions
+  # they used to carry twice between them are kdg_degradation, and the
+  # convergence is expressed as a shared anchor instead of duplicated chemistry.
+  expect_length(intersect(galacturonate, glucuronate), 0L)
+  expect_setequal(
+    get_gift_reactions("kdg_degradation")$reaction_id,
+    c("RHEA:14797", "RHEA:17089")
+  )
+  expect_true(all(vapply(
+    c("galacturonate_degradation", "glucuronate_degradation"),
+    function(id) {
+      anchors <- get_gift_anchors(id)
+      identical(anchors$anchor_id[anchors$role == "output"], "KDG")
+    },
+    logical(1)
+  )))
 })
 
 test_that("xylose isomerase is curated on xylose, not on its promiscuous activity", {

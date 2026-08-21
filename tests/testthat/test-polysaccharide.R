@@ -302,18 +302,133 @@ test_that("GH28 is substrate-coherent but cannot separate endo from exo", {
   )
 })
 
-test_that("the pectate lyase route is deferred rather than curated", {
-  # PL markers are well supported, but the lyase yields unsaturated
-  # oligogalacturonides that enter catabolism through 2-dehydro-3-deoxy-D-
-  # gluconate, an internal intermediate of galacturonate_degradation. A lyase
-  # GIFT cannot declare an output boundary until that becomes an anchor.
-  connection <- gifter_db_connect()
-  withr::defer(gifter_db_disconnect(connection))
-  markers <- DBI::dbGetQuery(
-    connection, "SELECT accession FROM marker WHERE namespace = 'CAZY'"
-  )$accession
-  expect_false(any(grepl("^PL[0-9]", markers)))
+lyase_route_markers <- c("K01728", "K01731", "K01730", "K01815", "K00065")
 
-  reactions <- get_gift_reactions("pectin_degradation")
-  expect_false(any(grepl("LYASE", reactions$reaction_id)))
+test_that("the two pectin chemistries are separate capabilities that converge", {
+  # beta-elimination and hydrolysis end at different metabolites, so they cannot
+  # be two routes of one GIFT. What they share is where they arrive.
+  hydrolytic <- get_gift_anchors("pectin_degradation")
+  lyase <- get_gift_anchors("pectate_lyase_degradation")
+  expect_equal(hydrolytic$anchor_id[hydrolytic$role == "input"], "PECTIN")
+  expect_equal(lyase$anchor_id[lyase$role == "input"], "PECTIN")
+  expect_equal(hydrolytic$anchor_id[hydrolytic$role == "output"], "GALACTURONATE")
+  expect_equal(lyase$anchor_id[lyase$role == "output"], "KDG")
+
+  # Both reach the branchpoint, one directly and one through galacturonate
+  # catabolism. Neither call is evidence for the other.
+  graph <- gift_graph()
+  expect_true(any(
+    graph$from_gift == "pectate_lyase_degradation" &
+      graph$to_gift == "kdg_degradation" & graph$shared_anchor == "KDG"
+  ))
+  expect_true(any(
+    graph$from_gift == "pectin_degradation" &
+      graph$to_gift == "galacturonate_degradation"
+  ))
+
+  # Extracellular depolymerisation handing off through an anchor that leaves the
+  # compartment unresolved is inexact, exactly as it is for the hydrolytic arm.
+  edge <- graph[graph$from_gift == "pectate_lyase_degradation", ]
+  expect_equal(edge$edge_quality, "compartment_inexact")
+})
+
+test_that("the lyase route runs to the branchpoint and needs every step of it", {
+  ask <- function(markers) {
+    result <- evaluate_gifts(markers)
+    result$gifts[result$gifts$gift_id == "pectate_lyase_degradation", ]
+  }
+
+  full <- ask(lyase_route_markers)
+  expect_true(full$complete)
+  expect_equal(full$evidence_confidence, "curated")
+
+  # Each of the five is required chemistry: the endo- and exo-acting lyases and
+  # the three intracellular steps that carry the unsaturated disaccharide to the
+  # branchpoint. Dropping any one of them is a negative call.
+  for (missing in seq_along(lyase_route_markers)) {
+    expect_false(ask(lyase_route_markers[-missing])$complete)
+  }
+
+  # Endo-lyase alone stops at the exo step, which is the conservatism this route
+  # was curated with rather than around.
+  expect_equal(ask("K01728")$missing_reactions_best_route[[1]][[1]], "RHEA:57104")
+
+  # Pectin lyase is an alternative entry on esterified backbone and
+  # de-esterification exposes the backbone; neither liberates anything on its
+  # own, so both are accessory.
+  reactions <- get_gift_reactions("pectate_lyase_degradation")
+  accessory <- reactions$reaction_id[reactions$required == 0L]
+  expect_setequal(accessory, c("RXN_PECTIN_LYASE", "RXN_PECTIN_DEMETHYL"))
+  expect_false(ask(c("K01732", "K01051"))$complete)
+})
+
+component_markers_for <- function(component_id) {
+  connection <- gifter_db_connect()
+  withr::defer(gifter_db_disconnect(connection), envir = parent.frame())
+  DBI::dbGetQuery(connection, paste(
+    "SELECT m.namespace, m.accession, cm.confidence, cm.notes",
+    "FROM component_marker cm",
+    "JOIN marker m ON m.marker_pk = cm.marker_pk",
+    "JOIN enzyme_component ec ON ec.component_pk = cm.component_pk",
+    "WHERE ec.component_id =", DBI::dbQuoteString(connection, component_id)
+  ))
+}
+
+test_that("PL family markers are graded on what they can and cannot separate", {
+  markers <- component_markers_for("COMP_ENDO_PL")
+  bare <- markers[markers$namespace == "CAZY" & !grepl("_e", markers$accession), ]
+  grades <- stats::setNames(bare$confidence, bare$accession)
+
+  # Monoactivity families stand alone; two pectin activities are
+  # high-confidence; four or more are ambiguous.
+  expect_equal(unname(grades[c("PL3", "PL10")]), c("curated", "curated"))
+  expect_equal(unname(grades[["PL2"]]), "high-confidence")
+  expect_equal(unname(grades[c("PL1", "PL9")]), c("ambiguous", "ambiguous"))
+
+  # Both ambiguous grades must say *why*, and the reasons are different.
+  # PL1 cannot separate the steps it marks; PL9 may not be on pectin at all.
+  expect_match(bare$notes[bare$accession == "PL1"], "endo versus exo")
+  expect_match(bare$notes[bare$accession == "PL9"], "thiopeptidoglycan")
+
+  # No CBM family and nothing below the agreement floor was admitted. PL1_e2 is
+  # the case the floor exists for: admitted for EC 4.2.2.2 at 15 of 20 annotated
+  # members, refused for EC 4.2.2.9 at 5 of 20.
+  clusters <- markers$accession[grepl("_e", markers$accession)]
+  expect_false(any(grepl("^CBM", markers$accession)))
+  expect_true("PL1_e2" %in% clusters)
+  expect_false("PL1_e2" %in% component_markers_for("COMP_57104_CATALYTIC")$accession)
+})
+
+test_that("a bare PL1 call is possible but never reads as real evidence", {
+  # PL1 marks the endo step, the exo step and the accessory pectin lyase, so one
+  # bare hit satisfies both required lyase components. The intracellular trio
+  # still has to be there, and the ambiguous grade is what keeps the result from
+  # being counted as evidence under a confidence floor.
+  bare <- evaluate_gifts(c("PL1", "K01730", "K01815", "K00065"))$gifts
+  call <- bare[bare$gift_id == "pectate_lyase_degradation", ]
+  expect_true(call$complete)
+  expect_equal(call$evidence_confidence, "ambiguous")
+
+  gated <- genome_traits(
+    evaluate_gifts(c("PL1", "K01730", "K01815", "K00065")),
+    universes = list(gift_universe(preset = "carbohydrate_degradation")),
+    min_confidence = "high-confidence"
+  )
+  expect_equal(
+    gated$metrics$value[gated$metrics$metric_id == "gift_richness"], 0
+  )
+})
+
+test_that("housekeeping Entner-Doudoroff chemistry does not call pectin foraging", {
+  # The negative case the branchpoint anchor makes possible to state. KdgK and
+  # Eda are the lower Entner-Doudoroff pathway and are carried for gluconate,
+  # alginate and 2-keto-3-deoxy sugar acid catabolism, by genomes that touch no
+  # pectin at all. They complete kdg_degradation, and nothing upstream of it.
+  housekeeping <- evaluate_gifts(c("K00874", "K01625"))$gifts
+  complete <- housekeeping$gift_id[housekeeping$complete]
+  expect_true("kdg_degradation" %in% complete)
+  expect_false("pectate_lyase_degradation" %in% complete)
+  expect_false("pectin_degradation" %in% complete)
+  expect_false("galacturonate_degradation" %in% complete)
+  expect_false("glucuronate_degradation" %in% complete)
 })

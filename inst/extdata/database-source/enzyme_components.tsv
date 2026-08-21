@@ -588,3 +588,9 @@ COMP_GALNACASE	SYS_GALNACASE	alpha-N-acetylgalactosaminidase protein	Required ca
 COMP_ENDO_PG	SYS_ENDO_PG	endo-polygalacturonase protein	Required catalytic protein.
 COMP_EXO_PG	SYS_EXO_PG	exo-polygalacturonase protein	Required catalytic protein.
 COMP_PECTINESTERASE	SYS_PECTINESTERASE	pectinesterase protein	Required catalytic protein.
+COMP_ENDO_PL	SYS_ENDO_PL	endo-pectate lyase protein	Required catalytic protein; alternative markers are OR.
+COMP_57104_CATALYTIC	SYS_57104_PELWX	pectate disaccharide-lyase protein	Required catalytic protein; alternative markers are OR.
+COMP_20269_CATALYTIC	SYS_20269_OGL	oligogalacturonide lyase protein	Required catalytic protein; alternative markers are OR.
+COMP_23896_CATALYTIC	SYS_23896_KDUI	ketol-isomerase protein	Required catalytic protein; alternative markers are OR.
+COMP_24232_CATALYTIC	SYS_24232_KDUD	2-dehydro-3-deoxy-D-gluconate 5-dehydrogenase protein	Required catalytic protein; alternative markers are OR.
+COMP_PECTIN_LYASE	SYS_PECTIN_LYASE	pectin lyase protein	Required catalytic protein; alternative markers are OR.
