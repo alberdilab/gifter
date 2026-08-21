@@ -319,3 +319,11 @@ DBC-20260820-ISOCITRATE-RECUT	succinate_fumarate_interconversion
 DBC-20260820-ISOCITRATE-RECUT	fumarate_oxaloacetate_interconversion
 DBC-20260820-NITROGEN-FIXATION	nitrogen_fixation
 DBC-20260820-SULFATE-ASSIMILATION	assimilatory_sulfate_reduction
+DBC-20260821-CAZY-AGREEMENT-FLOOR	xylan_degradation
+DBC-20260821-CAZY-AGREEMENT-FLOOR	arabinoxylan_debranching
+DBC-20260821-CAZY-AGREEMENT-FLOOR	starch_degradation
+DBC-20260821-CHITIN-DEGRADATION	chitin_degradation
+DBC-20260821-MUCIN-O-GLYCAN	mucin_sialic_acid_release
+DBC-20260821-MUCIN-O-GLYCAN	mucin_fucose_release
+DBC-20260821-MUCIN-O-GLYCAN	mucin_galnac_release
+DBC-20260821-PECTIN-DEGRADATION	pectin_degradation

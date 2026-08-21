@@ -61,22 +61,37 @@ test_that("genomes evaluated against different releases are refused", {
   )
 })
 
+test_that("a community holds calls, not abundance or completeness", {
+  # Abundance and completeness are ways of reading calls, not properties of
+  # them, so the container commits to neither and the same calls can be read
+  # under two thresholds without being evaluated twice.
+  community <- arabinoxylan_community()
+  expect_null(community$abundance)
+  expect_null(community$assessability)
+  expect_false(any(is.na(community$matrix)))
+  expect_error(
+    gifter_community(A = arabinoxylan_genome("debrancher"), abundance = c(A = 1)),
+    "pass them to community_traits"
+  )
+})
+
 test_that("abundance is validated against the genomes it weights", {
-  genome <- arabinoxylan_genome("debrancher")
-  expect_error(
-    gifter_community(A = genome, abundance = c(B = 1)),
-    "exactly the supplied genomes"
+  community <- gifter_community(
+    A = arabinoxylan_genome("debrancher"), B = arabinoxylan_genome("backbone")
   )
-  expect_error(
-    gifter_community(A = genome, abundance = c(A = -1)),
-    "non-negative"
-  )
-  expect_error(gifter_community(A = genome, abundance = c(A = 0)), "all zero")
-  expect_error(gifter_community(A = genome, abundance = 1), "named numeric")
-  # Normalisation happens on read; the supplied values are kept.
-  community <- gifter_community(A = genome, B = genome, abundance = c(A = 3, B = 1))
-  expect_equal(unname(community$abundance), c(0.75, 0.25))
-  expect_equal(unname(community$abundance_supplied), c(3, 1))
+  weighted <- function(abundance) {
+    community_traits(
+      community, universes = list(arabinoxylan_universe()), abundance = abundance
+    )
+  }
+  expect_error(weighted(c(B = 1)), "exactly the supplied genomes")
+  expect_error(weighted(c(A = -1, B = 1)), "non-negative")
+  expect_error(weighted(c(A = 0, B = 0)), "all zero")
+  expect_error(weighted(1), "named numeric")
+  # Normalisation happens on read; the supplied values are kept beside it.
+  traits <- weighted(c(A = 3, B = 1))
+  expect_equal(unname(traits$abundance), c(0.75, 0.25))
+  expect_equal(unname(traits$abundance_supplied), c(3, 1))
 })
 
 test_that("provider counts match the distributed chain", {
@@ -127,8 +142,8 @@ test_that("singleton fraction and unique contribution agree on who is alone", {
 
 test_that("presence and abundance stay in separate rows", {
   traits <- community_traits(
-    arabinoxylan_community(abundance = c(A = 0.1, B = 0.2, C = 0.3, D = 0.4)),
-    universes = list(arabinoxylan_universe())
+    arabinoxylan_community(), universes = list(arabinoxylan_universe()),
+    abundance = c(A = 0.1, B = 0.2, C = 0.3, D = 0.4)
   )
   coverage <- community_metric(traits, "abundance_coverage")
   values <- stats::setNames(coverage$value, coverage$target_id)
@@ -219,8 +234,8 @@ test_that("community traits refuse a bad container or a stale universe", {
 
 test_that("every community metric names its universe and its target", {
   traits <- community_traits(
-    arabinoxylan_community(abundance = c(A = 1, B = 1, C = 1, D = 1)),
-    universes = list(arabinoxylan_universe())
+    arabinoxylan_community(), universes = list(arabinoxylan_universe()),
+    abundance = c(A = 1, B = 1, C = 1, D = 1)
   )
   expect_true(all(nzchar(traits$metrics$reference_universe)))
   expect_true(all(nzchar(traits$metrics$derivation_method)))

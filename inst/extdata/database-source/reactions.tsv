@@ -416,3 +416,12 @@ RHEA:13505	RHEA:13505	choline oxidase first reaction	choline + oxygen = betaine 
 RHEA:20369	RHEA:20369	choline oxidase second reaction	betaine aldehyde + oxygen + water = glycine betaine + hydrogen peroxide + H(+).
 RHEA:15305	RHEA:15305	betaine-aldehyde dehydrogenase reaction	betaine aldehyde + NAD(+) + water = glycine betaine + NADH + 2 H(+). The NADP reaction is not materialised because the same accepted KO serves both and adds no genomic discrimination.
 RHEA:24360	RHEA:24360	sirohydrochlorin ferrochelatase reaction	siroheme + 2 H(+) = sirohydrochlorin + Fe(2+).
+RXN_CHITIN_ENDO		endochitinase reaction	Random endohydrolysis of (1->4)-beta-linkages of N-acetyl-D-glucosamine in chitin, releasing chito-oligosaccharides.
+RXN_CHITOBIOSE_EXO		beta-N-acetylhexosaminidase reaction	Hydrolysis of terminal non-reducing N-acetyl-D-glucosamine residues from chito-oligosaccharides, releasing free GlcNAc.
+RXN_CHITIN_LPMO		lytic chitin monooxygenase reaction	Oxidative cleavage of crystalline chitin chains, generating new chain ends for the endo-acting chitinase.
+RXN_MUCIN_NEUAC_RELEASE		mucin sialidase reaction	Hydrolysis of terminal alpha-linked N-acetylneuraminate from mucin O-glycan, exposing the underlying chain.
+RXN_MUCIN_FUCOSE_RELEASE		mucin alpha-L-fucosidase reaction	Hydrolysis of terminal alpha-L-fucosyl residues from mucin O-glycan, releasing free L-fucose.
+RXN_MUCIN_GALNAC_RELEASE		mucin alpha-N-acetylgalactosaminidase reaction	Hydrolysis of the terminal alpha-linked N-acetyl-D-galactosamine of the mucin O-glycan core.
+RXN_PECTIN_ENDO_PG		endo-polygalacturonase reaction	Random endohydrolysis of (1->4)-alpha-D-galactosiduronic linkages in pectate, releasing oligogalacturonides.
+RXN_OLIGOGALACTURONIDE_EXO		exo-polygalacturonase reaction	Hydrolysis of oligogalacturonides from the non-reducing end, releasing successive D-galacturonate residues.
+RXN_PECTIN_DEMETHYL		pectinesterase reaction	Hydrolysis of the methyl esters of the galacturonan backbone, exposing it to the depolymerising enzymes.

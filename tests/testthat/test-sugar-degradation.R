@@ -95,12 +95,35 @@ test_that("catabolism does not connect to biosynthesis through internal metaboli
     )
   )
 
-  # The only way into a degradation GIFT is its own uptake step. Nothing
-  # reaches one through a shared intermediate.
+  # A degradation GIFT is reached on an exact edge only through its own uptake
+  # step. Nothing reaches one through a shared cytoplasmic intermediate.
   incoming <- graph[graph$to_gift %in% sugar_gifts, ]
-  modes <- vapply(unique(incoming$from_gift), function(id) get_gift(id)$mode, character(1))
+  exact <- incoming[incoming$edge_quality == "exact", ]
+  modes <- vapply(unique(exact$from_gift), function(id) get_gift(id)$mode, character(1))
   expect_true(all(modes == "transport"))
-  expect_setequal(incoming$from_gift, c("xylose_uptake_abc", "arabinose_uptake_abc"))
+  expect_setequal(exact$from_gift, c("xylose_uptake_abc", "arabinose_uptake_abc"))
+
+  # Extracellular saccharification reaches the matching catabolic GIFT, but only
+  # on a compartment-inexact edge. The released sugar is outside the cell and the
+  # catabolism is inside it; where no transporter evidence licensed a compartment
+  # split, both sides name the one unsplit anchor. Flagging the edge keeps the
+  # chain traversable while recording that the transport step is assumed rather
+  # than evidenced, which is what separates a forager from a public-goods donor.
+  inexact <- incoming[incoming$edge_quality == "compartment_inexact", ]
+  expect_setequal(
+    paste(inexact$from_gift, inexact$to_gift),
+    c(
+      "chitin_degradation glcnac_degradation",
+      "mucin_sialic_acid_release neuac_degradation",
+      "mucin_fucose_release fucose_degradation_isomerase",
+      "pectin_degradation galacturonate_degradation"
+    )
+  )
+  expect_true(all(vapply(
+    unique(inexact$from_gift),
+    function(id) any(get_gift_anchors(id)$compartment == "extracellular"),
+    logical(1)
+  )))
 
   # Xylose and arabinose both end at D-xylulose 5-phosphate. Sharing an output
   # anchor is convergence, not composition.

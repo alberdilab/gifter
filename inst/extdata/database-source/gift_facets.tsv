@@ -350,3 +350,17 @@ choline_to_betaine	substrate_class	methylated_amine	Choline and glycine betaine 
 choline_to_betaine	physiological_role	compatible_solute_biosynthesis	Names the glycine-betaine product without claiming accumulation or osmotic protection.
 siroheme_biosynthesis	substrate_class	cofactor	Siroheme is the exact product boundary.
 siroheme_biosynthesis	physiological_role	biosynthesis	Builds the siroheme cofactor from the shared uroporphyrinogen III tetrapyrrole branchpoint.
+chitin_degradation	substrate_class	polysaccharide	
+chitin_degradation	physiological_role	carbon_acquisition	
+mucin_sialic_acid_release	substrate_class	polysaccharide	
+mucin_sialic_acid_release	physiological_role	carbon_acquisition	
+mucin_sialic_acid_release	physiological_role	host_glycan_foraging	
+mucin_fucose_release	substrate_class	polysaccharide	
+mucin_fucose_release	physiological_role	carbon_acquisition	
+mucin_fucose_release	physiological_role	host_glycan_foraging	
+mucin_galnac_release	substrate_class	polysaccharide	
+mucin_galnac_release	physiological_role	carbon_acquisition	
+mucin_galnac_release	physiological_role	host_glycan_foraging	
+pectin_degradation	substrate_class	polysaccharide	
+pectin_degradation	physiological_role	carbon_acquisition	
+pectin_degradation	physiological_role	fibre_degradation	

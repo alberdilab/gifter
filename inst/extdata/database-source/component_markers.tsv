@@ -290,31 +290,19 @@ COMP_XYLANASE	CAZY	GH11_e42	sequence_subfamily	high-confidence	CAZy subfamily vi
 COMP_XYLANASE	CAZY	GH11_e5	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	10 of 12 EC-annotated members carry EC 3.2.1.8 (83%); contains CAZy subfamily GH16_21.
 COMP_XYLANASE	CAZY	GH11_e7	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	37 of 37 EC-annotated members carry EC 3.2.1.8 (100%).
 COMP_XYLANASE	CAZY	GH11_e8	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	66 of 66 EC-annotated members carry EC 3.2.1.8 (100%).
-COMP_XYLANASE	CAZY	GH16_e14	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 53 EC-annotated members carry EC 3.2.1.8 (4%); contains CAZy subfamily GH16_21.
-COMP_XYLANASE	CAZY	GH26_e54	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 5 EC-annotated members carry EC 3.2.1.8 (40%); contains CAZy subfamily GH5_25.
 COMP_XYLANASE	CAZY	GH30_e138	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%); contains CAZy subfamily GH30_7.
 COMP_XYLANASE	CAZY	GH30_e145	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%); contains CAZy subfamily GH30_8;GH43_10.
-COMP_XYLANASE	CAZY	GH30_e48	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 5 EC-annotated members carry EC 3.2.1.8 (40%); contains CAZy subfamily GH30_7.
 COMP_XYLANASE	CAZY	GH30_e78	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	16 of 24 EC-annotated members carry EC 3.2.1.8 (67%); contains CAZy subfamily GH30_8.
-COMP_XYLANASE	CAZY	GH43_e261	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 15 EC-annotated members carry EC 3.2.1.8 (13%); contains CAZy subfamily GH43_10;GH43_16;GH43_34.
 COMP_XYLANASE	CAZY	GH5_e130	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%); contains CAZy subfamily GH5_21.
-COMP_XYLANASE	CAZY	GH5_e141	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 29 EC-annotated members carry EC 3.2.1.8 (7%); contains CAZy subfamily GH5_4.
 COMP_XYLANASE	CAZY	GH5_e243	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%); contains CAZy subfamily GH43_10;GH5_21.
-COMP_XYLANASE	CAZY	GH5_e29	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 11 EC-annotated members carry EC 3.2.1.8 (36%); contains CAZy subfamily GH5_4.
 COMP_XYLANASE	CAZY	GH5_e319	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.8 (50%); contains CAZy subfamily GH5_4.
-COMP_XYLANASE	CAZY	GH5_e55	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 21 EC-annotated members carry EC 3.2.1.8 (10%); contains CAZy subfamily GH5_4.
-COMP_XYLANASE	CAZY	GH5_e77	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 8 EC-annotated members carry EC 3.2.1.8 (25%); contains CAZy subfamily GH5_25;GH5_39.
-COMP_XYLANASE	CAZY	GH51_e9	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 6 EC-annotated members carry EC 3.2.1.8 (33%).
 COMP_XYLANASE	CAZY	GH8_e19	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 11 EC-annotated members carry EC 3.2.1.8 (55%).
 COMP_XYLANASE	CAZY	GH8_e37	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 5 EC-annotated members carry EC 3.2.1.8 (60%); contains CAZy subfamily GH5_55.
 COMP_XYLANASE	CAZY	GH8_e9	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.8 (100%).
-COMP_XYLANASE	CAZY	GH9_e16	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 19 EC-annotated members carry EC 3.2.1.8 (26%).
 COMP_XYLANASE	CAZY	GH98_e0	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.8 (100%).
 COMP_XYLOSIDASE	CAZY	GH120_e0	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.37 (100%).
 COMP_XYLOSIDASE	CAZY	GH3_e0	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	92 of 131 EC-annotated members carry EC 3.2.1.37 (70%).
-COMP_XYLOSIDASE	CAZY	GH3_e165	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 39 EC-annotated members carry EC 3.2.1.37 (8%).
 COMP_XYLOSIDASE	CAZY	GH3_e21	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	8 of 8 EC-annotated members carry EC 3.2.1.37 (100%).
-COMP_XYLOSIDASE	CAZY	GH3_e32	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 14 EC-annotated members carry EC 3.2.1.37 (29%).
 COMP_XYLOSIDASE	CAZY	GH3_e50	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.37 (100%).
 COMP_XYLOSIDASE	CAZY	GH3_e73	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	31 of 31 EC-annotated members carry EC 3.2.1.37 (100%).
 COMP_XYLOSIDASE	CAZY	GH3_e88	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	15 of 18 EC-annotated members carry EC 3.2.1.37 (83%).
@@ -331,10 +319,7 @@ COMP_XYLOSIDASE	CAZY	GH43_e53	sequence_subfamily	high-confidence	CAZy subfamily 
 COMP_XYLOSIDASE	CAZY	GH43_e59	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.37 (50%); contains CAZy subfamily GH43_10;GH43_17;GH43_26;GH43_29;GH43_30.
 COMP_XYLOSIDASE	CAZY	GH43_e67	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.37 (50%); contains CAZy subfamily GH43_12.
 COMP_XYLOSIDASE	CAZY	GH5_e288	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.37 (50%); contains CAZy subfamily GH5_22.
-COMP_XYLOSIDASE	CAZY	GH51_e4	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	11 of 31 EC-annotated members carry EC 3.2.1.37 (35%).
 COMP_XYLOSIDASE	CAZY	GH52_e0	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	8 of 8 EC-annotated members carry EC 3.2.1.37 (100%).
-COMP_ARAF	CAZY	GH3_e0	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	39 of 131 EC-annotated members carry EC 3.2.1.55 (30%).
-COMP_ARAF	CAZY	GH3_e88	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 18 EC-annotated members carry EC 3.2.1.55 (17%).
 COMP_ARAF	CAZY	GH43_e0	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_10;GH43_12.
 COMP_ARAF	CAZY	GH43_e118	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_10;GH43_16.
 COMP_ARAF	CAZY	GH43_e124	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	7 of 7 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_12.
@@ -347,14 +332,11 @@ COMP_ARAF	CAZY	GH43_e239	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-s
 COMP_ARAF	CAZY	GH43_e259	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_12.
 COMP_ARAF	CAZY	GH43_e261	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	11 of 15 EC-annotated members carry EC 3.2.1.55 (73%); contains CAZy subfamily GH43_10;GH43_16;GH43_34.
 COMP_ARAF	CAZY	GH43_e264	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 8 EC-annotated members carry EC 3.2.1.55 (50%); contains CAZy subfamily GH43_35.
-COMP_ARAF	CAZY	GH43_e285	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 23 EC-annotated members carry EC 3.2.1.55 (13%); contains CAZy subfamily GH43_11;GH43_12.
 COMP_ARAF	CAZY	GH43_e311	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.55 (50%); contains CAZy subfamily GH43_17;GH43_23;GH43_26;GH43_34.
 COMP_ARAF	CAZY	GH43_e327	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_2;GH43_29;GH43_34.
-COMP_ARAF	CAZY	GH43_e330	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 8 EC-annotated members carry EC 3.2.1.55 (25%); contains CAZy subfamily GH43_11;GH43_12;GH43_13.
 COMP_ARAF	CAZY	GH43_e398	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.55 (50%); contains CAZy subfamily GH43_2.
 COMP_ARAF	CAZY	GH43_e429	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_12.
 COMP_ARAF	CAZY	GH43_e52	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_36.
-COMP_ARAF	CAZY	GH43_e53	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 23 EC-annotated members carry EC 3.2.1.55 (17%); contains CAZy subfamily GH43_1;GH43_10;GH43_29;GH43_32;GH43_33;GH43_34;GH5_21.
 COMP_ARAF	CAZY	GH43_e532	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.55 (100%); contains CAZy subfamily GH43_10;GH43_29.
 COMP_ARAF	CAZY	GH43_e59	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.55 (50%); contains CAZy subfamily GH43_10;GH43_17;GH43_26;GH43_29;GH43_30.
 COMP_ARAF	CAZY	GH43_e67	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.55 (50%); contains CAZy subfamily GH43_12.
@@ -386,19 +368,16 @@ COMP_AMYLASE	CAZY	GH13_e160	sequence_subfamily	high-confidence	CAZy subfamily vi
 COMP_AMYLASE	CAZY	GH13_e172	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	9 of 17 EC-annotated members carry EC 3.2.1.1 (53%); contains CAZy subfamily GH13_20;GH13_21;GH13_39.
 COMP_AMYLASE	CAZY	GH13_e173	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_5.
 COMP_AMYLASE	CAZY	GH13_e18	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	7 of 7 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_5;GH13_7.
-COMP_AMYLASE	CAZY	GH13_e183	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 13 EC-annotated members carry EC 3.2.1.1 (23%); contains CAZy subfamily GH13_13;GH13_3;GH13_32.
 COMP_AMYLASE	CAZY	GH13_e19	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	16 of 16 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_1.
 COMP_AMYLASE	CAZY	GH13_e205	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	49 of 49 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_15;GH13_24;GH13_32.
 COMP_AMYLASE	CAZY	GH13_e206	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_1;GH13_2.
 COMP_AMYLASE	CAZY	GH13_e23	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_32.
 COMP_AMYLASE	CAZY	GH13_e240	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_28;GH13_32.
 COMP_AMYLASE	CAZY	GH13_e245	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_5.
-COMP_AMYLASE	CAZY	GH13_e248	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 31 EC-annotated members carry EC 3.2.1.1 (10%); contains CAZy subfamily GH13_13;GH13_14;GH13_32;GH13_37;GH13_5.
 COMP_AMYLASE	CAZY	GH13_e25	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_5.
 COMP_AMYLASE	CAZY	GH13_e302	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_28.
 COMP_AMYLASE	CAZY	GH13_e303	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	10 of 19 EC-annotated members carry EC 3.2.1.1 (53%); contains CAZy subfamily GH13_39.
 COMP_AMYLASE	CAZY	GH13_e307	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	15 of 17 EC-annotated members carry EC 3.2.1.1 (88%); contains CAZy subfamily GH13_36.
-COMP_AMYLASE	CAZY	GH13_e329	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 22 EC-annotated members carry EC 3.2.1.1 (9%); contains CAZy subfamily GH13_20;GH13_21.
 COMP_AMYLASE	CAZY	GH13_e34	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	8 of 8 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_28.
 COMP_AMYLASE	CAZY	GH13_e345	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	50 of 50 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_6.
 COMP_AMYLASE	CAZY	GH13_e346	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_20.
@@ -415,33 +394,21 @@ COMP_AMYLASE	CAZY	GH13_e413	sequence_subfamily	high-confidence	CAZy subfamily vi
 COMP_AMYLASE	CAZY	GH13_e419	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	153 of 163 EC-annotated members carry EC 3.2.1.1 (94%); contains CAZy subfamily GH13_5;GH13_7.
 COMP_AMYLASE	CAZY	GH13_e42	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_28.
 COMP_AMYLASE	CAZY	GH13_e443	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_49.
-COMP_AMYLASE	CAZY	GH13_e446	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 6 EC-annotated members carry EC 3.2.1.1 (33%); contains CAZy subfamily GH13_20.
 COMP_AMYLASE	CAZY	GH13_e462	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_36.
-COMP_AMYLASE	CAZY	GH13_e465	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 11 EC-annotated members carry EC 3.2.1.1 (45%); contains CAZy subfamily GH13_14;GH13_32;GH13_41.
 COMP_AMYLASE	CAZY	GH13_e47	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 5 EC-annotated members carry EC 3.2.1.1 (60%); contains CAZy subfamily GH13_36.
 COMP_AMYLASE	CAZY	GH13_e484	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_27.
-COMP_AMYLASE	CAZY	GH13_e486	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 96 EC-annotated members carry EC 3.2.1.1 (3%); contains CAZy subfamily AA3_2;GH13_10;GH13_17;GH13_23;GH13_29;GH13_31;GH13_36;GH13_40.
-COMP_AMYLASE	CAZY	GH13_e491	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 25 EC-annotated members carry EC 3.2.1.1 (12%); contains CAZy subfamily GH13_10;GH13_26.
-COMP_AMYLASE	CAZY	GH13_e493	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 17 EC-annotated members carry EC 3.2.1.1 (12%); contains CAZy subfamily GH13_14.
 COMP_AMYLASE	CAZY	GH13_e497	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 6 EC-annotated members carry EC 3.2.1.1 (67%); contains CAZy subfamily GH13_48.
 COMP_AMYLASE	CAZY	GH13_e5	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	17 of 20 EC-annotated members carry EC 3.2.1.1 (85%); contains CAZy subfamily GH13_14;GH13_5;GH13_7.
 COMP_AMYLASE	CAZY	GH13_e500	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	25 of 25 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH13_28;GH13_42.
 COMP_AMYLASE	CAZY	GH13_e61	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 12 EC-annotated members carry EC 3.2.1.1 (50%); contains CAZy subfamily GH13_12;GH13_14;GH13_28;GH13_41.
-COMP_AMYLASE	CAZY	GH14_e6	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 11 EC-annotated members carry EC 3.2.1.1 (18%).
 COMP_AMYLASE	CAZY	GH57_e11	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.1 (100%); contains CAZy subfamily GH57_7.
-COMP_AMYLASE	CAZY	GH57_e15	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 7 EC-annotated members carry EC 3.2.1.1 (29%).
 COMP_AMYLASE	CAZY	GH57_e30	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.1 (100%).
-COMP_AMYLASE	CAZY	GH57_e63	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 6 EC-annotated members carry EC 3.2.1.1 (33%); contains CAZy subfamily GH57_5.
 COMP_GLUCOSIDASE	CAZY	GH13_e113	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.20 (100%); contains CAZy subfamily GH13_38.
-COMP_GLUCOSIDASE	CAZY	GH13_e122	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 9 EC-annotated members carry EC 3.2.1.20 (44%); contains CAZy subfamily GH13_17;GH13_23;GH13_29;GH13_31;GH13_36;GH13_40;GH13_44.
 COMP_GLUCOSIDASE	CAZY	GH13_e221	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	14 of 14 EC-annotated members carry EC 3.2.1.20 (100%); contains CAZy subfamily GH13_17.
 COMP_GLUCOSIDASE	CAZY	GH13_e234	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.20 (100%); contains CAZy subfamily GH13_16;GH13_23;GH13_30.
 COMP_GLUCOSIDASE	CAZY	GH13_e250	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.20 (100%); contains CAZy subfamily GH13_23;GH13_30;GH13_40.
 COMP_GLUCOSIDASE	CAZY	GH13_e276	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	7 of 9 EC-annotated members carry EC 3.2.1.20 (78%); contains CAZy subfamily GH13_16;GH13_17;GH13_23;GH13_40;GH13_48.
 COMP_GLUCOSIDASE	CAZY	GH13_e329	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	15 of 22 EC-annotated members carry EC 3.2.1.20 (68%); contains CAZy subfamily GH13_20;GH13_21.
-COMP_GLUCOSIDASE	CAZY	GH13_e347	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 15 EC-annotated members carry EC 3.2.1.20 (40%); contains CAZy subfamily GH13_17;GH13_20;GH13_23;GH13_30.
-COMP_GLUCOSIDASE	CAZY	GH13_e392	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	18 of 38 EC-annotated members carry EC 3.2.1.20 (47%); contains CAZy subfamily GH13_17;GH13_23;GH13_40.
-COMP_GLUCOSIDASE	CAZY	GH13_e486	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	21 of 96 EC-annotated members carry EC 3.2.1.20 (22%); contains CAZy subfamily AA3_2;GH13_10;GH13_17;GH13_23;GH13_29;GH13_31;GH13_36;GH13_40.
 COMP_GLUCOSIDASE	CAZY	GH31_e102	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.20 (100%); contains CAZy subfamily GH31_1.
 COMP_GLUCOSIDASE	CAZY	GH31_e177	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.20 (100%); contains CAZy subfamily GH31_1.
 COMP_GLUCOSIDASE	CAZY	GH31_e22	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.20 (100%).
@@ -454,33 +421,26 @@ COMP_GLUCOSIDASE	CAZY	GH31_e73	sequence_subfamily	high-confidence	CAZy subfamily
 COMP_GLUCOSIDASE	CAZY	GH31_e78	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.20 (100%).
 COMP_GLUCOSIDASE	CAZY	GH31_e82	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	20 of 20 EC-annotated members carry EC 3.2.1.20 (100%).
 COMP_GLUCOSIDASE	CAZY	GH4_e14	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.20 (100%).
-COMP_GLUCOSIDASE	CAZY	GH4_e6	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 14 EC-annotated members carry EC 3.2.1.20 (43%).
 COMP_GLUCOSIDASE	CAZY	GH63_e1	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	9 of 18 EC-annotated members carry EC 3.2.1.20 (50%).
 COMP_GLUCOSIDASE	CAZY	GH97_e22	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.20 (50%).
 COMP_PULLULANASE	CAZY	GH13_e108	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.41 (100%); contains CAZy subfamily GH13_13.
 COMP_PULLULANASE	CAZY	GH13_e130	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.41 (100%); contains CAZy subfamily GH13_14.
 COMP_PULLULANASE	CAZY	GH13_e165	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.41 (100%); contains CAZy subfamily GH13_20.
-COMP_PULLULANASE	CAZY	GH13_e172	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	8 of 17 EC-annotated members carry EC 3.2.1.41 (47%); contains CAZy subfamily GH13_20;GH13_21;GH13_39.
 COMP_PULLULANASE	CAZY	GH13_e180	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.41 (100%); contains CAZy subfamily GH13_14.
 COMP_PULLULANASE	CAZY	GH13_e183	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	10 of 13 EC-annotated members carry EC 3.2.1.41 (77%); contains CAZy subfamily GH13_13;GH13_3;GH13_32.
 COMP_PULLULANASE	CAZY	GH13_e248	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	25 of 31 EC-annotated members carry EC 3.2.1.41 (81%); contains CAZy subfamily GH13_13;GH13_14;GH13_32;GH13_37;GH13_5.
 COMP_PULLULANASE	CAZY	GH13_e278	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 10 EC-annotated members carry EC 3.2.1.41 (50%); contains CAZy subfamily GH13_12;GH13_41.
 COMP_PULLULANASE	CAZY	GH13_e300	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	12 of 12 EC-annotated members carry EC 3.2.1.41 (100%); contains CAZy subfamily GH13_14.
-COMP_PULLULANASE	CAZY	GH13_e303	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	9 of 19 EC-annotated members carry EC 3.2.1.41 (47%); contains CAZy subfamily GH13_39.
 COMP_PULLULANASE	CAZY	GH13_e315	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	10 of 10 EC-annotated members carry EC 3.2.1.41 (100%); contains CAZy subfamily GH13_14.
-COMP_PULLULANASE	CAZY	GH13_e329	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 22 EC-annotated members carry EC 3.2.1.41 (23%); contains CAZy subfamily GH13_20;GH13_21.
 COMP_PULLULANASE	CAZY	GH13_e349	sequence_subfamily	curated	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	18 of 18 EC-annotated members carry EC 3.2.1.41 (100%); contains CAZy subfamily GH13_12;GH13_14;GH13_41.
 COMP_PULLULANASE	CAZY	GH13_e446	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 6 EC-annotated members carry EC 3.2.1.41 (67%); contains CAZy subfamily GH13_20.
 COMP_PULLULANASE	CAZY	GH13_e465	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 11 EC-annotated members carry EC 3.2.1.41 (55%); contains CAZy subfamily GH13_14;GH13_32;GH13_41.
 COMP_PULLULANASE	CAZY	GH13_e493	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	15 of 17 EC-annotated members carry EC 3.2.1.41 (88%); contains CAZy subfamily GH13_14.
-COMP_PULLULANASE	CAZY	GH13_e61	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 12 EC-annotated members carry EC 3.2.1.41 (33%); contains CAZy subfamily GH13_12;GH13_14;GH13_28;GH13_41.
 COMP_PULLULANASE	CAZY	GH13_e94	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.41 (100%); contains CAZy subfamily GH13_14.
 COMP_PULLULANASE	CAZY	GH57_e15	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 7 EC-annotated members carry EC 3.2.1.41 (71%).
 COMP_DEACETYL	CAZY	CE1_e20	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	3 of 3 EC-annotated members carry EC 3.1.1.72 (100%).
 COMP_DEACETYL	CAZY	CE1_e4	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	7 of 7 EC-annotated members carry EC 3.1.1.72 (100%).
 COMP_DEACETYL	CAZY	CE12_e45	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 5 EC-annotated members carry EC 3.1.1.72 (100%).
-COMP_DEACETYL	CAZY	CE4_e262	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 11 EC-annotated members carry EC 3.1.1.72 (45%).
-COMP_DEACETYL	CAZY	CE4_e58	sequence_subfamily	ambiguous	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	2 of 5 EC-annotated members carry EC 3.1.1.72 (40%).
 COMP_DEACETYL	CAZY	CE5_e24	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	4 of 4 EC-annotated members carry EC 3.1.1.72 (100%).
 COMP_DEACETYL	CAZY	CE6_e2	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	6 of 8 EC-annotated members carry EC 3.1.1.72 (75%); contains CAZy subfamily GH43_10;GH43_17;GH43_28.
 COMP_DEACETYL	CAZY	CE6_e3	sequence_subfamily	high-confidence	CAZy subfamily via dbCAN-sub db_v5-2-9_5-5-2026 HMM profiles, derived 2026-08-18	5 of 5 EC-annotated members carry EC 3.1.1.72 (100%).
@@ -1090,3 +1050,209 @@ COMP_32459_CATALYTIC	KO	K13543	orthology	curated	KEGG M00846 and Rhea release 14
 COMP_24360_CYSG	KO	K02302	orthology	curated	KEGG M00846, Rhea release 141 and PMID 9461500, verified 2026-08-20	The maintained KO explicitly includes sirohydrochlorin ferrochelatase activity, so the same CysG observation can support all three reaction-specific components.
 COMP_24360_MET8	KO	K02304	orthology	curated	KEGG M00846, Rhea release 141 and PMID 11980703, verified 2026-08-20	Met8 is bifunctional: its same observation supplies both precorrin-2 dehydrogenation and iron insertion.
 COMP_24360_SIRB	KO	K03794	orthology	curated	KEGG M00846, Rhea release 141 and PMID 12408752, verified 2026-08-20	SirB is the split iron-specific chelatase. Broader CbiX-family KOs are refused because sequence alone does not resolve iron from cobalt or nickel insertion.
+COMP_CHITINASE	CAZY	GH18	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	Family carries 5 distinct characterised activities in dbCAN.
+COMP_CHITINASE	CAZY	GH18_e1	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e104	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e111	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	9 of 9 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e121	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	12 of 17 EC-annotated members carry EC 3.2.1.14 (71%).
+COMP_CHITINASE	CAZY	GH18_e14	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	12 of 12 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e147	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e148	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e151	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	8 of 8 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e154	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e164	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e175	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e177	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e184	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	21 of 21 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e187	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e19	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e193	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	10 of 10 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e196	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	4 of 6 EC-annotated members carry EC 3.2.1.14 (67%).
+COMP_CHITINASE	CAZY	GH18_e2	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e20	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	25 of 25 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e211	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e224	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	18 of 18 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e231	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e236	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e253	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e258	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e26	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e260	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e263	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e272	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	58 of 58 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e285	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	22 of 22 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e287	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e3	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e325	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e327	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e334	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e338	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	24 of 24 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e342	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e347	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	21 of 21 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e348	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	12 of 12 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e354	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e373	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e392	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e4	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	63 of 63 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e401	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e428	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	47 of 47 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e431	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e521	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e66	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	41 of 45 EC-annotated members carry EC 3.2.1.14 (91%).
+COMP_CHITINASE	CAZY	GH18_e672	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e69	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e72	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e77	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e80	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e81	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	53 of 58 EC-annotated members carry EC 3.2.1.14 (91%).
+COMP_CHITINASE	CAZY	GH18_e83	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e830	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e834	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e91	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH18_e95	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	11 of 13 EC-annotated members carry EC 3.2.1.14 (85%).
+COMP_CHITINASE	CAZY	GH19	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	Family carries 3 distinct characterised activities in dbCAN.
+COMP_CHITINASE	CAZY	GH19_e1	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	161 of 161 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH19_e113	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH19_e143	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	16 of 16 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH19_e169	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH19_e18	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH19_e27	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH19_e5	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	7 of 7 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	CAZY	GH19_e81	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	44 of 44 EC-annotated members carry EC 3.2.1.14 (100%).
+COMP_CHITINASE	KO	K01183	orthology	curated	KEGG orthology, verified 2026-08-21	
+COMP_CHITINASE	KO	K13381	orthology	curated	KEGG orthology, verified 2026-08-21	Bifunctional chitinase/lysozyme; the chitinase activity is the one claimed here.
+COMP_CHITIN_LPMO	CAZY	AA10	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	Family carries 4 distinct characterised activities in dbCAN.
+COMP_CHITIN_LPMO	CAZY	AA10_e1	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	4 of 4 EC-annotated members carry EC 1.14.99.53 (100%).
+COMP_CHITIN_LPMO	CAZY	AA10_e12	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 1.14.99.53 (100%).
+COMP_CHITIN_LPMO	CAZY	AA10_e44	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 1.14.99.53 (100%).
+COMP_CHITIN_LPMO	CAZY	AA10_e49	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 1.14.99.53 (100%).
+COMP_CHITIN_LPMO	CAZY	AA10_e58	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 1.14.99.53 (100%).
+COMP_CHITIN_LPMO	CAZY	AA10_e66	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 1.14.99.53 (100%).
+COMP_CHITOBIASE	CAZY	GH20	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	Family carries 4 distinct characterised activities in dbCAN.
+COMP_CHITOBIASE	CAZY	GH20_e0	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	12 of 12 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e1	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e10	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	9 of 9 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e105	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	9 of 15 EC-annotated members carry EC 3.2.1.52 (60%).
+COMP_CHITOBIASE	CAZY	GH20_e107	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	17 of 17 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e114	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e12	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	18 of 18 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e13	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e132	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	9 of 9 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e137	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e143	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e146	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e167	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e18	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e182	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e214	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e22	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e35	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e45	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	12 of 12 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e49	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	13 of 13 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e51	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e57	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	16 of 16 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e61	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e70	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e71	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e74	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	35 of 35 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e77	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e80	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e93	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e95	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	32 of 32 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	CAZY	GH20_e97	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.52 (100%).
+COMP_CHITOBIASE	KO	K01207	orthology	curated	KEGG orthology, verified 2026-08-21	
+COMP_FUCOSIDASE	CAZY	GH151_e0	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.51 (100%).
+COMP_FUCOSIDASE	CAZY	GH29	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	Family carries 7 distinct characterised activities in dbCAN.
+COMP_FUCOSIDASE	CAZY	GH29_e1	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.111 (100%).
+COMP_FUCOSIDASE	CAZY	GH29_e124	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	5 of 10 EC-annotated members carry EC 3.2.1.111 (50%).
+COMP_FUCOSIDASE	CAZY	GH29_e126	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 4 EC-annotated members carry EC 3.2.1.111 (50%).
+COMP_FUCOSIDASE	CAZY	GH29_e13	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.51 (100%).
+COMP_FUCOSIDASE	CAZY	GH29_e149	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.51 (100%).
+COMP_FUCOSIDASE	CAZY	GH29_e17	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.51 (100%).
+COMP_FUCOSIDASE	CAZY	GH29_e29	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.51 (100%).
+COMP_FUCOSIDASE	CAZY	GH29_e30	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	8 of 11 EC-annotated members carry EC 3.2.1.111 (73%).
+COMP_FUCOSIDASE	CAZY	GH29_e53	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.51 (100%).
+COMP_FUCOSIDASE	CAZY	GH29_e70	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	58 of 58 EC-annotated members carry EC 3.2.1.51 (100%).
+COMP_FUCOSIDASE	CAZY	GH29_e79	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	16 of 16 EC-annotated members carry EC 3.2.1.51 (100%).
+COMP_FUCOSIDASE	CAZY	GH29_e8	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.51 (100%).
+COMP_FUCOSIDASE	CAZY	GH29_e81	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.51 (100%).
+COMP_FUCOSIDASE	CAZY	GH29_e85	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.51 (100%).
+COMP_FUCOSIDASE	CAZY	GH95	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	Family carries 3 distinct characterised activities in dbCAN.
+COMP_FUCOSIDASE	CAZY	GH95_e0	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.63 (100%).
+COMP_FUCOSIDASE	CAZY	GH95_e2	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.63 (100%).
+COMP_FUCOSIDASE	CAZY	GH95_e21	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	7 of 7 EC-annotated members carry EC 3.2.1.63 (100%).
+COMP_FUCOSIDASE	CAZY	GH95_e26	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.63 (100%).
+COMP_FUCOSIDASE	CAZY	GH95_e3	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.63 (100%).
+COMP_FUCOSIDASE	KO	K01206	orthology	curated	KEGG orthology, verified 2026-08-21	
+COMP_FUCOSIDASE	KO	K15923	orthology	curated	KEGG orthology, verified 2026-08-21	GH95 alpha-L-fucosidase 2.
+COMP_GALNACASE	CAZY	GH109	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	Family carries 2 distinct characterised activities in dbCAN.
+COMP_GALNACASE	CAZY	GH109_e0	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	6 of 8 EC-annotated members carry EC 3.2.1.49 (75%).
+COMP_GALNACASE	CAZY	GH109_e1	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.49 (100%).
+COMP_GALNACASE	KO	K01204	orthology	curated	KEGG orthology, verified 2026-08-21	
+COMP_SIALIDASE	CAZY	GH33	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	Family carries 5 distinct characterised activities in dbCAN.
+COMP_SIALIDASE	CAZY	GH33_e105	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.18 (100%).
+COMP_SIALIDASE	CAZY	GH33_e121	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.18 (100%).
+COMP_SIALIDASE	CAZY	GH33_e129	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.18 (100%).
+COMP_SIALIDASE	CAZY	GH33_e130	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.18 (100%).
+COMP_SIALIDASE	CAZY	GH33_e131	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.18 (100%).
+COMP_SIALIDASE	CAZY	GH33_e132	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.18 (100%).
+COMP_SIALIDASE	CAZY	GH33_e135	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	5 of 8 EC-annotated members carry EC 3.2.1.18 (62%).
+COMP_SIALIDASE	CAZY	GH33_e163	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.18 (100%).
+COMP_SIALIDASE	CAZY	GH33_e197	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.18 (100%).
+COMP_SIALIDASE	CAZY	GH33_e22	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.18 (100%).
+COMP_SIALIDASE	CAZY	GH33_e41	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	18 of 18 EC-annotated members carry EC 3.2.1.18 (100%).
+COMP_SIALIDASE	CAZY	GH33_e5	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	17 of 17 EC-annotated members carry EC 3.2.1.18 (100%).
+COMP_SIALIDASE	CAZY	GH33_e66	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	34 of 34 EC-annotated members carry EC 3.2.1.18 (100%).
+COMP_SIALIDASE	CAZY	GH33_e75	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.18 (100%).
+COMP_SIALIDASE	CAZY	GH33_e77	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.18 (100%).
+COMP_SIALIDASE	CAZY	GH33_e9	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.18 (100%).
+COMP_SIALIDASE	CAZY	GH33_e91	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	26 of 26 EC-annotated members carry EC 3.2.1.18 (100%).
+COMP_SIALIDASE	KO	K01186	orthology	curated	KEGG orthology, verified 2026-08-21	
+COMP_SIALIDASE	KO	K23550	orthology	curated	KEGG orthology, verified 2026-08-21	
+COMP_ENDO_PG	CAZY	GH28	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	Family carries 7 distinct characterised activities in dbCAN, all of them on pectin; the family is substrate-coherent but does not separate endo from exo action.
+COMP_ENDO_PG	CAZY	GH28_e0	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.15 (100%).
+COMP_ENDO_PG	CAZY	GH28_e1	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.15 (100%).
+COMP_ENDO_PG	CAZY	GH28_e107	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.15 (100%).
+COMP_ENDO_PG	CAZY	GH28_e120	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	4 of 4 EC-annotated members carry EC 3.2.1.15 (100%).
+COMP_ENDO_PG	CAZY	GH28_e125	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	8 of 8 EC-annotated members carry EC 3.2.1.15 (100%).
+COMP_ENDO_PG	CAZY	GH28_e130	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	24 of 24 EC-annotated members carry EC 3.2.1.15 (100%).
+COMP_ENDO_PG	CAZY	GH28_e200	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.15 (100%).
+COMP_ENDO_PG	CAZY	GH28_e250	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.15 (100%).
+COMP_ENDO_PG	CAZY	GH28_e295	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	5 of 5 EC-annotated members carry EC 3.2.1.15 (100%).
+COMP_ENDO_PG	CAZY	GH28_e45	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.15 (100%).
+COMP_ENDO_PG	CAZY	GH28_e56	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	13 of 13 EC-annotated members carry EC 3.2.1.15 (100%).
+COMP_ENDO_PG	CAZY	GH28_e75	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	79 of 79 EC-annotated members carry EC 3.2.1.15 (100%).
+COMP_ENDO_PG	CAZY	GH28_e86	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	12 of 12 EC-annotated members carry EC 3.2.1.15 (100%).
+COMP_ENDO_PG	CAZY	GH28_e98	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	10 of 10 EC-annotated members carry EC 3.2.1.15 (100%).
+COMP_ENDO_PG	KO	K01184	orthology	curated	KEGG orthology, verified 2026-08-21	
+COMP_EXO_PG	CAZY	GH28	sequence_family	ambiguous	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	Family carries 7 distinct characterised activities in dbCAN, all of them on pectin; the family is substrate-coherent but does not separate endo from exo action.
+COMP_EXO_PG	CAZY	GH28_e29	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.2.1.67 (100%).
+COMP_EXO_PG	CAZY	GH28_e58	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	7 of 9 EC-annotated members carry EC 3.2.1.67 (78%).
+COMP_EXO_PG	CAZY	GH28_e61	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.67 (100%).
+COMP_EXO_PG	CAZY	GH28_e67	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.67 (100%).
+COMP_EXO_PG	CAZY	GH28_e70	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.67 (100%).
+COMP_EXO_PG	CAZY	GH4_e30	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	6 of 6 EC-annotated members carry EC 3.2.1.67 (100%).
+COMP_EXO_PG	CAZY	GH4_e34	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.2.1.67 (100%).
+COMP_EXO_PG	KO	K01213	orthology	curated	KEGG orthology, verified 2026-08-21	
+COMP_EXO_PG	KO	K22933	orthology	curated	KEGG orthology, verified 2026-08-21	
+COMP_PECTINESTERASE	CAZY	CE8	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	Family carries 1 characterised activity in dbCAN.
+COMP_PECTINESTERASE	CAZY	CE8_e1	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	4 of 4 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	CAZY	CE8_e105	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	8 of 8 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	CAZY	CE8_e14	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	CAZY	CE8_e16	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	CAZY	CE8_e19	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	68 of 68 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	CAZY	CE8_e22	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	12 of 12 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	CAZY	CE8_e24	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	7 of 7 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	CAZY	CE8_e30	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	CAZY	CE8_e32	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	CAZY	CE8_e38	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	12 of 12 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	CAZY	CE8_e43	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	6 of 6 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	CAZY	CE8_e47	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	4 of 4 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	CAZY	CE8_e52	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	10 of 10 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	CAZY	CE8_e6	sequence_family	curated	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	15 of 15 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	CAZY	CE8_e61	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	4 of 4 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	CAZY	CE8_e62	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	3 of 3 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	CAZY	CE8_e78	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	CAZY	CE8_e84	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	CAZY	CE8_e99	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 3.1.1.11 (100%).
+COMP_PECTINESTERASE	KO	K01051	orthology	curated	KEGG orthology, verified 2026-08-21	

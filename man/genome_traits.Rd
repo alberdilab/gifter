@@ -11,6 +11,7 @@ genome_traits(
   quality = NULL,
   policy = "none",
   threshold = NULL,
+  min_confidence = NULL,
   db = NULL
 )
 }
@@ -33,6 +34,16 @@ details.}
 \item{threshold}{Completeness below which a negative call is treated as
 indeterminate, on the same scale as `quality`. Required by the
 `"completeness"` policy and has no default.}
+
+\item{min_confidence}{Optional weakest marker confidence a positive call may
+rest on and still count, one of `"ambiguous"`, `"putative"`,
+`"high-confidence"` or `"curated"`. A supported GIFT whose
+`evidence_confidence` falls below it becomes indeterminate rather than
+negative, because weak evidence is not evidence of absence. `NULL`, the
+default, counts every positive call whatever it rests on. Set it to
+`"high-confidence"` to exclude capabilities called from polyspecific
+sequence families, which is the usual reason a carbohydrate GIFT is
+ambiguous.}
 
 \item{db}{Optional open gifter database connection.}
 }

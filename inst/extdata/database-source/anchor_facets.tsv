@@ -459,3 +459,15 @@ CHOLINE	biomass_essential	no	No requirement for biomass formation is claimed.
 SIROHEME	molecular_tier	small_molecule	Siroheme is the exact molecular output of the curated route and a branchpoint toward siroheme-dependent proteins and alternative heme chemistry.
 SIROHEME	resource_origin	central_metabolism	Produced from the uroporphyrinogen III tetrapyrrole branchpoint.
 SIROHEME	biomass_essential	yes	A cellular cofactor product on the same convention as heme b; the facet does not assert universal auxotrophy or cofactor use.
+CHITIN	molecular_tier	polymer	
+CHITIN	resource_origin	animal_derived	Dietary arthropod and crustacean biomass.
+CHITIN	biomass_essential	no	
+MUCIN_O_GLYCAN	molecular_tier	polymer	
+MUCIN_O_GLYCAN	resource_origin	host_derived	
+GALNAC	molecular_tier	monomer	
+GALNAC	resource_origin	host_derived	
+GALNAC	biomass_essential	no	
+MUCIN_O_GLYCAN	biomass_essential	no	
+PECTIN	molecular_tier	polymer	
+PECTIN	resource_origin	plant_derived	
+PECTIN	biomass_essential	no	

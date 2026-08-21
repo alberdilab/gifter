@@ -171,17 +171,24 @@ test_that("the scale is decided over the table, not over one genome", {
   # A 0.99 sitting in a percentage table is a genome that was barely recovered,
   # not a nearly complete one. gifter reads it that way and says so, because
   # the two readings differ by a factor of one hundred.
+  community <- gifter_community(
+    A = arabinoxylan_genome("debrancher"),
+    B = arabinoxylan_genome("backbone")
+  )
   expect_warning(
-    community <- gifter_community(
-      A = arabinoxylan_genome("debrancher"),
-      B = arabinoxylan_genome("backbone"),
+    traits <- community_traits(
+      community, universes = list(arabinoxylan_universe()),
       quality = c(A = 99, B = 0.99), policy = "completeness", threshold = 90
     ),
     "percentages"
   )
-  expect_equal(community$assessability$completeness[["B"]], 0.0099)
-  expect_equal(sum(is.na(community$matrix[, "A"])), 0L)
-  expect_gt(sum(is.na(community$matrix[, "B"])), 0L)
+  expect_equal(traits$assessability$completeness[["B"]], 0.0099)
+  calls <- .assessable_matrix(
+    community$matrix, "completeness", traits$assessability$completeness,
+    traits$assessability$threshold
+  )
+  expect_equal(sum(is.na(calls[, "A"])), 0L)
+  expect_gt(sum(is.na(calls[, "B"])), 0L)
 })
 
 test_that("a percentage scale cannot promote an unsupported GIFT", {
@@ -207,26 +214,32 @@ test_that("indeterminacy is resolved per genome, not per community", {
   # not, and a provider denominator that mixed them would be meaningless.
   community <- gifter_community(
     complete_genome = arabinoxylan_genome("debrancher"),
-    fragmented = arabinoxylan_genome("backbone"),
-    quality = c(complete_genome = 0.99, fragmented = 0.40),
-    policy = "completeness", threshold = 0.9
+    fragmented = arabinoxylan_genome("backbone")
   )
-  expect_equal(sum(is.na(community$matrix[, "complete_genome"])), 0L)
-  expect_gt(sum(is.na(community$matrix[, "fragmented"])), 0L)
+  calls <- .assessable_matrix(
+    community$matrix, "completeness",
+    c(complete_genome = 0.99, fragmented = 0.40), 0.9
+  )
+  expect_equal(sum(is.na(calls[, "complete_genome"])), 0L)
+  expect_gt(sum(is.na(calls[, "fragmented"])), 0L)
   # The fragmented genome's positive call survives untouched.
-  expect_true(community$matrix["xylan_degradation", "fragmented"])
-  expect_false(is.na(community$matrix["xylan_degradation", "fragmented"]))
+  expect_true(calls["xylan_degradation", "fragmented"])
+  expect_false(is.na(calls["xylan_degradation", "fragmented"]))
+  # And the calls themselves are untouched: the container never held a policy.
+  expect_false(any(is.na(community$matrix)))
 })
 
 test_that("a provider fraction counts only the genomes that could assess", {
   community <- gifter_community(
     A = arabinoxylan_genome("debrancher"),
     B = arabinoxylan_genome("backbone"),
-    C = arabinoxylan_genome("consumer"),
+    C = arabinoxylan_genome("consumer")
+  )
+  traits <- community_traits(
+    community, universes = list(arabinoxylan_universe()),
     quality = c(A = 0.99, B = 0.99, C = 0.40),
     policy = "completeness", threshold = 0.9
   )
-  traits <- community_traits(community, universes = list(arabinoxylan_universe()))
   rows <- traits$metrics[
     traits$metrics$metric_id == "provider_fraction" &
       traits$metrics$target_id == "arabinoxylan_debranching", ,
@@ -245,13 +258,37 @@ test_that("a provider fraction counts only the genomes that could assess", {
   )
 })
 
-test_that("the community carries the policy it was built under", {
-  community <- gifter_community(
-    A = arabinoxylan_genome("debrancher"),
+test_that("community traits carry the policy they were read under", {
+  community <- gifter_community(A = arabinoxylan_genome("debrancher"))
+  traits <- community_traits(
+    community, universes = list(arabinoxylan_universe()),
     quality = c(A = 0.95), policy = "completeness", threshold = 0.9
   )
-  expect_identical(community$assessability$policy, "completeness")
-  expect_equal(community$assessability$threshold, 0.9)
-  traits <- community_traits(community, universes = list(arabinoxylan_universe()))
   expect_identical(traits$assessability$policy, "completeness")
+  expect_equal(traits$assessability$threshold, 0.9)
+  expect_equal(traits$assessability$completeness[["A"]], 0.95)
+})
+
+test_that("one community can be read under two thresholds", {
+  # The point of leaving quality out of the container: the calls are made once
+  # and the reading of their absences is the analyst's, revisable without a
+  # second evaluation.
+  community <- gifter_community(
+    A = arabinoxylan_genome("debrancher"),
+    B = arabinoxylan_genome("backbone"),
+    C = arabinoxylan_genome("consumer")
+  )
+  denominator <- function(threshold) {
+    traits <- community_traits(
+      community, universes = list(arabinoxylan_universe()),
+      quality = c(A = 0.99, B = 0.99, C = 0.40),
+      policy = "completeness", threshold = threshold
+    )
+    traits$metrics$denominator[
+      traits$metrics$metric_id == "provider_fraction" &
+        traits$metrics$target_id == "arabinoxylan_debranching"
+    ]
+  }
+  expect_equal(denominator(0.9), 2L)
+  expect_equal(denominator(0.3), 3L)
 })

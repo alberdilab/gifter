@@ -10,6 +10,17 @@
 # See inst/doc/proposal-central-metabolic-cycles.md for why this is derived and
 # not stored, and for why closure never feeds back into a GIFT's Boolean call.
 
+# The enumeration bound, checked wherever a cycle enumeration is asked for
+# rather than only where it is finally run: a caller who states a nonsensical
+# limit should hear about it before the work that leads up to the enumeration,
+# not after it.
+.check_cycle_limit <- function(limit) {
+  if (!is.numeric(limit) || length(limit) != 1L || is.na(limit) || limit < 1L) {
+    stop("limit must be one positive number", call. = FALSE)
+  }
+  invisible(NULL)
+}
+
 # Elementary cycles of a directed graph, by the standard depth-first
 # enumeration: a cycle is reported once, from its lowest-ordered node, and a
 # node already on the current path is never revisited. `limit` bounds the result
@@ -97,9 +108,7 @@
 #' unique(cycles[, c("cycle_id", "cycle_length", "named_cycle")])
 #' @export
 gift_cycles <- function(db = NULL, limit = 100L) {
-  if (length(limit) != 1L || is.na(limit) || limit < 1L) {
-    stop("limit must be one positive number", call. = FALSE)
-  }
+  .check_cycle_limit(limit)
   .with_gifter_db(db, function(connection) {
     graph <- .as_tibble_query(
       connection,

@@ -49,14 +49,13 @@ arabinoxylan_table <- function(roles = names(arabinoxylan_markers)) {
   }))
 }
 
-arabinoxylan_community <- function(abundance = NULL) {
+arabinoxylan_community <- function() {
   consumer <- arabinoxylan_genome("consumer")
   gifter_community(
     A = arabinoxylan_genome("debrancher"),
     B = arabinoxylan_genome("backbone"),
     C = consumer,
-    D = consumer,
-    abundance = abundance
+    D = consumer
   )
 }
 

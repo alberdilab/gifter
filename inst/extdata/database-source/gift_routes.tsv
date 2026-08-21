@@ -196,3 +196,8 @@ BETAINE_GBS	choline_to_betaine	GbsB-GbsA route	NAD-dependent choline dehydrogena
 BETAINE_CMO	choline_to_betaine	Choline monooxygenase-BADH route	Ferredoxin- and oxygen-dependent choline monooxygenase followed by NAD-dependent betaine-aldehyde dehydrogenase.	curated	aerobic
 BETAINE_CODA	choline_to_betaine	Choline oxidase route	One choline oxidase catalyses both oxygen-dependent oxidations from choline through betaine aldehyde to glycine betaine.	curated	aerobic
 SIROHEME_UROGEN	siroheme_biosynthesis	Siroheme route from uroporphyrinogen III	Two SAM-dependent methyl transfers, precorrin-2 dehydrogenation and iron insertion form siroheme through multifunctional or split enzyme systems.	curated	independent
+CHITIN_SACCHARIFICATION	chitin_degradation	Endochitinase and hexosaminidase route	Backbone endohydrolysis then exo-acting release of GlcNAc, with oxidative chain cleavage as accessory chemistry.	curated	independent
+MUCIN_SIALIDASE	mucin_sialic_acid_release	Sialidase route	Hydrolysis of the terminal alpha-linked sialic acid.	curated	independent
+MUCIN_FUCOSIDASE	mucin_fucose_release	Alpha-L-fucosidase route	Hydrolysis of terminal alpha-L-fucosyl residues.	curated	independent
+MUCIN_GALNACASE	mucin_galnac_release	Alpha-N-acetylgalactosaminidase route	Hydrolysis of the core alpha-linked N-acetyl-D-galactosamine.	curated	independent
+PECTIN_SACCHARIFICATION	pectin_degradation	Endo- and exo-polygalacturonase route	Backbone endohydrolysis then exo-acting release of D-galacturonate, with methyl-ester removal as accessory chemistry.	curated	independent

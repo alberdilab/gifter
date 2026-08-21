@@ -479,3 +479,12 @@ SYS_15305_BADH	RHEA:15305	betaine-aldehyde dehydrogenase	Single catalytic protei
 SYS_24360_CYSG	RHEA:24360	multifunctional siroheme synthase CysG ferrochelatase	Single catalytic protein system; the same CysG marker also supplies the preceding methylation and dehydrogenation reactions.
 SYS_24360_MET8	RHEA:24360	bifunctional precorrin-2 dehydrogenase and sirohydrochlorin ferrochelatase Met8	Single catalytic protein system; the same Met8 marker also supplies the preceding dehydrogenation reaction.
 SYS_24360_SIRB	RHEA:24360	sirohydrochlorin ferrochelatase SirB	Single catalytic protein system.
+SYS_CHITINASE	RXN_CHITIN_ENDO	endochitinase	Single catalytic protein system; alternative markers are OR.
+SYS_CHITOBIASE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	Single catalytic protein system; alternative markers are OR.
+SYS_CHITIN_LPMO	RXN_CHITIN_LPMO	lytic polysaccharide monooxygenase	Single catalytic protein system; alternative markers are OR.
+SYS_SIALIDASE	RXN_MUCIN_NEUAC_RELEASE	sialidase	Single catalytic protein system; alternative markers are OR.
+SYS_FUCOSIDASE	RXN_MUCIN_FUCOSE_RELEASE	alpha-L-fucosidase	Single catalytic protein system; alternative markers are OR.
+SYS_GALNACASE	RXN_MUCIN_GALNAC_RELEASE	alpha-N-acetylgalactosaminidase	Single catalytic protein system; alternative markers are OR.
+SYS_ENDO_PG	RXN_PECTIN_ENDO_PG	endo-polygalacturonase	Single catalytic protein system; alternative markers are OR.
+SYS_EXO_PG	RXN_OLIGOGALACTURONIDE_EXO	exo-polygalacturonase	Single catalytic protein system; alternative markers are OR.
+SYS_PECTINESTERASE	RXN_PECTIN_DEMETHYL	pectinesterase	Single catalytic protein system; alternative markers are OR.

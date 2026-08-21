@@ -29,9 +29,13 @@ test_that("the carbohydrate preset is resolved from current curated metadata", {
     universe$gift_id,
     c(
       "arabinose_degradation", "arabinoxylan_debranching",
+      "chitin_degradation",
       "fucose_degradation_isomerase", "galactose_degradation_leloir",
       "galacturonate_degradation", "glcnac_degradation",
-      "glucuronate_degradation", "neuac_degradation",
+      "glucuronate_degradation",
+      "mucin_fucose_release", "mucin_galnac_release",
+      "mucin_sialic_acid_release", "neuac_degradation",
+      "pectin_degradation",
       "rhamnose_degradation", "starch_degradation",
       "xylan_degradation", "xylose_degradation_isomerase"
     )

@@ -117,6 +117,38 @@
   state
 }
 
+# Marker confidence gates presence, never absence. A call resting only on
+# ambiguous evidence — a polyspecific CAZy family standing in for a required
+# reaction — is not evidence the capability is there, but it is not evidence it
+# is missing either, so it becomes indeterminate rather than negative. This is
+# what makes the marker policy enforceable instead of advisory: without it
+# `evidence_confidence` is computed and then discarded by every metric.
+.confidence_state <- function(state, confidence, min_confidence) {
+  if (is.null(min_confidence)) return(state)
+  floor <- .confidence_rank(min_confidence)
+  # An unrecorded confidence cannot be shown to clear the floor, and silently
+  # admitting it would reopen the gap this argument exists to close.
+  weak <- state %in% TRUE & .confidence_rank(confidence) < floor
+  state[weak] <- NA
+  state
+}
+
+.normalize_min_confidence <- function(min_confidence) {
+  if (is.null(min_confidence)) return(NULL)
+  if (length(min_confidence) != 1L || is.na(min_confidence) ||
+      !is.character(min_confidence)) {
+    stop("min_confidence must be one confidence term", call. = FALSE)
+  }
+  if (!min_confidence %in% .gifter_confidence_order) {
+    stop(
+      "min_confidence must be one of: ",
+      paste(.gifter_confidence_order, collapse = ", "),
+      call. = FALSE
+    )
+  }
+  min_confidence
+}
+
 # The threshold is a completeness value and is read on the same terms, so a
 # caller working in percentages may state both in percentages. A malformed
 # threshold is returned untouched for `.resolve_policy()` to report.

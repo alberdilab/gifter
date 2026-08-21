@@ -204,3 +204,45 @@ test_that("universes built against another release are refused", {
     "built against a different database version"
   )
 })
+
+test_that("min_confidence excludes calls resting on ambiguous evidence", {
+  # GH2, GH3, GH13, GH31 and GH43 are carried by nearly every gut Bacteroidetes
+  # genome and are polyspecific enough to assert no particular activity. They
+  # call the whole polysaccharide layer complete, and every metric counted that
+  # until confidence was allowed to gate it.
+  result <- evaluate_gifts(c("GH2", "GH3", "GH13", "GH31", "GH43"))
+  universes <- list(gift_universe(preset = "carbohydrate_degradation"))
+  richness <- function(...) {
+    traits <- genome_traits(result, universes = universes, ...)
+    traits$metrics$value[traits$metrics$metric_id == "gift_richness"]
+  }
+  expect_equal(richness(), 3)
+  expect_equal(richness(min_confidence = "high-confidence"), 0)
+
+  # Weak evidence is not evidence of absence, so the capability leaves the
+  # denominator with the numerator rather than counting as a negative call.
+  gated <- genome_traits(
+    result, universes = universes, min_confidence = "high-confidence"
+  )
+  assessable <- gated$metrics$assessable[gated$metrics$metric_id == "gift_richness"]
+  ungated <- genome_traits(result, universes = universes)
+  expect_lt(
+    assessable,
+    ungated$metrics$assessable[ungated$metrics$metric_id == "gift_richness"]
+  )
+})
+
+test_that("min_confidence leaves well-evidenced calls alone", {
+  result <- evaluate_gifts(c("GH11_e15", "GH120"))
+  universes <- list(gift_universe(preset = "carbohydrate_degradation"))
+  for (floor in c("ambiguous", "high-confidence", "curated")) {
+    traits <- genome_traits(result, universes = universes, min_confidence = floor)
+    expect_equal(
+      traits$metrics$value[traits$metrics$metric_id == "gift_richness"], 1
+    )
+  }
+  expect_error(
+    genome_traits(result, universes = universes, min_confidence = "excellent"),
+    "min_confidence must be one of"
+  )
+})

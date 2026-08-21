@@ -166,3 +166,154 @@ test_that("bare dbCAN output is evaluated without an explicit namespace", {
     "CAZY"
   )
 })
+
+test_that("chitin saccharification needs both the endo and the exo activity", {
+  ask <- function(markers) {
+    result <- evaluate_gifts(markers)
+    result$gifts[result$gifts$gift_id == "chitin_degradation", ]
+  }
+
+  both <- ask(c("K01183", "K01207"))
+  expect_true(both$complete)
+  expect_equal(both$evidence_confidence, "curated")
+
+  # Chitinase alone liberates chito-oligosaccharides, not free GlcNAc, so the
+  # genome is a primary degrader and the call names what is missing.
+  endo <- ask("K01183")
+  expect_false(endo$complete)
+  expect_equal(endo$missing_reactions_best_route[[1]], "RXN_CHITOBIOSE_EXO")
+
+  # NagZ is carried for peptidoglycan recycling by a great many genomes that
+  # cannot touch chitin. Requiring the endo activity is what stops that from
+  # reading as chitin degradation.
+  exo <- ask("K01207")
+  expect_false(exo$complete)
+  expect_equal(exo$missing_reactions_best_route[[1]], "RXN_CHITIN_ENDO")
+})
+
+test_that("oxidative chain cleavage is accessory to chitin saccharification", {
+  # AA10 lytic polysaccharide monooxygenase opens crystalline chitin for the
+  # endo-enzyme, which changes the rate rather than the capability.
+  without <- evaluate_gifts(c("K01183", "K01207"))
+  gift <- "chitin_degradation"
+  expect_true(without$gifts$complete[without$gifts$gift_id == gift])
+  trace <- trace_gift(without, gift)
+  accessory <- trace[trace$reaction_id == "RXN_CHITIN_LPMO", ]
+  expect_false(accessory$required[[1]])
+  expect_false(accessory$reaction_supported[[1]])
+
+  chitin <- get_gift_reactions(gift)
+  expect_equal(chitin$required[chitin$reaction_id == "RXN_CHITIN_LPMO"], 0L)
+})
+
+test_that("mucin O-glycan is curated as parallel release GIFTs, not a tier", {
+  mucin <- c(
+    "mucin_sialic_acid_release", "mucin_fucose_release", "mucin_galnac_release"
+  )
+  # There is no polymer-to-oligomer cut in mucin, so each exo-glycosidase is one
+  # required reaction and the GIFTs vary independently of one another.
+  for (gift_id in mucin) {
+    reactions <- get_gift_reactions(gift_id)
+    expect_equal(sum(reactions$required == 1L), 1L)
+    anchors <- get_gift_anchors(gift_id)
+    expect_equal(anchors$anchor_id[anchors$role == "input"], "MUCIN_O_GLYCAN")
+  }
+
+  one <- evaluate_gifts("K23550")$gifts
+  expect_true(one$complete[one$gift_id == "mucin_sialic_acid_release"])
+  expect_false(any(one$complete[one$gift_id %in% mucin[-1]]))
+})
+
+test_that("housekeeping glycosidases do not call mucin foraging", {
+  # beta-galactosidase and NagZ were assessed as mucin candidates and rejected:
+  # their families cannot separate mucin from lactose or peptidoglycan, so
+  # admitting them would have called foraging from housekeeping chemistry.
+  mucin <- c(
+    "mucin_sialic_acid_release", "mucin_fucose_release", "mucin_galnac_release"
+  )
+  for (marker in c("K01190", "K12308", "K01207")) {
+    calls <- evaluate_gifts(marker)$gifts
+    expect_false(any(calls$complete[calls$gift_id %in% mucin]))
+  }
+})
+
+test_that("released mucin and chitin sugars reach catabolism only inexactly", {
+  # The sugar is freed outside the cell and consumed inside it. No transporter
+  # evidence licensed splitting these anchors, so both GIFTs name the one
+  # unsplit anchor and the edge must record that the transport step is assumed.
+  graph <- gift_graph()
+  edges <- graph[graph$from_gift %in% c(
+    "chitin_degradation", "mucin_sialic_acid_release", "mucin_fucose_release"
+  ), ]
+  expect_true(nrow(edges) > 0L)
+  expect_true(all(edges$edge_quality == "compartment_inexact"))
+  expect_setequal(
+    edges$to_gift,
+    c("glcnac_degradation", "neuac_degradation", "fucose_degradation_isomerase")
+  )
+
+  # Uptake still produces exact edges, which is what keeps transport GIFTs
+  # load-bearing rather than decorative.
+  uptake <- graph[graph$from_gift == "xylose_uptake_abc", ]
+  expect_true(all(uptake$edge_quality == "exact"))
+})
+
+test_that("pectin saccharification needs both the endo and the exo activity", {
+  ask <- function(markers) {
+    result <- evaluate_gifts(markers)
+    result$gifts[result$gifts$gift_id == "pectin_degradation", ]
+  }
+
+  both <- ask(c("K01184", "K01213"))
+  expect_true(both$complete)
+  expect_equal(both$evidence_confidence, "curated")
+
+  endo <- ask("K01184")
+  expect_false(endo$complete)
+  expect_equal(endo$missing_reactions_best_route[[1]], "RXN_OLIGOGALACTURONIDE_EXO")
+
+  # De-esterification exposes the backbone but liberates no uronate of its own,
+  # so it is accessory here for the same reason acetyl removal is for xylan.
+  esterase <- ask("K01051")
+  expect_false(esterase$complete)
+  reactions <- get_gift_reactions("pectin_degradation")
+  expect_equal(
+    reactions$required[reactions$reaction_id == "RXN_PECTIN_DEMETHYL"], 0L
+  )
+})
+
+test_that("GH28 is substrate-coherent but cannot separate endo from exo", {
+  # All seven characterised GH28 activities are on pectin, so the family says
+  # what the substrate is; it does not say which end of the chain is attacked.
+  # One bare call therefore satisfies both components, and the ambiguous grade
+  # is what keeps that from reading like real evidence.
+  bare <- evaluate_gifts("GH28")$gifts
+  call <- bare[bare$gift_id == "pectin_degradation", ]
+  expect_true(call$complete)
+  expect_equal(call$evidence_confidence, "ambiguous")
+
+  universes <- list(gift_universe(preset = "carbohydrate_degradation"))
+  gated <- genome_traits(
+    evaluate_gifts("GH28"), universes = universes,
+    min_confidence = "high-confidence"
+  )
+  expect_equal(
+    gated$metrics$value[gated$metrics$metric_id == "gift_richness"], 0
+  )
+})
+
+test_that("the pectate lyase route is deferred rather than curated", {
+  # PL markers are well supported, but the lyase yields unsaturated
+  # oligogalacturonides that enter catabolism through 2-dehydro-3-deoxy-D-
+  # gluconate, an internal intermediate of galacturonate_degradation. A lyase
+  # GIFT cannot declare an output boundary until that becomes an anchor.
+  connection <- gifter_db_connect()
+  withr::defer(gifter_db_disconnect(connection))
+  markers <- DBI::dbGetQuery(
+    connection, "SELECT accession FROM marker WHERE namespace = 'CAZY'"
+  )$accession
+  expect_false(any(grepl("^PL[0-9]", markers)))
+
+  reactions <- get_gift_reactions("pectin_degradation")
+  expect_false(any(grepl("LYASE", reactions$reaction_id)))
+})

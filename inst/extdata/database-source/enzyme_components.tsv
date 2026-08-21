@@ -579,3 +579,12 @@ COMP_15305_BADH	SYS_15305_BADH	betaine-aldehyde dehydrogenase	Required catalytic
 COMP_24360_CYSG	SYS_24360_CYSG	multifunctional siroheme synthase CysG	Required catalytic protein.
 COMP_24360_MET8	SYS_24360_MET8	precorrin-2 dehydrogenase and sirohydrochlorin ferrochelatase Met8	Required catalytic protein.
 COMP_24360_SIRB	SYS_24360_SIRB	sirohydrochlorin ferrochelatase SirB	Required catalytic protein.
+COMP_CHITINASE	SYS_CHITINASE	endochitinase protein	Required catalytic protein.
+COMP_CHITOBIASE	SYS_CHITOBIASE	beta-N-acetylhexosaminidase protein	Required catalytic protein.
+COMP_CHITIN_LPMO	SYS_CHITIN_LPMO	lytic polysaccharide monooxygenase protein	Required catalytic protein.
+COMP_SIALIDASE	SYS_SIALIDASE	sialidase protein	Required catalytic protein.
+COMP_FUCOSIDASE	SYS_FUCOSIDASE	alpha-L-fucosidase protein	Required catalytic protein.
+COMP_GALNACASE	SYS_GALNACASE	alpha-N-acetylgalactosaminidase protein	Required catalytic protein.
+COMP_ENDO_PG	SYS_ENDO_PG	endo-polygalacturonase protein	Required catalytic protein.
+COMP_EXO_PG	SYS_EXO_PG	exo-polygalacturonase protein	Required catalytic protein.
+COMP_PECTINESTERASE	SYS_PECTINESTERASE	pectinesterase protein	Required catalytic protein.

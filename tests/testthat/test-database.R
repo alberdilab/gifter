@@ -5,7 +5,7 @@ test_that("canonical source tables validate", {
   expect_true(report$valid)
   expect_length(report$errors, 0L)
   expect_equal(
-    unname(report$rows[c("gifts", "anchors", "reactions")]), c(142L, 149L, 417L)
+    unname(report$rows[c("gifts", "anchors", "reactions")]), c(147L, 153L, 426L)
   )
   # Every typed model now ships curated content.
   expect_equal(
@@ -90,7 +90,8 @@ test_that("database accessors return stable definitions", {
       "betaine_demethylation", "biotin_biosynthesis", "butyrate_formation",
       "carnitine_degradation_trimethylamine", "carnitine_to_betaine",
       "catechol_meta_cleavage", "catechol_ortho_cleavage",
-      "chemotaxis_signal_transduction", "choline_to_betaine",
+      "chemotaxis_signal_transduction", "chitin_degradation",
+      "choline_to_betaine",
       "chorismate_biosynthesis",
       "citrate_fermentation", "cobamide_nucleotide_loop_assembly",
       "cobinamide_biosynthesis", "collagen_cleavage",
@@ -118,6 +119,8 @@ test_that("database accessors return stable definitions", {
       "methionine_biosynthesis_transsulfuration",
       "methionine_degradation_methanethiol", "methylamine_degradation",
       "methylglyoxal_detoxification",
+      "mucin_fucose_release", "mucin_galnac_release",
+      "mucin_sialic_acid_release",
       "nad_biosynthesis_namn", "namn_biosynthesis_quinolinate",
       "namn_salvage_nicotinate", "neuac_degradation", "nitrate_assimilation",
       "nitrogen_fixation",
@@ -125,7 +128,8 @@ test_that("database accessors return stable definitions", {
       "oxoadipyl_coa_thiolysis", "oxobutanoate_biosynthesis_citramalate",
       "oxoglutarate_to_succinate", "oxoisovalerate_biosynthesis",
       "oxopentenoate_degradation", "paba_biosynthesis",
-      "pantothenate_biosynthesis", "phenol_hydroxylation",
+      "pantothenate_biosynthesis", "pectin_degradation",
+      "phenol_hydroxylation",
       "phenylacetate_degradation", "phenylalanine_biosynthesis",
       "phenylpropanoate_dihydroxylation", "phosphate_starvation_response",
       "plp_biosynthesis_dxp", "plp_biosynthesis_r5p", "proline_biosynthesis",
@@ -207,8 +211,8 @@ test_that("database accessors return stable definitions", {
 
 test_that("database and schema versions are independent", {
   version <- gifter_db_version()
-  expect_equal(version$package_version, "0.3.1")
-  expect_equal(version$gifter_db_version, "2026.20.4")
+  expect_equal(version$package_version, "0.4.0")
+  expect_equal(version$gifter_db_version, "2026.21.2")
   expect_equal(version$schema_version, 7L)
   expect_equal(version$rhea_release, "141")
 })
@@ -397,6 +401,11 @@ test_that("the anchor network links GIFTs only through declared anchors", {
   expect_setequal(shared, c(
     "IMP", "ASA", "HOMOSERINE", "SERINE", "CYSTEINE", "XYLOSE_IN", "ARABINOSE_IN",
     "XYLAN", "XYLOSE_EX", "ARABINOSE_EX",
+    # Chitin, mucin and pectin saccharification hand their released sugars to
+    # the matching catabolic GIFT. These four are shared on compartment-inexact
+    # edges only: the sugar is freed outside the cell and consumed inside it,
+    # and no transporter evidence licensed splitting the anchor.
+    "GLCNAC", "FUCOSE", "NEUAC", "GALACTURONATE",
     # The SCFA layer connects catabolism to fermentation, so central metabolites
     # become shared boundaries for the first time.
     "PYRUVATE", "ACETYL_COA", "ACETATE", "LACTALDEHYDE", "PROPANEDIOL",

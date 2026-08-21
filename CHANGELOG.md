@@ -13,6 +13,128 @@ versioned with the package.
 
 ---
 
+## Package 0.4.0
+
+Released 2026-08-21. A minor version because four arguments moved between
+functions: calls that supplied `abundance`, `quality`, `policy` or `threshold`
+to `gifter_community()` or `evaluate_gifts_community()` must supply them to
+`community_traits()` instead. No call is evaluated differently.
+
+### 2026-08-21T16:20Z — Marker confidence can gate what a trait counts
+
+**Change.** `genome_traits()` and `community_traits()` take `min_confidence`,
+the weakest marker confidence a positive call may rest on and still be counted.
+A supported GIFT below the floor becomes **indeterminate, not negative**, so it
+leaves the richness count and the assessable denominator together.
+
+```r
+# richness over capabilities evidenced by more than a polyspecific family
+genome_traits(result, min_confidence = "high-confidence")
+```
+
+**Why.** `evidence_confidence` was computed and then discarded: no metric read
+it. `gift_richness`, `breadth_*`, `community_richness`, `provider_count` and
+`abundance_coverage` all counted `complete` alone, so a capability called from
+an ambiguous polyspecific CAZy family was indistinguishable from one called from
+curated orthology. Five families carried by nearly every gut Bacteroidetes
+genome returned a full-marks carbohydrate richness on no real evidence. Weak
+evidence is not evidence of absence, which is why the floor produces an
+indeterminate call rather than a negative one.
+
+**Compatibility.** The default is `NULL`, which counts every positive call. No
+existing result changes.
+
+### 2026-08-21T16:25Z — Handoffs out of extracellular chemistry are marked inexact
+
+**Change.** The `gift_graph` view no longer reports an edge as `exact` when the
+upstream GIFT declares an extracellular input and the shared anchor leaves the
+compartment unresolved. Such edges become `compartment_inexact`, which
+`gift_graph()`, `community_network()` and the atlas already understand.
+
+**Why.** A secreted glycosidase releases its sugar outside the cell and a
+catabolic GIFT consumes it inside. Where no transporter evidence licensed
+splitting that sugar into compartment variants, both GIFTs name one unsplit
+anchor and the membrane between them disappeared from the graph, collapsing the
+degrader-versus-forager distinction the compartment model exists to carry. The
+chain stays traversable — breaking it would turn a missing transporter marker
+into a false negative for the whole capability — but the assumption is now
+visible. Three edges are reclassified and 214 are unaffected. No call changes.
+
+### 2026-08-21T14:10Z — Abundance and completeness are supplied where the calls are read
+
+**Change.** `abundance`, `quality`, `policy` and `threshold` are now arguments
+of `community_traits()`. They are no longer accepted by `gifter_community()` or
+`evaluate_gifts_community()`, which supplying them to raises an error naming
+where they went.
+
+```r
+# before
+community <- evaluate_gifts_community(markers, abundance = weights,
+                                      quality = checkm, policy = "completeness",
+                                      threshold = 90)
+traits <- community_traits(community)
+
+# now
+community <- evaluate_gifts_community(markers)
+traits <- community_traits(community, abundance = weights, quality = checkm,
+                           policy = "completeness", threshold = 90)
+```
+
+A `gifter_community` is now calls and nothing else: it no longer carries
+`abundance`, `abundance_supplied` or `assessability`, and its `matrix` holds the
+calls as they were made rather than the calls as read under a policy, so it no
+longer contains `NA`. The normalised and supplied abundance vectors and the
+assessability policy are reported by the `gifter_traits` object that used them,
+where they describe the reading they belong to.
+
+`community_network()` and the cycle layer are unaffected: they always tested the
+matrix for `TRUE`, which reads the calls identically.
+
+**No evaluation logic change.** Nothing about a call or its evidence changed,
+and no trait value changes for an analysis that supplies the same arguments in
+the new place. Assessability is still resolved per genome, still moves only
+denominators, and still cannot promote an unsupported GIFT.
+
+**Why.** `genome_traits()` already took `quality`, `policy` and `threshold`,
+because how far an absence may be read is a property of the reading and not of
+the genome. The community path asked for the same information two layers
+earlier, at the container or at the evaluation, which made the two paths
+inconsistent and had two costs. A community bound under one threshold could not
+be read under another without rebuilding it, and rebuilding it from
+`evaluate_gifts_community()` meant re-evaluating every genome — minutes for a
+418-genome community, hours for a large one — to change a number that never
+entered a single call. Abundance was the same argument in a different guise: a
+weight a reader chooses, carried by an object that had no use for it.
+
+**Effect.** Evaluation produces calls; reading them is a separate, cheap,
+repeatable step that states its own assumptions. One community can be read under
+several completeness thresholds, or with and without abundance weighting,
+without being evaluated twice.
+
+### 2026-08-21T13:26Z — A nonsensical worker request is refused before the evaluation
+
+**Change.** `evaluate_gifts_community()` now checks the shape of `workers`
+before it evaluates a single genome. It was previously checked where the request
+is resolved, which is after the annotation table has been split and after the
+single-genome guardrail has had its chance to stop and ask about a large genome.
+A default taken from the `mc.cores` option is checked on the same terms as a
+request, rather than trusted for having come from an option.
+
+`limit` is checked where a cycle enumeration is asked for rather than only where
+it is run, so `community_network()` reports a nonsensical limit before building
+the graph, the handoff edges and the chain coverage it would have been used
+after.
+
+The refusal of an unnamed numeric `abundance` now says how to supply the genome
+identifiers, as the equivalent `quality` refusal already did.
+
+**No evaluation logic change.** An argument that was accepted is accepted and
+one that was refused is refused with the same message, sooner.
+
+**Effect.** A malformed argument costs a message rather than a wait.
+
+---
+
 ## Package 0.3.1
 
 Released 2026-08-21. A patch version because no argument, function or return

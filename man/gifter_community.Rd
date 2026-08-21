@@ -4,55 +4,33 @@
 \alias{gifter_community}
 \title{Bind genome results into a genome-resolved community}
 \usage{
-gifter_community(
-  ...,
-  abundance = NULL,
-  quality = NULL,
-  policy = "none",
-  threshold = NULL
-)
+gifter_community(...)
 }
 \arguments{
 \item{...}{Named `gifter_genome` results from [evaluate_gifts()], one per
 genome. The argument names become the genome identifiers. A whole
 annotation table carrying a `genome_id` column is bound in one call by
 [evaluate_gifts_community()] instead.}
-
-\item{abundance}{Optional named numeric vector of relative abundances over
-the same genomes. Must be non-negative and not all zero.}
-
-\item{quality}{Optional genome completeness, as a named numeric vector or a
-data frame with `genome_id` and `completeness` columns. Read as
-proportions, or as percentages when any value exceeds 1.}
-
-\item{policy}{Assessability policy: `"none"` or `"completeness"`. See
-[genome_traits()]. Indeterminacy is resolved per genome, so a fragmented
-member's silence is withheld from a provider count while a complete
-member's is not.}
-
-\item{threshold}{Completeness below which a negative call is treated as
-indeterminate, on the same scale as `quality`. Required by the
-`"completeness"` policy.}
 }
 \value{
 A `gifter_community` list holding the genome identifiers, the call
-  matrix, the abundance vector if supplied, and the `database_version`.
+  matrix and the `database_version`.
 }
 \description{
 Collects the calls of several genomes so that community-level quantitative
 traits can be computed over them. Nothing is re-evaluated: this is the
 container the community layer reads.
 }
-\section{Abundance}{
+\section{What a community does not hold}{
 
 
-`abundance` is optional and, when supplied, is normalised to sum to one while
-the values as supplied are retained. It weights how much of the observed
-community a capability's carriers represent. It is not a weight on the
-capability: a GIFT encoded by an abundant genome is not thereby more active,
-more expressed or more important, and [community_traits()] keeps
-presence-based and abundance-weighted quantities in separate rows for that
-reason.
+Genome abundances and completeness estimates are not part of a community.
+They say how a reader wishes to weigh a carrier and how far a reader is
+willing to read an absence, neither of which is a property of a call, and
+both are supplied to [community_traits()] when the calls are read -- as
+[genome_traits()] already takes them for a single genome. Binding a
+community therefore commits to nothing, and the same community can be read
+under two completeness thresholds without being evaluated twice.
 }
 
 \examples{

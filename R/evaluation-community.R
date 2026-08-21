@@ -19,6 +19,12 @@
 # genomes evaluated -- the unit the caller asked for -- never in workers
 # started or blocks finished, which are an implementation detail of how the
 # same work was spread out.
+#
+# It is also why the arguments that shape the run are checked before the first
+# genome is evaluated rather than where they are finally used. A `workers`
+# request that makes no sense is exactly as wrong now as it will be after an
+# hour of evaluation, and the guardrail of a large genome may stop to ask a
+# question before it is ever reached.
 
 # The genome column is never guessed. Column order is enough to propose a gene
 # identifier for approval, because a wrong one mislabels evidence within a
@@ -58,6 +64,18 @@
   values
 }
 
+# The shape of a `workers` request, which is answerable before any genome is
+# evaluated. What it resolves to is not: that depends on how many genomes there
+# are and on whether this platform can fork, neither of which changes whether
+# the request itself makes sense.
+.check_workers <- function(workers) {
+  if (is.null(workers)) return(invisible(NULL))
+  if (!is.numeric(workers) || length(workers) != 1L || is.na(workers) || workers < 1) {
+    cli::cli_abort("{.arg workers} must be a single number of at least 1.", call = NULL)
+  }
+  invisible(NULL)
+}
+
 # How many genomes may be evaluated at once. Forking is what makes a worker
 # cheap here -- the database connection is not shared, but the loaded package
 # and the split table are -- and it is unavailable on Windows, where the
@@ -74,9 +92,8 @@
       workers <- max(1L, cores - 1L)
     }
   }
-  if (!is.numeric(workers) || length(workers) != 1L || is.na(workers) || workers < 1) {
-    cli::cli_abort("{.arg workers} must be a single number of at least 1.", call = NULL)
-  }
+  # A default taken from mc.cores is as capable of being nonsense as a request.
+  .check_workers(workers)
   workers <- as.integer(min(workers, genomes))
   if (workers > 1L && !forkable) {
     if (requested) {
@@ -350,6 +367,18 @@
 #' be proposed for approval; a misread genome column redraws the genomes
 #' themselves, and no call in the result would look wrong afterwards.
 #'
+#' @section Arguments are checked before anything is evaluated:
+#'
+#' Evaluating a large community takes minutes or hours, so everything that can
+#' be decided from the annotation table is decided before the first genome is
+#' evaluated: the genome column, the gene column, the shape of the `workers`
+#' request, and the single-genome guardrail of every genome. A malformed
+#' argument therefore costs a message rather than the run.
+#'
+#' Nothing about how the calls will later be read is settled here. Genome
+#' abundances and completeness estimates belong to [community_traits()], so a
+#' community can be evaluated once and read under several thresholds.
+#'
 #' @section Parallel evaluation:
 #'
 #' Genomes are evaluated in forked worker processes, each holding its own
@@ -382,11 +411,11 @@
 #' @param progress Whether to display a progress bar. Defaults to `TRUE` at an
 #'   interactive console evaluating more than one genome, and to `FALSE`
 #'   otherwise. The display never changes a call.
-#' @param abundance,quality,policy,threshold Passed to [gifter_community()].
 #' @return A `gifter_community` list. Its `results` member holds the
 #'   `gifter_genome` result of every genome, under its genome identifier.
 #' @seealso [evaluate_gifts()] for one genome, [community_traits()] for the
-#'   quantitative traits of the returned community.
+#'   quantitative traits of the returned community, which is where genome
+#'   abundance and completeness are supplied.
 #' @examples
 #' markers <- data.frame(
 #'   genome_id = c("A", "A", "B"),
@@ -400,12 +429,16 @@
 evaluate_gifts_community <- function(annotation_table, namespace = NULL, db = NULL,
                                      genome_id = NULL, gene_id = NULL,
                                      max_genes = 5000, workers = NULL,
-                                     progress = NULL,
-                                     abundance = NULL, quality = NULL,
-                                     policy = "none", threshold = NULL) {
+                                     progress = NULL) {
   genomes <- .resolve_genome_id_column(annotation_table, genome_id)
   column <- if (is.null(genome_id)) "genome_id" else genome_id
-  progress <- .resolve_progress(progress, length(unique(genomes)))
+  identifiers <- sort(unique(genomes))
+  progress <- .resolve_progress(progress, length(identifiers))
+
+  # A nonsensical `workers` request is answerable now, and the guardrail below
+  # may stop to ask about a large genome before the evaluation would ever reach
+  # the point where the request is resolved.
+  .check_workers(workers)
 
   # The genome column is dropped before the gene column is resolved, so that it
   # is never the column proposed as a gene identifier.
@@ -413,7 +446,6 @@ evaluate_gifts_community <- function(annotation_table, namespace = NULL, db = NU
   markers[[column]] <- NULL
   markers <- .resolve_gene_id_column(markers, gene_id)
 
-  identifiers <- sort(unique(genomes))
   tables <- lapply(identifiers, function(id) markers[genomes == id, , drop = FALSE])
   names(tables) <- identifiers
 
@@ -422,8 +454,5 @@ evaluate_gifts_community <- function(annotation_table, namespace = NULL, db = NU
   for (id in identifiers) .check_single_genome(tables[[id]], max_genes, genome = id)
 
   results <- .evaluate_genomes(tables, namespace, db, workers, progress)
-  .gifter_community(
-    results, abundance = abundance, quality = quality,
-    policy = policy, threshold = threshold
-  )
+  .gifter_community(results)
 }

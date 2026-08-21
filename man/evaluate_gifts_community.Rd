@@ -12,11 +12,7 @@ evaluate_gifts_community(
   gene_id = NULL,
   max_genes = 5000,
   workers = NULL,
-  progress = NULL,
-  abundance = NULL,
-  quality = NULL,
-  policy = "none",
-  threshold = NULL
+  progress = NULL
 )
 }
 \arguments{
@@ -45,8 +41,6 @@ is capped at the number of genomes.}
 \item{progress}{Whether to display a progress bar. Defaults to `TRUE` at an
 interactive console evaluating more than one genome, and to `FALSE`
 otherwise. The display never changes a call.}
-
-\item{abundance, quality, policy, threshold}{Passed to [gifter_community()].}
 }
 \value{
 A `gifter_community` list. Its `results` member holds the
@@ -72,6 +66,20 @@ The genome column is required and is never inferred from column order. A
 misread gene column mislabels evidence inside a genome, which is why one may
 be proposed for approval; a misread genome column redraws the genomes
 themselves, and no call in the result would look wrong afterwards.
+}
+
+\section{Arguments are checked before anything is evaluated}{
+
+
+Evaluating a large community takes minutes or hours, so everything that can
+be decided from the annotation table is decided before the first genome is
+evaluated: the genome column, the gene column, the shape of the `workers`
+request, and the single-genome guardrail of every genome. A malformed
+argument therefore costs a message rather than the run.
+
+Nothing about how the calls will later be read is settled here. Genome
+abundances and completeness estimates belong to [community_traits()], so a
+community can be evaluated once and read under several thresholds.
 }
 
 \section{Parallel evaluation}{
@@ -104,5 +112,6 @@ community$genome_id
 }
 \seealso{
 [evaluate_gifts()] for one genome, [community_traits()] for the
-  quantitative traits of the returned community.
+  quantitative traits of the returned community, which is where genome
+  abundance and completeness are supplied.
 }

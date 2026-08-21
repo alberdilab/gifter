@@ -4,13 +4,42 @@
 \alias{community_traits}
 \title{Quantitative traits of a genome-resolved community}
 \usage{
-community_traits(community, universes = NULL, db = NULL)
+community_traits(
+  community,
+  universes = NULL,
+  abundance = NULL,
+  quality = NULL,
+  policy = "none",
+  threshold = NULL,
+  min_confidence = NULL,
+  db = NULL
+)
 }
 \arguments{
 \item{community}{A community from [gifter_community()].}
 
 \item{universes}{Optional list of [gift_universe()] objects. The default set
 is used if omitted.}
+
+\item{abundance}{Optional named numeric vector of relative abundances over
+the community's genomes, named with their identifiers. Must be
+non-negative and not all zero.}
+
+\item{quality}{Optional genome completeness, as a named numeric vector or a
+data frame with `genome_id` and `completeness` columns. Read as
+proportions, or as percentages when any value exceeds 1.}
+
+\item{policy}{Assessability policy: `"none"` or `"completeness"`. See
+[genome_traits()].}
+
+\item{threshold}{Completeness below which a negative call is treated as
+indeterminate, on the same scale as `quality`. Required by the
+`"completeness"` policy and has no default.}
+
+\item{min_confidence}{Optional weakest marker confidence a positive call may
+rest on and still count, as in [genome_traits()]. Applied per genome, so a
+capability stays in the community count while any one genome evidences it
+above the floor. `NULL`, the default, counts every positive call.}
 
 \item{db}{Optional open gifter database connection.}
 }
@@ -56,5 +85,27 @@ does.
 `abundance_coverage` is the fraction of observed genome abundance carrying a
 capability. It is not a fraction of activity, flux, transcript production or
 ecological effect, which is why it never merges with `provider_count`.
+}
+
+\section{Abundance}{
+
+
+`abundance` is optional and, when supplied, is normalised to sum to one. It
+weights how much of the observed community a capability's carriers
+represent. It is not a weight on the capability: a GIFT encoded by an
+abundant genome is not thereby more active, more expressed or more
+important, which is why presence-based and abundance-weighted quantities are
+reported in separate rows and never combined.
+}
+
+\section{Assessability}{
+
+
+`quality`, `policy` and `threshold` decide which negative calls may enter a
+denominator, on the same terms as [genome_traits()], and are supplied here
+rather than to [gifter_community()] because they are a way of reading calls
+and not a property of them. Indeterminacy is resolved per genome: a
+fragmented member's silence is withheld from a provider count while a
+complete member's is not. No policy can make an unsupported GIFT supported.
 }
 

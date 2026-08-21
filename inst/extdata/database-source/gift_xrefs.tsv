@@ -196,3 +196,8 @@ choline_to_betaine	METACYC	PWY-3722	Glycine betaine biosynthesis II (Gram-positi
 choline_to_betaine	KEGG_MODULE	M00555	Betaine biosynthesis, choline => betaine	equivalent	Same boundaries; gifter materialises the genomically distinct first-enzyme and choline-oxidase alternatives and refuses broad ALDH7A1.
 siroheme_biosynthesis	METACYC	PWY-5194	Siroheme biosynthesis	equivalent	Same UROGEN_III-to-siroheme boundaries. MetaCyc records the two methyl transfers separately; gifter reuses the single overall Rhea master for that enzyme-catalysed conversion.
 siroheme_biosynthesis	KEGG_MODULE	M00846	Siroheme biosynthesis, glutamyl-tRNA => siroheme	subset_of	The module begins upstream of UROGEN_III. gifter retains the three-reaction tail and excludes broad CbiX-family evidence that cannot establish iron insertion.
+chitin_degradation	KEGG_PATHWAY	map00520	Amino sugar and nucleotide sugar metabolism	subset_of	
+mucin_sialic_acid_release	KEGG_PATHWAY	map00511	Other glycan degradation	subset_of	
+mucin_fucose_release	KEGG_PATHWAY	map00511	Other glycan degradation	subset_of	
+mucin_galnac_release	KEGG_PATHWAY	map00511	Other glycan degradation	subset_of	
+pectin_degradation	KEGG_PATHWAY	map00040	Pentose and glucuronate interconversions	subset_of	

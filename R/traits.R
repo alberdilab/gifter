@@ -323,6 +323,15 @@
 #' @param threshold Completeness below which a negative call is treated as
 #'   indeterminate, on the same scale as `quality`. Required by the
 #'   `"completeness"` policy and has no default.
+#' @param min_confidence Optional weakest marker confidence a positive call may
+#'   rest on and still count, one of `"ambiguous"`, `"putative"`,
+#'   `"high-confidence"` or `"curated"`. A supported GIFT whose
+#'   `evidence_confidence` falls below it becomes indeterminate rather than
+#'   negative, because weak evidence is not evidence of absence. `NULL`, the
+#'   default, counts every positive call whatever it rests on. Set it to
+#'   `"high-confidence"` to exclude capabilities called from polyspecific
+#'   sequence families, which is the usual reason a carbohydrate GIFT is
+#'   ambiguous.
 #' @param db Optional open gifter database connection.
 #' @return A `gifter_traits` list with `metrics` (one row per trait),
 #'   `trace` (the GIFTs behind each trait), `universes`, and
@@ -342,10 +351,11 @@
 #' @export
 genome_traits <- function(result, universes = NULL, genome_id = "genome",
                           quality = NULL, policy = "none", threshold = NULL,
-                          db = NULL) {
+                          min_confidence = NULL, db = NULL) {
   if (!inherits(result, "gifter_genome")) {
     stop("result must come from evaluate_gifts()", call. = FALSE)
   }
+  min_confidence <- .normalize_min_confidence(min_confidence)
   if (length(genome_id) != 1L || is.na(genome_id) || !nzchar(as.character(genome_id))) {
     stop("genome_id must be one non-empty identifier", call. = FALSE)
   }
@@ -384,10 +394,13 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
 
     calls <- result$gifts
     state <- stats::setNames(
-      .assessability_state(
-        calls$complete, policy,
-        if (is.null(completeness)) NA_real_ else completeness[[genome_id]],
-        threshold
+      .confidence_state(
+        .assessability_state(
+          calls$complete, policy,
+          if (is.null(completeness)) NA_real_ else completeness[[genome_id]],
+          threshold
+        ),
+        calls$evidence_confidence, min_confidence
       ),
       calls$gift_id
     )

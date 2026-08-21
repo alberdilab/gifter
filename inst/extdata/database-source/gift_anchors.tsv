@@ -322,3 +322,13 @@ choline_to_betaine	CHOLINE	input	1
 choline_to_betaine	BETAINE	output	1
 siroheme_biosynthesis	UROGEN_III	input	1
 siroheme_biosynthesis	SIROHEME	output	1
+chitin_degradation	CHITIN	input	1
+chitin_degradation	GLCNAC	output	1
+mucin_sialic_acid_release	MUCIN_O_GLYCAN	input	1
+mucin_sialic_acid_release	NEUAC	output	1
+mucin_fucose_release	MUCIN_O_GLYCAN	input	1
+mucin_fucose_release	FUCOSE	output	1
+mucin_galnac_release	MUCIN_O_GLYCAN	input	1
+mucin_galnac_release	GALNAC	output	1
+pectin_degradation	PECTIN	input	1
+pectin_degradation	GALACTURONATE	output	1

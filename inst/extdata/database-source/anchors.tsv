@@ -148,3 +148,7 @@ DIHYDROXYBENZOATE_2_3	DIHYDROXYBENZOATE_2_3	unspecified	2,3-dihydroxybenzoate	CH
 ENTEROBACTIN	ENTEROBACTIN	unspecified	enterobactin	CHEBI:77805	Cyclic catecholate siderophore product. The boundary does not assert secretion, metal binding in situ or uptake.
 CHOLINE	CHOLINE	unspecified	choline	CHEBI:15354	Quaternary ammonium precursor of glycine betaine. The unspecified compartment records no uptake or environmental-availability claim.
 SIROHEME	SIROHEME	unspecified	siroheme	CHEBI:60052	Iron isobacteriochlorin cofactor and branchpoint product of siroheme biosynthesis. Declaring it does not imply cofactor incorporation, reductase activity, sulfur or nitrogen metabolism, or conversion through the alternative heme pathway.
+CHITIN	CHITIN	extracellular	chitin	CHEBI:17029	Beta-1,4-linked N-acetyl-D-glucosamine polymer of arthropod and fungal cell walls, reaching the gut in dietary and microbial biomass.
+MUCIN_O_GLYCAN	MUCIN_O_GLYCAN	extracellular	mucin O-glycan		The O-linked glycan of secreted host mucins, a heterogeneous branched structure with no single repeating unit and no chemical formula.
+GALNAC	GALNAC	unspecified	N-acetyl-D-galactosamine	CHEBI:28037	N-acetyl-D-galactosamine, the sugar alpha-linked to serine or threonine at the mucin O-glycan core.
+PECTIN	PECTIN	extracellular	pectin	CHEBI:17309	Methyl-esterified alpha-1,4-D-galacturonan of the plant primary cell wall, the dominant soluble fibre of fruit and vegetable matter.

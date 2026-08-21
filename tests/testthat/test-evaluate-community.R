@@ -252,13 +252,52 @@ test_that("the single-genome guardrail is applied to each genome separately", {
 })
 
 test_that("the returned community is what the quantitative trait layer reads", {
-  community <- evaluate_gifts_community(
-    arabinoxylan_table(),
-    abundance = c(debrancher = 0.5, backbone = 0.3, consumer = 0.2),
-    workers = 1
+  community <- evaluate_gifts_community(arabinoxylan_table(), workers = 1)
+  traits <- community_traits(
+    community, universes = list(arabinoxylan_universe()),
+    abundance = c(debrancher = 0.5, backbone = 0.3, consumer = 0.2)
   )
-  expect_equal(community$abundance_supplied[["debrancher"]], 0.5)
-  traits <- community_traits(community, universes = list(arabinoxylan_universe()))
   expect_true(nrow(traits$metrics) > 0L)
   expect_true(all(community$genome_id %in% c(traits$metrics$target_id, "community")))
+  expect_true(any(traits$metrics$metric_id == "abundance_coverage"))
+})
+
+test_that("the evaluation commits to no reading of its calls", {
+  # Abundance and completeness never reach this function: they say how a reader
+  # weighs a carrier and how far a reader will read an absence, and an hour of
+  # evaluation should not have to be repeated to revise either.
+  community <- evaluate_gifts_community(arabinoxylan_table(), workers = 1)
+  expect_null(community$abundance)
+  expect_null(community$assessability)
+  expect_false(any(is.na(community$matrix)))
+  expect_error(
+    evaluate_gifts_community(
+      arabinoxylan_table(), workers = 1, abundance = c(backbone = 1)
+    ),
+    "unused argument"
+  )
+})
+
+test_that("a nonsensical worker request is refused before any genome is evaluated", {
+  # The whole cost of this function is between the split and the constructor,
+  # and the guardrail below the check may stop to ask about a large genome, so
+  # a request that cannot be met is refused before either happens.
+  evaluated <- FALSE
+  testthat::local_mocked_bindings(
+    .evaluate_genomes = function(tables, namespace, db, workers, progress) {
+      evaluated <<- TRUE
+      stop("no genome should have been evaluated")
+    }
+  )
+  expect_error(
+    evaluate_gifts_community(arabinoxylan_table(), workers = 0), "at least 1"
+  )
+  expect_false(evaluated)
+
+  # And a request that is fine is not refused: the check lets the run start.
+  expect_error(
+    evaluate_gifts_community(arabinoxylan_table(), workers = 2),
+    "no genome should have been evaluated"
+  )
+  expect_true(evaluated)
 })

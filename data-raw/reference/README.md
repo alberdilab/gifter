@@ -57,3 +57,40 @@ evidence; one where an EC accounts for a fifth of them is not. Two further
 filters matter when curating from this table: the CAZy class must match the
 chemistry, and CBM families must be excluded, because a binding module catalyses
 nothing.
+
+**Curation floor.** Since database 2026.21.1 an eCAMI cluster is not admitted as
+a marker below 50% EC agreement. Above it, the grade follows the support: 93% or
+better across ten or more annotated members is `curated`, 70% or better is
+`high-confidence`, and the remainder is `ambiguous`. The floor exists because a
+cluster in which 3 of 96 annotated members carry the claimed EC is not weak
+evidence for the assignment — it is quantified evidence against it, which is a
+different thing from a polyspecific family that genuinely carries the activity
+among others.
+
+## eCAMI cluster identifiers are release-scoped
+
+**A `GH5_e12` from one dbCAN release is not the `GH5_e12` of another.** The
+eCAMI clusters are regenerated when the library is rebuilt, and the numbering is
+positional, so cluster identity does not survive a release change. Nothing in
+the accession says which release it came from.
+
+This matters because most of gifter's CAZy markers are eCAMI clusters rather
+than bare families or official CAZy subfamilies. Two consequences:
+
+- **Annotate against the pinned release.** Running a different dbCAN release
+  produces accessions that mostly fail to match, and they fail *silently* — an
+  unmatched marker is simply an unmatched marker, so the symptom is a genome
+  that looks like it lacks capabilities rather than an error. The pinned release
+  is `db_v5-2-9_5-5-2026`, named at the top of this file and recorded in the
+  `source` column of every CAZy row in `component_markers.tsv`.
+- **Re-derive the whole marker layer on any dbCAN upgrade.** Regenerating
+  `cazy-subfamily-ec.tsv` is not enough: the existing `component_markers` rows
+  must be re-mined against the new clusters and re-graded, because an accession
+  that still exists may now describe different sequences. Treat a dbCAN upgrade
+  as a marker-layer migration with its own `database_changes.tsv` entry, not as
+  a refresh.
+
+Bare CAZy families (`GH28`, `CE8`) and official CAZy subfamilies (`GH5_4`) do
+not have this problem — those identifiers are CAZy's own and are stable across
+dbCAN releases. Where a family is monoactivity enough to stand alone, preferring
+it costs nothing and buys release independence.

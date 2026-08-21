@@ -253,6 +253,9 @@ community_network <- function(community, interaction = "metabolic_handoff",
       !inherits(universe, "gifter_universe")) {
     stop("universe must come from gift_universe()", call. = FALSE)
   }
+  # The limit reaches its enumeration only after the graph, the handoff edges
+  # and the chain coverage have been built, so it is checked here instead.
+  .check_cycle_limit(limit)
 
   .with_gifter_db(db, function(connection) {
     version <- gifter_db_version(connection)$gifter_db_version

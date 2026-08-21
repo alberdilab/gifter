@@ -534,6 +534,17 @@ CREATE INDEX idx_mechanism_function_function_pk ON mechanism_function(function_p
 -- Two anchors whose compartments are both specified and different are NOT
 -- connected. That is what keeps transport GIFTs load-bearing: extracellular
 -- glucose must not reach cytoplasmic glucose except through an uptake GIFT.
+--
+-- One anchor shared by both sides is normally `exact`, but not when the
+-- upstream GIFT does its chemistry outside the cell and the shared anchor
+-- leaves the compartment unresolved. A secreted glycosidase releases its sugar
+-- extracellularly; a catabolic GIFT consumes that sugar in the cytoplasm.
+-- Where the sugar was never split into compartment variants — because no
+-- transporter evidence licensed the split — the two GIFTs name the same anchor
+-- and the handoff would otherwise read as though no membrane lay between them.
+-- Calling it inexact keeps the chain traversable while saying plainly that a
+-- transport step is assumed rather than evidenced, which is the whole
+-- degrader-versus-forager distinction the compartment model exists to carry.
 CREATE VIEW gift_graph AS
 SELECT DISTINCT
   upstream.gift_id AS from_gift,
@@ -541,7 +552,19 @@ SELECT DISTINCT
   in_anchor.anchor_id AS to_anchor,
   out_anchor.molecule AS shared_molecule,
   CASE
-    WHEN out_anchor.anchor_pk = in_anchor.anchor_pk THEN 'exact'
+    WHEN out_anchor.anchor_pk = in_anchor.anchor_pk
+      AND (
+        out_anchor.compartment <> 'unspecified'
+        OR NOT EXISTS (
+          SELECT 1
+          FROM gift_anchor upstream_input
+          JOIN anchor upstream_anchor
+            ON upstream_anchor.anchor_pk = upstream_input.anchor_pk
+          WHERE upstream_input.gift_pk = upstream.gift_pk
+            AND upstream_input.role = 'input'
+            AND upstream_anchor.compartment = 'extracellular'
+        )
+      ) THEN 'exact'
     ELSE 'compartment_inexact'
   END AS edge_quality,
   downstream.gift_id AS to_gift

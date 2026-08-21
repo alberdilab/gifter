@@ -1,6 +1,7 @@
 # Curation proposal: complex polysaccharide and sugar degradation GIFTs
 
-Status: **steps 1-5 implemented; step 7 outstanding.**
+Status: **steps 1-6 implemented; step 7 in progress — three of ten substrates
+curated.**
 Prepared 2026-08-17 against database version 2026.09.1 (schema 3).
 
 Steps 1 and 2 of §13 shipped the same day as database 2026.09.2, schema 4:
@@ -25,10 +26,19 @@ polymer EC numbers has a Rhea master (§8.1 was load-bearing, not precautionary)
 and the per-family enzyme systems suggested in §6.1 were collapsed to one system
 per reaction (§6.1).
 
-**Step 7 remains outstanding** — the ten further substrates. Every CAZy family, EC number and KO named for those steps is still a
-candidate. The dbCAN family-to-substrate mapping that will supply their evidence
-is now pinned in `data-raw/reference/`. No open questions remain; one item is
-deferred (§15).
+Step 6, the marker-confidence checkpoint, was carried out on 2026-08-21 and is
+recorded in §16. It licensed continuing, but only after two corrections: an
+agreement floor on dbCAN-sub markers, and making confidence reach the metrics
+layer that had been discarding it.
+
+Step 7 is **in progress**. Chitin and mucin O-glycan shipped on 2026-08-21 as
+database 2026.21.1, and the hydrolytic half of pectin as 2026.21.2 the same day;
+the other seven substrates remain outstanding, and every CAZy family, EC number
+and KO named for them is still a candidate. Two candidates named in §6.3 for
+mucin did not survive verification and are corrected in §16.3; the pectate lyase
+route is assessed and deferred in §16.5. The dbCAN family-to-substrate mapping
+that supplies the evidence is pinned in `data-raw/reference/`. No open questions
+remain; two items are deferred (§15, §16.5).
 
 Scope: decide how complex polysaccharide degradation and sugar degradation
 should be expressed under the gifter ontology, and identify what must
@@ -834,3 +844,145 @@ datasets and it is clear whether the Bacteroidetes blind spot documented in §4.
 is costing real interpretation. Nothing in this proposal depends on the answer.
 
 No open questions remain. The design is ready to implement in the order of §13.
+
+---
+
+## 16. Step 6: the marker-confidence checkpoint
+
+Carried out 2026-08-21 against database 2026.20.4, on the xylan, arabinoxylan
+and starch layers shipped in steps 4 and 5. The checkpoint asked whether the
+marker-confidence behaviour earns its cost before eight more substrates are
+curated on the same rule. **It licensed continuing, after two corrections.**
+
+### 16.1 What worked
+
+Confidence propagation (§8.4) is correct. `.call_confidence()` takes the best
+marker within a component, because alternatives are OR, and the weakest
+component across the route, because components are AND. The consequence worth
+checking is that adding a weak marker beside a strong one must not make a call
+look worse, and it does not: `GH11_e15` and `GH120` together with the
+polyspecific `GH43` and `GH3` still call `xylan_degradation` at `curated`.
+
+A CAZy-only genome reaches the same `curated` grade as a KO-only genome. dbCAN
+annotation is a first-class input, not a second-tier one, which was the point of
+§8.5.
+
+### 16.2 What did not, and what was changed
+
+**Confidence never reached a metric.** `evidence_confidence` was computed,
+returned and then discarded: `traits.R`, `universe.R`, `community.R` and
+`community-network.R` contained no reference to it. Every metric —
+`gift_richness`, `breadth_*`, `community_richness`, `provider_count`,
+`abundance_coverage` — read `complete` alone. §8.4 claimed the field made the
+§10 marker policy "enforceable rather than advisory"; it did not, because
+nothing consumed it. Measured cost: `GH2`, `GH3`, `GH13`, `GH31` and `GH43`, five
+families carried by essentially every gut Bacteroidetes genome, produced
+`gift_richness = 3` over `carbohydrate_degradation` — the whole polysaccharide
+layer, called complete, on no real evidence.
+
+`genome_traits()` and `community_traits()` now take `min_confidence`. A positive
+call below the floor becomes **indeterminate, not negative**: weak evidence is
+not evidence of absence, so the capability moves out of the richness count and
+out of the assessable denominator, exactly as the completeness policy treats a
+fragmented genome. On the five-family genome, a `high-confidence` floor takes
+richness from 3 to 0 and `assessable_fraction` from 1.00 to 0.75. The default is
+`NULL`, which counts every positive call, so no existing result changes.
+
+**The admission threshold was too loose.** Grading was consistent — `curated` at
+93% EC agreement and ten or more supporting members, `high-confidence` at 70% —
+but `ambiguous` reached down to 3%. `GH13_e486` was admitted as α-amylase
+evidence on 3 of 96 EC-annotated members, and with `GH31` it called
+`starch_degradation` complete on its own. That is not weak evidence for the
+assignment, it is quantified evidence against it, and it is a different thing
+from a polyspecific family that genuinely carries the activity among others.
+Forty marker rows below 50% agreement were withdrawn; the floor now governs new
+CAZy curation as well.
+
+**Two confidence terms are dead.** `putative` and `insufficient evidence` are
+defined in the ordering but used nowhere in the database. Left in place: the
+ordering is the vocabulary the policy is written against, and transport markers
+are the intended home of `putative` (§8.4). Worth revisiting if the uptake layer
+grows without ever using it.
+
+### 16.3 Correction to §6.3: mucin candidates that did not survive
+
+§6.3 named four parallel exo-glycosidases for mucin. Three were curated —
+sialidase, α-L-fucosidase and α-N-acetylgalactosaminidase — and **β-galactosidase
+was rejected**, along with β-N-acetylhexosaminidase, which had been an implicit
+candidate as the GlcNAc-releasing activity of the mucin core.
+
+Both fail on the same ground, which is the §10 failure mode rather than a new
+one. `GH2`, `GH35` and `GH42` β-galactosidases act on lactose, lacto-N-biose,
+galactan and mucin alike, and `lacZ` is carried by an enormous share of gut
+genomes; the marker cannot separate mucin galactose release from lactose
+hydrolysis, so the GIFT would have called mucin foraging from housekeeping
+chemistry. `NagZ` β-N-acetylhexosaminidase is primarily peptidoglycan recycling,
+with the same result. The three that were curated all cleave linkages that are
+host-glycan-specific — α-2,3/2,6-sialyl, α-fucosyl, and the α-GalNAc-Ser/Thr core
+attachment — which is what makes the trait mean what its name says.
+
+This is the granularity rule (§5) and the marker policy (§10) doing their work
+before curation rather than after. Both activities remain visible at the reaction
+layer for any genome that carries them.
+
+### 16.4 A modelling gap the new substrates exposed
+
+Curating chitin and mucin surfaced an inconsistency that predates them. The
+`gift_graph` view called an edge `exact` whenever both GIFTs named the same
+anchor, without asking where the upstream chemistry happens. A secreted
+glycosidase releases its sugar outside the cell; the catabolic GIFT consumes it
+inside. Where no transporter evidence licensed splitting that sugar into
+compartment variants, both sides name one unsplit anchor and the membrane
+between them vanished from the graph — collapsing exactly the public-goods
+degrader, selfish forager and cross-feeder distinction that §4.4 and §4.5 exist
+to carry.
+
+The database already held two conventions. `xylan_degradation` and
+`collagen_cleavage` declare extracellular products; `starch_degradation`
+declares an unspecified `GLUCOSE`. Starch's version had never bitten only
+because no glucose catabolism GIFT exists to compose with it.
+
+Resolved in the view rather than in the anchors: an edge out of a GIFT that
+declares an extracellular input, through an anchor that leaves the compartment
+unresolved, is `compartment_inexact`. The chain stays traversable — breaking it
+would turn a missing transporter marker into a false negative for the whole
+capability, which §8.7 already rejected — but the graph now says plainly that
+the transport step is assumed rather than evidenced. Three edges are
+reclassified, 214 are unaffected, and no call changes. Fixing it in the view
+also covers starch in advance, and every substrate still to come in step 7.
+
+### 16.5 Deferred: the pectate lyase route
+
+Pectin was curated on its hydrolytic chemistry only — endo-polygalacturonase
+(EC 3.2.1.15, GH28) then exo-polygalacturonase (EC 3.2.1.67, GH28 and GH4), with
+pectinesterase (EC 3.1.1.11, CE8) accessory in the same way acetyl removal is
+accessory to xylan. The lyase chemistry is **deferred, not rejected**, and the
+reason is an anchor gap rather than an evidence gap.
+
+The markers are not the problem. PL1, PL2, PL3, PL9 and PL10 supply 32 clusters
+for EC 4.2.2.2 above the agreement floor, and pectate lyases are more common
+than polygalacturonases in gut Bacteroidetes, so excluding them means the GIFT
+misses degraders it should catch. That cost is real and is accepted knowingly.
+
+The problem is where the products land. A lyase cleaves by β-elimination and
+yields **unsaturated** oligogalacturonides, which are processed by unsaturated
+glucuronyl hydrolase or oligogalacturonate lyase into 5-keto-4-deoxyuronate and
+enter catabolism at **2-dehydro-3-deoxy-D-gluconate**. The hydrolytic route
+yields D-galacturonate proper. The two chemistries therefore end at different
+metabolites, and §7 already settled what follows from that: anchors are declared
+per GIFT, so routes ending at different products cannot be two routes of one
+GIFT. They would be two GIFTs.
+
+A lyase GIFT cannot be written today because its output boundary does not exist.
+2-dehydro-3-deoxy-D-gluconate is an internal intermediate of
+`galacturonate_degradation`, not a declared anchor, and §5 is explicit that
+internal intermediates are not promoted casually.
+
+**What would unblock it.** Promoting that intermediate to an anchor. The case is
+better than it looks: it is where galacturonate catabolism, glucuronate
+catabolism and the pectate lyase route all converge, and it is the
+Entner-Doudoroff node, which is a genuine branchpoint rather than a convenience.
+Doing it means re-cutting `galacturonate_degradation` and
+`glucuronate_degradation` to declare it, which is a change to shipped GIFTs and
+belongs in its own proposal rather than inside a substrate addition. Nothing
+else in step 7 depends on the answer.
