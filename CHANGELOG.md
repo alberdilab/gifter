@@ -13,7 +13,12 @@ versioned with the package.
 
 ---
 
-## Unreleased
+## Package 0.3.0
+
+Released 2026-08-21. A minor version because the change adds an argument
+and a display to an existing function without altering a single call: code
+written against 0.2.0 behaves identically, and the community it gets back is
+the same object it always was.
 
 ### 2026-08-21T12:20Z — A community evaluation reports its progress
 

@@ -1,7 +1,7 @@
 Package: gifter
 Type: Package
 Title: Genome-Inferred Functional Traits Between Molecular Anchors
-Version: 0.2.0
+Version: 0.3.0
 Authors@R: person("Antton", "Alberdi", email = "antton.alberdi@sund.ku.dk", role = c("aut", "cre"))
 Description: Infers whether a genome encodes a biologically defined enzymatic
     capability between curated molecular anchors. Traits are evaluated through
