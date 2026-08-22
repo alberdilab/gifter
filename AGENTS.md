@@ -295,7 +295,14 @@ proposals exist and are the model to follow:
 [structural](inst/doc/proposal-structural-gifts.md),
 [regulatory](inst/doc/proposal-regulatory-gifts.md), and
 [defense](inst/doc/proposal-defense-gifts.md). Recording a refusal with its
-evidence is a result, not a gap. The full
+evidence is a result, not a gap.
+
+A refusal nobody can find again is a forgotten investigation, so a proposal that
+defers or refuses a candidate also adds a row to
+[the deferral register](inst/doc/deferral-register.md), stating what blocks the
+candidate and what would unblock it. Read the register before curating: the
+candidate may already have been assessed, and the assessment may already have
+been retriggered. The full
 procedure is in [Curating a GIFT](inst/doc/architecture.md#curating-a-new-or-changed-gift).
 
 Materialize alternative valid minimal routes during curation. Do not store or
