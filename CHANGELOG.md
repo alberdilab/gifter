@@ -13,6 +13,100 @@ versioned with the package.
 
 ---
 
+## Package 0.7.0
+
+Released 2026-08-22. A minor version: one new export, one new metric family and
+a curated facet that reached no trait until now. No behaviour change to
+anything that existed — every metric `genome_traits()`, `community_traits()`,
+`dataset_traits()` and the network functions reported is the number it was.
+
+### 2026-08-22T15:20Z — Where a resource comes from
+
+**The problem.** `resource_origin` is curated on anchors, with seven values
+over the anchor vocabulary, and `.gift_classifications()` read only GIFT facets
+and the `gift_profile` view. A genome could therefore be read for the substrate
+class it degrades but not for where that substrate arrives from — the axis that
+separates a genome opening plant- or host-derived resources from one living on
+what other members release.
+
+**What changed.** Anchor facets join the classifications through the anchors a
+GIFT declares, split by the role the anchor plays: `input_resource_origin` and
+`output_resource_origin`. They stay two facets rather than one because
+consuming a `microbially_derived` compound and releasing one are opposite
+positions, and a single `resource_origin` count would add them together. They
+flow into `breadth_*` and the trace like any other classification, so nothing
+special reads them.
+
+**And a count beside the breadth.** `breadth_<facet>` counts the values a
+genome reaches; `supported_gifts_<facet>:<value>` counts the GIFTs it reaches
+them by, over the assessable GIFTs carrying that value. A genome supporting one
+plant-derived entry and one supporting twelve had the same breadth and
+different diets. The denominator is the GIFTs carrying the value and never the
+universe, which would read as a fraction of the catalogue; a value the genome
+reaches nothing of is not reported here, because it is already counted in the
+breadth denominator, exactly as `provider_count` reports only represented
+GIFTs.
+
+The value goes in the metric identifier beside the facet that `breadth_`
+already carries there, so every row of a one-genome result still names that
+genome as its target. A facet value is a breakdown of the genome's traits, not
+another thing the traits are about — an existing test asserted that invariant
+and caught the first attempt, which had introduced a `facet_value` target type.
+
+**What it is not.** A trophic level. A trophic level is a statement about flux
+through a realised food web; these counts say what a genome encodes the
+capability to act on, never what it eats, whether the resource is present, or
+whether anything is expressed when the two meet. Rule 18 keeps an ecological
+description derived from primary typed GIFTs rather than becoming one, and the
+documentation says so where the metric is defined rather than only in the
+architecture guide.
+
+Anchor facets do not build universes. `gift_universe(facet = )` still resolves
+the GIFT facet vocabulary only, so "GIFTs entering on plant-derived anchors" is
+readable as a metric and not yet declarable as a denominator. That is a
+universe-resolution change with its own schema keys and it is not taken here.
+
+### 2026-08-22T15:20Z — Repertoire distance, and the tree gifter does not cut
+
+**The problem.** `community_traits()` computes the Jaccard index of every pair
+of genomes' supported GIFTs and reports it as `repertoire_overlap` in long
+form. Every routine that would consume it — `hclust()`, `cmdscale()`,
+`vegan::adonis2()` — wants a `dist`, and reshaping long rows back into one is
+work the caller should not have to get right.
+
+**What changed.** `repertoire_distance()` returns one minus that overlap as a
+`stats::dist`, computed from `gift_matrix()` by the same cross-product the
+traits layer uses. A test asserts the two agree pair by pair: a second
+implementation that quietly disagreed with the first would be worse than no
+second implementation. A dataset delegates to its catalogue, because a pair
+shares what it shares in every sample both are detected in.
+
+Two genomes that support nothing have `NA` rather than 1, which would say they
+were compared and found to share nothing. A genome supporting nothing against
+one supporting something is a different case and is 1.
+
+**No assessability policy, deliberately.** A Jaccard index reads supported
+sets, and a GIFT a genome does not support is outside its set whether the call
+was a confident negative or an indeterminate one. `policy`, `quality` and
+`threshold` therefore could not move the number, and the function does not
+accept them: an argument that does nothing is worse than one that is absent,
+because a reader assumes it worked. `min_confidence` is accepted and does move
+it, by removing a weakly evidenced positive from the set being compared.
+
+**Where it stops.** gifter returns the distance and fits no clustering, chooses
+no linkage, cuts no tree and names no groups. All three are the analyst's
+choices and none is defensible from the calls. Nor would the groups be guilds:
+a guild is a set of organisms exploiting a resource in the same way, which is a
+claim about resource use in situ, and §8 refusal 4 of the quantitative traits
+proposal refuses lighter ecological claims than that one. This is the boundary
+0.6.0 drew for groups of samples, drawn again for groups of genomes.
+
+`stats` joins Imports. It was already used — `stats::setNames` throughout the
+community layer — and `stats::as.dist` makes the omission load-bearing rather
+than latent.
+
+---
+
 ## Package 0.6.0
 
 Released 2026-08-22. A minor version: four new exports and no behaviour change

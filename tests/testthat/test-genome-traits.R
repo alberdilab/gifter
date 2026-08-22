@@ -246,3 +246,110 @@ test_that("min_confidence leaves well-evidenced calls alone", {
     "min_confidence must be one of"
   )
 })
+
+# Where a resource comes from. `resource_origin` is curated on anchors, so
+# until it was split by anchor role it classified no GIFT and reached no trait.
+# These protect the split, the denominators, and the boundary between a
+# declared origin and a claim about what an organism eats.
+
+test_that("an anchor's resource origin classifies the GIFTs that declare it", {
+  traits <- genome_traits(
+    arabinoxylan_genome("backbone"),
+    universes = list(gift_universe(
+      facet = "substrate_class", value = "polysaccharide",
+      label = "polysaccharide GIFTs"
+    )),
+    genome_id = "backbone"
+  )
+  row <- metric(traits, "breadth_input_resource_origin", "polysaccharide GIFTs")
+  expect_equal(row$value, 1)
+
+  supported <- metric(
+    traits, "supported_gifts_input_resource_origin:plant_derived",
+    "polysaccharide GIFTs"
+  )
+  expect_equal(supported$numerator, 1L)
+  # Every row of a one-genome result names that genome. A facet value is a
+  # breakdown of its traits, not another thing the traits are about.
+  expect_equal(supported$target_type, "genome")
+  expect_equal(supported$target_id, "backbone")
+
+  trace <- traits$trace[
+    traits$trace$metric_id ==
+      "supported_gifts_input_resource_origin:plant_derived", ,
+    drop = FALSE
+  ]
+  expect_equal(trace$gift_id, "xylan_degradation")
+  expect_equal(nrow(trace), supported$numerator)
+})
+
+test_that("consuming an origin and releasing it are separate facets", {
+  traits <- genome_traits(
+    arabinoxylan_genome("consumer"), genome_id = "consumer"
+  )
+  facets <- unique(traits$metrics$metric_id)
+  expect_true("breadth_input_resource_origin" %in% facets)
+  expect_true("breadth_output_resource_origin" %in% facets)
+  # xylose_degradation_isomerase enters on a plant-derived anchor and releases
+  # a central-metabolism one. One resource_origin count would add the two
+  # opposite positions together.
+  expect_false("breadth_resource_origin" %in% facets)
+
+  values <- function(facet) {
+    rows <- traits$trace[
+      traits$trace$metric_id == paste0("breadth_", facet) &
+        traits$trace$reference_universe == "all curated GIFTs" &
+        traits$trace$gift_id == "xylose_degradation_isomerase", ,
+      drop = FALSE
+    ]
+    rows$contribution
+  }
+  expect_equal(values("input_resource_origin"), "plant_derived")
+  expect_equal(values("output_resource_origin"), "central_metabolism")
+})
+
+test_that("a facet value count is over the GIFTs carrying it, not the universe", {
+  traits <- genome_traits(
+    arabinoxylan_genome("backbone"),
+    universes = list(gift_universe(label = "all curated GIFTs")),
+    genome_id = "backbone"
+  )
+  rows <- traits$metrics[
+    startsWith(traits$metrics$metric_id, "supported_gifts_"), , drop = FALSE
+  ]
+  expect_true(nrow(rows) > 0L)
+  expect_true(all(rows$unit == "count"))
+  # The denominator is the assessable GIFTs carrying the value. It must never
+  # be the universe, which would read as a fraction of the catalogue.
+  expect_true(all(rows$denominator <= rows$assessable))
+  expect_true(all(rows$numerator <= rows$denominator))
+  # Only a value the genome reaches is reported; a value it reaches nothing of
+  # is counted in the breadth denominator instead.
+  expect_true(all(rows$numerator > 0L))
+})
+
+test_that("a facet value count reconstructs from its trace in every universe", {
+  traits <- genome_traits(
+    arabinoxylan_genome("consumer"), genome_id = "consumer"
+  )
+  rows <- traits$metrics[
+    startsWith(traits$metrics$metric_id, "supported_gifts_"), , drop = FALSE
+  ]
+  expect_true(nrow(rows) > 0L)
+  for (index in seq_len(nrow(rows))) {
+    trace <- traits$trace[
+      traits$trace$metric_id == rows$metric_id[[index]] &
+        traits$trace$reference_universe == rows$reference_universe[[index]], ,
+      drop = FALSE
+    ]
+    expect_equal(nrow(trace), rows$numerator[[index]])
+  }
+})
+
+test_that("no resource origin promotes an unsupported GIFT to supported", {
+  markers <- ko_annotations(direct_purine_markers())
+  before <- evaluate_gifts(markers)$gifts
+  traits <- genome_traits(evaluate_gifts(markers), genome_id = "MAG_001")
+  after <- traits$trace[traits$trace$metric_id == "gift_richness", , drop = FALSE]
+  expect_true(all(after$gift_id %in% before$gift_id[before$complete]))
+})

@@ -67,8 +67,15 @@ Metrics reported per universe:
   \item{`supported_fraction`}{richness over assessable members, reported for
     bounded universes only. Over the biomass-essential anabolic universe this
     is biosynthetic capability coverage}
-  \item{`breadth_*`}{distinct values of one curated facet or one
-    [gift_profile()] classification represented by a supported GIFT}
+  \item{`breadth_*`}{distinct values of one curated facet, one
+    [gift_profile()] classification or one anchor facet represented by a
+    supported GIFT}
+  \item{`supported_gifts_*`}{per facet value, named
+    `supported_gifts_<facet>:<value>`, the supported GIFTs carrying it over
+    the assessable GIFTs carrying it. Breadth counts the values a genome
+    reaches; this counts the GIFTs it reaches them by. Reported for a value
+    the genome reaches; a value it reaches nothing of is counted in the
+    `breadth_*` denominator instead}
   \item{`handoff_out_degree`, `handoff_in_degree`}{distinct anchors through
     which the genome's supported GIFTs could hand off to, or receive from, a
     curated GIFT. Reported only where the universe reaches the metabolic
@@ -81,6 +88,30 @@ Metrics reported per universe:
     every member is supported, from [evaluate_gift_cycles()]}
 }
 }
+\section{Where a resource comes from}{
+
+
+`resource_origin` is curated on anchors rather than on GIFTs, and reaches
+the metrics split by the role the anchor plays: `input_resource_origin` for
+what a GIFT is declared to act on, `output_resource_origin` for what it is
+declared to release. Read together with `breadth_*` and `supported_gifts`
+they place a genome on the axis a community's resource structure runs
+along --- a genome whose supported catabolic GIFTs enter on `plant_derived`
+or `host_derived` anchors opens resources that arrive from outside the
+community, while one entering on `microbially_derived` anchors lives on what
+other organisms release.
+
+The two roles stay separate facets because consuming a microbially derived
+compound and releasing one are opposite positions, and one `resource_origin`
+count would add them together.
+
+This is a reading of declared boundaries, not a trophic level. It says what
+a genome encodes the capability to act on, never what it eats, whether the
+resource is present, whether the genome meets it, or whether anything is
+expressed when it does. A trophic level is a statement about flux through a
+realised food web, and no arrangement of these counts is evidence of one.
+}
+
 \section{Assessability}{
 
 

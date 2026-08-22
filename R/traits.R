@@ -69,6 +69,19 @@
 # included alongside registered facets because a substrate tier and a resource
 # strategy classify a call exactly as a facet does; they are simply derived
 # rather than curated, and the metric identifiers say which is which.
+#
+# Anchor facets join here too, by the role the anchor plays. `resource_origin`
+# is curated on anchors rather than on GIFTs, so until now it reached no trait:
+# a genome could be read for the substrate class it degrades but not for where
+# that substrate comes from. Split by role it is the axis that separates a
+# genome entering on plant-derived polymers from one entering on the products
+# other organisms release -- and it stays two facets rather than one, because
+# consuming a microbially derived compound and releasing one are opposite
+# positions that a single `resource_origin` count would add together.
+#
+# It classifies what a GIFT is declared to act on. It is not a claim that the
+# resource is present, that the genome ever meets it, or that the capability is
+# expressed when it does.
 .gift_classifications <- function(connection, gift_id) {
   if (!length(gift_id)) {
     return(tibble::tibble(
@@ -102,7 +115,28 @@
       value = as.character(derived[[column]][keep]), source = "gift_profile"
     )
   })
-  combined <- do.call(rbind, c(list(curated[c("gift_id", "facet", "value", "source")]), derived_long))
+  anchored <- .as_tibble_query(
+    connection,
+    paste0(
+      "SELECT DISTINCT g.gift_id, ga.role, af.value ",
+      "FROM gift_anchor ga ",
+      "JOIN gift g ON g.gift_pk = ga.gift_pk ",
+      "JOIN anchor_facet af ON af.anchor_pk = ga.anchor_pk ",
+      "WHERE af.facet = 'resource_origin' ",
+      "AND g.gift_id IN (", placeholders, ")"
+    ),
+    as.list(gift_id)
+  )
+  anchored <- tibble::tibble(
+    gift_id = anchored$gift_id,
+    facet = paste0(anchored$role, "_resource_origin"),
+    value = as.character(anchored$value),
+    source = "anchor_facet"
+  )
+  combined <- do.call(rbind, c(
+    list(curated[c("gift_id", "facet", "value", "source")]),
+    derived_long, list(anchored)
+  ))
   combined[!is.na(combined$value) & nzchar(combined$value), , drop = FALSE]
 }
 
@@ -169,6 +203,41 @@
       "genome", target_id, metric_id, label, contributing$gift_id,
       contributing$value
     )))
+
+    # Breadth counts the values a genome reaches; this counts the GIFTs it
+    # reaches them by. A genome supporting one plant-derived entry and one
+    # supporting twelve have the same breadth and different diets, and the
+    # denominator here is the assessable GIFTs carrying the value rather than
+    # the catalogue, so the number stays readable when curation grows one
+    # class faster than another.
+    #
+    # Only a value the genome reaches is reported, as `provider_count` reports
+    # only represented GIFTs. A value it reaches nothing of is not missing: it
+    # is in the breadth denominator above, which is where its absence is
+    # already counted.
+    #
+    # The value goes in the metric identifier, beside the facet that
+    # `breadth_` already carries there, so that every row of a one-genome
+    # result still names that genome as its target. A facet value is a
+    # breakdown of the genome's traits, not another thing the traits are about.
+    for (value in sort(available)) {
+      classified <- unique(rows$gift_id[rows$value == value])
+      carried <- intersect(classified, supported)
+      if (!length(carried)) next
+      value_metric <- paste0("supported_gifts_", facet, ":", value)
+      metrics <- c(metrics, list(.metric_row(
+        "genome", target_id, value_metric,
+        length(carried), "count", length(carried), length(classified),
+        assessable, label, version,
+        paste0(
+          "supported GIFTs classified ", facet, " = ", value, " (", source,
+          "), over assessable GIFTs so classified"
+        )
+      )))
+      trace <- c(trace, list(.trace_rows(
+        "genome", target_id, value_metric, label, carried
+      )))
+    }
   }
 
   # Handoff interfaces are anchor-derived, so they exist only where the universe
@@ -260,8 +329,15 @@
 #'   \item{`supported_fraction`}{richness over assessable members, reported for
 #'     bounded universes only. Over the biomass-essential anabolic universe this
 #'     is biosynthetic capability coverage}
-#'   \item{`breadth_*`}{distinct values of one curated facet or one
-#'     [gift_profile()] classification represented by a supported GIFT}
+#'   \item{`breadth_*`}{distinct values of one curated facet, one
+#'     [gift_profile()] classification or one anchor facet represented by a
+#'     supported GIFT}
+#'   \item{`supported_gifts_*`}{per facet value, named
+#'     `supported_gifts_<facet>:<value>`, the supported GIFTs carrying it over
+#'     the assessable GIFTs carrying it. Breadth counts the values a genome
+#'     reaches; this counts the GIFTs it reaches them by. Reported for a value
+#'     the genome reaches; a value it reaches nothing of is counted in the
+#'     `breadth_*` denominator instead}
 #'   \item{`handoff_out_degree`, `handoff_in_degree`}{distinct anchors through
 #'     which the genome's supported GIFTs could hand off to, or receive from, a
 #'     curated GIFT. Reported only where the universe reaches the metabolic
@@ -273,6 +349,28 @@
 #'   \item{`closed_cycles`}{elementary cycles of the composition graph whose
 #'     every member is supported, from [evaluate_gift_cycles()]}
 #' }
+#'
+#' @section Where a resource comes from:
+#'
+#' `resource_origin` is curated on anchors rather than on GIFTs, and reaches
+#' the metrics split by the role the anchor plays: `input_resource_origin` for
+#' what a GIFT is declared to act on, `output_resource_origin` for what it is
+#' declared to release. Read together with `breadth_*` and `supported_gifts`
+#' they place a genome on the axis a community's resource structure runs
+#' along --- a genome whose supported catabolic GIFTs enter on `plant_derived`
+#' or `host_derived` anchors opens resources that arrive from outside the
+#' community, while one entering on `microbially_derived` anchors lives on what
+#' other organisms release.
+#'
+#' The two roles stay separate facets because consuming a microbially derived
+#' compound and releasing one are opposite positions, and one `resource_origin`
+#' count would add them together.
+#'
+#' This is a reading of declared boundaries, not a trophic level. It says what
+#' a genome encodes the capability to act on, never what it eats, whether the
+#' resource is present, whether the genome meets it, or whether anything is
+#' expressed when it does. A trophic level is a statement about flux through a
+#' realised food web, and no arrangement of these counts is evidence of one.
 #'
 #' @section Assessability:
 #'

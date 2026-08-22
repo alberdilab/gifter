@@ -16,6 +16,8 @@ in source-table names and code wherever practical.
 | Architecture, structural function, machinery model | [The machinery model](#the-machinery-model) |
 | Motility, virulence, cross-feeding, higher-order traits | [Derived capabilities](#derived-capabilities) |
 | Richness, breadth, reference universe, denominator | [Quantitative traits](#quantitative-traits) |
+| Resource origin, primary degrader, cross-feeder, trophic level | [Where a resource comes from](#where-a-resource-comes-from) |
+| Repertoire distance, clustering, guilds | [Repertoire distance, and the tree gifter does not cut](#repertoire-distance-and-the-tree-gifter-does-not-cut) |
 | Community, provider count, redundancy, handoff network | [Quantitative traits](#quantitative-traits) |
 | Many samples, one MAG catalogue, per-sample traits | [Many samples over one catalogue](#many-samples-over-one-catalogue) |
 | Detection, sample membership, abundance closure | [Many samples over one catalogue](#many-samples-over-one-catalogue) |
@@ -547,6 +549,82 @@ rather than `community_distributed`: nothing completes it. Distributed cycle
 closure carries the same restriction, so the oxidative citric acid cycle is
 never reported as closed across a community however it is composed.
 
+### Where a resource comes from
+
+`resource_origin` is curated on **anchors**, not on GIFTs, and until it was
+split by anchor role it reached no trait: a genome could be read for the
+substrate class it degrades but not for where that substrate arrives from. It
+now classifies a GIFT through the anchors the GIFT declares, as two facets:
+
+| Facet | Reads | Says |
+|---|---|---|
+| `input_resource_origin` | the origin of the anchors a GIFT acts on | what the genome is encoded to open |
+| `output_resource_origin` | the origin of the anchors a GIFT releases | what the genome is encoded to release |
+
+The two stay separate because consuming a `microbially_derived` compound and
+releasing one are opposite positions in a community's resource structure, and
+one `resource_origin` count would add them together. Read against the curated
+vocabulary — `plant_derived`, `host_derived`, `animal_derived`,
+`microbially_derived`, `inorganic`, `anthropogenic`, `central_metabolism` — a
+genome whose supported catabolic GIFTs enter on plant- or host-derived anchors
+opens resources arriving from outside the community, while one entering on
+microbially derived anchors lives on what other members release.
+
+This is a reading of declared boundaries. **It is not a trophic level.** A
+trophic level is a statement about flux through a realised food web; these
+counts say what a genome encodes the capability to act on, never what it eats,
+whether the resource is present, or whether anything is expressed when the two
+meet. The distinction is [rule 18](../../AGENTS.md) — an ecological
+description is derived from primary typed GIFTs and never becomes one.
+
+Beside each `breadth_<facet>`, which counts the distinct values a genome
+reaches, `supported_gifts_<facet>:<value>` counts the GIFTs it reaches them by,
+over the assessable GIFTs carrying that value. A genome supporting one
+plant-derived entry and one supporting twelve have the same breadth and
+different diets. The denominator is the GIFTs carrying the value and never the
+universe, so the number stays readable when curation grows one class faster
+than another, and a value the genome reaches nothing of is reported not here
+but in the breadth denominator, where its absence is already counted.
+
+The value goes in the metric identifier beside the facet, so every row of a
+one-genome result still names that genome as its target: a facet value is a
+breakdown of the genome's traits, not another thing the traits are about.
+
+Anchor facets do not yet build universes. `gift_universe(facet = )` resolves
+the GIFT facet vocabulary only, so "GIFTs entering on plant-derived anchors" is
+readable as a metric but not yet declarable as a denominator.
+
+### Repertoire distance, and the tree gifter does not cut
+
+`repertoire_distance()` returns one minus the `repertoire_overlap` of
+`community_traits()` as a `stats::dist`, so a repertoire can be handed to
+`hclust()`, `cmdscale()` or `vegan::adonis2()`. It computes the same numbers
+the traits layer reports, by the same cross-product, and the two agree exactly;
+a second implementation that quietly disagreed with the first would be worse
+than no second implementation.
+
+Two genomes that support nothing in the universe have `NA` rather than a
+distance of 1, which would say they were compared and found to share nothing.
+A genome that supports nothing measured against one that supports something is
+a different case: the union is not empty, they genuinely share none of it, and
+1 is correct.
+
+It takes no assessability policy. A Jaccard index reads supported sets, and a
+GIFT a genome does not support is outside its set whether the call was a
+confident negative or an indeterminate one — so `policy`, `quality` and
+`threshold` could not move the number, and an argument that does nothing is
+worse than one that is absent. `min_confidence` is accepted, because removing a
+weakly evidenced positive does change the set being compared.
+
+gifter returns the distance and stops. It fits no clustering, chooses no
+linkage, cuts no tree and names no groups: all three are the analyst's choices
+and none is defensible from the calls. Nor would the groups be **guilds**. A
+guild is a set of organisms exploiting a resource in the same way, which is a
+claim about resource use where the organisms live; two genomes near each other
+here encode similar capabilities and have not been shown to use the same
+resource, to use it in the same way, or to co-occur. This is the same boundary
+[Where gifter stops](#where-gifter-stops) draws for groups of samples.
+
 ### What these numbers may not say
 
 A quantitative trait counts encoded capabilities in the current gifter ontology
@@ -562,9 +640,13 @@ Specifically:
 - `abundance_coverage` is the share of observed genome abundance carrying a
   capability. It is not a share of activity, transcript production or effect,
   which is why it never merges with `provider_count`.
-- `repertoire_overlap` measures repertoire difference. Two genomes with
-  disjoint repertoires have different repertoires; they have not been shown to
-  be complementary, and nothing here infers interaction from overlap.
+- `repertoire_overlap`, and the `repertoire_distance()` built from it, measure
+  repertoire difference. Two genomes with disjoint repertoires have different
+  repertoires; they have not been shown to be complementary, and nothing here
+  infers interaction from overlap.
+- `input_resource_origin` and `output_resource_origin` classify declared
+  boundaries. They place a genome on a resource axis; they do not assign it a
+  trophic level, and they say nothing about what it eats.
 - `unique_contribution` counts GIFTs no other **sampled** genome provides. It
   does not make a genome ecologically indispensable, and it moves when the
   sampling does.
