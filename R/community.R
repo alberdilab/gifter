@@ -16,6 +16,14 @@
 # takes them for one genome. Binding a community is therefore cheap and carries
 # no interpretation the caller did not ask for, and the same calls can be read
 # under two completeness thresholds without being evaluated twice.
+#
+# Reading is cheap per genome and expensive per community: every universe is
+# walked over every GIFT, every genome and every pair of genomes, so a
+# thousand-genome community is summarised in minutes rather than instantly.
+# community_traits() therefore reports its progress on the same terms as
+# evaluate_gifts_community(), through the display in R/progress.R, counting the
+# unit the caller asked for -- reference universes -- and never the GIFTs or
+# genome pairs each of them happens to contain.
 
 # The calls as they were made, one column per genome, over every GIFT any
 # genome was evaluated for. Nothing here reads an absence: what a negative call
@@ -427,6 +435,19 @@ print.gifter_community <- function(x, ...) {
 #' fragmented member's silence is withheld from a provider count while a
 #' complete member's is not. No policy can make an unsupported GIFT supported.
 #'
+#' @section Progress:
+#'
+#' Every universe is read over every GIFT, every genome and every pair of
+#' genomes, so a community of thousands of genomes is summarised in minutes
+#' rather than instantly. A run of that length reports itself at an interactive
+#' console, in reference universes summarised out of universes to summarise,
+#' with an estimate of the time remaining. A universe is not a fixed quantity
+#' of work -- one spanning the whole catalogue takes longer than a narrow one
+#' -- so the estimate is coarser than the genome count of
+#' [evaluate_gifts_community()]. Nothing is reported when there is nobody
+#' watching, which is why a script, a knitted document and a package check stay
+#' silent unless they ask for the display with `progress = TRUE`.
+#'
 #' @param community A community from [gifter_community()].
 #' @param universes Optional list of [gift_universe()] objects. The default set
 #'   is used if omitted.
@@ -446,15 +467,24 @@ print.gifter_community <- function(x, ...) {
 #'   capability stays in the community count while any one genome evidences it
 #'   above the floor. `NULL`, the default, counts every positive call.
 #' @param db Optional open gifter database connection.
+#' @param progress Whether to display a progress bar over the reference
+#'   universes. Defaults to `TRUE` at an interactive console reading more than
+#'   one universe, and to `FALSE` otherwise. The display never changes a
+#'   metric.
 #' @return A `gifter_traits` list with `metrics` and `trace`, whose
 #'   `target_type` distinguishes community, GIFT, genome and genome-pair rows.
 #' @export
 community_traits <- function(community, universes = NULL, abundance = NULL,
                              quality = NULL, policy = "none", threshold = NULL,
-                             min_confidence = NULL, db = NULL) {
+                             min_confidence = NULL, db = NULL, progress = NULL) {
   if (!inherits(community, "gifter_community")) {
     stop("community must come from gifter_community()", call. = FALSE)
   }
+  # A malformed `progress` request is exactly as wrong now as it will be after
+  # the universes have been built, and answering it here costs a message rather
+  # than the walk. What it resolves to waits for the universes themselves,
+  # since they are the unit it counts.
+  .check_progress(progress)
   min_confidence <- .normalize_min_confidence(min_confidence)
   # How the calls are to be read, settled against the genomes the community
   # names before any universe is walked.
@@ -492,9 +522,24 @@ community_traits <- function(community, universes = NULL, abundance = NULL,
       stop("Universes were built against a different database version", call. = FALSE)
     }
 
-    parts <- lapply(universes, function(universe) {
-      .community_universe_metrics(community, universe, version, calls, weights)
-    })
+    # Every universe is walked over every GIFT, every genome and every pair of
+    # genomes, so a community of thousands of genomes spends minutes to hours
+    # here and has to be able to say how far along it is.
+    display <- .universe_progress(
+      length(universes), .resolve_progress(progress, length(universes))
+    )
+    # A walk that aborts must not leave a bar behind reporting a run that
+    # finished, so the bar is taken down either way and completed only on the
+    # one path that produced the traits.
+    on.exit(display$dismiss(), add = TRUE)
+    parts <- vector("list", length(universes))
+    for (index in seq_along(universes)) {
+      parts[[index]] <- .community_universe_metrics(
+        community, universes[[index]], version, calls, weights
+      )
+      display$update(index)
+    }
+    display$done()
     metrics <- do.call(rbind, lapply(parts, function(part) part$metrics))
     trace <- do.call(rbind, lapply(parts, function(part) part$trace))
     if (is.null(metrics)) metrics <- .empty_metrics()

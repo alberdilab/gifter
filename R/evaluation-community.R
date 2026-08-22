@@ -122,66 +122,8 @@
   NULL
 }
 
-# Whether the run should say how far along it is. A progress display is for a
-# person waiting at a console: written into a log or a knitted document it is
-# noise, and for a single genome there is nothing to be partway through.
-.resolve_progress <- function(progress, genomes) {
-  if (is.null(progress)) return(interactive() && genomes > 1L)
-  if (!is.logical(progress) || length(progress) != 1L || is.na(progress)) {
-    cli::cli_abort("{.arg progress} must be {.code TRUE} or {.code FALSE}.", call = NULL)
-  }
-  progress
-}
-
-# The display, as a set of closures over a cli progress bar, so that the
-# sequential and the forked paths report the same thing through the same object
-# and neither has to know whether a bar exists. cli holds the bar back for a
-# couple of seconds, so a community small enough to finish immediately never
-# draws one.
-.genome_progress <- function(total, enabled) {
-  if (!enabled) {
-    return(list(
-      enabled = FALSE,
-      update = function(evaluated) invisible(NULL),
-      done = function() invisible(NULL),
-      dismiss = function() invisible(NULL)
-    ))
-  }
-  id <- cli::cli_progress_bar(
-    format = paste0(
-      "{cli::pb_spin} Evaluating genomes ",
-      "{cli::pb_bar} {cli::pb_current}/{cli::pb_total} ",
-      "({cli::pb_percent}) | ETA {cli::pb_eta}"
-    ),
-    format_done = paste0(
-      "{cli::col_green(cli::symbol$tick)} Evaluated {cli::pb_total} ",
-      "genome{?s} in {cli::pb_elapsed}."
-    ),
-    total = total,
-    clear = FALSE,
-    .auto_close = FALSE
-  )
-  closed <- FALSE
-  close <- function(result) {
-    if (closed) return(invisible(NULL))
-    closed <<- TRUE
-    cli::cli_progress_done(id = id, result = result)
-  }
-  list(
-    enabled = TRUE,
-    # cli terminates a bar the moment its count reaches its total, so the count
-    # stops one short of it and the run is declared finished from one place: the
-    # last genome is evaluated a moment before the community it belongs to
-    # exists, and a run that fails between the two never claims to have
-    # finished.
-    update = function(evaluated) {
-      if (closed) return(invisible(NULL))
-      cli::cli_progress_update(set = min(evaluated, total - 1L), id = id)
-    },
-    done = function() close("done"),
-    dismiss = function() close("clear")
-  )
-}
+# The progress display of this run, and the rule for whether there is one, are
+# in R/progress.R, where community_traits() reports through the same object.
 
 # How a forked child tells the parent that it has finished a genome. The child
 # has no console of its own and the parent is occupied waiting for results, so

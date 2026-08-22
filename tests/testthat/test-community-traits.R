@@ -246,3 +246,58 @@ test_that("every community metric names its universe and its target", {
   expect_true(all(proportions$denominator > 0L))
   expect_true(all(proportions$value >= 0 & proportions$value <= 1))
 })
+
+test_that("progress counts reference universes summarised, and nothing finer", {
+  # The display exists because reading a large community takes minutes, so what
+  # it counts has to be the work the caller asked for: the reference universes
+  # the metrics are reported within, one tick each, never the GIFTs or genome
+  # pairs a universe happens to contain.
+  universes <- list(
+    arabinoxylan_universe(),
+    gift_universe(type = "metabolic", label = "metabolic GIFTs")
+  )
+  seen <- NULL
+  counted <- integer()
+  recorder <- function(total, enabled) {
+    seen <<- list(total = total, enabled = enabled)
+    list(
+      enabled = enabled,
+      update = function(done) counted <<- c(counted, done),
+      done = function() invisible(NULL),
+      dismiss = function() invisible(NULL)
+    )
+  }
+  testthat::local_mocked_bindings(.universe_progress = recorder)
+
+  community <- arabinoxylan_community()
+  traits <- community_traits(community, universes = universes, progress = TRUE)
+  expect_equal(seen$total, 2L)
+  expect_true(seen$enabled)
+  # A count that went backwards would report a universe as unread again.
+  expect_false(is.unsorted(counted))
+  expect_equal(max(counted), 2L)
+
+  # The display is a display: the metrics are the same with it and without it.
+  quiet <- community_traits(community, universes = universes, progress = FALSE)
+  expect_false(seen$enabled)
+  expect_equal(traits$metrics, quiet$metrics)
+})
+
+test_that("progress is shown to a watching console and to nobody else", {
+  # A bar written into a log, a knitted document or a package check is noise,
+  # and a single universe is never partway through.
+  expect_identical(.resolve_progress(NULL, units = 3), interactive())
+  expect_false(.resolve_progress(NULL, units = 1))
+
+  # A malformed request is answered before any universe is built, not after the
+  # walk it would have decorated.
+  expect_error(
+    community_traits(arabinoxylan_community(), progress = "yes"), "TRUE"
+  )
+
+  # The default is silent here, which is what keeps the metrics the only thing
+  # this function puts on the console.
+  expect_silent(community_traits(
+    arabinoxylan_community(), universes = list(arabinoxylan_universe())
+  ))
+})

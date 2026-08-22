@@ -174,11 +174,11 @@ test_that("a forked child reports its genomes to the parent it cannot speak to",
 test_that("progress is shown to a watching console and to nobody else", {
   # A bar written into a log, a knitted document or a package check is noise,
   # and one genome is never partway through.
-  expect_identical(.resolve_progress(NULL, genomes = 3), interactive())
-  expect_false(.resolve_progress(NULL, genomes = 1))
-  expect_true(.resolve_progress(TRUE, genomes = 1))
-  expect_false(.resolve_progress(FALSE, genomes = 3))
-  expect_error(.resolve_progress("yes", genomes = 3), "TRUE")
+  expect_identical(.resolve_progress(NULL, units = 3), interactive())
+  expect_false(.resolve_progress(NULL, units = 1))
+  expect_true(.resolve_progress(TRUE, units = 1))
+  expect_false(.resolve_progress(FALSE, units = 3))
+  expect_error(.resolve_progress("yes", units = 3), "TRUE")
 
   # The default is silent here, which is also what keeps the calls the only
   # thing this function puts on the console.

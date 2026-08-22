@@ -12,7 +12,8 @@ community_traits(
   policy = "none",
   threshold = NULL,
   min_confidence = NULL,
-  db = NULL
+  db = NULL,
+  progress = NULL
 )
 }
 \arguments{
@@ -42,6 +43,11 @@ capability stays in the community count while any one genome evidences it
 above the floor. `NULL`, the default, counts every positive call.}
 
 \item{db}{Optional open gifter database connection.}
+
+\item{progress}{Whether to display a progress bar over the reference
+universes. Defaults to `TRUE` at an interactive console reading more than
+one universe, and to `FALSE` otherwise. The display never changes a
+metric.}
 }
 \value{
 A `gifter_traits` list with `metrics` and `trace`, whose
@@ -107,5 +113,20 @@ rather than to [gifter_community()] because they are a way of reading calls
 and not a property of them. Indeterminacy is resolved per genome: a
 fragmented member's silence is withheld from a provider count while a
 complete member's is not. No policy can make an unsupported GIFT supported.
+}
+
+\section{Progress}{
+
+
+Every universe is read over every GIFT, every genome and every pair of
+genomes, so a community of thousands of genomes is summarised in minutes
+rather than instantly. A run of that length reports itself at an interactive
+console, in reference universes summarised out of universes to summarise,
+with an estimate of the time remaining. A universe is not a fixed quantity
+of work -- one spanning the whole catalogue takes longer than a narrow one
+-- so the estimate is coarser than the genome count of
+[evaluate_gifts_community()]. Nothing is reported when there is nobody
+watching, which is why a script, a knitted document and a package check stay
+silent unless they ask for the display with `progress = TRUE`.
 }
 

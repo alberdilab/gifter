@@ -13,6 +13,46 @@ versioned with the package.
 
 ---
 
+## Package 0.4.1
+
+Released 2026-08-22. A patch version because nothing about the traits changed:
+the addition is an optional display argument that defaults to what the console
+was already doing, and every call written against 0.4.0 returns the same object
+it always did.
+
+### 2026-08-22T09:10Z — Reading a community reports its progress too
+
+**Change.** `community_traits()` gains a `progress` argument and shows the same
+cli progress bar `evaluate_gifts_community()` already showed, counting
+reference universes summarised out of universes to summarise, with a bar, a
+percentage and an estimate of the time remaining. It defaults to `TRUE` at an
+interactive console reading more than one universe and to `FALSE` otherwise, so
+scripts, knitted documents and `R CMD check` stay silent. A malformed request
+is refused before any universe is built.
+
+The display and the rule for whether there is one moved to `R/progress.R`, so
+both long-running functions report through one object rather than two
+implementations of the same bar. `.resolve_progress()` now names its second
+argument `units` instead of `genomes`; the genome bar is unchanged in what it
+counts or how it reads.
+
+**No metric change.** The metrics, their trace and their order are exactly what
+they were, with the display on or off.
+
+**Why.** Evaluating a community was the slow half only until the community got
+large. Reading one walks every reference universe over every GIFT, every genome
+and every pair of genomes, and the pairwise term grows with the square of the
+membership: a thousand-genome community is half a million pairs per universe,
+across a default set of fourteen. A run of that length with a silent console is
+indistinguishable from a hung one, which was the whole argument for the bar in
+the evaluation, and it applies unchanged here.
+
+Universes are the unit because they are what the caller supplied and what every
+returned metric is reported within. They are not equal units of work — one
+spanning the catalogue takes longer than a narrow one — so the estimate is
+coarser than a genome count, which is the price of counting the work the caller
+asked for rather than the genome pairs it happened to require.
+
 ## Package 0.4.0
 
 Released 2026-08-21. A minor version because four arguments moved between
