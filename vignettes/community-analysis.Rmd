@@ -142,9 +142,21 @@ traits <- community_traits(
 metrics <- traits$metrics
 ```
 
-Every universe is read over every GIFT, every genome and every pair of genomes,
-so a community of thousands of genomes is summarised in minutes rather than
-instantly. At an interactive console that walk reports itself too, in reference
+One universe is named here to keep the output of this tutorial short. Omit
+`universes` and the community is read within the full default set instead — the
+whole catalogue, each type, each mode, each resource strategy, and the bounded
+biomass-essential anabolic set that `community_coverage` is reported for.
+
+Every universe is read over every GIFT, every genome and every pair of genomes.
+The per-GIFT and per-genome part is cheap: four hundred genomes within all
+fourteen universes is thirteen thousand rows and a few seconds. The pair part is
+quadratic — four hundred genomes are eighty-seven thousand pairs and two
+thousand are two million — so it is the one thing a large community may not want
+everywhere. `pairwise = FALSE` drops `repertoire_overlap` and leaves every other
+metric untouched, and the GIFTs behind each overlap are recorded only when asked
+for with `pair_trace = TRUE`, being one row per pair per shared GIFT.
+
+At an interactive console a multi-universe walk reports itself too, in reference
 universes summarised out of universes to summarise. A universe is not a fixed
 quantity of work — one spanning the whole catalogue takes longer than a narrow
 one — so the estimate is coarser than the genome count of the evaluation. As

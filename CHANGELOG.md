@@ -13,6 +13,87 @@ versioned with the package.
 
 ---
 
+## Package 0.5.0
+
+Released 2026-08-22. A minor version because one default changed: the per-pair
+trace is no longer carried unless it is asked for. Every metric is the number it
+always was, the default reference universes are the same fourteen, and the only
+code that has to change is code that read `$trace` for a genome pair.
+
+### 2026-08-22T14:40Z — Reading a community stops being quadratic in wall time and memory
+
+**The problem.** `community_traits()` on 418 genomes ran for tens of minutes and
+held gigabytes, while the evaluation that produced those genomes took under
+three. Nothing about the arithmetic was expensive. Two things were:
+
+- every pair of genomes was intersected and given its own one-row tibble, and
+  the pair count is quadratic — 418 genomes are 87,153 pairs, 2,000 are two
+  million — so a run spent its time in `tibble()` calls, roughly 0.65 ms each,
+  once per pair per universe;
+- the per-pair trace carried one row per pair per shared GIFT, which is tens of
+  millions of rows and gigabytes at a few hundred genomes.
+
+**Change.** `repertoire_overlap` is computed for every pair at once. One
+cross-product of the call matrix holds every shared count there is, the union
+sizes follow from the row sums, and one tibble carries all the pairs of a
+universe. The values, their numerators and denominators, their order and the
+withholding of an undefined overlap between two empty repertoires are all
+exactly what the per-pair loop produced; a test now checks the two against each
+other over a community large enough for them to disagree.
+
+`community_traits()` gains `pair_trace`, defaulting to `FALSE`. The pair trace
+is the only part of the output that is quadratic in rows rather than in
+arithmetic, and the overlap values it justifies are unchanged without it. Asked
+for, it is built per GIFT rather than per pair — every pair sharing a GIFT is
+every pair of its providers — so it arrives grouped by GIFT: the same evidence
+in a different order. The community, GIFT and genome traces are recorded as they
+always were.
+
+`community_traits()` also gains `pairwise`, defaulting to `TRUE`. The pair
+metric is the one quantity that is quadratic in the community; everything
+reported per GIFT and per genome is not. Separating them is what lets a large
+community keep the full set of reference universes: 418 genomes within all
+fourteen is 12,999 non-pair rows and 1,174,481 pair rows, and 2,000 genomes is
+57,295 against 27 million. `pairwise = FALSE` drops the second number and
+touches nothing else. Asking for `pair_trace = TRUE` alongside it is refused
+rather than ignored.
+
+**The default set of universes is unchanged.** Reading a community within the
+catalogue-wide universe alone was considered and rejected: it is 94% metabolic,
+so every richness and overlap taken over it is a metabolic quantity wearing a
+general name, and `community_coverage` — defined only for a bounded universe —
+would have disappeared from the default output entirely. What made the fourteen
+expensive was the pair metric, and `pairwise` addresses that directly.
+
+**Measured**, on synthetic communities over the default universes:
+
+| genomes | reading | time | metric rows | held |
+|--------:|---------|-----:|------------:|-----:|
+| 418 | catalogue-wide universe alone | 1.1 s | 88,291 | 15 MB |
+| 418 | default, all fourteen | 13.7 s | 1,184,011 | 102 MB |
+| 418 | default, `pairwise = FALSE` | 12.0 s | 12,999 | 6 MB |
+| 1,000 | default, all fourteen | 34.5 s | 6,758,648 | 567 MB |
+| 2,000 | default, all fourteen | 88.5 s | 27,003,904 | 2,251 MB |
+| 2,000 | default, `pairwise = FALSE` | 53.9 s | 57,295 | 25 MB |
+
+`pairwise = FALSE` is what the memory column is for; it is not yet much of a
+time saving at two thousand genomes, because with the pairs gone the remaining
+54 s is the per-GIFT and per-genome loops, which still build one tibble per row
+-- 84,000 of them across fourteen universes. Those were left alone here: they
+are linear in the community and were nowhere near the cost the pairs were.
+
+The per-pair loop this replaces took 192 s over a *single* universe at 418
+genomes — 185 s building rows and 7 s combining them — which is roughly three
+quarters of an hour for the fourteen-universe default. The synthetic communities
+share less between genomes than real ones do, so the trace figures are
+conservative.
+
+**No metric change.** Every value, numerator, denominator, derivation method and
+reference universe is what it was. What changed is whether the pair trace is
+carried.
+
+---
+
 ## Package 0.4.1
 
 Released 2026-08-22. A patch version because nothing about the traits changed:

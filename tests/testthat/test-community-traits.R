@@ -181,6 +181,121 @@ test_that("repertoire overlap is a Jaccard index within the universe", {
   expect_true(all(overlaps$metric_id == "repertoire_overlap"))
 })
 
+test_that("every pair is answered at once, and answered as the loop did", {
+  # The pairwise walk is quadratic in the community, so the overlaps are
+  # computed from one cross-product rather than one intersect() per pair. That
+  # is an implementation of the same definition, checked here against the
+  # definition itself over a community large enough for the two to disagree.
+  set.seed(4)
+  genomes <- paste0("g", seq_len(24))
+  gifts <- utils::head(sort(arabinoxylan_universe()$gift_id), 30L)
+  supports <- matrix(
+    stats::runif(length(gifts) * length(genomes)) < 0.3,
+    nrow = length(gifts), dimnames = list(gifts, genomes)
+  )
+  # Two genomes holding nothing: their overlap is undefined, not zero.
+  supports[, "g7"] <- FALSE
+  supports[, "g8"] <- FALSE
+
+  expected <- do.call(rbind, lapply(
+    utils::combn(genomes, 2L, simplify = FALSE),
+    function(pair) {
+      left <- gifts[supports[, pair[[1L]]]]
+      right <- gifts[supports[, pair[[2L]]]]
+      union_size <- length(union(left, right))
+      if (union_size == 0L) return(NULL)
+      data.frame(
+        target_id = paste(pair, collapse = " | "),
+        value = length(intersect(left, right)) / union_size,
+        stringsAsFactors = FALSE
+      )
+    }
+  ))
+
+  community <- arabinoxylan_community()
+  community$genome_id <- genomes
+  community$gift_id <- gifts
+  community$matrix <- supports
+  traits <- community_traits(
+    community, universes = list(arabinoxylan_universe())
+  )
+  overlaps <- community_metric(traits, "repertoire_overlap")
+  expect_identical(overlaps$target_id, expected$target_id)
+  expect_equal(overlaps$value, expected$value)
+  # A named value column would travel through every downstream summary.
+  expect_null(names(overlaps$value))
+})
+
+test_that("the pair trace is recorded only when it is asked for", {
+  # One row per pair per shared GIFT is quadratic in the community and reaches
+  # gigabytes at a few hundred genomes, while the overlaps it justifies are the
+  # same either way. So it is off unless the caller wants it.
+  community <- arabinoxylan_community()
+  quiet <- community_traits(community, universes = list(arabinoxylan_universe()))
+  traced <- community_traits(
+    community, universes = list(arabinoxylan_universe()), pair_trace = TRUE
+  )
+  expect_equal(sum(quiet$trace$target_type == "genome_pair"), 0L)
+  expect_equal(quiet$metrics, traced$metrics)
+
+  pairs <- traced$trace[traced$trace$target_type == "genome_pair", , drop = FALSE]
+  expect_true(all(pairs$metric_id == "repertoire_overlap"))
+  # C and D are duplicates, so their shared GIFTs are exactly C's repertoire.
+  shared <- pairs$gift_id[pairs$target_id == "C | D"]
+  expect_setequal(
+    shared, c("xylose_uptake_abc", "xylose_degradation_isomerase")
+  )
+  # A and B share nothing, so there is nothing to trace for them.
+  expect_false("A | B" %in% pairs$target_id)
+  expect_error(
+    community_traits(community, pair_trace = "yes"), "TRUE or FALSE"
+  )
+})
+
+test_that("a community is read within the full default set of universes", {
+  # A catalogue that is 94% metabolic makes an unstratified reading a metabolic
+  # reading wearing a general name, and the bounded anabolic universe is the
+  # only one community_coverage is defined for. Everything except the pair
+  # metric is cheap enough to report in all of them.
+  traits <- community_traits(arabinoxylan_community(), progress = FALSE)
+  expect_gt(length(traits$universes), 1L)
+  labels <- vapply(traits$universes, function(u) u$label, character(1))
+  expect_true("all curated GIFTs" %in% labels)
+  expect_true("biomass-essential anabolic GIFTs" %in% labels)
+  expect_true("community_coverage" %in% traits$metrics$metric_id)
+})
+
+test_that("the pair metric can be dropped without touching the others", {
+  # repertoire_overlap is the one quantity that is quadratic in the community.
+  # A community of thousands of genomes can afford every other metric within
+  # every universe, and this is how it asks for them.
+  community <- arabinoxylan_community()
+  full <- community_traits(
+    community, universes = list(arabinoxylan_universe())
+  )
+  without <- community_traits(
+    community, universes = list(arabinoxylan_universe()), pairwise = FALSE
+  )
+  expect_gt(sum(full$metrics$metric_id == "repertoire_overlap"), 0L)
+  expect_equal(sum(without$metrics$metric_id == "repertoire_overlap"), 0L)
+  # Every other row is the row it was.
+  expect_equal(
+    full$metrics[full$metrics$metric_id != "repertoire_overlap", ],
+    without$metrics
+  )
+  expect_equal(full$trace, without$trace)
+
+  expect_error(
+    community_traits(community, pairwise = "yes"), "TRUE or FALSE"
+  )
+  # Asking to trace an overlap that is not computed is a contradiction, not a
+  # request to be quietly ignored.
+  expect_error(
+    community_traits(community, pairwise = FALSE, pair_trace = TRUE),
+    "does not compute"
+  )
+})
+
 test_that("overlap is reported within a universe, not only across the catalogue", {
   transport <- gift_universe(mode = "transport", label = "transport GIFTs")
   catabolic <- gift_universe(mode = "catabolic", label = "catabolic GIFTs")

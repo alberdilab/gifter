@@ -12,6 +12,8 @@ community_traits(
   policy = "none",
   threshold = NULL,
   min_confidence = NULL,
+  pairwise = TRUE,
+  pair_trace = FALSE,
   db = NULL,
   progress = NULL
 )
@@ -20,7 +22,9 @@ community_traits(
 \item{community}{A community from [gifter_community()].}
 
 \item{universes}{Optional list of [gift_universe()] objects. The default set
-is used if omitted.}
+is used if omitted: the whole catalogue, each `gift_type`, each `mode`,
+each resource strategy, and the bounded biomass-essential anabolic set
+that `community_coverage` is reported for.}
 
 \item{abundance}{Optional named numeric vector of relative abundances over
 the community's genomes, named with their identifiers. Must be
@@ -41,6 +45,17 @@ indeterminate, on the same scale as `quality`. Required by the
 rest on and still count, as in [genome_traits()]. Applied per genome, so a
 capability stays in the community count while any one genome evidences it
 above the floor. `NULL`, the default, counts every positive call.}
+
+\item{pairwise}{Whether to report `repertoire_overlap`. `TRUE`, the default.
+It is the one metric that is quadratic in the community, and the only one
+a community of thousands of genomes cannot afford in every universe:
+`FALSE` drops it and leaves every other metric untouched.}
+
+\item{pair_trace}{Whether to record, for every genome pair, the GIFTs behind
+its `repertoire_overlap`. `FALSE`, the default: the trace carries one row
+per pair per shared GIFT, which is quadratic in the community and reaches
+gigabytes at a few hundred genomes, and the overlap values are unchanged
+either way. The community, GIFT and genome traces are always recorded.}
 
 \item{db}{Optional open gifter database connection.}
 
@@ -115,18 +130,38 @@ fragmented member's silence is withheld from a provider count while a
 complete member's is not. No policy can make an unsupported GIFT supported.
 }
 
+\section{Cost}{
+
+
+Everything reported per GIFT and per genome is cheap: reading four hundred
+genomes within all fourteen default universes is thirteen thousand rows and
+a few seconds. The pair metric is the expensive one, because the pair count
+is quadratic in the community -- four hundred genomes are eighty-seven
+thousand pairs, two thousand are two million -- and every universe pays it
+again. Measured on four hundred and eighteen genomes over the default
+universes: 13 s and 100 MB, of which 99% of the rows are pairs. At two
+thousand genomes the same reading is 93 s and 2.2 GB.
+
+The two are separate arguments because they are separate costs.
+`pairwise = FALSE` drops `repertoire_overlap` and keeps every richness,
+provider and unique-contribution row, which is what makes a community of
+thousands of genomes readable within every universe. `pair_trace = TRUE`
+adds the GIFTs behind each overlap, one row per pair per shared GIFT: tens
+of millions of rows and gigabytes at a few hundred genomes, which is why it
+is off unless it is asked for. The overlap values themselves are the same
+with it or without it.
+}
+
 \section{Progress}{
 
 
-Every universe is read over every GIFT, every genome and every pair of
-genomes, so a community of thousands of genomes is summarised in minutes
-rather than instantly. A run of that length reports itself at an interactive
-console, in reference universes summarised out of universes to summarise,
-with an estimate of the time remaining. A universe is not a fixed quantity
-of work -- one spanning the whole catalogue takes longer than a narrow one
--- so the estimate is coarser than the genome count of
-[evaluate_gifts_community()]. Nothing is reported when there is nobody
-watching, which is why a script, a knitted document and a package check stay
-silent unless they ask for the display with `progress = TRUE`.
+A run over several universes reports itself at an interactive console, in
+reference universes summarised out of universes to summarise, with an
+estimate of the time remaining. A universe is not a fixed quantity of work
+-- one spanning the whole catalogue takes longer than a narrow one -- so the
+estimate is coarser than the genome count of [evaluate_gifts_community()].
+Nothing is reported when there is nobody watching, which is why a script, a
+knitted document and a package check stay silent unless they ask for the
+display with `progress = TRUE`.
 }
 
