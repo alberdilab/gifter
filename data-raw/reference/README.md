@@ -67,6 +67,44 @@ evidence for the assignment — it is quantified evidence against it, which is a
 different thing from a polyspecific family that genuinely carries the activity
 among others.
 
+## ko-reaction-specificity.tsv and the three screen outputs
+
+`marker_specificity_screen.R` in the parent directory regenerates all four. They
+answer, for the KO namespace, the question invariant 16 asks: how many distinct
+reactions can this marker license?
+
+| File | Content |
+|---|---|
+| `ko-reaction-specificity.tsv` | Every KO carrying an EC, with its ECs, the Rhea masters those ECs reach, a verdict, and how many reviewed UniProt proteins support them |
+| `curated-marker-audit.tsv` | Every curated KO marker row, joined to the reaction it is evidence for, with its fan-out, what varies between its reactions, and whether it is the sole marker of its component |
+| `route-specificity.tsv` | Every curated route and how many of its required reactions are evidenced by a marker that states one reaction |
+| `discovery-candidates.tsv` | Single-reaction KOs that are not curated and whose reaction touches a declared anchor, ranked by how specific that anchor is |
+
+**Read the verdict, not the count.** A marker reaching several reactions is
+broad in two different ways and the mapping cannot tell them apart: an ortholog
+that groups genes of different activities cannot support a substrate-specific
+claim, while a genuinely promiscuous enzyme supports every reaction it performs
+including the curated one. The screen finds the rows that need a curator; it
+does not decide them. `varying_participants` is the column that usually settles
+it — masters differing only in `a quinone` versus `a menaquinone` are one
+activity, masters differing in the sugar are not.
+
+**Scope.** KO only. CAZy specificity is measured separately by `ec_fraction`
+above; Pfam and TIGRFAM markers are not screened at all, and a reaction
+evidenced by them is reported as `not_screened` rather than as unsupported.
+1,435 KOs carry a complete EC that Rhea does not cover and 2,017 carry only
+partial ECs; those are invisible to the screen, which is not evidence either
+way.
+
+The assessment that produced these tables, including the individual reading of
+every flagged route, is `inst/doc/proposal-marker-specificity-screen.md`.
+
+Downloaded inputs are cached in `.cache/` and are not committed. Reproduce with:
+
+```sh
+Rscript data-raw/marker_specificity_screen.R
+```
+
 ## eCAMI cluster identifiers are release-scoped
 
 **A `GH5_e12` from one dbCAN release is not the `GH5_e12` of another.** The

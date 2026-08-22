@@ -13,6 +13,78 @@ versioned with the package.
 
 ---
 
+## Unreleased
+
+### 2026-08-22T17:25Z — A computable specificity screen for the KO marker layer
+
+**The problem.** Invariant 16 — that a claim's specificity may not exceed its
+evidence's — was enforced entirely by hand, one accession at a time, across
+eight curation proposals. Nothing re-checked a marker admitted in an earlier
+release, and nothing could answer "which curated route rests on evidence too
+broad to name its substrate" without a curator reading every route.
+
+**What changed.** `data-raw/marker_specificity_screen.R` computes the
+measurement behind the invariant for the KO namespace, by composing KEGG's
+KO-to-EC assignment with Rhea's EC-to-reaction mapping and reaction
+participants. It emits four reference tables into `data-raw/reference/`: the
+reaction fan-out of every EC-bearing KO, an audit of every curated KO marker
+row, a route-level reading of the same evidence, and a ranked list of
+uncurated single-reaction KOs whose reaction touches a declared anchor.
+
+**Effect.** No package code, database content or runtime behaviour changed.
+The audit of the current database closes with no change: of 204 curated routes,
+23 have no required reaction evidenced by a single-reaction KO, and all 23 were
+read individually and found to rest on genuine enzyme promiscuity, cofactor
+variation, a Rhea master recorded at two granularities, or a deliberately broad
+claim already argued in an earlier proposal. The reasoning, the limits of what
+the screen can establish, and the discovery queue are recorded in
+`inst/doc/proposal-marker-specificity-screen.md`.
+
+### 2026-08-22T17:25Z — A computable specificity screen for the KO marker layer
+
+**The problem.** Invariant 16 — that a claim's specificity may not exceed its
+evidence's — was enforced entirely by hand, one accession at a time, across
+eight curation proposals. Nothing re-checked a marker admitted in an earlier
+release, and nothing could answer "which curated route rests on evidence too
+broad to name its substrate" without a curator reading every route.
+
+**What changed.** `data-raw/marker_specificity_screen.R` computes the
+measurement behind the invariant for the KO namespace, by composing KEGG's
+KO-to-EC assignment with Rhea's EC-to-reaction mapping and reaction
+participants. It emits four reference tables into `data-raw/reference/`: the
+reaction fan-out of every EC-bearing KO, an audit of every curated KO marker
+row, a route-level reading of the same evidence, and a ranked list of
+uncurated single-reaction KOs whose reaction touches a declared anchor.
+
+**Effect.** No package code, database content or runtime behaviour changed.
+The audit of the current database closes with no change: of 204 curated routes,
+23 have no required reaction evidenced by a single-reaction KO, and all 23 were
+read individually and found to rest on genuine enzyme promiscuity, cofactor
+variation, a Rhea master recorded at two granularities, or a deliberately broad
+claim already argued in an earlier proposal. The reasoning, the limits of what
+the screen can establish, and the discovery queue are recorded in
+`inst/doc/proposal-marker-specificity-screen.md`.
+
+### 2026-08-22T18:05Z — Two curation assessments, and a refusal that held
+
+**What changed.** Documentation only. `inst/doc/proposal-ncbifam-namespace.md`
+assesses NCBIfam as a marker namespace and recommends it, unimplemented;
+`inst/doc/deferral-register.md` indexes every standing refusal with what would
+unblock it; `inst/doc/proposal-respiration-electron-acceptors.md` reopens the
+electron-acceptor boundary and recommends a design. `AGENTS.md` now requires a
+register row from any proposal that defers or refuses a candidate.
+
+**Effect.** No package code, database content or runtime behaviour changed. A
+respiration layer was curated during the assessment and reverted: the four
+GIFTs validated and compiled, and `test-nitrogen.R` rejected them, which is what
+that test is for. The refusal in the nitrogen proposal said reversing it needs
+its own proposal and probably its own `gift_type`; the assessment agrees, and
+the proposal is the deliverable rather than the content.
+
+---
+
+---
+
 ## Package 0.7.0
 
 Released 2026-08-22. A minor version: one new export, one new metric family and

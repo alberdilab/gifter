@@ -1,0 +1,786 @@
+system_id	component_id	accession	confidence	reaction_id	gifts	markers_on_component	sole_marker	n_rhea_master	verdict	rhea_masters	mapping_corroborates	varying_participants	flag_sole_and_broad
+SYS_42640_MENG	COMP_42640_CATALYTIC	K03183	curated	RHEA:42640	menaquinone_biosynthesis	1	1	17	multi_reaction_multi_ec	RHEA:26462;RHEA:26466;RHEA:27774;RHEA:28286;RHEA:30063;RHEA:33255;RHEA:42640;RHEA:44752;RHEA:44756;RHEA:44760;RHEA:44764;RHEA:44776;RHEA:44780;RHEA:44784;RHEA:44788;RHEA:44792;RHEA:44796	1	2-demethylmenaquinol-10; 2-demethylmenaquinol-11; 2-demethylmenaquinol-12; 2-demethylmenaquinol-13; 2-demethylmenaquinol-6; 2-demethylmenaquinol-7; 2-demethylmenaquinol-8; 2-demethylmenaquinol-9; 2-methoxy-5-methyl-6-all-trans-octaprenyl-1,4-benzoquinone; 2-methoxy-6-(all-trans-decaprenyl)benzene-1,4-diol; 2-methoxy-6-(all-trans-heptaprenyl)benzene-1,4-diol; 2-methoxy-6-(all-trans-hexaprenyl)benzene-1,4-diol; 2-methoxy-6-(all-trans-nonaprenyl)benzene-1,4-diol; 2-methoxy-6-(all-trans-octaprenyl)benzene-1,4-diol; 5-methoxy-2-methyl-3-(all-trans-decaprenyl)benzene-1,4-diol; 5-methoxy-2-methyl-3-(all-trans-heptaprenyl)benzene-1,4-diol; 5-methoxy-2-methyl-3-(all-trans-hexaprenyl)benzene-1,4-diol; 5-methoxy-2-methyl-3-(all-trans-nonaprenyl)benzene-1,4-diol; 5-methoxy-2-methyl-3-(all-trans-octaprenyl)benzene-1,4-diol; 6-methoxy-2-all-trans-octaprenyl-1,4-benzoquinone; CHEBI:16374; CHEBI:18151; CHEBI:28192; CHEBI:55437; CHEBI:84166; CHEBI:84167; menaquinol-10; menaquinol-11; menaquinol-12; menaquinol-13; menaquinol-6; menaquinol-7; menaquinol-8; menaquinol-9	1
+SYS_26478_MENA	COMP_26478_CATALYTIC	K02548	curated	RHEA:26478	menaquinone_biosynthesis	1	1	9	multi_reaction_one_ec	RHEA:26478;RHEA:30099;RHEA:33211;RHEA:44800;RHEA:44804;RHEA:44808;RHEA:44812;RHEA:44816;RHEA:44820	1	2-demethylmenaquinol-10; 2-demethylmenaquinol-11; 2-demethylmenaquinol-12; 2-demethylmenaquinol-13; 2-demethylmenaquinol-6; 2-demethylmenaquinol-7; 2-demethylmenaquinol-8; 2-demethylmenaquinol-9; CHEBI:55437; CHEBI:58914; all-trans-decaprenyl diphosphate; all-trans-dodecaprenyl diphosphate; all-trans-heptaprenyl diphosphate; all-trans-hexaprenyl diphosphate; all-trans-nonaprenyl diphosphate; all-trans-octaprenyl diphosphate; all-trans-tridecaprenyl diphosphate; all-trans-undecaprenyl diphosphate	1
+SYS_28675_GALM	COMP_28675_CATALYTIC	K01785	curated	RHEA:28675	galactose_degradation_leloir	1	1	5	multi_reaction_one_ec	RHEA:10264;RHEA:21228;RHEA:28675;RHEA:63332;RHEA:63336	1	alpha-D-galactose; alpha-D-glucose; alpha-D-xylose; alpha-L-arabinopyanose; alpha-maltose; beta-D-galactose; beta-D-glucose; beta-D-xylose; beta-L-arabinopyranose; beta-maltose	1
+SYS_40523_SDH_MITOCHONDRIAL	COMP_40523_SDHA	K00234	curated	RHEA:40523	succinate_fumarate_interconversion	1	1	4	multi_reaction_one_ec	RHEA:13713;RHEA:27834;RHEA:40523;RHEA:75711	1	CHEBI:16374; CHEBI:16389; CHEBI:17976; CHEBI:18151; CHEBI:194432; CHEBI:194433; a quinol; a quinone	1
+SYS_40523_SDH_MITOCHONDRIAL	COMP_40523_SDHB	K00235	curated	RHEA:40523	succinate_fumarate_interconversion	1	1	4	multi_reaction_one_ec	RHEA:13713;RHEA:27834;RHEA:40523;RHEA:75711	1	CHEBI:16374; CHEBI:16389; CHEBI:17976; CHEBI:18151; CHEBI:194432; CHEBI:194433; a quinol; a quinone	1
+SYS_40523_SDH_FRD_SHARED	COMP_40523_FLAVOPROTEIN	K00239	curated	RHEA:40523	succinate_fumarate_interconversion	1	1	4	multi_reaction_one_ec	RHEA:13713;RHEA:27834;RHEA:40523;RHEA:75711	1	CHEBI:16374; CHEBI:16389; CHEBI:17976; CHEBI:18151; CHEBI:194432; CHEBI:194433; a quinol; a quinone	1
+SYS_40523_SDH_FRD_SHARED	COMP_40523_IRON_SULFUR	K00240	curated	RHEA:40523	succinate_fumarate_interconversion	1	1	4	multi_reaction_one_ec	RHEA:13713;RHEA:27834;RHEA:40523;RHEA:75711	1	CHEBI:16374; CHEBI:16389; CHEBI:17976; CHEBI:18151; CHEBI:194432; CHEBI:194433; a quinol; a quinone	1
+SYS_40523_FRD_DEDICATED	COMP_40523_FRDA	K00244	curated	RHEA:40523	succinate_fumarate_interconversion	1	1	4	multi_reaction_one_ec	RHEA:13713;RHEA:27834;RHEA:40523;RHEA:75711	1	CHEBI:16374; CHEBI:16389; CHEBI:17976; CHEBI:18151; CHEBI:194432; CHEBI:194433; a quinol; a quinone	1
+SYS_40523_FRD_DEDICATED	COMP_40523_FRDB	K00245	curated	RHEA:40523	succinate_fumarate_interconversion	1	1	4	multi_reaction_one_ec	RHEA:13713;RHEA:27834;RHEA:40523;RHEA:75711	1	CHEBI:16374; CHEBI:16389; CHEBI:17976; CHEBI:18151; CHEBI:194432; CHEBI:194433; a quinol; a quinone	1
+SYS_10524_KGD	COMP_10524_CATALYTIC	K01616	curated	RHEA:10524	oxoglutarate_to_succinate	1	1	4	multi_reaction_multi_ec	RHEA:10524;RHEA:12188;RHEA:14341;RHEA:15213	1	2-hydroxy-3-oxoadipate; 2-oxoglutarate; CHEBI:83099; CHEBI:83100; CHEBI:83120; CO2; CoA; H(+); glyoxylate; succinate semialdehyde; succinyl-CoA	1
+SYS_33343_THIO	COMP_33343_CATALYTIC	K03153	curated	RHEA:33343	thiazole_phosphate_biosynthesis	1	1	4	multi_reaction_one_ec	RHEA:11532;RHEA:12472;RHEA:15165;RHEA:22688	0	D-alanine; N-ethylglycine; NH4(+); ethylamine; glycine; glyoxylate; methylamine; pyruvate; sarcosine	1
+SYS_23288_ADHE	COMP_23288_CATALYTIC	K04072	curated	RHEA:23288	ethanol_formation;oxopentenoate_degradation	1	1	4	multi_reaction_multi_ec	RHEA:10736;RHEA:10740;RHEA:23288;RHEA:25290	1	CoA; a ketone; a primary alcohol; a secondary alcohol; acetaldehyde; acetyl-CoA; an aldehyde; ethanol	1
+SYS_25290_ADHE	COMP_25290_CATALYTIC	K04072	curated	RHEA:25290	ethanol_formation	1	1	4	multi_reaction_multi_ec	RHEA:10736;RHEA:10740;RHEA:23288;RHEA:25290	1	CoA; a ketone; a primary alcohol; a secondary alcohol; acetaldehyde; acetyl-CoA; an aldehyde; ethanol	1
+SYS_17737_YDIB	COMP_17737_YDIB	K05887	ambiguous	RHEA:17737	chorismate_biosynthesis	1	1	4	multi_reaction_one_ec	RHEA:17737;RHEA:17741;RHEA:18425;RHEA:22364	1	3-dehydroquinate; 3-dehydroshikimate; L-quinate; NAD(+); NADH; NADP(+); NADPH; shikimate	1
+SYS_27409_HEMG	COMP_27409_HEMG	K00230	curated	RHEA:27409	heme_b_biosynthesis	1	1	3	multi_reaction_one_ec	RHEA:27409;RHEA:63936;RHEA:65032	1	CHEBI:16374; CHEBI:16389; CHEBI:17976; CHEBI:18151; a quinol; a quinone	1
+SYS_30187_QUINONE	COMP_30187_CATALYTIC	K00254	curated	RHEA:30187	pyrimidine_core_biosynthesis	1	1	3	multi_reaction_one_ec	RHEA:28687;RHEA:28691;RHEA:30187	1	CHEBI:16389; CHEBI:17976; a quinol; a quinone; ubiquinol-8; ubiquinone-8	1
+SYS_17477_COBL	COMP_17477_CATALYTIC	K00595	curated	RHEA:17477	corrin_ring_biosynthesis	1	1	3	multi_reaction_multi_ec	RHEA:17477;RHEA:34591;RHEA:36067	1	CO2; Co-precorrin-6B; Co-precorrin-7; Co-precorrin-8X; H(+); precorrin-6B; precorrin-8X	1
+SYS_15481_SHMT	COMP_15481_CATALYTIC	K00600	curated	RHEA:15481	glycine_biosynthesis	1	1	3	multi_reaction_one_ec	RHEA:15481;RHEA:19625;RHEA:79695	1	(3S)-3-hydroxy-N(6),N(6),N(6)-trimethyl-L-lysine; (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate; (6S)-5,6,7,8-tetrahydrofolate; 4-(trimethylamino)butanal; H2O; L-serine; L-threonine; acetaldehyde	1
+SYS_18321_ILVE	COMP_18321_CATALYTIC	K00826	curated	RHEA:18321	leucine_biosynthesis	1	1	3	multi_reaction_one_ec	RHEA:18321;RHEA:24801;RHEA:24813	1	(S)-3-methyl-2-oxopentanoate; 3-methyl-2-oxobutanoate; 4-methyl-2-oxopentanoate; L-isoleucine; L-leucine; L-valine	1
+SYS_24801_ILVE	COMP_24801_CATALYTIC	K00826	curated	RHEA:24801	isoleucine_biosynthesis	1	1	3	multi_reaction_one_ec	RHEA:18321;RHEA:24801;RHEA:24813	1	(S)-3-methyl-2-oxopentanoate; 3-methyl-2-oxobutanoate; 4-methyl-2-oxopentanoate; L-isoleucine; L-leucine; L-valine	1
+SYS_24813_ILVE	COMP_24813_CATALYTIC	K00826	curated	RHEA:24813	valine_biosynthesis	1	1	3	multi_reaction_one_ec	RHEA:18321;RHEA:24801;RHEA:24813	1	(S)-3-methyl-2-oxopentanoate; 3-methyl-2-oxobutanoate; 4-methyl-2-oxopentanoate; L-isoleucine; L-leucine; L-valine	1
+SYS_34371_AMIDASE	COMP_34371_AMIDASE	K01426	ambiguous	RHEA:34371	indole_3_acetate_biosynthesis	1	1	3	multi_reaction_one_ec	RHEA:12020;RHEA:34371;RHEA:45048	1	(indol-3-yl)acetate; a monocarboxylate; a monocarboxylic acid amide; acetamide; acetate; indole-3-acetamide	1
+SYS_76647_PAAF	COMP_76647_CATALYTIC	K01692	curated	RHEA:76647	phenylacetate_degradation	1	1	3	multi_reaction_one_ec	RHEA:16105;RHEA:20724;RHEA:76647	1	(3S)-3-hydroxyadipyl-CoA; (E)-2,3-didehydroadipoyl-CoA; a (2E)-enoyl-CoA; a (3E)-enoyl-CoA; a (3S)-3-hydroxyacyl-CoA; a 4-saturated-(3S)-3-hydroxyacyl-CoA	1
+SYS_10676_LEUCD	COMP_10676_LEUCD_LARGE	K01703	curated	RHEA:10676	leucine_biosynthesis	1	1	3	multi_reaction_multi_ec	RHEA:22332;RHEA:32287;RHEA:42424	0	(2R,3S)-3-isopropylmalate; (2R,3S)-3-methylmalate; (2S)-2-isopropylmalate; (3R)-citramalate; 2-methylmaleate; H2O	1
+SYS_16293_LEUCD	COMP_16293_LEUCD_LARGE	K01703	curated	RHEA:16293	leucine_biosynthesis	1	1	3	multi_reaction_multi_ec	RHEA:22332;RHEA:32287;RHEA:42424	0	(2R,3S)-3-isopropylmalate; (2R,3S)-3-methylmalate; (2S)-2-isopropylmalate; (3R)-citramalate; 2-methylmaleate; H2O	1
+SYS_22332_LEUCD	COMP_22332_LARGE	K01703	curated	RHEA:22332	oxobutanoate_biosynthesis_citramalate	1	1	3	multi_reaction_multi_ec	RHEA:22332;RHEA:32287;RHEA:42424	1	(2R,3S)-3-isopropylmalate; (2R,3S)-3-methylmalate; (2S)-2-isopropylmalate; (3R)-citramalate; 2-methylmaleate; H2O	1
+SYS_42424_LEUCD	COMP_42424_LARGE	K01703	curated	RHEA:42424	oxobutanoate_biosynthesis_citramalate	1	1	3	multi_reaction_multi_ec	RHEA:22332;RHEA:32287;RHEA:42424	1	(2R,3S)-3-isopropylmalate; (2R,3S)-3-methylmalate; (2S)-2-isopropylmalate; (3R)-citramalate; 2-methylmaleate; H2O	1
+SYS_10676_LEUCD	COMP_10676_LEUCD_SMALL	K01704	curated	RHEA:10676	leucine_biosynthesis	1	1	3	multi_reaction_multi_ec	RHEA:22332;RHEA:32287;RHEA:42424	0	(2R,3S)-3-isopropylmalate; (2R,3S)-3-methylmalate; (2S)-2-isopropylmalate; (3R)-citramalate; 2-methylmaleate; H2O	1
+SYS_16293_LEUCD	COMP_16293_LEUCD_SMALL	K01704	curated	RHEA:16293	leucine_biosynthesis	1	1	3	multi_reaction_multi_ec	RHEA:22332;RHEA:32287;RHEA:42424	0	(2R,3S)-3-isopropylmalate; (2R,3S)-3-methylmalate; (2S)-2-isopropylmalate; (3R)-citramalate; 2-methylmaleate; H2O	1
+SYS_22332_LEUCD	COMP_22332_SMALL	K01704	curated	RHEA:22332	oxobutanoate_biosynthesis_citramalate	1	1	3	multi_reaction_multi_ec	RHEA:22332;RHEA:32287;RHEA:42424	1	(2R,3S)-3-isopropylmalate; (2R,3S)-3-methylmalate; (2S)-2-isopropylmalate; (3R)-citramalate; 2-methylmaleate; H2O	1
+SYS_42424_LEUCD	COMP_42424_SMALL	K01704	curated	RHEA:42424	oxobutanoate_biosynthesis_citramalate	1	1	3	multi_reaction_multi_ec	RHEA:22332;RHEA:32287;RHEA:42424	1	(2R,3S)-3-isopropylmalate; (2R,3S)-3-methylmalate; (2S)-2-isopropylmalate; (3R)-citramalate; 2-methylmaleate; H2O	1
+SYS_17661_LSC	COMP_17661_LSC_ALPHA	K01899	curated	RHEA:17661	oxoglutarate_to_succinate	1	1	3	multi_reaction_multi_ec	RHEA:17661;RHEA:22120;RHEA:86307	1	ADP; ATP; GDP; GTP; itaconate; itaconyl-CoA; succinate; succinyl-CoA	1
+SYS_17661_LSC	COMP_17661_LSC_BETA	K01900	curated	RHEA:17661	oxoglutarate_to_succinate	1	1	3	multi_reaction_multi_ec	RHEA:17661;RHEA:22120;RHEA:86307	1	ADP; ATP; GDP; GTP; itaconate; itaconyl-CoA; succinate; succinyl-CoA	1
+SYS_15613_CYSG2	COMP_15613_CYSG2	K02302	ambiguous	RHEA:15613	corrin_ring_biosynthesis;siroheme_biosynthesis	1	1	3	multi_reaction_multi_ec	RHEA:15613;RHEA:24360;RHEA:32459	1	Fe(2+); NAD(+); NADH; S-adenosyl-L-homocysteine; S-adenosyl-L-methionine; precorrin-2; siroheme; sirohydrochlorin; uroporphyrinogen III	1
+SYS_24360_CYSG	COMP_24360_CYSG	K02302	curated	RHEA:24360	siroheme_biosynthesis	1	1	3	multi_reaction_multi_ec	RHEA:15613;RHEA:24360;RHEA:32459	1	Fe(2+); NAD(+); NADH; S-adenosyl-L-homocysteine; S-adenosyl-L-methionine; precorrin-2; siroheme; sirohydrochlorin; uroporphyrinogen III	1
+SYS_32459_CYSG	COMP_32459_CYSG	K02302	ambiguous	RHEA:32459	corrin_ring_biosynthesis;siroheme_biosynthesis	1	1	3	multi_reaction_multi_ec	RHEA:15613;RHEA:24360;RHEA:32459	1	Fe(2+); NAD(+); NADH; S-adenosyl-L-homocysteine; S-adenosyl-L-methionine; precorrin-2; siroheme; sirohydrochlorin; uroporphyrinogen III	1
+SYS_12765_NIFJ	COMP_12765_NIFJ_CATALYTIC	K03737	curated	RHEA:12765	pyruvate_to_acetyl_coa	1	1	3	multi_reaction_multi_ec	RHEA:12765;RHEA:32135;RHEA:44140	1	2-oxobutanoate; CHEBI:33737; CHEBI:33738; FMN; FMNH2; acetyl-CoA; propanoyl-CoA; pyruvate	1
+SYS_12232_GRD	COMP_12232_SELA	K10670	curated	RHEA:12232	glycine_reduction_stickland	1	1	3	multi_reaction_multi_ec	RHEA:11848;RHEA:12232;RHEA:12825	1	NH4(+); glycine; glycine betaine; methylamine; sarcosine; trimethylamine	1
+SYS_33051_GBSB	COMP_33051_GBSB	K11440	curated	RHEA:33051	choline_to_betaine	1	1	3	multi_reaction_one_ec	RHEA:10736;RHEA:10740;RHEA:25290	0	a ketone; a primary alcohol; a secondary alcohol; acetaldehyde; an aldehyde; ethanol	1
+SYS_57952_DMP	COMP_57952_P3	K16242	curated	RHEA:57952	phenol_hydroxylation	1	1	3	multi_reaction_multi_ec	RHEA:20349;RHEA:57948;RHEA:57952	1	2-hydroxytoluene; 3-methylcatechol; catechol; phenol; toluene	1
+SYS_57952_DMP	COMP_57952_P1	K16243	curated	RHEA:57952	phenol_hydroxylation	1	1	3	multi_reaction_multi_ec	RHEA:20349;RHEA:57948;RHEA:57952	1	2-hydroxytoluene; 3-methylcatechol; catechol; phenol; toluene	1
+SYS_57952_DMP	COMP_57952_P2	K16244	curated	RHEA:57952	phenol_hydroxylation	1	1	3	multi_reaction_multi_ec	RHEA:20349;RHEA:57948;RHEA:57952	1	2-hydroxytoluene; 3-methylcatechol; catechol; phenol; toluene	1
+SYS_57952_DMP	COMP_57952_P4	K16245	curated	RHEA:57952	phenol_hydroxylation	1	1	3	multi_reaction_multi_ec	RHEA:20349;RHEA:57948;RHEA:57952	1	2-hydroxytoluene; 3-methylcatechol; catechol; phenol; toluene	1
+SYS_57952_DMP	COMP_57952_P5	K16246	curated	RHEA:57952	phenol_hydroxylation	1	1	3	multi_reaction_multi_ec	RHEA:20349;RHEA:57948;RHEA:57952	1	2-hydroxytoluene; 3-methylcatechol; catechol; phenol; toluene	1
+SYS_12232_GRD	COMP_12232_C_ALPHA	K21576	curated	RHEA:12232	glycine_reduction_stickland	1	1	3	multi_reaction_multi_ec	RHEA:11848;RHEA:12232;RHEA:12825	1	NH4(+); glycine; glycine betaine; methylamine; sarcosine; trimethylamine	1
+SYS_12232_GRD	COMP_12232_C_BETA	K21577	curated	RHEA:12232	glycine_reduction_stickland	1	1	3	multi_reaction_multi_ec	RHEA:11848;RHEA:12232;RHEA:12825	1	NH4(+); glycine; glycine betaine; methylamine; sarcosine; trimethylamine	1
+SYS_21256_FUSION	COMP_21256_FUSION	K24018	curated	RHEA:21256	chorismate_biosynthesis	1	1	3	multi_reaction_multi_ec	RHEA:12256;RHEA:13869;RHEA:21256	1	3-(4-hydroxyphenyl)pyruvate; 3-phosphoshikimate; 5-O-(1-carboxyvinyl)-3-phosphoshikimate; CO2; L-arogenate; L-tyrosine; NAD(+); NADH; phosphate; phosphoenolpyruvate; prephenate	1
+SYS_15729_UXUB	COMP_15729_CATALYTIC	K00040	curated	RHEA:15729	glucuronate_degradation	1	1	2	multi_reaction_one_ec	RHEA:15729;RHEA:51652	1	keto-D-fructuronate; keto-D-tagaturonate	1
+SYS_15933_FUCO	COMP_15933_CATALYTIC	K00048	curated	RHEA:15933	propanediol_formation	1	1	2	multi_reaction_one_ec	RHEA:15933;RHEA:23872	1	(R)-lactaldehyde; (R)-propane-1,2-diol; (S)-lactaldehyde; (S)-propane-1,2-diol	1
+SYS_13493_ILVC	COMP_13493_CATALYTIC	K00053	curated	RHEA:13493	isoleucine_biosynthesis	1	1	2	multi_reaction_one_ec	RHEA:13493;RHEA:22068	1	(2R)-2,3-dihydroxy-3-methylbutanoate; (2R,3R)-2,3-dihydroxy-3-methylpentanoate; (2S)-2-acetolactate; (S)-2-ethyl-2-hydroxy-3-oxobutanoate	1
+SYS_16233_ILVC	COMP_16233_ILVC	K00053	high-confidence	RHEA:16233	pantothenate_biosynthesis	1	1	2	multi_reaction_one_ec	RHEA:13493;RHEA:22068	0	(2R)-2,3-dihydroxy-3-methylbutanoate; (2R,3R)-2,3-dihydroxy-3-methylpentanoate; (2S)-2-acetolactate; (S)-2-ethyl-2-hydroxy-3-oxobutanoate	1
+SYS_22068_ILVC	COMP_22068_CATALYTIC	K00053	curated	RHEA:22068	oxoisovalerate_biosynthesis	1	1	2	multi_reaction_one_ec	RHEA:13493;RHEA:22068	1	(2R)-2,3-dihydroxy-3-methylbutanoate; (2R,3R)-2,3-dihydroxy-3-methylpentanoate; (2S)-2-acetolactate; (S)-2-ethyl-2-hydroxy-3-oxobutanoate	1
+SYS_12641_SERA	COMP_12641_CATALYTIC	K00058	curated	RHEA:12641	serine_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:12641;RHEA:49612	1	(2R)-3-phosphoglycerate; (R)-2-hydroxyglutarate; 2-oxoglutarate; 3-phosphooxypyruvate	1
+SYS_46012_MQO	COMP_46012_CATALYTIC	K00116	curated	RHEA:46012	fumarate_oxaloacetate_interconversion	1	1	2	multi_reaction_one_ec	RHEA:30095;RHEA:46012	1	CHEBI:16374; CHEBI:18151; a quinol; a quinone	1
+SYS_12765_POR_FOUR_SUBUNIT	COMP_12765_POR_ALPHA	K00169	curated	RHEA:12765	pyruvate_to_acetyl_coa	1	1	2	multi_reaction_one_ec	RHEA:12765;RHEA:32135	1	2-oxobutanoate; acetyl-CoA; propanoyl-CoA; pyruvate	1
+SYS_12765_POR_FOUR_SUBUNIT	COMP_12765_POR_BETA	K00170	curated	RHEA:12765	pyruvate_to_acetyl_coa	1	1	2	multi_reaction_one_ec	RHEA:12765;RHEA:32135	1	2-oxobutanoate; acetyl-CoA; propanoyl-CoA; pyruvate	1
+SYS_12765_POR_FOUR_SUBUNIT	COMP_12765_POR_DELTA	K00171	curated	RHEA:12765	pyruvate_to_acetyl_coa	1	1	2	multi_reaction_one_ec	RHEA:12765;RHEA:32135	1	2-oxobutanoate; acetyl-CoA; propanoyl-CoA; pyruvate	1
+SYS_12765_POR_FOUR_SUBUNIT	COMP_12765_POR_GAMMA	K00172	curated	RHEA:12765	pyruvate_to_acetyl_coa	1	1	2	multi_reaction_one_ec	RHEA:12765;RHEA:32135	1	2-oxobutanoate; acetyl-CoA; propanoyl-CoA; pyruvate	1
+SYS_17297_KOR	COMP_17297_ALPHA	K00174	curated	RHEA:17297	oxoglutarate_to_succinate	1	1	2	multi_reaction_multi_ec	RHEA:17297;RHEA:42316	1	2-oxoglutarate; a 2-oxocarboxylate; an acyl-CoA; succinyl-CoA	1
+SYS_17297_KOR	COMP_17297_BETA	K00175	curated	RHEA:17297	oxoglutarate_to_succinate	1	1	2	multi_reaction_multi_ec	RHEA:17297;RHEA:42316	1	2-oxoglutarate; a 2-oxocarboxylate; an acyl-CoA; succinyl-CoA	1
+SYS_35331_DAPB	COMP_35331_CATALYTIC	K00215	curated	RHEA:35331	dap_biosynthesis	1	1	2	multi_reaction_one_ec	RHEA:35323;RHEA:35331	1	NAD(+); NADH; NADP(+); NADPH	1
+SYS_25576_HEMY	COMP_25576_HEMY	K00231	curated	RHEA:25576	heme_b_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:25576;RHEA:43436	1	coproporphyrin III; coproporphyrinogen III; protoporphyrin IX; protoporphyrinogen IX	1
+SYS_43436_HEMY	COMP_43436_HEMY	K00231	curated	RHEA:43436	heme_b_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:25576;RHEA:43436	1	coproporphyrin III; coproporphyrinogen III; protoporphyrin IX; protoporphyrinogen IX	1
+SYS_24004_BCD	COMP_24004_CATALYTIC	K00248	ambiguous	RHEA:24004	butyrate_formation	1	1	2	multi_reaction_one_ec	RHEA:24004;RHEA:47196	1	(2E)-butenoyl-CoA; a short-chain (2E)-enoyl-CoA; a short-chain 2,3-saturated fatty acyl-CoA; butanoyl-CoA	1
+SYS_15149_PDXH	COMP_15149_CATALYTIC	K00275	curated	RHEA:15149	plp_biosynthesis_dxp	1	1	2	multi_reaction_one_ec	RHEA:15149;RHEA:15817	1	H2O; NH4(+); pyridoxamine 5'-phosphate; pyridoxine 5'-phosphate	1
+SYS_14109_PROC	COMP_14109_CATALYTIC	K00286	curated	RHEA:14109	proline_biosynthesis	1	1	2	multi_reaction_one_ec	RHEA:14105;RHEA:14109	1	NAD(+); NADH; NADP(+); NADPH	1
+SYS_13313_SOXABGD	COMP_13313_SOXA	K00302	curated	RHEA:13313	sarcosine_demethylation	1	1	2	multi_reaction_multi_ec	RHEA:13313;RHEA:70455	1	(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate; (6S)-5,6,7,8-tetrahydrofolate; H2O; formaldehyde	1
+SYS_13313_SOXABGD	COMP_13313_SOXB	K00303	curated	RHEA:13313	sarcosine_demethylation	1	1	2	multi_reaction_multi_ec	RHEA:13313;RHEA:70455	1	(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate; (6S)-5,6,7,8-tetrahydrofolate; H2O; formaldehyde	1
+SYS_13313_SOXABGD	COMP_13313_SOXD	K00304	curated	RHEA:13313	sarcosine_demethylation	1	1	2	multi_reaction_multi_ec	RHEA:13313;RHEA:70455	1	(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate; (6S)-5,6,7,8-tetrahydrofolate; H2O; formaldehyde	1
+SYS_13313_SOXABGD	COMP_13313_SOXG	K00305	curated	RHEA:13313	sarcosine_demethylation	1	1	2	multi_reaction_multi_ec	RHEA:13313;RHEA:70455	1	(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate; (6S)-5,6,7,8-tetrahydrofolate; H2O; formaldehyde	1
+SYS_17077_DMGO	COMP_17077_DMGO	K00309	curated	RHEA:17077	betaine_demethylation	1	1	2	multi_reaction_one_ec	RHEA:17077;RHEA:45756	1	(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate; (6S)-5,6,7,8-tetrahydrofolate; H2O; formaldehyde	1
+SYS_27786_ODH_COMPLEX	COMP_27786_E3	K00382	curated	RHEA:27786	oxoglutarate_to_succinate	1	1	2	multi_reaction_one_ec	RHEA:15045;RHEA:33059	0	(R)-dihydrolipoamide; (R)-lipoamide; CHEBI:83099; CHEBI:83100	1
+SYS_28042_PDH_E1	COMP_28042_E1_E3	K00382	curated	RHEA:28042	pyruvate_to_acetyl_coa	1	1	2	multi_reaction_one_ec	RHEA:15045;RHEA:33059	0	(R)-dihydrolipoamide; (R)-lipoamide; CHEBI:83099; CHEBI:83100	1
+SYS_28042_PDH_E1AB	COMP_28042_AB_E3	K00382	curated	RHEA:28042	pyruvate_to_acetyl_coa	1	1	2	multi_reaction_one_ec	RHEA:15045;RHEA:33059	0	(R)-dihydrolipoamide; (R)-lipoamide; CHEBI:83099; CHEBI:83100	1
+SYS_21196_METE	COMP_21196_CATALYTIC	K00549	curated	RHEA:21196	methionine_biosynthesis_sulfhydrylation;methionine_biosynthesis_transsulfuration	1	1	2	multi_reaction_one_ec	RHEA:21196;RHEA:45016	1	L-homocysteine; L-methionine; L-selenohomocysteine; L-selenomethionine	1
+SYS_15349_ARGJ	COMP_15349_CATALYTIC	K00620	curated	RHEA:15349	ornithine_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:15349;RHEA:24292	1	CoA; H(+); L-ornithine; N(2)-acetyl-L-ornithine; acetyl-CoA	1
+SYS_28042_PDH_E1	COMP_28042_E1_E2	K00627	curated	RHEA:28042	pyruvate_to_acetyl_coa	1	1	2	multi_reaction_one_ec	RHEA:17017;RHEA:33151	0	(R)-S(6)-acetyldihydrolipoamide; (R)-dihydrolipoamide; CHEBI:83100; CHEBI:83111	1
+SYS_28042_PDH_E1AB	COMP_28042_AB_E2	K00627	curated	RHEA:28042	pyruvate_to_acetyl_coa	1	1	2	multi_reaction_one_ec	RHEA:17017;RHEA:33151	0	(R)-S(6)-acetyldihydrolipoamide; (R)-dihydrolipoamide; CHEBI:83100; CHEBI:83111	1
+SYS_20712_BIOF	COMP_20712_CATALYTIC	K00652	curated	RHEA:20712	biotin_biosynthesis	1	1	2	multi_reaction_one_ec	RHEA:20712;RHEA:42288	1	6-carboxyhexanoyl-CoA; CHEBI:64479; CHEBI:78846; CoA	1
+SYS_14329_SERC	COMP_14329_CATALYTIC	K00831	curated	RHEA:14329	serine_biosynthesis	1	1	2	multi_reaction_one_ec	RHEA:14329;RHEA:16573	1	(R)-3-hydroxy-2-oxo-4-phosphooxybutanoate; 3-phosphooxypyruvate; 4-(phosphooxy)-L-threonine; O-phospho-L-serine	1
+SYS_16573_SERC	COMP_16573_CATALYTIC	K00831	high-confidence	RHEA:16573	plp_biosynthesis_dxp	1	1	2	multi_reaction_one_ec	RHEA:14329;RHEA:16573	1	(R)-3-hydroxy-2-oxo-4-phosphooxybutanoate; 3-phosphooxypyruvate; 4-(phosphooxy)-L-threonine; O-phospho-L-serine	1
+SYS_18136_CYSD_CYSNC	COMP_18136_CYSNC	K00955	curated	RHEA:18136	assimilatory_sulfate_reduction	1	1	2	multi_reaction_multi_ec	RHEA:18133;RHEA:24152	0	3'-phosphoadenylyl sulfate; ADP; diphosphate; sulfate	1
+SYS_24152_CYSNC	COMP_24152_CYSNC	K00955	curated	RHEA:24152	assimilatory_sulfate_reduction	1	1	2	multi_reaction_multi_ec	RHEA:18133;RHEA:24152	1	3'-phosphoadenylyl sulfate; ADP; diphosphate; sulfate	1
+SYS_11040_HISB_BIFUNCTIONAL	COMP_11040_HISB_BIFUNCTIONAL_CATALYTIC	K01089	curated	RHEA:11040	histidine_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:11040;RHEA:14465	1	3-(imidazol-4-yl)-2-oxopropyl phosphate; D-erythro-1-(imidazol-4-yl)glycerol 3-phosphate; L-histidinol; L-histidinol phosphate; phosphate	1
+SYS_14465_HISB_BIFUNCTIONAL	COMP_14465_HISB_BIFUNCTIONAL_CATALYTIC	K01089	curated	RHEA:14465	histidine_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:11040;RHEA:14465	1	3-(imidazol-4-yl)-2-oxopropyl phosphate; D-erythro-1-(imidazol-4-yl)glycerol 3-phosphate; L-histidinol; L-histidinol phosphate; phosphate	1
+SYS_11112_ENTB	COMP_11112_ENTB	K01252	curated	RHEA:11112	dihydroxybenzoate_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:11112;RHEA:30571	1	(2S,3S)-2,3-dihydroxy-2,3-dihydrobenzoate; 2,3-dihydroxybenzoate; AMP; ATP; H(+); H2O; L-serine; diphosphate; enterobactin; isochorismate; pyruvate	1
+SYS_30571_ENTBDEF	COMP_30571_ENTB	K01252	curated	RHEA:30571	enterobactin_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:11112;RHEA:30571	1	(2S,3S)-2,3-dihydroxy-2,3-dihydrobenzoate; 2,3-dihydroxybenzoate; AMP; ATP; H(+); H2O; L-serine; diphosphate; enterobactin; isochorismate; pyruvate	1
+SYS_13245_ICL	COMP_13245_CATALYTIC	K01637	curated	RHEA:13245	glyoxylate_bypass	1	1	2	multi_reaction_multi_ec	RHEA:13245;RHEA:16809	1	(2S,3R)-3-hydroxybutane-1,2,3-tricarboxylate; D-threo-isocitrate; glyoxylate; pyruvate	1
+SYS_25249_ALS	COMP_25249_CATALYTIC	K01652	ambiguous	RHEA:25249	acetoin_formation;oxoisovalerate_biosynthesis	1	1	2	multi_reaction_one_ec	RHEA:25249;RHEA:27654	1	(2S)-2-acetolactate; (S)-2-ethyl-2-hydroxy-3-oxobutanoate; 2-oxobutanoate	1
+SYS_27654_ILVBN	COMP_27654_CATALYTIC	K01652	curated	RHEA:27654	isoleucine_biosynthesis	1	1	2	multi_reaction_one_ec	RHEA:25249;RHEA:27654	1	(2S)-2-acetolactate; (S)-2-ethyl-2-hydroxy-3-oxobutanoate; 2-oxobutanoate	1
+SYS_24809_ILVD	COMP_24809_CATALYTIC	K01687	curated	RHEA:24809	oxoisovalerate_biosynthesis	1	1	2	multi_reaction_one_ec	RHEA:24809;RHEA:27694	1	(2R)-2,3-dihydroxy-3-methylbutanoate; (2R,3R)-2,3-dihydroxy-3-methylpentanoate; (S)-3-methyl-2-oxopentanoate; 3-methyl-2-oxobutanoate	1
+SYS_27694_ILVD	COMP_27694_CATALYTIC	K01687	curated	RHEA:27694	isoleucine_biosynthesis	1	1	2	multi_reaction_one_ec	RHEA:24809;RHEA:27694	1	(2R)-2,3-dihydroxy-3-methylbutanoate; (2R,3R)-2,3-dihydroxy-3-methylpentanoate; (S)-3-methyl-2-oxopentanoate; 3-methyl-2-oxobutanoate	1
+SYS_16853_ADSL	COMP_16853_CATALYTIC	K01756	curated	RHEA:16853	adenylate_biosynthesis	1	1	2	multi_reaction_one_ec	RHEA:16853;RHEA:23920	1	(2S)-2-[5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamido]succinate; 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide; AMP; N(6)-(1,2-dicarboxyethyl)-AMP	1
+SYS_23920_LYASE	COMP_23920_CATALYTIC	K01756	curated	RHEA:23920	purine_core_biosynthesis	1	1	2	multi_reaction_one_ec	RHEA:16853;RHEA:23920	1	(2S)-2-[5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamido]succinate; 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide; AMP; N(6)-(1,2-dicarboxyethyl)-AMP	1
+SYS_22584_HEMH	COMP_22584_HEMH	K01772	curated	RHEA:22584	heme_b_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:22584;RHEA:49572	1	Fe-coproporphyrin III; coproporphyrin III; heme b; protoporphyrin IX	1
+SYS_49572_HEMH	COMP_49572_HEMH	K01772	curated	RHEA:49572	heme_b_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:22584;RHEA:49572	1	Fe-coproporphyrin III; coproporphyrin III; heme b; protoporphyrin IX	1
+SYS_22816_XYLA	COMP_22816_CATALYTIC	K01805	curated	RHEA:22816	xylose_degradation_isomerase	1	1	2	multi_reaction_one_ec	RHEA:22816;RHEA:28546	1	alpha-D-fructose; alpha-D-glucose; alpha-D-xylose; alpha-D-xylulofuranose	1
+SYS_13049_UXAC	COMP_13049_CATALYTIC	K01812	curated	RHEA:13049	glucuronate_degradation	1	1	2	multi_reaction_one_ec	RHEA:13049;RHEA:27702	1	D-fructuronate; D-glucuronate; aldehydo-D-galacturonate; keto-D-tagaturonate	1
+SYS_27702_UXAC	COMP_27702_CATALYTIC	K01812	curated	RHEA:27702	galacturonate_degradation	1	1	2	multi_reaction_one_ec	RHEA:13049;RHEA:27702	1	D-fructuronate; D-glucuronate; aldehydo-D-galacturonate; keto-D-tagaturonate	1
+SYS_17233_FUCI	COMP_17233_CATALYTIC	K01818	curated	RHEA:17233	fucose_degradation_isomerase	1	1	2	multi_reaction_multi_ec	RHEA:13849;RHEA:17233	1	D-arabinose; D-ribulose; L-fucose; L-fuculose	1
+SYS_12544_COBB	COMP_12544_CATALYTIC	K02224	curated	RHEA:12544	corrin_ring_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:12544;RHEA:26289	1	cob(II)yrinate; cob(II)yrinate a,c diamide; hydrogenobyrinate; hydrogenobyrinate a,c-diamide	1
+SYS_26289_CBIA	COMP_26289_CATALYTIC	K02224	curated	RHEA:26289	corrin_ring_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:12544;RHEA:26289	1	cob(II)yrinate; cob(II)yrinate a,c diamide; hydrogenobyrinate; hydrogenobyrinate a,c-diamide	1
+SYS_16049_COBS_TRANSFERASE	COMP_16049_CATALYTIC	K02233	curated	RHEA:16049	cobamide_nucleotide_loop_assembly	1	1	2	multi_reaction_one_ec	RHEA:16049;RHEA:23560	1	adenosylcob(III)alamin; adenosylcob(III)alamin 5'-phosphate; alpha-ribazole; alpha-ribazole 5'-phosphate	1
+SYS_24360_MET8	COMP_24360_MET8	K02304	curated	RHEA:24360	siroheme_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:15613;RHEA:24360	1	Fe(2+); NAD(+); NADH; precorrin-2; siroheme	1
+SYS_30571_ENTBDEF	COMP_30571_ENTD	K02362	curated	RHEA:30571	enterobactin_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:12068;RHEA:30571	1	2,3-dihydroxybenzoate; AMP; ATP; CHEBI:29999; CHEBI:64479; CoA; L-serine; adenosine 3',5'-bisphosphate; diphosphate; enterobactin	1
+SYS_30571_ENTBDEF	COMP_30571_ENTE	K02363	curated	RHEA:30571	enterobactin_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:30571;RHEA:61652	1	CHEBI:64479; CHEBI:90610; H(+); L-serine; enterobactin	1
+SYS_30571_ENTBDEF	COMP_30571_ENTF	K02364	curated	RHEA:30571	enterobactin_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:30571;RHEA:61704	1	2,3-dihydroxybenzoate; CHEBI:144955; CHEBI:64479; H(+); enterobactin	1
+SYS_19481_PCAF	COMP_19481_CATALYTIC	K02615	curated	RHEA:19481	oxoadipyl_coa_thiolysis	1	1	2	multi_reaction_multi_ec	RHEA:19481;RHEA:34799	1	2,3-didehydroadipoyl-CoA; 3-oxo-5,6-didehydrosuberyl-CoA; 3-oxoadipyl-CoA; succinyl-CoA	1
+SYS_34799_PAAJ	COMP_34799_CATALYTIC	K02615	curated	RHEA:34799	phenylacetate_degradation	1	1	2	multi_reaction_multi_ec	RHEA:19481;RHEA:34799	1	2,3-didehydroadipoyl-CoA; 3-oxo-5,6-didehydrosuberyl-CoA; 3-oxoadipyl-CoA; succinyl-CoA	1
+SYS_31747_PAAZ	COMP_31747_CATALYTIC	K02618	curated	RHEA:31747	phenylacetate_degradation	1	1	2	multi_reaction_multi_ec	RHEA:31747;RHEA:31755	1	2-oxepin-2(3H)-ylideneacetyl-CoA; 3-oxo-5,6-didehydrosuberyl-CoA; H(+); NADP(+); NADPH	1
+SYS_31755_PAAZ	COMP_31755_CATALYTIC	K02618	curated	RHEA:31755	phenylacetate_degradation	1	1	2	multi_reaction_multi_ec	RHEA:31747;RHEA:31755	1	2-oxepin-2(3H)-ylideneacetyl-CoA; 3-oxo-5,6-didehydrosuberyl-CoA; H(+); NADP(+); NADPH	1
+SYS_11672_PABBC	COMP_11672_PABBC	K03342	curated	RHEA:11672	paba_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:11672;RHEA:16201	1	4-aminobenzoate; H(+); L-glutamate; L-glutamine; chorismate; pyruvate	1
+SYS_16201_PABBC2	COMP_16201_PABBC2	K03342	curated	RHEA:16201	paba_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:11672;RHEA:16201	1	4-aminobenzoate; H(+); L-glutamate; L-glutamine; chorismate; pyruvate	1
+SYS_17997_CBIL	COMP_17997_CATALYTIC	K03394	curated	RHEA:17997	corrin_ring_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:16841;RHEA:17997	1	Co-precorrin-2; Co-precorrin-3; precorrin-2; precorrin-3A	1
+SYS_10420_TPA	COMP_10420_TPA	K03851	curated	RHEA:10420	taurine_degradation_sulfoacetaldehyde	1	1	2	multi_reaction_one_ec	RHEA:10420;RHEA:58056	1	2-sulfinoacetaldehyde; hypotaurine; sulfoacetaldehyde; taurine	1
+SYS_18985_MBTI	COMP_18985_MBTI	K04781	curated	RHEA:18985	dihydroxybenzoate_biosynthesis;menaquinone_biosynthesis;salicylate_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:18985;RHEA:27874	1	chorismate; pyruvate; salicylate	1
+SYS_27874_MBTI	COMP_27874_MBTI	K04781	curated	RHEA:27874	salicylate_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:18985;RHEA:27874	1	chorismate; pyruvate; salicylate	1
+SYS_11072_ANTAB	COMP_11072_ANTA	K05599	curated	RHEA:11072	anthranilate_degradation_catechol	1	1	2	multi_reaction_one_ec	RHEA:11072;RHEA:11076	1	NAD(+); NADH; NADP(+); NADPH	1
+SYS_11072_ANTAB	COMP_11072_ANTB	K05600	curated	RHEA:11072	anthranilate_degradation_catechol	1	1	2	multi_reaction_one_ec	RHEA:11072;RHEA:11076	1	NAD(+); NADH; NADP(+); NADPH	1
+SYS_20357_HCAEF	COMP_20357_ALPHA	K05708	curated	RHEA:20357	phenylpropanoate_dihydroxylation	1	1	2	multi_reaction_one_ec	RHEA:20357;RHEA:25058	1	(2E)-3-(cis-5,6-dihydroxycyclohexa-1,3-dien-1-yl)prop-2-enoate; (E)-cinnamate; 3-(cis-5,6-dihydroxycyclohexa-1,3-dien-1-yl)propanoate; 3-phenylpropanoate	1
+SYS_20357_HCAEF	COMP_20357_BETA	K05709	curated	RHEA:20357	phenylpropanoate_dihydroxylation	1	1	2	multi_reaction_one_ec	RHEA:20357;RHEA:25058	1	(2E)-3-(cis-5,6-dihydroxycyclohexa-1,3-dien-1-yl)prop-2-enoate; (E)-cinnamate; 3-(cis-5,6-dihydroxycyclohexa-1,3-dien-1-yl)propanoate; 3-phenylpropanoate	1
+SYS_25062_HCAB	COMP_25062_CATALYTIC	K05711	curated	RHEA:25062	phenylpropanoate_dihydroxylation	1	1	2	multi_reaction_one_ec	RHEA:25062;RHEA:25066	1	(2E)-3-(2,3-dihydroxyphenyl)prop-2-enoate; (2E)-3-(cis-5,6-dihydroxycyclohexa-1,3-dien-1-yl)prop-2-enoate; 3-(2,3-dihydroxyphenyl)propanoate; 3-(cis-5,6-dihydroxycyclohexa-1,3-dien-1-yl)propanoate	1
+SYS_24785_MHPA	COMP_24785_CATALYTIC	K05712	curated	RHEA:24785	hydroxyphenylpropanoate_hydroxylation	1	1	2	multi_reaction_one_ec	RHEA:24785;RHEA:27846	1	(2E)-3-(2,3-dihydroxyphenyl)prop-2-enoate; (2E)-3-(3-hydroxyphenyl)prop-2-enoate; 3-(2,3-dihydroxyphenyl)propanoate; 3-(3-hydroxyphenyl)propanoate	1
+SYS_23840_MHPB	COMP_23840_CATALYTIC	K05713	curated	RHEA:23840	dihydroxyphenylpropanoate_degradation	1	1	2	multi_reaction_one_ec	RHEA:23840;RHEA:25054	1	(2E)-3-(2,3-dihydroxyphenyl)prop-2-enoate; (2Z,4E)-2-hydroxy-6-oxonona-2,4-dienedioate; (2Z,4E,7E)-2-hydroxy-6-oxonona-2,4,7-trienedioate; 3-(2,3-dihydroxyphenyl)propanoate	1
+SYS_34187_MHPC	COMP_34187_CATALYTIC	K05714	curated	RHEA:34187	dihydroxyphenylpropanoate_degradation	1	1	2	multi_reaction_one_ec	RHEA:34187;RHEA:34191	1	(2Z,4E)-2-hydroxy-6-oxonona-2,4-dienedioate; (2Z,4E,7E)-2-hydroxy-6-oxonona-2,4,7-trienedioate; fumarate; succinate	1
+SYS_15625_CBIJ	COMP_15625_CATALYTIC	K05895	curated	RHEA:15625	corrin_ring_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:15625;RHEA:23408	1	Co-precorrin-6A; Co-precorrin-6B; NAD(+); NADH; NADP(+); NADPH; precorrin-6A; precorrin-6B	1
+SYS_23408_COBK	COMP_23408_CATALYTIC	K05895	curated	RHEA:23408	corrin_ring_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:15625;RHEA:23408	1	Co-precorrin-6A; Co-precorrin-6B; NAD(+); NADH; NADP(+); NADPH; precorrin-6A; precorrin-6B	1
+SYS_22012_COBM	COMP_22012_CATALYTIC	K05936	curated	RHEA:22012	corrin_ring_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:22012;RHEA:26277	1	Co-precorrin-4; Co-precorrin-5A; H(+); precorrin-4; precorrin-5	1
+SYS_26277_CBIF	COMP_26277_CATALYTIC	K05936	curated	RHEA:26277	corrin_ring_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:22012;RHEA:26277	1	Co-precorrin-4; Co-precorrin-5A; H(+); precorrin-4; precorrin-5	1
+SYS_16209_CBIC	COMP_16209_CATALYTIC	K06042	curated	RHEA:16209	corrin_ring_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:16209;RHEA:22512	1	Co-precorrin-8X; H(+); cob(II)yrinate; hydrogenobyrinate; precorrin-8X	1
+SYS_22512_COBH	COMP_22512_CATALYTIC	K06042	curated	RHEA:22512	corrin_ring_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:16209;RHEA:22512	1	Co-precorrin-8X; H(+); cob(II)yrinate; hydrogenobyrinate; precorrin-8X	1
+SYS_42440_NADX	COMP_42440_CATALYTIC	K06989	curated	RHEA:42440	quinolinate_biosynthesis_aspartate	1	1	2	multi_reaction_one_ec	RHEA:11784;RHEA:11788	0	NAD(+); NADH; NADP(+); NADPH	1
+SYS_34219_XYLG	COMP_34219_CATALYTIC	K10217	curated	RHEA:34219	catechol_meta_cleavage	1	1	2	multi_reaction_multi_ec	RHEA:14469;RHEA:34219	1	(2Z,4E)-2-aminomuconate; (2Z,4E)-2-hydroxy-6-oxohexa-2,4-dienoate; (2Z,4E)-2-hydroxyhexa-2,4-dienedioate; 2-aminomuconate 6-semialdehyde	1
+SYS_17845_RIBG2	COMP_17845_RIBG2	K11752	curated	RHEA:17845	riboflavin_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:17845;RHEA:21868	1	2,5-diamino-6-hydroxy-4-(5-phosphoribosylamino)-pyrimidine; 5-amino-6-(5-phospho-D-ribitylamino)uracil; H2O; NADP(+); NADPH; NH4(+)	1
+SYS_21868_RIBG	COMP_21868_RIBG	K11752	curated	RHEA:21868	riboflavin_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:17845;RHEA:21868	1	2,5-diamino-6-hydroxy-4-(5-phosphoribosylamino)-pyrimidine; 5-amino-6-(5-phospho-D-ribitylamino)uracil; H2O; NADP(+); NADPH; NH4(+)	1
+SYS_14877_P5CS	COMP_14877_P5CS_CATALYTIC	K12657	curated	RHEA:14877	proline_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:14877;RHEA:19541	1	ADP; ATP; H(+); L-glutamate; L-glutamate 5-semialdehyde; NADP(+); NADPH; phosphate	1
+SYS_19541_P5CS	COMP_19541_P5CS_CATALYTIC	K12657	curated	RHEA:19541	proline_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:14877;RHEA:19541	1	ADP; ATP; H(+); L-glutamate; L-glutamate 5-semialdehyde; NADP(+); NADPH; phosphate	1
+SYS_13121_AROKB	COMP_13121_AROKB	K13829	curated	RHEA:13121	chorismate_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:13121;RHEA:21968	1	3-dehydroquinate; 3-phosphoshikimate; 7-phospho-2-dehydro-3-deoxy-D-arabino-heptonate; ADP; ATP; H(+); phosphate; shikimate	1
+SYS_21968_AROKB	COMP_21968_AROKB	K13829	curated	RHEA:21968	chorismate_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:13121;RHEA:21968	1	3-dehydroquinate; 3-phosphoshikimate; 7-phospho-2-dehydro-3-deoxy-D-arabino-heptonate; ADP; ATP; H(+); phosphate; shikimate	1
+SYS_17737_ARODE	COMP_17737_ARODE	K13832	curated	RHEA:17737	chorismate_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:17737;RHEA:21096	1	3-dehydroquinate; H(+); H2O; NADP(+); NADPH; shikimate	1
+SYS_21096_ARODE	COMP_21096_ARODE	K13832	curated	RHEA:21096	chorismate_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:17737;RHEA:21096	1	3-dehydroquinate; H(+); H2O; NADP(+); NADPH; shikimate	1
+SYS_14717_DAHPCM	COMP_14717_DAHPCM	K13853	curated	RHEA:14717	chorismate_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:13897;RHEA:14717	1	7-phospho-2-dehydro-3-deoxy-D-arabino-heptonate; D-erythrose 4-phosphate; H2O; chorismate; phosphate; phosphoenolpyruvate; prephenate	1
+SYS_18457_RIBAB2	COMP_18457_RIBAB2	K14652	curated	RHEA:18457	riboflavin_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:18457;RHEA:23704	1	(2S)-2-hydroxy-3-oxobutyl phosphate; 2,5-diamino-6-hydroxy-4-(5-phosphoribosylamino)-pyrimidine; D-ribulose 5-phosphate; GTP; H2O; phosphate	1
+SYS_23704_RIBAB	COMP_23704_RIBAB	K14652	curated	RHEA:23704	riboflavin_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:18457;RHEA:23704	1	(2S)-2-hydroxy-3-oxobutyl phosphate; 2,5-diamino-6-hydroxy-4-(5-phosphoribosylamino)-pyrimidine; D-ribulose 5-phosphate; GTP; H2O; phosphate	1
+SYS_10184_PCAL	COMP_10184_PCAL	K14727	curated	RHEA:10184	catechol_ortho_cleavage	1	1	2	multi_reaction_multi_ec	RHEA:10184;RHEA:23348	1	(R)-2-(carboxymethyl)-5-oxo-2,5-dihydro-2-furoate; 3-oxoadipate; CO2; H2O	1
+SYS_11072_ANDA	COMP_11072_ANDAC	K16319	curated	RHEA:11072	anthranilate_degradation_catechol	1	1	2	multi_reaction_one_ec	RHEA:11072;RHEA:11076	1	NAD(+); NADH; NADP(+); NADPH	1
+SYS_11072_ANDA	COMP_11072_ANDAD	K16320	curated	RHEA:11072	anthranilate_degradation_catechol	1	1	2	multi_reaction_one_ec	RHEA:11072;RHEA:11076	1	NAD(+); NADH; NADP(+); NADPH	1
+SYS_22580_XYLJ	COMP_22580_XYLJ	K18364	curated	RHEA:22580	oxopentenoate_degradation	1	1	2	multi_reaction_multi_ec	RHEA:22580;RHEA:32535	1	(2Z)-2-hydroxypenta-2,4-dienoate; (2Z,4Z)-2-hydroxyhexa-2,4-dienoate; (S)-4-hydroxy-2-oxopentanoate; 4-hydroxy-2-oxohexanoate	1
+SYS_22624_XYLK	COMP_22624_XYLK	K18365	curated	RHEA:22624	oxopentenoate_degradation	1	1	2	multi_reaction_multi_ec	RHEA:22624;RHEA:36003	1	(S)-4-hydroxy-2-oxohexanoate; (S)-4-hydroxy-2-oxopentanoate; acetaldehyde; propanal	1
+SYS_23288_XYLQ	COMP_23288_XYLQ	K18366	curated	RHEA:23288	ethanol_formation;oxopentenoate_degradation	1	1	2	multi_reaction_multi_ec	RHEA:23288;RHEA:36027	1	acetaldehyde; acetyl-CoA; propanal; propanoyl-CoA	1
+SYS_74155_DGCAB	COMP_74155_DGCA	K21833	curated	RHEA:74155	sarcosine_demethylation	1	1	2	multi_reaction_one_ec	RHEA:74155;RHEA:74167	1	N,N-dimethylglycine; glycine	1
+SYS_74167_DGCAB	COMP_74167_DGCA	K21833	curated	RHEA:74167	betaine_demethylation	1	1	2	multi_reaction_one_ec	RHEA:74155;RHEA:74167	1	N,N-dimethylglycine; glycine	1
+SYS_55396_CNTAB	COMP_55396_CNTA	K22443	curated	RHEA:55396	carnitine_degradation_trimethylamine	1	1	2	multi_reaction_one_ec	RHEA:55368;RHEA:55396	1	NAD(+); NADH; NADP(+); NADPH	1
+SYS_55396_CNTAB	COMP_55396_CNTB	K22444	curated	RHEA:55396	carnitine_degradation_trimethylamine	1	1	2	multi_reaction_one_ec	RHEA:55368;RHEA:55396	1	NAD(+); NADH; NADP(+); NADPH	1
+SYS_17129_DIMER	COMP_17129_DI_B	K23265	curated	RHEA:17129	purine_core_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:15889;RHEA:17129	1	2-formamido-N(1)-(5-O-phospho-beta-D-ribosyl)acetamidine; ADP; ATP; H(+); N(2)-formyl-N(1)-(5-phospho-beta-D-ribosyl)glycinamide; NH4(+); phosphate	1
+SYS_17129_TRIMER	COMP_17129_TRI_C	K23265	curated	RHEA:17129	purine_core_biosynthesis	1	1	2	multi_reaction_multi_ec	RHEA:15889;RHEA:17129	1	2-formamido-N(1)-(5-O-phospho-beta-D-ribosyl)acetamidine; ADP; ATP; H(+); N(2)-formyl-N(1)-(5-phospho-beta-D-ribosyl)glycinamide; NH4(+); phosphate	1
+SYS_24628_NASDE	COMP_24628_NASE	K26138	curated	RHEA:24628	nitrate_assimilation	1	1	2	multi_reaction_one_ec	RHEA:24628;RHEA:24632	1	NAD(+); NADH; NADP(+); NADPH	1
+SYS_24628_NASDE	COMP_24628_NASD	K26139	curated	RHEA:24628	nitrate_assimilation	1	1	2	multi_reaction_one_ec	RHEA:24628;RHEA:24632	1	NAD(+); NADH; NADP(+); NADPH	1
+SYS_45716_BCT	COMP_45716_BCT	K27497	curated	RHEA:45716	carnitine_to_betaine	1	1	2	multi_reaction_multi_ec	RHEA:19265;RHEA:45716	1	3-dehydrocarnitine; CoA; H2O; N,N,N-trimethylglycyl-CoA; NAD(+); NADH; carnitine; glycine betaine	1
+SYS_14465_HISN	COMP_14465_HISN_CATALYTIC	K18649	curated	RHEA:14465	histidine_biosynthesis	4	0	9	multi_reaction_multi_ec	RHEA:14465;RHEA:24056;RHEA:26349;RHEA:27670;RHEA:30735;RHEA:30739;RHEA:44152;RHEA:44156;RHEA:44160	1	1D-myo-inositol 1-phosphate; 1D-myo-inositol 2-phosphate; 1D-myo-inositol 3-phosphate; 1D-myo-inositol 4-phosphate; 1D-myo-inositol 5-phosphate; 1D-myo-inositol 6-phosphate; L-galactose; L-histidinol; L-histidinol phosphate; a myo-inositol phosphate; beta-L-galactose 1-phosphate; myo-inositol	0
+SYS_19893_THID	COMP_19893_CATALYTIC	K14153	curated	RHEA:19893	hmp_phosphate_biosynthesis;thiamine_precursor_salvage	3	0	5	multi_reaction_multi_ec	RHEA:19893;RHEA:22328;RHEA:23096;RHEA:47844;RHEA:47848	1	2-(2-carboxy-4-methylthiazol-5-yl)ethyl phosphate; 2-[(2R,5Z)-2-carboxy-4-methylthiazol-5(2H)-ylidene]ethyl phosphate; 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine; 4-amino-2-methyl-5-(phosphooxymethyl)pyrimidine; 4-amino-5-hydroxymethyl-2-methylpyrimidine; 4-methyl-5-(2-phosphooxyethyl)-thiazole; ADP; ATP; CO2; H(+); diphosphate; thiamine phosphate	0
+SYS_22328_THIE	COMP_22328_CATALYTIC	K14153	curated	RHEA:22328	thiamine_phosphate_biosynthesis	3	0	5	multi_reaction_multi_ec	RHEA:19893;RHEA:22328;RHEA:23096;RHEA:47844;RHEA:47848	1	2-(2-carboxy-4-methylthiazol-5-yl)ethyl phosphate; 2-[(2R,5Z)-2-carboxy-4-methylthiazol-5(2H)-ylidene]ethyl phosphate; 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine; 4-amino-2-methyl-5-(phosphooxymethyl)pyrimidine; 4-amino-5-hydroxymethyl-2-methylpyrimidine; 4-methyl-5-(2-phosphooxyethyl)-thiazole; ADP; ATP; CO2; H(+); diphosphate; thiamine phosphate	0
+SYS_23096_THID_HMP	COMP_23096_CATALYTIC	K14153	curated	RHEA:23096	thiamine_precursor_salvage	3	0	5	multi_reaction_multi_ec	RHEA:19893;RHEA:22328;RHEA:23096;RHEA:47844;RHEA:47848	1	2-(2-carboxy-4-methylthiazol-5-yl)ethyl phosphate; 2-[(2R,5Z)-2-carboxy-4-methylthiazol-5(2H)-ylidene]ethyl phosphate; 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine; 4-amino-2-methyl-5-(phosphooxymethyl)pyrimidine; 4-amino-5-hydroxymethyl-2-methylpyrimidine; 4-methyl-5-(2-phosphooxyethyl)-thiazole; ADP; ATP; CO2; H(+); diphosphate; thiamine phosphate	0
+SYS_19893_THID	COMP_19893_CATALYTIC	K21219	curated	RHEA:19893	hmp_phosphate_biosynthesis;thiamine_precursor_salvage	3	0	5	multi_reaction_multi_ec	RHEA:19893;RHEA:22328;RHEA:23096;RHEA:47844;RHEA:47848	1	2-(2-carboxy-4-methylthiazol-5-yl)ethyl phosphate; 2-[(2R,5Z)-2-carboxy-4-methylthiazol-5(2H)-ylidene]ethyl phosphate; 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine; 4-amino-2-methyl-5-(phosphooxymethyl)pyrimidine; 4-amino-5-hydroxymethyl-2-methylpyrimidine; 4-methyl-5-(2-phosphooxyethyl)-thiazole; ADP; ATP; CO2; H(+); diphosphate; thiamine phosphate	0
+SYS_22328_THIE	COMP_22328_CATALYTIC	K21219	curated	RHEA:22328	thiamine_phosphate_biosynthesis	3	0	5	multi_reaction_multi_ec	RHEA:19893;RHEA:22328;RHEA:23096;RHEA:47844;RHEA:47848	1	2-(2-carboxy-4-methylthiazol-5-yl)ethyl phosphate; 2-[(2R,5Z)-2-carboxy-4-methylthiazol-5(2H)-ylidene]ethyl phosphate; 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine; 4-amino-2-methyl-5-(phosphooxymethyl)pyrimidine; 4-amino-5-hydroxymethyl-2-methylpyrimidine; 4-methyl-5-(2-phosphooxyethyl)-thiazole; ADP; ATP; CO2; H(+); diphosphate; thiamine phosphate	0
+SYS_23096_THID_HMP	COMP_23096_CATALYTIC	K21219	curated	RHEA:23096	thiamine_precursor_salvage	3	0	5	multi_reaction_multi_ec	RHEA:19893;RHEA:22328;RHEA:23096;RHEA:47844;RHEA:47848	1	2-(2-carboxy-4-methylthiazol-5-yl)ethyl phosphate; 2-[(2R,5Z)-2-carboxy-4-methylthiazol-5(2H)-ylidene]ethyl phosphate; 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine; 4-amino-2-methyl-5-(phosphooxymethyl)pyrimidine; 4-amino-5-hydroxymethyl-2-methylpyrimidine; 4-methyl-5-(2-phosphooxyethyl)-thiazole; ADP; ATP; CO2; H(+); diphosphate; thiamine phosphate	0
+SYS_15093_AROAT	COMP_15093_CATALYTIC	K00832	curated	RHEA:15093	tyrosine_biosynthesis	6	0	4	multi_reaction_one_ec	RHEA:15093;RHEA:17533;RHEA:25152;RHEA:25796	1	3-(4-hydroxyphenyl)pyruvate; 3-phenylpyruvate; 4-methylsulfanyl-2-oxobutanoate; L-methionine; L-phenylalanine; L-tyrosine; an aromatic L-alpha-amino acid; an aromatic oxo-acid	0
+SYS_25152_AROAT	COMP_25152_CATALYTIC	K00832	curated	RHEA:25152	phenylalanine_biosynthesis	6	0	4	multi_reaction_one_ec	RHEA:15093;RHEA:17533;RHEA:25152;RHEA:25796	1	3-(4-hydroxyphenyl)pyruvate; 3-phenylpyruvate; 4-methylsulfanyl-2-oxobutanoate; L-methionine; L-phenylalanine; L-tyrosine; an aromatic L-alpha-amino acid; an aromatic oxo-acid	0
+SYS_23584_FOLC	COMP_23584_CATALYTIC	K11754	curated	RHEA:23584	folate_biosynthesis	2	0	4	multi_reaction_multi_ec	RHEA:10580;RHEA:23584;RHEA:51904;RHEA:51912	1	7,8-dihydrofolate; 7,8-dihydropteroate; CHEBI:134413; CHEBI:136572; CHEBI:141005	0
+SYS_25253_NANK	COMP_25253_CATALYTIC	K13967	curated	RHEA:25253	neuac_degradation	2	0	4	multi_reaction_multi_ec	RHEA:23832;RHEA:23932;RHEA:25253;RHEA:25257	1	ADP; ATP; H(+); N-acetyl-D-glucosamine 6-phosphate; aldehydo-N-acetyl-D-mannosamine; aldehydo-N-acetyl-D-mannosamine 6-phosphate; an N-acyl-D-glucosamine 6-phosphate; an N-acyl-D-mannosamine; an N-acyl-D-mannosamine 6-phosphate	0
+SYS_25257_NANE	COMP_25257_CATALYTIC	K13967	curated	RHEA:25257	neuac_degradation	2	0	4	multi_reaction_multi_ec	RHEA:23832;RHEA:23932;RHEA:25253;RHEA:25257	1	ADP; ATP; H(+); N-acetyl-D-glucosamine 6-phosphate; aldehydo-N-acetyl-D-mannosamine; aldehydo-N-acetyl-D-mannosamine 6-phosphate; an N-acyl-D-glucosamine 6-phosphate; an N-acyl-D-mannosamine; an N-acyl-D-mannosamine 6-phosphate	0
+SYS_14005_CGL	COMP_14005_CATALYTIC	K17217	curated	RHEA:14005	cysteine_biosynthesis_homocysteine	2	0	4	multi_reaction_multi_ec	RHEA:14005;RHEA:14501;RHEA:24923;RHEA:24931	1	2-oxobutanoate; H(+); H2O; L,L-cystathionine; L-cysteine; L-homocysteine; L-homoserine; hydrogen sulfide; pyruvate	0
+SYS_13213_SSADH_NADP	COMP_13213_CATALYTIC	K00135	curated	RHEA:13213	oxoglutarate_to_succinate	2	0	3	multi_reaction_multi_ec	RHEA:13213;RHEA:13217;RHEA:57832	1	5-oxopentanoate; NAD(+); NADH; NADP(+); NADPH; glutarate; succinate; succinate semialdehyde	0
+SYS_34591_CBIE	COMP_34591_CATALYTIC	K00595	curated	RHEA:34591	corrin_ring_biosynthesis	2	0	3	multi_reaction_multi_ec	RHEA:17477;RHEA:34591;RHEA:36067	1	CO2; Co-precorrin-6B; Co-precorrin-7; Co-precorrin-8X; H(+); precorrin-6B; precorrin-8X	0
+SYS_36067_CBIT	COMP_36067_CATALYTIC	K00595	curated	RHEA:36067	corrin_ring_biosynthesis	2	0	3	multi_reaction_multi_ec	RHEA:17477;RHEA:34591;RHEA:36067	1	CO2; Co-precorrin-6B; Co-precorrin-7; Co-precorrin-8X; H(+); precorrin-6B; precorrin-8X	0
+SYS_22328_THIE	COMP_22328_CATALYTIC	K00788	curated	RHEA:22328	thiamine_phosphate_biosynthesis	3	0	3	multi_reaction_one_ec	RHEA:22328;RHEA:47844;RHEA:47848	1	2-(2-carboxy-4-methylthiazol-5-yl)ethyl phosphate; 2-[(2R,5Z)-2-carboxy-4-methylthiazol-5(2H)-ylidene]ethyl phosphate; 4-methyl-5-(2-phosphooxyethyl)-thiazole; CO2	0
+SYS_11528_COBA_ADO	COMP_11528_CATALYTIC	K00798	curated	RHEA:11528	cobinamide_biosynthesis	2	0	3	multi_reaction_one_ec	RHEA:11528;RHEA:14725;RHEA:28671	1	adenosylcob(III)alamin; adenosylcob(III)inamide; adenosylcob(III)yrinate a,c-diamide; cob(II)alamin; cob(II)inamide; cob(II)yrinate a,c diamide	0
+SYS_15093_AROAT	COMP_15093_CATALYTIC	K00826	curated	RHEA:15093	tyrosine_biosynthesis	6	0	3	multi_reaction_one_ec	RHEA:18321;RHEA:24801;RHEA:24813	0	(S)-3-methyl-2-oxopentanoate; 3-methyl-2-oxobutanoate; 4-methyl-2-oxopentanoate; L-isoleucine; L-leucine; L-valine	0
+SYS_25152_AROAT	COMP_25152_CATALYTIC	K00826	curated	RHEA:25152	phenylalanine_biosynthesis	6	0	3	multi_reaction_one_ec	RHEA:18321;RHEA:24801;RHEA:24813	0	(S)-3-methyl-2-oxopentanoate; 3-methyl-2-oxobutanoate; 4-methyl-2-oxopentanoate; L-isoleucine; L-leucine; L-valine	0
+SYS_10540_FOLB	COMP_10540_CATALYTIC	K01633	curated	RHEA:10540	folate_biosynthesis	3	0	3	multi_reaction_multi_ec	RHEA:10540;RHEA:45328;RHEA:45332	1	6-hydroxymethyl-7,8-dihydropterin; 7,8-dihydromonapterin; 7,8-dihydroxanthopterin; H(+); O2; formate; glycolaldehyde	0
+SYS_14005_CGL	COMP_14005_CATALYTIC	K01758	curated	RHEA:14005	cysteine_biosynthesis_homocysteine	2	0	3	multi_reaction_one_ec	RHEA:14005;RHEA:24923;RHEA:24931	1	2-oxobutanoate; H(+); H2O; L,L-cystathionine; L-cysteine; L-homoserine; hydrogen sulfide; pyruvate	0
+SYS_13985_HSK	COMP_13985_CATALYTIC	K02203	curated	RHEA:13985	methionine_biosynthesis_transsulfuration;threonine_biosynthesis	3	0	3	multi_reaction_multi_ec	RHEA:13985;RHEA:21208;RHEA:24873	1	ADP; ATP; D-serine; H(+); H2O; L-homoserine; L-serine; O-phospho-D-serine; O-phospho-L-homoserine; O-phospho-L-serine; phosphate	0
+SYS_21208_PSP	COMP_21208_CATALYTIC	K02203	curated	RHEA:21208	serine_biosynthesis	4	0	3	multi_reaction_multi_ec	RHEA:13985;RHEA:21208;RHEA:24873	1	ADP; ATP; D-serine; H(+); H2O; L-homoserine; L-serine; O-phospho-D-serine; O-phospho-L-homoserine; O-phospho-L-serine; phosphate	0
+SYS_22712_COBU	COMP_22712_CATALYTIC	K02231	curated	RHEA:22712	cobamide_nucleotide_loop_assembly	2	0	3	multi_reaction_multi_ec	RHEA:15765;RHEA:15769;RHEA:22712	1	ADP; ATP; GDP; GTP; adenosylcob(III)inamide; adenosylcob(III)inamide-GDP; diphosphate	0
+SYS_10112_CBS	COMP_10112_CATALYTIC	K10150	curated	RHEA:10112	cysteine_biosynthesis_homocysteine	2	0	3	multi_reaction_multi_ec	RHEA:10112;RHEA:10252;RHEA:14829	1	H(+); H2O; L,L-cystathionine; L-cysteine; L-homocysteine; L-serine; O-acetyl-L-serine; O-phospho-L-serine; acetate; hydrogen sulfide; phosphate	0
+SYS_18633_MONOMER	COMP_18633_MONOMER	K11540	curated	RHEA:18633	pyrimidine_core_biosynthesis	3	0	3	multi_reaction_multi_ec	RHEA:18633;RHEA:20013;RHEA:24296	1	(S)-dihydroorotate; ADP; ATP; H2O; L-aspartate; L-glutamate; L-glutamine; N-carbamoyl-L-aspartate; carbamoyl phosphate; hydrogencarbonate; phosphate	0
+SYS_20013_MONOMER	COMP_20013_MONOMER	K11540	curated	RHEA:20013	pyrimidine_core_biosynthesis	3	0	3	multi_reaction_multi_ec	RHEA:18633;RHEA:20013;RHEA:24296	1	(S)-dihydroorotate; ADP; ATP; H2O; L-aspartate; L-glutamate; L-glutamine; N-carbamoyl-L-aspartate; carbamoyl phosphate; hydrogencarbonate; phosphate	0
+SYS_24296_DIHYDROOROTASE	COMP_24296_CATALYTIC	K11540	curated	RHEA:24296	pyrimidine_core_biosynthesis	2	0	3	multi_reaction_multi_ec	RHEA:18633;RHEA:20013;RHEA:24296	1	(S)-dihydroorotate; ADP; ATP; H2O; L-aspartate; L-glutamate; L-glutamine; N-carbamoyl-L-aspartate; carbamoyl phosphate; hydrogencarbonate; phosphate	0
+SYS_15053_FOLATE	COMP_15053_CATALYTIC	K11787	curated	RHEA:15053	purine_core_biosynthesis	4	0	3	multi_reaction_multi_ec	RHEA:15053;RHEA:17453;RHEA:23032	1	(6R)-10-formyltetrahydrofolate; (6S)-5,6,7,8-tetrahydrofolate; 2-formamido-N(1)-(5-O-phospho-beta-D-ribosyl)acetamidine; 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole; 5-phospho-beta-D-ribosylamine; ADP; ATP; N(1)-(5-phospho-beta-D-ribosyl)glycinamide; N(2)-formyl-N(1)-(5-phospho-beta-D-ribosyl)glycinamide; glycine; phosphate	0
+SYS_17453_MONOMER	COMP_17453_CATALYTIC	K11787	curated	RHEA:17453	purine_core_biosynthesis	4	0	3	multi_reaction_multi_ec	RHEA:15053;RHEA:17453;RHEA:23032	1	(6R)-10-formyltetrahydrofolate; (6S)-5,6,7,8-tetrahydrofolate; 2-formamido-N(1)-(5-O-phospho-beta-D-ribosyl)acetamidine; 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole; 5-phospho-beta-D-ribosylamine; ADP; ATP; N(1)-(5-phospho-beta-D-ribosyl)glycinamide; N(2)-formyl-N(1)-(5-phospho-beta-D-ribosyl)glycinamide; glycine; phosphate	0
+SYS_23032_AIR_SYNTHASE	COMP_23032_CATALYTIC	K11787	curated	RHEA:23032	purine_core_biosynthesis	3	0	3	multi_reaction_multi_ec	RHEA:15053;RHEA:17453;RHEA:23032	1	(6R)-10-formyltetrahydrofolate; (6S)-5,6,7,8-tetrahydrofolate; 2-formamido-N(1)-(5-O-phospho-beta-D-ribosyl)acetamidine; 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole; 5-phospho-beta-D-ribosylamine; ADP; ATP; N(1)-(5-phospho-beta-D-ribosyl)glycinamide; N(2)-formyl-N(1)-(5-phospho-beta-D-ribosyl)glycinamide; glycine; phosphate	0
+SYS_15757_HOM_NAD	COMP_15757_CATALYTIC	K12524	curated	RHEA:15757	homoserine_biosynthesis	3	0	3	multi_reaction_multi_ec	RHEA:15757;RHEA:15761;RHEA:23776	1	4-phospho-L-aspartate; ADP; ATP; H(+); L-aspartate; L-aspartate 4-semialdehyde; L-homoserine; NAD(+); NADH; NADP(+); NADPH	0
+SYS_15761_HOM_NADP	COMP_15761_CATALYTIC	K12524	curated	RHEA:15761	homoserine_biosynthesis	3	0	3	multi_reaction_multi_ec	RHEA:15757;RHEA:15761;RHEA:23776	1	4-phospho-L-aspartate; ADP; ATP; H(+); L-aspartate; L-aspartate 4-semialdehyde; L-homoserine; NAD(+); NADH; NADP(+); NADPH	0
+SYS_23776_AK	COMP_23776_CATALYTIC	K12524	curated	RHEA:23776	aspartate_semialdehyde_biosynthesis	4	0	3	multi_reaction_multi_ec	RHEA:15757;RHEA:15761;RHEA:23776	1	4-phospho-L-aspartate; ADP; ATP; H(+); L-aspartate; L-aspartate 4-semialdehyde; L-homoserine; NAD(+); NADH; NADP(+); NADPH	0
+SYS_15757_HOM_NAD	COMP_15757_CATALYTIC	K12525	curated	RHEA:15757	homoserine_biosynthesis	3	0	3	multi_reaction_multi_ec	RHEA:15757;RHEA:15761;RHEA:23776	1	4-phospho-L-aspartate; ADP; ATP; H(+); L-aspartate; L-aspartate 4-semialdehyde; L-homoserine; NAD(+); NADH; NADP(+); NADPH	0
+SYS_15761_HOM_NADP	COMP_15761_CATALYTIC	K12525	curated	RHEA:15761	homoserine_biosynthesis	3	0	3	multi_reaction_multi_ec	RHEA:15757;RHEA:15761;RHEA:23776	1	4-phospho-L-aspartate; ADP; ATP; H(+); L-aspartate; L-aspartate 4-semialdehyde; L-homoserine; NAD(+); NADH; NADP(+); NADPH	0
+SYS_23776_AK	COMP_23776_CATALYTIC	K12525	curated	RHEA:23776	aspartate_semialdehyde_biosynthesis	4	0	3	multi_reaction_multi_ec	RHEA:15757;RHEA:15761;RHEA:23776	1	4-phospho-L-aspartate; ADP; ATP; H(+); L-aspartate; L-aspartate 4-semialdehyde; L-homoserine; NAD(+); NADH; NADP(+); NADPH	0
+SYS_21540_TRPF	COMP_21540_CATALYTIC	K13501	curated	RHEA:21540	tryptophan_biosynthesis	4	0	3	multi_reaction_multi_ec	RHEA:21540;RHEA:21732;RHEA:23476	1	(1S,2R)-1-C-(indol-3-yl)glycerol 3-phosphate; 1-(2-carboxyphenylamino)-1-deoxy-D-ribulose 5-phosphate; CO2; H(+); H2O; L-glutamate; L-glutamine; N-(5-phospho-beta-D-ribosyl)anthranilate; anthranilate; chorismate; pyruvate	0
+SYS_21732_TRPEG_FUSED	COMP_21732_TRPEG_FUSED_CATALYTIC	K13501	curated	RHEA:21732	tryptophan_biosynthesis	3	0	3	multi_reaction_multi_ec	RHEA:21540;RHEA:21732;RHEA:23476	1	(1S,2R)-1-C-(indol-3-yl)glycerol 3-phosphate; 1-(2-carboxyphenylamino)-1-deoxy-D-ribulose 5-phosphate; CO2; H(+); H2O; L-glutamate; L-glutamine; N-(5-phospho-beta-D-ribosyl)anthranilate; anthranilate; chorismate; pyruvate	0
+SYS_23476_TRPC	COMP_23476_CATALYTIC	K13501	curated	RHEA:23476	tryptophan_biosynthesis	4	0	3	multi_reaction_multi_ec	RHEA:21540;RHEA:21732;RHEA:23476	1	(1S,2R)-1-C-(indol-3-yl)glycerol 3-phosphate; 1-(2-carboxyphenylamino)-1-deoxy-D-ribulose 5-phosphate; CO2; H(+); H2O; L-glutamate; L-glutamine; N-(5-phospho-beta-D-ribosyl)anthranilate; anthranilate; chorismate; pyruvate	0
+SYS_12761_COBJ	COMP_12761_CATALYTIC	K13541	curated	RHEA:12761	corrin_ring_biosynthesis	3	0	3	multi_reaction_multi_ec	RHEA:12761;RHEA:26281;RHEA:36155	1	A; AH2; Co(II)-factor III; Co-precorrin-4; Co-precorrin-5A; Co-precorrin-5B; H(+); H2O; S-adenosyl-L-homocysteine; S-adenosyl-L-methionine; acetaldehyde; precorrin-3B; precorrin-4	0
+SYS_26281_CBIG	COMP_26281_CATALYTIC	K13541	curated	RHEA:26281	corrin_ring_biosynthesis	2	0	3	multi_reaction_multi_ec	RHEA:12761;RHEA:26281;RHEA:36155	1	A; AH2; Co(II)-factor III; Co-precorrin-4; Co-precorrin-5A; Co-precorrin-5B; H(+); H2O; S-adenosyl-L-homocysteine; S-adenosyl-L-methionine; acetaldehyde; precorrin-3B; precorrin-4	0
+SYS_36155_CBIH	COMP_36155_CATALYTIC	K13541	curated	RHEA:36155	corrin_ring_biosynthesis	3	0	3	multi_reaction_multi_ec	RHEA:12761;RHEA:26281;RHEA:36155	1	A; AH2; Co(II)-factor III; Co-precorrin-4; Co-precorrin-5A; Co-precorrin-5B; H(+); H2O; S-adenosyl-L-homocysteine; S-adenosyl-L-methionine; acetaldehyde; precorrin-3B; precorrin-4	0
+SYS_10912_PANC	COMP_10912_CATALYTIC	K13799	curated	RHEA:10912	pantothenate_biosynthesis	2	0	3	multi_reaction_multi_ec	RHEA:10912;RHEA:11600;RHEA:25094	1	(R)-pantoate; (R)-pantothenate; ADP; AMP; CDP; CMP; H(+); beta-alanine; dCDP; dCMP; diphosphate	0
+SYS_10540_FOLB	COMP_10540_CATALYTIC	K13939	curated	RHEA:10540	folate_biosynthesis	3	0	3	multi_reaction_multi_ec	RHEA:10540;RHEA:11412;RHEA:19949	1	(7,8-dihydropterin-6-yl)methyl diphosphate; 4-aminobenzoate; 6-hydroxymethyl-7,8-dihydropterin; 7,8-dihydroneopterin; 7,8-dihydropteroate; AMP; ATP; H(+); diphosphate; glycolaldehyde	0
+SYS_11412_FOLK	COMP_11412_CATALYTIC	K13939	curated	RHEA:11412	folate_biosynthesis	4	0	3	multi_reaction_multi_ec	RHEA:10540;RHEA:11412;RHEA:19949	1	(7,8-dihydropterin-6-yl)methyl diphosphate; 4-aminobenzoate; 6-hydroxymethyl-7,8-dihydropterin; 7,8-dihydroneopterin; 7,8-dihydropteroate; AMP; ATP; H(+); diphosphate; glycolaldehyde	0
+SYS_19949_FOLP	COMP_19949_CATALYTIC	K13939	curated	RHEA:19949	folate_biosynthesis	3	0	3	multi_reaction_multi_ec	RHEA:10540;RHEA:11412;RHEA:19949	1	(7,8-dihydropterin-6-yl)methyl diphosphate; 4-aminobenzoate; 6-hydroxymethyl-7,8-dihydropterin; 7,8-dihydroneopterin; 7,8-dihydropteroate; AMP; ATP; H(+); diphosphate; glycolaldehyde	0
+SYS_20049_HISI	COMP_20049_CATALYTIC	K14152	curated	RHEA:20049	histidine_biosynthesis	3	0	3	multi_reaction_multi_ec	RHEA:20049;RHEA:20641;RHEA:22828	1	1-(5-phospho-beta-D-ribosyl)-5'-AMP; 1-(5-phospho-beta-D-ribosyl)-5-[(5-phospho-beta-D-ribosylamino)methylideneamino]imidazole-4-carboxamide; 1-(5-phospho-beta-D-ribosyl)-ATP; H(+); L-histidine; L-histidinol; NAD(+); NADH; diphosphate	0
+SYS_22828_HISE	COMP_22828_CATALYTIC	K14152	curated	RHEA:22828	histidine_biosynthesis	3	0	3	multi_reaction_multi_ec	RHEA:20049;RHEA:20641;RHEA:22828	1	1-(5-phospho-beta-D-ribosyl)-5'-AMP; 1-(5-phospho-beta-D-ribosyl)-5-[(5-phospho-beta-D-ribosylamino)methylideneamino]imidazole-4-carboxamide; 1-(5-phospho-beta-D-ribosyl)-ATP; H(+); L-histidine; L-histidinol; NAD(+); NADH; diphosphate	0
+SYS_33799_HISD	COMP_33799_CATALYTIC	K14152	curated	RHEA:33799	histidine_biosynthesis	2	0	3	multi_reaction_multi_ec	RHEA:20049;RHEA:20641;RHEA:22828	0	1-(5-phospho-beta-D-ribosyl)-5'-AMP; 1-(5-phospho-beta-D-ribosyl)-5-[(5-phospho-beta-D-ribosylamino)methylideneamino]imidazole-4-carboxamide; 1-(5-phospho-beta-D-ribosyl)-ATP; H(+); L-histidine; L-histidinol; NAD(+); NADH; diphosphate	0
+SYS_33803_HISD	COMP_33803_CATALYTIC	K14152	curated	RHEA:33803	histidine_biosynthesis	2	0	3	multi_reaction_multi_ec	RHEA:20049;RHEA:20641;RHEA:22828	0	1-(5-phospho-beta-D-ribosyl)-5'-AMP; 1-(5-phospho-beta-D-ribosyl)-5-[(5-phospho-beta-D-ribosylamino)methylideneamino]imidazole-4-carboxamide; 1-(5-phospho-beta-D-ribosyl)-ATP; H(+); L-histidine; L-histidinol; NAD(+); NADH; diphosphate	0
+SYS_14829_OASS	COMP_14829_CATALYTIC	K17069	curated	RHEA:14829	cysteine_biosynthesis_sulfide	3	0	3	multi_reaction_multi_ec	RHEA:10048;RHEA:14829;RHEA:27822	1	H(+); L-cysteine; L-homocysteine; L-methionine; O-acetyl-L-homoserine; O-acetyl-L-serine; hydrogen sulfide; methanethiol	0
+SYS_27822_METY	COMP_27822_CATALYTIC	K17069	curated	RHEA:27822	methionine_biosynthesis_sulfhydrylation	2	0	3	multi_reaction_multi_ec	RHEA:10048;RHEA:14829;RHEA:27822	1	H(+); L-cysteine; L-homocysteine; L-methionine; O-acetyl-L-homoserine; O-acetyl-L-serine; hydrogen sulfide; methanethiol	0
+SYS_11528_COBA_ADO	COMP_11528_CATALYTIC	K19221	curated	RHEA:11528	cobinamide_biosynthesis	2	0	3	multi_reaction_one_ec	RHEA:11528;RHEA:14725;RHEA:28671	1	adenosylcob(III)alamin; adenosylcob(III)inamide; adenosylcob(III)yrinate a,c-diamide; cob(II)alamin; cob(II)inamide; cob(II)yrinate a,c diamide	0
+SYS_15893_CBIK	COMP_15893_CATALYTIC	K22011	curated	RHEA:15893	corrin_ring_biosynthesis	3	0	3	multi_reaction_multi_ec	RHEA:15893;RHEA:26269;RHEA:52796	1	Co(2+); Co-precorrin-2; Co-sirohydrochlorin; Ni(2+); Ni-sirohydrochlorin; precorrin-2; sirohydrochlorin	0
+SYS_15757_HOM_NAD	COMP_15757_CATALYTIC	K00003	curated	RHEA:15757	homoserine_biosynthesis	3	0	2	multi_reaction_one_ec	RHEA:15757;RHEA:15761	1	NAD(+); NADH; NADP(+); NADPH	0
+SYS_15761_HOM_NADP	COMP_15761_CATALYTIC	K00003	curated	RHEA:15761	homoserine_biosynthesis	3	0	2	multi_reaction_one_ec	RHEA:15757;RHEA:15761	1	NAD(+); NADH; NADP(+); NADPH	0
+SYS_11612_GDHA	COMP_11612_GDHA	K00261	curated	RHEA:11612	ammonium_assimilation	2	0	2	multi_reaction_one_ec	RHEA:11612;RHEA:15133	1	NAD(+); NADH; NADP(+); NADPH	0
+SYS_15133_GDH	COMP_15133_GDH	K00261	curated	RHEA:15133	ammonium_assimilation	2	0	2	multi_reaction_one_ec	RHEA:11612;RHEA:15133	1	NAD(+); NADH; NADP(+); NADPH	0
+SYS_18445_CYCLASE	COMP_18445_CATALYTIC	K00602	curated	RHEA:18445	purine_core_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:18445;RHEA:22192	1	(6R)-10-formyltetrahydrofolate; (6S)-5,6,7,8-tetrahydrofolate; 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide; H2O; IMP	0
+SYS_22192_FOLATE	COMP_22192_CATALYTIC	K00602	curated	RHEA:22192	purine_core_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:18445;RHEA:22192	1	(6R)-10-formyltetrahydrofolate; (6S)-5,6,7,8-tetrahydrofolate; 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide; H2O; IMP	0
+SYS_24292_ARGA	COMP_24292_CATALYTIC	K00620	curated	RHEA:24292	ornithine_biosynthesis	7	0	2	multi_reaction_multi_ec	RHEA:15349;RHEA:24292	1	CoA; H(+); L-ornithine; N(2)-acetyl-L-ornithine; acetyl-CoA	0
+SYS_13701_ACYLTRANSFERASE	COMP_13701_CATALYTIC	K00641	curated	RHEA:13701	methionine_biosynthesis_sulfhydrylation;methionine_biosynthesis_transsulfuration	2	0	2	multi_reaction_multi_ec	RHEA:13701;RHEA:22008	1	O-acetyl-L-homoserine; O-succinyl-L-homoserine; acetyl-CoA; succinyl-CoA	0
+SYS_22008_ACYLTRANSFERASE	COMP_22008_CATALYTIC	K00641	curated	RHEA:22008	methionine_biosynthesis_sulfhydrylation;methionine_biosynthesis_transsulfuration	2	0	2	multi_reaction_multi_ec	RHEA:13701;RHEA:22008	1	O-acetyl-L-homoserine; O-succinyl-L-homoserine; acetyl-CoA; succinyl-CoA	0
+SYS_13701_ACYLTRANSFERASE	COMP_13701_CATALYTIC	K00651	curated	RHEA:13701	methionine_biosynthesis_sulfhydrylation;methionine_biosynthesis_transsulfuration	2	0	2	multi_reaction_multi_ec	RHEA:13701;RHEA:22008	1	O-acetyl-L-homoserine; O-succinyl-L-homoserine; acetyl-CoA; succinyl-CoA	0
+SYS_22008_ACYLTRANSFERASE	COMP_22008_CATALYTIC	K00651	curated	RHEA:22008	methionine_biosynthesis_sulfhydrylation;methionine_biosynthesis_transsulfuration	2	0	2	multi_reaction_multi_ec	RHEA:13701;RHEA:22008	1	O-acetyl-L-homoserine; O-succinyl-L-homoserine; acetyl-CoA; succinyl-CoA	0
+SYS_11960_DAPC	COMP_11960_CATALYTIC	K00821	curated	RHEA:11960	dap_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:11960;RHEA:18049	1	(S)-2-succinylamino-6-oxoheptanedioate; N(2)-acetyl-L-ornithine; N-acetyl-L-glutamate 5-semialdehyde; N-succinyl-(2S,6S)-2,6-diaminopimelate	0
+SYS_18049_ARGD	COMP_18049_CATALYTIC	K00821	curated	RHEA:18049	ornithine_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:11960;RHEA:18049	1	(S)-2-succinylamino-6-oxoheptanedioate; N(2)-acetyl-L-ornithine; N-acetyl-L-glutamate 5-semialdehyde; N-succinyl-(2S,6S)-2,6-diaminopimelate	0
+SYS_22072_ARAB	COMP_22072_CATALYTIC	K00853	curated	RHEA:22072	arabinose_degradation	2	0	2	multi_reaction_one_ec	RHEA:17601;RHEA:22072	1	D-ribulose; D-ribulose 5-phosphate; L-ribulose; L-ribulose 5-phosphate	0
+SYS_25253_NANK	COMP_25253_CATALYTIC	K00885	curated	RHEA:25253	neuac_degradation	2	0	2	multi_reaction_one_ec	RHEA:23832;RHEA:25253	1	aldehydo-N-acetyl-D-mannosamine; aldehydo-N-acetyl-D-mannosamine 6-phosphate; an N-acyl-D-mannosamine; an N-acyl-D-mannosamine 6-phosphate	0
+SYS_19893_THID	COMP_19893_CATALYTIC	K00941	curated	RHEA:19893	hmp_phosphate_biosynthesis;thiamine_precursor_salvage	3	0	2	multi_reaction_multi_ec	RHEA:19893;RHEA:23096	1	4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine; 4-amino-5-hydroxymethyl-2-methylpyrimidine; H(+)	0
+SYS_23096_THID_HMP	COMP_23096_CATALYTIC	K00941	curated	RHEA:23096	thiamine_precursor_salvage	3	0	2	multi_reaction_multi_ec	RHEA:19893;RHEA:23096	1	4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine; 4-amino-5-hydroxymethyl-2-methylpyrimidine; H(+)	0
+SYS_21208_PSP	COMP_21208_CATALYTIC	K01079	curated	RHEA:21208	serine_biosynthesis	4	0	2	multi_reaction_one_ec	RHEA:21208;RHEA:24873	1	D-serine; L-serine; O-phospho-D-serine; O-phospho-L-serine	0
+SYS_15053_FOLATE	COMP_15053_CATALYTIC	K01492	curated	RHEA:15053	purine_core_biosynthesis	4	0	2	multi_reaction_multi_ec	RHEA:15053;RHEA:22192	1	5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide; 5-formamido-1-(5-phospho-D-ribosyl)imidazole-4-carboxamide; H(+); N(1)-(5-phospho-beta-D-ribosyl)glycinamide; N(2)-formyl-N(1)-(5-phospho-beta-D-ribosyl)glycinamide	0
+SYS_22192_FOLATE	COMP_22192_CATALYTIC	K01492	curated	RHEA:22192	purine_core_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:15053;RHEA:22192	1	5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide; 5-formamido-1-(5-phospho-D-ribosyl)imidazole-4-carboxamide; H(+); N(1)-(5-phospho-beta-D-ribosyl)glycinamide; N(2)-formyl-N(1)-(5-phospho-beta-D-ribosyl)glycinamide	0
+SYS_10792_DIRECT	COMP_10792_CATALYTIC	K01587	curated	RHEA:10792	purine_core_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:10792;RHEA:22628	1	(2S)-2-[5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamido]succinate; 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole; ADP; ATP; CO2; L-aspartate; phosphate	0
+SYS_22628_SAICAR	COMP_22628_CATALYTIC	K01587	curated	RHEA:22628	purine_core_biosynthesis	3	0	2	multi_reaction_multi_ec	RHEA:10792;RHEA:22628	1	(2S)-2-[5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamido]succinate; 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole; ADP; ATP; CO2; L-aspartate; phosphate	0
+SYS_17089_EDA	COMP_17089_CATALYTIC	K01625	curated	RHEA:17089	kdg_degradation	3	0	2	multi_reaction_multi_ec	RHEA:17089;RHEA:35639	1	(4S)-4-hydroxy-2-oxoglutarate; 2-dehydro-3-deoxy-6-phospho-D-gluconate; D-glyceraldehyde 3-phosphate; glyoxylate	0
+SYS_21732_TRPEG_FUSED	COMP_21732_TRPEG_FUSED_CATALYTIC	K01656	curated	RHEA:21732	tryptophan_biosynthesis	3	0	2	multi_reaction_multi_ec	RHEA:21732;RHEA:23476	1	(1S,2R)-1-C-(indol-3-yl)glycerol 3-phosphate; 1-(2-carboxyphenylamino)-1-deoxy-D-ribulose 5-phosphate; CO2; H2O; L-glutamate; L-glutamine; anthranilate; chorismate; pyruvate	0
+SYS_23476_TRPC	COMP_23476_CATALYTIC	K01656	curated	RHEA:23476	tryptophan_biosynthesis	4	0	2	multi_reaction_multi_ec	RHEA:21732;RHEA:23476	1	(1S,2R)-1-C-(indol-3-yl)glycerol 3-phosphate; 1-(2-carboxyphenylamino)-1-deoxy-D-ribulose 5-phosphate; CO2; H2O; L-glutamate; L-glutamine; anthranilate; chorismate; pyruvate	0
+SYS_10336_ACONITASE	COMP_10336_CATALYTIC	K01682	curated	RHEA:10336	acetyl_coa_to_isocitrate	3	0	2	multi_reaction_multi_ec	RHEA:10336;RHEA:17941	1	(2S,3R)-3-hydroxybutane-1,2,3-tricarboxylate; 2-methyl-cis-aconitate; D-threo-isocitrate; H2O; citrate	0
+SYS_21648_PDT	COMP_21648_CATALYTIC	K01713	curated	RHEA:21648	phenylalanine_biosynthesis	4	0	2	multi_reaction_multi_ec	RHEA:12536;RHEA:21648	1	3-phenylpyruvate; L-arogenate; L-phenylalanine; prephenate	0
+SYS_27822_METY	COMP_27822_CATALYTIC	K01740	curated	RHEA:27822	methionine_biosynthesis_sulfhydrylation	2	0	2	multi_reaction_one_ec	RHEA:10048;RHEA:27822	1	H(+); L-homocysteine; L-methionine; hydrogen sulfide; methanethiol	0
+SYS_25257_NANE	COMP_25257_CATALYTIC	K01788	curated	RHEA:25257	neuac_degradation	2	0	2	multi_reaction_one_ec	RHEA:23932;RHEA:25257	1	N-acetyl-D-glucosamine 6-phosphate; aldehydo-N-acetyl-D-mannosamine 6-phosphate; an N-acyl-D-glucosamine 6-phosphate; an N-acyl-D-mannosamine 6-phosphate	0
+SYS_15893_CBIK	COMP_15893_CATALYTIC	K02190	curated	RHEA:15893	corrin_ring_biosynthesis	3	0	2	multi_reaction_one_ec	RHEA:15893;RHEA:26269	1	Co-precorrin-2; Co-sirohydrochlorin; precorrin-2; sirohydrochlorin	0
+SYS_24456_COBC_P	COMP_24456_CATALYTIC	K02226	curated	RHEA:24456	cobamide_nucleotide_loop_assembly	2	0	2	multi_reaction_one_ec	RHEA:24456;RHEA:30367	1	adenosylcob(III)alamin; adenosylcob(III)alamin 5'-phosphate; alpha-ribazole; alpha-ribazole 5'-phosphate	0
+SYS_21896_CBIB	COMP_21896_CATALYTIC	K02227	curated	RHEA:21896	cobinamide_biosynthesis	2	0	2	multi_reaction_one_ec	RHEA:12572;RHEA:21896	1	(R)-1-aminopropan-2-ol; (R)-1-aminopropan-2-yl phosphate; adenosylcob(III)inamide; adenosylcob(III)inamide phosphate	0
+SYS_15613_SIRC	COMP_15613_CATALYTIC	K02304	curated	RHEA:15613	corrin_ring_biosynthesis;siroheme_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:15613;RHEA:24360	1	Fe(2+); NAD(+); NADH; precorrin-2; siroheme	0
+SYS_16841_COBI	COMP_16841_CATALYTIC	K03394	curated	RHEA:16841	corrin_ring_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:16841;RHEA:17997	1	Co-precorrin-2; Co-precorrin-3; precorrin-2; precorrin-3A	0
+SYS_15893_CBIK	COMP_15893_CATALYTIC	K03795	curated	RHEA:15893	corrin_ring_biosynthesis	3	0	2	multi_reaction_one_ec	RHEA:15893;RHEA:26269	1	Co-precorrin-2; Co-sirohydrochlorin; precorrin-2; sirohydrochlorin	0
+SYS_21648_PDT	COMP_21648_CATALYTIC	K05359	curated	RHEA:21648	phenylalanine_biosynthesis	4	0	2	multi_reaction_multi_ec	RHEA:12536;RHEA:21648	1	3-phenylpyruvate; L-arogenate; L-phenylalanine; prephenate	0
+SYS_15093_AROAT	COMP_15093_CATALYTIC	K05821	curated	RHEA:15093	tyrosine_biosynthesis	6	0	2	multi_reaction_multi_ec	RHEA:13053;RHEA:13741	0	L-alanine; L-tryptophan; indole-3-pyruvate; pyruvate	0
+SYS_25152_AROAT	COMP_25152_CATALYTIC	K05821	curated	RHEA:25152	phenylalanine_biosynthesis	6	0	2	multi_reaction_multi_ec	RHEA:13053;RHEA:13741	0	L-alanine; L-tryptophan; indole-3-pyruvate; pyruvate	0
+SYS_12761_COBJ	COMP_12761_CATALYTIC	K05934	curated	RHEA:12761	corrin_ring_biosynthesis	3	0	2	multi_reaction_multi_ec	RHEA:12761;RHEA:36155	1	A; AH2; Co(II)-factor III; Co-precorrin-4; H(+); precorrin-3B; precorrin-4	0
+SYS_36155_CBIH	COMP_36155_CATALYTIC	K05934	curated	RHEA:36155	corrin_ring_biosynthesis	3	0	2	multi_reaction_multi_ec	RHEA:12761;RHEA:36155	1	A; AH2; Co(II)-factor III; Co-precorrin-4; H(+); precorrin-3B; precorrin-4	0
+SYS_22860_NADD	COMP_22860_CATALYTIC	K06210	curated	RHEA:22860	nad_biosynthesis_namn	2	0	2	multi_reaction_multi_ec	RHEA:21360;RHEA:22860	1	NAD(+); beta-nicotinamide D-ribonucleotide; deamido-NAD(+); nicotinate beta-D-ribonucleotide	0
+SYS_13213_SSADH_NADP	COMP_13213_CATALYTIC	K08324	curated	RHEA:13213	oxoglutarate_to_succinate	2	0	2	multi_reaction_multi_ec	RHEA:13213;RHEA:13217	1	NAD(+); NADH; NADP(+); NADPH	0
+SYS_13217_SSADH_NAD	COMP_13217_CATALYTIC	K08324	curated	RHEA:13217	oxoglutarate_to_succinate	3	0	2	multi_reaction_multi_ec	RHEA:13213;RHEA:13217	1	NAD(+); NADH; NADP(+); NADPH	0
+SYS_18633_MONOMER	COMP_18633_MONOMER	K11541	curated	RHEA:18633	pyrimidine_core_biosynthesis	3	0	2	multi_reaction_multi_ec	RHEA:18633;RHEA:20013	1	ADP; ATP; H2O; L-aspartate; L-glutamate; L-glutamine; N-carbamoyl-L-aspartate; hydrogencarbonate	0
+SYS_20013_MONOMER	COMP_20013_MONOMER	K11541	curated	RHEA:20013	pyrimidine_core_biosynthesis	3	0	2	multi_reaction_multi_ec	RHEA:18633;RHEA:20013	1	ADP; ATP; H2O; L-aspartate; L-glutamate; L-glutamine; N-carbamoyl-L-aspartate; hydrogencarbonate	0
+SYS_20049_HISI	COMP_20049_CATALYTIC	K11755	curated	RHEA:20049	histidine_biosynthesis	3	0	2	multi_reaction_multi_ec	RHEA:20049;RHEA:22828	1	1-(5-phospho-beta-D-ribosyl)-5-[(5-phospho-beta-D-ribosylamino)methylideneamino]imidazole-4-carboxamide; 1-(5-phospho-beta-D-ribosyl)-ATP; H(+); diphosphate	0
+SYS_22828_HISE	COMP_22828_CATALYTIC	K11755	curated	RHEA:22828	histidine_biosynthesis	3	0	2	multi_reaction_multi_ec	RHEA:20049;RHEA:22828	1	1-(5-phospho-beta-D-ribosyl)-5-[(5-phospho-beta-D-ribosylamino)methylideneamino]imidazole-4-carboxamide; 1-(5-phospho-beta-D-ribosyl)-ATP; H(+); diphosphate	0
+SYS_17453_MONOMER	COMP_17453_CATALYTIC	K11788	curated	RHEA:17453	purine_core_biosynthesis	4	0	2	multi_reaction_multi_ec	RHEA:17453;RHEA:23032	1	2-formamido-N(1)-(5-O-phospho-beta-D-ribosyl)acetamidine; 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole; 5-phospho-beta-D-ribosylamine; N(1)-(5-phospho-beta-D-ribosyl)glycinamide; glycine	0
+SYS_23032_AIR_SYNTHASE	COMP_23032_CATALYTIC	K11788	curated	RHEA:23032	purine_core_biosynthesis	3	0	2	multi_reaction_multi_ec	RHEA:17453;RHEA:23032	1	2-formamido-N(1)-(5-O-phospho-beta-D-ribosyl)acetamidine; 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole; 5-phospho-beta-D-ribosylamine; N(1)-(5-phospho-beta-D-ribosyl)glycinamide; glycine	0
+SYS_15101_LYSA	COMP_15101_CATALYTIC	K12526	curated	RHEA:15101	lysine_biosynthesis_dap	2	0	2	multi_reaction_multi_ec	RHEA:15101;RHEA:23776	1	4-phospho-L-aspartate; ADP; ATP; CO2; H(+); L-aspartate; L-lysine; meso-2,6-diaminopimelate	0
+SYS_23776_AK	COMP_23776_CATALYTIC	K12526	curated	RHEA:23776	aspartate_semialdehyde_biosynthesis	4	0	2	multi_reaction_multi_ec	RHEA:15101;RHEA:23776	1	4-phospho-L-aspartate; ADP; ATP; CO2; H(+); L-aspartate; L-lysine; meso-2,6-diaminopimelate	0
+SYS_14629_ARGB	COMP_14629_CATALYTIC	K12659	curated	RHEA:14629	ornithine_biosynthesis	3	0	2	multi_reaction_multi_ec	RHEA:14629;RHEA:21588	1	ADP; ATP; H(+); N-acetyl-L-glutamate; N-acetyl-L-glutamate 5-semialdehyde; NADP(+); NADPH; phosphate	0
+SYS_21588_ARGC	COMP_21588_CATALYTIC	K12659	curated	RHEA:21588	ornithine_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:14629;RHEA:21588	1	ADP; ATP; H(+); N-acetyl-L-glutamate; N-acetyl-L-glutamate 5-semialdehyde; NADP(+); NADPH; phosphate	0
+SYS_14829_OASS	COMP_14829_CATALYTIC	K13034	curated	RHEA:14829	cysteine_biosynthesis_sulfide	3	0	2	multi_reaction_multi_ec	RHEA:14829;RHEA:17821	1	3-cyano-L-alanine; H(+); O-acetyl-L-serine; acetate; hydrogen cyanide	0
+SYS_10380_OPRT	COMP_10380_CATALYTIC	K13421	curated	RHEA:10380	pyrimidine_core_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:10380;RHEA:11596	1	5-phospho-alpha-D-ribose 1-diphosphate; CO2; H(+); UMP; diphosphate; orotate	0
+SYS_11596_OMP_DECARBOXYLASE	COMP_11596_CATALYTIC	K13421	curated	RHEA:11596	pyrimidine_core_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:10380;RHEA:11596	1	5-phospho-alpha-D-ribose 1-diphosphate; CO2; H(+); UMP; diphosphate; orotate	0
+SYS_23736_HIUH	COMP_23736_HIUH	K13484	curated	RHEA:23736	urate_degradation	3	0	2	multi_reaction_multi_ec	RHEA:23736;RHEA:26301	1	(S)-allantoin; 5-hydroxyisourate; CO2; H2O	0
+SYS_26301_OHCUDC	COMP_26301_OHCUDC	K13484	curated	RHEA:26301	urate_degradation	2	0	2	multi_reaction_multi_ec	RHEA:23736;RHEA:26301	1	(S)-allantoin; 5-hydroxyisourate; CO2; H2O	0
+SYS_11768_TRPD	COMP_11768_CATALYTIC	K13497	curated	RHEA:11768	tryptophan_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:11768;RHEA:21732	1	5-phospho-alpha-D-ribose 1-diphosphate; H(+); L-glutamate; L-glutamine; N-(5-phospho-beta-D-ribosyl)anthranilate; chorismate; diphosphate; pyruvate	0
+SYS_21540_TRPF	COMP_21540_CATALYTIC	K13498	curated	RHEA:21540	tryptophan_biosynthesis	4	0	2	multi_reaction_multi_ec	RHEA:21540;RHEA:23476	1	(1S,2R)-1-C-(indol-3-yl)glycerol 3-phosphate; CO2; H(+); H2O; N-(5-phospho-beta-D-ribosyl)anthranilate	0
+SYS_23476_TRPC	COMP_23476_CATALYTIC	K13498	curated	RHEA:23476	tryptophan_biosynthesis	4	0	2	multi_reaction_multi_ec	RHEA:21540;RHEA:23476	1	(1S,2R)-1-C-(indol-3-yl)glycerol 3-phosphate; CO2; H(+); H2O; N-(5-phospho-beta-D-ribosyl)anthranilate	0
+SYS_12761_COBJ	COMP_12761_CATALYTIC	K13540	curated	RHEA:12761	corrin_ring_biosynthesis	3	0	2	multi_reaction_multi_ec	RHEA:12761;RHEA:16841	1	precorrin-2; precorrin-3A; precorrin-3B; precorrin-4	0
+SYS_16841_COBI	COMP_16841_CATALYTIC	K13540	curated	RHEA:16841	corrin_ring_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:12761;RHEA:16841	1	precorrin-2; precorrin-3A; precorrin-3B; precorrin-4	0
+SYS_32459_COBA	COMP_32459_CATALYTIC	K13542	curated	RHEA:32459	corrin_ring_biosynthesis;siroheme_biosynthesis	5	0	2	multi_reaction_multi_ec	RHEA:18965;RHEA:32459	1	H(+); H2O; S-adenosyl-L-homocysteine; S-adenosyl-L-methionine; hydroxymethylbilane; precorrin-2	0
+SYS_32459_COBA	COMP_32459_CATALYTIC	K13543	curated	RHEA:32459	corrin_ring_biosynthesis;siroheme_biosynthesis	5	0	2	multi_reaction_multi_ec	RHEA:18965;RHEA:32459	1	H(+); H2O; S-adenosyl-L-homocysteine; S-adenosyl-L-methionine; hydroxymethylbilane; precorrin-2	0
+SYS_17453_MONOMER	COMP_17453_CATALYTIC	K13713	curated	RHEA:17453	purine_core_biosynthesis	4	0	2	multi_reaction_multi_ec	RHEA:17453;RHEA:22628	1	(2S)-2-[5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamido]succinate; 5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxylate; 5-phospho-beta-D-ribosylamine; L-aspartate; N(1)-(5-phospho-beta-D-ribosyl)glycinamide; glycine	0
+SYS_22628_SAICAR	COMP_22628_CATALYTIC	K13713	curated	RHEA:22628	purine_core_biosynthesis	3	0	2	multi_reaction_multi_ec	RHEA:17453;RHEA:22628	1	(2S)-2-[5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamido]succinate; 5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxylate; 5-phospho-beta-D-ribosylamine; L-aspartate; N(1)-(5-phospho-beta-D-ribosyl)glycinamide; glycine	0
+SYS_10540_FOLB	COMP_10540_CATALYTIC	K13940	curated	RHEA:10540	folate_biosynthesis	3	0	2	multi_reaction_multi_ec	RHEA:10540;RHEA:11412	1	(7,8-dihydropterin-6-yl)methyl diphosphate; 7,8-dihydroneopterin; AMP; ATP; H(+); glycolaldehyde	0
+SYS_11412_FOLK	COMP_11412_CATALYTIC	K13940	curated	RHEA:11412	folate_biosynthesis	4	0	2	multi_reaction_multi_ec	RHEA:10540;RHEA:11412	1	(7,8-dihydropterin-6-yl)methyl diphosphate; 7,8-dihydroneopterin; AMP; ATP; H(+); glycolaldehyde	0
+SYS_11412_FOLK	COMP_11412_CATALYTIC	K13941	curated	RHEA:11412	folate_biosynthesis	4	0	2	multi_reaction_multi_ec	RHEA:11412;RHEA:19949	1	4-aminobenzoate; 6-hydroxymethyl-7,8-dihydropterin; 7,8-dihydropteroate; AMP; ATP; H(+); diphosphate	0
+SYS_19949_FOLP	COMP_19949_CATALYTIC	K13941	curated	RHEA:19949	folate_biosynthesis	3	0	2	multi_reaction_multi_ec	RHEA:11412;RHEA:19949	1	4-aminobenzoate; 6-hydroxymethyl-7,8-dihydropterin; 7,8-dihydropteroate; AMP; ATP; H(+); diphosphate	0
+SYS_15009_FOLA	COMP_15009_CATALYTIC	K13998	curated	RHEA:15009	folate_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:12104;RHEA:15009	1	(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate; (6S)-5,6,7,8-tetrahydrofolate; H(+); NADP(+); NADPH; dTMP; dUMP	0
+SYS_13897_CM	COMP_13897_CATALYTIC	K14170	curated	RHEA:13897	phenylalanine_biosynthesis;tyrosine_biosynthesis	7	0	2	multi_reaction_multi_ec	RHEA:13897;RHEA:21648	1	3-phenylpyruvate; CO2; H(+); H2O; chorismate	0
+SYS_21648_PDT	COMP_21648_CATALYTIC	K14170	curated	RHEA:21648	phenylalanine_biosynthesis	4	0	2	multi_reaction_multi_ec	RHEA:13897;RHEA:21648	1	3-phenylpyruvate; CO2; H(+); H2O; chorismate	0
+SYS_13869_PDH	COMP_13869_CATALYTIC	K14187	curated	RHEA:13869	tyrosine_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:13869;RHEA:13897	1	3-(4-hydroxyphenyl)pyruvate; CO2; NAD(+); NADH; chorismate	0
+SYS_13897_CM	COMP_13897_CATALYTIC	K14187	curated	RHEA:13897	phenylalanine_biosynthesis;tyrosine_biosynthesis	7	0	2	multi_reaction_multi_ec	RHEA:13869;RHEA:13897	1	3-(4-hydroxyphenyl)pyruvate; CO2; NAD(+); NADH; chorismate	0
+SYS_19453_ALAA	COMP_19453_ALAA_CATALYTIC	K14260	curated	RHEA:19453	alanine_biosynthesis	3	0	2	multi_reaction_multi_ec	RHEA:19453;RHEA:22912	1	2-oxoglutarate; 3-methyl-2-oxobutanoate; L-glutamate; L-valine	0
+SYS_15941_ARGE	COMP_15941_CATALYTIC	K14677	curated	RHEA:15941	ornithine_biosynthesis	2	0	2	multi_reaction_one_ec	RHEA:15565;RHEA:36855	0	a carboxylate; acetate; an L-alpha-amino acid; an N-acetyl-L-cysteine-S-conjugate; an N-acyl-L-amino acid; an S-substituted L-cysteine	0
+SYS_24020_ARGH	COMP_24020_CATALYTIC	K14681	curated	RHEA:24020	arginine_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:24020;RHEA:24292	1	2-(N(omega)-L-arginino)succinate; CoA; H(+); L-arginine; L-glutamate; N-acetyl-L-glutamate; acetyl-CoA; fumarate	0
+SYS_24292_ARGA	COMP_24292_CATALYTIC	K14681	curated	RHEA:24292	ornithine_biosynthesis	7	0	2	multi_reaction_multi_ec	RHEA:24020;RHEA:24292	1	2-(N(omega)-L-arginino)succinate; CoA; H(+); L-arginine; L-glutamate; N-acetyl-L-glutamate; acetyl-CoA; fumarate	0
+SYS_21368_URICASE	COMP_21368_URICASE	K16838	curated	RHEA:21368	urate_degradation	2	0	2	multi_reaction_multi_ec	RHEA:21368;RHEA:26301	1	(S)-allantoin; 5-hydroxy-2-oxo-4-ureido-2,5-dihydro-1H-imidazole-5-carboxylate; 5-hydroxyisourate; CO2; H(+); H2O; H2O2; O2; urate	0
+SYS_23736_HIUH	COMP_23736_HIUH	K16838	curated	RHEA:23736	urate_degradation	3	0	2	multi_reaction_multi_ec	RHEA:21368;RHEA:26301	0	(S)-allantoin; 5-hydroxy-2-oxo-4-ureido-2,5-dihydro-1H-imidazole-5-carboxylate; 5-hydroxyisourate; CO2; H(+); H2O; H2O2; O2; urate	0
+SYS_26301_OHCUDC	COMP_26301_OHCUDC	K16838	curated	RHEA:26301	urate_degradation	2	0	2	multi_reaction_multi_ec	RHEA:21368;RHEA:26301	1	(S)-allantoin; 5-hydroxy-2-oxo-4-ureido-2,5-dihydro-1H-imidazole-5-carboxylate; 5-hydroxyisourate; CO2; H(+); H2O; H2O2; O2; urate	0
+SYS_19169_SDAA	COMP_19169_CATALYTIC	K17989	curated	RHEA:19169	serine_deamination	2	0	2	multi_reaction_multi_ec	RHEA:19169;RHEA:22108	1	2-oxobutanoate; L-serine; L-threonine; pyruvate	0
+SYS_22108_ILVA	COMP_22108_CATALYTIC	K17989	curated	RHEA:22108	threonine_deamination	2	0	2	multi_reaction_multi_ec	RHEA:19169;RHEA:22108	1	2-oxobutanoate; L-serine; L-threonine; pyruvate	0
+SYS_15805_BIOD	COMP_15805_CATALYTIC	K19562	curated	RHEA:15805	biotin_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:15805;RHEA:85507	1	(4R,5S)-dethiobiotin; (8S)-8-amino-7-oxononanoate; ADP; ATP; CO2; H(+); N-(3-aminopropyl)-4-aminobutanal; phosphate; spermidine	0
+SYS_16861_BIOA	COMP_16861_CATALYTIC	K19562	curated	RHEA:16861	biotin_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:15805;RHEA:85507	0	(4R,5S)-dethiobiotin; (8S)-8-amino-7-oxononanoate; ADP; ATP; CO2; H(+); N-(3-aminopropyl)-4-aminobutanal; phosphate; spermidine	0
+SYS_25197_PHOSPHATASE	COMP_25197_CATALYTIC	K20860	ambiguous	RHEA:25197	riboflavin_biosynthesis	5	0	2	multi_reaction_multi_ec	RHEA:25197;RHEA:35587	1	5-amino-6-(5-phospho-D-ribitylamino)uracil; 5-amino-6-(D-ribitylamino)uracil; FMN; riboflavin	0
+SYS_25197_PHOSPHATASE	COMP_25197_CATALYTIC	K20861	ambiguous	RHEA:25197	riboflavin_biosynthesis	5	0	2	multi_reaction_multi_ec	RHEA:25197;RHEA:35587	1	5-amino-6-(5-phospho-D-ribitylamino)uracil; 5-amino-6-(D-ribitylamino)uracil; FMN; riboflavin	0
+SYS_25197_PHOSPHATASE	COMP_25197_CATALYTIC	K20862	ambiguous	RHEA:25197	riboflavin_biosynthesis	5	0	2	multi_reaction_multi_ec	RHEA:25197;RHEA:35587	1	5-amino-6-(5-phospho-D-ribitylamino)uracil; 5-amino-6-(D-ribitylamino)uracil; FMN; riboflavin	0
+SYS_21208_PSP	COMP_21208_CATALYTIC	K22305	curated	RHEA:21208	serine_biosynthesis	4	0	2	multi_reaction_one_ec	RHEA:21208;RHEA:24873	1	D-serine; L-serine; O-phospho-D-serine; O-phospho-L-serine	0
+SYS_24456_COBC_P	COMP_24456_CATALYTIC	K22316	curated	RHEA:24456	cobamide_nucleotide_loop_assembly	2	0	2	multi_reaction_multi_ec	RHEA:24456;RHEA:30367	1	adenosylcob(III)alamin; adenosylcob(III)alamin 5'-phosphate; alpha-ribazole; alpha-ribazole 5'-phosphate	0
+SYS_14629_ARGB	COMP_14629_CATALYTIC	K22478	curated	RHEA:14629	ornithine_biosynthesis	3	0	2	multi_reaction_multi_ec	RHEA:14629;RHEA:24292	1	ADP; ATP; CoA; H(+); L-glutamate; N-acetyl-L-glutamyl 5-phosphate; acetyl-CoA	0
+SYS_24292_ARGA	COMP_24292_CATALYTIC	K22478	curated	RHEA:24292	ornithine_biosynthesis	7	0	2	multi_reaction_multi_ec	RHEA:14629;RHEA:24292	1	ADP; ATP; CoA; H(+); L-glutamate; N-acetyl-L-glutamyl 5-phosphate; acetyl-CoA	0
+SYS_15469_HISA	COMP_15469_CATALYTIC	K24017	curated	RHEA:15469	histidine_biosynthesis	2	0	2	multi_reaction_multi_ec	RHEA:15469;RHEA:21540	1	1-(2-carboxyphenylamino)-1-deoxy-D-ribulose 5-phosphate; 1-(5-phospho-beta-D-ribosyl)-5-[(5-phospho-beta-D-ribosylamino)methylideneamino]imidazole-4-carboxamide; 5-[(5-phospho-1-deoxy-D-ribulos-1-ylimino)methylamino]-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide; N-(5-phospho-beta-D-ribosyl)anthranilate	0
+SYS_21540_TRPF	COMP_21540_CATALYTIC	K24017	curated	RHEA:21540	tryptophan_biosynthesis	4	0	2	multi_reaction_multi_ec	RHEA:15469;RHEA:21540	1	1-(2-carboxyphenylamino)-1-deoxy-D-ribulose 5-phosphate; 1-(5-phospho-beta-D-ribosyl)-5-[(5-phospho-beta-D-ribosylamino)methylideneamino]imidazole-4-carboxamide; 5-[(5-phospho-1-deoxy-D-ribulos-1-ylimino)methylamino]-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide; N-(5-phospho-beta-D-ribosyl)anthranilate	0
+SYS_11172_METH	COMP_11172_CATALYTIC	K24042	curated	RHEA:11172	methionine_biosynthesis_sulfhydrylation;methionine_biosynthesis_transsulfuration	2	0	2	multi_reaction_multi_ec	RHEA:11172;RHEA:19821	1	(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate; (6S)-5,6,7,8-tetrahydrofolate; H(+); L-homocysteine; L-methionine; NAD(+); NADH	0
+SYS_22072_ARAB	COMP_22072_CATALYTIC	K24707	curated	RHEA:22072	arabinose_degradation	2	0	2	multi_reaction_one_ec	RHEA:17601;RHEA:22072	1	D-ribulose; D-ribulose 5-phosphate; L-ribulose; L-ribulose 5-phosphate	0
+SYS_21208_PSP	COMP_21208_CATALYTIC	K25528	curated	RHEA:21208	serine_biosynthesis	4	0	2	multi_reaction_one_ec	RHEA:21208;RHEA:24873	1	D-serine; L-serine; O-phospho-D-serine; O-phospho-L-serine	0
+SYS_19265_CDHA	COMP_19265_CDHA	K27497	curated	RHEA:19265	carnitine_to_betaine	2	0	2	multi_reaction_multi_ec	RHEA:19265;RHEA:45716	1	3-dehydrocarnitine; CoA; H2O; N,N,N-trimethylglycyl-CoA; NAD(+); NADH; carnitine; glycine betaine	0
+SYS_10336_ACONITASE	COMP_10336_CATALYTIC	K27802	curated	RHEA:10336	acetyl_coa_to_isocitrate	3	0	2	multi_reaction_multi_ec	RHEA:10336;RHEA:17941	1	(2S,3R)-3-hydroxybutane-1,2,3-tricarboxylate; 2-methyl-cis-aconitate; D-threo-isocitrate; H2O; citrate	0
+SYS_17089_EDA	COMP_17089_CATALYTIC	K28887	curated	RHEA:17089	kdg_degradation	3	0	2	multi_reaction_multi_ec	RHEA:17089;RHEA:24464	1	2-dehydro-3-deoxy-6-phospho-D-galactonate; 2-dehydro-3-deoxy-6-phospho-D-gluconate	0
+SYS_33799_HISD	COMP_33799_CATALYTIC	K00013	curated	RHEA:33799	histidine_biosynthesis	2	0	1	single_reaction	RHEA:20641	0		0
+SYS_33803_HISD	COMP_33803_CATALYTIC	K00013	curated	RHEA:33803	histidine_biosynthesis	2	0	1	single_reaction	RHEA:20641	0		0
+SYS_17737_AROE	COMP_17737_AROE	K00014	curated	RHEA:17737	chorismate_biosynthesis	2	0	1	single_reaction	RHEA:17737	1		0
+SYS_23444_LDH	COMP_23444_CATALYTIC	K00016	curated	RHEA:23444	lactate_formation	1	1	1	single_reaction	RHEA:23444	1		0
+SYS_21432_MDH	COMP_21432_CATALYTIC	K00024	curated	RHEA:21432	fumarate_oxaloacetate_interconversion	3	0	1	single_reaction	RHEA:21432	1		0
+SYS_21432_MDH	COMP_21432_CATALYTIC	K00025	curated	RHEA:21432	fumarate_oxaloacetate_interconversion	3	0	1	single_reaction	RHEA:21432	1		0
+SYS_21432_MDH	COMP_21432_CATALYTIC	K00026	curated	RHEA:21432	fumarate_oxaloacetate_interconversion	3	0	1	single_reaction	RHEA:21432	1		0
+SYS_23632_ICDH_NAD	COMP_23632_CATALYTIC	K00030	curated	RHEA:23632	isocitrate_to_oxoglutarate	1	1	1	single_reaction	RHEA:23632	1		0
+SYS_19629_ICDH_NADP	COMP_19629_CATALYTIC	K00031	curated	RHEA:19629	isocitrate_to_oxoglutarate	1	1	1	single_reaction	RHEA:19629	1		0
+SYS_17813_UXAB	COMP_17813_CATALYTIC	K00041	curated	RHEA:17813	galacturonate_degradation	1	1	1	single_reaction	RHEA:17813	1		0
+SYS_32271_LEUB	COMP_32271_CATALYTIC	K00052	curated	RHEA:32271	leucine_biosynthesis	1	1	1	single_reaction	RHEA:32271	1		0
+SYS_32715_LEUB	COMP_32715_CATALYTIC	K00052	curated	RHEA:32715	oxobutanoate_biosynthesis_citramalate	1	1	1	single_reaction	RHEA:32271	0		0
+SYS_24232_KDUD	COMP_24232_CATALYTIC	K00065	curated	RHEA:24232	pectate_lyase_degradation	1	1	1	single_reaction	RHEA:24232	1		0
+SYS_16197_HBD	COMP_16197_CATALYTIC	K00074	ambiguous	RHEA:16197	butyrate_formation	1	1	1	single_reaction	RHEA:16197	1		0
+SYS_34851_PAAH	COMP_34851_CATALYTIC	K00074	curated	RHEA:34851	phenylacetate_degradation	1	1	1	single_reaction	RHEA:16197	0		0
+SYS_16233_PANE	COMP_16233_CATALYTIC	K00077	curated	RHEA:16233	pantothenate_biosynthesis	1	1	1	single_reaction	RHEA:16233	1		0
+SYS_17845_RIBD2	COMP_17845_CATALYTIC	K00082	curated	RHEA:17845	riboflavin_biosynthesis	1	1	1	single_reaction	RHEA:17845	1		0
+SYS_11708_IMPDH	COMP_11708_CATALYTIC	K00088	curated	RHEA:11708	guanylate_biosynthesis	1	1	1	single_reaction	RHEA:11708	1		0
+SYS_32275_PDXA	COMP_32275_CATALYTIC	K00097	curated	RHEA:32275	plp_biosynthesis_dxp	1	1	1	single_reaction	RHEA:32275	1		0
+SYS_17433_BETA	COMP_17433_BETA	K00108	curated	RHEA:17433	choline_to_betaine	1	1	1	single_reaction	RHEA:17433	1		0
+SYS_15305_BADH	COMP_15305_BADH	K00130	curated	RHEA:15305	choline_to_betaine	1	1	1	single_reaction	RHEA:15305	1		0
+SYS_24284_ASD	COMP_24284_CATALYTIC	K00133	curated	RHEA:24284	aspartate_semialdehyde_biosynthesis	1	1	1	single_reaction	RHEA:24284	1		0
+SYS_13217_SSADH_NAD	COMP_13217_CATALYTIC	K00139	curated	RHEA:13217	oxoglutarate_to_succinate	3	0	1	single_reaction	RHEA:13217	1		0
+SYS_21588_ARGC	COMP_21588_CATALYTIC	K00145	curated	RHEA:21588	ornithine_biosynthesis	2	0	1	single_reaction	RHEA:21588	1		0
+SYS_19541_PROA	COMP_19541_PROA_CATALYTIC	K00147	curated	RHEA:19541	proline_biosynthesis	1	1	1	single_reaction	RHEA:19541	1		0
+SYS_28042_PDH_E1AB	COMP_28042_AB_E1_ALPHA	K00161	curated	RHEA:28042	pyruvate_to_acetyl_coa	1	1	1	single_reaction	RHEA:19189	0		0
+SYS_28042_PDH_E1AB	COMP_28042_AB_E1_BETA	K00162	curated	RHEA:28042	pyruvate_to_acetyl_coa	1	1	1	single_reaction	RHEA:19189	0		0
+SYS_28042_PDH_E1	COMP_28042_E1_FUSED	K00163	curated	RHEA:28042	pyruvate_to_acetyl_coa	1	1	1	single_reaction	RHEA:19189	0		0
+SYS_27786_ODH_COMPLEX	COMP_27786_E1	K00164	curated	RHEA:27786	oxoglutarate_to_succinate	1	1	1	single_reaction	RHEA:12188	0		0
+SYS_21640_PDHN	COMP_21640_CATALYTIC	K00211	curated	RHEA:21640	tyrosine_biosynthesis	1	1	1	single_reaction	RHEA:21640	1		0
+SYS_23824_ENTA	COMP_23824_ENTA	K00216	curated	RHEA:23824	dihydroxybenzoate_biosynthesis	1	1	1	single_reaction	RHEA:23824	1		0
+SYS_30059_FUMARATE	COMP_30059_CATALYTIC	K00226	curated	RHEA:30059	pyrimidine_core_biosynthesis	1	1	1	single_reaction	RHEA:30059	1		0
+SYS_18257_HEMF	COMP_18257_HEMF	K00228	curated	RHEA:18257	heme_b_biosynthesis	1	1	1	single_reaction	RHEA:18257	1		0
+SYS_18405_ALD	COMP_18405_CATALYTIC	K00259	curated	RHEA:18405	alanine_biosynthesis	2	0	1	single_reaction	RHEA:18405	1		0
+SYS_15133_GDH	COMP_15133_GDH	K00260	curated	RHEA:15133	ammonium_assimilation	2	0	1	single_reaction	RHEA:15133	1		0
+SYS_11612_GDHA	COMP_11612_GDHA	K00262	curated	RHEA:11612	ammonium_assimilation	2	0	1	single_reaction	RHEA:11612	1		0
+SYS_15501_GLTBD	COMP_15501_GLTB	K00265	curated	RHEA:15501	ammonium_assimilation	1	1	1	single_reaction	RHEA:15501	1		0
+SYS_15501_GLTBD	COMP_15501_GLTD	K00266	curated	RHEA:15501	ammonium_assimilation	1	1	1	single_reaction	RHEA:15501	1		0
+SYS_25876_NADB	COMP_25876_CATALYTIC	K00278	curated	RHEA:25876	quinolinate_biosynthesis_aspartate	1	1	1	single_reaction	RHEA:25876	1		0
+SYS_12128_GLTS	COMP_12128_GLTS	K00284	curated	RHEA:12128	ammonium_assimilation	1	1	1	single_reaction	RHEA:12128	1		0
+SYS_15009_FOLA	COMP_15009_CATALYTIC	K00287	curated	RHEA:15009	folate_biosynthesis	2	0	1	single_reaction	RHEA:15009	1		0
+SYS_13313_SOXMONO	COMP_13313_MONO	K00301	curated	RHEA:13313	sarcosine_demethylation	1	1	1	single_reaction	RHEA:13313	1		0
+SYS_52856_DMGDH	COMP_52856_DMGDH	K00315	curated	RHEA:52856	betaine_demethylation	1	1	1	single_reaction	RHEA:52856	1		0
+SYS_24628_NIRBD	COMP_24628_NIRB	K00362	curated	RHEA:24628	nitrate_assimilation	1	1	1	single_reaction	RHEA:24628	1		0
+SYS_24628_NIRBD	COMP_24628_NIRD	K00363	curated	RHEA:24628	nitrate_assimilation	1	1	1	single_reaction	RHEA:24628	1		0
+SYS_21368_URICASE	COMP_21368_URICASE	K00365	curated	RHEA:21368	urate_degradation	2	0	1	single_reaction	RHEA:21368	1		0
+SYS_18041_NIRA	COMP_18041_NIRA	K00366	curated	RHEA:18041	nitrate_assimilation	1	1	1	single_reaction	RHEA:18041	1		0
+SYS_21828_NARB	COMP_21828_NARB	K00367	curated	RHEA:21828	nitrate_assimilation	1	1	1	single_reaction	RHEA:21828	1		0
+SYS_13804_CYSJI	COMP_13804_CYSJ	K00380	curated	RHEA:13804	assimilatory_sulfate_reduction	1	1	1	single_reaction	RHEA:13801	0		0
+SYS_13804_CYSJI	COMP_13804_CYSI	K00381	curated	RHEA:13804	assimilatory_sulfate_reduction	1	1	1	single_reaction	RHEA:13801	0		0
+SYS_23132_SIR	COMP_23132_SIR	K00392	curated	RHEA:23132	assimilatory_sulfate_reduction	1	1	1	single_reaction	RHEA:23132	1		0
+SYS_56516_HEMQ	COMP_56516_HEMQ	K00435	curated	RHEA:56516	heme_b_biosynthesis	1	1	1	single_reaction	RHEA:56516	1		0
+SYS_17337_XYLE	COMP_17337_CATALYTIC	K00446	curated	RHEA:17337	catechol_meta_cleavage	2	0	1	single_reaction	RHEA:17337	1		0
+SYS_16165_IAAM	COMP_16165_CATALYTIC	K00466	curated	RHEA:16165	indole_3_acetate_biosynthesis	1	1	1	single_reaction	RHEA:16165	1		0
+SYS_45700_GBCAB	COMP_45700_GBCA	K00479	curated	RHEA:45700	betaine_demethylation	1	1	1	single_reaction	RHEA:45700	1		0
+SYS_17769_CMO	COMP_17769_CMO	K00499	curated	RHEA:17769	choline_to_betaine	1	1	1	single_reaction	RHEA:17769	1		0
+SYS_11172_METH	COMP_11172_CATALYTIC	K00548	curated	RHEA:11172	methionine_biosynthesis_sulfhydrylation;methionine_biosynthesis_transsulfuration	2	0	1	single_reaction	RHEA:11172	1		0
+SYS_32459_COBA	COMP_32459_CATALYTIC	K00589	curated	RHEA:32459	corrin_ring_biosynthesis;siroheme_biosynthesis	5	0	1	single_reaction	RHEA:32459	1		0
+SYS_15053_FOLATE	COMP_15053_CATALYTIC	K00601	curated	RHEA:15053	purine_core_biosynthesis	4	0	1	single_reaction	RHEA:15053	1		0
+SYS_11824_PANB	COMP_11824_CATALYTIC	K00606	curated	RHEA:11824	pantothenate_biosynthesis	1	1	1	single_reaction	RHEA:11824	1		0
+SYS_20013_MONOMER	COMP_20013_MONOMER	K00608	curated	RHEA:20013	pyrimidine_core_biosynthesis	3	0	1	single_reaction	RHEA:20013	1		0
+SYS_20013_CATALYTIC	COMP_20013_CATALYTIC	K00609	curated	RHEA:20013	pyrimidine_core_biosynthesis	1	1	1	single_reaction	RHEA:20013	1		0
+SYS_19513_ARGF	COMP_19513_CATALYTIC	K00611	curated	RHEA:19513	arginine_biosynthesis;arginine_deiminase_pathway	1	1	1	single_reaction	RHEA:19513	1		0
+SYS_24292_ARGA	COMP_24292_CATALYTIC	K00618	curated	RHEA:24292	ornithine_biosynthesis	7	0	1	single_reaction	RHEA:24292	1		0
+SYS_24292_ARGA	COMP_24292_CATALYTIC	K00619	curated	RHEA:24292	ornithine_biosynthesis	7	0	1	single_reaction	RHEA:24292	1		0
+SYS_19521_PTA	COMP_19521_CATALYTIC	K00625	curated	RHEA:19521	acetate_interconversion	3	0	1	single_reaction	RHEA:19521	1		0
+SYS_21036_THIOLASE	COMP_21036_CATALYTIC	K00626	ambiguous	RHEA:21036	butyrate_formation	1	1	1	single_reaction	RHEA:21036	1		0
+SYS_24560_CYSE	COMP_24560_CATALYTIC	K00640	curated	RHEA:24560	cysteine_biosynthesis_homocysteine;cysteine_biosynthesis_sulfide	2	0	1	single_reaction	RHEA:24560	1		0
+SYS_11844_PFL	COMP_11844_LYASE	K00656	curated	RHEA:11844	pyruvate_to_acetyl_coa	1	1	1	single_reaction	RHEA:11844	1		0
+SYS_27786_ODH_COMPLEX	COMP_27786_E2	K00658	curated	RHEA:27786	oxoglutarate_to_succinate	1	1	1	single_reaction	RHEA:15213	0		0
+SYS_17325_DAPD	COMP_17325_CATALYTIC	K00674	curated	RHEA:17325	dap_biosynthesis	1	1	1	single_reaction	RHEA:17325	1		0
+SYS_10380_OPRT	COMP_10380_CATALYTIC	K00762	curated	RHEA:10380	pyrimidine_core_biosynthesis	2	0	1	single_reaction	RHEA:10380	1		0
+SYS_36163_PNCB	COMP_36163_CATALYTIC	K00763	curated	RHEA:36163	namn_salvage_nicotinate	1	1	1	single_reaction	RHEA:36163	1		0
+SYS_14905_PURF	COMP_14905_CATALYTIC	K00764	curated	RHEA:14905	purine_core_biosynthesis	1	1	1	single_reaction	RHEA:14905	1		0
+SYS_18473_HISG	COMP_18473_CATALYTIC	K00765	curated	RHEA:18473	histidine_biosynthesis	1	1	1	single_reaction	RHEA:18473	1		0
+SYS_11768_TRPD	COMP_11768_CATALYTIC	K00766	curated	RHEA:11768	tryptophan_biosynthesis	2	0	1	single_reaction	RHEA:11768	1		0
+SYS_12733_NADC	COMP_12733_CATALYTIC	K00767	curated	RHEA:12733	namn_biosynthesis_quinolinate	1	1	1	single_reaction	RHEA:12733	1		0
+SYS_11196_COBT	COMP_11196_CATALYTIC	K00768	curated	RHEA:11196	cobamide_nucleotide_loop_assembly	1	1	1	single_reaction	RHEA:11196	1		0
+SYS_20772_RIBE	COMP_20772_CATALYTIC	K00793	curated	RHEA:20772	riboflavin_biosynthesis	1	1	1	single_reaction	RHEA:20772	1		0
+SYS_26152_RIBH	COMP_26152_CATALYTIC	K00794	curated	RHEA:26152	riboflavin_biosynthesis	1	1	1	single_reaction	RHEA:26152	1		0
+SYS_19949_FOLP	COMP_19949_CATALYTIC	K00796	curated	RHEA:19949	folate_biosynthesis	3	0	1	single_reaction	RHEA:19949	1		0
+SYS_21256_AROA	COMP_21256_CATALYTIC	K00800	curated	RHEA:21256	chorismate_biosynthesis	1	1	1	single_reaction	RHEA:21256	1		0
+SYS_15093_AROAT	COMP_15093_CATALYTIC	K00812	curated	RHEA:15093	tyrosine_biosynthesis	6	0	1	single_reaction	RHEA:21824	0		0
+SYS_21824_ASPAT	COMP_21824_CATALYTIC	K00812	curated	RHEA:21824	aspartate_biosynthesis	3	0	1	single_reaction	RHEA:21824	1		0
+SYS_25152_AROAT	COMP_25152_CATALYTIC	K00812	curated	RHEA:25152	phenylalanine_biosynthesis	6	0	1	single_reaction	RHEA:21824	0		0
+SYS_15093_AROAT	COMP_15093_CATALYTIC	K00813	curated	RHEA:15093	tyrosine_biosynthesis	6	0	1	single_reaction	RHEA:21824	0		0
+SYS_21824_ASPAT	COMP_21824_CATALYTIC	K00813	curated	RHEA:21824	aspartate_biosynthesis	3	0	1	single_reaction	RHEA:21824	1		0
+SYS_25152_AROAT	COMP_25152_CATALYTIC	K00813	curated	RHEA:25152	phenylalanine_biosynthesis	6	0	1	single_reaction	RHEA:21824	0		0
+SYS_19453_ALAA	COMP_19453_ALAA_CATALYTIC	K00814	curated	RHEA:19453	alanine_biosynthesis	3	0	1	single_reaction	RHEA:19453	1		0
+SYS_23744_HISC	COMP_23744_CATALYTIC	K00817	curated	RHEA:23744	histidine_biosynthesis	1	1	1	single_reaction	RHEA:23744	1		0
+SYS_18049_ARGD	COMP_18049_CATALYTIC	K00818	curated	RHEA:18049	ornithine_biosynthesis	2	0	1	single_reaction	RHEA:18049	1		0
+SYS_16861_BIOA	COMP_16861_CATALYTIC	K00833	curated	RHEA:16861	biotin_biosynthesis	2	0	1	single_reaction	RHEA:16861	1		0
+SYS_19453_AVTA	COMP_19453_AVTA_CATALYTIC	K00835	curated	RHEA:19453	alanine_biosynthesis	1	1	1	single_reaction	RHEA:22912	0		0
+SYS_11160_ECTB	COMP_11160_ECTB	K00836	curated	RHEA:11160	ectoine_biosynthesis	1	1	1	single_reaction	RHEA:11160	1		0
+SYS_20117_RHAB	COMP_20117_CATALYTIC	K00848	curated	RHEA:20117	rhamnose_degradation	1	1	1	single_reaction	RHEA:20117	1		0
+SYS_13553_GALK	COMP_13553_CATALYTIC	K00849	curated	RHEA:13553	galactose_degradation_leloir	1	1	1	single_reaction	RHEA:13553	1		0
+SYS_10964_XYLB	COMP_10964_CATALYTIC	K00854	curated	RHEA:10964	xylose_degradation_isomerase	1	1	1	single_reaction	RHEA:10964	1		0
+SYS_24152_CYSC	COMP_24152_CYSC	K00860	curated	RHEA:24152	assimilatory_sulfate_reduction	1	1	1	single_reaction	RHEA:24152	1		0
+SYS_13985_HSK	COMP_13985_CATALYTIC	K00872	curated	RHEA:13985	methionine_biosynthesis_transsulfuration;threonine_biosynthesis	3	0	1	single_reaction	RHEA:13985	1		0
+SYS_14797_KDGK	COMP_14797_CATALYTIC	K00874	curated	RHEA:14797	kdg_degradation	1	1	1	single_reaction	RHEA:14797	1		0
+SYS_24212_THIM	COMP_24212_CATALYTIC	K00878	curated	RHEA:24212	thiamine_precursor_salvage	1	1	1	single_reaction	RHEA:24212	1		0
+SYS_12376_FUCK	COMP_12376_CATALYTIC	K00879	curated	RHEA:12376	fucose_degradation_isomerase	1	1	1	single_reaction	RHEA:12376	1		0
+SYS_17417_NAGK	COMP_17417_CATALYTIC	K00884	curated	RHEA:17417	glcnac_degradation	3	0	1	single_reaction	RHEA:17417	1		0
+SYS_13121_AROKL	COMP_13121_CATALYTIC	K00891	curated	RHEA:13121	chorismate_biosynthesis	1	1	1	single_reaction	RHEA:13121	1		0
+SYS_11352_ACKA	COMP_11352_CATALYTIC	K00925	curated	RHEA:11352	acetate_interconversion	1	1	1	single_reaction	RHEA:11352	1		0
+SYS_10152_ARCC	COMP_10152_CATALYTIC	K00926	curated	RHEA:10152	arginine_deiminase_pathway	1	1	1	single_reaction	RHEA:10152	1		0
+SYS_23776_AK	COMP_23776_CATALYTIC	K00928	curated	RHEA:23776	aspartate_semialdehyde_biosynthesis	4	0	1	single_reaction	RHEA:23776	1		0
+SYS_14629_ARGB	COMP_14629_CATALYTIC	K00930	curated	RHEA:14629	ornithine_biosynthesis	3	0	1	single_reaction	RHEA:14629	1		0
+SYS_14877_PROB	COMP_14877_PROB_CATALYTIC	K00931	curated	RHEA:14877	proline_biosynthesis	1	1	1	single_reaction	RHEA:14877	1		0
+SYS_23148_PROPIONATE_KINASE	COMP_23148_CATALYTIC	K00932	curated	RHEA:23148	propionate_formation_propanediol	2	0	1	single_reaction	RHEA:23148	1		0
+SYS_11412_FOLK	COMP_11412_CATALYTIC	K00950	curated	RHEA:11412	folate_biosynthesis	4	0	1	single_reaction	RHEA:11412	1		0
+SYS_18136_CYSDN	COMP_18136_CYSN	K00956	curated	RHEA:18136	assimilatory_sulfate_reduction	1	1	1	single_reaction	RHEA:18133	0		0
+SYS_18136_CYSDN	COMP_18136_CYSD	K00957	curated	RHEA:18136	assimilatory_sulfate_reduction	1	1	1	single_reaction	RHEA:18133	0		0
+SYS_18136_CYSD_CYSNC	COMP_18136_CYSD_FUS	K00957	curated	RHEA:18136	assimilatory_sulfate_reduction	1	1	1	single_reaction	RHEA:18133	0		0
+SYS_18136_MET3	COMP_18136_MET3	K00958	curated	RHEA:18136	assimilatory_sulfate_reduction	1	1	1	single_reaction	RHEA:18133	0		0
+SYS_13989_GALT	COMP_13989_CATALYTIC	K00965	curated	RHEA:13989	galactose_degradation_leloir	1	1	1	single_reaction	RHEA:13989	1		0
+SYS_22860_NADD	COMP_22860_CATALYTIC	K00969	curated	RHEA:22860	nad_biosynthesis_namn	2	0	1	single_reaction	RHEA:22860	1		0
+SYS_15641_OAD_SOLUBLE	COMP_15641_SOLUBLE	K01003	curated	RHEA:15641	citrate_fermentation	1	1	1	single_reaction	RHEA:15641	1		0
+SYS_22060_BIOB	COMP_22060_CATALYTIC	K01012	curated	RHEA:22060	biotin_biosynthesis	1	1	1	single_reaction	RHEA:22060	1		0
+SYS_LACTATE_COAT_PCT	COMP_LACTATE_COAT_CATALYTIC	K01026	curated	RXN_LACTATE_COA_TRANSFER	propionate_formation_acrylate	1	1	1	single_reaction	RHEA:23520			0
+SYS_12048_PCAIJ	COMP_12048_ALPHA	K01031	curated	RHEA:12048	oxoadipate_activation	1	1	1	single_reaction	RHEA:12048	1		0
+SYS_12048_PCAIJ	COMP_12048_BETA	K01032	curated	RHEA:12048	oxoadipate_activation	1	1	1	single_reaction	RHEA:12048	1		0
+SYS_PECTINESTERASE	COMP_PECTINESTERASE	K01051	curated	RXN_PECTIN_DEMETHYL	pectate_lyase_degradation;pectin_degradation	21	0	1	single_reaction	RHEA:22380			0
+SYS_10184_PCAD	COMP_10184_PCAD	K01055	curated	RHEA:10184	catechol_ortho_cleavage	1	1	1	single_reaction	RHEA:10184	1		0
+SYS_GALNACASE	COMP_GALNACASE	K01204	curated	RXN_MUCIN_GALNAC_RELEASE	mucin_galnac_release	4	0	1	single_reaction	RHEA:15085			0
+SYS_FUCOSIDASE	COMP_FUCOSIDASE	K01206	curated	RXN_MUCIN_FUCOSE_RELEASE	mucin_fucose_release	24	0	1	single_reaction	RHEA:12288			0
+SYS_EXO_PG	COMP_EXO_PG	K01213	curated	RXN_OLIGOGALACTURONIDE_EXO	pectin_degradation	10	0	1	single_reaction	RHEA:14117			0
+SYS_20557_UREABC	COMP_20557_ALPHA	K01428	curated	RHEA:20557	urea_hydrolysis	1	1	1	single_reaction	RHEA:20557	1		0
+SYS_20557_UREABC	COMP_20557_BETA	K01429	curated	RHEA:20557	urea_hydrolysis	2	0	1	single_reaction	RHEA:20557	1		0
+SYS_20557_UREABC	COMP_20557_GAMMA	K01430	curated	RHEA:20557	urea_hydrolysis	2	0	1	single_reaction	RHEA:20557	1		0
+SYS_15941_ARGE	COMP_15941_CATALYTIC	K01438	curated	RHEA:15941	ornithine_biosynthesis	2	0	1	single_reaction	RHEA:15941	1		0
+SYS_22608_DAPE	COMP_22608_CATALYTIC	K01439	curated	RHEA:22608	dap_biosynthesis	1	1	1	single_reaction	RHEA:22608	1		0
+SYS_22936_NAGA	COMP_22936_CATALYTIC	K01443	curated	RHEA:22936	glcnac_degradation;neuac_degradation	1	1	1	single_reaction	RHEA:22936	1		0
+SYS_24296_DIHYDROOROTASE	COMP_24296_CATALYTIC	K01465	curated	RHEA:24296	pyrimidine_core_biosynthesis	2	0	1	single_reaction	RHEA:24296	1		0
+SYS_17029_ALLB	COMP_17029_ALLB	K01466	curated	RHEA:17029	allantoin_degradation	2	0	1	single_reaction	RHEA:17029	1		0
+SYS_23660_HUTI	COMP_23660_CATALYTIC	K01468	curated	RHEA:23660	histidine_degradation_glutamate	1	1	1	single_reaction	RHEA:23660	1		0
+SYS_14533_CRNA	COMP_14533_CRNA	K01470	curated	RHEA:14533	creatinine_degradation	1	1	1	single_reaction	RHEA:14533	1		0
+SYS_11016_ALC	COMP_11016_ALC	K01477	curated	RHEA:11016	allantoin_degradation	1	1	1	single_reaction	RHEA:11016	1		0
+SYS_19597_ARCA	COMP_19597_CATALYTIC	K01478	curated	RHEA:19597	arginine_deiminase_pathway	1	1	1	single_reaction	RHEA:19597	1		0
+SYS_22492_HUTG	COMP_22492_CATALYTIC	K01479	curated	RHEA:22492	histidine_degradation_glutamate	1	1	1	single_reaction	RHEA:22492	1		0
+SYS_11304_ALLA	COMP_11304_ALLA	K01483	curated	RHEA:11304	allantoin_degradation	1	1	1	single_reaction	RHEA:11304	1		0
+SYS_17473_FOLE	COMP_17473_CATALYTIC	K01495	curated	RHEA:17473	folate_biosynthesis	3	0	1	single_reaction	RHEA:17473	1		0
+SYS_20049_HISI	COMP_20049_CATALYTIC	K01496	curated	RHEA:20049	histidine_biosynthesis	3	0	1	single_reaction	RHEA:20049	1		0
+SYS_23704_RIBA	COMP_23704_CATALYTIC	K01497	curated	RHEA:23704	riboflavin_biosynthesis	1	1	1	single_reaction	RHEA:23704	1		0
+SYS_21868_RIBD	COMP_21868_CATALYTIC	K01498	curated	RHEA:21868	riboflavin_biosynthesis	1	1	1	single_reaction	RHEA:21868	1		0
+SYS_22828_HISE	COMP_22828_CATALYTIC	K01523	curated	RHEA:22828	histidine_biosynthesis	3	0	1	single_reaction	RHEA:22828	1		0
+SYS_15641_OAD_NA	COMP_15641_OADA	K01571	curated	RHEA:15641	citrate_fermentation	1	1	1	single_reaction	RHEA:57724	0		0
+SYS_21580_BUDA	COMP_21580_CATALYTIC	K01575	curated	RHEA:21580	acetoin_formation	1	1	1	single_reaction	RHEA:21580	1		0
+SYS_19497_PAND	COMP_19497_CATALYTIC	K01579	curated	RHEA:19497	pantothenate_biosynthesis	1	1	1	single_reaction	RHEA:19497	1		0
+SYS_17785_GAD	COMP_17785_CATALYTIC	K01580	curated	RHEA:17785	glutamate_decarboxylation_gaba	1	1	1	single_reaction	RHEA:17785	1		0
+SYS_15101_LYSA	COMP_15101_CATALYTIC	K01586	curated	RHEA:15101	lysine_biosynthesis_dap	2	0	1	single_reaction	RHEA:15101	1		0
+SYS_13193_N5CAIR_MUTASE	COMP_13193_CATALYTIC	K01588	curated	RHEA:13193	purine_core_biosynthesis	1	1	1	single_reaction	RHEA:13193	1		0
+SYS_19317_N5CAIR_SYNTHASE	COMP_19317_CATALYTIC	K01589	curated	RHEA:19317	purine_core_biosynthesis	1	1	1	single_reaction	RHEA:19317	1		0
+SYS_11596_OMP_DECARBOXYLASE	COMP_11596_CATALYTIC	K01591	curated	RHEA:11596	pyrimidine_core_biosynthesis	2	0	1	single_reaction	RHEA:11596	1		0
+SYS_19865_HEME	COMP_19865_HEME	K01599	curated	RHEA:19865	heme_b_biosynthesis	1	1	1	single_reaction	RHEA:19865	1		0
+SYS_23476_TRPC	COMP_23476_CATALYTIC	K01609	curated	RHEA:23476	tryptophan_biosynthesis	4	0	1	single_reaction	RHEA:23476	1		0
+SYS_24260_XYLI	COMP_24260_CATALYTIC	K01617	curated	RHEA:24260	catechol_meta_cleavage	1	1	1	single_reaction	RHEA:24260	1		0
+SYS_14717_CLASSI	COMP_14717_CLASSI	K01626	curated	RHEA:14717	chorismate_biosynthesis	1	1	1	single_reaction	RHEA:14717	1		0
+SYS_12933_FUCA	COMP_12933_CATALYTIC	K01628	curated	RHEA:12933	fucose_degradation_isomerase	1	1	1	single_reaction	RHEA:12933	1		0
+SYS_19689_RHAD	COMP_19689_CATALYTIC	K01629	curated	RHEA:19689	rhamnose_degradation	1	1	1	single_reaction	RHEA:19689	1		0
+SYS_18181_MALS	COMP_18181_CATALYTIC	K01638	curated	RHEA:18181	glyoxylate_bypass	1	1	1	single_reaction	RHEA:18181	1		0
+SYS_23296_NANA	COMP_23296_CATALYTIC	K01639	curated	RHEA:23296	neuac_degradation	1	1	1	single_reaction	RHEA:23296	1		0
+SYS_10760_CITLYASE	COMP_10760_CITF	K01643	curated	RHEA:10760	citrate_fermentation	1	1	1	single_reaction	RHEA:19405	0		0
+SYS_10760_CITLYASE	COMP_10760_CITE	K01644	curated	RHEA:10760	citrate_fermentation	1	1	1	single_reaction	RHEA:20812	0		0
+SYS_16845_CS_SI	COMP_16845_CS_SI	K01647	curated	RHEA:16845	acetyl_coa_to_isocitrate	1	1	1	single_reaction	RHEA:16845	1		0
+SYS_21524_LEUA	COMP_21524_CATALYTIC	K01649	curated	RHEA:21524	leucine_biosynthesis	1	1	1	single_reaction	RHEA:21524	1		0
+SYS_21732_TRPEG	COMP_21732_TRPEG_COMP1	K01657	curated	RHEA:21732	tryptophan_biosynthesis	1	1	1	single_reaction	RHEA:21732	1		0
+SYS_21732_TRPEG	COMP_21732_TRPEG_COMP2	K01658	curated	RHEA:21732	tryptophan_biosynthesis	1	1	1	single_reaction	RHEA:21732	1		0
+SYS_16845_CS_METHYLCITRATE_GROUP	COMP_16845_CS_METHYLCITRATE_GROUP	K01659	ambiguous	RHEA:16845	acetyl_coa_to_isocitrate	1	1	1	single_reaction	RHEA:23780	0		0
+SYS_26562_MENB	COMP_26562_CATALYTIC	K01661	curated	RHEA:26562	menaquinone_biosynthesis	1	1	1	single_reaction	RHEA:26562	1		0
+SYS_24793_HISF_FUSED	COMP_24793_HISF_FUSED_CATALYTIC	K01663	curated	RHEA:24793	histidine_biosynthesis	1	1	1	single_reaction	RHEA:24793	1		0
+SYS_11672_PABB	COMP_11672_CATALYTIC	K01665	curated	RHEA:11672	paba_biosynthesis	2	0	1	single_reaction	RHEA:11672	1		0
+SYS_22624_MHPE	COMP_22624_MHPE	K01666	curated	RHEA:22624	oxopentenoate_degradation	1	1	1	single_reaction	RHEA:22624	1		0
+SYS_19553_TNAA	COMP_19553_CATALYTIC	K01667	curated	RHEA:19553	tryptophan_degradation_indole	1	1	1	single_reaction	RHEA:19553	1		0
+SYS_12460_FUMA_SINGLE	COMP_12460_FUMA	K01676	curated	RHEA:12460	fumarate_oxaloacetate_interconversion	1	1	1	single_reaction	RHEA:12460	1		0
+SYS_12460_FUMAB	COMP_12460_FUMA_ALPHA	K01677	curated	RHEA:12460	fumarate_oxaloacetate_interconversion	1	1	1	single_reaction	RHEA:12460	1		0
+SYS_12460_FUMAB	COMP_12460_FUMB_BETA	K01678	curated	RHEA:12460	fumarate_oxaloacetate_interconversion	1	1	1	single_reaction	RHEA:12460	1		0
+SYS_12460_FUMC	COMP_12460_FUMC	K01679	curated	RHEA:12460	fumarate_oxaloacetate_interconversion	1	1	1	single_reaction	RHEA:12460	1		0
+SYS_10336_ACONITASE	COMP_10336_CATALYTIC	K01681	curated	RHEA:10336	acetyl_coa_to_isocitrate	3	0	1	single_reaction	RHEA:10336	1		0
+SYS_15957_MONOMER	COMP_15957_CATALYTIC	K01685	curated	RHEA:15957	galacturonate_degradation	1	1	1	single_reaction	RHEA:15957	1		0
+SYS_20097_UXUA	COMP_20097_CATALYTIC	K01686	curated	RHEA:20097	glucuronate_degradation	2	0	1	single_reaction	RHEA:20097	1		0
+SYS_11040_HISB_DEHYDRATASE	COMP_11040_HISB_DEHYDRATASE_CATALYTIC	K01693	curated	RHEA:11040	histidine_biosynthesis	1	1	1	single_reaction	RHEA:11040	1		0
+SYS_10532_TRPAB_FUSED	COMP_10532_TRPAB_FUSED_CATALYTIC	K01694	curated	RHEA:10532	tryptophan_biosynthesis	1	1	1	single_reaction	RHEA:10532	1		0
+SYS_10532_TRPAB	COMP_10532_TRPAB_ALPHA	K01695	curated	RHEA:10532	tryptophan_biosynthesis	1	1	1	single_reaction	RHEA:10532	1		0
+SYS_10532_TRPAB	COMP_10532_TRPAB_BETA	K01696	curated	RHEA:10532	tryptophan_biosynthesis	2	0	1	single_reaction	RHEA:10532	1		0
+SYS_10112_CBS	COMP_10112_CATALYTIC	K01697	curated	RHEA:10112	cysteine_biosynthesis_homocysteine	2	0	1	single_reaction	RHEA:10112	1		0
+SYS_14569_PDUCDE	COMP_14569_PDUC	K01699	curated	RHEA:14569	propionate_formation_propanediol	1	1	1	single_reaction	RHEA:14569	1		0
+SYS_10676_LEUC_SINGLE	COMP_10676_LEUC_SINGLE_CATALYTIC	K01702	curated	RHEA:10676	leucine_biosynthesis	1	1	1	single_reaction	RHEA:32287	0		0
+SYS_16293_LEUC_SINGLE	COMP_16293_LEUC_SINGLE_CATALYTIC	K01702	curated	RHEA:16293	leucine_biosynthesis	1	1	1	single_reaction	RHEA:32287	0		0
+SYS_13101_HUTU	COMP_13101_CATALYTIC	K01712	curated	RHEA:13101	histidine_degradation_glutamate	1	1	1	single_reaction	RHEA:13101	1		0
+SYS_34171_DAPA	COMP_34171_CATALYTIC	K01714	curated	RHEA:34171	dap_biosynthesis	1	1	1	single_reaction	RHEA:34171	1		0
+SYS_26558_CROTONASE	COMP_26558_CATALYTIC	K01715	ambiguous	RHEA:26558	butyrate_formation	1	1	1	single_reaction	RHEA:52664	0		0
+SYS_20269_OGL	COMP_20269_CATALYTIC	K01730	curated	RHEA:20269	pectate_lyase_degradation	1	1	1	single_reaction	RHEA:20269	1		0
+SYS_57104_PELWX	COMP_57104_CATALYTIC	K01731	curated	RHEA:57104	pectate_lyase_degradation	7	0	1	single_reaction	RHEA:57104	1		0
+SYS_10840_THRC	COMP_10840_CATALYTIC	K01733	curated	RHEA:10840	threonine_biosynthesis	1	1	1	single_reaction	RHEA:10840	1		0
+SYS_21968_AROB	COMP_21968_CATALYTIC	K01735	curated	RHEA:21968	chorismate_biosynthesis	1	1	1	single_reaction	RHEA:21968	1		0
+SYS_21020_AROC	COMP_21020_CATALYTIC	K01736	curated	RHEA:21020	chorismate_biosynthesis	1	1	1	single_reaction	RHEA:21020	1		0
+SYS_14829_OASS	COMP_14829_CATALYTIC	K01738	curated	RHEA:14829	cysteine_biosynthesis_sulfide	3	0	1	single_reaction	RHEA:14829	1		0
+SYS_20397_METB	COMP_20397_CATALYTIC	K01739	curated	RHEA:20397	methionine_biosynthesis_transsulfuration	1	1	1	single_reaction	RHEA:20397	1		0
+SYS_30931_METB	COMP_30931_CATALYTIC	K01739	curated	RHEA:30931	methionine_biosynthesis_transsulfuration	1	1	1	single_reaction	RHEA:20397	0		0
+SYS_21232_HUTH	COMP_21232_CATALYTIC	K01745	curated	RHEA:21232	histidine_degradation_glutamate	1	1	1	single_reaction	RHEA:21232	1		0
+SYS_19169_SDAA	COMP_19169_CATALYTIC	K01752	curated	RHEA:19169	serine_deamination	2	0	1	single_reaction	RHEA:19169	1		0
+SYS_22108_ILVA	COMP_22108_CATALYTIC	K01754	curated	RHEA:22108	threonine_deamination	2	0	1	single_reaction	RHEA:22108	1		0
+SYS_24020_ARGH	COMP_24020_CATALYTIC	K01755	curated	RHEA:24020	arginine_biosynthesis	2	0	1	single_reaction	RHEA:24020	1		0
+SYS_13965_CBL	COMP_13965_CATALYTIC	K01760	curated	RHEA:13965	methionine_biosynthesis_transsulfuration	2	0	1	single_reaction	RHEA:18121	0		0
+SYS_23800_MGL	COMP_23800_CATALYTIC	K01761	curated	RHEA:23800	methionine_degradation_methanethiol	1	1	1	single_reaction	RHEA:23800	1		0
+SYS_10680_PRDF	COMP_10680_CATALYTIC	K01777	curated	RHEA:10680	proline_reduction_stickland	1	1	1	single_reaction	RHEA:10680	1		0
+SYS_15393_DAPF	COMP_15393_CATALYTIC	K01778	curated	RHEA:15393	dap_biosynthesis	1	1	1	single_reaction	RHEA:15393	1		0
+SYS_22168_GALE	COMP_22168_CATALYTIC	K01784	curated	RHEA:22168	galactose_degradation_leloir	2	0	1	single_reaction	RHEA:22168	1		0
+SYS_14821_ARAA	COMP_14821_CATALYTIC	K01804	curated	RHEA:14821	arabinose_degradation	1	1	1	single_reaction	RHEA:14821	1		0
+SYS_23160_RHAA	COMP_23160_CATALYTIC	K01813	curated	RHEA:23160	rhamnose_degradation	2	0	1	single_reaction	RHEA:23160	1		0
+SYS_15469_HISA	COMP_15469_CATALYTIC	K01814	curated	RHEA:15469	histidine_biosynthesis	2	0	1	single_reaction	RHEA:15469	1		0
+SYS_23896_KDUI	COMP_23896_CATALYTIC	K01815	curated	RHEA:23896	pectate_lyase_degradation	1	1	1	single_reaction	RHEA:23896	1		0
+SYS_21540_TRPF	COMP_21540_CATALYTIC	K01817	curated	RHEA:21540	tryptophan_biosynthesis	4	0	1	single_reaction	RHEA:21540	1		0
+SYS_23160_RHAA	COMP_23160_CATALYTIC	K01820	curated	RHEA:23160	rhamnose_degradation	2	0	1	single_reaction	RHEA:23160	1		0
+SYS_33431_XYLH	COMP_33431_CATALYTIC	K01821	curated	RHEA:33431	catechol_meta_cleavage	1	1	1	single_reaction	RHEA:33431	1		0
+SYS_18985_PCHA	COMP_18985_PCHA	K01851	curated	RHEA:18985	dihydroxybenzoate_biosynthesis;menaquinone_biosynthesis;salicylate_biosynthesis	1	1	1	single_reaction	RHEA:18985	1		0
+SYS_30031_CATB	COMP_30031_CATALYTIC	K01856	curated	RHEA:30031	catechol_ortho_cleavage	1	1	1	single_reaction	RHEA:30031	1		0
+SYS_17661_SUCCD	COMP_17661_ALPHA	K01902	curated	RHEA:17661	oxoglutarate_to_succinate	1	1	1	single_reaction	RHEA:17661	1		0
+SYS_17661_SUCCD	COMP_17661_BETA	K01903	curated	RHEA:17661	oxoglutarate_to_succinate	1	1	1	single_reaction	RHEA:17661	1		0
+SYS_10760_CITLYASE	COMP_10760_CITC	K01910	curated	RHEA:10760	citrate_fermentation	1	1	1	single_reaction	RHEA:23788	0		0
+SYS_17009_MENE	COMP_17009_CATALYTIC	K01911	curated	RHEA:17009	menaquinone_biosynthesis	1	1	1	single_reaction	RHEA:17009	1		0
+SYS_20956_PAAK	COMP_20956_CATALYTIC	K01912	curated	RHEA:20956	phenylacetate_degradation	2	0	1	single_reaction	RHEA:20956	1		0
+SYS_11372_ASNA	COMP_11372_CATALYTIC	K01914	curated	RHEA:11372	asparagine_biosynthesis	1	1	1	single_reaction	RHEA:11372	1		0
+SYS_16169_GLNA	COMP_16169_GLNA	K01915	curated	RHEA:16169	ammonium_assimilation;glutamine_biosynthesis	1	1	1	single_reaction	RHEA:16169	1		0
+SYS_21188_NADE	COMP_21188_CATALYTIC	K01916	curated	RHEA:21188	nad_biosynthesis_namn	1	1	1	single_reaction	RHEA:21188	1		0
+SYS_10912_PANC	COMP_10912_CATALYTIC	K01918	curated	RHEA:10912	pantothenate_biosynthesis	2	0	1	single_reaction	RHEA:10912	1		0
+SYS_22628_SAICAR	COMP_22628_CATALYTIC	K01923	curated	RHEA:22628	purine_core_biosynthesis	3	0	1	single_reaction	RHEA:22628	1		0
+SYS_23032_AIR_SYNTHASE	COMP_23032_CATALYTIC	K01933	curated	RHEA:23032	purine_core_biosynthesis	3	0	1	single_reaction	RHEA:23032	1		0
+SYS_15805_BIOD	COMP_15805_CATALYTIC	K01935	curated	RHEA:15805	biotin_biosynthesis	2	0	1	single_reaction	RHEA:15805	1		0
+SYS_26426_CTP_SYNTHASE	COMP_26426_CATALYTIC	K01937	curated	RHEA:26426	cytidylate_biosynthesis	1	1	1	single_reaction	RHEA:26426	1		0
+SYS_15753_ADSS	COMP_15753_CATALYTIC	K01939	curated	RHEA:15753	adenylate_biosynthesis	1	1	1	single_reaction	RHEA:15753	1		0
+SYS_10932_ARGG	COMP_10932_CATALYTIC	K01940	curated	RHEA:10932	arginine_biosynthesis	1	1	1	single_reaction	RHEA:10932	1		0
+SYS_17453_MONOMER	COMP_17453_CATALYTIC	K01945	curated	RHEA:17453	purine_core_biosynthesis	4	0	1	single_reaction	RHEA:17453	1		0
+SYS_24384_NADE_GLN	COMP_24384_CATALYTIC	K01950	curated	RHEA:24384	nad_biosynthesis_namn	1	1	1	single_reaction	RHEA:24384	1		0
+SYS_11680_GMP_SYNTHASE	COMP_11680_CATALYTIC	K01951	curated	RHEA:11680	guanylate_biosynthesis	1	1	1	single_reaction	RHEA:11680	1		0
+SYS_17129_LARGE	COMP_17129_LARGE	K01952	curated	RHEA:17129	purine_core_biosynthesis	1	1	1	single_reaction	RHEA:17129	1		0
+SYS_12228_ASNB	COMP_12228_CATALYTIC	K01953	curated	RHEA:12228	asparagine_biosynthesis	1	1	1	single_reaction	RHEA:12228	1		0
+SYS_18633_MONOMER	COMP_18633_MONOMER	K01954	curated	RHEA:18633	pyrimidine_core_biosynthesis	3	0	1	single_reaction	RHEA:18633	1		0
+SYS_18633_HETERODIMER	COMP_18633_LARGE	K01955	curated	RHEA:18633	pyrimidine_core_biosynthesis	1	1	1	single_reaction	RHEA:18633	1		0
+SYS_18633_HETERODIMER	COMP_18633_SMALL	K01956	curated	RHEA:18633	pyrimidine_core_biosynthesis	1	1	1	single_reaction	RHEA:18633	1		0
+SYS_27485_ALLC	COMP_27485_ALLC	K02083	curated	RHEA:27485	allantoin_degradation	1	1	1	single_reaction	RHEA:27485	1		0
+SYS_26285_CBID	COMP_26285_CATALYTIC	K02188	curated	RHEA:26285	corrin_ring_biosynthesis	1	1	1	single_reaction	RHEA:26285	1		0
+SYS_26281_CBIG	COMP_26281_CATALYTIC	K02189	curated	RHEA:26281	corrin_ring_biosynthesis	2	0	1	single_reaction	RHEA:26281	1		0
+SYS_36067_CBIT	COMP_36067_CATALYTIC	K02191	curated	RHEA:36067	corrin_ring_biosynthesis	2	0	1	single_reaction	RHEA:36067	1		0
+SYS_13985_HSK	COMP_13985_CATALYTIC	K02204	curated	RHEA:13985	methionine_biosynthesis_transsulfuration;threonine_biosynthesis	3	0	1	single_reaction	RHEA:13985	1		0
+SYS_18261_COBF	COMP_18261_CATALYTIC	K02228	curated	RHEA:18261	corrin_ring_biosynthesis	1	1	1	single_reaction	RHEA:18261	1		0
+SYS_17293_COBG	COMP_17293_CATALYTIC	K02229	curated	RHEA:17293	corrin_ring_biosynthesis	1	1	1	single_reaction	RHEA:17293	1		0
+SYS_15341_COBNST	COMP_15341_COBN	K02230	curated	RHEA:15341	corrin_ring_biosynthesis	1	1	1	single_reaction	RHEA:15341	1		0
+SYS_23256_CBIP	COMP_23256_CATALYTIC	K02232	curated	RHEA:23256	cobinamide_biosynthesis	1	1	1	single_reaction	RHEA:23256	1		0
+SYS_32459_COBA	COMP_32459_CATALYTIC	K02303	curated	RHEA:32459	corrin_ring_biosynthesis;siroheme_biosynthesis	5	0	1	single_reaction	RHEA:32459	1		0
+SYS_18985_ENTC	COMP_18985_ENTC	K02361	high-confidence	RHEA:18985	dihydroxybenzoate_biosynthesis;menaquinone_biosynthesis;salicylate_biosynthesis	1	1	1	single_reaction	RHEA:18985	1		0
+SYS_15425_HEMN	COMP_15425_HEMN	K02495	curated	RHEA:15425	heme_b_biosynthesis	1	1	1	single_reaction	RHEA:15425	1		0
+SYS_32459_COBA	COMP_32459_CATALYTIC	K02496	curated	RHEA:32459	corrin_ring_biosynthesis;siroheme_biosynthesis	5	0	1	single_reaction	RHEA:32459	1		0
+SYS_24793_HISFH	COMP_24793_HISFH_CYCLASE	K02500	curated	RHEA:24793	histidine_biosynthesis	1	1	1	single_reaction	RHEA:24793	1		0
+SYS_24793_HISFH	COMP_24793_HISFH_AMIDOTRANSFERASE	K02501	curated	RHEA:24793	histidine_biosynthesis	1	1	1	single_reaction	RHEA:24793	1		0
+SYS_10196_MENC	COMP_10196_CATALYTIC	K02549	curated	RHEA:10196	menaquinone_biosynthesis	1	1	1	single_reaction	RHEA:10196	1		0
+SYS_25593_MEND	COMP_25593_CATALYTIC	K02551	curated	RHEA:25593	menaquinone_biosynthesis	1	1	1	single_reaction	RHEA:25593	1		0
+SYS_18985_MENF	COMP_18985_CATALYTIC	K02552	curated	RHEA:18985	dihydroxybenzoate_biosynthesis;menaquinone_biosynthesis;salicylate_biosynthesis	1	1	1	single_reaction	RHEA:18985	1		0
+SYS_22580_MHPD	COMP_22580_MHPD	K02554	curated	RHEA:22580	oxopentenoate_degradation	1	1	1	single_reaction	RHEA:22580	1		0
+SYS_12172_NAGB	COMP_12172_CATALYTIC	K02564	curated	RHEA:12172	glcnac_degradation;neuac_degradation	1	1	1	single_reaction	RHEA:12172	1		0
+SYS_21448_NIF	COMP_21448_NIFD	K02586	curated	RHEA:21448	nitrogen_fixation	1	1	1	single_reaction	RHEA:21448	1		0
+SYS_21448_NIF	COMP_21448_NIFK	K02591	curated	RHEA:21448	nitrogen_fixation	1	1	1	single_reaction	RHEA:21448	1		0
+SYS_32171_PAAABCDE	COMP_32171_PAAA	K02609	curated	RHEA:32171	phenylacetate_degradation	1	1	1	single_reaction	RHEA:32171	1		0
+SYS_32171_PAAABCDE	COMP_32171_PAAC	K02611	curated	RHEA:32171	phenylacetate_degradation	1	1	1	single_reaction	RHEA:32171	1		0
+SYS_16201_PABC	COMP_16201_CATALYTIC	K02619	curated	RHEA:16201	paba_biosynthesis	1	1	1	single_reaction	RHEA:16201	1		0
+SYS_18457_RIBB	COMP_18457_CATALYTIC	K02858	curated	RHEA:18457	riboflavin_biosynthesis	1	1	1	single_reaction	RHEA:18457	1		0
+SYS_22368_ARAD	COMP_22368_CATALYTIC	K03077	curated	RHEA:22368	arabinose_degradation	1	1	1	single_reaction	RHEA:22368	1		0
+SYS_15909_TAUD	COMP_15909_TAUD	K03119	curated	RHEA:15909	taurine_desulfonation_aerobic	1	1	1	single_reaction	RHEA:15909	1		0
+SYS_24840_THIC	COMP_24840_CATALYTIC	K03147	curated	RHEA:24840	hmp_phosphate_biosynthesis	1	1	1	single_reaction	RHEA:24840	1		0
+SYS_26297_THIG	COMP_26297_CATALYTIC	K03149	curated	RHEA:26297	thiazole_phosphate_biosynthesis	1	1	1	single_reaction	RHEA:26297	1		0
+SYS_26361_THIH	COMP_26361_CATALYTIC	K03150	curated	RHEA:26361	thiazole_phosphate_biosynthesis	1	1	1	single_reaction	RHEA:26361	1		0
+SYS_13561_DDH	COMP_13561_CATALYTIC	K03340	curated	RHEA:13561	dap_biosynthesis	1	1	1	single_reaction	RHEA:13561	1		0
+SYS_23852_CATA	COMP_23852_CATALYTIC	K03381	curated	RHEA:23852	catechol_ortho_cleavage	1	1	1	single_reaction	RHEA:23852	1		0
+SYS_34591_CBIE	COMP_34591_CATALYTIC	K03399	curated	RHEA:34591	corrin_ring_biosynthesis	2	0	1	single_reaction	RHEA:34591	1		0
+SYS_12348_CATC	COMP_12348_CATALYTIC	K03464	curated	RHEA:12348	catechol_ortho_cleavage	1	1	1	single_reaction	RHEA:12348	1		0
+SYS_12056_EPD	COMP_12056_CATALYTIC	K03472	curated	RHEA:12056	plp_biosynthesis_dxp	1	1	1	single_reaction	RHEA:12056	1		0
+SYS_18829_PDXB	COMP_18829_CATALYTIC	K03473	curated	RHEA:18829	plp_biosynthesis_dxp	1	1	1	single_reaction	RHEA:18829	1		0
+SYS_15265_PDXJ	COMP_15265_CATALYTIC	K03474	curated	RHEA:15265	plp_biosynthesis_dxp	1	1	1	single_reaction	RHEA:15265	1		0
+SYS_25888_NADA	COMP_25888_CATALYTIC	K03517	curated	RHEA:25888	quinolinate_biosynthesis_aspartate	1	1	1	single_reaction	RHEA:25888	1		0
+SYS_21096_TYPEI	COMP_21096_TYPEI	K03785	curated	RHEA:21096	chorismate_biosynthesis	1	1	1	single_reaction	RHEA:21096	1		0
+SYS_21096_TYPEII	COMP_21096_TYPEII	K03786	curated	RHEA:21096	chorismate_biosynthesis	1	1	1	single_reaction	RHEA:21096	1		0
+SYS_24360_SIRB	COMP_24360_SIRB	K03794	curated	RHEA:24360	siroheme_biosynthesis	1	1	1	single_reaction	RHEA:24360	1		0
+SYS_24204_XSC	COMP_24204_XSC	K03852	curated	RHEA:24204	taurine_degradation_sulfoacetaldehyde	1	1	1	single_reaction	RHEA:24204	1		0
+SYS_14717_CLASSII	COMP_14717_CLASSII	K03856	curated	RHEA:14717	chorismate_biosynthesis	1	1	1	single_reaction	RHEA:14717	1		0
+SYS_11844_PFL	COMP_11844_ACTIVASE	K04069	curated	RHEA:11844	pyruvate_to_acetyl_coa	1	1	1	single_reaction	RHEA:19225	0		0
+SYS_23288_MHPF	COMP_23288_MHPF	K04073	curated	RHEA:23288	ethanol_formation;oxopentenoate_degradation	1	1	1	single_reaction	RHEA:23288	1		0
+SYS_13897_CM	COMP_13897_CATALYTIC	K04092	curated	RHEA:13897	phenylalanine_biosynthesis;tyrosine_biosynthesis	7	0	1	single_reaction	RHEA:13897	1		0
+SYS_13897_CM	COMP_13897_CATALYTIC	K04093	curated	RHEA:13897	phenylalanine_biosynthesis;tyrosine_biosynthesis	7	0	1	single_reaction	RHEA:13897	1		0
+SYS_14465_HISN	COMP_14465_HISN_CATALYTIC	K04486	curated	RHEA:14465	histidine_biosynthesis	4	0	1	single_reaction	RHEA:14465	1		0
+SYS_13897_CM	COMP_13897_CATALYTIC	K04516	curated	RHEA:13897	phenylalanine_biosynthesis;tyrosine_biosynthesis	7	0	1	single_reaction	RHEA:13897	1		0
+SYS_13869_PDH	COMP_13869_CATALYTIC	K04517	curated	RHEA:13869	tyrosine_biosynthesis	2	0	1	single_reaction	RHEA:13869	1		0
+SYS_21648_PDT	COMP_21648_CATALYTIC	K04518	curated	RHEA:21648	phenylalanine_biosynthesis	4	0	1	single_reaction	RHEA:21648	1		0
+SYS_27345_BLUB	COMP_27345_CATALYTIC	K04719	curated	RHEA:27345	dmb_biosynthesis_aerobic	1	1	1	single_reaction	RHEA:27345	1		0
+SYS_27874_PCHB	COMP_27874_CATALYTIC	K04782	curated	RHEA:27874	salicylate_biosynthesis	1	1	1	single_reaction	RHEA:27874	1		0
+SYS_12633_BENAB	COMP_12633_ALPHA	K05549	curated	RHEA:12633	benzoate_degradation_catechol	1	1	1	single_reaction	RHEA:12633	1		0
+SYS_12633_BENAB	COMP_12633_BETA	K05550	curated	RHEA:12633	benzoate_degradation_catechol	1	1	1	single_reaction	RHEA:12633	1		0
+SYS_14465_HISN	COMP_14465_HISN_CATALYTIC	K05602	curated	RHEA:14465	histidine_biosynthesis	4	0	1	single_reaction	RHEA:14465	1		0
+SYS_11560_BEND	COMP_11560_CATALYTIC	K05783	curated	RHEA:11560	benzoate_degradation_catechol	1	1	1	single_reaction	RHEA:11560	1		0
+SYS_13085_DAPH	COMP_13085_CATALYTIC	K05822	curated	RHEA:13085	dap_biosynthesis	1	1	1	single_reaction	RHEA:13085	1		0
+SYS_20405_DAPL	COMP_20405_CATALYTIC	K05823	curated	RHEA:20405	dap_biosynthesis	1	1	1	single_reaction	RHEA:20405	1		0
+SYS_16845_CS_RE	COMP_16845_CS_RE	K05942	curated	RHEA:16845	acetyl_coa_to_isocitrate	1	1	1	single_reaction	RHEA:16845	1		0
+SYS_10532_TRPAB	COMP_10532_TRPAB_BETA	K06001	curated	RHEA:10532	tryptophan_biosynthesis	2	0	1	single_reaction	RHEA:10532	1		0
+SYS_13897_CM	COMP_13897_CATALYTIC	K06208	curated	RHEA:13897	phenylalanine_biosynthesis;tyrosine_biosynthesis	7	0	1	single_reaction	RHEA:13897	1		0
+SYS_13897_CM	COMP_13897_CATALYTIC	K06209	curated	RHEA:13897	phenylalanine_biosynthesis;tyrosine_biosynthesis	7	0	1	single_reaction	RHEA:13897	1		0
+SYS_31507_PDXST	COMP_31507_PDXS	K06215	curated	RHEA:31507	plp_biosynthesis_r5p	1	1	1	single_reaction	RHEA:31507	1		0
+SYS_16901_ECTA	COMP_16901_ECTA	K06718	curated	RHEA:16901	ectoine_biosynthesis	1	1	1	single_reaction	RHEA:16901	1		0
+SYS_17281_ECTC	COMP_17281_ECTC	K06720	curated	RHEA:17281	ectoine_biosynthesis	1	1	1	single_reaction	RHEA:17281	1		0
+SYS_24836_FORMATE	COMP_24836_CATALYTIC	K06863	curated	RHEA:24836	purine_core_biosynthesis	1	1	1	single_reaction	RHEA:24836	1		0
+SYS_23736_HIUH	COMP_23736_HIUH	K07127	curated	RHEA:23736	urate_degradation	3	0	1	single_reaction	RHEA:23736	1		0
+SYS_24829_FORMATE	COMP_24829_CATALYTIC	K08289	curated	RHEA:24829	purine_core_biosynthesis	1	1	1	single_reaction	RHEA:24829	1		0
+SYS_25302_NUDB	COMP_25302_CATALYTIC	K08310	ambiguous	RHEA:25302	folate_biosynthesis	2	0	1	single_reaction	RHEA:25302	1		0
+SYS_20097_UXUA	COMP_20097_CATALYTIC	K08323	curated	RHEA:20097	glucuronate_degradation	2	0	1	single_reaction	RHEA:20097	1		0
+SYS_25597_MENH	COMP_25597_CATALYTIC	K08680	ambiguous	RHEA:25597	menaquinone_biosynthesis	1	1	1	single_reaction	RHEA:25597	1		0
+SYS_31507_PDXST	COMP_31507_PDXT	K08681	curated	RHEA:31507	plp_biosynthesis_r5p	1	1	1	single_reaction	RHEA:31507	1		0
+SYS_22456_CREA	COMP_22456_CREA	K08688	curated	RHEA:22456	creatinine_degradation	1	1	1	single_reaction	RHEA:22456	1		0
+SYS_17473_FOLE	COMP_17473_CATALYTIC	K09007	curated	RHEA:17473	folate_biosynthesis	3	0	1	single_reaction	RHEA:17473	1		0
+SYS_19045_CIMA	COMP_19045_CATALYTIC	K09011	curated	RHEA:19045	oxobutanoate_biosynthesis_citramalate	1	1	1	single_reaction	RHEA:19045	1		0
+SYS_15341_COBNST	COMP_15341_COBS_SUB	K09882	curated	RHEA:15341	corrin_ring_biosynthesis	1	1	1	single_reaction	RHEA:15341	1		0
+SYS_15341_COBNST	COMP_15341_COBT_SUB	K09883	curated	RHEA:15341	corrin_ring_biosynthesis	1	1	1	single_reaction	RHEA:15341	1		0
+SYS_23988_DAPLT	COMP_23988_CATALYTIC	K10206	curated	RHEA:23988	dap_biosynthesis	1	1	1	single_reaction	RHEA:23988	1		0
+SYS_14549_XYLF	COMP_14549_CATALYTIC	K10216	curated	RHEA:14549	catechol_meta_cleavage	1	1	1	single_reaction	RHEA:14549	1		0
+SYS_30007_ARAFGH	COMP_30007_ATPASE	K10539	curated	RHEA:30007	arabinose_uptake_abc	1	1	1	single_reaction	RHEA:30007	1		0
+SYS_29899_XYLFGH	COMP_29899_ATPASE	K10545	curated	RHEA:29899	xylose_uptake_abc	1	1	1	single_reaction	RHEA:29899	1		0
+SYS_12232_GRD	COMP_12232_B_ALPHABETA	K10671	curated	RHEA:12232	glycine_reduction_stickland	1	1	1	single_reaction	RHEA:12232	1		0
+SYS_12232_GRD	COMP_12232_B_GAMMA	K10672	curated	RHEA:12232	glycine_reduction_stickland	1	1	1	single_reaction	RHEA:12232	1		0
+SYS_12737_PRD	COMP_12737_PRDA	K10793	curated	RHEA:12737	proline_reduction_stickland	1	1	1	single_reaction	RHEA:12737	1		0
+SYS_12737_PRD	COMP_12737_PRDB	K10794	curated	RHEA:12737	proline_reduction_stickland	1	1	1	single_reaction	RHEA:12737	1		0
+SYS_14613_TAUABC	COMP_14613_ATPASE	K10831	curated	RHEA:14613	taurine_uptake_abc	1	1	1	single_reaction	RHEA:14613	1		0
+SYS_15053_FOLATE	COMP_15053_CATALYTIC	K11175	curated	RHEA:15053	purine_core_biosynthesis	4	0	1	single_reaction	RHEA:15053	1		0
+SYS_18445_CYCLASE	COMP_18445_CATALYTIC	K11176	curated	RHEA:18445	purine_core_biosynthesis	2	0	1	single_reaction	RHEA:18445	1		0
+SYS_15093_AROAT	COMP_15093_CATALYTIC	K11358	curated	RHEA:15093	tyrosine_biosynthesis	6	0	1	single_reaction	RHEA:21824	0		0
+SYS_21824_ASPAT	COMP_21824_CATALYTIC	K11358	curated	RHEA:21824	aspartate_biosynthesis	3	0	1	single_reaction	RHEA:21824	1		0
+SYS_25152_AROAT	COMP_25152_CATALYTIC	K11358	curated	RHEA:25152	phenylalanine_biosynthesis	6	0	1	single_reaction	RHEA:21824	0		0
+SYS_40051_MQNA	COMP_40051_CATALYTIC	K11782	curated	RHEA:40051	menaquinone_biosynthesis	1	1	1	single_reaction	RHEA:40051	1		0
+SYS_25904_MQNB	COMP_25904_CATALYTIC	K11783	curated	RHEA:25904	menaquinone_biosynthesis	1	1	1	single_reaction	RHEA:25904	1		0
+SYS_33083_MQNC	COMP_33083_CATALYTIC	K11784	curated	RHEA:33083	menaquinone_biosynthesis	1	1	1	single_reaction	RHEA:33083	1		0
+SYS_33087_MQND	COMP_33087_CATALYTIC	K11785	curated	RHEA:33087	menaquinone_biosynthesis	1	1	1	single_reaction	RHEA:33087	1		0
+SYS_10792_DIRECT	COMP_10792_CATALYTIC	K11808	curated	RHEA:10792	purine_core_biosynthesis	2	0	1	single_reaction	RHEA:10792	1		0
+SYS_21732_TRPEG_FUSED	COMP_21732_TRPEG_FUSED_CATALYTIC	K13503	curated	RHEA:21732	tryptophan_biosynthesis	3	0	1	single_reaction	RHEA:21732	1		0
+SYS_19521_PTA	COMP_19521_CATALYTIC	K13788	curated	RHEA:19521	acetate_interconversion	3	0	1	single_reaction	RHEA:19521	1		0
+SYS_14569_PDUCDE	COMP_14569_PDUD	K13919	curated	RHEA:14569	propionate_formation_propanediol	1	1	1	single_reaction	RHEA:14569	1		0
+SYS_14569_PDUCDE	COMP_14569_PDUE	K13920	curated	RHEA:14569	propionate_formation_propanediol	1	1	1	single_reaction	RHEA:14569	1		0
+SYS_36027_PDUP	COMP_36027_CATALYTIC	K13922	curated	RHEA:36027	propionate_formation_propanediol	1	1	1	single_reaction	RHEA:36027	1		0
+SYS_28046_PDUL	COMP_28046_CATALYTIC	K13923	curated	RHEA:28046	propionate_formation_propanediol	1	1	1	single_reaction	RHEA:28046	1		0
+SYS_11672_PABB	COMP_11672_CATALYTIC	K13950	curated	RHEA:11672	paba_biosynthesis	2	0	1	single_reaction	RHEA:11672	1		0
+SYS_20557_UREABC	COMP_20557_BETA	K14048	curated	RHEA:20557	urea_hydrolysis	2	0	1	single_reaction	RHEA:20557	1		0
+SYS_20557_UREABC	COMP_20557_GAMMA	K14048	curated	RHEA:20557	urea_hydrolysis	2	0	1	single_reaction	RHEA:20557	1		0
+SYS_13965_CBL	COMP_13965_CATALYTIC	K14155	curated	RHEA:13965	methionine_biosynthesis_transsulfuration	2	0	1	single_reaction	RHEA:18121	0		0
+SYS_11960_DAPC	COMP_11960_CATALYTIC	K14267	curated	RHEA:11960	dap_biosynthesis	2	0	1	single_reaction	RHEA:11960	1		0
+SYS_24292_ARGA	COMP_24292_CATALYTIC	K14682	curated	RHEA:24292	ornithine_biosynthesis	7	0	1	single_reaction	RHEA:24292	1		0
+SYS_25241_YLBA	COMP_25241_YLBA	K14977	curated	RHEA:25241	allantoin_degradation	1	1	1	single_reaction	RHEA:25241	1		0
+SYS_19521_PTA	COMP_19521_CATALYTIC	K15024	curated	RHEA:19521	acetate_interconversion	3	0	1	single_reaction	RHEA:19521	1		0
+SYS_30207_MAUAB	COMP_30207_MAUA	K15228	curated	RHEA:30207	methylamine_degradation	1	1	1	single_reaction	RHEA:30207	1		0
+SYS_30207_MAUAB	COMP_30207_MAUB	K15229	curated	RHEA:30207	methylamine_degradation	1	1	1	single_reaction	RHEA:30207	1		0
+SYS_31843_PAAG	COMP_31843_CATALYTIC	K15866	curated	RHEA:31843	phenylacetate_degradation	1	1	1	single_reaction	RHEA:31843	1		0
+SYS_FUCOSIDASE	COMP_FUCOSIDASE	K15923	curated	RXN_MUCIN_FUCOSE_RELEASE	mucin_fucose_release	24	0	1	single_reaction	RHEA:12288			0
+SYS_27329_HPXO	COMP_27329_HPXO	K16839	curated	RHEA:27329	urate_degradation	1	1	1	single_reaction	RHEA:27329	1		0
+SYS_17029_ALLB	COMP_17029_ALLB	K16842	curated	RHEA:17029	allantoin_degradation	2	0	1	single_reaction	RHEA:17029	1		0
+SYS_15957_HETERODIMER	COMP_15957_SMALL	K16849	curated	RHEA:15957	galacturonate_degradation	1	1	1	single_reaction	RHEA:15957	1		0
+SYS_15957_HETERODIMER	COMP_15957_LARGE	K16850	curated	RHEA:15957	galacturonate_degradation	1	1	1	single_reaction	RHEA:15957	1		0
+SYS_32743_MCCA	COMP_32743_CATALYTIC	K17216	curated	RHEA:32743	cysteine_biosynthesis_homocysteine	1	1	1	single_reaction	RHEA:32743	1		0
+SYS_17089_EDA	COMP_17089_CATALYTIC	K17463	curated	RHEA:17089	kdg_degradation	3	0	1	single_reaction	RHEA:17089	1		0
+SYS_22168_GALE	COMP_22168_CATALYTIC	K17716	curated	RHEA:22168	galactose_degradation_leloir	2	0	1	single_reaction	RHEA:22168	1		0
+SYS_19265_CDHA	COMP_19265_CDHA	K17735	curated	RHEA:19265	carnitine_to_betaine	2	0	1	single_reaction	RHEA:19265	1		0
+SYS_13505_CODA	COMP_13505_CODA	K17755	curated	RHEA:13505	choline_to_betaine	1	1	1	single_reaction	RHEA:11536	0		0
+SYS_20369_CODA	COMP_20369_CODA	K17755	curated	RHEA:20369	choline_to_betaine	1	1	1	single_reaction	RHEA:11536	0		0
+SYS_13217_SSADH_NAD	COMP_13217_CATALYTIC	K17761	curated	RHEA:13217	oxoglutarate_to_succinate	3	0	1	single_reaction	RHEA:13217	1		0
+SYS_13513_NAD	COMP_13513_CATALYTIC	K17828	curated	RHEA:13513	pyrimidine_core_biosynthesis	1	1	1	single_reaction	RHEA:13513	1		0
+SYS_33075_MQNE	COMP_33075_CATALYTIC	K18285	curated	RHEA:33075	menaquinone_biosynthesis	1	1	1	single_reaction	RHEA:33075	1		0
+SYS_40075_MQNX	COMP_40075_CATALYTIC	K18286	curated	RHEA:40075	menaquinone_biosynthesis	2	0	1	single_reaction	RHEA:40075	1		0
+SYS_26309_MENI	COMP_26309_CATALYTIC	K19222	ambiguous	RHEA:26309	menaquinone_biosynthesis	1	1	1	single_reaction	RHEA:26309	1		0
+SYS_18405_ALD	COMP_18405_CATALYTIC	K19244	curated	RHEA:18405	alanine_biosynthesis	2	0	1	single_reaction	RHEA:18405	1		0
+SYS_26329_BIOA_LYS	COMP_26329_CATALYTIC	K19563	curated	RHEA:26329	biotin_biosynthesis	1	1	1	single_reaction	RHEA:26329	1		0
+SYS_23148_PROPIONATE_KINASE	COMP_23148_CATALYTIC	K19697	curated	RHEA:23148	propionate_formation_propanediol	2	0	1	single_reaction	RHEA:23148	1		0
+SYS_22712_COBU	COMP_22712_CATALYTIC	K19712	curated	RHEA:22712	cobamide_nucleotide_loop_assembly	2	0	1	single_reaction	RHEA:22712	1		0
+SYS_25302_NUDB	COMP_25302_CATALYTIC	K19965	ambiguous	RHEA:25302	folate_biosynthesis	2	0	1	single_reaction	RHEA:25302	1		0
+SYS_24931_CDS	COMP_24931_CATALYTIC	K20021	curated	RHEA:24931	cysteine_degradation_sulfide	3	0	1	single_reaction	RHEA:24931	1		0
+SYS_34471_ACRC	COMP_34471_CATALYTIC	K20143	curated	RHEA:34471	propionate_formation_acrylate	1	1	1	single_reaction	RHEA:34471	1		0
+SYS_23584_FOLC	COMP_23584_CATALYTIC	K20457	curated	RHEA:23584	folate_biosynthesis	2	0	1	single_reaction	RHEA:23584	1		0
+SYS_34691_LCD	COMP_34691_LCDA	K20626	curated	RHEA:34691	propionate_formation_acrylate	1	1	1	single_reaction	RHEA:34691	1		0
+SYS_34691_LCD	COMP_34691_LCDB	K20627	curated	RHEA:34691	propionate_formation_acrylate	1	1	1	single_reaction	RHEA:34691	1		0
+SYS_40075_MQNX	COMP_40075_CATALYTIC	K20810	curated	RHEA:40075	menaquinone_biosynthesis	2	0	1	single_reaction	RHEA:40075	1		0
+SYS_25197_PHOSPHATASE	COMP_25197_CATALYTIC	K21063	ambiguous	RHEA:25197	riboflavin_biosynthesis	5	0	1	single_reaction	RHEA:25197	1		0
+SYS_25197_PHOSPHATASE	COMP_25197_CATALYTIC	K21064	ambiguous	RHEA:25197	riboflavin_biosynthesis	5	0	1	single_reaction	RHEA:25197	1		0
+SYS_36155_CBIH	COMP_36155_CATALYTIC	K21479	curated	RHEA:36155	corrin_ring_biosynthesis	3	0	1	single_reaction	RHEA:36155	1		0
+SYS_45700_GBCAB	COMP_45700_GBCB	K21832	curated	RHEA:45700	betaine_demethylation	1	1	1	single_reaction	RHEA:45700	1		0
+SYS_46276_MLE	COMP_46276_CATALYTIC	K22212	curated	RHEA:46276	malolactic_fermentation	1	1	1	single_reaction	RHEA:46276	1		0
+SYS_10960_LAR	COMP_10960_LARA	K22373	curated	RHEA:10960	lactate_racemisation	1	1	1	single_reaction	RHEA:10960	1		0
+SYS_17473_FOLE	COMP_17473_CATALYTIC	K22391	curated	RHEA:17473	folate_biosynthesis	3	0	1	single_reaction	RHEA:17473	1		0
+SYS_24292_ARGA	COMP_24292_CATALYTIC	K22477	curated	RHEA:24292	ornithine_biosynthesis	7	0	1	single_reaction	RHEA:24292	1		0
+SYS_55543_VNF	COMP_55543_VNFD	K22896	curated	RHEA:55543	nitrogen_fixation	1	1	1	single_reaction	RHEA:55540	0		0
+SYS_55543_VNF	COMP_55543_VNFK	K22897	curated	RHEA:55543	nitrogen_fixation	1	1	1	single_reaction	RHEA:55540	0		0
+SYS_55543_VNF	COMP_55543_VNFG	K22898	curated	RHEA:55543	nitrogen_fixation	1	1	1	single_reaction	RHEA:55540	0		0
+SYS_EXO_PG	COMP_EXO_PG	K22933	curated	RXN_OLIGOGALACTURONIDE_EXO	pectin_degradation	10	0	1	single_reaction	RHEA:14117			0
+SYS_57104_PELWX	COMP_57104_CATALYTIC	K22994	curated	RHEA:57104	pectate_lyase_degradation	7	0	1	single_reaction	RHEA:57104	1		0
+SYS_17129_TRIMER	COMP_17129_TRI_B	K23264	curated	RHEA:17129	purine_core_biosynthesis	1	1	1	single_reaction	RHEA:17129	1		0
+SYS_17129_TRIMER	COMP_17129_TRI_A	K23269	curated	RHEA:17129	purine_core_biosynthesis	1	1	1	single_reaction	RHEA:17129	1		0
+SYS_17129_DIMER	COMP_17129_DI_A	K23270	curated	RHEA:17129	purine_core_biosynthesis	1	1	1	single_reaction	RHEA:17129	1		0
+SYS_24560_CYSE	COMP_24560_CATALYTIC	K23304	curated	RHEA:24560	cysteine_biosynthesis_homocysteine;cysteine_biosynthesis_sulfide	2	0	1	single_reaction	RHEA:24560	1		0
+SYS_15613_SIRC	COMP_15613_CATALYTIC	K24866	curated	RHEA:15613	corrin_ring_biosynthesis;siroheme_biosynthesis	2	0	1	single_reaction	RHEA:15613	1		0
+SYS_47044_CDHC	COMP_47044_CDHC	K27837	curated	RHEA:47044	carnitine_to_betaine	1	1	1	single_reaction	RHEA:47044	1		0
+SYS_80891_CGS1	COMP_80891_CATALYTIC	K27857	curated	RHEA:80891	methionine_biosynthesis_transsulfuration	1	1	1	single_reaction	RHEA:80891	1		0
+SYS_17417_NAGK	COMP_17417_CATALYTIC	K28207	curated	RHEA:17417	glcnac_degradation	3	0	1	single_reaction	RHEA:17417	1		0
+SYS_17417_NAGK	COMP_17417_CATALYTIC	K28208	curated	RHEA:17417	glcnac_degradation	3	0	1	single_reaction	RHEA:17417	1		0
+SYS_14465_HISN	COMP_14465_HISN_CATALYTIC	K28842	curated	RHEA:14465	histidine_biosynthesis	4	0	1	single_reaction	RHEA:14465	1		0
+SYS_24931_CDS	COMP_24931_CATALYTIC	K28981	curated	RHEA:24931	cysteine_degradation_sulfide	3	0	1	single_reaction	RHEA:24931	1		0
+SYS_21068_NASAC	COMP_21068_CATALYTIC	K00372	curated	RHEA:21068	nitrate_assimilation	1	1	0	partial_ec_only				0
+SYS_25315_DAPX	COMP_25315_CATALYTIC	K00841	curated	RHEA:25315	dap_biosynthesis	1	1	0	partial_ec_only				0
+SYS_AMYLASE	COMP_AMYLASE	K01176	curated	RXN_STARCH_ENDO_1_4	starch_degradation	51	0	0	ec_without_rhea				0
+SYS_XYLANASE	COMP_XYLANASE	K01181	curated	RXN_XYLAN_ENDO_1_4	xylan_degradation	92	0	0	ec_without_rhea				0
+SYS_CHITINASE	COMP_CHITINASE	K01183	curated	RXN_CHITIN_ENDO	chitin_degradation	71	0	0	ec_without_rhea				0
+SYS_ENDO_PG	COMP_ENDO_PG	K01184	curated	RXN_PECTIN_ENDO_PG	pectin_degradation	16	0	0	ec_without_rhea				0
+SYS_SIALIDASE	COMP_SIALIDASE	K01186	curated	RXN_MUCIN_NEUAC_RELEASE	mucin_sialic_acid_release	20	0	0	ec_without_rhea				0
+SYS_GLUCOSIDASE	COMP_GLUCOSIDASE	K01187	curated	RXN_MALTOOLIGO_EXO	starch_degradation	28	0	0	ec_without_rhea				0
+SYS_XYLOSIDASE	COMP_XYLOSIDASE	K01198	curated	RXN_XYLOOLIGO_EXO	xylan_degradation	37	0	0	ec_without_rhea				0
+SYS_PULLULANASE	COMP_PULLULANASE	K01200	curated	RXN_STARCH_DEBRANCH_1_6	starch_degradation	18	0	0	ec_without_rhea				0
+SYS_CHITOBIASE	COMP_CHITOBIASE	K01207	curated	RXN_CHITOBIOSE_EXO	chitin_degradation	33	0	0	ec_without_rhea				0
+SYS_ARAF	COMP_ARAF	K01209	curated	RXN_ARABINOXYLAN_ARAF_RELEASE	arabinoxylan_debranching	48	0	0	ec_without_rhea				0
+SYS_COLLAGENASE_M9	COMP_COLLAGENASE_M9	K01387	curated	RXN_COLLAGEN_HELIX_CLEAVAGE	collagen_cleavage	2	0	0	ec_without_rhea				0
+SYS_10760_CITLYASE	COMP_10760_CITD	K01646	curated	RHEA:10760	citrate_fermentation	1	1	0	not_in_kegg_ec				0
+SYS_ENDO_PL	COMP_ENDO_PL	K01728	curated	RXN_PECTATE_ENDO_PL	pectate_lyase_degradation	39	0	0	ec_without_rhea				0
+SYS_PECTIN_LYASE	COMP_PECTIN_LYASE	K01732	curated	RXN_PECTIN_LYASE	pectate_lyase_degradation	9	0	0	ec_without_rhea				0
+SYS_21896_CBIB	COMP_21896_CATALYTIC	K02225	curated	RHEA:21896	cobinamide_biosynthesis	2	0	0	not_in_kegg_ec				0
+SYS_21448_NIF	COMP_21448_NIFB	K02585	curated	RHEA:21448	nitrogen_fixation	1	1	0	not_in_kegg_ec				0
+SYS_55543_VNF	COMP_55543_NIFB	K02585	curated	RHEA:55543	nitrogen_fixation	1	1	0	not_in_kegg_ec				0
+SYS_21448_NIF	COMP_21448_NIFE	K02587	curated	RHEA:21448	nitrogen_fixation	1	1	0	not_in_kegg_ec				0
+SYS_21448_NIF	COMP_21448_NIFH	K02588	curated	RHEA:21448	nitrogen_fixation	1	1	0	not_in_kegg_ec				0
+SYS_21448_NIF	COMP_21448_NIFN	K02592	curated	RHEA:21448	nitrogen_fixation	1	1	0	not_in_kegg_ec				0
+SYS_55543_VNF	COMP_55543_VNFN	K02592	curated	RHEA:55543	nitrogen_fixation	1	1	0	not_in_kegg_ec				0
+SYS_32171_PAAABCDE	COMP_32171_PAAB	K02610	curated	RHEA:32171	phenylacetate_degradation	1	1	0	not_in_kegg_ec				0
+SYS_32171_PAAABCDE	COMP_32171_PAAD	K02612	curated	RHEA:32171	phenylacetate_degradation	1	1	0	not_in_kegg_ec				0
+SYS_32171_PAAABCDE	COMP_32171_PAAE	K02613	curated	RHEA:32171	phenylacetate_degradation	1	1	0	not_in_kegg_ec				0
+SYS_13513_NAD	COMP_13513_ELECTRON	K02823	curated	RHEA:13513	pyrimidine_core_biosynthesis	1	1	0	not_in_kegg_ec				0
+SYS_DEACETYL	COMP_DEACETYL	K05972	curated	RXN_XYLAN_DEACETYL	xylan_degradation	18	0	0	ec_without_rhea				0
+SYS_18709_TAUXY	COMP_18709_TAUX	K07255	curated	RHEA:18709	taurine_degradation_sulfoacetaldehyde	1	1	0	partial_ec_only				0
+SYS_18709_TAUXY	COMP_18709_TAUY	K07256	curated	RHEA:18709	taurine_degradation_sulfoacetaldehyde	1	1	0	partial_ec_only				0
+SYS_AMYLASE	COMP_AMYLASE	K07405	curated	RXN_STARCH_ENDO_1_4	starch_degradation	51	0	0	ec_without_rhea				0
+SYS_62000_HEMJ	COMP_62000_HEMJ	K08973	curated	RHEA:62000	heme_b_biosynthesis	1	1	0	partial_ec_only				0
+SYS_30007_ARAFGH	COMP_30007_SBP	K10537	curated	RHEA:30007	arabinose_uptake_abc	1	1	0	not_in_kegg_ec				0
+SYS_30007_ARAFGH	COMP_30007_PERMEASE	K10538	curated	RHEA:30007	arabinose_uptake_abc	1	1	0	not_in_kegg_ec				0
+SYS_29899_XYLFGH	COMP_29899_SBP	K10543	curated	RHEA:29899	xylose_uptake_abc	1	1	0	not_in_kegg_ec				0
+SYS_29899_XYLFGH	COMP_29899_PERMEASE	K10544	curated	RHEA:29899	xylose_uptake_abc	1	1	0	not_in_kegg_ec				0
+SYS_27826_METZ	COMP_27826_CATALYTIC	K10764	curated	RHEA:27826	methionine_biosynthesis_sulfhydrylation	1	1	0	partial_ec_only				0
+SYS_CHITINASE	COMP_CHITINASE	K13381	curated	RXN_CHITIN_ENDO	chitin_degradation	71	0	0	ec_without_rhea				0
+SYS_19453_ALAA	COMP_19453_ALAA_CATALYTIC	K14261	curated	RHEA:19453	alanine_biosynthesis	3	0	0	partial_ec_only				0
+SYS_14613_TAUABC	COMP_14613_SBP	K15551	curated	RHEA:14613	taurine_uptake_abc	1	1	0	not_in_kegg_ec				0
+SYS_14613_TAUABC	COMP_14613_PERMEASE	K15552	curated	RHEA:14613	taurine_uptake_abc	1	1	0	not_in_kegg_ec				0
+SYS_XYLOSIDASE	COMP_XYLOSIDASE	K15920	curated	RXN_XYLOOLIGO_EXO	xylan_degradation	37	0	0	ec_without_rhea				0
+SYS_ARAF	COMP_ARAF	K15921	curated	RXN_ARABINOXYLAN_ARAF_RELEASE	arabinoxylan_debranching	48	0	0	ec_without_rhea				0
+SYS_57952_DMP	COMP_57952_P0	K16249	curated	RHEA:57952	phenol_hydroxylation	1	1	0	not_in_kegg_ec				0
+SYS_ENDO_PL	COMP_ENDO_PL	K19551	curated	RXN_PECTATE_ENDO_PL	pectate_lyase_degradation	39	0	0	ec_without_rhea				0
+SYS_PECTIN_LYASE	COMP_PECTIN_LYASE	K19551	curated	RXN_PECTIN_LYASE	pectate_lyase_degradation	9	0	0	ec_without_rhea				0
+SYS_ARAF	COMP_ARAF	K20844	curated	RXN_ARABINOXYLAN_ARAF_RELEASE	arabinoxylan_debranching	48	0	0	ec_without_rhea				0
+SYS_34371_IAAH	COMP_34371_CATALYTIC	K21801	curated	RHEA:34371	indole_3_acetate_biosynthesis	1	1	0	partial_ec_only				0
+SYS_74155_DGCAB	COMP_74155_DGCB	K21834	curated	RHEA:74155	sarcosine_demethylation	1	1	0	not_in_kegg_ec				0
+SYS_74167_DGCAB	COMP_74167_DGCB	K21834	curated	RHEA:74167	betaine_demethylation	1	1	0	not_in_kegg_ec				0
+SYS_XYLOSIDASE	COMP_XYLOSIDASE	K22268	curated	RXN_XYLOOLIGO_EXO	xylan_degradation	37	0	0	ec_without_rhea				0
+SYS_55543_VNF	COMP_55543_VNFH	K22899	curated	RHEA:55543	nitrogen_fixation	1	1	0	not_in_kegg_ec				0
+SYS_55543_VNF	COMP_55543_VNFE	K22903	curated	RHEA:55543	nitrogen_fixation	1	1	0	not_in_kegg_ec				0
+SYS_SIALIDASE	COMP_SIALIDASE	K23550	curated	RXN_MUCIN_NEUAC_RELEASE	mucin_sialic_acid_release	20	0	0	ec_without_rhea				0
+SYS_29899_XACGHI	COMP_29899_XAC_SBP	K25045	curated	RHEA:29899	xylose_uptake_abc	1	1	0	not_in_kegg_ec				0
+SYS_30007_XACGHI	COMP_30007_XAC_SBP	K25045	curated	RHEA:30007	arabinose_uptake_abc	1	1	0	not_in_kegg_ec				0
+SYS_29899_XACGHI	COMP_29899_XAC_PERM1	K25046	curated	RHEA:29899	xylose_uptake_abc	1	1	0	not_in_kegg_ec				0
+SYS_30007_XACGHI	COMP_30007_XAC_PERM1	K25046	curated	RHEA:30007	arabinose_uptake_abc	1	1	0	not_in_kegg_ec				0
+SYS_29899_XACGHI	COMP_29899_XAC_PERM2	K25047	curated	RHEA:29899	xylose_uptake_abc	1	1	0	not_in_kegg_ec				0
+SYS_30007_XACGHI	COMP_30007_XAC_PERM2	K25047	curated	RHEA:30007	arabinose_uptake_abc	1	1	0	not_in_kegg_ec				0
+SYS_24931_CDS	COMP_24931_CATALYTIC	K26607	curated	RHEA:24931	cysteine_degradation_sulfide	3	0	0	not_in_kegg_ec				0
