@@ -212,7 +212,7 @@ test_that("database accessors return stable definitions", {
 
 test_that("database and schema versions are independent", {
   version <- gifter_db_version()
-  expect_equal(version$package_version, "0.5.0")
+  expect_equal(version$package_version, "0.6.0")
   expect_equal(version$gifter_db_version, "2026.21.3")
   expect_equal(version$schema_version, 7L)
   expect_equal(version$rhea_release, "141")

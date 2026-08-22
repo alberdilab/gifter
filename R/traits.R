@@ -436,7 +436,12 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
 # fine and biologically empty: a supported fraction of 1.0 over one assessable
 # member says nothing. The warning is a nudge to read `assessable_fraction`, not
 # a claim about the genome.
-.warn_thin_denominators <- function(metrics) {
+#
+# `unit` names what the thin rows are counted in. A genome or a community
+# reports one `assessable_fraction` per reference universe, which is the
+# default; a dataset reports one per sample per universe, and calling those
+# universes would undercount them by the sample count.
+.warn_thin_denominators <- function(metrics, unit = "universes") {
   thin <- metrics[
     metrics$metric_id == "assessable_fraction" & metrics$value < 0.5, ,
     drop = FALSE
@@ -445,7 +450,7 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
   warning(
     "Less than half of the reference universe was assessable for ",
     nrow(thin), " of ", sum(metrics$metric_id == "assessable_fraction"),
-    " universes, including \"", thin$reference_universe[[1L]],
+    " ", unit, ", including \"", thin$reference_universe[[1L]],
     "\". Proportions over them rest on very few GIFTs; read them beside assessable_fraction.",
     call. = FALSE
   )

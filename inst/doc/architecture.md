@@ -17,6 +17,9 @@ in source-table names and code wherever practical.
 | Motility, virulence, cross-feeding, higher-order traits | [Derived capabilities](#derived-capabilities) |
 | Richness, breadth, reference universe, denominator | [Quantitative traits](#quantitative-traits) |
 | Community, provider count, redundancy, handoff network | [Quantitative traits](#quantitative-traits) |
+| Many samples, one MAG catalogue, per-sample traits | [Many samples over one catalogue](#many-samples-over-one-catalogue) |
+| Detection, sample membership, abundance closure | [Many samples over one catalogue](#many-samples-over-one-catalogue) |
+| Exporting to vegan, group comparison, where gifter stops | [Where gifter stops](#where-gifter-stops) |
 | Genome completeness, assessability, indeterminate call | [Assessability](#assessability-when-absence-is-informative) |
 | OR/AND hierarchy, completeness, closest route | [Evaluation logic](#evaluation-logic) |
 | Anchor, boundary, branchpoint, composition, graph | [GIFT boundaries, anchors, and composition](#gift-boundaries-anchors-and-composition) |
@@ -573,6 +576,158 @@ relevance weights, and every generalist, resilience, cooperation, competition
 and importance score are refused with reasons in
 [the proposal](proposal-quantitative-traits.md#8-recorded-refusals), so that
 they are not silently reopened.
+
+### Many samples over one catalogue
+
+A `gifter_community` is one sample. The analyses gifter is built for are not
+shaped like that: a user assembles one MAG catalogue, maps many samples against
+it, and holds a genome by sample abundance table in which different genomes are
+detected at different abundances in each. `gifter_dataset()` is the container
+for that, and it is composed of a community rather than replacing one, so the
+mixed-release refusal, the distinct-name requirement and the membership check
+are inherited rather than reimplemented. The design record is
+[the multi-sample datasets proposal](proposal-multi-sample-datasets.md).
+
+```text
+  GIFT calls                          <- evaluate_gifts_community()
+      |
+      v
+  gifter_community  = the catalogue   <- one call matrix, evaluated once
+      |
+      +-- abundance (genome x sample)
+      +-- metadata  (sample)
+      |
+      v
+  gifter_dataset                      <- gifter_dataset()
+      |
+      +----------------+---------------+
+      |                |               |
+      v                v               v
+ per-sample       per-sample      export surface
+ traits           topology        gift_matrix(), dataset_matrix()
+ dataset_traits() dataset_network()
+```
+
+**A call is a property of a genome.** `evaluate_gifts()` reads markers; it has
+never seen a sample and cannot. So a dataset holds exactly one call matrix, and
+across its samples only two things vary: which genomes are members, and how much
+of the sample each represents. `sample_community()` hands any existing function
+an ordinary community of one sample's detected genomes, which is why nothing in
+the package needed a dataset-aware variant to keep working.
+
+### Detection is to samples what assessability is to genomes
+
+Both may only move denominators. Assessability decides whether a genome's
+silence about a GIFT is informative; detection decides whether a genome is part
+of a sample's community at all. Neither may promote an unsupported GIFT to
+supported, neither may change a call, and both are resolved per genome. This
+extends [rule 21](../../AGENTS.md): presence in a genome, presence in a sample
+and abundance in a sample are three axes and never one number.
+
+A detection threshold is therefore a way of *reading* an abundance rather than a
+property of one, and belongs to `dataset_traits()` and `dataset_network()`
+rather than to the container --- on exactly the terms that put `threshold` on
+`community_traits()` rather than on `gifter_community()`. One dataset is read at
+two thresholds without being rebuilt.
+
+Abundance is closed within each sample's **detected** set, after detection has
+been applied, so `abundance_coverage` is a share of the community actually being
+described. At `detection = 0` that is the same as closing over the whole
+catalogue; above it, it is not, and deliberately so. Once a reader has declared
+that a genome below the threshold is not part of the community, leaving its
+abundance in the denominator would report a share of a community that same
+reader just said does not include it.
+
+A second caveat is stated rather than corrected, parallel to genome
+completeness: **absence from a sample may be below detection rather than
+genuinely absent, and gifter models no sequencing depth, library size or
+detection limit.** Nothing imputes one, corrects for one, or rarefies. Every
+sample-level richness is reported beside `detected_genomes` instead, exactly as
+`supported_fraction` is reported beside `assessable_fraction`, so that a
+richness of 40 over 31 detected genomes is not read as the same result as a
+richness of 40 over 207.
+
+### Every sample at once, or not at all
+
+Because only membership and weight vary, every per-sample distributional metric
+is a matrix product over all samples simultaneously. With `C` the three-state
+call matrix (GIFT by genome, after assessability and the confidence floor), `S`
+detection (genome by sample) and `W` the per-sample-closed abundance:
+
+| metric | expression |
+|---|---|
+| `provider_count` | `(C %in% TRUE) %*% S` |
+| assessor count | `(!is.na(C)) %*% S` |
+| `abundance_coverage` | `(C %in% TRUE) %*% W` |
+| `community_richness` | `colSums(providers > 0)` |
+| `unique_contribution` | `crossprod(C %in% TRUE, providers == 1) * S` |
+
+Three products per reference universe answer every sample and every GIFT;
+everything else is a reduction of them. A loop calling `community_traits()` once
+per sample would repeat a community's whole quadratic walk for every sample.
+Reference universes therefore remain the progress unit: the sample loop is
+vectorized away and there is no sample-shaped work to count.
+
+`quality`, `policy`, `threshold` and `min_confidence` are properties of a
+genome, so they are applied once to the catalogue before any sample is read. A
+genome cannot be assessable in one sample and not in another.
+
+### Two metric tables, not one nullable column
+
+Some quantities cannot vary between samples. A genome supports the same GIFTs
+wherever it is detected, and two genomes share the same repertoire wherever both
+are. `gift_richness` and `repertoire_overlap` therefore live in a separate
+`catalogue_metrics` table with no `sample_id` column, and the absence of the
+column is the claim: a row without a sample is a row no sample can change.
+Re-emitting the pair metric per sample would also make the one quadratic
+quantity quadratic again.
+
+The same reasoning shapes the trace. A sample's providers are the catalogue's
+providers intersected with its detected genomes, so per-sample trace rows are
+derivable rather than stored, and `trace_sample()` derives them --- the same
+argument, and the same saving, as the `pair_trace = FALSE` default of
+`community_traits()`.
+
+Handoff edges are catalogue properties for the same reason: which genome could
+hand which molecule to which other is a property of the two genomes.
+`dataset_network()` builds the edge set once and restricts it per sample, then
+recounts the degrees, the density, the chain coverage and the cycle closure,
+each of which depends on which genomes are actually there. No compatibility rule
+is added and none is relaxed: the extracellular gate stays exactly where
+[invariant 22](../../AGENTS.md) put it.
+
+### Where gifter stops
+
+gifter computes per-sample traits and emits them joined to sample metadata. It
+runs **no** hypothesis test, differential-abundance analysis, ordination or
+effect size between groups of samples, and it interprets no metadata column.
+
+The refusal is not squeamishness. The proposal's
+[refusal 4](proposal-quantitative-traits.md#8-recorded-refusals) already declines
+generalist indices, resilience, cooperation and ecological importance --- every
+one a lighter ecological claim than "this capability differs between these two
+groups". Its refusal 3 declines a user-supplied weight vector multiplied through
+the call matrix and presented as a gifter inference, and **a group label is
+exactly such a vector**: the design, the contrasts and the multiple-testing
+correction are the analyst's. A test statistic would also be the first number in
+gifter that could not be taken apart into a numerator, a denominator, an
+assessable count and a reference universe.
+
+What vegan, lme4, MaAsLin and ALDEx2 lack, and what gifter uniquely can give
+them, is an **assessability-aware design matrix with a declared reference
+universe**. `gift_matrix()` is that export: genomes by GIFTs, three-state, with
+`NA` where a genome was never observed well enough for its silence to be read.
+A zero in that cell is a fabricated absence, and every model fitted on it
+inherits the fabrication with nothing downstream able to see it.
+`dataset_matrix()` reshapes one metric to samples by target for a distance
+function, and `as.data.frame()` joins the per-sample metrics to the metadata.
+That boundary is where the tutorial ends, by handing the matrix to an external
+package rather than by asserting the limit in prose.
+
+Group testing, depth correction, detection imputation, any claim that a GIFT is
+more active where its carriers are more abundant, and any per-sample
+re-evaluation of calls are refused with reasons in
+[the multi-sample proposal](proposal-multi-sample-datasets.md#10-recorded-refusals).
 
 ## Evaluation logic
 

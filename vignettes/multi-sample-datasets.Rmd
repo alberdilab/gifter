@@ -1,0 +1,280 @@
+---
+title: "4. Many samples over one catalogue"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{4. Many samples over one catalogue}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+Vignette 3 read one community. Real work is rarely one community: you assemble a
+MAG catalogue once, map every sample against it, and end up with a genome by
+sample abundance table in which different genomes are detected, at different
+abundances, in each sample.
+
+Binding one community per sample would be wrong twice over. It would evaluate
+the same genomes once per sample for calls that cannot differ, and it would let
+the samples end up with inconsistent call sets — the failure the release check
+in `gifter_community()` already guards against one level up.
+
+```{r}
+library(gifter)
+```
+
+## Calls are a property of a genome
+
+This is the whole design. `evaluate_gifts()` reads markers; it has never seen a
+sample and cannot. Across a dataset exactly two things vary: **which genomes are
+members** of a sample's community, and **how much of that sample** each one
+represents. So the catalogue is evaluated once, and a sample is a restriction and
+a reweighting of that one reading.
+
+The same four illustrative genomes as vignette 3, around the curated
+arabinoxylan chain.
+
+```{r}
+markers <- function(namespace, accession) {
+  data.frame(
+    gene_id = paste0("gene_", seq_along(accession)),
+    namespace = namespace, accession = accession,
+    stringsAsFactors = FALSE
+  )
+}
+
+# A strips the side chains; B cleaves the backbone and releases xylose outside
+# the cell; C and D take that xylose up and catabolise it.
+catalogue <- gifter_community(
+  A = evaluate_gifts(markers("KO", "K01209")),
+  B = evaluate_gifts(markers("CAZY", c("GH11", "GH39"))),
+  C = evaluate_gifts(markers("KO", c("K10543", "K10544", "K10545", "K01805", "K00854"))),
+  D = evaluate_gifts(markers("KO", c("K10543", "K10544", "K10545", "K01805", "K00854")))
+)
+```
+
+## The dataset
+
+A genome by sample abundance matrix, carrying both sets of identifiers.
+
+```{r}
+abundance <- matrix(
+  c(
+    0.40, 0.30, 0.20, 0.10,   # s1: everything present
+    0.60, 0.40, 0.00, 0.00,   # s2: no consumers
+    0.00, 0.50, 0.40, 0.10    # s3: no debrancher
+  ),
+  nrow = 4,
+  dimnames = list(c("A", "B", "C", "D"), c("s1", "s2", "s3"))
+)
+
+metadata <- data.frame(
+  sample_id = c("s1", "s2", "s3"),
+  group = c("fibre", "control", "fibre"),
+  stringsAsFactors = FALSE
+)
+
+dataset <- gifter_dataset(catalogue, abundance, metadata)
+dataset
+```
+
+A long data frame with `sample_id`, `genome_id` and `abundance` columns — the
+shape coverM and its relatives emit — is accepted too and pivots to the same
+matrix. It has to carry a row for every genome in every sample: after the pivot
+an absent row and an abundance of zero are indistinguishable, and a row dropped
+by a failed join would silently take an abundant genome out of a sample's
+community.
+
+The identifiers are not optional anywhere. A matrix without dimnames, a genome
+in the catalogue that the abundance does not name, a metadata table that does not
+cover the samples exactly — each is an error rather than a silent zero, because
+each is far more often a failed join than a biological result.
+
+Any sample can still be read by every function you already know:
+
+```{r}
+sample_community(dataset, "s2")
+```
+
+## Detection is to samples what assessability is to genomes
+
+Both may only move denominators. Assessability decides whether a genome's silence
+about a GIFT is informative; detection decides whether a genome is part of a
+sample's community at all. Neither can promote an unsupported GIFT to supported,
+and neither changes a call.
+
+That is why `detection` is an argument of the *readers*, not of the container —
+the same reasoning that puts `threshold` on `community_traits()` rather than on
+`gifter_community()`. One dataset, read at two thresholds, without rebuilding
+anything.
+
+```{r}
+sample_community(dataset, "s1")$genome_id
+sample_community(dataset, "s1", detection = 0.15)$genome_id
+```
+
+## Per-sample traits
+
+```{r}
+universe <- gift_universe(label = "all curated GIFTs")
+traits <- dataset_traits(dataset, universes = list(universe), progress = FALSE)
+traits
+```
+
+Every sample-level richness is reported beside `detected_genomes`, because a
+genome absent from a sample may be below detection rather than genuinely absent
+and gifter models no sequencing depth. Nothing here imputes one, corrects for
+one, or rarefies; the honest thing to do is to report the denominator.
+
+```{r}
+rows <- traits$metrics[
+  traits$metrics$metric_id %in% c("community_richness", "detected_genomes"), ]
+rows[, c("sample_id", "metric_id", "value", "numerator", "denominator")]
+```
+
+Per GIFT, presence and abundance stay in separate rows and never merge. How many
+genomes encode a capability and how much of the sample's abundance those genomes
+carry are different questions, and neither is a statement about activity.
+
+```{r}
+uptake <- traits$metrics[traits$metrics$target_id == "xylose_uptake_abc", ]
+uptake[, c("sample_id", "metric_id", "value", "numerator", "denominator")]
+```
+
+Abundance is closed within each sample's **detected** set, after detection is
+applied, so `abundance_coverage` is a share of the community actually being
+described. Above `detection = 0` that differs from closing over the whole
+catalogue — deliberately, since a genome the reader has just excluded should not
+sit in the denominator.
+
+### Two tables, because some rows have no sample
+
+A genome supports the same GIFTs wherever it is detected, and two genomes share
+the same repertoire wherever both are. Those rows cannot vary between samples,
+so they are not given a `sample_id` column that would always be empty:
+
+```{r}
+head(traits$catalogue_metrics[, c("target_type", "target_id", "metric_id", "value")])
+```
+
+The trace works the same way. A sample's providers are the catalogue's providers
+intersected with its detected genomes, so the per-sample rows are derived on
+demand rather than stored once per sample:
+
+```{r}
+trace <- trace_sample(traits, "s3")
+trace[trace$metric_id == "provider_count", c("target_id", "contribution")]
+```
+
+## Topology per sample
+
+`dataset_network()` builds the catalogue's edge set once and restricts it to each
+sample's detected genomes. No compatibility rule is invented and none is relaxed:
+a cross-genome edge still requires the producing GIFT's output anchor to be
+declared `extracellular`, and every edge still carries the `edge_quality` of the
+GIFT edge beneath it.
+
+```{r}
+network <- dataset_network(dataset)
+network$edges[, c("sample_id", "from_genome", "to_genome", "shared_anchor")]
+```
+
+The chain is complete in `s1`. In `s2` nobody consumes the released xylose, and
+in `s3` nobody exposes the backbone — which is a difference in who is present,
+not a difference in what anybody encodes.
+
+## Where gifter stops
+
+gifter computes per-sample traits and emits them joined to your metadata. It runs
+**no** hypothesis test, differential-abundance analysis, ordination or effect
+size between groups of samples, and it interprets no metadata column.
+
+That is a deliberate boundary rather than an omission. A group label is a
+user-supplied vector multiplied through the call matrix; presenting the result as
+a gifter inference would put your design, your contrasts and your
+multiple-testing correction under gifter's name. vegan, lme4, MaAsLin and ALDEx2
+already do that work, and do it better.
+
+What they cannot get anywhere else is an **assessability-aware matrix with a
+declared reference universe**:
+
+```{r}
+capabilities <- gift_matrix(
+  dataset,
+  quality = c(A = 0.98, B = 0.96, C = 0.45, D = 0.97),
+  policy = "completeness", threshold = 0.9
+)
+
+dim(capabilities)
+attr(capabilities, "reference_universe")
+attr(capabilities, "database_version")
+table(capabilities, useNA = "ifany")
+```
+
+Rows are genomes, columns are GIFTs, and the third state is the point. C is too
+fragmented for its silence to be read, so its negative calls are `NA` rather than
+`0`. A zero there is a fabricated absence, and every model fitted on it inherits
+the fabrication with nothing downstream able to see it.
+
+## Handing it over
+
+One metric, reshaped to samples by target, is what a distance function wants:
+
+```{r}
+coverage <- dataset_matrix(traits, "abundance_coverage", fill = 0)
+round(coverage, 3)
+```
+
+`fill = 0` is your claim, not gifter's: a cell with no row may be a true zero or
+a GIFT nothing in that sample could assess, so the default is `NA` and gifter
+does not guess.
+
+From here the analysis leaves gifter. With `vegan` installed, the two lines
+below are where the boundary actually falls:
+
+```{r, eval = FALSE}
+distances <- vegan::vegdist(coverage, method = "bray")
+vegan::adonis2(distances ~ group, data = metadata)
+```
+
+The design is yours, the test is `vegan`'s, and the matrix is gifter's — carrying
+its reference universe and its database version so that the columns mean the same
+thing in six months.
+
+The tidy table joins the per-sample metrics to your metadata for the same
+purpose:
+
+```{r}
+frame <- as.data.frame(traits)
+head(frame[frame$metric_id == "community_richness",
+           c("sample_id", "group", "value", "assessable")])
+```
+
+## Putting the four tutorials together
+
+```text
+annotation table
+      |  evaluate_gifts_community()
+      v
+  GIFT calls
+      |
+      |  gifter_community()                 one catalogue, evaluated once
+      v
+ the catalogue -----> community_traits(), community_network()   (one sample)
+      |
+      |  + abundance (genome x sample), + metadata
+      v
+ gifter_dataset ----> dataset_traits(), dataset_network()       (many samples)
+      |
+      |  gift_matrix(), dataset_matrix(), as.data.frame()
+      v
+   vegan, lme4, MaAsLin, ALDEx2                                 (not gifter)
+```
+
+The discipline is the same at every step, and the last arrow is part of it. A
+number carries the set it was counted over, the evidence that produced it stays
+attached, and nothing becomes more certain than the calls underneath. A GIFT call
+is what a genome encodes — not what an organism is doing, and not what
+distinguishes one group of samples from another.

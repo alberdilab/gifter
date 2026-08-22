@@ -62,3 +62,45 @@ arabinoxylan_community <- function() {
 arabinoxylan_universe <- function() {
   gift_universe(label = "all curated GIFTs")
 }
+
+# The same four genomes observed across three samples, which is what a MAG
+# catalogue mapped against several metagenomes looks like. Detection differs
+# between samples and the calls do not, which is the whole point of a dataset:
+#
+#   s1  every genome detected
+#   s2  only the debrancher and the backbone degrader
+#   s3  the backbone degrader and both consumers, one of them barely
+arabinoxylan_abundance <- function() {
+  matrix(
+    c(
+      0.4, 0.3, 0.2, 0.1,
+      0.6, 0.4, 0.0, 0.0,
+      0.0, 0.5, 0.4, 0.1
+    ),
+    nrow = 4,
+    dimnames = list(c("A", "B", "C", "D"), c("s1", "s2", "s3"))
+  )
+}
+
+arabinoxylan_metadata <- function() {
+  data.frame(
+    sample_id = c("s1", "s2", "s3"),
+    group = c("treated", "control", "treated"),
+    stringsAsFactors = FALSE
+  )
+}
+
+arabinoxylan_dataset <- function(metadata = NULL) {
+  gifter_dataset(arabinoxylan_community(), arabinoxylan_abundance(), metadata)
+}
+
+# The same abundances in the long shape coverM and its relatives emit.
+arabinoxylan_long_abundance <- function() {
+  matrix <- arabinoxylan_abundance()
+  data.frame(
+    sample_id = rep(colnames(matrix), each = nrow(matrix)),
+    genome_id = rep(rownames(matrix), times = ncol(matrix)),
+    abundance = as.vector(matrix),
+    stringsAsFactors = FALSE
+  )
+}

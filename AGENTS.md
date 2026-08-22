@@ -211,13 +211,27 @@ alone. Revisit that only once all three carry curated content.
     composite only when it is clearer than its ingredients. A derived trait
     describes encoded capability, never activity, flux, phenotype or ecological
     effect.
+24. Detection is to samples what assessability is to genomes. Both may only
+    move denominators. Assessability decides whether a genome's silence about a
+    GIFT is informative; detection decides whether a genome is part of a
+    sample's community at all. Neither may promote an unsupported GIFT to
+    supported, neither may change a call, and both are resolved per genome.
+    This extends rule 21: presence in a genome, presence in a sample and
+    abundance in a sample are three axes and never one number. Absence from a
+    sample may be below detection rather than genuine, and gifter models no
+    sequencing depth -- report the detected genome count beside every
+    sample-level richness rather than imputing, correcting or rarefying. A
+    quantitative trait is emitted joined to sample metadata and nothing more:
+    gifter runs no test, differential-abundance analysis, ordination or effect
+    size between groups of samples, and interprets no metadata column.
 
 See [Core concepts](inst/doc/architecture.md#core-concepts-and-scope),
 [GIFT types](inst/doc/architecture.md#gift-types),
 [The machinery model](inst/doc/architecture.md#the-machinery-model),
 [Evaluation logic](inst/doc/architecture.md#evaluation-logic), and
 [Boundaries and composition](inst/doc/architecture.md#gift-boundaries-anchors-and-composition),
-and [Quantitative traits](inst/doc/architecture.md#quantitative-traits)
+[Quantitative traits](inst/doc/architecture.md#quantitative-traits), and
+[Many samples over one catalogue](inst/doc/architecture.md#many-samples-over-one-catalogue)
 for examples and rationale.
 
 ## Work in the correct files
@@ -237,6 +251,7 @@ for examples and rationale.
 | Runtime queries or public accessors | `R/database.R` | schema, generated `.Rd` files, database tests |
 | Evaluation behavior or traceability | `R/evaluation.R` | Boolean invariants, synthetic fixtures, evaluation tests |
 | Quantitative genome or community traits | `R/universe.R`, `R/traits.R`, `R/community.R`, `R/community-network.R`, `R/assessability.R`, `reference_universes.tsv`, `reference_universe_filters.tsv`, `reference_universe_metrics.tsv` | `proposal-quantitative-traits.md`, schema/compiler, reference universes, denominators, trait tests |
+| Multi-sample datasets, detection, per-sample traits | `R/dataset.R`, `R/dataset-traits.R`, `R/dataset-export.R`, `R/dataset-network.R` | `proposal-multi-sample-datasets.md`, the equality of a sample's traits with `community_traits()`, dataset tests |
 | GIFT graph or database reports | `R/database-visualization.R` | declared-anchor behavior, composition tests |
 | Biological source provenance | `inst/extdata/database-source/SOURCES.md`, `database_release.tsv` | affected TSV records |
 | Architecture or curator guidance | `AGENTS.md`, `inst/doc/architecture.md`, `README.md` | behavior and links remain consistent |
@@ -332,6 +347,9 @@ data frame. Depending on the change, cover:
   fraction of the catalogue is withheld for an unbounded universe, that no
   assessability policy promotes an unsupported GIFT to supported, and that a
   cross-genome edge never carries a molecule that stays inside a cell.
+- for multi-sample datasets: that detection never changes a call, that raising
+  it moves denominators only, and that whatever is reported for a sample equals
+  what the single-community reader reports for that sample's community.
 
 Use small synthetic fixtures for logic tests. Retain `PRPP > IMP`, `IMP > AMP`,
 and their `PRPP > IMP > AMP` composition as integration examples.

@@ -140,8 +140,10 @@
   coverage[order(coverage$from_gift, coverage$shared_anchor, coverage$to_gift), , drop = FALSE]
 }
 
-.distributed_cycles <- function(community, connection, limit, transferable) {
-  cycles <- gift_cycles(db = connection, limit = limit)
+# The cycles are enumerated by the caller and passed in, so that a reader
+# asking the same question of many samples enumerates them once rather than
+# once per sample. What is returned is unchanged.
+.distributed_cycles <- function(community, cycles, transferable) {
   if (!nrow(cycles)) {
     return(tibble::tibble(
       cycle_id = integer(), named_cycle = character(), cycle_length = integer(),
@@ -279,7 +281,9 @@ community_network <- function(community, interaction = "metabolic_handoff",
     universe_ids <- universe$gift_id
     edges <- .handoff_edges(community, graph, universe_ids, transferable)
     coverage <- .chain_coverage(community, graph, universe_ids, transferable)
-    cycles <- .distributed_cycles(community, connection, limit, transferable)
+    cycles <- .distributed_cycles(
+      community, gift_cycles(db = connection, limit = limit), transferable
+    )
 
     genomes <- community$genome_id
     nodes <- tibble::tibble(

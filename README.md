@@ -289,6 +289,40 @@ community_traits(
 )
 ```
 
+## Many samples over one catalogue
+
+One MAG catalogue mapped against many samples is a `gifter_dataset`: the
+catalogue is evaluated once, and a sample is a restriction of that reading to
+its detected genomes and a reweighting by their abundance. Calls are a property
+of a genome, so nothing is re-evaluated per sample.
+
+```r
+dataset <- gifter_dataset(catalogue, abundance, metadata)   # genome x sample
+dataset_traits(dataset)                                     # per sample
+dataset_network(dataset)                                    # per sample
+sample_community(dataset, "s2")                             # an ordinary community
+```
+
+Detection is to samples what assessability is to genomes: both may only move
+denominators. Neither can promote an unsupported GIFT to supported, and
+`detection` is supplied when the calls are read rather than when the dataset is
+built, so one dataset is read at two thresholds without being rebuilt. Every
+sample-level richness is reported beside `detected_genomes`, because absence
+from a sample may be below detection and gifter models no sequencing depth.
+
+gifter stops there. It runs no test, differential-abundance analysis,
+ordination or effect size between groups of samples, and interprets no metadata
+column. What it exports instead is an assessability-aware matrix with a declared
+reference universe, in which a genome's silence about a capability it was never
+well enough observed to assess is `NA` rather than a fabricated zero:
+
+```r
+capabilities <- gift_matrix(dataset, quality = quality,
+                            policy = "completeness", threshold = 0.9)
+coverage <- dataset_matrix(dataset_traits(dataset), "abundance_coverage", fill = 0)
+vegan::adonis2(vegan::vegdist(coverage) ~ group, data = metadata)
+```
+
 ## Inspect the reference database
 
 ```r

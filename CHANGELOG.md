@@ -13,6 +13,112 @@ versioned with the package.
 
 ---
 
+## Package 0.6.0
+
+Released 2026-08-22. A minor version: four new exports and no behaviour change
+to anything that existed. Every metric `community_traits()`,
+`genome_traits()` and `community_network()` reported is the number it was, and
+the new layer is checked against them rather than beside them.
+
+### 2026-08-22T04:04Z — One genome catalogue observed across many samples
+
+**The problem.** `gifter_community` is one sample. Users hold one MAG catalogue
+mapped against many samples, with different genomes detected at different
+abundances in each. There was no container for that, and building one by binding
+N communities would have evaluated the same genomes N times for calls that
+cannot differ, and would have permitted inconsistent call sets between samples —
+the failure the release check in `.gifter_community()` guards against one level
+up.
+
+**The organising insight.** A call is a property of a genome. `evaluate_gifts()`
+reads markers; it has never seen a sample. Across a dataset only two things
+vary: which genomes are members of a sample's community, and how much of it they
+represent. So the catalogue is evaluated **once**, a dataset holds one call
+matrix, and every per-sample distributional metric is a matrix product over all
+samples simultaneously — three products per reference universe answer every
+sample and every GIFT. A loop calling `community_traits()` per sample would
+repeat a community's whole quadratic walk for each one.
+
+**New.** `gifter_dataset()` composes a `gifter_community` with a genome by
+sample abundance matrix and optional sample metadata, `sample_id()` and
+`sample_community()` read it, and `sample_community()` hands any existing
+function an ordinary community of one sample's detected genomes — which is why
+nothing else in the package needed a dataset-aware variant.
+
+`dataset_traits()` reports per sample: `community_richness`,
+`community_coverage`, `mean_genome_richness`, `assessable_fraction`,
+`singleton_fraction`, `detected_genomes`, `provider_count`,
+`provider_fraction`, `abundance_coverage`, `unique_contribution` and
+`mean_repertoire_overlap`. `trace_sample()` derives one sample's trace.
+`dataset_network()` restricts the catalogue's handoff edges to each sample and
+recounts the degrees, density, chain coverage and cycle closure.
+
+`gift_matrix()`, `dataset_matrix()` and `as.data.frame()` are the export
+surface.
+
+**The invariant this layer establishes.** *Detection is to samples what
+assessability is to genomes.* Both may only move denominators: assessability
+decides whether a genome's silence about a GIFT is informative, detection
+decides whether a genome is part of a sample's community at all. Neither may
+promote an unsupported GIFT to supported, neither may change a call, and both
+are resolved per genome. It extends invariant 21 — presence in a genome,
+presence in a sample and abundance in a sample are three axes and never one
+number — and it is tested directly rather than asserted.
+
+`detection` is therefore an argument of the readers, not of the container, on
+exactly the terms that put `threshold` on `community_traits()` rather than on
+`gifter_community()`. Abundance is closed within each sample's **detected** set,
+after detection, so `abundance_coverage` is a share of the community actually
+being described; above `detection = 0` that differs from closing over the whole
+catalogue, deliberately.
+
+**Two metric tables, not one nullable column.** `gift_richness` and
+`repertoire_overlap` cannot vary between samples: a genome supports the same
+GIFTs wherever it is detected, and two genomes share the same repertoire
+wherever both are. They live in `catalogue_metrics` with no `sample_id` column,
+and the absence of the column is the claim. Re-emitting the pair metric per
+sample would have made the one quadratic quantity quadratic again, months after
+0.5.0 removed it.
+
+**The decisive test.** For every sample, everything `dataset_traits()` reports
+equals what `community_traits()` reports on `sample_community()` of that sample
+with that sample's abundance — and the same for `dataset_network()` against
+`community_network()`. The layer is checked against the engine it extends, over
+all fourteen default universes, rather than against hand-computed expectations
+of its own.
+
+**Where gifter stops, and why it is a decision rather than an omission.** gifter
+emits per-sample traits joined to sample metadata and interprets no metadata
+column. It runs no hypothesis test, differential-abundance analysis, ordination
+or effect size between groups of samples. §8 refusal 4 of the quantitative
+traits proposal already refuses lighter ecological claims than a group
+difference; its refusal 3 refuses a user-supplied vector multiplied through the
+call matrix and presented as a gifter inference, and a group label is exactly
+such a vector. What vegan, lme4, MaAsLin and ALDEx2 lack is an
+assessability-aware matrix with a declared reference universe, and `gift_matrix()`
+is that: three-state, `NA` where a genome was never observed well enough for its
+silence to be read. A zero there is a fabricated absence that every model fitted
+on it inherits.
+
+Also refused, with reasons recorded in the proposal so they are not silently
+reopened: depth correction, rarefaction and detection imputation; any claim that
+a GIFT is more active where its carriers are more abundant; and any per-sample
+re-evaluation of calls.
+
+**One internal change to existing code.** `.warn_thin_denominators()` gains an
+optional argument naming what the thin readings are counted in, defaulting to
+the current text, because a dataset reports one `assessable_fraction` per sample
+per universe. `.distributed_cycles()` now takes the enumerated cycles rather
+than enumerating them, so a reader asking the same question of many samples
+enumerates once. Neither changes what any existing function returns, and a test
+checks the single-community warning is unchanged.
+
+**No database or schema change.** Nothing here is curation. Every number is a
+re-reading of existing calls, the compiled artifact is untouched, and no Boolean
+call moved.
+
+---
+
 ## Package 0.5.0
 
 Released 2026-08-22. A minor version because one default changed: the per-pair
