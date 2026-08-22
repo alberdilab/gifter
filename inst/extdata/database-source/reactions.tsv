@@ -431,3 +431,7 @@ RHEA:20269	RHEA:20269	oligogalacturonide lyase reaction	4-(4-deoxy-alpha-D-galac
 RHEA:23896	RHEA:23896	4-deoxy-L-threo-5-hexosulose-uronate ketol-isomerase reaction	5-dehydro-4-deoxy-D-glucuronate = 3-deoxy-D-glycero-2,5-hexodiulosonate.
 RHEA:24232	RHEA:24232	2-dehydro-3-deoxy-D-gluconate 5-dehydrogenase reaction	2-dehydro-3-deoxy-D-gluconate + NAD+ = 3-deoxy-D-glycero-2,5-hexodiulosonate + NADH + H(+); used in reverse for catabolism.
 RXN_PECTIN_LYASE		pectin lyase reaction	Eliminative cleavage of (1->4)-alpha-D-galacturonan methyl ester, acting on the esterified backbone without prior de-esterification.
+RHEA:52304	RHEA:52304	ectoine hydrolase reaction	L-ectoine + H2O = (2S)-2-acetamido-4-aminobutanoate. DoeA opens the ectoine ring, the committed step of ectoine catabolism.
+RHEA:40951	RHEA:40951	N2-acetyl-L-2,4-diaminobutanoate deacetylase reaction	(2S)-2-acetamido-4-aminobutanoate + H2O = L-2,4-diaminobutanoate + acetate. DoeB removes the acetyl group EctA installed during biosynthesis.
+RHEA:45740	RHEA:45740	ectoine hydroxylase reaction	L-ectoine + 2-oxoglutarate + O2 = 5-hydroxyectoine + succinate + CO2. A 2-oxoglutarate-dependent dioxygenase; the co-substrate and its succinate product are internal chemistry and are not anchors, as for the taurine dioxygenase.
+RHEA:14277	RHEA:14277	lactaldehyde dehydrogenase reaction	(S)-lactaldehyde + NAD(+) + H2O = (S)-lactate + NADH + 2 H(+). The oxidative fate of lactaldehyde, alternative to its reduction to propane-1,2-diol.

@@ -1270,3 +1270,8 @@ CAZY	PL1_e25	dbCAN-sub cluster PL1_e25	dbCAN-sub eCAMI cluster of CAZy family PL
 CAZY	PL1_e33	dbCAN-sub cluster PL1_e33	dbCAN-sub eCAMI cluster of CAZy family PL1.
 CAZY	PL1_e71	dbCAN-sub cluster PL1_e71	dbCAN-sub eCAMI cluster of CAZy family PL1.
 CAZY	PL1_e8	dbCAN-sub cluster PL1_e8	dbCAN-sub eCAMI cluster of CAZy family PL1.
+KO	K15783	doeA; ectoine hydrolase	KEGG orthology marker.
+KO	K15784	doeB; N2-acetyl-L-2,4-diaminobutanoate deacetylase	KEGG orthology marker.
+KO	K10674	ectD; ectoine hydroxylase	KEGG orthology marker.
+KO	K19266	lactaldehyde dehydrogenase	KEGG orthology marker.
+KO	K07248	aldA; lactaldehyde dehydrogenase / glycolaldehyde dehydrogenase	KEGG orthology marker supporting a promiscuous aldehyde dehydrogenase.

@@ -189,7 +189,10 @@ test_that("the racemase closes the acrylate route's open input", {
   # genomes behind the acrylate route actually reach (R)-lactate.
   into_racemase <- graph[graph$to_gift == "lactate_racemisation", ]
   expect_setequal(
-    into_racemase$from_gift, c("lactate_formation", "malolactic_fermentation")
+    into_racemase$from_gift, c(
+    "lactate_formation", "lactate_formation_lactaldehyde",
+    "malolactic_fermentation"
+  )
   )
   expect_true(all(into_racemase$shared_anchor == "LACTATE_L"))
 
@@ -314,4 +317,35 @@ test_that("the layer composes with existing catabolism and claims no cross-feedi
   expect_equal(nrow(layer), length(organic_acid_gifts))
   expect_true(all(layer$cross_feeding_output == 0L))
   expect_true(all(layer$resource_strategy == "private"))
+})
+
+test_that("lactaldehyde has two curated fates and neither is the pyruvate route", {
+  # The oxidative fate, added in 2026.22.1 beside the reduction to propanediol.
+  from_lactaldehyde <- evaluate_gifts(ko_annotations("K19266"))
+  expect_true(from_lactaldehyde$gifts$complete[
+    from_lactaldehyde$gifts$gift_id == "lactate_formation_lactaldehyde"
+  ])
+  # A separate GIFT from lactate_formation, because the input boundary differs.
+  expect_false(from_lactaldehyde$gifts$complete[
+    from_lactaldehyde$gifts$gift_id == "lactate_formation"
+  ])
+  expect_false(from_lactaldehyde$gifts$complete[
+    from_lactaldehyde$gifts$gift_id == "propanediol_formation"
+  ])
+
+  # OR across the two markers of the one component: AldA is promiscuous rather
+  # than ambiguous, so it supports the reaction it genuinely catalyses.
+  alda <- evaluate_gifts(ko_annotations("K07248"))
+  expect_true(alda$gifts$complete[
+    alda$gifts$gift_id == "lactate_formation_lactaldehyde"
+  ])
+
+  # Reduction is still the other fate, and carries no lactate claim.
+  fuco <- evaluate_gifts(ko_annotations("K00048"))
+  expect_true(fuco$gifts$complete[
+    fuco$gifts$gift_id == "propanediol_formation"
+  ])
+  expect_false(fuco$gifts$complete[
+    fuco$gifts$gift_id == "lactate_formation_lactaldehyde"
+  ])
 })

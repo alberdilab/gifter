@@ -205,3 +205,69 @@ test_that("the candidate release records every accepted boundary decision", {
     expect_true(expected[[gift_id]] %in% database_changelog(gift_id)$change_id)
   }
 })
+
+# The two fates ectoine gained in 2026.22.1.
+
+test_that("ectoine degradation is DoeA and DoeB, and stops where ectoine chemistry stops", {
+  gift <- curation_gift_call("ectoine_degradation", c("K15783", "K15784"))
+  expect_true(gift$complete)
+  expect_equal(gift$best_route, "ECTOINE_DEG_DOEAB")
+  expect_equal(
+    get_gift_reactions("ectoine_degradation")$rhea_master,
+    c("RHEA:52304", "RHEA:40951")
+  )
+
+  # AND across the two required reactions.
+  for (missing in c("K15783", "K15784")) {
+    expect_false(curation_gift_call(
+      "ectoine_degradation", setdiff(c("K15783", "K15784"), missing)
+    )$complete)
+  }
+
+  # The boundary decision, tested rather than only written down. DoeD would be
+  # the third step, but its reaction is RHEA:11160, which ectoine biosynthesis
+  # also uses, and K15785 was refused as an EctB alternative when that GIFT was
+  # curated. Evidence attaches to reactions rather than routes, so admitting
+  # DoeD anywhere would admit it there too. It is not a marker in the database.
+  expect_false(any(map_markers(ko_annotations("K15785"))$matched))
+  expect_equal(
+    get_gift_anchors("ectoine_degradation")$anchor_id[
+      get_gift_anchors("ectoine_degradation")$role == "output"
+    ],
+    "DABA"
+  )
+})
+
+test_that("the two ectoine fates are separate capabilities and neither is biosynthesis", {
+  degraders <- evaluate_gifts(ko_annotations(c("K15783", "K15784")))
+  expect_false(degraders$gifts$complete[
+    degraders$gifts$gift_id == "ectoine_biosynthesis"
+  ])
+  expect_false(degraders$gifts$complete[
+    degraders$gifts$gift_id == "hydroxyectoine_biosynthesis"
+  ])
+
+  # Hydroxyectoine is one reaction and a distinct product, not a modified
+  # intermediate of the biosynthetic route.
+  hydroxy <- curation_gift_call("hydroxyectoine_biosynthesis", "K10674")
+  expect_true(hydroxy$complete)
+  expect_equal(
+    get_gift_reactions("hydroxyectoine_biosynthesis")$rhea_master, "RHEA:45740"
+  )
+  producers <- evaluate_gifts(ko_annotations(c("K00836", "K06718", "K06720")))
+  expect_false(producers$gifts$complete[
+    producers$gifts$gift_id == "hydroxyectoine_biosynthesis"
+  ])
+
+  # Ectoine is now consumed by two GIFTs and produced by one, which is what
+  # makes it a shared anchor rather than a terminal product.
+  users <- vapply(list_gifts()$gift_id, function(id) {
+    anchors <- get_gift_anchors(id)
+    if (!nrow(anchors)) return(NA_character_)
+    hit <- anchors$role[anchors$anchor_id == "ECTOINE"]
+    if (!length(hit)) NA_character_ else paste(sort(hit), collapse = "/")
+  }, character(1))
+  expect_setequal(names(users)[!is.na(users)], c(
+    "ectoine_biosynthesis", "ectoine_degradation", "hydroxyectoine_biosynthesis"
+  ))
+})

@@ -44,6 +44,12 @@ resolution. These are the rows to re-read after
 | Tryptophan to tryptamine, as named | Aromatic amino acid decarboxylase evidence does not single out the substrate | Substrate-resolving decarboxylase evidence | [amino acid metabolism](proposal-amino-acid-metabolism.md) §12.2 |
 | Complex glycan degradation beyond the curated set | Broad CAZy families do not resolve substrate identity | dbCAN subfamily coverage at the required specificity, or PUL context — which is section 3 | [next release](proposal-next-gift-release.md) |
 | SusC/SusD substrate assignment | The pair is a transport machine, not a substrate claim | Never from context alone; explicitly refused, not deferred | [polysaccharide](proposal-polysaccharide-degradation.md) §4.6 |
+| Pantothenate to coenzyme A, riboflavin to FAD, TMP to TPP, folate to polyglutamate | Not a marker problem: cofactor activation is complete in essentially every genome, so the trait partitions nothing and carries annotation noise | Never on evidence. Only if a reason appears to read a step that is universal | [vitamins](proposal-vitamin-biosynthesis.md) §8.2 |
+| Biotin precursor supply, malonyl-ACP to pimeloyl-ACP, and BioW from free pimelate | BioC/BioH is one of at least four non-homologous solutions; curating one would answer the question only for that lineage. BioW additionally needs `PIMELATE` as a source anchor nothing else touches | The other routes reach the same standard, or the claim is renamed for the specific chemistry rather than for precursor supply | [vitamins](proposal-vitamin-biosynthesis.md) §6.7, [anchor fates](proposal-anchor-fates.md) §5.1 |
+| DoeD and DoeC, the last two steps of ectoine catabolism | Their reaction `RHEA:11160` is shared with `ectoine_biosynthesis`, and `K15785` was refused as an EctB alternative. Enzyme systems attach to reactions, not routes, so admitting DoeD anywhere admits it there | Route-scoped enzyme systems, which is a schema change. Guarded by a test in `test-compatible-solutes-heme-enterobactin-detoxification.R` | [anchor fates](proposal-anchor-fates.md) §3 |
+| Chitin deacetylation to chitosan | Curatable and specific, but chitosan would be an output-only anchor with no curated chemistry on the other side | A chitosan-consuming capability is curated | [anchor fates](proposal-anchor-fates.md) §5.2 |
+| Allantoin racemisation | Would need an `ALLANTOIN_R` anchor whose only purpose is to be the other side of a racemase | Someone reads the (R) form as a boundary. `lactate_racemisation` is the precedent for admitting one | [anchor fates](proposal-anchor-fates.md) §5.2 |
+| The oxidative rhamnose route, LRA1 to LRA4 | Not deferred on evidence. It is an alternative route of the existing `rhamnose_degradation` rather than a GIFT, and the upstream three steps have not been checked | The LRA1 to LRA3 reactions and markers are verified | [anchor fates](proposal-anchor-fates.md) §5.2 |
 | Variant- and SNP-based resistance | Resistance is a residue and the evidence layer has no accession for a residue | An evidence model with residue-level identity, which is not on the roadmap | [antimicrobial](proposal-antimicrobial-detoxification.md) §9.4 |
 
 ## 2. Blocked on prevalence
@@ -139,8 +145,11 @@ discusses a refusal only in prose, it may not have a row yet; the source
 documents remain authoritative and this register is an index over them, never a
 replacement.
 
-That limitation is not theoretical. The electron-acceptor boundary above was
-missed by the seeding pass and recovered only when an attempted respiration
-curation hit the test that guards it. Prose refusals and test-guarded refusals
+That limitation is not theoretical, and it has now cost two curation passes.
+The electron-acceptor boundary above was missed by the seeding pass and
+recovered only when an attempted respiration curation hit the test that guards
+it. The cofactor-activation and biotin-precursor refusals were missed the same
+way and recovered only when the 2026.22.1 release started curating candidates
+they already covered. Prose refusals and test-guarded refusals
 both need rows, and a curator adding one should search the test suite as well
 as the proposals.

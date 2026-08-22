@@ -203,3 +203,6 @@ MUCIN_GALNACASE	mucin_galnac_release	Alpha-N-acetylgalactosaminidase route	Hydro
 PECTIN_SACCHARIFICATION	pectin_degradation	Endo- and exo-polygalacturonase route	Backbone endohydrolysis then exo-acting release of D-galacturonate, with methyl-ester removal as accessory chemistry.	curated	independent
 KDG_ED	kdg_degradation	Lower Entner-Doudoroff route	Phosphorylation of 2-dehydro-3-deoxy-D-gluconate and aldol cleavage of the product into pyruvate and D-glyceraldehyde 3-phosphate.	curated	independent
 PECTATE_LYASE	pectate_lyase_degradation	Pectate lyase route	Endo- then exo-acting beta-elimination of the galacturonan backbone, followed by oligogalacturonide lyase, ketol isomerase and 5-dehydrogenase chemistry into the branchpoint. Direct entry on esterified pectin and de-esterification are accessory.	curated	independent
+ECTOINE_DEG_DOEAB	ectoine_degradation	DoeAB route	Ring hydrolysis followed by deacetylation.	curated	independent
+HYDROXYECTOINE_ECTD	hydroxyectoine_biosynthesis	EctD route	Single hydroxylation by the ectoine dioxygenase.	curated	aerobic
+LACTATE_FROM_LACTALDEHYDE	lactate_formation_lactaldehyde	Lactaldehyde dehydrogenase route	NAD-dependent oxidation of the aldehyde to the acid.	curated	independent

@@ -369,3 +369,10 @@ kdg_degradation	physiological_role	central_carbon_metabolism	Shared lower segmen
 pectate_lyase_degradation	substrate_class	polysaccharide	
 pectate_lyase_degradation	physiological_role	carbon_acquisition	
 pectate_lyase_degradation	physiological_role	fibre_degradation	
+ectoine_degradation	substrate_class	compatible_solute	Ectoine is the input boundary.
+ectoine_degradation	physiological_role	carbon_acquisition	Converts an acquired solute towards central metabolism; utilisation in situ is not claimed.
+ectoine_degradation	physiological_role	nitrogen_acquisition	The product carries both of ectoine's nitrogens.
+hydroxyectoine_biosynthesis	substrate_class	compatible_solute	5-hydroxyectoine is the product boundary.
+hydroxyectoine_biosynthesis	physiological_role	compatible_solute_biosynthesis	Names the encoded product, not a tolerance phenotype.
+lactate_formation_lactaldehyde	substrate_class	organic_acid	Lactate is the product boundary.
+lactate_formation_lactaldehyde	physiological_role	fermentative_end_product	

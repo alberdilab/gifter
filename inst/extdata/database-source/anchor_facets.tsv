@@ -474,3 +474,9 @@ PECTIN	biomass_essential	no
 KDG	molecular_tier	small_molecule	Curated with the hexuronate branchpoint boundary in 2026.21.3.
 KDG	resource_origin	central_metabolism	Curated with the hexuronate branchpoint boundary in 2026.21.3.
 KDG	biomass_essential	no	Curated with the hexuronate branchpoint boundary in 2026.21.3.
+DABA	molecular_tier	small_molecule	Curated with ectoine degradation in 2026.22.1.
+DABA	resource_origin	central_metabolism	Reached from ectoine by degradation and from L-aspartate 4-semialdehyde by biosynthesis; in neither case acquired from outside.
+DABA	biomass_essential	no	Curated with ectoine degradation in 2026.22.1.
+HYDROXYECTOINE	molecular_tier	small_molecule	Curated with ectoine hydroxylation in 2026.22.1.
+HYDROXYECTOINE	resource_origin	microbially_derived	Microorganisms synthesise it; this annotation does not imply extracellular release.
+HYDROXYECTOINE	biomass_essential	no	The capability makes no essentiality or osmotic-tolerance claim.

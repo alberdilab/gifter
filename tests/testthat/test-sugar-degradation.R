@@ -90,6 +90,8 @@ test_that("catabolism does not connect to biosynthesis through internal metaboli
     unique(outgoing$to_gift),
     c(
       "pyruvate_to_acetyl_coa", "propanediol_formation",
+      # Lactaldehyde now has a second fate beside its reduction to propanediol.
+      "lactate_formation_lactaldehyde",
       "lactate_formation", "acetoin_formation", "ammonium_assimilation",
       "glutamine_biosynthesis", "alanine_biosynthesis",
       "oxoisovalerate_biosynthesis", "oxobutanoate_biosynthesis_citramalate",

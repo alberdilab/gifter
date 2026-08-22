@@ -397,7 +397,7 @@ test_that("printing dataset traits says what was read and how much was detected"
   expect_match(output, "<gifter_dataset_traits> 4 genomes x 3 samples")
   expect_match(output, "sample-invariant rows")
   expect_match(output, "detection: 0")
-  expect_match(output, "s2\\s+2 / 149 supported,\\s+2 genomes detected")
+  expect_match(output, "s2\\s+2 / 152 supported,\\s+2 genomes detected")
 })
 
 test_that("a thin denominator is counted in sample-universe readings", {

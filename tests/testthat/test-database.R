@@ -5,7 +5,7 @@ test_that("canonical source tables validate", {
   expect_true(report$valid)
   expect_length(report$errors, 0L)
   expect_equal(
-    unname(report$rows[c("gifts", "anchors", "reactions")]), c(149L, 154L, 432L)
+    unname(report$rows[c("gifts", "anchors", "reactions")]), c(152L, 156L, 436L)
   )
   # Every typed model now ships curated content.
   expect_equal(
@@ -100,7 +100,8 @@ test_that("database accessors return stable definitions", {
       "cysteine_degradation_sulfide", "cytidylate_biosynthesis",
       "dap_biosynthesis", "dihydroxybenzoate_biosynthesis",
       "dihydroxyphenylpropanoate_degradation", "dmb_biosynthesis_aerobic",
-      "ectoine_biosynthesis", "enterobactin_biosynthesis", "ethanol_formation",
+      "ectoine_biosynthesis", "ectoine_degradation",
+      "enterobactin_biosynthesis", "ethanol_formation",
       "flagellar_apparatus",
       "folate_biosynthesis", "fucose_degradation_isomerase",
       "fumarate_oxaloacetate_interconversion", "galactose_degradation_leloir",
@@ -110,10 +111,12 @@ test_that("database accessors return stable definitions", {
       "glycine_reduction_stickland", "glyoxylate_bypass", "guanylate_biosynthesis",
       "heme_b_biosynthesis", "histidine_biosynthesis", "histidine_degradation_glutamate",
       "hmp_phosphate_biosynthesis", "homoserine_biosynthesis",
+      "hydroxyectoine_biosynthesis",
       "hydroxyphenylpropanoate_hydroxylation",
       "indole_3_acetate_biosynthesis", "isocitrate_to_oxoglutarate",
       "isoleucine_biosynthesis", "kdg_degradation",
-      "lactate_formation", "lactate_racemisation", "leucine_biosynthesis",
+      "lactate_formation", "lactate_formation_lactaldehyde",
+      "lactate_racemisation", "leucine_biosynthesis",
       "lysine_biosynthesis_dap", "malolactic_fermentation",
       "menaquinone_biosynthesis", "mercury_detoxification", "methionine_biosynthesis_sulfhydrylation",
       "methionine_biosynthesis_transsulfuration",
@@ -213,7 +216,7 @@ test_that("database accessors return stable definitions", {
 test_that("database and schema versions are independent", {
   version <- gifter_db_version()
   expect_equal(version$package_version, "0.7.0")
-  expect_equal(version$gifter_db_version, "2026.21.3")
+  expect_equal(version$gifter_db_version, "2026.22.1")
   expect_equal(version$schema_version, 7L)
   expect_equal(version$rhea_release, "141")
 })
@@ -400,7 +403,10 @@ test_that("the anchor network links GIFTs only through declared anchors", {
   shared <- unique(data$graph$shared_anchor)
   expect_equal(sum(grepl("anchor shared", nodes, fixed = TRUE)), length(shared))
   expect_setequal(shared, c(
-    "IMP", "ASA", "HOMOSERINE", "SERINE", "CYSTEINE", "XYLOSE_IN", "ARABINOSE_IN",
+    "IMP", "ASA",
+    # Ectoine became a shared anchor when its two fates were curated: the
+    # biosynthesis GIFT outputs it, degradation and hydroxylation consume it.
+    "ECTOINE", "HOMOSERINE", "SERINE", "CYSTEINE", "XYLOSE_IN", "ARABINOSE_IN",
     "XYLAN", "XYLOSE_EX", "ARABINOSE_EX",
     # The Entner-Doudoroff branchpoint, where both hexuronate heads and the
     # pectate lyase route hand off to the shared lower segment.

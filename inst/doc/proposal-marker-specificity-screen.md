@@ -248,6 +248,14 @@ ce484307452ed1803034a455cdae39c1bcc07b91034df4cbdb59d5751e9a1ff0  kegg-ko-list.t
   to the screen, which is not evidence that it is broad or narrow.
 - **The screen cannot separate an ambiguous ortholog from a promiscuous
   enzyme.** Section 2. Every flag needs a curator.
+- **No saturation filter, and it matters.** The screen ranks a candidate by how
+  specific the anchor it touches is, which says whether a candidate is
+  *markable*. It says nothing about whether the resulting trait would be
+  *informative*. The 2026.22.1 release found this the hard way: pantothenate
+  kinase ranks highly and the trait is worthless, because cofactor activation is
+  complete in essentially every genome and a capability that partitions nothing
+  carries only annotation noise. A prevalence column and a saturation flag are
+  the next thing to add. See [anchor fates](proposal-anchor-fates.md) §2.
 - **KEGG orthology is a moving target.** The KO list is re-issued continuously.
   Re-running the screen after a KEGG update may move accessions between
   verdicts; that is a reason to re-run it before a release, not a reason to

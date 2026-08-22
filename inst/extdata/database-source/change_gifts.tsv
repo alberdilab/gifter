@@ -332,3 +332,8 @@ DBC-20260821-KDG-ANCHOR	glucuronate_degradation
 DBC-20260821-KDG-ANCHOR	kdg_degradation
 DBC-20260821-PECTATE-LYASE	pectate_lyase_degradation
 DBC-20260821-PECTATE-LYASE	pectin_degradation
+DBC-20260822-ECTOINE-DEGRADATION	ectoine_degradation
+DBC-20260822-ECTOINE-DEGRADATION	ectoine_biosynthesis
+DBC-20260822-HYDROXYECTOINE	hydroxyectoine_biosynthesis
+DBC-20260822-LACTALDEHYDE-OXIDATION	lactate_formation_lactaldehyde
+DBC-20260822-LACTALDEHYDE-OXIDATION	propanediol_formation

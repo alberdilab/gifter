@@ -594,3 +594,7 @@ COMP_20269_CATALYTIC	SYS_20269_OGL	oligogalacturonide lyase protein	Required cat
 COMP_23896_CATALYTIC	SYS_23896_KDUI	ketol-isomerase protein	Required catalytic protein; alternative markers are OR.
 COMP_24232_CATALYTIC	SYS_24232_KDUD	2-dehydro-3-deoxy-D-gluconate 5-dehydrogenase protein	Required catalytic protein; alternative markers are OR.
 COMP_PECTIN_LYASE	SYS_PECTIN_LYASE	pectin lyase protein	Required catalytic protein; alternative markers are OR.
+COMP_52304_DOEA	SYS_52304_DOEA	ectoine hydrolase	Required catalytic protein.
+COMP_40951_DOEB	SYS_40951_DOEB	N2-acetyl-L-2,4-diaminobutanoate deacetylase	Required catalytic protein.
+COMP_45740_ECTD	SYS_45740_ECTD	ectoine hydroxylase	Required catalytic protein.
+COMP_14277_ALDH	SYS_14277_ALDH	lactaldehyde dehydrogenase	Required catalytic protein.

@@ -335,3 +335,9 @@ kdg_degradation	PYRUVATE	output	1
 kdg_degradation	GAP	output	2
 pectate_lyase_degradation	PECTIN	input	1
 pectate_lyase_degradation	KDG	output	1
+ectoine_degradation	ECTOINE	input	1
+ectoine_degradation	DABA	output	1
+hydroxyectoine_biosynthesis	ECTOINE	input	1
+hydroxyectoine_biosynthesis	HYDROXYECTOINE	output	1
+lactate_formation_lactaldehyde	LACTALDEHYDE	input	1
+lactate_formation_lactaldehyde	LACTATE_L	output	1

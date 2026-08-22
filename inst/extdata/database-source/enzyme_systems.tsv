@@ -494,3 +494,7 @@ SYS_20269_OGL	RHEA:20269	oligogalacturonide lyase	Single-protein catalytic syste
 SYS_23896_KDUI	RHEA:23896	4-deoxy-L-threo-5-hexosulose-uronate ketol-isomerase	Single-protein catalytic system.
 SYS_24232_KDUD	RHEA:24232	2-dehydro-3-deoxy-D-gluconate 5-dehydrogenase	Single-protein catalytic system.
 SYS_PECTIN_LYASE	RXN_PECTIN_LYASE	pectin lyase	Single catalytic protein system; alternative markers are OR.
+SYS_52304_DOEA	RHEA:52304	DoeA ectoine hydrolase	Single catalytic protein.
+SYS_40951_DOEB	RHEA:40951	DoeB N2-acetyldiaminobutanoate deacetylase	Single catalytic protein.
+SYS_45740_ECTD	RHEA:45740	EctD ectoine hydroxylase	Single catalytic protein.
+SYS_14277_ALDH	RHEA:14277	lactaldehyde dehydrogenase	Single catalytic protein.

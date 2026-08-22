@@ -1314,3 +1314,8 @@ COMP_PECTIN_LYASE	CAZY	PL1_e25	sequence_family	curated	CAZy via dbCAN db_v5-2-9_
 COMP_PECTIN_LYASE	CAZY	PL1_e33	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 4.2.2.10 (100%). Agreement is complete but rests on 2 annotated members, below the ten the curated grade requires.
 COMP_PECTIN_LYASE	CAZY	PL1_e71	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	2 of 2 EC-annotated members carry EC 4.2.2.10 (100%). Agreement is complete but rests on 2 annotated members, below the ten the curated grade requires.
 COMP_PECTIN_LYASE	CAZY	PL1_e8	sequence_family	high-confidence	CAZy via dbCAN db_v5-2-9_5-5-2026, retrieved 2026-08-18	7 of 7 EC-annotated members carry EC 4.2.2.10 (100%). Agreement is complete but rests on 7 annotated members, below the ten the curated grade requires.
+COMP_52304_DOEA	KO	K15783	orthology	curated	KEGG 2026-08-22	Specific to the ectoine hydrolase of the degradative operon.
+COMP_40951_DOEB	KO	K15784	orthology	curated	KEGG 2026-08-22	
+COMP_45740_ECTD	KO	K10674	orthology	curated	KEGG 2026-08-22	Single-reaction orthologue; the hydroxylase acts on ectoine and nothing else in the database.
+COMP_14277_ALDH	KO	K19266	orthology	curated	KEGG 2026-08-22	Single-reaction orthologue for EC 1.2.1.22.
+COMP_14277_ALDH	KO	K07248	orthology	curated	KEGG 2026-08-22	AldA also oxidises glycolaldehyde, EC 1.2.1.21. The breadth is the enzyme's rather than the annotation's: AldA genuinely performs this reaction, and the route's input anchor states which substrate the GIFT is about.

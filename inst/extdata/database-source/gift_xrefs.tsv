@@ -203,3 +203,6 @@ mucin_galnac_release	KEGG_PATHWAY	map00511	Other glycan degradation	subset_of
 pectin_degradation	KEGG_PATHWAY	map00040	Pentose and glucuronate interconversions	subset_of	
 kdg_degradation	KEGG_PATHWAY	map00040	Pentose and glucuronate interconversions	subset_of	No KEGG module covers the shared lower segment on its own.
 pectate_lyase_degradation	KEGG_PATHWAY	map00040	Pentose and glucuronate interconversions	subset_of	
+ectoine_degradation	KEGG_MODULE	M00919	Ectoine degradation, ectoine => aspartate	subset_of	The module runs on through DoeD and DoeC to L-aspartate; gifter stops where ectoine-specific chemistry stops.
+lactate_formation_lactaldehyde	KEGG_PATHWAY	map00620	Pyruvate metabolism	subset_of	
+hydroxyectoine_biosynthesis	KEGG_PATHWAY	map00260	Glycine, serine and threonine metabolism	subset_of	KEGG places the ectoine chemistry in this map; the GIFT is one reaction of it.
