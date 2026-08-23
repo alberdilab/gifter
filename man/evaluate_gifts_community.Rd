@@ -20,7 +20,7 @@ evaluate_gifts_community(
 `genome_id`, `namespace` and `accession` columns and, normally, `gene_id`.}
 
 \item{namespace}{Namespace for a character-vector input. If omitted, KO, EC,
-Pfam, and TIGRFAM accessions are inferred where possible.}
+Pfam, TIGRFAM, NCBIfam and CAZy accessions are inferred where possible.}
 
 \item{db}{Optional open gifter database connection.}
 

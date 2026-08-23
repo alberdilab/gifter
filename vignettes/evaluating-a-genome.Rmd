@@ -41,7 +41,7 @@ into one row per observed marker:
 | column | meaning |
 |---|---|
 | `gene_id` | your identifier for the gene. Optional, but it is what makes a call traceable back to a locus |
-| `namespace` | which accession system: `KO`, `EC`, `PFAM`, `TIGRFAM`, `CAZY` |
+| `namespace` | which accession system: `KO`, `EC`, `PFAM`, `TIGRFAM`, `NCBIFAM`, `CAZY` |
 | `accession` | the accession itself |
 
 Long form matters: a gene hit by both a KO and a CAZy family is **two rows**,
@@ -86,8 +86,17 @@ nrow(gut_anaerobe)
 ```
 
 If you only have a bare vector of accessions, gifter will infer the namespace
-for KO, EC, Pfam, TIGRFAM and CAZy patterns. Supplying `namespace` explicitly
-is safer.
+for KO, EC, Pfam, TIGRFAM, NCBIfam and CAZy patterns. Supplying `namespace`
+explicitly is safer.
+
+`NCBIFAM` is the namespace for the profile library PGAP, AMRFinderPlus, bakta
+and InterProScan report, and its accessions carry a release version suffix:
+`NF040708.3`, `TIGR04545.1`. **Keep the suffix.** A bare `TIGR03948` is read as
+the unversioned `TIGRFAM` identity instead, which is a different marker, and a
+bare `NF040708` matches nothing. A KEGG-only annotation produces no NCBIfam
+accession at all; every component that accepts one also accepts a KO, with one
+deliberate exception — `siroheme_to_heme_b` needs `NF040708.3` and `NF040707.3`
+because no KEGG accession separates the two subunits of its first enzyme.
 
 ### Two questions gifter asks before it evaluates
 

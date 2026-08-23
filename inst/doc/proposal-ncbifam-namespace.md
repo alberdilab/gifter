@@ -1,14 +1,16 @@
 # Assessment: NCBIfam as a marker namespace, read against the deferral register
 
-Status: **assessed 2026-08-22; the namespace is registered in database
-2026.23.1.** `NCBIFAM` is a marker namespace under the three rules of §5,
-enforced by the compiler. That release is additive: 53 equivalog-grade profiles
-joined 25 enzyme components as OR alternatives beside the KEGG orthologs
-already there, and no Boolean call moved. §7 records what was implemented and
-what was refused inside the implementation. The first capability to *depend* on
-the namespace, `siroheme_to_heme_b`, is the next release.
+Status: **assessed 2026-08-22; implemented in database 2026.23.1 and
+2026.24.1.** `NCBIFAM` is a registered marker namespace under the three rules of
+§5, enforced by the compiler. Release 2026.23.1 is additive: 53 equivalog-grade
+profiles joined 25 enzyme components as OR alternatives beside the KEGG
+orthologs already there, and no Boolean call moved. Release 2026.24.1 curates
+the first capability that depends on the namespace, `siroheme_to_heme_b`, whose
+refusal named this assessment as its retrigger. §7 and §8 below record what was
+implemented and what was refused inside the implementation.
 
-**Decision timestamp:** 2026-08-22T17:40Z. Implemented 2026-08-23T10:00Z.
+**Decision timestamp:** 2026-08-22T17:40Z. Implemented 2026-08-23T10:00Z
+(additive release) and 2026-08-23T14:30Z (Ahb route).
 
 **Input:** `hmm_PGAP.tsv`, NCBIfam release `hmm_PGAP/20.0`, initiated
 2026-06-23 and published 2026-06-25, retrieved 2026-08-22 from
@@ -128,8 +130,9 @@ Three costs, none prohibitive, all real.
 
   A genome annotated only against KEGG therefore matches no `NCBIFAM` marker,
   and that is not a failure: every component the namespace touches in release
-  2026.23.1 already accepts a KO, so the call is what it always was. It will
-  start to matter the moment a capability *depends* on the namespace.
+  2026.23.1 already accepts a KO, so the call is what it always was. The one
+  place it matters is `siroheme_to_heme_b`, which exists *because* KEGG cannot
+  express it, and which a KEGG-only annotation will therefore never complete.
 - **A second namespace is a second migration surface.** The dbCAN lesson in
   `data-raw/reference/README.md` applies: accessions must be pinned to a release
   and re-checked when it changes. NCBIfam accessions are versioned
@@ -248,3 +251,62 @@ behavioural half holds: every `NCBIFAM` evidence row sits on a component that
 already accepted a marker. No component became newly satisfiable, and no
 component, system, reaction or route entered the hierarchy.
 
+---
+
+## 8. Release 2026.24.1: the Ahb route, verified end to end
+
+The first capability that depends on the namespace, and the reason §5 said it
+should be this one: the refusal recorded in
+[the MetaCyc pass](proposal-metacyc-expansion.md) named exactly this retrigger.
+
+**A heterodimer is not a route.** The refusal was about one reaction, so it
+would have been possible to satisfy it and still ship a fragment. Every step was
+therefore checked at the specificity the claim needs before anything was
+curated:
+
+| Step | Rhea master | Evidence | Verdict |
+|---|---|---|---|
+| Siroheme to 12,18-didecarboxysiroheme, AhbA **and** AhbB | `RHEA:19093` | `NF040708.3` *ahbA* and `NF040707.3` *ahbB*, both equivalog, EC 4.1.1.111 | Two jointly required components, each with its own accession. `K22225` is admitted on neither |
+| 12,18-didecarboxysiroheme to Fe-coproporphyrin III, AhbC | `RHEA:37431` | `K22226` names one gene and one activity; `TIGR04546.1` is an equivalog for the same protein | Specific. The KO carries no EC, so the specificity screen cannot see it, but a one-gene one-activity orthology states one reaction |
+| Fe-coproporphyrin III to heme b, AhbD | `RHEA:56520` | `K22227`, EC 1.3.98.6; `TIGR04545.1` equivalog | Specific. EC 1.3.98.6 is the AdoMet-dependent conversion and does not cover the peroxide-dependent one |
+| Alternative terminal step, HemQ | `RHEA:56516` | `K00435`, already curated on `heme_b_biosynthesis` | Already in the database. KEGG M00847 admits it as an alternative for the same step |
+
+Both minimal routes are materialised: `AHB_AHBD` and `AHB_CHDC` differ only in
+the terminal reaction. That is what lets the `M00847` link be recorded
+`equivalent` rather than `subset_of` — the module's own definition is
+`K22225 K22226 (K22227,K25033)`, and gifter represents the same alternative.
+
+### 8.1 What the namespace bought, stated exactly
+
+`K22225` is admitted nowhere in the database, and a test asserts it. A genome
+that KEGG calls complete for M00847 on a single `K22225` gene is **not** complete
+in gifter, because that gene cannot be both subunits of a heterodimer. The
+NCBIfam profiles are the only evidence that separates them, so this GIFT is the
+one place where a KEGG-only annotation can never produce a positive call. That
+is a real cost, and it is the honest one: the alternative was to keep refusing
+the capability.
+
+### 8.2 Refused inside the Ahb curation
+
+- **`NF046668.3`, the fused NirDL-like siroheme decarboxylase.** Some organisms
+  carry AhbA and AhbB as one polypeptide, and a fusion-specific marker was
+  listed in the original refusal as one of the three things that would unblock
+  it. NCBIfam has a profile — and it is `domain`-graded, so it carries no
+  one-function guarantee and is refused by rule 1. The fused enzyme therefore
+  remains uncallable, which under-calls real biology rather than over-calling
+  it.
+- **`K25033`.** KEGG splits the peroxide-dependent heme synthase across two
+  orthology groups, `K00435` and `K25033`, with identical names and EC numbers.
+  gifter curates `K00435` only, from the earlier coproporphyrin curation. Adding
+  `K25033` would change `heme_b_biosynthesis` calls, which is a decision of its
+  own rather than a side effect of this release; it is recorded in the register.
+
+### 8.3 Composition
+
+`SIROHEME` and `HEME_B` are both existing anchors, and 12,18-didecarboxysiroheme
+and Fe-coproporphyrin III stay internal — neither is a boundary, a branchpoint
+or a stable product anything else touches. The GIFT therefore adds no anchor,
+and it composes with `siroheme_biosynthesis` through the declared `SIROHEME`
+anchor alone. The graph edge from `siroheme_biosynthesis` that
+`test-siroheme.R` used to assert *absent* is now asserted present, with the
+comment recording why it appeared: the boundary did not move, the evidence did.

@@ -15,6 +15,28 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-08-23T14:30Z — NCBIfam accessions are recognised on input, suffix and all
+
+**The problem.** `NCBIFAM` markers are unusable if a user has to name the
+namespace by hand. Worse, the accessions collide with an identity gifter already
+holds: `TIGR04545.1` is a JCVI profile as the pinned NCBIfam release publishes
+it, while the five existing `TIGRFAM` rows are the same library recorded from
+InterPro without a version suffix. Read one as the other and the marker
+silently becomes a different marker.
+
+**What changed.** `.infer_marker_namespace()` reads `NF######.#` and
+`TIGR#####.#` as `NCBIFAM`, leaving bare `TIGR#####` as `TIGRFAM`, so the
+version suffix is what decides the namespace. `.normalize_marker_accession()`
+upper-cases `NCBIFAM` accessions. An unversioned `NF040708` is inferred as
+nothing and errors, rather than being promoted to the versioned marker — a loud
+failure, because the quiet one is a genome that looks as though it lacks a
+capability.
+
+**Effect.** Bare accession vectors and annotation tables from PGAP,
+AMRFinderPlus, bakta and InterProScan now resolve without an explicit
+`namespace` column. No existing inference changed: every pattern that resolved
+before resolves to the same namespace.
+
 ### 2026-08-23T10:00Z — The compiler curates the NCBIfam grade, and a screen recomputes what the namespace resolves
 
 **The problem.** NCBIfam grades every profile in a `family_type` column, and

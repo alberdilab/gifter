@@ -376,3 +376,5 @@ hydroxyectoine_biosynthesis	substrate_class	compatible_solute	5-hydroxyectoine i
 hydroxyectoine_biosynthesis	physiological_role	compatible_solute_biosynthesis	Names the encoded product, not a tolerance phenotype.
 lactate_formation_lactaldehyde	substrate_class	organic_acid	Lactate is the product boundary.
 lactate_formation_lactaldehyde	physiological_role	fermentative_end_product	
+siroheme_to_heme_b	substrate_class	cofactor	Heme b is the product boundary, and siroheme is a cofactor too.
+siroheme_to_heme_b	physiological_role	biosynthesis	Converts one tetrapyrrole cofactor into another.

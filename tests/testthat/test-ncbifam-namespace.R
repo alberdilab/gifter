@@ -110,39 +110,56 @@ test_that("an NCBIfam marker must declare its grade and carry a version", {
 })
 
 test_that("an NCBIfam marker is an OR alternative, not a second required gene", {
-  # Two claims, and the first is what makes the release additive.
+  # Two claims, and the first is what makes the additive release additive.
   #
-  # Structurally: every NCBIfam evidence row sits on a component that already
-  # accepted a marker, so no component went from unsatisfiable to satisfiable
-  # and no new component, system, reaction or route entered the hierarchy.
+  # Structurally: on every component that existed before the namespace, the
+  # NCBIfam profile sits beside a marker that was already there. Nothing became
+  # newly satisfiable. The only components whose sole evidence is NCBIfam belong
+  # to `siroheme_to_heme_b`, which exists *because* no KEGG accession separates
+  # AhbA from AhbB -- a capability the namespace created, not one it took over.
   #
-  # Behaviourally: on a component with both, either marker alone completes the
-  # reaction. A layer that required both would be modelling a heterodimer,
-  # which is a claim about the enzyme rather than about the annotation that
-  # finds it.
-  rows <- ncbifam_source_rows()
+  # Behaviourally: where a component has both, either marker alone completes the
+  # reaction. A layer that required both would be modelling a heterodimer, which
+  # is a claim about the enzyme rather than about the annotation that finds it.
   connection <- gifter_db_connect()
   on.exit(gifter_db_disconnect(connection), add = TRUE)
 
   evidence <- DBI::dbGetQuery(connection, paste(
-    "SELECT c.component_id, m.namespace FROM component_marker cm",
+    "SELECT c.component_id, r.reaction_id, m.namespace FROM component_marker cm",
     "JOIN enzyme_component c ON c.component_pk = cm.component_pk",
+    "JOIN enzyme_system s ON s.system_pk = c.system_pk",
+    "JOIN reaction r ON r.reaction_pk = s.reaction_pk",
     "JOIN marker m ON m.marker_pk = cm.marker_pk"
   ))
-  older <- evidence[evidence$namespace != "NCBIFAM", , drop = FALSE]
+  by_component <- split(evidence$namespace, evidence$component_id)
+  ncbifam_only <- names(by_component)[
+    vapply(by_component, function(x) all(x == "NCBIFAM"), logical(1))
+  ]
+  ahb <- get_gift_reactions("siroheme_to_heme_b")$reaction_id
   expect_setequal(
-    intersect(unique(rows$component_id), unique(older$component_id)),
-    unique(rows$component_id)
+    unique(evidence$reaction_id[evidence$component_id %in% ncbifam_only]),
+    "RHEA:19093"
   )
+  expect_true("RHEA:19093" %in% ahb)
 
-  # SerA is the worked case: one component, one KO, one NCBIfam profile.
+  # SerA is the worked OR case: one component, one KO, one NCBIfam profile.
   ko_only <- evaluate_reactions("K00058")$reactions
-  ncbifam_only <- evaluate_reactions(data.frame(
+  ncbifam_only_call <- evaluate_reactions(data.frame(
     gene_id = "gene_1", namespace = "NCBIFAM", accession = "NF008759.0",
     stringsAsFactors = FALSE
   ))$reactions
   expect_true(ko_only$supported[ko_only$reaction_id == "RHEA:12641"])
-  expect_true(ncbifam_only$supported[ncbifam_only$reaction_id == "RHEA:12641"])
+  expect_true(ncbifam_only_call$supported[ncbifam_only_call$reaction_id == "RHEA:12641"])
+
+  # AhbC is the same shape inside the new capability: KEGG orthology and an
+  # NCBIfam equivalog for one protein, either of which satisfies the component.
+  for (marker in list(c("KO", "K22226"), c("NCBIFAM", "TIGR04546.1"))) {
+    ahbc <- evaluate_reactions(data.frame(
+      gene_id = "gene_1", namespace = marker[[1]], accession = marker[[2]],
+      stringsAsFactors = FALSE
+    ))$reactions
+    expect_true(ahbc$supported[ahbc$reaction_id == "RHEA:37431"], info = marker[[2]])
+  }
 
   # And the multisubunit case, where attaching a subunit profile to the wrong
   # component would have been the easy mistake. CitD alone does not build a
@@ -156,16 +173,55 @@ test_that("an NCBIfam marker is an OR alternative, not a second required gene", 
 })
 
 # Reconstruct the database as it stood before the namespace was admitted: every
-# NCBIFAM row removed, and nothing else touched, so any difference in a call
-# afterwards is attributable to this release alone.
+# NCBIFAM row removed, and with it the one capability that depends on the
+# namespace, whose components have no other evidence by construction. Nothing
+# else is touched, so any difference in a call afterwards is attributable to
+# these two releases alone.
 pre_namespace_sources <- function(envir = parent.frame()) {
   source_dir <- gifter_source_copy(envir)
+  drop <- function(table, column, values) {
+    rows <- read_source(source_dir, table)
+    write_source(source_dir, table, rows[!rows[[column]] %in% values, , drop = FALSE])
+  }
+  gift <- "siroheme_to_heme_b"
+  routes <- c("AHB_AHBD", "AHB_CHDC")
+  # RHEA:56516 stays: heme_b_biosynthesis curated it first and still uses it.
+  reactions <- c("RHEA:19093", "RHEA:37431", "RHEA:56520")
+  systems <- c("SYS_19093_AHBAB", "SYS_37431_AHBC", "SYS_56520_AHBD")
+  components <- c("COMP_19093_AHBA", "COMP_19093_AHBB", "COMP_37431_AHBC",
+                  "COMP_56520_AHBD")
+
+  for (table in c("gifts", "gift_anchors", "gift_facets", "gift_xrefs",
+                  "gift_routes", "change_gifts")) {
+    drop(table, "gift_id", gift)
+  }
+  drop("route_reactions", "route_id", routes)
+  drop("reactions", "reaction_id", reactions)
+  drop("reaction_xrefs", "reaction_id", reactions)
+  drop("enzyme_systems", "system_id", systems)
+  drop("enzyme_components", "component_id", components)
+  drop("component_markers", "component_id", components)
+  drop("change_gifts", "change_id", "DBC-20260823-SIROHEME-TO-HEME-B")
+  drop("database_changes", "change_id", "DBC-20260823-SIROHEME-TO-HEME-B")
+
   evidence <- read_source(source_dir, "component_markers")
-  markers <- read_source(source_dir, "markers")
   write_source(source_dir, "component_markers",
                evidence[evidence$namespace != "NCBIFAM", , drop = FALSE])
-  write_source(source_dir, "markers",
-               markers[markers$namespace != "NCBIFAM", , drop = FALSE])
+
+  # A marker is registered once and used by any of the four evidence tables, so
+  # the orphan check has to read all of them. K22226 and K22227 arrived with the
+  # Ahb route and support nothing without it.
+  used <- unlist(lapply(
+    c("component_markers", "structural_component_markers",
+      "regulatory_component_markers", "defense_component_markers"),
+    function(table) {
+      rows <- read_source(source_dir, table)
+      paste(rows$namespace, rows$accession)
+    }
+  ))
+  markers <- read_source(source_dir, "markers")
+  keep <- paste(markers$namespace, markers$accession) %in% used
+  write_source(source_dir, "markers", markers[keep, , drop = FALSE])
   source_dir
 }
 
@@ -220,7 +276,35 @@ test_that("admitting the namespace changed no call over the vocabulary that prec
     annotation <- annotation_of(rows)
     old <- evaluate_gifts(annotation, db = before)$gifts
     new <- evaluate_gifts(annotation, db = after)$gifts
+    # `siroheme_to_heme_b` did not exist before; every other call must match.
+    new <- new[new$gift_id %in% old$gift_id, ]
+    expect_setequal(old$gift_id, new$gift_id)
     expect_equal(new[compared], old[compared])
   }
 })
 
+test_that("the version suffix decides which namespace an accession belongs to", {
+  # A user pasting accessions out of a bakta or InterProScan table gets the
+  # namespace inferred, and the suffix is what separates the two identities: a
+  # bare `TIGR03948` is the unversioned TIGRFAM row gifter recorded from
+  # InterPro, while `TIGR04545.1` is the JCVI profile as the pinned NCBIfam
+  # release publishes it. Reading one as the other would silently substitute a
+  # different marker.
+  mapped <- map_markers(c("NF040708.3", "TIGR04545.1", "TIGR03948",
+                          "nf040707.3"))
+  expect_equal(
+    mapped$namespace, c("NCBIFAM", "NCBIFAM", "TIGRFAM", "NCBIFAM")
+  )
+  # Lower case survives normalisation as the accession the database holds.
+  expect_equal(mapped$accession[[4]], "NF040707.3")
+  expect_true(all(mapped$matched))
+
+  # An unversioned NCBIfam accession is refused rather than promoted to the
+  # versioned marker. The failure is loud, which is the point: the alternative
+  # is a genome that quietly looks as though it lacks the capability.
+  expect_error(map_markers("NF040708"), "Could not infer namespaces")
+  unversioned <- map_markers(data.frame(
+    namespace = "NCBIFAM", accession = "NF040708", stringsAsFactors = FALSE
+  ))
+  expect_false(unversioned$matched)
+})

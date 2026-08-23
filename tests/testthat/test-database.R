@@ -5,7 +5,7 @@ test_that("canonical source tables validate", {
   expect_true(report$valid)
   expect_length(report$errors, 0L)
   expect_equal(
-    unname(report$rows[c("gifts", "anchors", "reactions")]), c(152L, 156L, 436L)
+    unname(report$rows[c("gifts", "anchors", "reactions")]), c(153L, 156L, 439L)
   )
   # Every typed model now ships curated content.
   expect_equal(
@@ -144,7 +144,7 @@ test_that("database accessors return stable definitions", {
       "rhamnose_degradation", "riboflavin_biosynthesis",
       "salicylate_biosynthesis", "sarcosine_demethylation",
       "serine_biosynthesis", "serine_deamination", "siroheme_biosynthesis",
-      "starch_degradation",
+      "siroheme_to_heme_b", "starch_degradation",
       "succinate_fumarate_interconversion", "superoxide_detoxification",
       "taurine_degradation_sulfoacetaldehyde",
       "taurine_desulfonation_aerobic", "taurine_uptake_abc",
@@ -216,7 +216,7 @@ test_that("database accessors return stable definitions", {
 test_that("database and schema versions are independent", {
   version <- gifter_db_version()
   expect_equal(version$package_version, "0.7.0")
-  expect_equal(version$gifter_db_version, "2026.23.1")
+  expect_equal(version$gifter_db_version, "2026.24.1")
   expect_equal(version$schema_version, 7L)
   expect_equal(version$rhea_release, "141")
 })
@@ -404,6 +404,10 @@ test_that("the anchor network links GIFTs only through declared anchors", {
   expect_equal(sum(grepl("anchor shared", nodes, fixed = TRUE)), length(shared))
   expect_setequal(shared, c(
     "IMP", "ASA",
+    # Siroheme became a shared anchor in database 2026.24.1, when the Ahb route
+    # from siroheme to heme b gave the branch a consumer. Until then the edge
+    # was absent because no marker separated AhbA from AhbB.
+    "SIROHEME",
     # Ectoine became a shared anchor when its two fates were curated: the
     # biosynthesis GIFT outputs it, degradation and hydroxylation consume it.
     "ECTOINE", "HOMOSERINE", "SERINE", "CYSTEINE", "XYLOSE_IN", "ARABINOSE_IN",

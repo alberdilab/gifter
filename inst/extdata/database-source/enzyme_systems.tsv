@@ -498,3 +498,6 @@ SYS_52304_DOEA	RHEA:52304	DoeA ectoine hydrolase	Single catalytic protein.
 SYS_40951_DOEB	RHEA:40951	DoeB N2-acetyldiaminobutanoate deacetylase	Single catalytic protein.
 SYS_45740_ECTD	RHEA:45740	EctD ectoine hydroxylase	Single catalytic protein.
 SYS_14277_ALDH	RHEA:14277	lactaldehyde dehydrogenase	Single catalytic protein.
+SYS_19093_AHBAB	RHEA:19093	AhbA-AhbB siroheme decarboxylase	Heterodimer of two distinct subunits, both required.
+SYS_37431_AHBC	RHEA:37431	AhbC Fe-coproporphyrin III synthase	Single catalytic radical SAM protein.
+SYS_56520_AHBD	RHEA:56520	AhbD AdoMet-dependent heme synthase	Single catalytic radical SAM protein.

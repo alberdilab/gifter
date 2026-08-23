@@ -18,7 +18,7 @@ columns and an optional `gene_id` column, or a character vector of marker
 accessions.}
 
 \item{namespace}{Namespace for a character-vector input. If omitted, KO, EC,
-Pfam, and TIGRFAM accessions are inferred where possible.}
+Pfam, TIGRFAM, NCBIfam and CAZy accessions are inferred where possible.}
 
 \item{db}{Optional open gifter database connection.}
 

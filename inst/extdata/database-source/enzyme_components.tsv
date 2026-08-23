@@ -598,3 +598,7 @@ COMP_52304_DOEA	SYS_52304_DOEA	ectoine hydrolase	Required catalytic protein.
 COMP_40951_DOEB	SYS_40951_DOEB	N2-acetyl-L-2,4-diaminobutanoate deacetylase	Required catalytic protein.
 COMP_45740_ECTD	SYS_45740_ECTD	ectoine hydroxylase	Required catalytic protein.
 COMP_14277_ALDH	SYS_14277_ALDH	lactaldehyde dehydrogenase	Required catalytic protein.
+COMP_19093_AHBA	SYS_19093_AHBAB	AhbA	Required siroheme decarboxylase alpha subunit.
+COMP_19093_AHBB	SYS_19093_AHBAB	AhbB	Required siroheme decarboxylase beta subunit.
+COMP_37431_AHBC	SYS_37431_AHBC	AhbC	Required catalytic protein.
+COMP_56520_AHBD	SYS_56520_AHBD	AhbD	Required catalytic protein.

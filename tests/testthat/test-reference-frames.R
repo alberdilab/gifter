@@ -54,7 +54,7 @@ test_that("the carbohydrate preset is resolved from current curated metadata", {
 test_that("preset boundedness cannot be widened at runtime", {
   bounded <- reference_frame(preset = "biomass_essential_anabolism")
   expect_true(bounded$bounded)
-  expect_equal(length(bounded$gift_id), 43L)
+  expect_equal(length(bounded$gift_id), 44L)
 
   expect_error(
     reference_frame(preset = "carbohydrate_degradation", bounded = TRUE),

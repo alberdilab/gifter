@@ -206,3 +206,5 @@ PECTATE_LYASE	pectate_lyase_degradation	Pectate lyase route	Endo- then exo-actin
 ECTOINE_DEG_DOEAB	ectoine_degradation	DoeAB route	Ring hydrolysis followed by deacetylation.	curated	independent
 HYDROXYECTOINE_ECTD	hydroxyectoine_biosynthesis	EctD route	Single hydroxylation by the ectoine dioxygenase.	curated	aerobic
 LACTATE_FROM_LACTALDEHYDE	lactate_formation_lactaldehyde	Lactaldehyde dehydrogenase route	NAD-dependent oxidation of the aldehyde to the acid.	curated	independent
+AHB_AHBD	siroheme_to_heme_b	Ahb route with AdoMet-dependent AhbD terminal step	AhbA-AhbB, AhbC and AhbD. The route described for Methanosarcina barkeri and the sulfate-reducing Deltaproteobacteria.	curated	independent
+AHB_CHDC	siroheme_to_heme_b	Ahb route with peroxide-dependent HemQ terminal step	AhbA-AhbB and AhbC, closed by the hydrogen peroxide-dependent heme synthase that heme_b_biosynthesis already curates on its coproporphyrin route. KEGG M00847 admits this alternative for its terminal step.	curated	aerobic

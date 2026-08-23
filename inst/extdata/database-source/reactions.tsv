@@ -435,3 +435,6 @@ RHEA:52304	RHEA:52304	ectoine hydrolase reaction	L-ectoine + H2O = (2S)-2-acetam
 RHEA:40951	RHEA:40951	N2-acetyl-L-2,4-diaminobutanoate deacetylase reaction	(2S)-2-acetamido-4-aminobutanoate + H2O = L-2,4-diaminobutanoate + acetate. DoeB removes the acetyl group EctA installed during biosynthesis.
 RHEA:45740	RHEA:45740	ectoine hydroxylase reaction	L-ectoine + 2-oxoglutarate + O2 = 5-hydroxyectoine + succinate + CO2. A 2-oxoglutarate-dependent dioxygenase; the co-substrate and its succinate product are internal chemistry and are not anchors, as for the taurine dioxygenase.
 RHEA:14277	RHEA:14277	lactaldehyde dehydrogenase reaction	(S)-lactaldehyde + NAD(+) + H2O = (S)-lactate + NADH + 2 H(+). The oxidative fate of lactaldehyde, alternative to its reduction to propane-1,2-diol.
+RHEA:19093	RHEA:19093	siroheme decarboxylase reaction	siroheme + 2 H(+) = 12,18-didecarboxysiroheme + 2 carbon dioxide.
+RHEA:37431	RHEA:37431	Fe-coproporphyrin III synthase reaction	12,18-didecarboxysiroheme + 2 reduced acceptor + 2 S-adenosyl-L-methionine = Fe-coproporphyrin III + 2 5'-deoxyadenosine + 2 L-methionine + 2 acetate + 2 acceptor + 2 H(+).
+RHEA:56520	RHEA:56520	AdoMet-dependent heme synthase reaction	Fe-coproporphyrin III + 2 S-adenosyl-L-methionine = heme b + 2 5'-deoxyadenosine + 2 L-methionine + 2 carbon dioxide.

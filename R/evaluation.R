@@ -17,6 +17,13 @@
   result[grepl("^(EC:)?[0-9]+(\\.[0-9-]+){1,3}$", value)] <- "EC"
   result[grepl("^PF[0-9]{5}(\\.[0-9]+)?$", value)] <- "PFAM"
   result[grepl("^TIGR[0-9]{5}$", value)] <- "TIGRFAM"
+  # NCBIfam accessions carry a release version suffix, and that suffix is what
+  # separates the two namespaces: a bare `TIGR03948` is the unversioned TIGRFAM
+  # identity gifter recorded from InterPro, while `TIGR04545.1` is the JCVI
+  # profile as the pinned NCBIfam release publishes it. `NF*` accessions exist
+  # only in NCBIfam.
+  result[grepl("^NF[0-9]{6,}\\.[0-9]+$", value)] <- "NCBIFAM"
+  result[grepl("^TIGR[0-9]{5}\\.[0-9]+$", value)] <- "NCBIFAM"
   # CAZy accessions as reported by dbCAN, in three forms: the bare family
   # (GH5), the official CAZy subfamily (GH5_4), and the dbCAN-sub eCAMI cluster
   # (GH5_e12), which is what dbCAN-sub names in its own output. Each is a
@@ -35,7 +42,8 @@
   ec <- namespace == "EC" & !is.na(namespace) & !is.na(value)
   value[ec] <- sub("^EC:", "", value[ec], ignore.case = TRUE)
   value[ec] <- gsub("^\\[|\\]$", "", value[ec])
-  upper <- namespace %in% c("PFAM", "TIGRFAM", "CAZY", "CUSTOM_HMM") & !is.na(namespace)
+  upper <- namespace %in% c("PFAM", "TIGRFAM", "NCBIFAM", "CAZY", "CUSTOM_HMM") &
+    !is.na(namespace)
   value[upper] <- toupper(value[upper])
   # An eCAMI cluster suffix is lower-case by construction (GH5_e12); uppercasing
   # the accession would silently mint an identifier that matches nothing.
@@ -195,7 +203,7 @@
 #'   columns and an optional `gene_id` column, or a character vector of marker
 #'   accessions.
 #' @param namespace Namespace for a character-vector input. If omitted, KO, EC,
-#'   Pfam, and TIGRFAM accessions are inferred where possible.
+#'   Pfam, TIGRFAM, NCBIfam and CAZy accessions are inferred where possible.
 #' @param db Optional open gifter database connection.
 #' @return A long-form tibble linking each observation to zero or more curated
 #'   components. `gift_type` names the completeness model a row belongs to:

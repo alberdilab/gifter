@@ -1,7 +1,12 @@
 # Proposal: systematic MetaCyc expansion reconnaissance
 
 **Status:** reconnaissance complete; upstream siroheme GIFT implemented in
-database 2026.20.3, downstream Ahb GIFT refused at current marker specificity
+database 2026.20.3. The downstream Ahb GIFT was refused here at the marker
+specificity of the time and is now **implemented in database 2026.24.1**: the
+`NCBIFAM` namespace admitted in 2026.23.1 separates AhbA from AhbB, which is the
+reconsideration condition §14.2 recorded. See
+[the NCBIfam assessment](proposal-ncbifam-namespace.md) §8. Everything else
+below stands as written.
 
 **Decision timestamp:** 2026-08-20T09:21Z
 
@@ -62,7 +67,7 @@ The service response itself is not copied into the package.
 | Pathway ontology classes | 736 | Used to classify the catalogue; not candidates. |
 | Pathway instances | 3,691 | Discovery pool before superpathway removal. |
 | Superpathways | 386 | Removed as candidate capabilities. Their base members, or a seeded record's explicitly separated direct-reaction tail, were considered independently. |
-| Base pathway records | **3,305** | The screened discovery universe. |
+| Base pathway records | **3,305** | The screened discovery frame. |
 
 The 3,305 base records have overlapping top-level ontology ancestry. The pass
 covered 1,992 biosynthesis, 1,047 degradation/utilisation/assimilation, 223
@@ -183,7 +188,7 @@ and multifunctional CysG, bifunctional Met8 and split SirC/SirB alternatives.
 MetaCyc's four reaction records become three Rhea requirements because
 `RHEA:32459` is the overall two-methyl-transfer reaction.
 
-The second GIFT is **refused**, not merely deferred. Biochemistry requires an
+The second GIFT was **refused**, not merely deferred. Biochemistry requires an
 AhbA-AhbB heterodimer, while both experimentally required *Methanosarcina
 barkeri* genes map to `K22225`. Reusing one accession on two components would
 let one observed gene satisfy both. Of the KEGG genomes with the complete
@@ -191,6 +196,16 @@ K22225-K22226-(K22227 or K25033) expression, 45 bacterial and three archaeal
 genomes have only one `K22225` gene row. Reconsider only with maintained
 AhbA/AhbB-distinguishing markers, a fusion-specific marker, or a general
 multiplicity-aware evidence contract.
+
+> **Resolved in database 2026.24.1.** The first of those three conditions was
+> met. NCBIfam grades `NF040708.3` *ahbA* and `NF040707.3` *ahbB* as separate
+> equivalogs, and database 2026.23.1 admitted the namespace under the equivalog
+> rule. `siroheme_to_heme_b` is curated with the heterodimer as two jointly
+> required components and `K22225` admitted on neither, so a genome KEGG calls
+> complete on one `K22225` gene is still not complete here. The second
+> condition — a fusion-specific marker — remains unmet: NCBIfam's fused
+> NirDL-like profile `NF046668.3` is `domain`-graded and is refused. The third
+> was not needed.
 
 ## 4. Compatible solutes and trehalose
 
@@ -353,7 +368,7 @@ product boundary have been established.
 | Candidate and claim | Type and boundary | MetaCyc record and relation | Evidence, usefulness and problem | Score and verdict |
 |---|---|---|---|---|
 | `siroheme_biosynthesis` | metabolic, anabolic; existing `UROGEN_III` to new `SIROHEME` | `PWY-5194` (4), **equivalent** | Multifunctional CysG `K02302` covers methylation, oxidation and iron insertion. Complete split alternatives use a maintained methyltransferase plus Met8, or SirC plus iron-specific SirB. Broad CbiX evidence remains excluded where metal specificity is unresolved. | **implemented in 2026.20.3.** The accepted expression calls 4,161 bacterial and one archaeal KEGG genome and knowingly under-calls ambiguous archaeal chelatases. |
-| `siroheme_to_heme_b` | would be metabolic, anabolic; new `SIROHEME` to existing `HEME_B` | `PWY-7552` (3); **no link while refused** | AhbC `K22226` and AhbD `K22227` are specific, and `K25033` is an exact alternative for the last reaction. The first reaction requires AhbA AND AhbB, but both genes map to `K22225`; one accession cannot evidence two distinct required proteins in the current model. | **refuse.** Reconsider with distinct AhbA/AhbB markers, a fusion-specific marker, or multiplicity-aware evidence. |
+| `siroheme_to_heme_b` | metabolic, anabolic; existing `SIROHEME` to existing `HEME_B` | `PWY-7552` (3) and `M00847`, both **equivalent** | AhbC `K22226` and AhbD `K22227` are specific, and the peroxide-dependent `RHEA:56516` is an exact alternative for the last reaction. The first reaction requires AhbA AND AhbB, which `K22225` cannot separate; `NF040708.3` and `NF040707.3` can. | **implemented in 2026.24.1**, after the refusal stood for four releases. Two minimal routes; `K22225` admitted nowhere; the fused NirDL-like profile still refused on grade. |
 | `ubiquinol_biosynthesis_routes` (family placeholder, not a GIFT) | would be metabolic, anabolic; chorismate/4-hydroxybenzoate to an exact ubiquinol | 16 base records: `PWY3O-19` (8), `PWY-8571` (8), `PWY-5855` (8), `PWY-5871` (8), `PWY-8534` (8), `PWY-8533` (8), `PWY-6708` (8), `PWY-5873` (8), `PWY-5870` (9), `PWY-7230` (9), `PWY-5857` (8), `PWY-5856` (8), `PWY-8630` (8), `PWY-5872` (10), `PWY-8535` (8), `PWY-8631` (9); superpathways excluded and **no relation proposed** | Core Ubi proteins are markable, but the polyprenyl-chain-length accession does not reliably establish UQ-6/7/8/9/10, while a generic “a ubiquinol” is not an exact molecular anchor. Anaerobic and early/late decarboxylation are route alternatives only after product identity is solved. | **4, defer.** Reconsider with validated UbiA chain-length subfamilies or an explicit architectural decision permitting a chemically bounded generic quinone anchor. |
 | `molybdenum_cofactor_biosynthesis_routes` (family placeholder, not a GIFT) | metabolic cofactor assembly, but exact products include MPT, Mo-MPT and nucleotide-tailed forms | `PWY-6823` (6), `PWY-8171` (3), `PWY-6476` (1), `PWY-8163` (6), `PWY-5963` (1), `PWY-7639` (2), `PWY-8168` (1), `PWY-8165` (2), `PWY-5964` (1), `PWY-8164` (3), `PWY-8167` (4); **no relation proposed**. `PWY-7710` (6) is the FeMo-cofactor record already represented inside the current nitrogen-fixation architecture, not a separate candidate. | Moe/Moa proteins are markable and the capability partitions genomes, but the catalogue records several target-enzyme-specific cofactor forms. One “Moco biosynthesis” GIFT would bundle independently meaningful branches; routine insertion into target proteins is activation, not a trait. | **5, defer.** A dedicated cofactor proposal must cut MPT synthesis, metal insertion and nucleotide-tail branches and show which products merit anchors. |
 | `lipoate_biosynthesis_and_incorporation` (refused placeholder) | protein modification rather than free-metabolite synthesis | `PWY0-501` (2), `PWY0-1275` (3), `PWY-6987` (3), `PWY-8572` (4), `PWY0-522` (2), `PWY-6984` (5), `PWY-7382` (10), `PWY0-501-1` (3); **no link while refused** | LipB/LipA chemistry modifies target lipoyl domains; the endpoint is a protein-bound cofactor, not a small-molecule anchor. Target-domain availability and salvage/incorporation are outside the metabolic route contract. | **2, refuse under the current types.** Reconsider only with an explicit protein-modification completeness model, not by inventing a free-lipoate boundary. |
@@ -445,7 +460,7 @@ audit. Details and retriggers are in the cited sections.
 | Pyochelin and yersiniabactin families | defer on NRPS/PKS evidence | 9 |
 | Remaining named siderophores/metallophores | defer individually | 9.1 |
 | Siroheme synthesis | **implemented in 2026.20.3** | 10 |
-| Ahb siroheme-to-heme tail | **refuse at current multisubunit evidence** | 10 |
+| Ahb siroheme-to-heme tail | ~~refuse at current multisubunit evidence~~ **implemented in 2026.24.1** | 10 |
 | Ubiquinol family | defer on exact chain-length/product evidence | 10 |
 | Molybdopterin/Moco family | defer to cofactor architecture pass | 10 |
 | Lipoate synthesis/incorporation | **refuse under current types** | 10 |
@@ -505,13 +520,19 @@ audit. Details and retriggers are in the cited sections.
   equivalent in boundary.
 - Completed: positive CysG, Met8 and SirC/SirB alternatives; missing-reaction,
   broad-chelatase-negative, traceability and graph-boundary behavior are tested.
-- Refused: do not attach `PWY-7552` to `heme_b_biosynthesis` or add an Ahb route
-  while `K22225` can make one observed gene stand in for AhbA and AhbB.
-- Reconsideration requires a maintained AhbA marker plus a distinct AhbB
+- Refused at the time: do not attach `PWY-7552` to `heme_b_biosynthesis` or add
+  an Ahb route while `K22225` can make one observed gene stand in for AhbA and
+  AhbB. That refusal still holds as written — `PWY-7552` is **not** attached to
+  `heme_b_biosynthesis`, and `K22225` is admitted nowhere.
+- Reconsideration required a maintained AhbA marker plus a distinct AhbB
   marker, a validated fusion-specific marker, or a model change that can demand
   two distinct observed genes carrying the same accession. At that point,
   materialise separate final-reaction routes for `RHEA:56520` AhbD and
   `RHEA:56516` peroxide-dependent heme synthase.
+- **Done in database 2026.24.1.** The first condition was met by the `NCBIFAM`
+  namespace; `PWY-7552` and `M00847` are attached to the new
+  `siroheme_to_heme_b` GIFT rather than to `heme_b_biosynthesis`, and both
+  final-reaction routes are materialised as `AHB_AHBD` and `AHB_CHDC`.
 
 ## 15. Recommendation to the maintainer
 
