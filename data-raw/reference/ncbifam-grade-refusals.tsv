@@ -1,0 +1,230 @@
+accession	family_type	gene_symbol	product_name	ec_numbers	n_refseq_protein_hits	source	rhea_masters	curated_masters	refused_because
+NF012900.7	PfamEq	trpF	phosphoribosylanthranilate isomerase	5.3.1.24	82107	EBI-EMBL	RHEA:21540	RHEA:21540	family_type is not equivalog or equivalog_domain
+NF012912.7	PfamEq		adenylosuccinate synthetase	6.3.4.4	81727	EBI-EMBL	RHEA:15753	RHEA:15753	family_type is not equivalog or equivalog_domain
+NF012964.7	PfamEq		ferrochelatase	4.98.1.1	85463	EBI-EMBL	RHEA:22584	RHEA:22584	family_type is not equivalog or equivalog_domain
+NF013081.7	PfamEq		6,7-dimethyl-8-ribityllumazine synthase	2.5.1.78	59637	EBI-EMBL	RHEA:26152	RHEA:26152	family_type is not equivalog or equivalog_domain
+NF013151.7	PfamEq		GMP synthase (glutamine-hydrolyzing)	6.3.5.2	85415	EBI-EMBL	RHEA:11680	RHEA:11680	family_type is not equivalog or equivalog_domain
+NF013432.7	PfamEq		chorismate synthase	4.2.3.5	90504	EBI-EMBL	RHEA:21020	RHEA:21020	family_type is not equivalog or equivalog_domain
+NF013640.8	PfamEq		type I 3-dehydroquinate dehydratase	4.2.1.10	20732	EBI-EMBL	RHEA:21096	RHEA:21096	family_type is not equivalog or equivalog_domain
+NF014004.8	PfamEq		cobalt-precorrin-5B (C(1))-methyltransferase	2.1.1.195	29365	EBI-EMBL	RHEA:26285	RHEA:26285	family_type is not equivalog or equivalog_domain
+NF014067.7	PfamEq		phosphomethylpyrimidine synthase ThiC	4.1.99.17	74574	EBI-EMBL	RHEA:24840	RHEA:24840	family_type is not equivalog or equivalog_domain
+NF014332.7	PfamEq		aspartate 1-decarboxylase	4.1.1.11	36390	EBI-EMBL	RHEA:19497	RHEA:19497	family_type is not equivalog or equivalog_domain
+NF014498.7	PfamEq	nadA	quinolinate synthase NadA	2.5.1.72	68295	EBI-EMBL	RHEA:25888	RHEA:25888	family_type is not equivalog or equivalog_domain
+NF014612.7	PfamEq		precorrin-8X methylmutase	5.4.99.61	37748	EBI-EMBL	RHEA:22512	RHEA:22512	family_type is not equivalog or equivalog_domain
+NF014613.7	PfamEq		precorrin-6A/cobalt-precorrin-6A reductase	1.3.1.106	45055	EBI-EMBL	RHEA:15625	RHEA:15625	family_type is not equivalog or equivalog_domain
+NF014685.8	PfamEq		adenosylcobinamide-GDP ribazoletransferase	2.7.8.26	62569	EBI-EMBL	RHEA:16049;RHEA:23560	RHEA:16049	family_type is not equivalog or equivalog_domain
+NF014726.8	PfamEq		phosphoribosylformylglycinamidine synthase subunit PurS	6.3.5.3	24198	EBI-EMBL	RHEA:17129	RHEA:17129	family_type is not equivalog or equivalog_domain
+NF015685.8	PfamEq		pyridoxine 5'-phosphate synthase	2.6.99.2	43258	EBI-EMBL	RHEA:15265	RHEA:15265	family_type is not equivalog or equivalog_domain
+NF015904.7	PfamEq		NADP-dependent isocitrate dehydrogenase	1.1.1.42	43579	EBI-EMBL	RHEA:19629	RHEA:19629	family_type is not equivalog or equivalog_domain
+NF016275.7	PfamEq		uroporphyrinogen-III C-methyltransferase	2.1.1.107	26562	EBI-EMBL	RHEA:32459	RHEA:32459	family_type is not equivalog or equivalog_domain
+NF017903.7	PfamEq		L-rhamnose isomerase	5.3.1.14	15807	EBI-EMBL	RHEA:23160	RHEA:23160	family_type is not equivalog or equivalog_domain
+NF019356.7	PfamEq		chorismate mutase	5.4.99.5	10936	EBI-EMBL	RHEA:13897	RHEA:13897	family_type is not equivalog or equivalog_domain
+NF024897.7	PfamEq		phosphoribosylformylglycinamidine synthase subunit PurQ	6.3.5.3	108090	EBI-EMBL	RHEA:17129	RHEA:17129	family_type is not equivalog or equivalog_domain
+NF058312.1	PfamEq	sdhC	succinate dehydrogenase subunit SdhC	1.3.5.1	9500	EBI-EMBL	RHEA:13713;RHEA:27834;RHEA:40523;RHEA:75711	RHEA:40523	family_type is not equivalog or equivalog_domain
+NF012511.7	domain		tryptophan synthase subunit alpha	4.2.1.20	88659	EBI-EMBL	RHEA:10532	RHEA:10532	family_type is not equivalog or equivalog_domain
+NF012690.7	domain		IMP dehydrogenase	1.1.1.205	190091	EBI-EMBL	RHEA:11708	RHEA:11708	family_type is not equivalog or equivalog_domain
+NF012756.7	domain		urease subunit gamma	3.5.1.5	30814	EBI-EMBL	RHEA:20557	RHEA:20557	family_type is not equivalog or equivalog_domain
+NF012785.7	domain		hydroxyisourate hydrolase	3.5.2.17	37380	EBI-EMBL	RHEA:23736	RHEA:23736	family_type is not equivalog or equivalog_domain
+NF012902.7	domain		urease subunit beta	3.5.1.5	40616	EBI-EMBL	RHEA:20557	RHEA:20557	family_type is not equivalog or equivalog_domain
+NF013007.7	domain		dihydropteroate synthase	2.5.1.15	214765	EBI-EMBL	RHEA:19949	RHEA:19949	family_type is not equivalog or equivalog_domain
+NF013113.8	domain		dihydroxy-acid dehydratase domain-containing protein	4.2.1.9	185332	EBI-EMBL	RHEA:24809;RHEA:27694	RHEA:24809;RHEA:27694	family_type is not equivalog or equivalog_domain
+NF013392.8	domain		type II 3-dehydroquinate dehydratase	4.2.1.10	64628	EBI-EMBL	RHEA:21096	RHEA:21096	family_type is not equivalog or equivalog_domain
+NF013398.7	domain		GTP cyclohydrolase I	3.5.4.16	62905	EBI-EMBL	RHEA:17473	RHEA:17473	family_type is not equivalog or equivalog_domain
+NF013628.7	domain		3-deoxy-7-phosphoheptulonate synthase	2.5.1.54	44668	EBI-EMBL	RHEA:14717	RHEA:14717	family_type is not equivalog or equivalog_domain
+NF013730.7	domain		adenylyl-sulfate kinase	2.7.1.25	82370	EBI-EMBL	RHEA:24152	RHEA:24152	family_type is not equivalog or equivalog_domain
+NF013939.7	domain		chorismate mutase	5.4.99.5	107192	EBI-EMBL	RHEA:13897	RHEA:13897	family_type is not equivalog or equivalog_domain
+NF014198.7	domain		hydroxyethylthiazole kinase	2.7.1.50	48095	EBI-EMBL	RHEA:24212	RHEA:24212	family_type is not equivalog or equivalog_domain
+NF014233.7	domain		dihydroneopterin aldolase	4.1.2.25	66259	EBI-EMBL	RHEA:10540	RHEA:10540	family_type is not equivalog or equivalog_domain
+NF014347.7	domain		nicotinate-nucleotide--dimethylbenzimidazole phosphoribosyltransferase	2.4.2.21	80551	EBI-EMBL	RHEA:11196	RHEA:11196	family_type is not equivalog or equivalog_domain
+NF014563.7	domain		cobaltochelatase subunit CobN	6.6.1.2	60277	EBI-EMBL	RHEA:15341	RHEA:15341	family_type is not equivalog or equivalog_domain
+NF014593.7	domain		3-methyl-2-oxobutanoate hydroxymethyltransferase	2.1.2.11	73424	EBI-EMBL	RHEA:11824	RHEA:11824	family_type is not equivalog or equivalog_domain
+NF014614.7	domain		cob(I)yrinic acid a,c-diamide adenosyltransferase	2.5.1.17	44621	EBI-EMBL	RHEA:11528;RHEA:14725;RHEA:28671	RHEA:11528	family_type is not equivalog or equivalog_domain
+NF014652.7	domain		glucuronate isomerase	5.3.1.12	37070	EBI-EMBL	RHEA:13049;RHEA:27702	RHEA:13049;RHEA:27702	family_type is not equivalog or equivalog_domain
+NF015277.7	domain		acetolactate decarboxylase	4.1.1.5	14716	EBI-EMBL	RHEA:21580	RHEA:21580	family_type is not equivalog or equivalog_domain
+NF015284.8	domain		L-serine ammonia-lyase, iron-sulfur-dependent, subunit alpha	4.3.1.17	110313	EBI-EMBL	RHEA:19169	RHEA:19169	family_type is not equivalog or equivalog_domain
+NF015727.8	domain		mannonate dehydratase	4.2.1.8	35926	EBI-EMBL	RHEA:20097	RHEA:20097	family_type is not equivalog or equivalog_domain
+NF016040.7	domain		ureidoglycolate lyase	4.3.2.3	18769	EBI-EMBL	RHEA:11304	RHEA:11304	family_type is not equivalog or equivalog_domain
+NF016084.7	domain		4-hydroxythreonine-4-phosphate dehydrogenase PdxA	1.1.1.262	74469	EBI-EMBL	RHEA:32275	RHEA:32275	family_type is not equivalog or equivalog_domain
+NF017493.7	domain		fumarate hydratase	4.2.1.2	62742	EBI-EMBL	RHEA:12460	RHEA:12460	family_type is not equivalog or equivalog_domain
+NF017817.7	domain		malate:quinone oxidoreductase	1.1.5.4	43212	EBI-EMBL	RHEA:30095;RHEA:46012	RHEA:46012	family_type is not equivalog or equivalog_domain
+NF020132.7	domain		bifunctional hydroxymethylpyrimidine kinase/phosphomethylpyrimidine kinase	2.7.1.49,2.7.4.7	264891	EBI-EMBL	RHEA:19893;RHEA:23096	RHEA:19893;RHEA:23096	family_type is not equivalog or equivalog_domain
+NF000006.2	exception	dfrA26	trimethoprim-resistant dihydrofolate reductase DfrA26	1.5.1.3	2	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000012.1	exception	dfrI	trimethoprim-resistant dihydrofolate reductase DfrI	1.5.1.3	6	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000018.2	exception	dfrA10	trimethoprim-resistant dihydrofolate reductase DfrA10	1.5.1.3	3	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000019.2	exception	dfrA3	trimethoprim-resistant dihydrofolate reductase DfrA3	1.5.1.3	1	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000039.1	exception	dfrA18	trimethoprim-resistant dihydrofolate reductase DfrA18	1.5.1.3	2	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000041.1	exception	dfrA19	trimethoprim-resistant dihydrofolate reductase DfrA19	1.5.1.3	11	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000053.2	exception	dfrA12	trimethoprim-resistant dihydrofolate reductase DfrA12	1.5.1.3	56	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000055.3	exception	dfrA	DfrA12/DfrA21 family trimethoprim-resistant dihydrofolate reductase	1.5.1.3	64	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000065.1	exception	dfrA3b	trimethoprim-resistant dihydrofolate reductase DfrA3b	1.5.1.3	1	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000109.2	exception	dfrA9	trimethoprim-resistant dihydrofolate reductase DfrA9	1.5.1.3	1	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000126.2	exception	dfrA8	trimethoprim-resistant dihydrofolate reductase DfrA8	1.5.1.3	5	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000127.2	exception	dfrA20	trimethoprim-resistant dihydrofolate reductase DfrA20	1.5.1.3	2	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000134.2	exception	dfrA23	trimethoprim-resistant dihydrofolate reductase DfrA23	1.5.1.3	4	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000143.1	exception	dfrG	trimethoprim-resistant dihydrofolate reductase DfrG	1.5.1.3	45	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000146.2	exception	dfrA24	trimethoprim-resistant dihydrofolate reductase DfrA24	1.5.1.3	1	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000155.1	exception	dfrC	trimethoprim-sensitive dihydrofolate reductase DfrC	1.5.1.3	81	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000159.1	exception	dfrD	trimethoprim-resistant dihydrofolate reductase DfrD	1.5.1.3	1	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000330.1	exception	dfrA	trimethoprim-resistant dihydrofolate reductase DfrA	1.5.1.3	362	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000331.2	exception	dfrB	trimethoprim-resistant dihydrofolate reductase DfrB	1.5.1.3	49	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000332.1	exception	dfr	DfrD/DfrG/DfrK family trimethoprim-resistant dihydrofolate reductase	1.5.1.3	146	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF000333.1	exception	dfrF	trimethoprim-resistant dihydrofolate reductase DfrF	1.5.1.3	11	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF005384.0	exception	proG	pyrroline-5-carboxylate reductase ProG	1.5.1.2	1062	NCBI Protein Cluster (PRK)	RHEA:14105;RHEA:14109	RHEA:14109	family_type is not equivalog or equivalog_domain
+NF005813.0	exception	proI	pyrroline-5-carboxylate reductase ProI	1.5.1.2	761	NCBI Protein Cluster (PRK)	RHEA:14105;RHEA:14109	RHEA:14109	family_type is not equivalog or equivalog_domain
+NF033473.1	exception	dfr	trimethoprim-sensitive dihydrofolate reductase	1.5.1.3	80	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF033851.1	exception	dfrA35	trimethoprim-resistant dihydrofolate reductase DfrA35	1.5.1.3	1	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF033868.0	exception	dfrA36	trimethoprim-resistant dihydrofolate reductase DfrA36	1.5.1.3	11	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF038259.1	exception	doeA	ectoine hydrolase	3.5.4.44	578	NCBIFAM	RHEA:52304	RHEA:52304	family_type is not equivalog or equivalog_domain
+NF038284.1	exception	dapF	bifunctional diaminopimelate epimerase/glutamate racemase	5.1.1.3,5.1.1.7	44	NCBIFAM	RHEA:12813;RHEA:15393	RHEA:15393	family_type is not equivalog or equivalog_domain
+NF040541.1	exception	dfrE	trimethoprim-resistant dihydrofolate reductase DfrE	1.5.1.3	3	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF040667.1	exception	thrB	homoserine kinase	2.7.1.39	302	NCBIFAM	RHEA:13985	RHEA:13985	family_type is not equivalog or equivalog_domain
+NF040771.1	exception		bifunctional allantoicase/(S)-ureidoglycine aminohydrolase	3.5.3.26,3.5.3.4	8581	NCBIFAM	RHEA:11016;RHEA:25241	RHEA:11016;RHEA:25241	family_type is not equivalog or equivalog_domain
+NF040837.1	exception	eutD	ethanolamine utilization phosphate acetyltransferase EutD	2.3.1.8	712	NCBIFAM	RHEA:19521	RHEA:19521	family_type is not equivalog or equivalog_domain
+NF041582.1	exception		malolactic enzyme	4.1.1.101	4462	NCBIFAM	RHEA:46276	RHEA:46276	family_type is not equivalog or equivalog_domain
+NF041668.1	exception	dfrL	trimethoprim-resistant dihydrofolate reductase DfrL	1.5.1.3	0	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF042987.1	exception		2-oxoglutarate ferredoxin oxidoreductase subunit delta	1.2.7.3	85	NCBIFAM	RHEA:17297	RHEA:17297	family_type is not equivalog or equivalog_domain
+NF047323.1	exception	dfrA50	trimethoprim-resistant dihydrofolate reductase DfrA50	1.5.1.3	84	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF047324.1	exception	dfrA51	trimethoprim-resistant dihydrofolate reductase DfrA51	1.5.1.3	197	NCBIFAM	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF047424.1	exception	menI	1,4-dihydroxy-2-naphthoyl-CoA hydrolase MenI	3.1.2.28	503	NCBIFAM	RHEA:26309	RHEA:26309	family_type is not equivalog or equivalog_domain
+NF047915.1	exception	metX	homoserine O-acetyltransferase MetX	2.3.1.31	975	NCBIFAM	RHEA:13701	RHEA:13701	family_type is not equivalog or equivalog_domain
+NF047916.1	exception	metX	homoserine O-succinyltransferase MetX	2.3.1.46	10004	NCBIFAM	RHEA:22008	RHEA:22008	family_type is not equivalog or equivalog_domain
+NF047917.1	exception	metX	homoserine O-acetyltransferase MetX	2.3.1.31	10905	NCBIFAM	RHEA:13701	RHEA:13701	family_type is not equivalog or equivalog_domain
+NF047918.2	exception	metA	homoserine O-acetyltransferase MetA	2.3.1.31	16289	NCBIFAM	RHEA:13701	RHEA:13701	family_type is not equivalog or equivalog_domain
+NF051487.1	exception	pcaCD	bifunctional 4-carboxymuconolactone decarboxylase/3-oxoadipate enol-lactonase PcaCD	3.1.1.24,4.1.1.44	380	NCBIFAM	RHEA:10184;RHEA:23348	RHEA:10184	family_type is not equivalog or equivalog_domain
+NF051488.1	exception	pcaDC	bifunctional 3-oxoadipate enol-lactonase/4-carboxymuconolactone decarboxylase PcaDC	3.1.1.24,4.1.1.44	15192	NCBIFAM	RHEA:10184;RHEA:23348	RHEA:10184	family_type is not equivalog or equivalog_domain
+NF053748.1	exception	cobBC	bifunctional hydrogenobyrinic acid a,c-diamide synthase/histidinol phosphate aminotransferase CobBC	2.6.1.9,6.3.5.9	887	NCBIFAM	RHEA:12544;RHEA:23744	RHEA:12544;RHEA:23744	family_type is not equivalog or equivalog_domain
+TIGR02160.1	hypoth_equivalog	paaE	1,2-phenylacetyl-CoA epoxidase subunit PaaE	1.14.13.149	21493	JCVI	RHEA:32171	RHEA:32171	family_type is not equivalog or equivalog_domain
+TIGR03583.1	hypoth_equivalog		amidohydrolase/deacetylase family metallohydrolase	3.5.2.3	9898	JCVI	RHEA:24296	RHEA:24296	family_type is not equivalog or equivalog_domain
+NF000586.1	subfamily		serine hydroxymethyltransferase	2.1.2.1	116193	NCBI Protein Cluster (PRK)	RHEA:15481;RHEA:19625;RHEA:79695	RHEA:15481	family_type is not equivalog or equivalog_domain
+NF000824.0	subfamily		L-lactate dehydrogenase	1.1.1.27	17179	NCBI Protein Cluster (PRK)	RHEA:23444	RHEA:23444	family_type is not equivalog or equivalog_domain
+NF000996.0	subfamily		nicotinate-nucleotide--dimethylbenzimidazole phosphoribosyltransferase	2.4.2.21	70063	NCBI Protein Cluster (PRK)	RHEA:11196	RHEA:11196	family_type is not equivalog or equivalog_domain
+NF001372.0	subfamily	trpC	indole-3-glycerol phosphate synthase TrpC	4.1.1.48	1834	NCBI Protein Cluster (PRK)	RHEA:23476	RHEA:23476	family_type is not equivalog or equivalog_domain
+NF001452.0	subfamily		3-methyl-2-oxobutanoate hydroxymethyltransferase	2.1.2.11	67367	NCBI Protein Cluster (PRK)	RHEA:11824	RHEA:11824	family_type is not equivalog or equivalog_domain
+NF001591.0	subfamily	ribA	GTP cyclohydrolase II RibA	3.5.4.25	73089	NCBI Protein Cluster (PRK)	RHEA:23704	RHEA:23704	family_type is not equivalog or equivalog_domain
+NF001684.0	subfamily		glucosamine-6-phosphate deaminase	3.5.99.6	13081	NCBI Protein Cluster (PRK)	RHEA:12172	RHEA:12172	family_type is not equivalog or equivalog_domain
+NF001986.0	subfamily		ornithine carbamoyltransferase	2.1.3.3	63601	NCBI Protein Cluster (PRK)	RHEA:19513	RHEA:19513	family_type is not equivalog or equivalog_domain
+NF002048.0	subfamily		NAD(+) synthase	6.3.1.5	2121	NCBI Protein Cluster (PRK)	RHEA:21188	RHEA:21188	family_type is not equivalog or equivalog_domain
+NF002059.0	subfamily		adenylyl-sulfate kinase	2.7.1.25	1338	NCBI Protein Cluster (PRK)	RHEA:24152	RHEA:24152	family_type is not equivalog or equivalog_domain
+NF002068.0	subfamily		dihydroxy-acid dehydratase	4.2.1.9	46858	NCBI Protein Cluster (PRK)	RHEA:24809;RHEA:27694	RHEA:24809;RHEA:27694	family_type is not equivalog or equivalog_domain
+NF002085.0	subfamily		2-isopropylmalate synthase	2.3.3.13	4374	NCBI Protein Cluster (PRK)	RHEA:21524	RHEA:21524	family_type is not equivalog or equivalog_domain
+NF002090.2	subfamily	cfbA	sirohydrochlorin nickelochelatase	4.99.1.3	668	NCBI Protein Cluster (PRK)	RHEA:15893;RHEA:26269	RHEA:15893	family_type is not equivalog or equivalog_domain
+NF002231.0	subfamily		putative N-acetylmannosamine-6-phosphate 2-epimerase	5.1.3.9	21829	NCBI Protein Cluster (PRK)	RHEA:23932;RHEA:25257	RHEA:25257	family_type is not equivalog or equivalog_domain
+NF002284.0	subfamily		dihydroorotase	3.5.2.3	34	NCBI Protein Cluster (PRK)	RHEA:24296	RHEA:24296	family_type is not equivalog or equivalog_domain
+NF002325.0	subfamily		acetylornithine transaminase	2.6.1.11	84349	NCBI Protein Cluster (PRK)	RHEA:18049	RHEA:18049	family_type is not equivalog or equivalog_domain
+NF002381.0	subfamily		arginine deiminase	3.5.3.6	30451	NCBI Protein Cluster (PRK)	RHEA:19597	RHEA:19597	family_type is not equivalog or equivalog_domain
+NF002550.0	subfamily		choline dehydrogenase	1.1.99.1	41220	NCBI Protein Cluster (PRK)	RHEA:17433	RHEA:17433	family_type is not equivalog or equivalog_domain
+NF002792.0	subfamily		oxaloacetate decarboxylase subunit gamma	4.1.1.112	2745	NCBI Protein Cluster (PRK)	RHEA:15641	RHEA:15641	family_type is not equivalog or equivalog_domain
+NF002878.0	subfamily		histidinol-phosphate transaminase	2.6.1.9	23009	NCBI Protein Cluster (PRK)	RHEA:23744	RHEA:23744	family_type is not equivalog or equivalog_domain
+NF002969.0	subfamily		tagaturonate reductase	1.1.1.58	19693	NCBI Protein Cluster (PRK)	RHEA:17813	RHEA:17813	family_type is not equivalog or equivalog_domain
+NF002991.1	subfamily		2-isopropylmalate synthase	2.3.3.13	53120	NCBI Protein Cluster (PRK)	RHEA:21524	RHEA:21524	family_type is not equivalog or equivalog_domain
+NF003013.0	subfamily		adenylyl-sulfate kinase	2.7.1.25	49743	NCBI Protein Cluster (PRK)	RHEA:24152	RHEA:24152	family_type is not equivalog or equivalog_domain
+NF003027.0	subfamily		mannonate dehydratase	4.2.1.8	30563	NCBI Protein Cluster (PRK)	RHEA:20097	RHEA:20097	family_type is not equivalog or equivalog_domain
+NF003286.0	subfamily		ornithine carbamoyltransferase	2.1.3.3	11995	NCBI Protein Cluster (PRK)	RHEA:19513	RHEA:19513	family_type is not equivalog or equivalog_domain
+NF003461.0	subfamily		N-acetylmannosamine kinase	2.7.1.60	4499	NCBI Protein Cluster (PRK)	RHEA:23832;RHEA:25253	RHEA:25253	family_type is not equivalog or equivalog_domain
+NF003468.0	subfamily		acetylornithine/succinyldiaminopimelate transaminase	2.6.1.11,2.6.1.17	24385	NCBI Protein Cluster (PRK)	RHEA:11960;RHEA:18049	RHEA:11960;RHEA:18049	family_type is not equivalog or equivalog_domain
+NF003603.0	subfamily		malate:quinone oxidoreductase	1.1.5.4	31643	NCBI Protein Cluster (PRK)	RHEA:30095;RHEA:46012	RHEA:46012	family_type is not equivalog or equivalog_domain
+NF003604.0	subfamily		malate:quinone oxidoreductase	1.1.5.4	7469	NCBI Protein Cluster (PRK)	RHEA:30095;RHEA:46012	RHEA:46012	family_type is not equivalog or equivalog_domain
+NF003605.0	subfamily		malate:quinone oxidoreductase	1.1.5.4	31889	NCBI Protein Cluster (PRK)	RHEA:30095;RHEA:46012	RHEA:46012	family_type is not equivalog or equivalog_domain
+NF003606.0	subfamily		malate:quinone oxidoreductase	1.1.5.4	37630	NCBI Protein Cluster (PRK)	RHEA:30095;RHEA:46012	RHEA:46012	family_type is not equivalog or equivalog_domain
+NF003608.0	subfamily		malate:quinone oxidoreductase	1.1.5.4	11489	NCBI Protein Cluster (PRK)	RHEA:30095;RHEA:46012	RHEA:46012	family_type is not equivalog or equivalog_domain
+NF003611.0	subfamily		malate:quinone oxidoreductase	1.1.5.4	37575	NCBI Protein Cluster (PRK)	RHEA:30095;RHEA:46012	RHEA:46012	family_type is not equivalog or equivalog_domain
+NF003613.0	subfamily		malate:quinone oxidoreductase	1.1.5.4	5276	NCBI Protein Cluster (PRK)	RHEA:30095;RHEA:46012	RHEA:46012	family_type is not equivalog or equivalog_domain
+NF003629.0	subfamily		UDP-glucose--hexose-1-phosphate uridylyltransferase	2.7.7.12	17038	NCBI Protein Cluster (PRK)	RHEA:13989	RHEA:13989	family_type is not equivalog or equivalog_domain
+NF003631.0	subfamily		UDP-glucose--hexose-1-phosphate uridylyltransferase	2.7.7.12	3814	NCBI Protein Cluster (PRK)	RHEA:13989	RHEA:13989	family_type is not equivalog or equivalog_domain
+NF003633.0	subfamily		UDP-glucose--hexose-1-phosphate uridylyltransferase	2.7.7.12	6396	NCBI Protein Cluster (PRK)	RHEA:13989	RHEA:13989	family_type is not equivalog or equivalog_domain
+NF003635.0	subfamily		UDP-glucose--hexose-1-phosphate uridylyltransferase	2.7.7.12	126	NCBI Protein Cluster (PRK)	RHEA:13989	RHEA:13989	family_type is not equivalog or equivalog_domain
+NF003704.0	subfamily		nicotinate phosphoribosyltransferase	6.3.4.21	27173	NCBI Protein Cluster (PRK)	RHEA:36163	RHEA:36163	family_type is not equivalog or equivalog_domain
+NF003804.0	subfamily		type II 3-dehydroquinate dehydratase	4.2.1.10	17049	NCBI Protein Cluster (PRK)	RHEA:21096	RHEA:21096	family_type is not equivalog or equivalog_domain
+NF003805.0	subfamily		type II 3-dehydroquinate dehydratase	4.2.1.10	61812	NCBI Protein Cluster (PRK)	RHEA:21096	RHEA:21096	family_type is not equivalog or equivalog_domain
+NF003806.0	subfamily		type II 3-dehydroquinate dehydratase	4.2.1.10	53849	NCBI Protein Cluster (PRK)	RHEA:21096	RHEA:21096	family_type is not equivalog or equivalog_domain
+NF003807.0	subfamily		type II 3-dehydroquinate dehydratase	4.2.1.10	62999	NCBI Protein Cluster (PRK)	RHEA:21096	RHEA:21096	family_type is not equivalog or equivalog_domain
+NF003998.0	subfamily		xylose isomerase	5.3.1.5	25481	NCBI Protein Cluster (PRK)	RHEA:22816;RHEA:28546	RHEA:22816	family_type is not equivalog or equivalog_domain
+NF004035.0	subfamily		bifunctional sulfate adenylyltransferase subunit 1/adenylylsulfate kinase	2.7.1.25,2.7.7.4	22898	NCBI Protein Cluster (PRK)	RHEA:18133;RHEA:24152	RHEA:24152	family_type is not equivalog or equivalog_domain
+NF004041.0	subfamily		adenylyl-sulfate kinase	2.7.1.25	3273	NCBI Protein Cluster (PRK)	RHEA:24152	RHEA:24152	family_type is not equivalog or equivalog_domain
+NF004231.0	subfamily		pyridoxal 5'-phosphate synthase	1.4.3.5	65155	NCBI Protein Cluster (PRK)	RHEA:15149;RHEA:15817	RHEA:15149	family_type is not equivalog or equivalog_domain
+NF004325.0	subfamily		keto-hydroxyglutarate-aldolase/keto-deoxy-phosphogluconate aldolase	4.1.2.14,4.1.3.16	38866	NCBI Protein Cluster (PRK)	RHEA:17089;RHEA:30687;RHEA:35639	RHEA:17089	family_type is not equivalog or equivalog_domain
+NF004474.0	subfamily		3-hydroxybutyryl-CoA dehydrogenase	1.1.1.157	21285	NCBI Protein Cluster (PRK)	RHEA:16197	RHEA:16197	family_type is not equivalog or equivalog_domain
+NF004616.0	subfamily	sdhB	succinate dehydrogenase iron-sulfur subunit	1.3.5.1	33862	NCBI Protein Cluster (PRK)	RHEA:13713;RHEA:27834;RHEA:40523;RHEA:75711	RHEA:40523	family_type is not equivalog or equivalog_domain
+NF004637.0	subfamily		cob(I)yrinic acid a,c-diamide adenosyltransferase	2.5.1.17	35589	NCBI Protein Cluster (PRK)	RHEA:11528;RHEA:14725;RHEA:28671	RHEA:11528	family_type is not equivalog or equivalog_domain
+NF004712.0	subfamily		methionine synthase	2.1.1.13	213	NCBI Protein Cluster (PRK)	RHEA:11172	RHEA:11172	family_type is not equivalog or equivalog_domain
+NF004752.0	subfamily		1,4-dihydroxy-2-naphthoate polyprenyltransferase	2.5.1.74	4248	NCBI Protein Cluster (PRK)	RHEA:26478;RHEA:30099;RHEA:33211;RHEA:44800;RHEA:44804;RHEA:44808;RHEA:44812;RHEA:44816;RHEA:44820	RHEA:26478	family_type is not equivalog or equivalog_domain
+NF004790.0	subfamily		uroporphyrinogen-III C-methyltransferase	2.1.1.107	117350	NCBI Protein Cluster (PRK)	RHEA:32459	RHEA:32459	family_type is not equivalog or equivalog_domain
+NF004829.0	subfamily		bifunctional 3-(3-hydroxy-phenyl)propionate/3-hydroxycinnamic acid hydroxylase	1.14.13.127	24646	NCBI Protein Cluster (PRK)	RHEA:24785;RHEA:27846	RHEA:24785	family_type is not equivalog or equivalog_domain
+NF004863.0	subfamily		malate dehydrogenase	1.1.1.37	31559	NCBI Protein Cluster (PRK)	RHEA:21432	RHEA:21432	family_type is not equivalog or equivalog_domain
+NF004876.0	subfamily		methionine gamma-lyase	4.4.1.11	942	NCBI Protein Cluster (PRK)	RHEA:23800	RHEA:23800	family_type is not equivalog or equivalog_domain
+NF004976.0	subfamily		homoserine dehydrogenase	1.1.1.3	69969	NCBI Protein Cluster (PRK)	RHEA:15757;RHEA:15761	RHEA:15757;RHEA:15761	family_type is not equivalog or equivalog_domain
+NF005085.0	subfamily		5-methyltetrahydropteroyltriglutamate--homocysteine S-methyltransferase	2.1.1.14	21487	NCBI Protein Cluster (PRK)	RHEA:21196;RHEA:45016	RHEA:21196	family_type is not equivalog or equivalog_domain
+NF005088.0	subfamily		2-dehydropantoate 2-reductase	1.1.1.169	3321	NCBI Protein Cluster (PRK)	RHEA:16233	RHEA:16233	family_type is not equivalog or equivalog_domain
+NF005089.0	subfamily		2-dehydropantoate 2-reductase	1.1.1.169	14303	NCBI Protein Cluster (PRK)	RHEA:16233	RHEA:16233	family_type is not equivalog or equivalog_domain
+NF005119.0	subfamily		bifunctional 2-keto-4-hydroxyglutarate aldolase/2-keto-3-deoxy-6-phosphogluconate aldolase	4.1.2.14,4.1.3.16	5935	NCBI Protein Cluster (PRK)	RHEA:17089;RHEA:30687;RHEA:35639	RHEA:17089	family_type is not equivalog or equivalog_domain
+NF005144.0	subfamily		aspartate-semialdehyde dehydrogenase	1.2.1.11	19623	NCBI Protein Cluster (PRK)	RHEA:24284	RHEA:24284	family_type is not equivalog or equivalog_domain
+NF005393.0	subfamily		diaminobutyrate--2-oxoglutarate transaminase	2.6.1.76	5706	NCBI Protein Cluster (PRK)	RHEA:11160	RHEA:11160	family_type is not equivalog or equivalog_domain
+NF005565.0	subfamily		amidase	3.5.1.4	4413	NCBI Protein Cluster (PRK)	RHEA:12020;RHEA:34371;RHEA:45048	RHEA:34371	family_type is not equivalog or equivalog_domain
+NF005596.0	subfamily		histidinol-phosphatase	3.1.3.15	7136	NCBI Protein Cluster (PRK)	RHEA:14465	RHEA:14465	family_type is not equivalog or equivalog_domain
+NF005710.0	subfamily		acetylornithine deacetylase	3.5.1.16	24287	NCBI Protein Cluster (PRK)	RHEA:15941	RHEA:15941	family_type is not equivalog or equivalog_domain
+NF005713.0	subfamily		sulfoacetaldehyde acetyltransferase	2.3.3.15	5113	NCBI Protein Cluster (PRK)	RHEA:24204	RHEA:24204	family_type is not equivalog or equivalog_domain
+NF005984.0	subfamily		L-fuculose-phosphate aldolase	4.1.2.17	2430	NCBI Protein Cluster (PRK)	RHEA:12933	RHEA:12933	family_type is not equivalog or equivalog_domain
+NF006047.0	subfamily	araD	L-ribulose-5-phosphate 4-epimerase AraD	5.1.3.4	24149	NCBI Protein Cluster (PRK)	RHEA:22368	RHEA:22368	family_type is not equivalog or equivalog_domain
+NF006140.0	subfamily		enoyl-CoA hydratase	4.2.1.17	9323	NCBI Protein Cluster (PRK)	RHEA:16105;RHEA:20724;RHEA:76647	RHEA:76647	family_type is not equivalog or equivalog_domain
+NF006157.0	subfamily		acetaldehyde dehydrogenase	1.2.1.10	24077	NCBI Protein Cluster (PRK)	RHEA:23288	RHEA:23288	family_type is not equivalog or equivalog_domain
+NF006185.0	subfamily		branched-chain amino acid aminotransferase	2.6.1.42	3469	NCBI Protein Cluster (PRK)	RHEA:18321;RHEA:24801;RHEA:24813	RHEA:18321;RHEA:24801;RHEA:24813	family_type is not equivalog or equivalog_domain
+NF006234.1	subfamily		aspartate kinase	2.7.2.4	58	NCBI Protein Cluster (PRK)	RHEA:23776	RHEA:23776	family_type is not equivalog or equivalog_domain
+NF006416.0	subfamily		aspartate-semialdehyde dehydrogenase	1.2.1.11	6430	NCBI Protein Cluster (PRK)	RHEA:24284	RHEA:24284	family_type is not equivalog or equivalog_domain
+NF006421.0	subfamily		3-deoxy-7-phosphoheptulonate synthase	2.5.1.54	21682	NCBI Protein Cluster (PRK)	RHEA:14717	RHEA:14717	family_type is not equivalog or equivalog_domain
+NF006500.1	subfamily		adenylosuccinate lyase	4.3.2.2	1086	NCBI Protein Cluster (PRK)	RHEA:16853;RHEA:23920	RHEA:16853;RHEA:23920	family_type is not equivalog or equivalog_domain
+NF006528.0	subfamily	kduD	2-dehydro-3-deoxy-D-gluconate 5-dehydrogenase KduD	1.1.1.127	5392	NCBI Protein Cluster (PRK)	RHEA:24232	RHEA:24232	family_type is not equivalog or equivalog_domain
+NF006551.0	subfamily		3-oxoadipyl-CoA thiolase	2.3.1.174	34194	NCBI Protein Cluster (PRK)	RHEA:19481	RHEA:19481	family_type is not equivalog or equivalog_domain
+NF006566.0	subfamily		enoyl-CoA hydratase	4.2.1.17	7903	NCBI Protein Cluster (PRK)	RHEA:16105;RHEA:20724;RHEA:76647	RHEA:76647	family_type is not equivalog or equivalog_domain
+NF006674.0	subfamily	ilvA	threonine ammonia-lyase IlvA	4.3.1.19	26125	NCBI Protein Cluster (PRK)	RHEA:22108	RHEA:22108	family_type is not equivalog or equivalog_domain
+NF006733.0	subfamily		diaminobutyrate--2-oxoglutarate transaminase	2.6.1.76	20067	NCBI Protein Cluster (PRK)	RHEA:11160	RHEA:11160	family_type is not equivalog or equivalog_domain
+NF006756.0	subfamily		LL-diaminopimelate aminotransferase	2.6.1.83	2562	NCBI Protein Cluster (PRK)	RHEA:23988	RHEA:23988	family_type is not equivalog or equivalog_domain
+NF006757.0	subfamily	acnA	aconitate hydratase AcnA	4.2.1.3,4.2.1.99	97533	NCBI Protein Cluster (PRK)	RHEA:10336;RHEA:17941	RHEA:10336	family_type is not equivalog or equivalog_domain
+NF006825.1	subfamily	folE	GTP cyclohydrolase I FolE	3.5.4.16	51466	NCBI Protein Cluster (PRK)	RHEA:17473	RHEA:17473	family_type is not equivalog or equivalog_domain
+NF006826.0	subfamily	folE	GTP cyclohydrolase I FolE	3.5.4.16	57952	NCBI Protein Cluster (PRK)	RHEA:17473	RHEA:17473	family_type is not equivalog or equivalog_domain
+NF006871.0	subfamily		histidine ammonia-lyase	4.3.1.3	62904	NCBI Protein Cluster (PRK)	RHEA:21232	RHEA:21232	family_type is not equivalog or equivalog_domain
+NF007003.0	subfamily	metL	bifunctional aspartate kinase/homoserine dehydrogenase II	1.1.1.3,2.7.2.4	15999	NCBI Protein Cluster (PRK)	RHEA:15757;RHEA:15761;RHEA:23776	RHEA:15757;RHEA:15761;RHEA:23776	family_type is not equivalog or equivalog_domain
+NF007128.0	subfamily		citrate (Si)-synthase	2.3.3.1	851	NCBI Protein Cluster (PRK)	RHEA:16845	RHEA:16845	family_type is not equivalog or equivalog_domain
+NF007479.0	subfamily		3-phenylpropionate/cinnamic acid dioxygenase subunit beta	1.14.12.19	5140	NCBI Protein Cluster (PRK)	RHEA:20357;RHEA:25058	RHEA:20357	family_type is not equivalog or equivalog_domain
+NF007956.0	subfamily		UDP-glucose 4-epimerase	5.1.3.2	41122	NCBI Protein Cluster (PRK)	RHEA:22168	RHEA:22168	family_type is not equivalog or equivalog_domain
+NF008277.0	subfamily		galactose-1-epimerase	5.1.3.3	61072	NCBI Protein Cluster (PRK)	RHEA:10264;RHEA:21228;RHEA:28675;RHEA:63332;RHEA:63336	RHEA:28675	family_type is not equivalog or equivalog_domain
+NF008398.0	subfamily		L-lactate dehydrogenase	1.1.1.27	23719	NCBI Protein Cluster (PRK)	RHEA:23444	RHEA:23444	family_type is not equivalog or equivalog_domain
+NF008852.0	subfamily		phosphate acetyltransferase	2.3.1.8	8872	NCBI Protein Cluster (PRK)	RHEA:19521	RHEA:19521	family_type is not equivalog or equivalog_domain
+NF009002.0	subfamily		L-ribulose-5-phosphate 4-epimerase	5.1.3.4	6323	NCBI Protein Cluster (PRK)	RHEA:22368	RHEA:22368	family_type is not equivalog or equivalog_domain
+NF009003.0	subfamily		L-ribulose-5-phosphate 4-epimerase	5.1.3.4	17835	NCBI Protein Cluster (PRK)	RHEA:22368	RHEA:22368	family_type is not equivalog or equivalog_domain
+NF009005.0	subfamily		citrate synthase	2.3.3.16	19234	NCBI Protein Cluster (PRK)	RHEA:16845	RHEA:16845	family_type is not equivalog or equivalog_domain
+NF009007.0	subfamily		carbamate kinase	2.7.2.2	20514	NCBI Protein Cluster (PRK)	RHEA:10152	RHEA:10152	family_type is not equivalog or equivalog_domain
+NF009008.0	subfamily		carbamate kinase	2.7.2.2	13827	NCBI Protein Cluster (PRK)	RHEA:10152	RHEA:10152	family_type is not equivalog or equivalog_domain
+NF009095.0	subfamily		ferrochelatase	4.98.1.1	5903	NCBI Protein Cluster (PRK)	RHEA:22584	RHEA:22584	family_type is not equivalog or equivalog_domain
+NF009200.0	subfamily		shikimate dehydrogenase	1.1.1.25	1046	NCBI Protein Cluster (PRK)	RHEA:17737	RHEA:17737	family_type is not equivalog or equivalog_domain
+NF009201.0	subfamily		shikimate dehydrogenase	1.1.1.25	14871	NCBI Protein Cluster (PRK)	RHEA:17737	RHEA:17737	family_type is not equivalog or equivalog_domain
+NF009395.0	subfamily		3-deoxy-7-phosphoheptulonate synthase	2.5.1.54	58107	NCBI Protein Cluster (PRK)	RHEA:14717	RHEA:14717	family_type is not equivalog or equivalog_domain
+NF009396.0	subfamily	aroH	Trp-sensitive 3-deoxy-7-phosphoheptulonate synthase AroH	2.5.1.54	27961	NCBI Protein Cluster (PRK)	RHEA:14717	RHEA:14717	family_type is not equivalog or equivalog_domain
+NF009520.0	subfamily	acnA	aconitate hydratase AcnA	4.2.1.3	96389	NCBI Protein Cluster (PRK)	RHEA:10336	RHEA:10336	family_type is not equivalog or equivalog_domain
+NF009686.0	subfamily		urease subunit alpha	3.5.1.5	55539	NCBI Protein Cluster (PRK)	RHEA:20557	RHEA:20557	family_type is not equivalog or equivalog_domain
+NF009709.0	subfamily		tryptophanase	4.1.99.1	12395	NCBI Protein Cluster (PRK)	RHEA:19553	RHEA:19553	family_type is not equivalog or equivalog_domain
+NF009781.0	subfamily		formate--phosphoribosylaminoimidazolecarboxamide ligase	6.3.4.23	145	NCBI Protein Cluster (PRK)	RHEA:24836	RHEA:24836	family_type is not equivalog or equivalog_domain
+NF009875.0	subfamily		malate:quinone oxidoreductase	1.1.5.4	35017	NCBI Protein Cluster (PRK)	RHEA:30095;RHEA:46012	RHEA:46012	family_type is not equivalog or equivalog_domain
+NF009909.0	subfamily		3-carboxyethylcatechol 2,3-dioxygenase	1.13.11.16	1128	NCBI Protein Cluster (PRK)	RHEA:23840;RHEA:25054	RHEA:23840	family_type is not equivalog or equivalog_domain
+NF009932.0	subfamily		ureidoglycolate lyase	4.3.2.3	11611	NCBI Protein Cluster (PRK)	RHEA:11304	RHEA:11304	family_type is not equivalog or equivalog_domain
+NF010052.0	subfamily	maeA	oxaloacetate-decarboxylating malate dehydrogenase	1.1.1.38	29431	NCBI Protein Cluster (PRK)	RHEA:12653;RHEA:15641	RHEA:15641	family_type is not equivalog or equivalog_domain
+NF010372.0	subfamily		2-oxo-4-hydroxy-4-carboxy-5-ureidoimidazoline decarboxylase	4.1.1.97	26377	NCBI Protein Cluster (PRK)	RHEA:26301	RHEA:26301	family_type is not equivalog or equivalog_domain
+NF010564.0	subfamily		phosphoribosylaminoimidazolesuccinocarboxamide synthase	6.3.2.6	28	NCBI Protein Cluster (PRK)	RHEA:22628	RHEA:22628	family_type is not equivalog or equivalog_domain
+NF010643.0	subfamily		oxaloacetate decarboxylase subunit alpha	4.1.1.112	14679	NCBI Protein Cluster (PRK)	RHEA:15641	RHEA:15641	family_type is not equivalog or equivalog_domain
+NF011565.0	subfamily	nirB	nitrite reductase large subunit	1.7.1.15	51941	NCBI Protein Cluster (PRK)	RHEA:24628	RHEA:24628	family_type is not equivalog or equivalog_domain
+NF011611.0	subfamily		fructuronate reductase	1.1.1.57	18835	NCBI Protein Cluster (PRK)	RHEA:15729;RHEA:51652	RHEA:15729	family_type is not equivalog or equivalog_domain
+NF011652.1	subfamily	pduL	phosphate propanoyltransferase	2.3.1.222	10091	NCBI Protein Cluster (PRK)	RHEA:28046	RHEA:28046	family_type is not equivalog or equivalog_domain
+NF011920.0	subfamily		class I fumarate hydratase	4.2.1.2	8140	NCBI Protein Cluster (PRK)	RHEA:12460	RHEA:12460	family_type is not equivalog or equivalog_domain
+NF012413.7	subfamily		dihydrofolate reductase	1.5.1.3	71668	EBI-EMBL	RHEA:15009	RHEA:15009	family_type is not equivalog or equivalog_domain
+NF012441.7	subfamily		orotidine 5'-phosphate decarboxylase / HUMPS family protein	4.1.1.23	108660	EBI-EMBL	RHEA:11596	RHEA:11596	family_type is not equivalog or equivalog_domain
+NF012678.7	subfamily		iron-containing alcohol dehydrogenase	1.1.1.1	290811	EBI-EMBL	RHEA:10736;RHEA:10740;RHEA:25290	RHEA:25290	family_type is not equivalog or equivalog_domain
+NF016120.7	subfamily		homoserine O-acetyltransferase/O-succinyltransferase family protein	2.3.1.46	27370	EBI-EMBL	RHEA:22008	RHEA:22008	family_type is not equivalog or equivalog_domain
+TIGR00016.1	subfamily		acetate/propionate family kinase	2.7.2.1	81486	JCVI	RHEA:11352	RHEA:11352	family_type is not equivalog or equivalog_domain
+TIGR00543.1	subfamily		isochorismate synthase	5.4.4.2	57579	JCVI	RHEA:18985	RHEA:18985	family_type is not equivalog or equivalog_domain
+TIGR00745.1	subfamily		2-dehydropantoate 2-reductase	1.1.1.169	93909	JCVI	RHEA:16233	RHEA:16233	family_type is not equivalog or equivalog_domain
+TIGR01136.1	subfamily		cysteine synthase	2.5.1.47	90551	JCVI	RHEA:14829	RHEA:14829	family_type is not equivalog or equivalog_domain
+TIGR01182.1	subfamily	eda	bifunctional 4-hydroxy-2-oxoglutarate aldolase/2-dehydro-3-deoxy-phosphogluconate aldolase	4.1.2.14,4.1.3.16	65744	JCVI	RHEA:17089;RHEA:30687;RHEA:35639	RHEA:17089	family_type is not equivalog or equivalog_domain
+TIGR01284.1	subfamily		nitrogenase subunit alpha	1.18.6.1	677	JCVI	RHEA:21448	RHEA:21448	family_type is not equivalog or equivalog_domain
+TIGR01811.1	subfamily	sdhA	succinate dehydrogenase (quinone) flavoprotein subunit	1.3.5.1	28191	JCVI	RHEA:13713;RHEA:27834;RHEA:40523;RHEA:75711	RHEA:40523	family_type is not equivalog or equivalog_domain
+TIGR01862.1	subfamily		nitrogenase component I subunit alpha	1.18.6.1	5552	JCVI	RHEA:21448	RHEA:21448	family_type is not equivalog or equivalog_domain
+TIGR00657.1	subfamily_domain		aspartate kinase	2.7.2.4	126129	JCVI	RHEA:23776	RHEA:23776	family_type is not equivalog or equivalog_domain
+TIGR00857.1	subfamily_domain	pyrC	dihydroorotase	3.5.2.3	83990	JCVI	RHEA:24296	RHEA:24296	family_type is not equivalog or equivalog_domain

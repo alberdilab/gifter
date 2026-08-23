@@ -633,7 +633,7 @@ which is what the organisms actually do — of the ten KEGG genomes behind
 | Candidate | Best marker set | Organisms | Why refused |
 |---|---|---:|---|
 | Succinate formation, `frdABCD` | K00244–K00247 with a carboxylase, malate dehydrogenase and fumarase | 1049 | *Vibrio* 91, *Escherichia* 70, *Klebsiella* 55 — fumarate respirers. *Bacteroides*, *Prevotella* and *Fibrobacter*, the dominant gut succinate producers, are all negative |
-| Succinate formation, fused group | K00239/K00240 accepted as alternatives | 7276 | 61% of the universe, led by *Streptomyces*, *Pseudomonas*, *Bacillus* and *Chlamydia*. This is "has a citric acid cycle" |
+| Succinate formation, fused group | K00239/K00240 accepted as alternatives | 7276 | 61% of the frame, led by *Streptomyces*, *Pseudomonas*, *Bacillus* and *Chlamydia*. This is "has a citric acid cycle" |
 | Fumarate formation | K01756 (`purB`); K01679 (`fumC`) | 11115; 9098 | 93.8% of organisms. gifter already curates the fumarate-releasing chemistry inside `purine_core_biosynthesis` and `adenylate_biosynthesis` |
 | Citrate formation | K01647 (`gltA`) | 8467 | 71% of organisms; citrate is a cycle intermediate, not an excretion product |
 | Formate formation | K00656 + K04069 | 2843 | Not an evidence failure. Anchors are per GIFT, and pyruvate formate-lyase is one of three routes of `pyruvate_to_acetyl_coa` |
@@ -1223,9 +1223,9 @@ call says only that the complete siroheme-forming chemistry is encoded. It does
 not claim cofactor incorporation, reductase activity, sulfur or nitrogen
 assimilation, alternative heme formation, expression, activity or phenotype.
 
-## Named reference universes, release 2026.20.4
+## Named reference frames, release 2026.20.4
 
-The 19 named reference universes introduce no external biological facts and no
+The 19 named reference frames introduce no external biological facts and no
 new GIFT membership assertions. Their filters reuse the database's curated
 `gift_type`, `mode` and facet assignments plus the anchor-derived `gift_profile`
 view. The definitions, boundedness claims and interpretation limits are gifter
@@ -1236,6 +1236,77 @@ Membership is deliberately not stored. It is resolved from the current release
 by ANDing distinct filter keys and ORing values within one key. This lets a new
 GIFT enter a preset only through its normal curated metadata and preserves the
 database as the source of biological meaning. Only the existing
-biomass-essential anabolic universe and its amino-acid, nucleotide and cofactor
+biomass-essential anabolic frame and its amino-acid, nucleotide and cofactor
 subsets are declared bounded. The other presets remain open catalogues and do
 not license coverage fractions.
+
+## The NCBIfam marker namespace, release 2026.23.1
+
+`NCBIFAM` is admitted as a marker namespace, pinned to one named release.
+
+- **NCBIfam release `hmm_PGAP/20.0`**, initiated 2026-06-23, published
+  2026-06-25. Release notes:
+  <https://ftp.ncbi.nlm.nih.gov/hmm/current/RELEASE_NOTES.txt>.
+- Profile metadata: `hmm_PGAP.tsv`, retrieved 2026-08-23 from
+  <https://ftp.ncbi.nlm.nih.gov/hmm/current/hmm_PGAP.tsv>. 38,394 profile
+  records, SHA-256
+  `972f910ac7c54c6373e286c0d96dee71f643f9abd576a019bcb05ec7f5834b7b`. The file
+  is cached under `data-raw/reference/.cache` and is not copied into the
+  package.
+- Rhea release 141 supplies the EC-to-reaction mapping the screen joins through.
+
+### Why the release is part of the accession
+
+An NCBIfam accession carries a version suffix, and the suffix is not
+decoration: `NF040708.3` names the third build of that profile, over a seed
+alignment and cut-offs that may differ from `NF040708.2`. Release 20.0 alone
+updated 24 seeds and 35 cut-offs among persisting models and deprecated 58
+models outright. Every `NCBIFAM` row in `component_markers.tsv` therefore
+records the versioned accession and names the release in its `source` column,
+and the compiler refuses an unversioned one. An NCBIfam upgrade is a
+marker-layer migration with its own `database_changes.tsv` entry, exactly as a
+dbCAN upgrade is.
+
+### Why only the equivalog grades
+
+NCBIfam grades every profile in a `family_type` column, and only `equivalog` and
+`equivalog_domain` assert that the family's members share one function. Of the
+38,394 records, 13,888 carry one of those two grades. A `subfamily`, `domain`,
+`PfamEq` or `exception` profile groups sequences more loosely than a function,
+which is the over-broad evidence invariant 16 refuses; admitting the namespace
+without curating the grade would import that breadth silently. Each `NCBIFAM`
+evidence row therefore declares `family_type=<grade>` in its `notes`, and the
+compiler refuses any other grade. `data-raw/reference/ncbifam-grade-refusals.tsv`
+records the 229 profiles that reach a curated reaction and are refused on grade
+alone — what the filter costs, written down so it can be re-read.
+
+### Relation to the existing TIGRFAM rows
+
+The five `TIGRFAM` markers already in the database are JCVI profiles maintained
+inside NCBIfam, recorded from InterPro without a version suffix. They are left
+as they are. Re-namespacing them would silently remove evidence from users
+whose annotation emits the unversioned form, and the migration is a decision of
+its own rather than a side effect of this release; it is recorded in the
+deferral register. New JCVI-origin profiles enter under `NCBIFAM` with the
+versioned accession the pinned release publishes, because that is the string a
+PGAP, bakta or AMRFinderPlus annotation emits.
+
+### What the namespace was admitted for
+
+Release 2026.23.1 is additive: 53 profiles join 25 enzyme components that
+already accepted markers, as OR alternatives beside the KEGG orthologs. The
+target reactions are recomputed rather than listed, by
+`data-raw/ncbifam_equivalog_screen.R`; the per-profile reading and the four
+profiles refused on biology rather than grade are in
+`inst/doc/proposal-ncbifam-namespace.md`.
+
+### Which pipelines emit these accessions
+
+An `NCBIFAM` marker is only evidence for a user whose annotation produces
+NCBIfam accessions. PGAP, AMRFinderPlus and bakta run this library directly and
+report `NF*` and `TIGR*` accessions; InterProScan carries the collection as its
+NCBIfam member database and reports the same accessions. A purely KEGG-based
+pipeline — KofamScan, BlastKOALA, GhostKOALA, eggNOG-mapper's KEGG output —
+emits no NCBIfam accession at all, so for those users these markers simply never
+match. That is why the namespace enters as an additional marker on components
+that already work rather than as a replacement for a KO.

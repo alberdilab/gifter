@@ -337,3 +337,17 @@ DBC-20260822-ECTOINE-DEGRADATION	ectoine_biosynthesis
 DBC-20260822-HYDROXYECTOINE	hydroxyectoine_biosynthesis
 DBC-20260822-LACTALDEHYDE-OXIDATION	lactate_formation_lactaldehyde
 DBC-20260822-LACTALDEHYDE-OXIDATION	propanediol_formation
+DBC-20260823-NCBIFAM-NAMESPACE	assimilatory_sulfate_reduction
+DBC-20260823-NCBIFAM-NAMESPACE	catechol_meta_cleavage
+DBC-20260823-NCBIFAM-NAMESPACE	citrate_fermentation
+DBC-20260823-NCBIFAM-NAMESPACE	corrin_ring_biosynthesis
+DBC-20260823-NCBIFAM-NAMESPACE	enterobactin_biosynthesis
+DBC-20260823-NCBIFAM-NAMESPACE	fucose_degradation_isomerase
+DBC-20260823-NCBIFAM-NAMESPACE	glyoxylate_bypass
+DBC-20260823-NCBIFAM-NAMESPACE	heme_b_biosynthesis
+DBC-20260823-NCBIFAM-NAMESPACE	methionine_biosynthesis_sulfhydrylation
+DBC-20260823-NCBIFAM-NAMESPACE	methionine_biosynthesis_transsulfuration
+DBC-20260823-NCBIFAM-NAMESPACE	oxoglutarate_to_succinate
+DBC-20260823-NCBIFAM-NAMESPACE	purine_core_biosynthesis
+DBC-20260823-NCBIFAM-NAMESPACE	serine_biosynthesis
+DBC-20260823-NCBIFAM-NAMESPACE	thiamine_precursor_salvage

@@ -16,7 +16,7 @@ it is a forgotten investigation.
 
 Retriggers are grouped by what would have to change, because that is what makes
 the register usable: when a namespace is admitted, read section 1; when the
-genome universe moves, read section 2; when an architectural axis opens, read
+genome frame moves, read section 2; when an architectural axis opens, read
 section 3. Section 4 is closed and stays closed.
 
 ---
@@ -31,12 +31,12 @@ resolution. These are the rows to re-read after
 
 | Candidate | Blocked because | Unblocks when | Source |
 |---|---|---|---|
-| `siroheme_to_heme_b`, the Ahb route | `K22225` matches both AhbA and AhbB, so a jointly required heterodimer cannot be proven | **Condition met.** NCBIfam separates `NF040708.3` *ahbA* and `NF040707.3` *ahbB* | [MetaCyc](proposal-metacyc-expansion.md) |
+| `siroheme_to_heme_b`, the Ahb route | `K22225` matches both AhbA and AhbB, so a jointly required heterodimer cannot be proven | **Condition met.** NCBIfam separates `NF040708.3` *ahbA* and `NF040707.3` *ahbB*, and the namespace is admitted as of 2026.23.1. Nothing but curation blocks it | [MetaCyc](proposal-metacyc-expansion.md) |
 | Flagellar coupling ion, H⁺ versus Na⁺ | `K02556`/`K02557` cover both MotA/MotB and PomA/PomB | A profile or ortholog separates the sodium-driven stator. NCBIfam does not | [structural](proposal-structural-gifts.md) |
-| Chemotaxis toward a named chemoeffector | A generic MCP accession cannot name a ligand | Per-receptor evidence. Partly available: `aspartate_chemoreception` already curates Tar, and NCBIfam grades *tar* and *tsr* separately | [regulatory](proposal-regulatory-gifts.md) |
+| Chemotaxis toward a named chemoeffector | A generic MCP accession cannot name a ligand | Per-receptor evidence. **The namespace is now available**: `NCBIFAM` was admitted in 2026.23.1, and `NF011622.0` *tar* and `NF011615.0` *tsr* are separate equivalogs, so nothing but curation blocks tightening `aspartate_chemoreception`. It still creates no new capability | [regulatory](proposal-regulatory-gifts.md) |
 | CRISPR subtype identity | A generic Cas protein cannot license a subtype, and an array is not in the evidence layer | Subtype-specific component evidence, plus a decision on array detection | [defense](proposal-defense-gifts.md) |
 | Aminoglycoside modification | No marker resolves the drug class; the resolvable level is one drug | A claim named for the chemistry rather than the drug class would not need this | [antimicrobial](proposal-antimicrobial-detoxification.md) §8 |
-| Macrolide esterase `ereA` | No KO exists | A profile in an admitted namespace covers it. NCBIfam unchecked | [antimicrobial](proposal-antimicrobial-detoxification.md) |
+| Macrolide esterase `ereA` | No KO exists | A profile in an admitted namespace covers it. `NCBIFAM` is admitted as of 2026.23.1, so this is now a lookup rather than a namespace decision. Still unchecked | [antimicrobial](proposal-antimicrobial-detoxification.md) |
 | Caffeine N-demethylation | The required reductase has no KO | Same | [aromatic](proposal-aromatic-degradation.md) |
 | Polyhydroxybutyrate biosynthesis | `K03821` names PHA synthases across substrate classes and cannot identify PHB | An equivalog-grade profile specific to the PHB synthase | [compatible solutes](proposal-compatible-solutes-heme-enterobactin-detoxification.md) |
 | Nine aromatic capabilities — toluene, benzene, xylene, cumate, *p*-cymene, biphenyl, carbazole, naphthalene, terephthalate | Ring-hydroxylating dioxygenase families cannot say which ring they hydroxylate | Not by a finer family: the enzymes are promiscuous as proteins. Only substrate-resolving evidence of a kind gifter does not have | [aromatic](proposal-aromatic-degradation.md) |
@@ -51,10 +51,12 @@ resolution. These are the rows to re-read after
 | Allantoin racemisation | Would need an `ALLANTOIN_R` anchor whose only purpose is to be the other side of a racemase | Someone reads the (R) form as a boundary. `lactate_racemisation` is the precedent for admitting one | [anchor fates](proposal-anchor-fates.md) §5.2 |
 | The oxidative rhamnose route, LRA1 to LRA4 | Not deferred on evidence. It is an alternative route of the existing `rhamnose_degradation` rather than a GIFT, and the upstream three steps have not been checked | The LRA1 to LRA3 reactions and markers are verified | [anchor fates](proposal-anchor-fates.md) §5.2 |
 | Variant- and SNP-based resistance | Resistance is a residue and the evidence layer has no accession for a residue | An evidence model with residue-level identity, which is not on the roadmap | [antimicrobial](proposal-antimicrobial-detoxification.md) §9.4 |
+| Oxepin-CoA hydrolase, the alternative-type protein `NF046063.1` | It passed the equivalog filter and was refused twice over: NCBIfam names it an "alternative type", so attaching it to the PaaZ hydrolase-domain component would assert a homology the profile denies, and its function was assigned from TnSeq fitness data rather than characterised | Its chemistry is read well enough to curate a second enzyme system on `RHEA:31755`, at which point the profile is `putative` evidence for that system rather than for PaaZ | [NCBIfam](proposal-ncbifam-namespace.md) §7.1 |
+| Migrating the five unversioned `TIGRFAM` rows into `NCBIFAM` | They are JCVI profiles maintained inside NCBIfam, recorded from InterPro without a version suffix. Re-namespacing them would silently stop matching for users whose annotation emits the unversioned form, and there is no marker-alias model that could hold both | A marker-alias or accession-equivalence model, or a deliberate release that accepts the break and re-derives the five rows against a pinned NCBIfam release | [NCBIfam](proposal-ncbifam-namespace.md), `SOURCES.md` |
 
 ## 2. Blocked on prevalence
 
-Retrigger: a change to the reference genome universe, or an explicit decision to
+Retrigger: a change to the reference genome frame, or an explicit decision to
 curate a capability that is rare but biologically decisive. The 20–50 genome
 band is the standing test; below it a candidate is not refused on biology.
 

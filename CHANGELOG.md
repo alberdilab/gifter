@@ -15,6 +15,42 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-08-23T10:00Z — The compiler curates the NCBIfam grade, and a screen recomputes what the namespace resolves
+
+**The problem.** NCBIfam grades every profile in a `family_type` column, and
+only `equivalog` and `equivalog_domain` assert that a family's members share one
+function. Every other grade groups sequences more loosely than a function, which
+is the over-broad evidence invariant 16 refuses. A namespace admitted without
+that grade curated would import the breadth silently, one accession at a time,
+with nothing to notice. NCBIfam accessions are also versioned, and `NF040708`
+is not guaranteed to be the profile `NF040708.3` names — an unversioned
+accession is a marker pinned to nothing.
+
+**What changed.** Two things, neither of them a schema change.
+
+`R/database-build.R` gains an admission rule for the `NCBIFAM` namespace,
+applied to `component_markers` and to all three typed evidence tables. A marker
+row in that namespace must carry a versioned accession, must declare
+`family_type=<grade>` inside its `notes` — in the same sentence as the curator's
+reasoning, rather than in a column that can drift away from it — and the grade
+must be one of the two admitted ones. `.gifter_ncbifam_grades` is a named
+constant, so widening it is a visible edit.
+
+`data-raw/ncbifam_equivalog_screen.R` is the NCBIfam counterpart of the KO
+specificity screen. It composes NCBIfam's profile-to-EC assignment with Rhea's
+EC-to-reaction mapping, applies the grade filter first, and answers the
+comparative question that decides whether a profile buys anything: does a
+single-reaction equivalog resolve a curated reaction that no single-reaction KO
+resolves? It emits four reference tables into `data-raw/reference/`, including
+the profiles refused on grade alone and the grade the pinned release gives every
+accession the database admits.
+
+**Effect.** No runtime behaviour, public API or evaluation logic changed. The
+validator is stricter for one namespace and unchanged for every other. The
+biological content it admits is recorded in the database as
+`DBC-20260823-NCBIFAM-NAMESPACE`; the reasoning is in
+`inst/doc/proposal-ncbifam-namespace.md`.
+
 ### 2026-08-22T17:25Z — A computable specificity screen for the KO marker layer
 
 **The problem.** Invariant 16 — that a claim's specificity may not exceed its
@@ -114,7 +150,7 @@ genome reaches; `supported_gifts_<facet>:<value>` counts the GIFTs it reaches
 them by, over the assessable GIFTs carrying that value. A genome supporting one
 plant-derived entry and one supporting twelve had the same breadth and
 different diets. The denominator is the GIFTs carrying the value and never the
-universe, which would read as a fraction of the catalogue; a value the genome
+frame, which would read as a fraction of the catalogue; a value the genome
 reaches nothing of is not reported here, because it is already counted in the
 breadth denominator, exactly as `provider_count` reports only represented
 GIFTs.
@@ -133,10 +169,10 @@ description derived from primary typed GIFTs rather than becoming one, and the
 documentation says so where the metric is defined rather than only in the
 architecture guide.
 
-Anchor facets do not build universes. `gift_universe(facet = )` still resolves
+Anchor facets do not build frames. `reference_frame(facet = )` still resolves
 the GIFT facet vocabulary only, so "GIFTs entering on plant-derived anchors" is
 readable as a metric and not yet declarable as a denominator. That is a
-universe-resolution change with its own schema keys and it is not taken here.
+frame-resolution change with its own schema keys and it is not taken here.
 
 ### 2026-08-22T15:20Z — Repertoire distance, and the tree gifter does not cut
 
@@ -201,7 +237,7 @@ reads markers; it has never seen a sample. Across a dataset only two things
 vary: which genomes are members of a sample's community, and how much of it they
 represent. So the catalogue is evaluated **once**, a dataset holds one call
 matrix, and every per-sample distributional metric is a matrix product over all
-samples simultaneously — three products per reference universe answer every
+samples simultaneously — three products per reference frame answer every
 sample and every GIFT. A loop calling `community_traits()` per sample would
 repeat a community's whole quadratic walk for each one.
 
@@ -250,7 +286,7 @@ sample would have made the one quadratic quantity quadratic again, months after
 equals what `community_traits()` reports on `sample_community()` of that sample
 with that sample's abundance — and the same for `dataset_network()` against
 `community_network()`. The layer is checked against the engine it extends, over
-all fourteen default universes, rather than against hand-computed expectations
+all fourteen default frames, rather than against hand-computed expectations
 of its own.
 
 **Where gifter stops, and why it is a decision rather than an omission.** gifter
@@ -261,7 +297,7 @@ traits proposal already refuses lighter ecological claims than a group
 difference; its refusal 3 refuses a user-supplied vector multiplied through the
 call matrix and presented as a gifter inference, and a group label is exactly
 such a vector. What vegan, lme4, MaAsLin and ALDEx2 lack is an
-assessability-aware matrix with a declared reference universe, and `gift_matrix()`
+assessability-aware matrix with a declared reference frame, and `gift_matrix()`
 is that: three-state, `NA` where a genome was never observed well enough for its
 silence to be read. A zero there is a fabricated absence that every model fitted
 on it inherits.
@@ -274,7 +310,7 @@ re-evaluation of calls.
 **One internal change to existing code.** `.warn_thin_denominators()` gains an
 optional argument naming what the thin readings are counted in, defaulting to
 the current text, because a dataset reports one `assessable_fraction` per sample
-per universe. `.distributed_cycles()` now takes the enumerated cycles rather
+per frame. `.distributed_cycles()` now takes the enumerated cycles rather
 than enumerating them, so a reader asking the same question of many samples
 enumerates once. Neither changes what any existing function returns, and a test
 checks the single-community warning is unchanged.
@@ -289,7 +325,7 @@ call moved.
 
 Released 2026-08-22. A minor version because one default changed: the per-pair
 trace is no longer carried unless it is asked for. Every metric is the number it
-always was, the default reference universes are the same fourteen, and the only
+always was, the default reference frames are the same fourteen, and the only
 code that has to change is code that read `$trace` for a genome pair.
 
 ### 2026-08-22T14:40Z — Reading a community stops being quadratic in wall time and memory
@@ -301,14 +337,14 @@ three. Nothing about the arithmetic was expensive. Two things were:
 - every pair of genomes was intersected and given its own one-row tibble, and
   the pair count is quadratic — 418 genomes are 87,153 pairs, 2,000 are two
   million — so a run spent its time in `tibble()` calls, roughly 0.65 ms each,
-  once per pair per universe;
+  once per pair per frame;
 - the per-pair trace carried one row per pair per shared GIFT, which is tens of
   millions of rows and gigabytes at a few hundred genomes.
 
 **Change.** `repertoire_overlap` is computed for every pair at once. One
 cross-product of the call matrix holds every shared count there is, the union
 sizes follow from the row sums, and one tibble carries all the pairs of a
-universe. The values, their numerators and denominators, their order and the
+frame. The values, their numerators and denominators, their order and the
 withholding of an undefined overlap between two empty repertoires are all
 exactly what the per-pair loop produced; a test now checks the two against each
 other over a community large enough for them to disagree.
@@ -324,24 +360,24 @@ always were.
 `community_traits()` also gains `pairwise`, defaulting to `TRUE`. The pair
 metric is the one quantity that is quadratic in the community; everything
 reported per GIFT and per genome is not. Separating them is what lets a large
-community keep the full set of reference universes: 418 genomes within all
+community keep the full set of reference frames: 418 genomes within all
 fourteen is 12,999 non-pair rows and 1,174,481 pair rows, and 2,000 genomes is
 57,295 against 27 million. `pairwise = FALSE` drops the second number and
 touches nothing else. Asking for `pair_trace = TRUE` alongside it is refused
 rather than ignored.
 
-**The default set of universes is unchanged.** Reading a community within the
-catalogue-wide universe alone was considered and rejected: it is 94% metabolic,
+**The default set of frames is unchanged.** Reading a community within the
+catalogue-wide frame alone was considered and rejected: it is 94% metabolic,
 so every richness and overlap taken over it is a metabolic quantity wearing a
-general name, and `community_coverage` — defined only for a bounded universe —
+general name, and `community_coverage` — defined only for a bounded frame —
 would have disappeared from the default output entirely. What made the fourteen
 expensive was the pair metric, and `pairwise` addresses that directly.
 
-**Measured**, on synthetic communities over the default universes:
+**Measured**, on synthetic communities over the default frames:
 
 | genomes | reading | time | metric rows | held |
 |--------:|---------|-----:|------------:|-----:|
-| 418 | catalogue-wide universe alone | 1.1 s | 88,291 | 15 MB |
+| 418 | catalogue-wide frame alone | 1.1 s | 88,291 | 15 MB |
 | 418 | default, all fourteen | 13.7 s | 1,184,011 | 102 MB |
 | 418 | default, `pairwise = FALSE` | 12.0 s | 12,999 | 6 MB |
 | 1,000 | default, all fourteen | 34.5 s | 6,758,648 | 567 MB |
@@ -351,17 +387,17 @@ expensive was the pair metric, and `pairwise` addresses that directly.
 `pairwise = FALSE` is what the memory column is for; it is not yet much of a
 time saving at two thousand genomes, because with the pairs gone the remaining
 54 s is the per-GIFT and per-genome loops, which still build one tibble per row
--- 84,000 of them across fourteen universes. Those were left alone here: they
+-- 84,000 of them across fourteen frames. Those were left alone here: they
 are linear in the community and were nowhere near the cost the pairs were.
 
-The per-pair loop this replaces took 192 s over a *single* universe at 418
+The per-pair loop this replaces took 192 s over a *single* frame at 418
 genomes — 185 s building rows and 7 s combining them — which is roughly three
-quarters of an hour for the fourteen-universe default. The synthetic communities
+quarters of an hour for the fourteen-frame default. The synthetic communities
 share less between genomes than real ones do, so the trace figures are
 conservative.
 
 **No metric change.** Every value, numerator, denominator, derivation method and
-reference universe is what it was. What changed is whether the pair trace is
+reference frame is what it was. What changed is whether the pair trace is
 carried.
 
 ---
@@ -377,11 +413,11 @@ it always did.
 
 **Change.** `community_traits()` gains a `progress` argument and shows the same
 cli progress bar `evaluate_gifts_community()` already showed, counting
-reference universes summarised out of universes to summarise, with a bar, a
+reference frames summarised out of frames to summarise, with a bar, a
 percentage and an estimate of the time remaining. It defaults to `TRUE` at an
-interactive console reading more than one universe and to `FALSE` otherwise, so
+interactive console reading more than one frame and to `FALSE` otherwise, so
 scripts, knitted documents and `R CMD check` stay silent. A malformed request
-is refused before any universe is built.
+is refused before any frame is built.
 
 The display and the rule for whether there is one moved to `R/progress.R`, so
 both long-running functions report through one object rather than two
@@ -393,14 +429,14 @@ counts or how it reads.
 they were, with the display on or off.
 
 **Why.** Evaluating a community was the slow half only until the community got
-large. Reading one walks every reference universe over every GIFT, every genome
+large. Reading one walks every reference frame over every GIFT, every genome
 and every pair of genomes, and the pairwise term grows with the square of the
-membership: a thousand-genome community is half a million pairs per universe,
+membership: a thousand-genome community is half a million pairs per frame,
 across a default set of fourteen. A run of that length with a silent console is
 indistinguishable from a hung one, which was the whole argument for the bar in
 the evaluation, and it applies unchanged here.
 
-Universes are the unit because they are what the caller supplied and what every
+Frames are the unit because they are what the caller supplied and what every
 returned metric is reported within. They are not equal units of work — one
 spanning the catalogue takes longer than a narrow one — so the estimate is
 coarser than a genome count, which is the price of counting the work the caller
@@ -629,7 +665,7 @@ a patch number would not have said.
 `giftr_community()`, `giftr_db_connect()`, `giftr_db_disconnect()`,
 `giftr_db_version()`, `validate_giftr_sources()`, `build_giftr_database()` and
 `write_giftr_database_html()`; the secondary `giftr_*` S3 classes carried by
-every result, community, universe, traits and network object, with their print
+every result, community, frame, traits and network object, with their print
 methods; and the `giftr_db_version` column duplicated into `gifter_db_version()`.
 `test-package-rename.R` now asserts their absence instead of their presence.
 **No biological, schema, database or evaluation logic change:** every remaining
@@ -753,42 +789,42 @@ genome's capabilities. `map_markers()` and `evaluate_reactions()` are unchanged.
 
 ## Package 0.1.0
 
-### 2026-08-20T12:19Z — Reference-universe atlas guides analytical choice
+### 2026-08-20T12:19Z — Reference-frame atlas guides analytical choice
 
-**Change.** The HTML atlas adds a searchable Reference universes view generated
+**Change.** The HTML atlas adds a searchable Reference frames view generated
 from the curated registry. It presents every preset by biological question,
 current membership, open or bounded denominator, genome/community/network
 scope, recommended metrics and their rationales, interpretation limit, filter
-definition, and runnable `gift_universe()` call. The quantitative-traits
+definition, and runnable `reference_frame()` call. The quantitative-traits
 tutorial includes a complete registry table and a short metric-selection guide,
 and the README links directly to the atlas chooser. **No biological, schema,
 database, evaluation, metric, or public API change.**
 
 **Why.** The registry made recurring analytical scopes machine-discoverable,
 but researchers unfamiliar with gifter still had to interpret a wide tibble or
-inspect three raw database tables before they could choose a suitable universe
+inspect three raw database tables before they could choose a suitable frame
 and analysis scale.
 
 **Effect.** Researchers can now begin with their biological question, narrow
-the available universes by data scale or valid coverage denominator, and see
+the available frames by data scale or valid coverage denominator, and see
 which metrics to report and which interpretations to avoid. Because the view is
-rendered from the database, future curated universes and recommendations appear
+rendered from the database, future curated frames and recommendations appear
 without a second hand-maintained catalogue.
 
-### 2026-08-20T11:35Z — Named reference universes make recurring analyses reusable
+### 2026-08-20T11:35Z — Named reference frames make recurring analyses reusable
 
 **Change.** Schema 7 and biological database 2026.20.4 add a normalized registry
-of 19 named reference universes, their metadata filters, boundedness claims,
+of 19 named reference frames, their metadata filters, boundedness claims,
 interpretation limits and scope-specific metric recommendations. The new
-`list_gift_universes()` accessor discovers them, and
-`gift_universe(preset = ...)` resolves a preset against the current database
+`list_reference_frames()` accessor discovers them, and
+`reference_frame(preset = ...)` resolves a preset against the current database
 release. Documentation now demonstrates the carbohydrate-degradation and
 biomass-essential-anabolism presets. **No GIFT definition, evaluation logic or
 Boolean call changes.**
 
 **Why.** Questions such as carbohydrate degradation, nitrogen acquisition,
 fermentation-product formation and vitamin biosynthesis were already expressible
-with `gift_universe()`, but every analysis had to restate their biological
+with `reference_frame()`, but every analysis had to restate their biological
 scope. A versioned registry makes those scopes easy to find and consistent
 between genome and community analyses without hard-coding GIFT identifiers.
 
@@ -908,7 +944,7 @@ mean once they had one.
 
 **Effect.** `evaluating-a-genome` covers the input format, which markers gifter
 could use, reading complete and incomplete calls, and tracing a call to genes.
-`quantitative-traits` covers reference universes and why a count without one is
+`quantitative-traits` covers reference frames and why a count without one is
 not a result. `community-analysis` covers provider counts, presence versus
 abundance, and the handoff network.
 
@@ -947,15 +983,15 @@ carries the implementation record. **No code, schema or database change.**
 This is phase 5 of that proposal.
 
 **Why.** The layer's four constraints are not conventions an author could
-reasonably choose otherwise about: a universe built in R rather than from
+reasonably choose otherwise about: a frame built in R rather than from
 curated metadata, a fraction of an open catalogue, a quality policy that
 promotes a call, or an edge that hands a cytoplasmic molecule between organisms
 are each a defect rather than a style. Constraints of that kind belong in the
 invariant list, where they are checked before a change ships, and not only in
 the roxygen of the function that happens to enforce them today.
 
-**Effect.** Invariant 20 requires a declared reference universe built from
-curated metadata and forbids a fraction of the catalogue unless the universe was
+**Effect.** Invariant 20 requires a declared reference frame built from
+curated metadata and forbids a fraction of the catalogue unless the frame was
 declared bounded. Invariant 21 keeps presence, abundance and context apart and
 fixes genome quality as informing absence only, per genome. Invariant 22 bounds
 interaction edges to existing compatibility semantics, requires them to inherit
@@ -1015,7 +1051,7 @@ recommendation. The policy is deliberately blunt — it does not try to guess
 which capability a fragmented assembly lost — because gifter has no validated
 model of gene loss and a finer rule would imply a precision it cannot support;
 the graduated `"near_miss"` policy stays recorded as a candidate rather than
-shipped. And a proportion computed over a universe that has quietly collapsed
+shipped. And a proportion computed over a frame that has quietly collapsed
 now warns: at 30% completeness a supported fraction of 1.0 over one assessable
 GIFT is arithmetically fine and biologically empty, so the reader is pointed at
 `assessable_fraction` before they quote it.
@@ -1087,10 +1123,10 @@ result is not supported, so a filtered evaluation cannot claim a capability it
 never tested.
 
 `community_traits()` reports `community_richness`, `community_coverage` for
-bounded universes, `mean_genome_richness` beside it rather than divided into
+bounded frames, `mean_genome_richness` beside it rather than divided into
 it, `provider_count` per GIFT, `abundance_coverage` per GIFT when abundance was
 supplied, `singleton_fraction`, `unique_contribution` per genome and
-`repertoire_overlap` per genome pair — all within every supplied universe, in
+`repertoire_overlap` per genome pair — all within every supplied frame, in
 the same long-form shape phase 1 established, with `target_type` distinguishing
 community, GIFT, genome and genome-pair rows.
 
@@ -1098,9 +1134,9 @@ Presence and abundance never merge. `provider_count` and `abundance_coverage`
 are separate rows with separate units, because how many genomes encode a
 capability and how much of the observed abundance they represent answer
 different questions and neither is a statement about activity. Overlap is
-computed within a universe rather than only across the catalogue: 94% of the
+computed within a frame rather than only across the catalogue: 94% of the
 GIFTs are metabolic, so an unstratified Jaccard index is a metabolic overlap
-under a general name. Where both genomes of a pair hold nothing in a universe
+under a general name. Where both genomes of a pair hold nothing in a frame
 the overlap is withheld rather than reported as zero, since reporting zero
 would say two repertoires were compared and found to share nothing.
 
@@ -1114,10 +1150,10 @@ give one genome two capabilities and destroy every expected provider count.
 
 54 new tests in `test-community-traits.R`; full suite green at 3489.
 
-### 2026-08-19T03:55Z — Reference universes and quantitative genome traits
+### 2026-08-19T03:55Z — Reference frames and quantitative genome traits
 
-**Change.** Two new exported functions, `gift_universe()` and
-`genome_traits()`, in the new `R/universe.R` and `R/traits.R`. **No schema,
+**Change.** Two new exported functions, `reference_frame()` and
+`genome_traits()`, in the new `R/frame.R` and `R/traits.R`. **No schema,
 database content or evaluation change**: the database is byte-identical and no
 call moves. This is phase 1 of
 `inst/doc/proposal-quantitative-traits.md`.
@@ -1131,35 +1167,35 @@ asking it without a declared denominator is what makes such numbers
 untrustworthy. A count of supported GIFTs is meaningless without the set it was
 counted over, and that set changes between releases.
 
-**Effect.** `gift_universe()` builds a reference universe from curated metadata
+**Effect.** `reference_frame()` builds a reference frame from curated metadata
 only — `gift_type`, `mode`, the registered facet vocabulary, and the derived
-`gift_profile` view. A universe may not be a list of `gift_id`s written in R,
+`gift_profile` view. A frame may not be a list of `gift_id`s written in R,
 which is invariant 10 applied one layer up. `genome_traits()` reports
 `gift_richness`, `breadth_*` over every facet and profile classification,
 `handoff_out_degree` and `handoff_in_degree` from `gift_graph`,
 `multi_implementation_gifts` and `closed_cycles`, each within every supplied
-universe, as a long-form table carrying `numerator`, `denominator`,
-`assessable`, `reference_universe` and `database_version`, plus a `trace` table
+frame, as a long-form table carrying `numerator`, `denominator`,
+`assessable`, `reference_frame` and `database_version`, plus a `trace` table
 naming the GIFTs behind every row.
 
 Three refusals are built into the behaviour rather than left to documentation.
-`supported_fraction` is reported **only** for a universe explicitly declared
+`supported_fraction` is reported **only** for a frame explicitly declared
 `bounded`, because a fraction of an open and growing catalogue reads as the
 share of microbial function a genome carries; the default set bounds exactly
-one universe, the biomass-essential anabolic GIFTs, over which the fraction is
-biosynthetic capability coverage. Handoff degrees are withheld from a universe
+one frame, the biomass-essential anabolic GIFTs, over which the fraction is
+biosynthetic capability coverage. Handoff degrees are withheld from a frame
 that does not reach the metabolic model, because a structural GIFT declares no
 anchors and reporting zero would imply a test the genome failed. And traits
 computed against a database version other than the one that produced the calls
 are an error, not a warning.
 
-`assessable` currently equals the size of the universe: gifter accepts no
+`assessable` currently equals the size of the frame: gifter accepts no
 genome-quality information, so every member is treated as assessed. That column
 exists now so its shape is stable when phase 4 adds the assessability policy.
 Nothing in this layer can change a Boolean call, and `closed_cycles` reads
 `evaluate_gift_cycles()`, which already guarantees the same.
 
-81 new tests in `test-universes.R` and `test-genome-traits.R`; full suite green
+81 new tests in `test-frames.R` and `test-genome-traits.R`; full suite green
 at 3435.
 
 ### 2026-08-19T13:10Z — Mercury detoxification curated: the first defense GIFT that is not anti-phage

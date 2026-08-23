@@ -12,11 +12,11 @@
 .gifter_gift_modes <- c("anabolic", "catabolic", "transport", "interconversion")
 
 # Derived resource strategies exposed by the gift_profile view. Named reference
-# universes may select these values, but the view remains their single source of
+# frames may select these values, but the view remains their single source of
 # biological meaning.
 .gifter_resource_strategies <- c("uptake", "public_good", "private", "unresolved")
 
-# Metrics that the named-universe registry may recommend. Recommendations are
+# Metrics that the named-frame registry may recommend. Recommendations are
 # discovery metadata only: they do not cause a metric to be computed and cannot
 # change a GIFT call. Keeping the vocabulary closed catches misspelled or
 # nonexistent output names during source validation.
@@ -134,6 +134,70 @@
   "equivalent", "subset_of", "superset_of", "overlaps", "related"
 )
 
+# NCBIfam grades every profile, and only the two equivalog grades assert that a
+# family's members share one function. A `subfamily` or `domain` profile groups
+# sequences more loosely than a function, which is exactly the over-broad
+# evidence invariant 16 refuses, so admitting the namespace without curating the
+# grade would import that breadth silently. The grade is therefore not a note a
+# curator may forget: every marker row in this namespace must declare it, and
+# the compiler refuses the row otherwise.
+.gifter_ncbifam_grades <- c("equivalog", "equivalog_domain")
+
+# NCBIfam accessions carry a version suffix, and the profile behind `NF040708`
+# is not necessarily the profile behind `NF040708.3`. An unversioned accession
+# is a marker pinned to nothing, so the compiler refuses it.
+.gifter_ncbifam_accession <- "^(NF|TIGR)[0-9]+\\.[0-9]+$"
+
+# Read the declared grade out of an evidence row's notes. The notes field is
+# prose; the declaration is one machine-readable token inside it, so that the
+# curator's reasoning and the compiler's check live in the same sentence
+# instead of drifting apart in two columns.
+.ncbifam_declared_grade <- function(notes) {
+  notes[is.na(notes)] <- ""
+  hit <- regmatches(notes, regexpr("family_type=[A-Za-z_]+", notes))
+  out <- rep(NA_character_, length(notes))
+  found <- lengths(regmatches(notes, gregexpr("family_type=[A-Za-z_]+", notes))) > 0
+  out[found] <- sub("^family_type=", "", hit)
+  out
+}
+
+# Apply the namespace's admission rule to one evidence table. Every marker
+# namespace is free-form by design -- invariant 5 makes marker identity an
+# extensible pair -- but a namespace whose own metadata states how specific a
+# profile is must have that metadata curated, not assumed.
+.check_ncbifam_evidence <- function(rows, label) {
+  rows <- rows[!is.na(rows$namespace) & rows$namespace == "NCBIFAM", , drop = FALSE]
+  if (!nrow(rows)) return(character(0))
+  errors <- character(0)
+
+  unversioned <- unique(rows$accession[!grepl(.gifter_ncbifam_accession, rows$accession)])
+  if (length(unversioned)) {
+    errors <- c(errors, paste0(
+      label, " NCBIFAM accessions must carry a release version suffix: ",
+      paste(sort(unversioned), collapse = ", ")
+    ))
+  }
+
+  grade <- .ncbifam_declared_grade(rows$notes)
+  undeclared <- unique(rows$accession[is.na(grade)])
+  if (length(undeclared)) {
+    errors <- c(errors, paste0(
+      label, " NCBIFAM rows must declare family_type=<grade> in notes: ",
+      paste(sort(undeclared), collapse = ", ")
+    ))
+  }
+  refused <- !is.na(grade) & !grade %in% .gifter_ncbifam_grades
+  if (any(refused)) {
+    errors <- c(errors, paste0(
+      label, " admits only ", paste(.gifter_ncbifam_grades, collapse = " and "),
+      " NCBIfam profiles; refused: ",
+      paste(sort(unique(paste0(rows$accession[refused], " (", grade[refused], ")"))),
+            collapse = ", ")
+    ))
+  }
+  errors
+}
+
 # Hierarchy layers a curation decision can touch. The metabolic layers come
 # first, then the layers of each typed machinery model.
 .gifter_change_layers <- c(
@@ -161,11 +225,11 @@
   facet_terms = c("facet", "value", "applies_to", "definition"),
   gift_facets = c("gift_id", "facet", "value", "notes"),
   anchor_facets = c("anchor_id", "facet", "value", "notes"),
-  reference_universes = c(
-    "universe_id", "label", "description", "bounded", "interpretation"
+  reference_frames = c(
+    "frame_id", "label", "description", "bounded", "interpretation"
   ),
-  reference_universe_filters = c("universe_id", "filter_key", "value"),
-  reference_universe_metrics = c("universe_id", "scope", "metric_id", "rationale"),
+  reference_frame_filters = c("frame_id", "filter_key", "value"),
+  reference_frame_metrics = c("frame_id", "scope", "metric_id", "rationale"),
   anchors = c("anchor_id", "molecule", "compartment", "name", "chebi_id", "description"),
   gift_anchors = c("gift_id", "anchor_id", "role", "ordinal"),
   gift_xrefs = c("gift_id", "namespace", "accession", "name", "relation", "notes"),
@@ -347,9 +411,9 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
     component_markers = "component_id", database_changes = "change_id",
     change_gifts = "change_id", database_release = "gifter_db_version",
     facet_terms = "facet", gift_facets = "gift_id", anchor_facets = "anchor_id",
-    reference_universes = "universe_id",
-    reference_universe_filters = "universe_id",
-    reference_universe_metrics = "universe_id"
+    reference_frames = "frame_id",
+    reference_frame_filters = "frame_id",
+    reference_frame_metrics = "frame_id"
   )
   for (table in names(required_nonempty)) {
     column <- required_nonempty[[table]]
@@ -368,7 +432,7 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
     regulatory_systems = "system_id", regulatory_components = "component_id",
     gift_mechanisms = "mechanism_id", defense_functions = "function_id",
     defense_systems = "system_id", defense_components = "component_id",
-    reference_universes = "universe_id"
+    reference_frames = "frame_id"
   )
   for (table in names(unique_ids)) {
     column <- unique_ids[[table]]
@@ -441,14 +505,14 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
     list("gift_facets.gift_id", tables$gift_facets$gift_id, tables$gifts$gift_id),
     list("anchor_facets.anchor_id", tables$anchor_facets$anchor_id, tables$anchors$anchor_id),
     list(
-      "reference_universe_filters.universe_id",
-      tables$reference_universe_filters$universe_id,
-      tables$reference_universes$universe_id
+      "reference_frame_filters.frame_id",
+      tables$reference_frame_filters$frame_id,
+      tables$reference_frames$frame_id
     ),
     list(
-      "reference_universe_metrics.universe_id",
-      tables$reference_universe_metrics$universe_id,
-      tables$reference_universes$universe_id
+      "reference_frame_metrics.frame_id",
+      tables$reference_frame_metrics$frame_id,
+      tables$reference_frames$frame_id
     )
   )
   marker_keys <- paste(tables$markers$namespace, tables$markers$accession, sep = "\r")
@@ -464,6 +528,17 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
     if (length(missing)) {
       errors <- c(errors, paste0("Invalid ", check[[1]], ": ", paste(missing, collapse = ", ")))
     }
+  }
+
+  # The NCBIfam namespace carries its own specificity metadata, so the grade is
+  # part of the marker's identity rather than commentary about it. Checked for
+  # every evidence table at once, because a defense component may not admit
+  # evidence a metabolic component would be refused.
+  errors <- c(errors, .check_ncbifam_evidence(tables$component_markers,
+                                              "component_markers"))
+  for (model in .gifter_machinery_models) {
+    errors <- c(errors, .check_ncbifam_evidence(tables[[model$evidence_source]],
+                                                model$evidence_source))
   }
 
   # A facet vocabulary is open to new facets and closed within a facet. Both
@@ -527,77 +602,77 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
     }
   }
 
-  # Named reference universes are curated analytical metadata, not stored GIFT
+  # Named reference frames are curated analytical metadata, not stored GIFT
   # memberships. Filters are ANDed across keys and ORed within a key, so every
   # preset remains a reproducible query over the ontology rather than a list of
   # stable IDs that would drift as the catalogue grows.
-  universes <- tables$reference_universes
-  universe_filters <- tables$reference_universe_filters
-  universe_metrics <- tables$reference_universe_metrics
-  if (length(.duplicate_values(universes$label))) {
-    errors <- c(errors, "reference_universes.label must be unique")
+  frames <- tables$reference_frames
+  frame_filters <- tables$reference_frame_filters
+  frame_metrics <- tables$reference_frame_metrics
+  if (length(.duplicate_values(frames$label))) {
+    errors <- c(errors, "reference_frames.label must be unique")
   }
-  invalid_universe_ids <- universes$universe_id[
-    is.na(universes$universe_id) |
-      !grepl("^[a-z][a-z0-9_]*$", universes$universe_id)
+  invalid_frame_ids <- frames$frame_id[
+    is.na(frames$frame_id) |
+      !grepl("^[a-z][a-z0-9_]*$", frames$frame_id)
   ]
-  if (length(invalid_universe_ids)) {
+  if (length(invalid_frame_ids)) {
     errors <- c(
       errors,
       paste0(
-        "Invalid reference_universes.universe_id: ",
-        paste(unique(invalid_universe_ids), collapse = ", ")
+        "Invalid reference_frames.frame_id: ",
+        paste(unique(invalid_frame_ids), collapse = ", ")
       )
     )
   }
   for (column in c("label", "description", "interpretation")) {
-    empty <- universes$universe_id[
-      is.na(universes[[column]]) | !nzchar(trimws(universes[[column]]))
+    empty <- frames$frame_id[
+      is.na(frames[[column]]) | !nzchar(trimws(frames[[column]]))
     ]
     if (length(empty)) {
       errors <- c(
         errors,
         paste0(
-          "reference_universes.", column, " must be recorded for: ",
+          "reference_frames.", column, " must be recorded for: ",
           paste(empty, collapse = ", ")
         )
       )
     }
   }
-  bounded <- suppressWarnings(as.integer(universes$bounded))
-  invalid_bounded <- universes$universe_id[is.na(bounded) | !bounded %in% c(0L, 1L)]
+  bounded <- suppressWarnings(as.integer(frames$bounded))
+  invalid_bounded <- frames$frame_id[is.na(bounded) | !bounded %in% c(0L, 1L)]
   if (length(invalid_bounded)) {
     errors <- c(
       errors,
       paste0(
-        "reference_universes.bounded must be 0 or 1 for: ",
+        "reference_frames.bounded must be 0 or 1 for: ",
         paste(invalid_bounded, collapse = ", ")
       )
     )
   }
   if (length(.duplicate_keys(
-    universe_filters, c("universe_id", "filter_key", "value")
+    frame_filters, c("frame_id", "filter_key", "value")
   ))) {
-    errors <- c(errors, "reference_universe_filters contains duplicate filters")
+    errors <- c(errors, "reference_frame_filters contains duplicate filters")
   }
-  missing_filters <- setdiff(universes$universe_id, universe_filters$universe_id)
+  missing_filters <- setdiff(frames$frame_id, frame_filters$frame_id)
   if (length(missing_filters)) {
     errors <- c(
       errors,
       paste0(
-        "Every named reference universe needs a metadata filter: ",
+        "Every named reference frame needs a metadata filter: ",
         paste(missing_filters, collapse = ", ")
       )
     )
   }
-  empty_filter_values <- universe_filters$universe_id[
-    is.na(universe_filters$value) | !nzchar(trimws(universe_filters$value))
+  empty_filter_values <- frame_filters$frame_id[
+    is.na(frame_filters$value) | !nzchar(trimws(frame_filters$value))
   ]
   if (length(empty_filter_values)) {
     errors <- c(
       errors,
       paste0(
-        "reference_universe_filters.value must be recorded for: ",
+        "reference_frame_filters.value must be recorded for: ",
         paste(unique(empty_filter_values), collapse = ", ")
       )
     )
@@ -605,28 +680,28 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
   simple_filter_keys <- c(
     "type", "mode", "status", "resource_strategy", "auxotrophy_indicator"
   )
-  is_facet_filter <- grepl("^facet:[a-z][a-z0-9_]*$", universe_filters$filter_key)
-  invalid_filter_keys <- universe_filters$filter_key[
-    is.na(universe_filters$filter_key) |
-      !(universe_filters$filter_key %in% simple_filter_keys | is_facet_filter)
+  is_facet_filter <- grepl("^facet:[a-z][a-z0-9_]*$", frame_filters$filter_key)
+  invalid_filter_keys <- frame_filters$filter_key[
+    is.na(frame_filters$filter_key) |
+      !(frame_filters$filter_key %in% simple_filter_keys | is_facet_filter)
   ]
   if (length(invalid_filter_keys)) {
     errors <- c(
       errors,
       paste0(
-        "Invalid reference_universe_filters.filter_key: ",
+        "Invalid reference_frame_filters.filter_key: ",
         paste(unique(invalid_filter_keys), collapse = ", ")
       )
     )
   }
   validate_filter_values <- function(key, allowed) {
-    values <- universe_filters$value[universe_filters$filter_key == key]
+    values <- frame_filters$value[frame_filters$filter_key == key]
     invalid <- setdiff(values, allowed)
     if (length(invalid)) {
       errors <<- c(
         errors,
         paste0(
-          "Invalid ", key, " reference-universe filter value: ",
+          "Invalid ", key, " reference-frame filter value: ",
           paste(invalid, collapse = ", ")
         )
       )
@@ -637,7 +712,7 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
   validate_filter_values("status", unique(tables$gifts$status))
   validate_filter_values("resource_strategy", .gifter_resource_strategies)
   validate_filter_values("auxotrophy_indicator", c("true", "false"))
-  facet_filter_rows <- universe_filters[is_facet_filter, , drop = FALSE]
+  facet_filter_rows <- frame_filters[is_facet_filter, , drop = FALSE]
   if (nrow(facet_filter_rows)) {
     facet_filter_rows$facet <- sub("^facet:", "", facet_filter_rows$filter_key)
     gift_terms <- tables$facet_terms[
@@ -652,65 +727,65 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
       errors <- c(
         errors,
         paste0(
-          "Unregistered reference-universe facet filters: ",
+          "Unregistered reference-frame facet filters: ",
           paste(sub("\r", "=", unknown, fixed = TRUE), collapse = ", ")
         )
       )
     }
   }
   if (length(.duplicate_keys(
-    universe_metrics, c("universe_id", "scope", "metric_id")
+    frame_metrics, c("frame_id", "scope", "metric_id")
   ))) {
-    errors <- c(errors, "reference_universe_metrics contains duplicate recommendations")
+    errors <- c(errors, "reference_frame_metrics contains duplicate recommendations")
   }
-  invalid_scopes <- setdiff(unique(universe_metrics$scope), names(.gifter_reference_metric_ids))
+  invalid_scopes <- setdiff(unique(frame_metrics$scope), names(.gifter_reference_metric_ids))
   if (length(invalid_scopes)) {
     errors <- c(
       errors,
       paste0(
-        "Invalid reference_universe_metrics.scope: ",
+        "Invalid reference_frame_metrics.scope: ",
         paste(invalid_scopes, collapse = ", ")
       )
     )
   }
-  for (scope in intersect(unique(universe_metrics$scope), names(.gifter_reference_metric_ids))) {
+  for (scope in intersect(unique(frame_metrics$scope), names(.gifter_reference_metric_ids))) {
     invalid <- setdiff(
-      universe_metrics$metric_id[universe_metrics$scope == scope],
+      frame_metrics$metric_id[frame_metrics$scope == scope],
       .gifter_reference_metric_ids[[scope]]
     )
     if (length(invalid)) {
       errors <- c(
         errors,
         paste0(
-          "Invalid ", scope, " reference-universe metric: ",
+          "Invalid ", scope, " reference-frame metric: ",
           paste(invalid, collapse = ", ")
         )
       )
     }
   }
-  empty_metric_rationale <- universe_metrics$universe_id[
-    is.na(universe_metrics$rationale) |
-      !nzchar(trimws(universe_metrics$rationale))
+  empty_metric_rationale <- frame_metrics$frame_id[
+    is.na(frame_metrics$rationale) |
+      !nzchar(trimws(frame_metrics$rationale))
   ]
   if (length(empty_metric_rationale)) {
     errors <- c(
       errors,
       paste0(
-        "reference_universe_metrics.rationale must be recorded for: ",
+        "reference_frame_metrics.rationale must be recorded for: ",
         paste(unique(empty_metric_rationale), collapse = ", ")
       )
     )
   }
-  open_ids <- universes$universe_id[bounded == 0L]
-  invalid_fraction_recommendations <- universe_metrics$universe_id[
-    universe_metrics$universe_id %in% open_ids &
-      universe_metrics$metric_id %in% c("supported_fraction", "community_coverage")
+  open_ids <- frames$frame_id[bounded == 0L]
+  invalid_fraction_recommendations <- frame_metrics$frame_id[
+    frame_metrics$frame_id %in% open_ids &
+      frame_metrics$metric_id %in% c("supported_fraction", "community_coverage")
   ]
   if (length(invalid_fraction_recommendations)) {
     errors <- c(
       errors,
       paste0(
-        "Unbounded reference universes may not recommend coverage fractions: ",
+        "Unbounded reference frames may not recommend coverage fractions: ",
         paste(unique(invalid_fraction_recommendations), collapse = ", ")
       )
     )
@@ -1489,32 +1564,32 @@ build_gifter_database <- function(source_dir, output, overwrite = FALSE, source_
     append = TRUE, row.names = FALSE
   )
 
-  reference_universes <- tables$reference_universes
-  reference_universes$bounded <- as.integer(reference_universes$bounded)
+  reference_frames <- tables$reference_frames
+  reference_frames$bounded <- as.integer(reference_frames$bounded)
   DBI::dbWriteTable(
-    connection, "reference_universe", reference_universes,
+    connection, "reference_frame", reference_frames,
     append = TRUE, row.names = FALSE
   )
-  universe_pk <- .db_key_map(
-    connection, "reference_universe", "universe_id", "universe_pk"
+  frame_pk <- .db_key_map(
+    connection, "reference_frame", "frame_id", "frame_pk"
   )
   DBI::dbWriteTable(
-    connection, "reference_universe_filter",
+    connection, "reference_frame_filter",
     data.frame(
-      universe_pk = unname(universe_pk[tables$reference_universe_filters$universe_id]),
-      filter_key = tables$reference_universe_filters$filter_key,
-      value = tables$reference_universe_filters$value,
+      frame_pk = unname(frame_pk[tables$reference_frame_filters$frame_id]),
+      filter_key = tables$reference_frame_filters$filter_key,
+      value = tables$reference_frame_filters$value,
       stringsAsFactors = FALSE
     ),
     append = TRUE, row.names = FALSE
   )
   DBI::dbWriteTable(
-    connection, "reference_universe_metric",
+    connection, "reference_frame_metric",
     data.frame(
-      universe_pk = unname(universe_pk[tables$reference_universe_metrics$universe_id]),
-      scope = tables$reference_universe_metrics$scope,
-      metric_id = tables$reference_universe_metrics$metric_id,
-      rationale = tables$reference_universe_metrics$rationale,
+      frame_pk = unname(frame_pk[tables$reference_frame_metrics$frame_id]),
+      scope = tables$reference_frame_metrics$scope,
+      metric_id = tables$reference_frame_metrics$metric_id,
+      rationale = tables$reference_frame_metrics$rationale,
       stringsAsFactors = FALSE
     ),
     append = TRUE, row.names = FALSE

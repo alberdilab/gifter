@@ -15,7 +15,7 @@ in source-table names and code wherever practical.
 | GIFT type, metabolic, structural, regulatory, defense | [GIFT types](#gift-types) |
 | Architecture, structural function, machinery model | [The machinery model](#the-machinery-model) |
 | Motility, virulence, cross-feeding, higher-order traits | [Derived capabilities](#derived-capabilities) |
-| Richness, breadth, reference universe, denominator | [Quantitative traits](#quantitative-traits) |
+| Richness, breadth, reference frame, denominator | [Quantitative traits](#quantitative-traits) |
 | Resource origin, primary degrader, cross-feeder, trophic level | [Where a resource comes from](#where-a-resource-comes-from) |
 | Repertoire distance, clustering, guilds | [Repertoire distance, and the tree gifter does not cut](#repertoire-distance-and-the-tree-gifter-does-not-cut) |
 | Community, provider count, redundancy, handoff network | [Quantitative traits](#quantitative-traits) |
@@ -431,30 +431,30 @@ genome traits          community traits     <- genome_traits(), community_traits
         handoff topology                    <- community_network()
 ```
 
-### A number without its universe is not a result
+### A number without its frame is not a result
 
 A count of supported GIFTs is meaningless without the set it was counted over,
 and that set grows with every curation campaign. Every metric therefore names
-its **reference universe**, and `gift_universe()` builds one from curated
+its **reference frame**, and `reference_frame()` builds one from curated
 metadata only — `gift_type`, `mode`, the registered facet vocabulary, and the
-derived `gift_profile` view. A universe may never be a list of `gift_id`s
+derived `gift_profile` view. A frame may never be a list of `gift_id`s
 written in R source; that is [rule 10](../../AGENTS.md) one layer up, and it is
 what keeps the biological content in the database where it can be validated and
 versioned.
 
 Every metric row carries `numerator`, `denominator`, `assessable`,
-`reference_universe` and `database_version`, and a companion `trace` table names
+`reference_frame` and `database_version`, and a companion `trace` table names
 the GIFTs behind it. The question the shape exists to answer without re-running
 anything is:
 
 > Why does this genome have `supported_fraction = 0.82`?
 
-### Named reference universes
+### Named reference frames
 
-Recurring analytical questions are registered as named reference universes in
-`reference_universes.tsv`, `reference_universe_filters.tsv` and
-`reference_universe_metrics.tsv`. `list_gift_universes()` discovers them and
-`gift_universe(preset = ...)` resolves one against the current database release.
+Recurring analytical questions are registered as named reference frames in
+`reference_frames.tsv`, `reference_frame_filters.tsv` and
+`reference_frame_metrics.tsv`. `list_reference_frames()` discovers them and
+`reference_frame(preset = ...)` resolves one against the current database release.
 The registry stores filter recipes, descriptions, interpretation limits and
 recommended metrics. It never stores GIFT membership. The HTML atlas renders
 that same registry as a searchable question-to-analysis guide, including the
@@ -465,15 +465,15 @@ second source of analytical curation.
 Filter values are ORed within one metadata key and distinct keys are ANDed. The
 `carbohydrate_degradation` preset, for example, selects catabolic GIFTs whose
 `substrate_class` is polysaccharide, monosaccharide, amino sugar or uronate. A
-new GIFT enters that universe only through those curated assignments; no R list
+new GIFT enters that frame only through those curated assignments; no R list
 needs updating. Presets do not become GIFTs, change calls, or add completeness
 logic. Cycle closure and cross-genome handoffs remain dedicated derived
 operations because their meaning depends on connections among GIFTs, not set
 membership alone.
 
-### Bounded and unbounded universes
+### Bounded and unbounded frames
 
-`supported_fraction` is reported only for a universe explicitly declared
+`supported_fraction` is reported only for a frame explicitly declared
 `bounded`, meaning it enumerates a biologically closed set that curation intends
 to cover completely. The curated biomass-essential anabolic GIFTs are such a
 set, and the fraction of them a genome supports is biosynthetic capability
@@ -582,7 +582,7 @@ reaches, `supported_gifts_<facet>:<value>` counts the GIFTs it reaches them by,
 over the assessable GIFTs carrying that value. A genome supporting one
 plant-derived entry and one supporting twelve have the same breadth and
 different diets. The denominator is the GIFTs carrying the value and never the
-universe, so the number stays readable when curation grows one class faster
+frame, so the number stays readable when curation grows one class faster
 than another, and a value the genome reaches nothing of is reported not here
 but in the breadth denominator, where its absence is already counted.
 
@@ -590,7 +590,7 @@ The value goes in the metric identifier beside the facet, so every row of a
 one-genome result still names that genome as its target: a facet value is a
 breakdown of the genome's traits, not another thing the traits are about.
 
-Anchor facets do not yet build universes. `gift_universe(facet = )` resolves
+Anchor facets do not yet build frames. `reference_frame(facet = )` resolves
 the GIFT facet vocabulary only, so "GIFTs entering on plant-derived anchors" is
 readable as a metric but not yet declarable as a denominator.
 
@@ -603,7 +603,7 @@ the traits layer reports, by the same cross-product, and the two agree exactly;
 a second implementation that quietly disagreed with the first would be worse
 than no second implementation.
 
-Two genomes that support nothing in the universe have `NA` rather than a
+Two genomes that support nothing in the frame have `NA` rather than a
 distance of 1, which would say they were compared and found to share nothing.
 A genome that supports nothing measured against one that supports something is
 a different case: the union is not empty, they genuinely share none of it, and
@@ -628,7 +628,7 @@ resource, to use it in the same way, or to co-occur. This is the same boundary
 ### What these numbers may not say
 
 A quantitative trait counts encoded capabilities in the current gifter ontology
-within a stated universe. It is not a measure of biological complexity,
+within a stated frame. It is not a measure of biological complexity,
 metabolic versatility in an environment, growth independence, activity, flux,
 phenotype, or ecological effect.
 
@@ -744,10 +744,10 @@ detection (genome by sample) and `W` the per-sample-closed abundance:
 | `community_richness` | `colSums(providers > 0)` |
 | `unique_contribution` | `crossprod(C %in% TRUE, providers == 1) * S` |
 
-Three products per reference universe answer every sample and every GIFT;
+Three products per reference frame answer every sample and every GIFT;
 everything else is a reduction of them. A loop calling `community_traits()` once
 per sample would repeat a community's whole quadratic walk for every sample.
-Reference universes therefore remain the progress unit: the sample loop is
+Reference frames therefore remain the progress unit: the sample loop is
 vectorized away and there is no sample-shaped work to count.
 
 `quality`, `policy`, `threshold` and `min_confidence` are properties of a
@@ -793,11 +793,11 @@ the call matrix and presented as a gifter inference, and **a group label is
 exactly such a vector**: the design, the contrasts and the multiple-testing
 correction are the analyst's. A test statistic would also be the first number in
 gifter that could not be taken apart into a numerator, a denominator, an
-assessable count and a reference universe.
+assessable count and a reference frame.
 
 What vegan, lme4, MaAsLin and ALDEx2 lack, and what gifter uniquely can give
 them, is an **assessability-aware design matrix with a declared reference
-universe**. `gift_matrix()` is that export: genomes by GIFTs, three-state, with
+frame**. `gift_matrix()` is that export: genomes by GIFTs, three-state, with
 `NA` where a genome was never observed well enough for its silence to be read.
 A zero in that cell is a fabricated absence, and every model fitted on it
 inherits the fabrication with nothing downstream able to see it.
@@ -1344,12 +1344,24 @@ KO          K01939
 EC          6.3.4.4
 PFAM        PFxxxxx
 TIGRFAM     TIGRxxxxx
+NCBIFAM     NF040708.3
 CAZY        GHxx
 CUSTOM_HMM  gifter_purA
 ```
 
 Do not add a fixed column for every evidence system. Namespaced rows let new
 marker systems enter without a core schema migration.
+
+Admitting a namespace is nonetheless an evidence-model decision, not a data
+entry. Where a namespace publishes its own statement of how specific a profile
+is, that statement is curated rather than assumed. `NCBIFAM` is the worked case
+and the compiler enforces both halves of it: an accession must carry the release
+version suffix, because `NF040708` and `NF040708.3` are not guaranteed to be the
+same profile, and the evidence row must declare `family_type=<grade>` in its
+`notes` with a grade of `equivalog` or `equivalog_domain`. Those are the two
+grades whose members share one function; a `subfamily` or `domain` profile is
+exactly the over-broad evidence the invariant below refuses. The reasoning is in
+[the NCBIfam assessment](proposal-ncbifam-namespace.md).
 
 `component_markers.tsv` records the type, confidence, source, and notes for the
 mapping. Use defined qualitative confidence terms such as `curated`,
@@ -1467,9 +1479,9 @@ remain present in both forms.
 | `enzyme_components.tsv` | `enzyme_component` | Required protein within a system; `component_id` |
 | `markers.tsv` | `marker` | Reusable genomic evidence; `namespace + accession` |
 | `component_markers.tsv` | `component_marker` | Evidence mapping with source and confidence |
-| `reference_universes.tsv` | `reference_universe` | Named analytical universe, boundedness claim and interpretation limits; `universe_id` |
-| `reference_universe_filters.tsv` | `reference_universe_filter` | Metadata query defining dynamic membership; never a GIFT-ID list |
-| `reference_universe_metrics.tsv` | `reference_universe_metric` | Scope-specific metric recommendations and rationale |
+| `reference_frames.tsv` | `reference_frame` | Named analytical frame, boundedness claim and interpretation limits; `frame_id` |
+| `reference_frame_filters.tsv` | `reference_frame_filter` | Metadata query defining dynamic membership; never a GIFT-ID list |
+| `reference_frame_metrics.tsv` | `reference_frame_metric` | Scope-specific metric recommendations and rationale |
 | `gift_architectures.tsv` | `gift_architecture` | Alternative complete architecture of a structural GIFT; `architecture_id` |
 | `architecture_functions.tsv` | `architecture_function` | Architecture membership, ordinal, and required flag |
 | `structural_functions.tsv` | `structural_function` | Reusable structural or assembly function; `function_id` |

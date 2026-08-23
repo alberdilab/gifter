@@ -105,6 +105,76 @@ Downloaded inputs are cached in `.cache/` and are not committed. Reproduce with:
 Rscript data-raw/marker_specificity_screen.R
 ```
 
+## The four NCBIfam screen outputs
+
+`ncbifam_equivalog_screen.R` in the parent directory regenerates all four. They
+answer for the NCBIfam namespace the question `marker_specificity_screen.R`
+answers for KO, and then the comparative question that decides whether admitting
+a profile buys anything: does a single-reaction equivalog resolve a curated
+reaction that no single-reaction KO resolves?
+
+| File | Content |
+|---|---|
+| `ncbifam-equivalog-specificity.tsv` | Every equivalog-grade profile carrying a complete EC, with its ECs, the Rhea masters those ECs reach, and a verdict |
+| `ncbifam-curated-reaction-gain.tsv` | Every curated reaction a single-reaction equivalog reaches, whether a single-reaction KO already reaches it, the curated components on the reaction, and the candidate profiles |
+| `ncbifam-grade-refusals.tsv` | Profiles that reach a curated reaction and are refused on grade alone — what the equivalog filter costs |
+| `ncbifam-curated-grades.tsv` | Every `NCBIFAM` accession in the database, with the grade the pinned release gives it |
+
+**The grade is the filter, not a footnote.** NCBIfam's `family_type` column
+grades each profile, and only `equivalog` and `equivalog_domain` assert that the
+family's members share one function. The screen applies that filter before it
+scores anything, because a `subfamily` or `domain` profile on a reaction gifter
+curates is exactly the over-broad evidence invariant 16 refuses. 229 profiles
+reach a curated reaction and are excluded on grade alone; they are written down
+rather than discarded, and a test asserts that none of them is ever a marker.
+
+**Read `ko_already` before reading a candidate.** 266 curated reactions are
+reached by a single-reaction equivalog and 24 of them gain markers, because for
+the rest a KO already states one reaction and the profile would buy annotation
+coverage rather than specificity. The 25 reactions where no single-reaction KO
+resolves the chemistry are the release's target set, and it is recomputed by the
+script rather than copied from the assessment.
+
+**EC agreement is necessary, never sufficient.** Two profiles can share one EC
+and identify different proteins — that is the whole reason the namespace was
+admitted, since `NF040708.3` and `NF040707.3` both carry EC 4.1.1.111 and
+separate the two subunits `K22225` conflates. It also cuts the other way: four
+profiles in the target set passed the grade filter and were refused by a curator
+on biology, including a deferrochelatase that shares EC 4.98.1.1 with the
+ferrochelatase it runs backwards from. The screen finds the reactions worth
+reading; the reading is in `inst/doc/proposal-ncbifam-namespace.md`.
+
+**`ncbifam-curated-grades.tsv` reads in one direction on purpose.** Its rows
+come from the database and its `family_type` column comes from NCBIfam. That
+asymmetry is what lets a test assert that every admitted accession is
+equivalog-graded in the pinned release without the database being asked to vouch
+for itself. An accession absent from the release appears with `in_release=0`,
+which is the symptom of an accession copied from an annotator rather than
+curated against a pinned release.
+
+Downloaded inputs are cached in `.cache/` and are not committed. Reproduce with:
+
+```sh
+Rscript data-raw/ncbifam_equivalog_screen.R
+```
+
+## NCBIfam accessions are versioned, and the version is part of the identity
+
+`NF040708.3` is the third build of that profile. A rebuild can change the seed
+alignment and the cut-offs, so the accession without its suffix names a family
+rather than a model. Release 20.0 alone updated 24 seeds and 35 cut-offs among
+persisting models. Two consequences, and they are the eCAMI lesson below reached
+from a better starting point:
+
+- **The version suffix is curated, not copied.** Every `NCBIFAM` row records the
+  versioned accession and names the release in its `source` column, and the
+  compiler refuses an unversioned one. Unlike an eCAMI cluster, the accession
+  says which release it came from, so a mismatch is visible rather than silent.
+- **An NCBIfam upgrade is a marker-layer migration.** Re-running the screen is
+  not enough: the curated rows must be re-read against the new release, because
+  a profile that still exists may now match different sequences, and 58 models
+  were deprecated outright in the last release.
+
 ## eCAMI cluster identifiers are release-scoped
 
 **A `GH5_e12` from one dbCAN release is not the `GH5_e12` of another.** The
