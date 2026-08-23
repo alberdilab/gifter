@@ -6,7 +6,7 @@
 \usage{
 genome_traits(
   result,
-  universes = NULL,
+  frames = NULL,
   genome_id = "genome",
   quality = NULL,
   policy = "none",
@@ -18,9 +18,9 @@ genome_traits(
 \arguments{
 \item{result}{A result returned by [evaluate_gifts()].}
 
-\item{universes}{Optional list of [gift_universe()] objects. A default set
+\item{frames}{Optional list of [reference_frame()] objects. A default set
 partitioning the catalogue by type, mode and resource strategy, plus the
-bounded biomass-essential anabolic universe, is used if omitted.}
+bounded biomass-essential anabolic frame, is used if omitted.}
 
 \item{genome_id}{Identifier reported in the `target_id` column.}
 
@@ -49,23 +49,23 @@ ambiguous.}
 }
 \value{
 A `gifter_traits` list with `metrics` (one row per trait),
-  `trace` (the GIFTs behind each trait), `universes`, and
+  `trace` (the GIFTs behind each trait), `frames`, and
   `database_version`.
 }
 \description{
 Summarises the GIFT calls of a single genome into quantitative traits within
-declared reference universes. Nothing here is curated and nothing here
+declared reference frames. Nothing here is curated and nothing here
 changes a call: this reads the calls [evaluate_gifts()] already made, the
 facets that classify them, and the derived [gift_profile()] and
 [gift_graph()] views.
 }
 \details{
-Metrics reported per universe:
+Metrics reported per frame:
 
 \describe{
-  \item{`gift_richness`}{supported GIFTs in the universe}
+  \item{`gift_richness`}{supported GIFTs in the frame}
   \item{`supported_fraction`}{richness over assessable members, reported for
-    bounded universes only. Over the biomass-essential anabolic universe this
+    bounded frames only. Over the biomass-essential anabolic frame this
     is biosynthetic capability coverage}
   \item{`breadth_*`}{distinct values of one curated facet, one
     [gift_profile()] classification or one anchor facet represented by a
@@ -78,11 +78,11 @@ Metrics reported per universe:
     `breadth_*` denominator instead}
   \item{`handoff_out_degree`, `handoff_in_degree`}{distinct anchors through
     which the genome's supported GIFTs could hand off to, or receive from, a
-    curated GIFT. Reported only where the universe reaches the metabolic
+    curated GIFT. Reported only where the frame reaches the metabolic
     model, since anchors belong to it}
   \item{`multi_implementation_gifts`}{supported GIFTs completed by more than
     one curated implementation}
-  \item{`assessable_fraction`}{members of the universe whose absence the
+  \item{`assessable_fraction`}{members of the frame whose absence the
     assessability policy treats as informative}
   \item{`closed_cycles`}{elementary cycles of the composition graph whose
     every member is supported, from [evaluate_gift_cycles()]}
@@ -137,16 +137,16 @@ of absence and nothing else.
 
 
 These traits count encoded capabilities in the current gifter ontology within
-a stated universe. They are not measures of biological complexity, metabolic
+a stated frame. They are not measures of biological complexity, metabolic
 versatility in an environment, growth independence, activity, flux or
 phenotype. `supported_fraction = 0.8` over the biomass-essential anabolic
-universe means four fifths of the curated biomass-essential anabolic
+frame means four fifths of the curated biomass-essential anabolic
 capabilities that were assessable are genomically supported; it does not mean
-the organism grows without supplementation. The database is not the universe
-of microbial function, which is why an unbounded universe reports no
+the organism grows without supplementation. The database is not the frame
+of microbial function, which is why an unbounded frame reports no
 fraction at all.
 
-Under the default policy `assessable` equals the size of the universe: every
+Under the default policy `assessable` equals the size of the frame: every
 member is treated as assessed, and a fragmented genome will report absences
 that a complete one would not. `assessable_fraction` states this in the
 output rather than leaving it implied.
@@ -163,5 +163,5 @@ markers <- data.frame(
 )
 traits <- genome_traits(evaluate_gifts(markers), genome_id = "MAG_001")
 subset(traits$metrics, metric_id == "gift_richness",
-       c("reference_universe", "value", "assessable"))
+       c("reference_frame", "value", "assessable"))
 }

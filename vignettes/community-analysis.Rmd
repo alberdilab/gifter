@@ -137,27 +137,27 @@ about the collection and a false one about every member of it.
 ```{r}
 traits <- community_traits(
   community,
-  universes = list(gift_universe(label = "all curated GIFTs"))
+  frames = list(reference_frame(label = "all curated GIFTs"))
 )
 metrics <- traits$metrics
 ```
 
-One universe is named here to keep the output of this tutorial short. Omit
-`universes` and the community is read within the full default set instead — the
+One frame is named here to keep the output of this tutorial short. Omit
+`frames` and the community is read within the full default set instead — the
 whole catalogue, each type, each mode, each resource strategy, and the bounded
 biomass-essential anabolic set that `community_coverage` is reported for.
 
-Every universe is read over every GIFT, every genome and every pair of genomes.
+Every frame is read over every GIFT, every genome and every pair of genomes.
 The per-GIFT and per-genome part is cheap: four hundred genomes within all
-fourteen universes is thirteen thousand rows and a few seconds. The pair part is
+fourteen frames is thirteen thousand rows and a few seconds. The pair part is
 quadratic — four hundred genomes are eighty-seven thousand pairs and two
 thousand are two million — so it is the one thing a large community may not want
 everywhere. `pairwise = FALSE` drops `repertoire_overlap` and leaves every other
 metric untouched, and the GIFTs behind each overlap are recorded only when asked
 for with `pair_trace = TRUE`, being one row per pair per shared GIFT.
 
-At an interactive console a multi-universe walk reports itself too, in reference
-universes summarised out of universes to summarise. A universe is not a fixed
+At an interactive console a multi-frame walk reports itself too, in reference
+frames summarised out of frames to summarise. A frame is not a fixed
 quantity of work — one spanning the whole catalogue takes longer than a narrow
 one — so the estimate is coarser than the genome count of the evaluation. As
 above, a document like this one is silent unless it asks with `progress = TRUE`.
@@ -203,7 +203,7 @@ separate rows from the presence-based counts, deliberately.
 
 ```{r}
 weighted_metrics <- community_traits(
-  community, universes = list(gift_universe(label = "all curated GIFTs")),
+  community, frames = list(reference_frame(label = "all curated GIFTs")),
   abundance = c(A = 0.05, B = 0.10, C = 0.35, D = 0.50)
 )$metrics
 
@@ -321,7 +321,7 @@ mixed <- gifter_community(
 )
 
 mixed_metrics <- community_traits(
-  mixed, universes = list(gift_universe(label = "all curated GIFTs")),
+  mixed, frames = list(reference_frame(label = "all curated GIFTs")),
   quality = c(A = 0.98, B = 0.96, C = 0.45),
   policy = "completeness", threshold = 0.9
 )$metrics
@@ -347,7 +347,7 @@ annotation table
       v
   GIFT calls  ------------------------------> trace_gift()
       |
-      |  genome_traits()          within a declared gift_universe()
+      |  genome_traits()          within a declared reference_frame()
       v
 genome traits
       |

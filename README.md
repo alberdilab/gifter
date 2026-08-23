@@ -44,7 +44,7 @@ CRISPR-Cas and mercury-detoxification machinery.
   composition follows curated biological boundaries rather than incidental
   shared intermediates.
 - Produces traceable genome- and community-level summaries using declared
-  reference universes and explicit denominators.
+  reference frames and explicit denominators.
 
 ## What gifter does not
 
@@ -134,7 +134,7 @@ browseVignettes("gifter")
 | Vignette | Covers |
 |---|---|
 | [1. Evaluating a genome](https://alberdilab.github.io/gifter/articles/evaluating-a-genome.html) | the input format, which markers were used, reading complete and incomplete calls, why evidence specificity bounds a claim, tracing a call back to genes |
-| [2. From calls to quantitative traits](https://alberdilab.github.io/gifter/articles/quantitative-traits.html) | reference universes, richness and breadth, when gifter refuses to give you a fraction, MAG completeness and honest denominators |
+| [2. From calls to quantitative traits](https://alberdilab.github.io/gifter/articles/quantitative-traits.html) | reference frames, richness and breadth, when gifter refuses to give you a fraction, MAG completeness and honest denominators |
 | [3. A genome-resolved community](https://alberdilab.github.io/gifter/articles/community-analysis.html) | provider counts and redundancy, presence versus abundance, potential resource handoffs, and why a cytoplasmic molecule never crosses between genomes |
 
 ## Evaluate a genome
@@ -233,22 +233,22 @@ without changing any, and every number carries the set it was counted over.
 ```r
 traits <- genome_traits(result, genome_id = "MAG_001")
 subset(traits$metrics, metric_id == "gift_richness",
-       c("reference_universe", "value", "assessable"))
+       c("reference_frame", "value", "assessable"))
 
 # Why is that number what it is? The trace names the GIFTs behind it.
 subset(traits$trace, metric_id == "gift_richness")
 ```
 
-A fraction of the catalogue is reported only for a universe declared `bounded`,
+A fraction of the catalogue is reported only for a frame declared `bounded`,
 meaning curation intends to cover it completely. Supporting 12 of 122 metabolic
 GIFTs does not mean a genome lacks 110 capabilities, so no such fraction is
 offered:
 
 ```r
-list_gift_universes()  # reusable, versioned universes and recommended metrics
+list_reference_frames()  # reusable, versioned frames and recommended metrics
 
-autonomy <- gift_universe(preset = "biomass_essential_anabolism")
-genome_traits(result, universes = list(autonomy))
+autonomy <- reference_frame(preset = "biomass_essential_anabolism")
+genome_traits(result, frames = list(autonomy))
 ```
 
 The same registry exposes questions such as carbohydrate degradation, plant
@@ -256,13 +256,13 @@ fibre utilisation, nitrogen acquisition, fermentation products and vitamin
 biosynthesis. Membership is resolved from curated metadata in the current
 database release rather than stored as a list of GIFT identifiers:
 
-Browse the searchable [reference-universe chooser](https://alberdilab.github.io/gifter/atlas/#universes)
+Browse the searchable [reference-frame chooser](https://alberdilab.github.io/gifter/atlas/#frames)
 to compare every preset by biological question, analysis scale, recommended
 metrics, denominator status and interpretation limits.
 
 ```r
-carbohydrate <- gift_universe(preset = "carbohydrate_degradation")
-genome_traits(result, universes = list(carbohydrate))
+carbohydrate <- reference_frame(preset = "carbohydrate_degradation")
+genome_traits(result, frames = list(carbohydrate))
 ```
 
 For several genomes, evaluate them together — or bind results you already
@@ -313,7 +313,7 @@ from a sample may be below detection and gifter models no sequencing depth.
 gifter stops there. It runs no test, differential-abundance analysis,
 ordination or effect size between groups of samples, and interprets no metadata
 column. What it exports instead is an assessability-aware matrix with a declared
-reference universe, in which a genome's silence about a capability it was never
+reference frame, in which a genome's silence about a capability it was never
 well enough observed to assess is `NA` rather than a fabricated zero:
 
 ```r

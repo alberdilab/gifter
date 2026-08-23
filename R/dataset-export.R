@@ -9,7 +9,7 @@
 # already refused, as §8 refusal 3 of the quantitative traits proposal.
 #
 # What gifter uniquely has to give those packages is the thing this file
-# exports: an assessability-aware matrix with a declared reference universe, in
+# exports: an assessability-aware matrix with a declared reference frame, in
 # which a genome's silence about a capability it was never well enough observed
 # to assess is NA rather than a fabricated zero. Every model fitted on a
 # fabricated zero inherits the fabrication, and nothing downstream can see it.
@@ -37,20 +37,20 @@
 #' A supported call means the observed markers support at least one complete
 #' curated implementation. It does not mean expression, activity, flux,
 #' physiological state or phenotype, and no arrangement of the matrix makes it
-#' mean any of those. The reference universe and database version are carried as
+#' mean any of those. The reference frame and database version are carried as
 #' attributes so that a matrix exported from one release is not silently
 #' compared with one from another.
 #'
 #' @param x A `gifter_community` or a `gifter_dataset`. A dataset delegates to
 #'   its catalogue: calls are a property of a genome, so a dataset has exactly
 #'   one call matrix and no sample can change it.
-#' @param universe Optional [gift_universe()] restricting the columns. Omitted,
+#' @param frame Optional [reference_frame()] restricting the columns. Omitted,
 #'   every GIFT the evaluation produced is a column.
 #' @param quality,policy,threshold,min_confidence Assessability, on the terms of
 #'   [community_traits()]. With the default policy nothing is indeterminate and
 #'   the matrix is Boolean, which is stated in the `assessability_policy`
 #'   attribute rather than implied.
-#' @return A logical genomes by GIFTs matrix with `reference_universe`,
+#' @return A logical genomes by GIFTs matrix with `reference_frame`,
 #'   `database_version` and `assessability_policy` attributes.
 #' @examples
 #' donor <- evaluate_gifts(data.frame(
@@ -63,7 +63,7 @@
 #' matrix <- gift_matrix(community)
 #' dim(matrix)
 #' @export
-gift_matrix <- function(x, universe = NULL, quality = NULL, policy = "none",
+gift_matrix <- function(x, frame = NULL, quality = NULL, policy = "none",
                         threshold = NULL, min_confidence = NULL) {
   community <- if (inherits(x, "gifter_dataset")) {
     x$catalogue
@@ -78,20 +78,20 @@ gift_matrix <- function(x, universe = NULL, quality = NULL, policy = "none",
   version <- .gifter_database_version_value(community$database_version)
   label <- "every GIFT evaluated"
   members <- community$gift_id
-  if (!is.null(universe)) {
-    if (!inherits(universe, "gifter_universe")) {
-      stop("universe must come from gift_universe()", call. = FALSE)
+  if (!is.null(frame)) {
+    if (!inherits(frame, "gifter_frame")) {
+      stop("frame must come from reference_frame()", call. = FALSE)
     }
-    # A universe carries its release as a plain version string, as
-    # gift_universe() built it; a community carries the whole release row.
-    if (!identical(universe$database_version, version)) {
+    # A frame carries its release as a plain version string, as
+    # reference_frame() built it; a community carries the whole release row.
+    if (!identical(frame$database_version, version)) {
       stop(
-        "The universe was built against a different database version",
+        "The frame was built against a different database version",
         call. = FALSE
       )
     }
-    label <- universe$label
-    members <- intersect(members, universe$gift_id)
+    label <- frame$label
+    members <- intersect(members, frame$gift_id)
   }
   min_confidence <- .normalize_min_confidence(min_confidence)
   threshold <- .normalize_threshold(threshold)
@@ -105,7 +105,7 @@ gift_matrix <- function(x, universe = NULL, quality = NULL, policy = "none",
     )
   }
   matrix <- t(calls[members, , drop = FALSE])
-  attr(matrix, "reference_universe") <- label
+  attr(matrix, "reference_frame") <- label
   attr(matrix, "database_version") <- version
   attr(matrix, "assessability_policy") <- policy
   matrix
@@ -128,15 +128,15 @@ gift_matrix <- function(x, universe = NULL, quality = NULL, policy = "none",
 #'
 #' @param traits A `gifter_dataset_traits` from [dataset_traits()].
 #' @param metric_id One metric identifier.
-#' @param universe Reference universe label. Required whenever the metric was
-#'   reported for more than one, because stacking a metric across universes
+#' @param frame Reference frame label. Required whenever the metric was
+#'   reported for more than one, because stacking a metric across frames
 #'   puts columns with different denominators side by side.
 #' @param fill Value for a cell the metric was not reported for. `NA` by
 #'   default.
 #' @return A numeric matrix with samples as rows, carrying `metric_id`,
-#'   `reference_universe` and `database_version` attributes.
+#'   `reference_frame` and `database_version` attributes.
 #' @export
-dataset_matrix <- function(traits, metric_id, universe = NULL, fill = NA) {
+dataset_matrix <- function(traits, metric_id, frame = NULL, fill = NA) {
   if (!inherits(traits, "gifter_dataset_traits")) {
     stop("traits must come from dataset_traits()", call. = FALSE)
   }
@@ -151,26 +151,26 @@ dataset_matrix <- function(traits, metric_id, universe = NULL, fill = NA) {
       call. = FALSE
     )
   }
-  universes <- unique(rows$reference_universe)
-  if (is.null(universe)) {
-    if (length(universes) > 1L) {
+  frames <- unique(rows$reference_frame)
+  if (is.null(frame)) {
+    if (length(frames) > 1L) {
       stop(
-        metric_id, " was reported for ", length(universes),
-        " reference universes, and their denominators are not the same set. ",
-        "Name one: ", .abbreviate_ids(sort(universes), 10L),
+        metric_id, " was reported for ", length(frames),
+        " reference frames, and their denominators are not the same set. ",
+        "Name one: ", .abbreviate_ids(sort(frames), 10L),
         call. = FALSE
       )
     }
-    universe <- universes
+    frame <- frames
   } else {
-    if (!universe %in% universes) {
+    if (!frame %in% frames) {
       stop(
-        metric_id, " was not reported for the reference universe ", universe,
-        ". It was reported for: ", .abbreviate_ids(sort(universes), 10L),
+        metric_id, " was not reported for the reference frame ", frame,
+        ". It was reported for: ", .abbreviate_ids(sort(frames), 10L),
         call. = FALSE
       )
     }
-    rows <- rows[rows$reference_universe == universe, , drop = FALSE]
+    rows <- rows[rows$reference_frame == frame, , drop = FALSE]
   }
   samples <- traits$sample_id
   targets <- unique(rows$target_id)
@@ -182,7 +182,7 @@ dataset_matrix <- function(traits, metric_id, universe = NULL, fill = NA) {
     match(rows$sample_id, samples), match(rows$target_id, targets)
   )] <- rows$value
   attr(matrix, "metric_id") <- metric_id
-  attr(matrix, "reference_universe") <- universe
+  attr(matrix, "reference_frame") <- frame
   attr(matrix, "database_version") <-
     .gifter_database_version_value(traits$database_version)
   matrix

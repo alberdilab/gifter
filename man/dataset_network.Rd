@@ -7,7 +7,7 @@
 dataset_network(
   dataset,
   interaction = "metabolic_handoff",
-  universe = NULL,
+  frame = NULL,
   quality = NULL,
   detection = 0,
   limit = 100L,
@@ -19,7 +19,7 @@ dataset_network(
 
 \item{interaction}{Interaction type. Only `"metabolic_handoff"` is defined.}
 
-\item{universe}{Optional [gift_universe()] restricting which GIFTs may form
+\item{frame}{Optional [reference_frame()] restricting which GIFTs may form
 edges.}
 
 \item{quality}{Optional [gift_graph()] edge quality filter, `"exact"` or
@@ -76,6 +76,6 @@ of samples is not a difference in interaction.
 Unlike the metrics of [dataset_traits()], the edges cannot be vectorized away:
 the returned `edges` table carries one row per sample per edge. A catalogue
 whose genomes are densely connected produces a large table for a dataset of
-many samples, and `universe` is the lever that narrows it.
+many samples, and `frame` is the lever that narrows it.
 }
 

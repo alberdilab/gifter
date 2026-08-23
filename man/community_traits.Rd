@@ -6,7 +6,7 @@
 \usage{
 community_traits(
   community,
-  universes = NULL,
+  frames = NULL,
   abundance = NULL,
   quality = NULL,
   policy = "none",
@@ -21,7 +21,7 @@ community_traits(
 \arguments{
 \item{community}{A community from [gifter_community()].}
 
-\item{universes}{Optional list of [gift_universe()] objects. The default set
+\item{frames}{Optional list of [reference_frame()] objects. The default set
 is used if omitted: the whole catalogue, each `gift_type`, each `mode`,
 each resource strategy, and the bounded biomass-essential anabolic set
 that `community_coverage` is reported for.}
@@ -48,7 +48,7 @@ above the floor. `NULL`, the default, counts every positive call.}
 
 \item{pairwise}{Whether to report `repertoire_overlap`. `TRUE`, the default.
 It is the one metric that is quadratic in the community, and the only one
-a community of thousands of genomes cannot afford in every universe:
+a community of thousands of genomes cannot afford in every frame:
 `FALSE` drops it and leaves every other metric untouched.}
 
 \item{pair_trace}{Whether to record, for every genome pair, the GIFTs behind
@@ -60,8 +60,8 @@ either way. The community, GIFT and genome traces are always recorded.}
 \item{db}{Optional open gifter database connection.}
 
 \item{progress}{Whether to display a progress bar over the reference
-universes. Defaults to `TRUE` at an interactive console reading more than
-one universe, and to `FALSE` otherwise. The display never changes a
+frames. Defaults to `TRUE` at an interactive console reading more than
+one frame, and to `FALSE` otherwise. The display never changes a
 metric.}
 }
 \value{
@@ -70,16 +70,16 @@ A `gifter_traits` list with `metrics` and `trace`, whose
 }
 \description{
 Summarises how curated capabilities are distributed across the genomes of a
-community, within declared reference universes. Nothing here is curated and
+community, within declared reference frames. Nothing here is curated and
 nothing changes a call.
 }
 \details{
-Metrics reported per universe:
+Metrics reported per frame:
 
 \describe{
   \item{`community_richness`}{GIFTs supported by at least one genome}
   \item{`community_coverage`}{richness over assessable members, for bounded
-    universes only}
+    frames only}
   \item{`mean_genome_richness`}{reported beside community richness rather
     than divided into it, so both components stay visible}
   \item{`provider_count`, `provider_fraction`}{per GIFT, the genomes
@@ -134,18 +134,18 @@ complete member's is not. No policy can make an unsupported GIFT supported.
 
 
 Everything reported per GIFT and per genome is cheap: reading four hundred
-genomes within all fourteen default universes is thirteen thousand rows and
+genomes within all fourteen default frames is thirteen thousand rows and
 a few seconds. The pair metric is the expensive one, because the pair count
 is quadratic in the community -- four hundred genomes are eighty-seven
-thousand pairs, two thousand are two million -- and every universe pays it
+thousand pairs, two thousand are two million -- and every frame pays it
 again. Measured on four hundred and eighteen genomes over the default
-universes: 13 s and 100 MB, of which 99% of the rows are pairs. At two
+frames: 13 s and 100 MB, of which 99% of the rows are pairs. At two
 thousand genomes the same reading is 93 s and 2.2 GB.
 
 The two are separate arguments because they are separate costs.
 `pairwise = FALSE` drops `repertoire_overlap` and keeps every richness,
 provider and unique-contribution row, which is what makes a community of
-thousands of genomes readable within every universe. `pair_trace = TRUE`
+thousands of genomes readable within every frame. `pair_trace = TRUE`
 adds the GIFTs behind each overlap, one row per pair per shared GIFT: tens
 of millions of rows and gigabytes at a few hundred genomes, which is why it
 is off unless it is asked for. The overlap values themselves are the same
@@ -155,9 +155,9 @@ with it or without it.
 \section{Progress}{
 
 
-A run over several universes reports itself at an interactive console, in
-reference universes summarised out of universes to summarise, with an
-estimate of the time remaining. A universe is not a fixed quantity of work
+A run over several frames reports itself at an interactive console, in
+reference frames summarised out of frames to summarise, with an
+estimate of the time remaining. A frame is not a fixed quantity of work
 -- one spanning the whole catalogue takes longer than a narrow one -- so the
 estimate is coarser than the genome count of [evaluate_gifts_community()].
 Nothing is reported when there is nobody watching, which is why a script, a

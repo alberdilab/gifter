@@ -11,16 +11,16 @@ test_that("the distance is the overlap community_traits() reports, subtracted fr
     backbone = arabinoxylan_genome("backbone"),
     consumer = arabinoxylan_genome("consumer")
   ))
-  universe <- gift_universe(label = "all curated GIFTs")
+  frame <- reference_frame(label = "all curated GIFTs")
   traits <- community_traits(
-    community, universes = list(universe), progress = FALSE
+    community, frames = list(frame), progress = FALSE
   )
   overlaps <- traits$metrics[
     traits$metrics$metric_id == "repertoire_overlap", , drop = FALSE
   ]
   expect_true(nrow(overlaps) > 0L)
 
-  distance <- as.matrix(repertoire_distance(community, universe = universe))
+  distance <- as.matrix(repertoire_distance(community, frame = frame))
   for (index in seq_len(nrow(overlaps))) {
     pair <- strsplit(overlaps$target_id[[index]], " | ", fixed = TRUE)[[1L]]
     expect_equal(
@@ -84,17 +84,17 @@ test_that("a dataset delegates to its catalogue", {
   )
 })
 
-test_that("the universe restricts what is compared and is carried on the result", {
+test_that("the frame restricts what is compared and is carried on the result", {
   community <- do.call(gifter_community, list(
     debrancher = arabinoxylan_genome("debrancher"),
     consumer = arabinoxylan_genome("consumer")
   ))
-  universe <- gift_universe(
+  frame <- reference_frame(
     facet = "substrate_class", value = "polysaccharide",
     label = "polysaccharide GIFTs"
   )
-  distance <- repertoire_distance(community, universe = universe)
-  expect_equal(attr(distance, "reference_universe"), "polysaccharide GIFTs")
+  distance <- repertoire_distance(community, frame = frame)
+  expect_equal(attr(distance, "reference_frame"), "polysaccharide GIFTs")
   expect_equal(
     attr(distance, "database_version"), gifter_db_version()$gifter_db_version
   )
@@ -103,18 +103,18 @@ test_that("the universe restricts what is compared and is carried on the result"
   # The catalogue is overwhelmingly metabolic, so a stratified distance and an
   # unstratified one are different readings and must be able to differ.
   everything <- repertoire_distance(community)
-  expect_equal(attr(everything, "reference_universe"), "every GIFT evaluated")
+  expect_equal(attr(everything, "reference_frame"), "every GIFT evaluated")
 })
 
-test_that("a universe from another release is refused", {
+test_that("a frame from another release is refused", {
   community <- do.call(gifter_community, list(
     debrancher = arabinoxylan_genome("debrancher"),
     consumer = arabinoxylan_genome("consumer")
   ))
-  universe <- gift_universe(label = "all curated GIFTs")
-  universe$database_version <- "0000.0.0"
+  frame <- reference_frame(label = "all curated GIFTs")
+  frame$database_version <- "0000.0.0"
   expect_error(
-    repertoire_distance(community, universe = universe),
+    repertoire_distance(community, frame = frame),
     "different database version"
   )
 })

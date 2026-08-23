@@ -1,4 +1,4 @@
-universe_id	filter_key	value
+frame_id	filter_key	value
 carbohydrate_degradation	mode	catabolic
 carbohydrate_degradation	facet:substrate_class	polysaccharide
 carbohydrate_degradation	facet:substrate_class	monosaccharide

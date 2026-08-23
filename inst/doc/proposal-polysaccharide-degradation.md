@@ -876,7 +876,7 @@ annotation is a first-class input, not a second-tier one, which was the point of
 ### 16.2 What did not, and what was changed
 
 **Confidence never reached a metric.** `evidence_confidence` was computed,
-returned and then discarded: `traits.R`, `universe.R`, `community.R` and
+returned and then discarded: `traits.R`, `frame.R`, `community.R` and
 `community-network.R` contained no reference to it. Every metric —
 `gift_richness`, `breadth_*`, `community_richness`, `provider_count`,
 `abundance_coverage` — read `complete` alone. §8.4 claimed the field made the

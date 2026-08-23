@@ -59,8 +59,8 @@ arabinoxylan_community <- function() {
   )
 }
 
-arabinoxylan_universe <- function() {
-  gift_universe(label = "all curated GIFTs")
+arabinoxylan_frame <- function() {
+  reference_frame(label = "all curated GIFTs")
 }
 
 # The same four genomes observed across three samples, which is what a MAG

@@ -17,24 +17,24 @@
 # no interpretation the caller did not ask for, and the same calls can be read
 # under two completeness thresholds without being evaluated twice.
 #
-# Reading is cheap per genome and quadratic per community: every universe is
+# Reading is cheap per genome and quadratic per community: every frame is
 # walked over every GIFT, every genome and every pair of genomes. The pair
 # count is the only term that grows that way -- four hundred genomes are
 # eighty-seven thousand pairs, two thousand are two million -- so pairs are
 # answered in one cross-product rather than one at a time, the pair trace is
 # built only when asked for, and `pairwise = FALSE` drops the pair metric
 # without touching anything else. Everything per GIFT and per genome stays
-# cheap enough to report within every default universe. community_traits()
+# cheap enough to report within every default frame. community_traits()
 # reports its progress on the same terms as evaluate_gifts_community(),
 # through the display in R/progress.R, counting the unit the caller asked for
-# -- reference universes -- and never the GIFTs or genome pairs each of them
+# -- reference frames -- and never the GIFTs or genome pairs each of them
 # happens to contain.
 
 # The calls as they were made, one column per genome, over every GIFT any
 # genome was evaluated for. Nothing here reads an absence: what a negative call
 # may be taken to mean is a question for the reader, and .assessable_matrix()
 # answers it at that point.
-.community_matrix <- function(results, universe_ids) {
+.community_matrix <- function(results, frame_ids) {
   genomes <- names(results)
   matrix <- vapply(genomes, function(genome) {
     result <- results[[genome]]
@@ -42,32 +42,32 @@
     # A GIFT the evaluation never produced is not supported. Treating it as
     # supported would let a filtered evaluation claim a capability it never
     # tested.
-    present <- calls[universe_ids]
+    present <- calls[frame_ids]
     !is.na(present) & present
-  }, logical(length(universe_ids)))
+  }, logical(length(frame_ids)))
   if (is.null(dim(matrix))) {
-    matrix <- matrix(matrix, nrow = length(universe_ids), ncol = length(genomes))
+    matrix <- matrix(matrix, nrow = length(frame_ids), ncol = length(genomes))
   }
-  dimnames(matrix) <- list(universe_ids, genomes)
+  dimnames(matrix) <- list(frame_ids, genomes)
   matrix
 }
 
 # The confidence behind each call, shaped like the call matrix so the two can be
 # read together. A GIFT the evaluation never produced has no confidence to
 # report, which is distinct from one called on weak evidence.
-.community_confidence <- function(results, universe_ids) {
+.community_confidence <- function(results, frame_ids) {
   genomes <- names(results)
   matrix <- vapply(genomes, function(genome) {
     result <- results[[genome]]
     confidence <- stats::setNames(
       as.character(result$gifts$evidence_confidence), result$gifts$gift_id
     )
-    unname(confidence[universe_ids])
-  }, character(length(universe_ids)))
+    unname(confidence[frame_ids])
+  }, character(length(frame_ids)))
   if (is.null(dim(matrix))) {
-    matrix <- matrix(matrix, nrow = length(universe_ids), ncol = length(genomes))
+    matrix <- matrix(matrix, nrow = length(frame_ids), ncol = length(genomes))
   }
-  dimnames(matrix) <- list(universe_ids, genomes)
+  dimnames(matrix) <- list(frame_ids, genomes)
   matrix
 }
 
@@ -203,7 +203,7 @@ gifter_community <- function(...) {
   }, character(1))
   if (length(unique(versions)) > 1L) {
     # Calls made against different releases were made against different
-    # universes. A provider count mixing them would count capabilities that
+    # frames. A provider count mixing them would count capabilities that
     # were not offered to every genome.
     stop(
       "Genomes were evaluated against different database versions: ",
@@ -212,15 +212,15 @@ gifter_community <- function(...) {
     )
   }
 
-  universe_ids <- sort(unique(unlist(lapply(results, function(result) {
+  frame_ids <- sort(unique(unlist(lapply(results, function(result) {
     result$gifts$gift_id
   }), use.names = FALSE)))
 
   structure(
     list(
       genome_id = genomes,
-      gift_id = universe_ids,
-      matrix = .community_matrix(results, universe_ids),
+      gift_id = frame_ids,
+      matrix = .community_matrix(results, frame_ids),
       results = results,
       database_version = results[[1L]]$database_version
     ),
@@ -239,7 +239,7 @@ print.gifter_community <- function(x, ...) {
 
 # Which GIFTs each pair of genomes shares, in long form. The rows are the same
 # rows a per-pair intersect() would produce, built per GIFT because the GIFTs of
-# a universe are hundreds while the pairs of a community are hundreds of
+# a frame are hundreds while the pairs of a community are hundreds of
 # thousands: every pair that shares a GIFT is exactly every pair of its
 # providers. They arrive grouped by GIFT rather than by pair, which is a
 # different order of the same evidence.
@@ -259,7 +259,7 @@ print.gifter_community <- function(x, ...) {
       target_type = "genome_pair",
       target_id = paste(providers[first], providers[second], sep = " | "),
       metric_id = "repertoire_overlap",
-      reference_universe = label,
+      reference_frame = label,
       gift_id = gift,
       contribution = NA_character_
     )
@@ -267,11 +267,11 @@ print.gifter_community <- function(x, ...) {
   do.call(rbind, blocks)
 }
 
-.community_universe_metrics <- function(community, universe, version, calls,
-                                       abundance, pairwise = TRUE,
-                                       pair_trace = FALSE) {
-  label <- universe$label
-  members <- intersect(community$gift_id, universe$gift_id)
+.community_frame_metrics <- function(community, frame, version, calls,
+                                     abundance, pairwise = TRUE,
+                                     pair_trace = FALSE) {
+  label <- frame$label
+  members <- intersect(community$gift_id, frame$gift_id)
   matrix <- calls[members, , drop = FALSE]
   genomes <- community$genome_id
   supports <- matrix %in% TRUE
@@ -301,12 +301,12 @@ print.gifter_community <- function(x, ...) {
     "community", "community", "community_richness", label, represented
   ))
 
-  if (isTRUE(universe$bounded) && assessable > 0L) {
+  if (isTRUE(frame$bounded) && assessable > 0L) {
     metrics <- c(metrics, list(.metric_row(
       "community", "community", "community_coverage",
       length(represented) / assessable, "proportion", length(represented),
       assessable, assessable, label, version,
-      "GIFTs supported by at least one genome, over assessable GIFTs in a bounded universe"
+      "GIFTs supported by at least one genome, over assessable GIFTs in a bounded frame"
     )))
   }
 
@@ -316,7 +316,7 @@ print.gifter_community <- function(x, ...) {
       "community", "community", "assessable_fraction",
       assessable / length(members), "proportion", assessable, length(members),
       assessable, label, version,
-      "members of the reference universe at least one genome could assess"
+      "members of the reference frame at least one genome could assess"
     )))
   }
   if (length(represented)) {
@@ -351,7 +351,7 @@ print.gifter_community <- function(x, ...) {
     ))
     trace <- c(trace, list(tibble::tibble(
       target_type = "gift", target_id = gift, metric_id = "provider_count",
-      reference_universe = label, gift_id = gift, contribution = providers
+      reference_frame = label, gift_id = gift, contribution = providers
     )))
     if (!is.null(abundance)) {
       coverage <- sum(abundance[providers])
@@ -371,7 +371,7 @@ print.gifter_community <- function(x, ...) {
       .metric_row(
         "genome", genome, "gift_richness", length(supported), "count",
         length(supported), NA_integer_, assessable, label, version,
-        "supported GIFTs in the reference universe"
+        "supported GIFTs in the reference frame"
       ),
       .metric_row(
         "genome", genome, "unique_contribution", length(unique_to), "count",
@@ -384,8 +384,8 @@ print.gifter_community <- function(x, ...) {
     )))
   }
 
-  # Pairwise repertoire overlap, always within the universe being read and
-  # never across universes in one number: 94% of the catalogue is metabolic, so
+  # Pairwise repertoire overlap, always within the frame being read and
+  # never across frames in one number: 94% of the catalogue is metabolic, so
   # an overlap taken over the whole catalogue is a metabolic overlap wearing a
   # general name.
   #
@@ -406,7 +406,7 @@ print.gifter_community <- function(x, ...) {
     second <- sequence((total - 1L):1L, from = 2L:total)
     shared_size <- shared_counts[cbind(first, second)]
     union_size <- sizes[first] + sizes[second] - shared_size
-    # Two genomes holding nothing in this universe have an undefined overlap
+    # Two genomes holding nothing in this frame have an undefined overlap
     # rather than an overlap of zero. Reporting zero would say they were
     # compared and found to share nothing.
     comparable <- union_size > 0
@@ -419,7 +419,7 @@ print.gifter_community <- function(x, ...) {
         "genome_pair", paste(genomes[first], genomes[second], sep = " | "),
         "repertoire_overlap", shared_size / union_size, "proportion",
         shared_size, union_size, assessable, label, version,
-        "Jaccard index of the two genomes' supported GIFTs, within this universe"
+        "Jaccard index of the two genomes' supported GIFTs, within this frame"
       )))
       if (pair_trace) {
         trace <- c(trace, list(.pair_overlap_trace(
@@ -438,15 +438,15 @@ print.gifter_community <- function(x, ...) {
 #' Quantitative traits of a genome-resolved community
 #'
 #' Summarises how curated capabilities are distributed across the genomes of a
-#' community, within declared reference universes. Nothing here is curated and
+#' community, within declared reference frames. Nothing here is curated and
 #' nothing changes a call.
 #'
-#' Metrics reported per universe:
+#' Metrics reported per frame:
 #'
 #' \describe{
 #'   \item{`community_richness`}{GIFTs supported by at least one genome}
 #'   \item{`community_coverage`}{richness over assessable members, for bounded
-#'     universes only}
+#'     frames only}
 #'   \item{`mean_genome_richness`}{reported beside community richness rather
 #'     than divided into it, so both components stay visible}
 #'   \item{`provider_count`, `provider_fraction`}{per GIFT, the genomes
@@ -494,18 +494,18 @@ print.gifter_community <- function(x, ...) {
 #' @section Cost:
 #'
 #' Everything reported per GIFT and per genome is cheap: reading four hundred
-#' genomes within all fourteen default universes is thirteen thousand rows and
+#' genomes within all fourteen default frames is thirteen thousand rows and
 #' a few seconds. The pair metric is the expensive one, because the pair count
 #' is quadratic in the community -- four hundred genomes are eighty-seven
-#' thousand pairs, two thousand are two million -- and every universe pays it
+#' thousand pairs, two thousand are two million -- and every frame pays it
 #' again. Measured on four hundred and eighteen genomes over the default
-#' universes: 13 s and 100 MB, of which 99% of the rows are pairs. At two
+#' frames: 13 s and 100 MB, of which 99% of the rows are pairs. At two
 #' thousand genomes the same reading is 93 s and 2.2 GB.
 #'
 #' The two are separate arguments because they are separate costs.
 #' `pairwise = FALSE` drops `repertoire_overlap` and keeps every richness,
 #' provider and unique-contribution row, which is what makes a community of
-#' thousands of genomes readable within every universe. `pair_trace = TRUE`
+#' thousands of genomes readable within every frame. `pair_trace = TRUE`
 #' adds the GIFTs behind each overlap, one row per pair per shared GIFT: tens
 #' of millions of rows and gigabytes at a few hundred genomes, which is why it
 #' is off unless it is asked for. The overlap values themselves are the same
@@ -513,9 +513,9 @@ print.gifter_community <- function(x, ...) {
 #'
 #' @section Progress:
 #'
-#' A run over several universes reports itself at an interactive console, in
-#' reference universes summarised out of universes to summarise, with an
-#' estimate of the time remaining. A universe is not a fixed quantity of work
+#' A run over several frames reports itself at an interactive console, in
+#' reference frames summarised out of frames to summarise, with an
+#' estimate of the time remaining. A frame is not a fixed quantity of work
 #' -- one spanning the whole catalogue takes longer than a narrow one -- so the
 #' estimate is coarser than the genome count of [evaluate_gifts_community()].
 #' Nothing is reported when there is nobody watching, which is why a script, a
@@ -523,7 +523,7 @@ print.gifter_community <- function(x, ...) {
 #' display with `progress = TRUE`.
 #'
 #' @param community A community from [gifter_community()].
-#' @param universes Optional list of [gift_universe()] objects. The default set
+#' @param frames Optional list of [reference_frame()] objects. The default set
 #'   is used if omitted: the whole catalogue, each `gift_type`, each `mode`,
 #'   each resource strategy, and the bounded biomass-essential anabolic set
 #'   that `community_coverage` is reported for.
@@ -544,7 +544,7 @@ print.gifter_community <- function(x, ...) {
 #'   above the floor. `NULL`, the default, counts every positive call.
 #' @param pairwise Whether to report `repertoire_overlap`. `TRUE`, the default.
 #'   It is the one metric that is quadratic in the community, and the only one
-#'   a community of thousands of genomes cannot afford in every universe:
+#'   a community of thousands of genomes cannot afford in every frame:
 #'   `FALSE` drops it and leaves every other metric untouched.
 #' @param pair_trace Whether to record, for every genome pair, the GIFTs behind
 #'   its `repertoire_overlap`. `FALSE`, the default: the trace carries one row
@@ -553,13 +553,13 @@ print.gifter_community <- function(x, ...) {
 #'   either way. The community, GIFT and genome traces are always recorded.
 #' @param db Optional open gifter database connection.
 #' @param progress Whether to display a progress bar over the reference
-#'   universes. Defaults to `TRUE` at an interactive console reading more than
-#'   one universe, and to `FALSE` otherwise. The display never changes a
+#'   frames. Defaults to `TRUE` at an interactive console reading more than
+#'   one frame, and to `FALSE` otherwise. The display never changes a
 #'   metric.
 #' @return A `gifter_traits` list with `metrics` and `trace`, whose
 #'   `target_type` distinguishes community, GIFT, genome and genome-pair rows.
 #' @export
-community_traits <- function(community, universes = NULL, abundance = NULL,
+community_traits <- function(community, frames = NULL, abundance = NULL,
                              quality = NULL, policy = "none", threshold = NULL,
                              min_confidence = NULL, pairwise = TRUE,
                              pair_trace = FALSE, db = NULL, progress = NULL) {
@@ -567,8 +567,8 @@ community_traits <- function(community, universes = NULL, abundance = NULL,
     stop("community must come from gifter_community()", call. = FALSE)
   }
   # A malformed `progress` request is exactly as wrong now as it will be after
-  # the universes have been built, and answering it here costs a message rather
-  # than the walk. What it resolves to waits for the universes themselves,
+  # the frames have been built, and answering it here costs a message rather
+  # than the walk. What it resolves to waits for the frames themselves,
   # since they are the unit it counts.
   .check_progress(progress)
   if (!isTRUE(pairwise) && !isFALSE(pairwise)) {
@@ -586,7 +586,7 @@ community_traits <- function(community, universes = NULL, abundance = NULL,
   }
   min_confidence <- .normalize_min_confidence(min_confidence)
   # How the calls are to be read, settled against the genomes the community
-  # names before any universe is walked.
+  # names before any frame is walked.
   abundance <- .normalize_abundance(abundance, community$genome_id)
   threshold <- .normalize_threshold(threshold)
   policy <- .resolve_policy(policy, quality, threshold)
@@ -609,32 +609,32 @@ community_traits <- function(community, universes = NULL, abundance = NULL,
         call. = FALSE
       )
     }
-    if (is.null(universes)) universes <- .default_universes(connection)
-    if (!is.list(universes) || !length(universes) ||
+    if (is.null(frames)) frames <- .default_frames(connection)
+    if (!is.list(frames) || !length(frames) ||
         !all(vapply(
-          universes, inherits, logical(1), "gifter_universe"
+          frames, inherits, logical(1), "gifter_frame"
         ))) {
-      stop("universes must be a non-empty list of gift_universe() objects", call. = FALSE)
+      stop("frames must be a non-empty list of reference_frame() objects", call. = FALSE)
     }
-    stale <- vapply(universes, function(u) !identical(u$database_version, version), logical(1))
+    stale <- vapply(frames, function(u) !identical(u$database_version, version), logical(1))
     if (any(stale)) {
-      stop("Universes were built against a different database version", call. = FALSE)
+      stop("Frames were built against a different database version", call. = FALSE)
     }
 
-    # Every universe is walked over every GIFT, every genome and every pair of
+    # Every frame is walked over every GIFT, every genome and every pair of
     # genomes, so a community of thousands of genomes spends minutes to hours
     # here and has to be able to say how far along it is.
-    display <- .universe_progress(
-      length(universes), .resolve_progress(progress, length(universes))
+    display <- .frame_progress(
+      length(frames), .resolve_progress(progress, length(frames))
     )
     # A walk that aborts must not leave a bar behind reporting a run that
     # finished, so the bar is taken down either way and completed only on the
     # one path that produced the traits.
     on.exit(display$dismiss(), add = TRUE)
-    parts <- vector("list", length(universes))
-    for (index in seq_along(universes)) {
-      parts[[index]] <- .community_universe_metrics(
-        community, universes[[index]], version, calls, weights, pairwise,
+    parts <- vector("list", length(frames))
+    for (index in seq_along(frames)) {
+      parts[[index]] <- .community_frame_metrics(
+        community, frames[[index]], version, calls, weights, pairwise,
         pair_trace
       )
       display$update(index)
@@ -650,7 +650,7 @@ community_traits <- function(community, universes = NULL, abundance = NULL,
       list(
         metrics = metrics[.metric_columns],
         trace = trace[.trace_columns],
-        universes = universes,
+        frames = frames,
         genome_id = community$genome_id,
         assessability = list(
           policy = policy, threshold = threshold, completeness = completeness

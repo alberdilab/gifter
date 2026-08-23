@@ -7,17 +7,17 @@
 # invariant that makes the vectorized derivation legitimate -- detection may
 # move a denominator and may not touch a call.
 
-dataset_universes <- function() {
+dataset_frames <- function() {
   gifter:::.with_gifter_db(NULL, function(connection) {
-    gifter:::.default_universes(connection)
+    gifter:::.default_frames(connection)
   })
 }
 
 dataset_metric <- function(traits, id, sample = NULL, target = NULL,
-                           universe = "all curated GIFTs") {
+                           frame = "all curated GIFTs") {
   rows <- traits$metrics[
     traits$metrics$metric_id == id &
-      traits$metrics$reference_universe == universe, ,
+      traits$metrics$reference_frame == frame, ,
     drop = FALSE
   ]
   if (!is.null(sample)) rows <- rows[rows$sample_id == sample, , drop = FALSE]
@@ -29,9 +29,9 @@ test_that("every sample's traits are what community_traits() reports for it", {
   # The whole layer rests on this. If a matrix product and a per-sample walk
   # ever disagree, the product is wrong: the walk is the definition.
   dataset <- arabinoxylan_dataset()
-  universes <- dataset_universes()
-  traits <- dataset_traits(dataset, universes = universes, progress = FALSE)
-  key <- c("target_type", "target_id", "metric_id", "reference_universe")
+  frames <- dataset_frames()
+  traits <- dataset_traits(dataset, frames = frames, progress = FALSE)
+  key <- c("target_type", "target_id", "metric_id", "reference_frame")
   compared <- c(key, "value", "numerator", "denominator", "assessable")
   sample_invariant <- c("gift_richness", "repertoire_overlap")
   sample_only <- c("detected_genomes", "mean_repertoire_overlap")
@@ -39,7 +39,7 @@ test_that("every sample's traits are what community_traits() reports for it", {
   for (sample in sample_id(dataset)) {
     community <- sample_community(dataset, sample)
     expected <- community_traits(
-      community, universes = universes,
+      community, frames = frames,
       abundance = dataset$abundance[community$genome_id, sample],
       progress = FALSE
     )
@@ -61,9 +61,9 @@ test_that("every sample's traits are what community_traits() reports for it", {
 
 test_that("the sample-invariant metrics are the same numbers, reported once", {
   dataset <- arabinoxylan_dataset()
-  universes <- dataset_universes()
-  traits <- dataset_traits(dataset, universes = universes, progress = FALSE)
-  key <- c("target_type", "target_id", "metric_id", "reference_universe")
+  frames <- dataset_frames()
+  traits <- dataset_traits(dataset, frames = frames, progress = FALSE)
+  key <- c("target_type", "target_id", "metric_id", "reference_frame")
   # `assessable` is deliberately not compared: it counts what the whole
   # catalogue could assess, because a catalogue row belongs to no sample. The
   # metric itself is the same in every sample the genomes are detected in.
@@ -72,7 +72,7 @@ test_that("the sample-invariant metrics are the same numbers, reported once", {
   for (sample in sample_id(dataset)) {
     community <- sample_community(dataset, sample)
     expected <- community_traits(
-      community, universes = universes, progress = FALSE
+      community, frames = frames, progress = FALSE
     )
     rows <- expected$metrics[
       expected$metrics$metric_id %in% c("gift_richness", "repertoire_overlap"), ,
@@ -96,11 +96,11 @@ test_that("the sample-invariant metrics are the same numbers, reported once", {
 
 test_that("a sample's trace is what community_traits() records for it", {
   dataset <- arabinoxylan_dataset()
-  universes <- dataset_universes()
-  traits <- dataset_traits(dataset, universes = universes, progress = FALSE)
+  frames <- dataset_frames()
+  traits <- dataset_traits(dataset, frames = frames, progress = FALSE)
   for (sample in sample_id(dataset)) {
     expected <- community_traits(
-      sample_community(dataset, sample), universes = universes,
+      sample_community(dataset, sample), frames = frames,
       progress = FALSE
     )$trace
     actual <- trace_sample(traits, sample)
@@ -114,7 +114,7 @@ test_that("a sample's trace is what community_traits() records for it", {
 
 test_that("no sample_id column appears on a row no sample can change", {
   traits <- dataset_traits(
-    arabinoxylan_dataset(), universes = list(arabinoxylan_universe()),
+    arabinoxylan_dataset(), frames = list(arabinoxylan_frame()),
     progress = FALSE
   )
   expect_false("sample_id" %in% names(traits$catalogue_metrics))
@@ -133,10 +133,10 @@ test_that("detection never changes a call", {
   # The invariant this layer exists to establish. Detection decides membership;
   # it may not decide what a genome encodes.
   dataset <- arabinoxylan_dataset()
-  universes <- list(arabinoxylan_universe())
-  loose <- dataset_traits(dataset, universes = universes, progress = FALSE)
+  frames <- list(arabinoxylan_frame())
+  loose <- dataset_traits(dataset, frames = frames, progress = FALSE)
   strict <- dataset_traits(
-    dataset, universes = universes, detection = 0.15, progress = FALSE
+    dataset, frames = frames, detection = 0.15, progress = FALSE
   )
   expect_identical(loose$calls, strict$calls)
   expect_identical(loose$calls, dataset$catalogue$matrix)
@@ -146,10 +146,10 @@ test_that("detection never changes a call", {
 
 test_that("raising detection moves denominators and nothing else", {
   dataset <- arabinoxylan_dataset()
-  universes <- list(arabinoxylan_universe())
-  loose <- dataset_traits(dataset, universes = universes, progress = FALSE)
+  frames <- list(arabinoxylan_frame())
+  loose <- dataset_traits(dataset, frames = frames, progress = FALSE)
   strict <- dataset_traits(
-    dataset, universes = universes, detection = 0.15, progress = FALSE
+    dataset, frames = frames, detection = 0.15, progress = FALSE
   )
   # s1 loses D, which shares its repertoire with C, so no capability leaves the
   # sample: only the counts that D was part of move.
@@ -176,10 +176,10 @@ test_that("raising detection moves denominators and nothing else", {
 
 test_that("no policy or detection promotes an unsupported GIFT to supported", {
   dataset <- arabinoxylan_dataset()
-  universes <- list(arabinoxylan_universe())
+  frames <- list(arabinoxylan_frame())
   quality <- c(A = 0.4, B = 0.4, C = 0.95, D = 0.95)
   read <- suppressWarnings(dataset_traits(
-    dataset, universes = universes, quality = quality, policy = "completeness",
+    dataset, frames = frames, quality = quality, policy = "completeness",
     threshold = 0.7, detection = 0.15, progress = FALSE
   ))
   supported <- read$calls %in% TRUE
@@ -193,10 +193,10 @@ test_that("assessability is applied once to the catalogue, not per sample", {
   # A genome cannot be assessable in one sample and not in another: whether its
   # silence is informative is a property of how well it was observed.
   dataset <- arabinoxylan_dataset()
-  universes <- list(arabinoxylan_universe())
+  frames <- list(arabinoxylan_frame())
   quality <- c(A = 0.4, B = 0.4, C = 0.95, D = 0.95)
   traits <- suppressWarnings(dataset_traits(
-    dataset, universes = universes, quality = quality, policy = "completeness",
+    dataset, frames = frames, quality = quality, policy = "completeness",
     threshold = 0.7, progress = FALSE
   ))
   # A and B are too fragmented for their silence to be read, so every negative
@@ -210,7 +210,7 @@ test_that("assessability is applied once to the catalogue, not per sample", {
   }
   # s2 holds only those two, so only what they support can be assessed there.
   # s1 and s3 both hold a complete genome, and a complete genome can assess the
-  # whole universe -- which is what makes the fraction a property of the
+  # whole frame -- which is what makes the fraction a property of the
   # sample's membership and not of a per-sample re-reading of the calls.
   assessable <- dataset_metric(traits, "assessable_fraction")
   expect_equal(assessable$value[assessable$sample_id == "s1"], 1)
@@ -221,8 +221,8 @@ test_that("assessability is applied once to the catalogue, not per sample", {
 
 test_that("abundance is closed within each sample's detected set", {
   dataset <- arabinoxylan_dataset()
-  universes <- list(arabinoxylan_universe())
-  loose <- dataset_traits(dataset, universes = universes, progress = FALSE)
+  frames <- list(arabinoxylan_frame())
+  loose <- dataset_traits(dataset, frames = frames, progress = FALSE)
   # C and D alone support xylose catabolism: 0.2 + 0.1 of s1's total of 1.0.
   expect_equal(
     dataset_metric(loose, "abundance_coverage", "s1", "xylose_uptake_abc")$value,
@@ -236,7 +236,7 @@ test_that("abundance is closed within each sample's detected set", {
   # Above the threshold D is not a member, so it is not in the denominator
   # either: 0.2 of the 0.9 that A, B and C carry between them.
   strict <- dataset_traits(
-    dataset, universes = universes, detection = 0.15, progress = FALSE
+    dataset, frames = frames, detection = 0.15, progress = FALSE
   )
   expect_equal(
     dataset_metric(strict, "abundance_coverage", "s1", "xylose_uptake_abc")$value,
@@ -244,17 +244,17 @@ test_that("abundance is closed within each sample's detected set", {
   )
 })
 
-test_that("a bounded universe reports coverage and an unbounded one refuses it", {
+test_that("a bounded frame reports coverage and an unbounded one refuses it", {
   dataset <- arabinoxylan_dataset()
-  bounded <- gift_universe(preset = "biomass_essential_anabolism")
-  unbounded <- arabinoxylan_universe()
+  bounded <- reference_frame(preset = "biomass_essential_anabolism")
+  unbounded <- arabinoxylan_frame()
   expect_true(isTRUE(bounded$bounded))
   expect_false(isTRUE(unbounded$bounded))
   traits <- dataset_traits(
-    dataset, universes = list(bounded, unbounded), progress = FALSE
+    dataset, frames = list(bounded, unbounded), progress = FALSE
   )
   coverage <- traits$metrics[traits$metrics$metric_id == "community_coverage", ]
-  expect_setequal(coverage$reference_universe, bounded$label)
+  expect_setequal(coverage$reference_frame, bounded$label)
   expect_setequal(coverage$sample_id, sample_id(dataset))
   expect_equal(nrow(dataset_metric(traits, "community_coverage")), 0L)
 })
@@ -263,14 +263,14 @@ test_that("detected_genomes is reported beside every richness", {
   # Absence from a sample may be below detection rather than genuine, and
   # gifter models no sequencing depth. This row is what says so.
   dataset <- arabinoxylan_dataset()
-  universes <- dataset_universes()
-  traits <- dataset_traits(dataset, universes = universes, progress = FALSE)
+  frames <- dataset_frames()
+  traits <- dataset_traits(dataset, frames = frames, progress = FALSE)
   richness <- traits$metrics[traits$metrics$metric_id == "community_richness", ]
   detected <- traits$metrics[traits$metrics$metric_id == "detected_genomes", ]
   expect_equal(nrow(detected), nrow(richness))
   expect_setequal(
-    paste(detected$sample_id, detected$reference_universe),
-    paste(richness$sample_id, richness$reference_universe)
+    paste(detected$sample_id, detected$reference_frame),
+    paste(richness$sample_id, richness$reference_frame)
   )
   expect_equal(dataset_metric(traits, "detected_genomes", "s2")$value, 2)
   expect_equal(dataset_metric(traits, "detected_genomes", "s2")$denominator, 4L)
@@ -279,13 +279,13 @@ test_that("detected_genomes is reported beside every richness", {
 test_that("the one composite carries its denominator and no fabricated count", {
   dataset <- arabinoxylan_dataset()
   traits <- dataset_traits(
-    dataset, universes = list(arabinoxylan_universe()), progress = FALSE
+    dataset, frames = list(arabinoxylan_frame()), progress = FALSE
   )
   overlap <- dataset_metric(traits, "mean_repertoire_overlap", "s1")
   expect_equal(nrow(overlap), 1L)
   # A sum of Jaccard indices is not a count, so there is no numerator to give.
   expect_true(is.na(overlap$numerator))
-  # Six pairs among four genomes, all comparable in this universe.
+  # Six pairs among four genomes, all comparable in this frame.
   expect_equal(overlap$denominator, 6L)
   pairs <- traits$catalogue_metrics[
     traits$catalogue_metrics$metric_id == "repertoire_overlap", ]
@@ -294,13 +294,13 @@ test_that("the one composite carries its denominator and no fabricated count", {
 
 test_that("pairwise = FALSE drops the pair rows and their summary together", {
   dataset <- arabinoxylan_dataset()
-  universes <- list(arabinoxylan_universe())
+  frames <- list(arabinoxylan_frame())
   without <- dataset_traits(
-    dataset, universes = universes, pairwise = FALSE, progress = FALSE
+    dataset, frames = frames, pairwise = FALSE, progress = FALSE
   )
   expect_false(any(without$catalogue_metrics$metric_id == "repertoire_overlap"))
   expect_false(any(without$metrics$metric_id == "mean_repertoire_overlap"))
-  with_pairs <- dataset_traits(dataset, universes = universes, progress = FALSE)
+  with_pairs <- dataset_traits(dataset, frames = frames, progress = FALSE)
   key <- c("sample_id", "target_type", "target_id", "metric_id")
   expect_equal(
     without$metrics,
@@ -317,7 +317,7 @@ test_that("a sample with no detected genome is named rather than reported empty"
   dataset <- arabinoxylan_dataset()
   expect_error(
     dataset_traits(
-      dataset, universes = list(arabinoxylan_universe()), detection = 0.45,
+      dataset, frames = list(arabinoxylan_frame()), detection = 0.45,
       progress = FALSE
     ),
     "No genome is detected above detection = 0.45 in these samples: s1"
@@ -326,31 +326,31 @@ test_that("a sample with no detected genome is named rather than reported empty"
 
 test_that("the reading's arguments are checked before the walk", {
   dataset <- arabinoxylan_dataset()
-  universes <- list(arabinoxylan_universe())
+  frames <- list(arabinoxylan_frame())
   expect_error(dataset_traits(dataset$catalogue), "must come from gifter_dataset")
   expect_error(
-    dataset_traits(dataset, universes = universes, detection = -1),
+    dataset_traits(dataset, frames = frames, detection = -1),
     "non-negative"
   )
   expect_error(
-    dataset_traits(dataset, universes = universes, pairwise = NA),
+    dataset_traits(dataset, frames = frames, pairwise = NA),
     "pairwise must be TRUE or FALSE"
   )
   expect_error(
-    dataset_traits(dataset, universes = universes, progress = "yes"),
+    dataset_traits(dataset, frames = frames, progress = "yes"),
     "must be"
   )
   expect_error(
-    dataset_traits(dataset, universes = list()),
-    "non-empty list of gift_universe"
+    dataset_traits(dataset, frames = list()),
+    "non-empty list of reference_frame"
   )
   expect_error(
-    dataset_traits(dataset, universes = universes, policy = "completeness"),
+    dataset_traits(dataset, frames = frames, policy = "completeness"),
     "needs genome completeness"
   )
   expect_error(
     dataset_traits(
-      dataset, universes = universes, policy = "completeness",
+      dataset, frames = frames, policy = "completeness",
       quality = c(A = 0.9, B = 0.9, C = 0.9, D = 0.9)
     ),
     "explicit `threshold`"
@@ -359,7 +359,7 @@ test_that("the reading's arguments are checked before the walk", {
 
 test_that("trace_sample() names the sample it cannot find", {
   traits <- dataset_traits(
-    arabinoxylan_dataset(), universes = list(arabinoxylan_universe()),
+    arabinoxylan_dataset(), frames = list(arabinoxylan_frame()),
     progress = FALSE
   )
   expect_error(trace_sample(traits, "s9"), "no sample called s9")
@@ -369,7 +369,7 @@ test_that("trace_sample() names the sample it cannot find", {
 
 test_that("the catalogue trace is the primitive every sample trace recounts", {
   traits <- dataset_traits(
-    arabinoxylan_dataset(), universes = list(arabinoxylan_universe()),
+    arabinoxylan_dataset(), frames = list(arabinoxylan_frame()),
     progress = FALSE
   )
   expect_setequal(traits$trace$metric_id, "provider_count")
@@ -390,7 +390,7 @@ test_that("the catalogue trace is the primitive every sample trace recounts", {
 
 test_that("printing dataset traits says what was read and how much was detected", {
   traits <- dataset_traits(
-    arabinoxylan_dataset(), universes = list(arabinoxylan_universe()),
+    arabinoxylan_dataset(), frames = list(arabinoxylan_frame()),
     progress = FALSE
   )
   output <- paste(capture.output(print(traits)), collapse = "\n")
@@ -400,27 +400,27 @@ test_that("printing dataset traits says what was read and how much was detected"
   expect_match(output, "s2\\s+2 / 152 supported,\\s+2 genomes detected")
 })
 
-test_that("a thin denominator is counted in sample-universe readings", {
-  # A dataset reports one assessable_fraction per sample per universe, so
-  # calling those universes would undercount them by the sample count. The
+test_that("a thin denominator is counted in sample-frame readings", {
+  # A dataset reports one assessable_fraction per sample per frame, so
+  # calling those frames would undercount them by the sample count. The
   # single-community wording is unchanged.
   dataset <- arabinoxylan_dataset()
-  universes <- list(arabinoxylan_universe())
+  frames <- list(arabinoxylan_frame())
   quality <- c(A = 0.4, B = 0.4, C = 0.95, D = 0.95)
   expect_warning(
     dataset_traits(
-      dataset, universes = universes, quality = quality,
+      dataset, frames = frames, quality = quality,
       policy = "completeness", threshold = 0.7, progress = FALSE
     ),
-    "1 of 3 sample-universe readings"
+    "1 of 3 sample-frame readings"
   )
   expect_warning(
     community_traits(
-      sample_community(dataset, "s2"), universes = universes,
+      sample_community(dataset, "s2"), frames = frames,
       quality = quality[c("A", "B")], policy = "completeness", threshold = 0.7,
       progress = FALSE
     ),
-    "1 of 1 universes"
+    "1 of 1 frames"
   )
 })
 
@@ -434,7 +434,7 @@ test_that("a sample of one genome is read without a pair to compare", {
     dimnames = list(c("A", "B"), c("lone", "both"))
   ))
   traits <- dataset_traits(
-    dataset, universes = list(arabinoxylan_universe()), progress = FALSE
+    dataset, frames = list(arabinoxylan_frame()), progress = FALSE
   )
   expect_equal(dataset_metric(traits, "detected_genomes", "lone")$value, 1)
   expect_equal(dataset_metric(traits, "community_richness", "lone")$value, 1)
@@ -445,7 +445,7 @@ test_that("a sample of one genome is read without a pair to compare", {
   # It still agrees with community_traits() on its own community.
   expected <- community_traits(
     sample_community(dataset, "lone"),
-    universes = list(arabinoxylan_universe()), progress = FALSE
+    frames = list(arabinoxylan_frame()), progress = FALSE
   )
   expect_equal(
     dataset_metric(traits, "community_richness", "lone")$value,
@@ -453,15 +453,15 @@ test_that("a sample of one genome is read without a pair to compare", {
   )
 })
 
-test_that("a universe with no member in the catalogue is read as empty", {
+test_that("a frame with no member in the catalogue is read as empty", {
   dataset <- arabinoxylan_dataset()
-  empty <- gift_universe(type = "structural")
+  empty <- reference_frame(type = "structural")
   expect_equal(
     length(intersect(dataset$catalogue$gift_id, empty$gift_id)),
     length(empty$gift_id)
   )
   traits <- dataset_traits(
-    dataset, universes = list(gift_universe(type = "defense")), progress = FALSE
+    dataset, frames = list(reference_frame(type = "defense")), progress = FALSE
   )
   richness <- traits$metrics[traits$metrics$metric_id == "community_richness", ]
   expect_equal(richness$value, c(0, 0, 0))

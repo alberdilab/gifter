@@ -3,7 +3,7 @@
 #
 # gifter stops at the matrix. What these tests protect is that the matrix
 # arrives with the one thing that makes it worth exporting -- the third state --
-# intact, and with the universe and release that make its columns comparable
+# intact, and with the frame and release that make its columns comparable
 # still attached to it.
 
 test_that("the three states survive the export", {
@@ -46,54 +46,54 @@ test_that("a dataset delegates to its catalogue", {
   expect_identical(gift_matrix(dataset), gift_matrix(dataset$catalogue))
 })
 
-test_that("the universe restriction is honoured and carried", {
+test_that("the frame restriction is honoured and carried", {
   dataset <- arabinoxylan_dataset()
-  universe <- gift_universe(preset = "carbohydrate_degradation")
-  matrix <- gift_matrix(dataset, universe = universe)
+  frame <- reference_frame(preset = "carbohydrate_degradation")
+  matrix <- gift_matrix(dataset, frame = frame)
   expect_setequal(
-    colnames(matrix), intersect(dataset$catalogue$gift_id, universe$gift_id)
+    colnames(matrix), intersect(dataset$catalogue$gift_id, frame$gift_id)
   )
   expect_lt(ncol(matrix), length(dataset$catalogue$gift_id))
-  expect_identical(attr(matrix, "reference_universe"), universe$label)
+  expect_identical(attr(matrix, "reference_frame"), frame$label)
   expect_identical(
     attr(matrix, "database_version"),
     .gifter_database_version_value(dataset$database_version)
   )
   # Without one, the columns are the GIFTs the evaluation produced, and the
-  # attribute says that rather than naming a universe nobody declared.
+  # attribute says that rather than naming a frame nobody declared.
   expect_identical(
-    attr(gift_matrix(dataset), "reference_universe"), "every GIFT evaluated"
+    attr(gift_matrix(dataset), "reference_frame"), "every GIFT evaluated"
   )
 })
 
 test_that("a matrix from one release is not silently exported against another", {
   community <- arabinoxylan_community()
-  universe <- arabinoxylan_universe()
-  universe$database_version <- "0000.0.0"
+  frame <- arabinoxylan_frame()
+  frame$database_version <- "0000.0.0"
   expect_error(
-    gift_matrix(community, universe = universe), "different database version"
+    gift_matrix(community, frame = frame), "different database version"
   )
   expect_error(gift_matrix(list()), "gifter_community or a gifter_dataset")
-  expect_error(gift_matrix(community, universe = "all"), "gift_universe")
+  expect_error(gift_matrix(community, frame = "all"), "reference_frame")
 })
 
 test_that("dataset_matrix() reshapes one metric to samples by target", {
   dataset <- arabinoxylan_dataset()
   traits <- dataset_traits(
-    dataset, universes = list(arabinoxylan_universe()), progress = FALSE
+    dataset, frames = list(arabinoxylan_frame()), progress = FALSE
   )
   matrix <- dataset_matrix(traits, "provider_count")
   expect_identical(rownames(matrix), sample_id(dataset))
   expect_true("xylose_uptake_abc" %in% colnames(matrix))
   expect_equal(matrix["s1", "xylose_uptake_abc"], 2)
   expect_identical(attr(matrix, "metric_id"), "provider_count")
-  expect_identical(attr(matrix, "reference_universe"), "all curated GIFTs")
+  expect_identical(attr(matrix, "reference_frame"), "all curated GIFTs")
 })
 
 test_that("an absent cell is not a zero unless the caller says so", {
   dataset <- arabinoxylan_dataset()
   traits <- dataset_traits(
-    dataset, universes = list(arabinoxylan_universe()), progress = FALSE
+    dataset, frames = list(arabinoxylan_frame()), progress = FALSE
   )
   # No genome detected in s2 supports xylose uptake, so nothing was reported.
   # Whether that is a true zero or a GIFT nothing there could assess is the
@@ -104,22 +104,22 @@ test_that("an absent cell is not a zero unless the caller says so", {
   expect_equal(filled["s1", "xylose_uptake_abc"], 2)
 })
 
-test_that("a metric spanning several universes must name one", {
+test_that("a metric spanning several frames must name one", {
   dataset <- arabinoxylan_dataset()
-  universes <- list(arabinoxylan_universe(), gift_universe(mode = "catabolic"))
-  traits <- dataset_traits(dataset, universes = universes, progress = FALSE)
+  frames <- list(arabinoxylan_frame(), reference_frame(mode = "catabolic"))
+  traits <- dataset_traits(dataset, frames = frames, progress = FALSE)
   expect_error(
     dataset_matrix(traits, "community_richness"),
-    "reported for 2 reference universes"
+    "reported for 2 reference frames"
   )
   matrix <- dataset_matrix(
-    traits, "community_richness", universe = "all curated GIFTs"
+    traits, "community_richness", frame = "all curated GIFTs"
   )
   expect_equal(dim(matrix), c(3L, 1L))
   expect_equal(matrix[, "community"], c(s1 = 4, s2 = 2, s3 = 3))
   expect_error(
-    dataset_matrix(traits, "community_richness", universe = "nowhere"),
-    "was not reported for the reference universe nowhere"
+    dataset_matrix(traits, "community_richness", frame = "nowhere"),
+    "was not reported for the reference frame nowhere"
   )
   expect_error(dataset_matrix(traits, "not_a_metric"), "No metric called")
   expect_error(dataset_matrix(list(), "x"), "must come from dataset_traits")
@@ -128,7 +128,7 @@ test_that("a metric spanning several universes must name one", {
 test_that("the metadata join neither drops nor duplicates a sample", {
   dataset <- arabinoxylan_dataset(arabinoxylan_metadata())
   traits <- dataset_traits(
-    dataset, universes = list(arabinoxylan_universe()), progress = FALSE
+    dataset, frames = list(arabinoxylan_frame()), progress = FALSE
   )
   frame <- as.data.frame(traits)
   expect_s3_class(frame, "data.frame")
@@ -144,7 +144,7 @@ test_that("the metadata join neither drops nor duplicates a sample", {
 
 test_that("a dataset without metadata joins to nothing and loses nothing", {
   traits <- dataset_traits(
-    arabinoxylan_dataset(), universes = list(arabinoxylan_universe()),
+    arabinoxylan_dataset(), frames = list(arabinoxylan_frame()),
     progress = FALSE
   )
   frame <- as.data.frame(traits)

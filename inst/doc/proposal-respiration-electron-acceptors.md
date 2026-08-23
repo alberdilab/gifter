@@ -215,7 +215,7 @@ than argued away.
    which under-calls badly. NCBIfam may separate `narG` from `nxrA`; that check
    is one query and has not been run.
 3. **Quantitative traits.** A respiratory GIFT would need a named reference
-   universe, and a decision about whether it joins existing universes or stands
+   frame, and a decision about whether it joins existing frames or stands
    apart. `bounded` is a strong claim and this type would not be complete.
 4. **Community edges.** Invariant 22 crosses organisms only through an
    `extracellular` anchor. A respiratory GIFT has none, so it creates no edges —

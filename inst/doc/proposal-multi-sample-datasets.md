@@ -2,7 +2,7 @@
 
 Status: **accepted and implemented, phases 1-5, in package 0.6.0.**
 Assessed 2026-08-22 against package 0.5.0, database version 2026.21.3
-(149 GIFTs, schema 7, 14 default reference universes).
+(149 GIFTs, schema 7, 14 default reference frames).
 
 This document extends the layer
 [the quantitative traits proposal](proposal-quantitative-traits.md) created. It
@@ -30,7 +30,7 @@ stops and a statistics package begins.
    only two things vary: which genomes are members, and how they are weighted.
    This is the whole design; everything else follows from it. §3.
 3. **Every per-sample distributional metric is a matrix product over all
-   samples at once.** Three products per reference universe answer every
+   samples at once.** Three products per reference frame answer every
    sample. A loop calling `community_traits()` once per sample would be
    S × U × G² and is not acceptable at the sizes this layer exists for. §6.
 4. **`repertoire_overlap` is sample-invariant and moves to the catalogue.**
@@ -56,7 +56,7 @@ stops and a statistics package begins.
 8. **gifter runs no hypothesis test, differential-abundance analysis,
    ordination or effect size between groups of samples.** It emits per-sample
    traits joined to sample metadata, and an assessability-aware matrix with a
-   declared reference universe. That export is the deliverable. §8, §10.
+   declared reference frame. That export is the deliverable. §8, §10.
 9. **The export surface is small and is what makes the layer useful.**
    `gift_matrix()` promotes the existing internal `.assessable_matrix()` to a
    public three-state genomes × GIFTs matrix; `dataset_matrix()` reshapes one
@@ -120,7 +120,7 @@ W   genome x sample  abundance, closed within each sample's detected set
 the marker floor. `quality`, `policy`, `threshold` and `min_confidence` are
 genome properties and are applied to the catalogue before any sample is read.
 
-Then, per reference universe, restricting `C` to that universe's members:
+Then, per reference frame, restricting `C` to that frame's members:
 
 | metric | expression | shape |
 |---|---|---|
@@ -134,7 +134,7 @@ Then, per reference universe, restricting `C` to that universe's members:
 | `unique_contribution` | `crossprod(C %in% TRUE, providers == 1) * S` | genome × sample |
 | `assessable_fraction` | `colSums(assessors > 0) / nrow(C)` | sample |
 
-Three products per universe cover every sample and every GIFT. The masking by
+Three products per frame cover every sample and every GIFT. The masking by
 `S` in `unique_contribution` is not decoration: `crossprod` counts, for each
 genome, the GIFTs it supports that have exactly one provider *in that sample*,
 which includes genomes that are not in that sample and are therefore not the
@@ -285,10 +285,10 @@ record rather than invented here:
   curated biology;
 - a test statistic computed here would be the first number in gifter that could
   not be taken apart into a numerator, a denominator, an assessable count and a
-  reference universe.
+  reference frame.
 
 What those packages lack, and what gifter uniquely can give them, is an
-**assessability-aware design matrix with a declared reference universe** — a
+**assessability-aware design matrix with a declared reference frame** — a
 matrix in which a genome's silence about a capability it was never well enough
 observed to assess is `NA` rather than `0`. That export is the deliverable
 (§8, Phase 3), and it is what makes the boundary useful rather than merely
@@ -346,17 +346,17 @@ takes `detection` on the same terms as `dataset_traits()`.
 
 **One refinement to the round-trip.** `sample_community()` preserves the
 catalogue's `gift_id` set rather than recomputing the union over the subset.
-`.gifter_community()` derives its universe as the union of the GIFTs its genomes
+`.gifter_community()` derives its frame as the union of the GIFTs its genomes
 were evaluated over, which for a homogeneous catalogue — every genome evaluated
 in one `evaluate_gifts_community()` call — is identical either way. It differs
 only when genomes were evaluated over different GIFT subsets, and there the
 recomputed union would make each sample's `assessable` denominator a different
 set of GIFTs. That is the sample-level form of exactly the failure the release
-check exists to prevent. The dataset's reference universe is the catalogue's,
+check exists to prevent. The dataset's reference frame is the catalogue's,
 and it does not shrink because a sample is small.
 
 The Phase 1 test therefore asserts identity with the naively subset community
-for the homogeneous case, and asserts the preserved universe for the
+for the homogeneous case, and asserts the preserved frame for the
 heterogeneous one.
 
 ### 5.3 Printing
@@ -380,7 +380,7 @@ group label, a design or a hypothesis. The first four are readings and belong to
 ## 6. Per-sample distributional traits
 
 ```r
-dataset_traits(dataset, universes = NULL, quality = NULL, policy = "none",
+dataset_traits(dataset, frames = NULL, quality = NULL, policy = "none",
                threshold = NULL, min_confidence = NULL, detection = 0,
                pairwise = TRUE, db = NULL, progress = NULL)
 ```
@@ -393,16 +393,16 @@ dataset_traits(dataset, universes = NULL, quality = NULL, policy = "none",
    exactly as `community_traits()` calls them, on exactly the same matrix.
 2. `detection` applied to the abundance matrix, producing `S`.
 3. Abundance closed within each sample's detected set, producing `W`.
-4. Per universe: the three products of §3, and the rows they yield.
+4. Per frame: the three products of §3, and the rows they yield.
 
-### 6.2 Metrics reported per sample per universe
+### 6.2 Metrics reported per sample per frame
 
 | metric | `target_type` | denominator |
 |---|---|---|
 | `community_richness` | community | — (count) |
-| `community_coverage` | community | assessable members, bounded universes only |
+| `community_coverage` | community | assessable members, bounded frames only |
 | `mean_genome_richness` | community | detected genomes |
-| `assessable_fraction` | community | universe members |
+| `assessable_fraction` | community | frame members |
 | `detected_genomes` | community | catalogue genomes |
 | `singleton_fraction` | community | represented GIFTs in that sample |
 | `provider_count` | gift | genomes in that sample that could assess it |
@@ -427,24 +427,24 @@ rarefaction. A community richness of 40 in a sample where 31 genomes were
 detected and one of 40 in a sample where 207 were is not the same result, and
 nothing in the richness row says which one it is.
 
-`detected_genomes` is therefore emitted once per sample per universe, alongside
-the rows it must be read with. Detection does not vary by universe, so the row
-is redundant across universes — deliberately, on the same argument that puts
-`assessable_fraction` in every universe: a metrics table filtered to one
-universe must still carry the denominator its richness has to be read against.
+`detected_genomes` is therefore emitted once per sample per frame, alongside
+the rows it must be read with. Detection does not vary by frame, so the row
+is redundant across frames — deliberately, on the same argument that puts
+`assessable_fraction` in every frame: a metrics table filtered to one
+frame must still carry the denominator its richness has to be read against.
 
 **No imputation or depth correction is added.** See §10.
 
 ### 6.4 Cost
 
-Per universe, the work is three matrix products of size |M| × G × S plus row and
-column reductions, where |M| is the universe's membership. For 418 genomes, 96
+Per frame, the work is three matrix products of size |M| × G × S plus row and
+column reductions, where |M| is the frame's membership. For 418 genomes, 96
 samples and the whole 149-GIFT catalogue that is under 6 million multiply-adds —
 milliseconds. The output row count, not the arithmetic, is the size of the
 result: represented GIFTs × samples dominates, at roughly |M| × S rows per
-universe.
+frame.
 
-Reference universes stay the progress unit, through `.universe_progress()` in
+Reference frames stay the progress unit, through `.frame_progress()` in
 `R/progress.R` unchanged, because the sample loop is vectorized away and there
 is no sample-shaped work to count.
 
@@ -481,7 +481,7 @@ Both are properties of genomes. A genome supports the same GIFTs in every sample
 it is detected in, and two genomes share the same repertoire wherever both are
 detected. Emitting them per sample would report the same number S times and, for
 the pair metric, would reintroduce a quadratic cost per sample on top of the
-quadratic cost per universe — the exact shape the 0.5.0 release had to remove.
+quadratic cost per frame — the exact shape the 0.5.0 release had to remove.
 
 `catalogue_metrics` uses `.metric_columns` unchanged, with no `sample_id`
 column. That absence is the claim: a row without a sample is a row no sample can
@@ -519,7 +519,7 @@ exactly recoverable.** The catalogue overlap rows plus the sample's detected
 genome set reproduce every term of the mean, which is a stronger traceability
 guarantee than a trace table gives.
 
-**Decision.** Report it, per sample per universe, with:
+**Decision.** Report it, per sample per frame, with:
 
 - `value` — the mean;
 - `numerator` — `NA_integer_`, because the sum of a set of ratios is not a
@@ -527,7 +527,7 @@ guarantee than a trace table gives.
   `NA_integer_` for `community_richness` and `gift_richness`, so `NA` in these
   slots has precedent meaning "there is no count here";
 - `denominator` — comparable detected pairs, where a pair is comparable when the
-  union of the two repertoires within the universe is non-empty, on exactly the
+  union of the two repertoires within the frame is non-empty, on exactly the
   terms `community_traits()` already uses to withhold an undefined overlap;
 - `derivation_method` — states the sample-size sensitivity and points at
   `catalogue_metrics` for the terms.
@@ -546,7 +546,7 @@ Small, and the reason the layer is worth building.
 ### 8.1 `gift_matrix()`
 
 ```r
-gift_matrix(x, universe = NULL, quality = NULL, policy = "none",
+gift_matrix(x, frame = NULL, quality = NULL, policy = "none",
             threshold = NULL, min_confidence = NULL, db = NULL)
 ```
 
@@ -566,19 +566,19 @@ Orientation is genomes × GIFTs — the transpose of the internal
 receive it. The docs must say so, since the internal orientation is the other
 way.
 
-`universe = NULL` means the whole catalogue, and the returned matrix carries
-`reference_universe` and `database_version` attributes so an exported matrix
+`frame = NULL` means the whole catalogue, and the returned matrix carries
+`reference_frame` and `database_version` attributes so an exported matrix
 does not lose the two facts that make its column set meaningful.
 
 ### 8.2 `dataset_matrix()`
 
 ```r
-dataset_matrix(traits, metric_id, universe = NULL)
+dataset_matrix(traits, metric_id, frame = NULL)
 ```
 
-Samples × target, ready for `vegan::vegdist()` and friends. The `universe`
-argument is required in effect: a metric identifier appears once per universe,
-and reshaping across universes would silently stack incomparable columns, so
+Samples × target, ready for `vegan::vegdist()` and friends. The `frame`
+argument is required in effect: a metric identifier appears once per frame,
+and reshaping across frames would silently stack incomparable columns, so
 omitting it is an error whenever the metric appears in more than one.
 
 ### 8.3 The tidy accessor
@@ -597,7 +597,7 @@ asserted in prose.
 ## 9. Topology per sample
 
 ```r
-dataset_network(dataset, interaction = "metabolic_handoff", universe = NULL,
+dataset_network(dataset, interaction = "metabolic_handoff", frame = NULL,
                 quality = NULL, detection = 0, limit = 100L, db = NULL)
 ```
 
@@ -681,7 +681,7 @@ metrics:
   target_id
   metric_id
   value, unit, numerator, denominator, assessable
-  reference_universe, database_version, derivation_method
+  reference_frame, database_version, derivation_method
 
 catalogue_metrics:
   .metric_columns unchanged       target_type: genome | genome_pair
@@ -689,7 +689,7 @@ catalogue_metrics:
 trace:
   .trace_columns unchanged        catalogue level; trace_sample() restricts it
 
-metadata, sample_id, genome_id, detection, assessability, universes,
+metadata, sample_id, genome_id, detection, assessability, frames,
 database_version
 ```
 
@@ -699,8 +699,8 @@ The questions the shape must answer without re-running anything:
 
 `trace_sample(traits, "S")` names the 40 GIFTs and the detected genomes behind
 them; `detected_genomes` says 118 of 418 genomes were detected;
-`assessable_fraction` says how much of the universe could be assessed at all;
-`reference_universe` says which universe the 40 was counted over.
+`assessable_fraction` says how much of the frame could be assessed at all;
+`reference_frame` says which frame the 40 was counted over.
 
 > Why is sample S's `mean_repertoire_overlap` higher than sample T's?
 
@@ -728,7 +728,7 @@ abundance-in-a-sample are three axes and never one number — and it is directly
 testable rather than aspirational:
 
 - raising `detection` never turns a `FALSE` or `NA` call into `TRUE`, in any
-  sample, in any universe;
+  sample, in any frame;
 - raising `detection` changes only denominators and the row sets derived from
   them, never a call;
 - a sample's call matrix is `identical()` to the catalogue's, restricted to its
@@ -749,7 +749,7 @@ reports it; nothing imputes it.
 Phases are independently shippable. No database rebuild is required at any
 phase: this layer reads the database and changes nothing in it, so
 `database_release.tsv`, `database_changes.tsv` and the SQLite artifact are
-untouched. No GIFT identifier appears in R source; universes continue to come
+untouched. No GIFT identifier appears in R source; frames continue to come
 from curated metadata only.
 
 ### Phase 0 — this document
@@ -772,12 +772,12 @@ datasets; `sample_community()` round-trip identical to the subset community.
 
 `R/dataset-traits.R`, new: `dataset_traits()`, `trace_sample()`,
 `print.gifter_dataset_traits()`. `.metric_row()`, `.trace_rows()`,
-`.metric_columns`, `.trace_columns` and `.universe_progress()` are reused
+`.metric_columns`, `.trace_columns` and `.frame_progress()` are reused
 unchanged.
 
 One small extraction is expected and is permitted by the constraint that the
 existing functions' returns must not change: `.warn_thin_denominators()`'s
-message counts "universes", and in a dataset the thin rows are sample-universe
+message counts "frames", and in a dataset the thin rows are sample-frame
 readings. It gains an optional argument naming the unit, defaulting to the
 current text, so `community_traits()`'s warning is byte-identical.
 
@@ -788,7 +788,7 @@ self-verifying against the existing engine: **for every sample, every metric
 either against a `metrics` row for that sample or, for `gift_richness` and
 `repertoire_overlap`, against `catalogue_metrics` restricted to that sample's
 detected genomes and pairs. Also: detection never changes a call; raising
-`detection` moves denominators only; a bounded universe still emits
+`detection` moves denominators only; a bounded frame still emits
 `community_coverage` and an unbounded one still refuses it; abundance closure is
 per sample and over the detected set.
 
@@ -797,7 +797,7 @@ per sample and over the detected set.
 `gift_matrix()`, `dataset_matrix()`, `as.data.frame()`.
 
 `tests/testthat/test-dataset-export.R`, new: three states survive the export
-(and in particular that `NA` is not silently `FALSE`); the universe restriction
+(and in particular that `NA` is not silently `FALSE`); the frame restriction
 is honoured and its attributes are carried; the metadata join neither drops nor
 duplicates samples.
 
@@ -845,26 +845,26 @@ Boolean call moved. The suite went from 4,316 to 4,498 assertions, and
 | 4 | `R/dataset-network.R` | `dataset_network()` |
 | 5 | architecture guide, `vignettes/multi-sample-datasets.Rmd`, `CHANGELOG.md` | — |
 
-### 14.1 The decisive test held, unchanged, over every default universe
+### 14.1 The decisive test held, unchanged, over every default frame
 
 §13's Phase 2 test is the one that mattered, and it passed as specified without
 any of the metrics being adjusted to make it pass. For every sample, every
 metric row `dataset_traits()` reports equals what `community_traits()` reports
 on `sample_community(dataset, s)` with that sample's abundance — matched on
 `value`, `numerator`, `denominator` and `assessable`, over all fourteen default
-reference universes. `trace_sample()` matches `community_traits()`'s trace the
+reference frames. `trace_sample()` matches `community_traits()`'s trace the
 same way, and Phase 4's per-sample topology matches `community_network()`'s
 `nodes`, `edges`, `chain_coverage`, `cycle_coverage` and metric numbers.
 
 This is what the vectorized derivation had to earn. Three matrix products per
-universe now stand in for a per-sample walk, and the walk is still the
+frame now stand in for a per-sample walk, and the walk is still the
 definition.
 
 ### 14.2 Departure: `assessable` on a catalogue row is the catalogue's
 
 §7.1 said `gift_richness` and `repertoire_overlap` are sample-invariant, and
 their *values* are. The `assessable` column beside them is not: it counts what
-the universe's members could be assessed by, and a sample's genomes are a subset
+the frame's members could be assessed by, and a sample's genomes are a subset
 of the catalogue's. A `catalogue_metrics` row belongs to no sample, so it
 carries the catalogue's count.
 
@@ -878,7 +878,7 @@ exists to prevent.
 
 ### 14.3 Departure: `gift_matrix()` has no `db` argument
 
-§8.1 listed one. Nothing in the function reads the database: a universe carries
+§8.1 listed one. Nothing in the function reads the database: a frame carries
 its own release string and a community carries its own release row, so the
 version check is local. An argument that is accepted and never used is worse
 documentation than one that is absent.
@@ -910,7 +910,7 @@ behaviour must not move.
 
 `.warn_thin_denominators()` gained an optional argument naming what the thin
 readings are counted in, defaulting to the current text. A dataset reports one
-`assessable_fraction` per sample per universe, and calling those universes would
+`assessable_fraction` per sample per frame, and calling those frames would
 undercount them by the sample count. A test asserts the single-community wording
 is byte-identical.
 
@@ -936,9 +936,9 @@ The container and every refusal of §4.3 to §4.7, including the rectangular
 long-form requirement and its `tidyr::complete()` hint; `detection` on the
 readers rather than the container; closure within the detected set; the
 vectorized derivation of §3 exactly as tabulated; `detected_genomes` beside
-every sample-level richness in every universe; two metric tables; the catalogue
+every sample-level richness in every frame; two metric tables; the catalogue
 trace as the primitive with `trace_sample()` deriving from it; reference
-universes as the progress unit; `mean_repertoire_overlap` reported with an `NA`
+frames as the progress unit; `mean_repertoire_overlap` reported with an `NA`
 numerator and the comparable detected pair count as its denominator, gated by
 `pairwise`; and the three-function export surface ending, in the vignette, at a
 `vegan` call that gifter does not make.

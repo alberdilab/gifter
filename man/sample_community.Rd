@@ -24,7 +24,7 @@ Returns the genomes detected in one sample as a `gifter_community`, so that
 on a single sample unchanged. Nothing is re-evaluated: the calls are the
 catalogue's, restricted to the detected genomes.
 }
-\section{The reference universe does not shrink}{
+\section{The reference frame does not shrink}{
 
 
 The returned community keeps the catalogue's evaluated GIFTs rather than
@@ -34,7 +34,7 @@ identical. They differ only when genomes were evaluated over different GIFT
 subsets, and there the recomputed union would give every sample a different
 `assessable` denominator, which is the sample-level form of the failure the
 mixed-release refusal in [gifter_community()] exists to prevent. A dataset's
-reference universe is the catalogue's, and it does not shrink because a
+reference frame is the catalogue's, and it does not shrink because a
 sample is small.
 }
 

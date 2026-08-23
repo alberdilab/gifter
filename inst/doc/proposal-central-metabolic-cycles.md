@@ -198,7 +198,7 @@ occupied**, and each is populated by taxa that belong together:
 
 `U` = `acetyl_coa_to_oxoglutarate`, `L` = `oxoglutarate_to_succinate`,
 `S` = `succinate_fumarate_interconversion`, `F` =
-`fumarate_oxaloacetate_interconversion`. Universe: 11 783 KEGG organisms,
+`fumarate_oxaloacetate_interconversion`. Frame: 11 783 KEGG organisms,
 2026-08-18.
 
 A monolithic GIFT collapses rows 2–16 — **4368 genomes, 37.1%** — into one
@@ -359,7 +359,7 @@ reason: they name a direction the evidence cannot support. §6.4.
 ## 6. Biological justification, boundary by boundary
 
 Every figure in this section was retrieved from KEGG and Rhea on 2026-08-18
-against a universe of **11 783 organisms**. Provenance is §17.
+against a set of **11 783 organisms**. Provenance is §17.
 
 ### 6.1 Reaction identity, verified
 
@@ -1367,7 +1367,7 @@ All figures retrieved 2026-08-18 against database version 2026.15.1, schema 6.
 
 - **KEGG orthology-to-gene links**: `https://rest.kegg.jp/link/genes/ko:<KO>`,
   reduced to organism codes and intersected locally. **67 orthology groups**,
-  spanning **11 783 organisms**. The universe differs slightly from the 11 855
+  spanning **11 783 organisms**. The frame differs slightly from the 11 855
   of `proposal-organic-acid-formation.md` because it is the union over a
   different KO set.
 - **KEGG orthology names**: `https://rest.kegg.jp/find/ko/<KO>`. The

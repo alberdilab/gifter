@@ -35,12 +35,12 @@
   )$anchor_id
 }
 
-.handoff_edges <- function(community, graph, universe_ids, transferable) {
+.handoff_edges <- function(community, graph, frame_ids, transferable) {
   genomes <- community$genome_id
   matrix <- community$matrix
   graph <- graph[graph$shared_anchor %in% transferable, , drop = FALSE]
   supported_by <- lapply(stats::setNames(genomes, genomes), function(genome) {
-    intersect(rownames(matrix)[matrix[, genome] %in% TRUE], universe_ids)
+    intersect(rownames(matrix)[matrix[, genome] %in% TRUE], frame_ids)
   })
 
   rows <- list()
@@ -83,19 +83,19 @@
   edges[order(edges$from_genome, edges$to_genome, edges$shared_anchor), , drop = FALSE]
 }
 
-.chain_coverage <- function(community, graph, universe_ids, transferable) {
+.chain_coverage <- function(community, graph, frame_ids, transferable) {
   genomes <- community$genome_id
   matrix <- community$matrix
   supported_by <- lapply(stats::setNames(genomes, genomes), function(genome) {
-    intersect(rownames(matrix)[matrix[, genome] %in% TRUE], universe_ids)
+    intersect(rownames(matrix)[matrix[, genome] %in% TRUE], frame_ids)
   })
   represented <- Reduce(union, supported_by, character())
 
-  in_universe <- graph[
-    graph$from_gift %in% universe_ids & graph$to_gift %in% universe_ids, ,
+  in_frame <- graph[
+    graph$from_gift %in% frame_ids & graph$to_gift %in% frame_ids, ,
     drop = FALSE
   ]
-  if (!nrow(in_universe)) {
+  if (!nrow(in_frame)) {
     return(tibble::tibble(
       from_gift = character(), shared_anchor = character(),
       to_gift = character(), edge_quality = character(),
@@ -105,8 +105,8 @@
     ))
   }
 
-  rows <- lapply(seq_len(nrow(in_universe)), function(index) {
-    edge <- in_universe[index, , drop = FALSE]
+  rows <- lapply(seq_len(nrow(in_frame)), function(index) {
+    edge <- in_frame[index, , drop = FALSE]
     providers <- genomes[vapply(supported_by, function(ids) edge$from_gift %in% ids, logical(1))]
     recipients <- genomes[vapply(supported_by, function(ids) edge$to_gift %in% ids, logical(1))]
     within <- intersect(providers, recipients)
@@ -230,7 +230,7 @@
 #'
 #' @param community A community from [gifter_community()].
 #' @param interaction Interaction type. Only `"metabolic_handoff"` is defined.
-#' @param universe Optional [gift_universe()] restricting which GIFTs may form
+#' @param frame Optional [reference_frame()] restricting which GIFTs may form
 #'   edges.
 #' @param quality Optional `gift_graph()` edge quality filter, `"exact"` or
 #'   `"compartment_inexact"`.
@@ -242,7 +242,7 @@
 #'   `not_transferable` or `not_represented`), `cycle_coverage`, and `metrics`.
 #' @export
 community_network <- function(community, interaction = "metabolic_handoff",
-                              universe = NULL, quality = NULL, limit = 100L,
+                              frame = NULL, quality = NULL, limit = 100L,
                               db = NULL) {
   if (!inherits(community, "gifter_community")) {
     stop("community must come from gifter_community()", call. = FALSE)
@@ -251,9 +251,9 @@ community_network <- function(community, interaction = "metabolic_handoff",
   if (!is.null(quality)) {
     quality <- match.arg(quality, c("exact", "compartment_inexact"))
   }
-  if (!is.null(universe) &&
-      !inherits(universe, "gifter_universe")) {
-    stop("universe must come from gift_universe()", call. = FALSE)
+  if (!is.null(frame) &&
+      !inherits(frame, "gifter_frame")) {
+    stop("frame must come from reference_frame()", call. = FALSE)
   }
   # The limit reaches its enumeration only after the graph, the handoff edges
   # and the chain coverage have been built, so it is checked here instead.
@@ -270,17 +270,17 @@ community_network <- function(community, interaction = "metabolic_handoff",
         call. = FALSE
       )
     }
-    if (is.null(universe)) {
-      universe <- gift_universe(db = connection, label = "all curated GIFTs")
-    } else if (!identical(universe$database_version, version)) {
-      stop("The universe was built against a different database version", call. = FALSE)
+    if (is.null(frame)) {
+      frame <- reference_frame(db = connection, label = "all curated GIFTs")
+    } else if (!identical(frame$database_version, version)) {
+      stop("The frame was built against a different database version", call. = FALSE)
     }
 
     graph <- gift_graph(db = connection, quality = quality)
     transferable <- .transferable_anchors(connection)
-    universe_ids <- universe$gift_id
-    edges <- .handoff_edges(community, graph, universe_ids, transferable)
-    coverage <- .chain_coverage(community, graph, universe_ids, transferable)
+    frame_ids <- frame$gift_id
+    edges <- .handoff_edges(community, graph, frame_ids, transferable)
+    coverage <- .chain_coverage(community, graph, frame_ids, transferable)
     cycles <- .distributed_cycles(
       community, gift_cycles(db = connection, limit = limit), transferable
     )
@@ -302,11 +302,11 @@ community_network <- function(community, interaction = "metabolic_handoff",
 
     pairs <- unique(edges[c("from_genome", "to_genome")])
     ordered_pairs <- length(genomes) * (length(genomes) - 1L)
-    label <- universe$label
+    label <- frame$label
     metrics <- .metric_row(
       "community", "community", "interaction_density",
       if (ordered_pairs > 0L) nrow(pairs) / ordered_pairs else NA_real_,
-      "proportion", nrow(pairs), ordered_pairs, length(universe_ids), label,
+      "proportion", nrow(pairs), ordered_pairs, length(frame_ids), label,
       version,
       paste(
         "ordered genome pairs joined by at least one potential resource handoff,",
@@ -315,13 +315,13 @@ community_network <- function(community, interaction = "metabolic_handoff",
     )
     metrics <- rbind(metrics, .metric_row(
       "community", "community", "handoff_edges", nrow(edges), "count",
-      nrow(edges), NA_integer_, length(universe_ids), label, version,
+      nrow(edges), NA_integer_, length(frame_ids), label, version,
       "GIFT-resolved potential resource handoffs between distinct genomes"
     ))
     distributed <- coverage$status == "community_distributed"
     metrics <- rbind(metrics, .metric_row(
       "community", "community", "distributed_chain_links", sum(distributed),
-      "count", sum(distributed), nrow(coverage), length(universe_ids), label,
+      "count", sum(distributed), nrow(coverage), length(frame_ids), label,
       version,
       "curated composition links completed only by combining genomes, over represented links"
     ))
@@ -334,7 +334,7 @@ community_network <- function(community, interaction = "metabolic_handoff",
         chain_coverage = coverage,
         cycle_coverage = cycles,
         metrics = metrics,
-        universe = universe,
+        frame = frame,
         database_version = community$database_version
       ),
       class = c("gifter_network", "list")

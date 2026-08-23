@@ -57,14 +57,14 @@
 #'
 #' @section Pairs with no distance:
 #'
-#' Two genomes that support nothing in the universe have no overlap to measure
+#' Two genomes that support nothing in the frame have no overlap to measure
 #' rather than an overlap of zero, so their distance is `NA`. Reporting `1`
 #' would say they were compared and found to share nothing.
 #'
 #' @param x A `gifter_community` or a `gifter_dataset`. A dataset delegates to
 #'   its catalogue: a pair of genomes shares what it shares in every sample
 #'   both are detected in, so the distance carries no `sample_id`.
-#' @param universe Optional [gift_universe()] restricting which GIFTs the
+#' @param frame Optional [reference_frame()] restricting which GIFTs the
 #'   repertoires are compared over. Omitted, every GIFT the evaluation produced
 #'   is compared. Stratifying matters here: the catalogue is overwhelmingly
 #'   metabolic, so an unstratified distance is a metabolic distance under a
@@ -72,7 +72,7 @@
 #' @param min_confidence Optional weakest marker confidence a positive call may
 #'   rest on and still enter a repertoire, as in [community_traits()]. `NULL`,
 #'   the default, compares every positive call whatever it rests on.
-#' @return A [stats::dist] over the genomes, carrying `reference_universe`,
+#' @return A [stats::dist] over the genomes, carrying `reference_frame`,
 #'   `database_version` and `min_confidence` attributes.
 #' @seealso [gift_matrix()] for the calls the distance is computed from, and
 #'   [community_traits()], which reports the same overlaps per pair beside the
@@ -87,10 +87,10 @@
 #' community <- gifter_community(donor = donor, recipient = recipient)
 #' repertoire_distance(community)
 #' @export
-repertoire_distance <- function(x, universe = NULL, min_confidence = NULL) {
+repertoire_distance <- function(x, frame = NULL, min_confidence = NULL) {
   # Every argument is resolved by the exporter, so the distance and the matrix
   # it is computed from can never disagree about which calls they read.
-  calls <- gift_matrix(x, universe = universe, min_confidence = min_confidence)
+  calls <- gift_matrix(x, frame = frame, min_confidence = min_confidence)
   genomes <- rownames(calls)
   if (length(genomes) < 2L) {
     stop(
@@ -119,7 +119,7 @@ repertoire_distance <- function(x, universe = NULL, min_confidence = NULL) {
   distance[union == 0] <- NA_real_
 
   result <- stats::as.dist(distance)
-  attr(result, "reference_universe") <- attr(calls, "reference_universe")
+  attr(result, "reference_frame") <- attr(calls, "reference_frame")
   attr(result, "database_version") <- attr(calls, "database_version")
   # Not the assessability policy, which cannot have moved these numbers.
   attr(result, "min_confidence") <-

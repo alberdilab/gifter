@@ -2,7 +2,7 @@
 # inst/doc/proposal-quantitative-traits.md.
 #
 # These tests protect the properties that make a derived number reportable: it
-# is computed within a declared universe, it can be taken apart into the GIFTs
+# is computed within a declared frame, it can be taken apart into the GIFTs
 # that produced it, it never claims a denominator the catalogue does not
 # support, and it never changes a call.
 
@@ -10,24 +10,24 @@ traits_of <- function(markers, ...) {
   genome_traits(evaluate_gifts(ko_annotations(markers)), ...)
 }
 
-metric <- function(traits, id, universe) {
+metric <- function(traits, id, frame) {
   rows <- traits$metrics[
     traits$metrics$metric_id == id &
-      traits$metrics$reference_universe == universe, ,
+      traits$metrics$reference_frame == frame, ,
     drop = FALSE
   ]
   expect_equal(nrow(rows), 1L)
   rows
 }
 
-purine_universe <- function() {
-  gift_universe(facet = "substrate_class", value = "nucleotide",
-                label = "nucleotide GIFTs")
+purine_frame <- function() {
+  reference_frame(facet = "substrate_class", value = "nucleotide",
+                  label = "nucleotide GIFTs")
 }
 
 test_that("richness counts supported GIFTs and traces every one of them", {
   traits <- traits_of(direct_purine_markers(include_amp = TRUE),
-                      universes = list(purine_universe()), genome_id = "MAG_001")
+                      frames = list(purine_frame()), genome_id = "MAG_001")
   row <- metric(traits, "gift_richness", "nucleotide GIFTs")
   expect_equal(row$value, 2)
   expect_equal(row$numerator, 2L)
@@ -43,9 +43,9 @@ test_that("richness counts supported GIFTs and traces every one of them", {
 
 test_that("richness rises only for the capability the added marker completes", {
   without <- traits_of(direct_purine_markers(),
-                       universes = list(purine_universe()))
+                       frames = list(purine_frame()))
   with_amp <- traits_of(direct_purine_markers(include_amp = TRUE),
-                        universes = list(purine_universe()))
+                        frames = list(purine_frame()))
   expect_equal(metric(without, "gift_richness", "nucleotide GIFTs")$value, 1)
   expect_equal(metric(with_amp, "gift_richness", "nucleotide GIFTs")$value, 2)
   expect_false(
@@ -54,22 +54,22 @@ test_that("richness rises only for the capability the added marker completes", {
   )
 })
 
-test_that("a fraction of the catalogue is reported only for a bounded universe", {
-  # The database is not the universe of microbial function. Reporting a
+test_that("a fraction of the catalogue is reported only for a bounded frame", {
+  # The database is not the whole of microbial function. Reporting a
   # supported fraction of all metabolic GIFTs would say a genome lacks 120
   # capabilities when the catalogue merely stops there.
-  open_universe <- gift_universe(type = "metabolic", label = "metabolic GIFTs")
-  closed_universe <- gift_universe(
+  open_frame <- reference_frame(type = "metabolic", label = "metabolic GIFTs")
+  closed_frame <- reference_frame(
     mode = "anabolic", auxotrophy_indicator = TRUE, bounded = TRUE,
     label = "biomass-essential anabolic GIFTs"
   )
   traits <- traits_of(
     direct_purine_markers(include_amp = TRUE),
-    universes = list(open_universe, closed_universe)
+    frames = list(open_frame, closed_frame)
   )
   fractions <- traits$metrics[traits$metrics$metric_id == "supported_fraction", ]
   expect_identical(
-    unique(fractions$reference_universe), "biomass-essential anabolic GIFTs"
+    unique(fractions$reference_frame), "biomass-essential anabolic GIFTs"
   )
   expect_equal(
     fractions$value,
@@ -91,9 +91,9 @@ test_that("breadth counts distinct classifications, not GIFTs", {
   # Two supported GIFTs that share a substrate class contribute one class. This
   # is the whole point of breadth: raw richness overcounts a subdivided region
   # of the ontology.
-  universe <- purine_universe()
+  frame <- purine_frame()
   traits <- traits_of(direct_purine_markers(include_amp = TRUE),
-                      universes = list(universe))
+                      frames = list(frame))
   richness <- metric(traits, "gift_richness", "nucleotide GIFTs")$value
   breadth <- metric(traits, "breadth_substrate_class", "nucleotide GIFTs")$value
   expect_equal(richness, 2)
@@ -101,11 +101,11 @@ test_that("breadth counts distinct classifications, not GIFTs", {
   expect_lte(breadth, richness)
 })
 
-test_that("a breadth denominator is the classifications available in the universe", {
+test_that("a breadth denominator is the classifications available in the frame", {
   traits <- traits_of(direct_purine_markers(include_amp = TRUE))
   breadths <- traits$metrics[
     startsWith(traits$metrics$metric_id, "breadth_") &
-      traits$metrics$reference_universe == "all curated GIFTs", ,
+      traits$metrics$reference_frame == "all curated GIFTs", ,
     drop = FALSE
   ]
   expect_gt(nrow(breadths), 0L)
@@ -118,13 +118,13 @@ test_that("a breadth denominator is the classifications available in the univers
 })
 
 test_that("handoff degrees count anchors and are withheld where anchors do not exist", {
-  # A structural GIFT declares no anchors, so a universe of them has no handoff
+  # A structural GIFT declares no anchors, so a frame of them has no handoff
   # interface to report. Reporting zero would imply a test the genome failed.
-  metabolic <- gift_universe(type = "metabolic", label = "metabolic GIFTs")
-  structural <- gift_universe(type = "structural", label = "structural GIFTs")
+  metabolic <- reference_frame(type = "metabolic", label = "metabolic GIFTs")
+  structural <- reference_frame(type = "structural", label = "structural GIFTs")
   traits <- traits_of(direct_purine_markers(include_amp = TRUE),
-                      universes = list(metabolic, structural))
-  reported <- traits$metrics$reference_universe[
+                      frames = list(metabolic, structural))
+  reported <- traits$metrics$reference_frame[
     traits$metrics$metric_id == "handoff_out_degree"
   ]
   expect_identical(reported, "metabolic GIFTs")
@@ -160,10 +160,10 @@ test_that("a genome supporting nothing reports zeros, not missing rows", {
   expect_true(all(richness$assessable > 0L))
 })
 
-test_that("every metric names its universe, its assessable count and its version", {
+test_that("every metric names its frame, its assessable count and its version", {
   traits <- traits_of(direct_purine_markers(include_amp = TRUE),
                       genome_id = "MAG_042")
-  expect_true(all(nzchar(traits$metrics$reference_universe)))
+  expect_true(all(nzchar(traits$metrics$reference_frame)))
   expect_true(all(nzchar(traits$metrics$derivation_method)))
   expect_true(all(traits$metrics$assessable > 0L))
   expect_true(all(traits$metrics$target_id == "MAG_042"))
@@ -171,16 +171,16 @@ test_that("every metric names its universe, its assessable count and its version
   expect_true(all(
     traits$metrics$database_version == gifter_db_version()$gifter_db_version
   ))
-  # Assessability is not yet modelled, so every member of a universe was
+  # Assessability is not yet modelled, so every member of a frame was
   # assessed. Phase 4 changes what fills this column, not its presence.
   richness <- traits$metrics[traits$metrics$metric_id == "gift_richness", ]
-  sizes <- vapply(traits$universes, function(u) length(u$gift_id), integer(1))
+  sizes <- vapply(traits$frames, function(u) length(u$gift_id), integer(1))
   expect_setequal(richness$assessable, sizes)
 })
 
 test_that("every trace row belongs to a metric that was reported", {
   traits <- traits_of(direct_purine_markers(include_amp = TRUE))
-  key <- function(frame) paste(frame$metric_id, frame$reference_universe)
+  key <- function(frame) paste(frame$metric_id, frame$reference_frame)
   expect_true(all(key(traits$trace) %in% key(traits$metrics)))
   expect_true(all(traits$trace$gift_id %in% list_gifts()$gift_id))
 })
@@ -189,18 +189,18 @@ test_that("traits refuse inputs that are not calls, and identifiers that are not
   expect_error(genome_traits(list()), "must come from evaluate_gifts")
   result <- evaluate_gifts(ko_annotations(direct_purine_markers()))
   expect_error(genome_traits(result, genome_id = c("a", "b")), "one non-empty identifier")
-  expect_error(genome_traits(result, universes = list()), "non-empty list")
-  expect_error(genome_traits(result, universes = list("metabolic")), "non-empty list")
+  expect_error(genome_traits(result, frames = list()), "non-empty list")
+  expect_error(genome_traits(result, frames = list("metabolic")), "non-empty list")
 })
 
-test_that("universes built against another release are refused", {
-  # Comparing calls across releases compares different universes. A silent
+test_that("frames built against another release are refused", {
+  # Comparing calls across releases compares different frames. A silent
   # mismatch would make two incomparable numbers look comparable.
   result <- evaluate_gifts(ko_annotations(direct_purine_markers()))
-  stale <- gift_universe(type = "metabolic")
+  stale <- reference_frame(type = "metabolic")
   stale$database_version <- "0000.0.0"
   expect_error(
-    genome_traits(result, universes = list(stale)),
+    genome_traits(result, frames = list(stale)),
     "built against a different database version"
   )
 })
@@ -211,9 +211,9 @@ test_that("min_confidence excludes calls resting on ambiguous evidence", {
   # call the whole polysaccharide layer complete, and every metric counted that
   # until confidence was allowed to gate it.
   result <- evaluate_gifts(c("GH2", "GH3", "GH13", "GH31", "GH43"))
-  universes <- list(gift_universe(preset = "carbohydrate_degradation"))
+  frames <- list(reference_frame(preset = "carbohydrate_degradation"))
   richness <- function(...) {
-    traits <- genome_traits(result, universes = universes, ...)
+    traits <- genome_traits(result, frames = frames, ...)
     traits$metrics$value[traits$metrics$metric_id == "gift_richness"]
   }
   expect_equal(richness(), 3)
@@ -222,10 +222,10 @@ test_that("min_confidence excludes calls resting on ambiguous evidence", {
   # Weak evidence is not evidence of absence, so the capability leaves the
   # denominator with the numerator rather than counting as a negative call.
   gated <- genome_traits(
-    result, universes = universes, min_confidence = "high-confidence"
+    result, frames = frames, min_confidence = "high-confidence"
   )
   assessable <- gated$metrics$assessable[gated$metrics$metric_id == "gift_richness"]
-  ungated <- genome_traits(result, universes = universes)
+  ungated <- genome_traits(result, frames = frames)
   expect_lt(
     assessable,
     ungated$metrics$assessable[ungated$metrics$metric_id == "gift_richness"]
@@ -234,15 +234,15 @@ test_that("min_confidence excludes calls resting on ambiguous evidence", {
 
 test_that("min_confidence leaves well-evidenced calls alone", {
   result <- evaluate_gifts(c("GH11_e15", "GH120"))
-  universes <- list(gift_universe(preset = "carbohydrate_degradation"))
+  frames <- list(reference_frame(preset = "carbohydrate_degradation"))
   for (floor in c("ambiguous", "high-confidence", "curated")) {
-    traits <- genome_traits(result, universes = universes, min_confidence = floor)
+    traits <- genome_traits(result, frames = frames, min_confidence = floor)
     expect_equal(
       traits$metrics$value[traits$metrics$metric_id == "gift_richness"], 1
     )
   }
   expect_error(
-    genome_traits(result, universes = universes, min_confidence = "excellent"),
+    genome_traits(result, frames = frames, min_confidence = "excellent"),
     "min_confidence must be one of"
   )
 })
@@ -255,7 +255,7 @@ test_that("min_confidence leaves well-evidenced calls alone", {
 test_that("an anchor's resource origin classifies the GIFTs that declare it", {
   traits <- genome_traits(
     arabinoxylan_genome("backbone"),
-    universes = list(gift_universe(
+    frames = list(reference_frame(
       facet = "substrate_class", value = "polysaccharide",
       label = "polysaccharide GIFTs"
     )),
@@ -298,7 +298,7 @@ test_that("consuming an origin and releasing it are separate facets", {
   values <- function(facet) {
     rows <- traits$trace[
       traits$trace$metric_id == paste0("breadth_", facet) &
-        traits$trace$reference_universe == "all curated GIFTs" &
+        traits$trace$reference_frame == "all curated GIFTs" &
         traits$trace$gift_id == "xylose_degradation_isomerase", ,
       drop = FALSE
     ]
@@ -308,10 +308,10 @@ test_that("consuming an origin and releasing it are separate facets", {
   expect_equal(values("output_resource_origin"), "central_metabolism")
 })
 
-test_that("a facet value count is over the GIFTs carrying it, not the universe", {
+test_that("a facet value count is over the GIFTs carrying it, not the frame", {
   traits <- genome_traits(
     arabinoxylan_genome("backbone"),
-    universes = list(gift_universe(label = "all curated GIFTs")),
+    frames = list(reference_frame(label = "all curated GIFTs")),
     genome_id = "backbone"
   )
   rows <- traits$metrics[
@@ -320,7 +320,7 @@ test_that("a facet value count is over the GIFTs carrying it, not the universe",
   expect_true(nrow(rows) > 0L)
   expect_true(all(rows$unit == "count"))
   # The denominator is the assessable GIFTs carrying the value. It must never
-  # be the universe, which would read as a fraction of the catalogue.
+  # be the frame, which would read as a fraction of the catalogue.
   expect_true(all(rows$denominator <= rows$assessable))
   expect_true(all(rows$numerator <= rows$denominator))
   # Only a value the genome reaches is reported; a value it reaches nothing of
@@ -328,7 +328,7 @@ test_that("a facet value count is over the GIFTs carrying it, not the universe",
   expect_true(all(rows$numerator > 0L))
 })
 
-test_that("a facet value count reconstructs from its trace in every universe", {
+test_that("a facet value count reconstructs from its trace in every frame", {
   traits <- genome_traits(
     arabinoxylan_genome("consumer"), genome_id = "consumer"
   )
@@ -339,7 +339,7 @@ test_that("a facet value count reconstructs from its trace in every universe", {
   for (index in seq_len(nrow(rows))) {
     trace <- traits$trace[
       traits$trace$metric_id == rows$metric_id[[index]] &
-        traits$trace$reference_universe == rows$reference_universe[[index]], ,
+        traits$trace$reference_frame == rows$reference_frame[[index]], ,
       drop = FALSE
     ]
     expect_equal(nrow(trace), rows$numerator[[index]])

@@ -1,6 +1,6 @@
 # Design proposal: quantitative genome and community traits derived from GIFT calls
 
-Status: **accepted and implemented, phases 1-4 plus the named-universe
+Status: **accepted and implemented, phases 1-4 plus the named-frame
 registry, in package 0.1.0.**
 Assessment performed 2026-08-19 against database version 2026.19.1 (130 GIFTs).
 This document supersedes the externally drafted
@@ -25,7 +25,7 @@ curated facets, and the two existing derived views.
 
 1. **Accept the source draft's rules, reject roughly a third of its metrics.**
    Its design rules (§49 of the draft — explicit denominators, declared
-   reference universes, presence/abundance/context kept separate, no ecological
+   reference frames, presence/abundance/context kept separate, no ecological
    inference from overlap) are correct and become this layer's invariants. Its
    metric catalogue is about 30% redundant with machinery gifter already ships.
    §2, §3.
@@ -50,7 +50,7 @@ curated facets, and the two existing derived views.
 5. **Typed repertoire breadth is currently near-vacuous and must not be a
    headline trait.** The database is 122 metabolic, 3 defense, 3 regulatory, 2
    structural GIFTs. The draft's §13/§14/§15 breadth metrics would be computed
-   over universes of two and three. Implement them generically so they become
+   over frames of two and three. Implement them generically so they become
    useful as curation grows; do not advertise them now. §3.4.
 6. **Partition by `mode`, which the draft almost ignores.** `gift_type` barely
    partitions this database (94% metabolic). `mode` splits it 57 anabolic / 58
@@ -74,7 +74,7 @@ curated facets, and the two existing derived views.
    here with reasons so they are not silently reopened. §8.
 10. **One return shape: a long-form metric table plus a trace table.** The
     draft's §41 is right and its §17 wide "trait vector" is wrong. Every metric
-    row carries `numerator`, `denominator`, `assessable`, `reference_universe`
+    row carries `numerator`, `denominator`, `assessable`, `reference_frame`
     and `database_version`; every row is joinable to the GIFTs that produced it.
     §9.
 
@@ -84,9 +84,9 @@ curated facets, and the two existing derived views.
 
 These become the invariants of this layer and are restated in §11.
 
-- **Reference universes are part of the metric, not a footnote** (draft §4). A
+- **Reference frames are part of the metric, not a footnote** (draft §4). A
   richness of 40 means nothing without the set it was counted over, and the
-  catalogue will grow. Carrying `reference_universe` and `database_version` on
+  catalogue will grow. Carrying `reference_frame` and `database_version` on
   every row is the difference between a comparable number and a number that
   silently changes meaning between releases.
 - **Presence, abundance and context are three axes and never one** (§35). A
@@ -120,7 +120,7 @@ These become the invariants of this layer and are restated in §11.
 | §12 handoff interfaces | outputs matching curated inputs | `gift_graph` out-degree / in-degree per GIFT |
 | §15 implementation redundancy | complete implementations per GIFT | `evaluate_gifts()$gifts$number_of_complete_implementations` |
 | §28 resource-provision edges | genome → genome compatible handoffs | `gift_graph` joined against two call sets |
-| §8 biosynthetic autonomy universe | biomass-relevant anabolic outputs | `gift_profile.auxotrophy_indicator` (40 GIFTs), `anchor_facet.biomass_essential` |
+| §8 biosynthetic autonomy frame | biomass-relevant anabolic outputs | `gift_profile.auxotrophy_indicator` (40 GIFTs), `anchor_facet.biomass_essential` |
 
 None of these should be recomputed from anchors in R. They are reads of
 `gift_profile`, `gift_graph`, and the existing call columns. Recomputing them
@@ -183,7 +183,7 @@ structural    2
 ```
 
 The draft devotes §13, §14 and §15 to structural, regulatory and defense
-repertoire breadth. Over a universe of two structural GIFTs, "structural
+repertoire breadth. Over a frame of two structural GIFTs, "structural
 repertoire breadth" takes values in {0, 1, 2} and `defense_class` has exactly
 three registered terms for exactly three defense GIFTs, so defense mechanism
 breadth and defense richness are the same number by construction.
@@ -192,11 +192,11 @@ The metrics are not wrong; they are premature as *headline* traits. The
 resolution is the one the draft itself proposes for a different reason: drive
 them from `gift_facet` metadata rather than hard-coded classes, so they need no
 code change when curation grows. Implement them, compute them, and let the
-`reference_universe` and `denominator` columns tell the reader that the
+`reference_frame` and `denominator` columns tell the reader that the
 denominator is 2.
 
 Similarly, `uptake_breadth` and `extracellular_processing_richness` currently
-have universes of three GIFTs each. Computable; low discriminative power today.
+have frames of three GIFTs each. Computable; low discriminative power today.
 
 ### 3.5 Smaller corrections
 
@@ -210,7 +210,7 @@ have universes of three GIFTs each. Computable; low discriminative power today.
   must be stated, and the molecule-resolved variant the draft mentions is the
   more informative one.
 - **§17's wide trait vector conflicts with §41's long table.** Pick the long
-  table; a wide frame cannot carry per-metric denominators and universes.
+  table; a wide frame cannot carry per-metric denominators and frames.
 - **`profile_genome()` / `profile_community()` (§45, §46) collide with the
   existing exported `gift_profile()`**, which is a GIFT-level database view and
   has nothing to do with genomes. §5.1 renames.
@@ -268,21 +268,21 @@ are carried in the result. A low assessable fraction raises a warning, per draft
 ### 5.1 Public API
 
 ```r
-gift_universe(type = NULL, mode = NULL, facet = NULL, value = NULL,
+reference_frame(type = NULL, mode = NULL, facet = NULL, value = NULL,
               strategy = NULL, label = NULL, db = NULL)
 
-genome_traits(result, universes = NULL, quality = NULL, policy = "none")
+genome_traits(result, frames = NULL, quality = NULL, policy = "none")
 ```
 
-`gift_universe()` returns a `gifter_universe`: a set of `gift_id`s, a
+`reference_frame()` returns a `gifter_frame`: a set of `gift_id`s, a
 human-readable `label`, the filter that produced it, and `database_version`.
-Universes are built **only** from curated metadata — `gift.gift_type`,
+Frames are built **only** from curated metadata — `gift.gift_type`,
 `gift.mode`, `gift_facet`, `anchor_facet` and the `gift_profile` view. A
-universe may never be a literal list of `gift_id`s in R source; that would put
+frame may never be a literal list of `gift_id`s in R source; that would put
 biological content in code.
 
 `genome_traits()` returns a `gifter_traits` object: `$metrics` (long form),
-`$trace` (metric → contributing GIFTs), `$universes`, `$quality`,
+`$trace` (metric → contributing GIFTs), `$frames`, `$quality`,
 `$database_version`.
 
 Names avoid `profile_*` because `gift_profile()` is taken and means something
@@ -290,12 +290,12 @@ else (§3.5).
 
 ### 5.2 Metrics to implement
 
-Partitioned by every universe supplied; the default universe set is
-`type × {all}` plus `mode × {all}` plus the bounded universes below.
+Partitioned by every frame supplied; the default frame set is
+`type × {all}` plus `mode × {all}` plus the bounded frames below.
 
 ```text
-gift_richness              count of supported GIFTs in the universe
-supported_fraction         richness / assessable            (bounded universes only)
+gift_richness              count of supported GIFTs in the frame
+supported_fraction         richness / assessable            (bounded frames only)
 facet_breadth              distinct facet values with >= 1 supported GIFT
 biosynthetic_autonomy      supported / assessable over auxotrophy_indicator = 1
 resource_strategy_richness supported GIFTs per gift_profile.resource_strategy
@@ -306,11 +306,11 @@ implementation_redundancy  distribution of number_of_complete_implementations
 closed_cycles              cycles from evaluate_gift_cycles() closed by this genome
 ```
 
-`supported_fraction` is emitted **only** for universes flagged bounded at
+`supported_fraction` is emitted **only** for frames flagged bounded at
 construction — the draft's §6 warning that an arbitrary denominator is worse
 than no denominator, enforced in code rather than in prose.
 
-### 5.3 Current universe sizes
+### 5.3 Current frame sizes
 
 Anyone shipping a metric should see this table first.
 
@@ -365,7 +365,7 @@ Named `gifter_result` objects in, one `gifter_community` out. Responsibilities:
 
 - assign and validate genome identifiers from the argument names;
 - **refuse to combine results from different `database_version`s** — comparing
-  calls across releases silently compares different universes;
+  calls across releases silently compares different frames;
 - materialise the call matrix once (`genome × gift`, plus the assessability
   state from §4);
 - carry the optional abundance vector, validated to be non-negative and named
@@ -380,12 +380,12 @@ The matrix is built once here rather than recomputed inside each metric.
 ### 7.1 Distributional metrics
 
 ```r
-community_traits(community, universes = NULL)
+community_traits(community, frames = NULL)
 ```
 
 ```text
 community_richness       GIFTs supported by >= 1 genome
-community_coverage       richness / assessable        (bounded universes only)
+community_coverage       richness / assessable        (bounded frames only)
 provider_count           per GIFT: genomes supporting it
 provider_fraction        provider_count / assessable genomes
 abundance_coverage       sum of a_i over supporting genomes   (if abundance given)
@@ -493,7 +493,7 @@ metrics:
   numerator
   denominator
   assessable
-  reference_universe
+  reference_frame
   database_version
   derivation_method
 
@@ -509,7 +509,7 @@ The question the shape must answer without re-running anything:
 > Why does this genome have `biosynthetic_autonomy = 0.82`?
 
 `trace` names the 14 supporting GIFTs; `denominator` and `assessable` say 17 of
-20; `reference_universe` says which 20.
+20; `reference_frame` says which 20.
 
 ---
 
@@ -524,18 +524,18 @@ Confirm §5.1 naming, the §4 default (`policy = "none"`), and the §9 long-form
 shape. These are cheap to decide now and expensive to change after the API is
 exported.
 
-### Phase 1 — reference universes and genome traits
+### Phase 1 — reference frames and genome traits
 
 | File | Change |
 |---|---|
-| `R/universe.R` | new — `gift_universe()`, `gifter_universe` class, `print` method, bounded flag |
+| `R/frame.R` | new — `reference_frame()`, `gifter_frame` class, `print` method, bounded flag |
 | `R/traits.R` | new — `genome_traits()`, `gifter_traits` class, `print` method |
 | `NAMESPACE`, `man/` | regenerated |
-| `tests/testthat/test-universes.R` | new |
+| `tests/testthat/test-frames.R` | new |
 | `tests/testthat/test-genome-traits.R` | new |
 
-Tests must cover: a universe built from each metadata source; a bounded
-universe emitting `supported_fraction` and an unbounded one refusing to; every
+Tests must cover: a frame built from each metadata source; a bounded
+frame emitting `supported_fraction` and an unbounded one refusing to; every
 metric of §5.2 against a synthetic fixture with hand-computed expected values;
 `trace` rows summing to `numerator`; a metric row's `database_version` matching
 the result's.
@@ -590,12 +590,12 @@ Per the table below.
 
 | Document | Change |
 |---|---|
-| `inst/doc/architecture.md` | new top-level section **Quantitative traits**, placed after [Derived capabilities](architecture.md#derived-capabilities), which already promises this layer. Covers the three-layer hierarchy, the reference-universe contract, the three-state model, what a trait may not say, and the recorded refusals. Add entries to the quick topic index. |
-| `AGENTS.md` | one row in *Work in the correct files* (`Quantitative traits → R/universe.R, R/traits.R, R/community.R, R/community-network.R`); the §11 invariants added to *Non-negotiable biological invariants* as rules 20–23; a bullet in *Test biological behavior* requiring that every proportion has a tested denominator. |
+| `inst/doc/architecture.md` | new top-level section **Quantitative traits**, placed after [Derived capabilities](architecture.md#derived-capabilities), which already promises this layer. Covers the three-layer hierarchy, the reference-frame contract, the three-state model, what a trait may not say, and the recorded refusals. Add entries to the quick topic index. |
+| `AGENTS.md` | one row in *Work in the correct files* (`Quantitative traits → R/frame.R, R/traits.R, R/community.R, R/community-network.R`); the §11 invariants added to *Non-negotiable biological invariants* as rules 20–23; a bullet in *Test biological behavior* requiring that every proportion has a tested denominator. |
 | `inst/doc/proposal-quantitative-traits.md` | this file — updated to *accepted and implemented*, with an implementation record stating where the build departed from the plan, in the house style of [proposal-central-metabolic-cycles.md](proposal-central-metabolic-cycles.md) §18. |
 | `README.md` | short subsection with one genome example and one community example. No new concepts. |
 | `CHANGELOG.md` | one entry per phase, each stating change, reason and effect. Code change, not biological — nothing here goes in `database_changes.tsv`, because the database does not change. |
-| `man/*.Rd` | roxygen for every exported function. Each `@return` states the unit and the reference universe; each function carrying an interpretation risk gets a `@section Interpretation:` naming what the number does not mean. |
+| `man/*.Rd` | roxygen for every exported function. Each `@return` states the unit and the reference frame; each function carrying an interpretation risk gets a `@section Interpretation:` naming what the number does not mean. |
 | ~~`proposal-quantitative-genome-community-traits.md`~~ | **Not done, and deliberately.** See §13.2. |
 
 No database rebuild is required at any phase. This layer reads the database and
@@ -610,8 +610,8 @@ Restating the source draft's rules where they survived, plus the ones this
 assessment adds. These are the candidates for AGENTS.md rules 20–23.
 
 1. No metric without a biological definition, and no proportion without an
-   explicit denominator and a declared reference universe.
-2. A reference universe is derived from curated metadata, never written as a
+   explicit denominator and a declared reference frame.
+2. A reference frame is derived from curated metadata, never written as a
    list of `gift_id`s in R source.
 3. Presence, abundance and context are three axes and are never combined into
    one number.
@@ -624,7 +624,7 @@ assessment adds. These are the candidates for AGENTS.md rules 20–23.
    when it is clearer than its ingredients.
 8. A quantitative trait describes encoded capability in the current ontology.
    It never describes activity, flux, phenotype or ecological effect, and the
-   current database is not the universe of microbial function.
+   current database is not the whole of microbial function.
 
 ---
 
@@ -633,17 +633,17 @@ assessment adds. These are the candidates for AGENTS.md rules 20–23.
 Phases 1 to 4 shipped in package 0.1.0 across four commits, each with its own
 `CHANGELOG.md` entry. No schema, database content or evaluation change was
 required for those phases: the compiled artifact was byte-identical and no
-Boolean call moved. The later named-universe registry described in §13.7 adds
+Boolean call moved. The later named-frame registry described in §13.7 adds
 analytical metadata and schema, while still changing no Boolean call. The full
 suite went from 3435 to 3566 assertions before that extension.
 
 | Phase | Files | Exports |
 |---|---|---|
-| 1 | `R/universe.R`, `R/traits.R` | `gift_universe()`, `genome_traits()` |
+| 1 | `R/frame.R`, `R/traits.R` | `reference_frame()`, `genome_traits()` |
 | 2 | `R/community.R` | `gifter_community()`, `community_traits()` |
 | 3 | `R/community-network.R` | `community_network()` |
 | 4 | `R/assessability.R` | `quality`, `policy`, `threshold` arguments |
-| Named universes | `R/universe.R`, three database-source tables, schema 7 | `list_gift_universes()`, `gift_universe(preset = ...)` |
+| Named frames | `R/frame.R`, three database-source tables, schema 7 | `list_reference_frames()`, `reference_frame(preset = ...)` |
 
 ### 13.1 Departure: a cross-genome edge requires an extracellular anchor
 
@@ -710,21 +710,21 @@ rather than more complete.
 
 §5.2 listed `biosynthetic_autonomy` beside `supported_fraction`. They are the
 same quantity: autonomy is `supported_fraction` computed over the bounded
-biomass-essential anabolic universe. Implementing it separately would have put
+biomass-essential anabolic frame. Implementing it separately would have put
 one biological definition in two places and given the ontology a special case in
-R, so the metric was dropped and the universe kept. The default universe set
+R, so the metric was dropped and the frame kept. The default frame set
 includes it. The named registry also exposes bounded amino-acid, nucleotide and
-cofactor subsets of that same curated universe; these refine its denominator
+cofactor subsets of that same curated frame; these refine its denominator
 rather than making independent completeness claims.
 
 ### 13.4 Two metrics added that the plan did not list
 
-`assessable_fraction` reports how much of the intended universe the
+`assessable_fraction` reports how much of the intended frame the
 assessability policy could assess. It implements the draft's §44 and turned out
 to be load-bearing rather than cosmetic: at 30% completeness a genome reports
 `supported_fraction = 1.0` over a single assessable GIFT, which is
 arithmetically correct and biologically empty. The fraction is what tells the
-reader so, and a proportion over a universe less than half assessable now warns.
+reader so, and a proportion over a frame less than half assessable now warns.
 
 `provider_fraction` divides a provider count by the genomes that could assess
 the GIFT rather than by all genomes, which only becomes a distinct quantity once
@@ -732,11 +732,11 @@ assessability exists.
 
 ### 13.5 What was implemented as planned
 
-Reference universes from curated metadata only, with `bounded` as a declared
+Reference frames from curated metadata only, with `bounded` as a declared
 biological claim enforced in code; the long-form metric and trace tables of §9;
 the community container refusing mixed database releases and mismatched
 abundance vectors; presence and abundance in separate rows; overlap stratified
-by universe; the `"none"` and `"completeness"` assessability policies with no
+by frame; the `"none"` and `"completeness"` assessability policies with no
 default threshold, and the constraint — tested — that no policy promotes an
 unsupported GIFT to supported.
 
@@ -757,13 +757,13 @@ decides:
 - whether `"near_miss"` can be validated against fragmented genomes of known
   content.
 
-### 13.7 Extension: named reference universes
+### 13.7 Extension: named reference frames
 
-Database release 2026.20.4 and schema 7 add 19 reusable reference-universe
+Database release 2026.20.4 and schema 7 add 19 reusable reference-frame
 presets. The source is normalized into definitions, metadata filters and metric
 recommendations. Filters are ORed within one key and ANDed across keys, and the
 runtime resolves membership against the current release. No source or runtime
-table stores a GIFT identifier as universe membership.
+table stores a GIFT identifier as frame membership.
 
 This is analytical curation rather than a new completeness layer. Presets make
 questions such as carbohydrate degradation, fibre utilisation, nitrogen

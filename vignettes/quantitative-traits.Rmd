@@ -52,11 +52,11 @@ the next curation campaign adds forty GIFTs, does "ten" still mean the same
 thing?
 
 gifter's answer is that every quantitative trait names its **reference
-universe**, and carries that name in the output beside the number.
+frame**, and carries that name in the output beside the number.
 
-## Step 1: define a universe
+## Step 1: define a frame
 
-`gift_universe()` builds one from curated metadata — the GIFT type, the
+`reference_frame()` builds one from curated metadata — the GIFT type, the
 metabolic mode, the registered facet vocabulary, the derived profile view. You
 never write a list of GIFT identifiers yourself; that would move biological
 content out of the database, where it can be validated and versioned, and into
@@ -66,25 +66,25 @@ Common questions already have named, versioned presets. Inspect them before
 writing a custom filter:
 
 ```{r}
-presets <- list_gift_universes()
-presets[, c("universe_id", "bounded", "member_count")]
+presets <- list_reference_frames()
+presets[, c("frame_id", "bounded", "member_count")]
 
-carbohydrate <- gift_universe(preset = "carbohydrate_degradation")
+carbohydrate <- reference_frame(preset = "carbohydrate_degradation")
 carbohydrate
 ```
 
 ### Choose a preset from your research question
 
-The searchable [Reference universes atlas](https://alberdilab.github.io/gifter/atlas/#universes)
+The searchable [Reference frames atlas](https://alberdilab.github.io/gifter/atlas/#frames)
 is the quickest chooser: search for a substrate, process or metric, then narrow
 the cards to genome, community, network or bounded-coverage analyses. The full
 registry is reproduced below so that the choice remains visible in this
 tutorial too. "Current GIFTs" describes this database release, not a fixed list
 stored in the preset.
 
-```{r universe-guide, echo = FALSE}
+```{r frame-guide, echo = FALSE}
 guide <- presets[, c(
-  "label", "universe_id", "description", "member_count",
+  "label", "frame_id", "description", "member_count",
   "recommended_metrics", "bounded"
 )]
 guide$bounded <- ifelse(
@@ -102,7 +102,7 @@ names(guide) <- c(
 knitr::kable(guide, row.names = FALSE)
 ```
 
-Choose the universe from the biological question first, then use its
+Choose the frame from the biological question first, then use its
 scope-specific metric recommendations:
 
 - for one genome, start with `gift_richness` or the recommended breadth metric;
@@ -111,7 +111,7 @@ scope-specific metric recommendations:
 - use a network metric only when the question depends on compatible,
   extracellular GIFT boundaries;
 - use `supported_fraction` or `community_coverage` only where the table marks
-  the universe bounded, and always report `assessable_fraction` alongside a
+  the frame bounded, and always report `assessable_fraction` alongside a
   genome fraction.
 
 Each preset carries its description, interpretation limits and recommended
@@ -119,20 +119,20 @@ genome, community or network metrics. Its members are still resolved from the
 current release's metadata: the registry stores a query, never a list of GIFT
 identifiers. An open preset cannot be promoted to `bounded = TRUE` at runtime.
 
-For a question that has no preset, build a custom universe directly:
+For a question that has no preset, build a custom frame directly:
 
 ```{r}
-gift_universe(type = "metabolic")
+reference_frame(type = "metabolic")
 
-gift_universe(mode = "catabolic")
+reference_frame(mode = "catabolic")
 
-gift_universe(facet = "substrate_class", value = "polysaccharide")
+reference_frame(facet = "substrate_class", value = "polysaccharide")
 ```
 
 Filters combine with AND:
 
 ```{r}
-gift_universe(mode = "catabolic", resource_strategy = "uptake")
+reference_frame(mode = "catabolic", resource_strategy = "uptake")
 ```
 
 Note that `mode` partitions this database far better than `gift_type` does —
@@ -147,7 +147,7 @@ traits <- genome_traits(result, genome_id = "MAG_001")
 traits
 ```
 
-With no universes supplied you get a default set that partitions the catalogue
+With no frames supplied you get a default set that partitions the catalogue
 by type, by mode, and by resource strategy. The result is a long-form table:
 
 ```{r}
@@ -155,12 +155,12 @@ names(traits$metrics)
 ```
 
 Every row carries its numerator, its denominator, how many members of the
-universe were assessable, the universe itself, and the database version. That
+frame were assessable, the frame itself, and the database version. That
 is what lets a number be taken apart six months later.
 
 ```{r}
 richness <- traits$metrics[traits$metrics$metric_id == "gift_richness", ]
-richness[, c("reference_universe", "value", "assessable")]
+richness[, c("reference_frame", "value", "assessable")]
 ```
 
 ## Step 3: ask why a number is what it is
@@ -170,7 +170,7 @@ Every metric keeps the GIFTs that produced it.
 ```{r}
 trace <- traits$trace[
   traits$trace$metric_id == "gift_richness" &
-    traits$trace$reference_universe == "catabolic GIFTs",
+    traits$trace$reference_frame == "catabolic GIFTs",
 ]
 trace[, c("metric_id", "gift_id")]
 ```
@@ -186,13 +186,13 @@ subdivided. Breadth counts distinct classifications instead:
 ```{r}
 breadth <- traits$metrics[
   startsWith(traits$metrics$metric_id, "breadth_") &
-    traits$metrics$reference_universe == "all curated GIFTs",
+    traits$metrics$reference_frame == "all curated GIFTs",
 ]
 breadth[, c("metric_id", "value", "denominator")]
 ```
 
 `breadth_substrate_class` counts how many curated substrate classes this genome
-can act on, out of the classes present in the universe. Two GIFTs acting on the
+can act on, out of the classes present in the frame. Two GIFTs acting on the
 same class contribute one class, not two.
 
 ## Step 5: fractions, and when gifter refuses to give you one
@@ -209,15 +209,15 @@ means the catalogue currently stops at 122 and will not tomorrow. A fraction of
 an open, growing set reads as "the share of microbial function this organism
 carries", which is not what it measures.
 
-A fraction is offered only for a universe you explicitly declare **bounded** —
+A fraction is offered only for a frame you explicitly declare **bounded** —
 a claim that curation intends to cover that set completely.
 
 ```{r}
-autonomy <- gift_universe(preset = "biomass_essential_anabolism")
+autonomy <- reference_frame(preset = "biomass_essential_anabolism")
 autonomy
 
 autonomy_traits <- genome_traits(
-  result, universes = list(autonomy), genome_id = "MAG_001"
+  result, frames = list(autonomy), genome_id = "MAG_001"
 )
 autonomy_traits$metrics[
   autonomy_traits$metrics$metric_id %in%
@@ -226,7 +226,7 @@ autonomy_traits$metrics[
 ]
 ```
 
-Over that universe the fraction *is* meaningful: it is genomic coverage of the
+Over that frame the fraction *is* meaningful: it is genomic coverage of the
 curated biomass-essential anabolic capabilities. It still does not mean the
 organism grows without supplementation — it means the genes for those
 capabilities are or are not there.
@@ -243,7 +243,7 @@ By default gifter makes the optimistic assumption and *tells you it did*:
 ```{r}
 assessable <- traits$metrics[
   traits$metrics$metric_id == "assessable_fraction" &
-    traits$metrics$reference_universe == "all curated GIFTs",
+    traits$metrics$reference_frame == "all curated GIFTs",
 ]
 assessable[, c("value", "numerator", "denominator")]
 ```
@@ -256,7 +256,7 @@ gifter reads the scale from the values themselves, and `quality = c(MAG_001 =
 
 ```{r}
 fragmented <- genome_traits(
-  result, universes = list(autonomy), genome_id = "MAG_001",
+  result, frames = list(autonomy), genome_id = "MAG_001",
   quality = c(MAG_001 = 0.55), policy = "completeness", threshold = 0.9
 )
 fragmented$metrics[
@@ -290,7 +290,7 @@ Two guarantees hold whatever policy you choose:
 ## What these numbers may not say
 
 - richness counts encoded capabilities in the current gifter ontology within a
-  stated universe. It is not a measure of biological complexity or of metabolic
+  stated frame. It is not a measure of biological complexity or of metabolic
   versatility in any particular environment.
 - a supported fraction is genomic coverage, never growth independence,
   activity, flux or phenotype.

@@ -63,7 +63,7 @@ refused. No schema migration and no code change is required.
    *Escherichia* and *Klebsiella* positive — fumarate respirers — and
    *Bacteroides*, *Prevotella* and *Fibrobacter*, the dominant gut succinate
    producers, negative. Curated on the fused `sdh`/`frd` group instead it fires
-   in 7276 organisms, 61% of the universe, including *Streptomyces* and
+   in 7276 organisms, 61% of the frame, including *Streptomyces* and
    *Chlamydia*. Both settings are wrong in opposite directions. §6.4.
 9. **Record the structural finding: citric-acid-cycle intermediates may not be
    anchors.** Six catabolic GIFTs spanning citrate → 2-oxoglutarate →
@@ -309,7 +309,7 @@ Contrast that with the butyrate result, where a KO-evidenced trait would have
 called *B. subtilis* positive and *F. prausnitzii* negative. Here the KO layer
 gets both right.
 
-`K00016` is present in 35% of the universe, which is comparable to acetate's
+`K00016` is present in 35% of the frame, which is comparable to acetate's
 56%, and the top genera — *Streptococcus* (185), *Bacillus* (167),
 *Corynebacterium* (162), *Staphylococcus* (110), *Clostridium* (71),
 *Bifidobacterium* (64), *Listeria* (48), *Lactobacillus* (40), *Enterococcus*
@@ -466,7 +466,7 @@ overlapping grounds.
 to allow `K00239`/`K00240`, and it destroys the trait. KEGG names that group
 **`sdhA, frdA`**: it is one orthology group for both enzymes, because outside
 the Enterobacteriaceae the split does not exist. The complete route then fires
-in **7276 organisms — 61% of the universe** — led by *Streptomyces* (249),
+in **7276 organisms — 61% of the frame** — led by *Streptomyces* (249),
 *Pseudomonas* (245), *Bacillus* (172), *Corynebacterium* (171),
 *Staphylococcus* (109) and *Chlamydia* (90). This is not succinate formation;
 it is "has a citric acid cycle", and it fails clause 3.
@@ -542,7 +542,7 @@ Citrate splits cleanly into a refused trait and a recommended one, and the
 recommended one is the direction the request did not name.
 
 **`citrate_formation` — refuse.** Citrate synthase (`K01647`) is present in
-**8467 organisms, 71% of the universe**. Citrate is the entry metabolite of the
+**8467 organisms, 71% of the frame**. Citrate is the entry metabolite of the
 citric acid cycle, consumed by aconitase in the same cell that made it, and
 bacterial citrate excretion is a rarity rather than a capability class. The
 trait would report "has a citric acid cycle" under a misleading name. Clause 3,

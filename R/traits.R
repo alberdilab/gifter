@@ -3,22 +3,22 @@
 # Nothing here is curated and nothing here changes a call. This layer reads the
 # calls `evaluate_gifts()` produced, the curated facets that classify them, and
 # the two derived views -- `gift_profile` and `gift_graph` -- and summarises
-# them within declared reference universes. It is the derived layer the
+# them within declared reference frames. It is the derived layer the
 # architecture guide anticipated, not a fifth GIFT type.
 #
 # Every row carries its numerator, its denominator, how many members of the
-# universe were assessable, the universe itself and the database version, so
+# frame were assessable, the frame itself and the database version, so
 # that a number can be taken apart again. A metric whose ingredients cannot be
 # recovered is not reportable, however correct it is.
 
 .metric_columns <- c(
   "target_type", "target_id", "metric_id", "value", "unit", "numerator",
-  "denominator", "assessable", "reference_universe", "database_version",
+  "denominator", "assessable", "reference_frame", "database_version",
   "derivation_method"
 )
 
 .trace_columns <- c(
-  "target_type", "target_id", "metric_id", "reference_universe", "gift_id",
+  "target_type", "target_id", "metric_id", "reference_frame", "gift_id",
   "contribution"
 )
 
@@ -27,7 +27,7 @@
     target_type = character(), target_id = character(), metric_id = character(),
     value = numeric(), unit = character(), numerator = integer(),
     denominator = integer(), assessable = integer(),
-    reference_universe = character(), database_version = character(),
+    reference_frame = character(), database_version = character(),
     derivation_method = character()
   )
 }
@@ -35,13 +35,13 @@
 .empty_trace <- function() {
   tibble::tibble(
     target_type = character(), target_id = character(), metric_id = character(),
-    reference_universe = character(), gift_id = character(),
+    reference_frame = character(), gift_id = character(),
     contribution = character()
   )
 }
 
 .metric_row <- function(target_type, target_id, metric_id, value, unit,
-                        numerator, denominator, assessable, universe,
+                        numerator, denominator, assessable, frame,
                         version, derivation_method) {
   tibble::tibble(
     target_type = target_type, target_id = target_id, metric_id = metric_id,
@@ -49,22 +49,22 @@
     numerator = as.integer(numerator),
     denominator = if (is.null(denominator)) NA_integer_ else as.integer(denominator),
     assessable = as.integer(assessable),
-    reference_universe = universe, database_version = version,
+    reference_frame = frame, database_version = version,
     derivation_method = derivation_method
   )
 }
 
-.trace_rows <- function(target_type, target_id, metric_id, universe, gift_id,
+.trace_rows <- function(target_type, target_id, metric_id, frame, gift_id,
                         contribution = NA_character_) {
   if (!length(gift_id)) return(.empty_trace())
   tibble::tibble(
     target_type = target_type, target_id = target_id, metric_id = metric_id,
-    reference_universe = universe, gift_id = as.character(gift_id),
+    reference_frame = frame, gift_id = as.character(gift_id),
     contribution = as.character(contribution)
   )
 }
 
-# Facet and profile classifications of the GIFTs in one universe, in the shape
+# Facet and profile classifications of the GIFTs in one frame, in the shape
 # breadth needs: one row per GIFT per classification. `gift_profile` columns are
 # included alongside registered facets because a substrate tier and a resource
 # strategy classify a call exactly as a facet does; they are simply derived
@@ -140,11 +140,11 @@
   combined[!is.na(combined$value) & nzchar(combined$value), , drop = FALSE]
 }
 
-.universe_metrics <- function(connection, universe, calls, state, graph, target_id,
-                              version) {
-  members <- universe$gift_id
-  label <- universe$label
-  in_universe <- calls[calls$gift_id %in% members, , drop = FALSE]
+.frame_metrics <- function(connection, frame, calls, state, graph, target_id,
+                           version) {
+  members <- frame$gift_id
+  label <- frame$label
+  in_frame <- calls[calls$gift_id %in% members, , drop = FALSE]
   member_state <- state[members]
   supported <- members[member_state %in% TRUE]
   assessed <- members[!is.na(member_state)]
@@ -153,30 +153,30 @@
   metrics <- list(.metric_row(
     "genome", target_id, "gift_richness", length(supported), "count",
     length(supported), NA_integer_, assessable, label, version,
-    "supported GIFTs in the reference universe"
+    "supported GIFTs in the reference frame"
   ))
   trace <- list(.trace_rows(
     "genome", target_id, "gift_richness", label, supported
   ))
 
-  # How much of the intended universe could be assessed at all. Reporting a
+  # How much of the intended frame could be assessed at all. Reporting a
   # proportion without it invites the reader to treat a fragmented genome's
   # silence as evidence of absence.
   if (length(members)) {
     metrics <- c(metrics, list(.metric_row(
       "genome", target_id, "assessable_fraction", assessable / length(members),
       "proportion", assessable, length(members), assessable, label, version,
-      "members of the reference universe whose absence the assessability policy treats as informative"
+      "members of the reference frame whose absence the assessability policy treats as informative"
     )))
   }
 
   # A supported fraction over an open catalogue would read as the share of
   # microbial function a genome carries, which is not what it measures.
-  if (isTRUE(universe$bounded) && assessable > 0L) {
+  if (isTRUE(frame$bounded) && assessable > 0L) {
     metrics <- c(metrics, list(.metric_row(
       "genome", target_id, "supported_fraction", length(supported) / assessable,
       "proportion", length(supported), assessable, assessable, label, version,
-      "supported GIFTs divided by assessable GIFTs in a bounded universe"
+      "supported GIFTs divided by assessable GIFTs in a bounded frame"
     )))
     trace <- c(trace, list(.trace_rows(
       "genome", target_id, "supported_fraction", label, supported
@@ -240,8 +240,8 @@
     }
   }
 
-  # Handoff interfaces are anchor-derived, so they exist only where the universe
-  # reaches the metabolic model. Reporting an out-degree of zero for a universe
+  # Handoff interfaces are anchor-derived, so they exist only where the frame
+  # reaches the metabolic model. Reporting an out-degree of zero for a frame
   # of structural GIFTs would imply a genome failed a test it was never given.
   if (any(assessed %in% c(graph$from_gift, graph$to_gift))) {
     outgoing <- graph[graph$from_gift %in% supported, , drop = FALSE]
@@ -270,10 +270,10 @@
     ))
   }
 
-  redundant <- in_universe[
-    in_universe$gift_id %in% supported &
-      !is.na(in_universe$number_of_complete_implementations) &
-      in_universe$number_of_complete_implementations > 1L, ,
+  redundant <- in_frame[
+    in_frame$gift_id %in% supported &
+      !is.na(in_frame$number_of_complete_implementations) &
+      in_frame$number_of_complete_implementations > 1L, ,
     drop = FALSE
   ]
   metrics <- c(metrics, list(.metric_row(
@@ -317,17 +317,17 @@
 #' Quantitative traits of one genome
 #'
 #' Summarises the GIFT calls of a single genome into quantitative traits within
-#' declared reference universes. Nothing here is curated and nothing here
+#' declared reference frames. Nothing here is curated and nothing here
 #' changes a call: this reads the calls [evaluate_gifts()] already made, the
 #' facets that classify them, and the derived [gift_profile()] and
 #' [gift_graph()] views.
 #'
-#' Metrics reported per universe:
+#' Metrics reported per frame:
 #'
 #' \describe{
-#'   \item{`gift_richness`}{supported GIFTs in the universe}
+#'   \item{`gift_richness`}{supported GIFTs in the frame}
 #'   \item{`supported_fraction`}{richness over assessable members, reported for
-#'     bounded universes only. Over the biomass-essential anabolic universe this
+#'     bounded frames only. Over the biomass-essential anabolic frame this
 #'     is biosynthetic capability coverage}
 #'   \item{`breadth_*`}{distinct values of one curated facet, one
 #'     [gift_profile()] classification or one anchor facet represented by a
@@ -340,11 +340,11 @@
 #'     `breadth_*` denominator instead}
 #'   \item{`handoff_out_degree`, `handoff_in_degree`}{distinct anchors through
 #'     which the genome's supported GIFTs could hand off to, or receive from, a
-#'     curated GIFT. Reported only where the universe reaches the metabolic
+#'     curated GIFT. Reported only where the frame reaches the metabolic
 #'     model, since anchors belong to it}
 #'   \item{`multi_implementation_gifts`}{supported GIFTs completed by more than
 #'     one curated implementation}
-#'   \item{`assessable_fraction`}{members of the universe whose absence the
+#'   \item{`assessable_fraction`}{members of the frame whose absence the
 #'     assessability policy treats as informative}
 #'   \item{`closed_cycles`}{elementary cycles of the composition graph whose
 #'     every member is supported, from [evaluate_gift_cycles()]}
@@ -394,24 +394,24 @@
 #' @section Interpretation:
 #'
 #' These traits count encoded capabilities in the current gifter ontology within
-#' a stated universe. They are not measures of biological complexity, metabolic
+#' a stated frame. They are not measures of biological complexity, metabolic
 #' versatility in an environment, growth independence, activity, flux or
 #' phenotype. `supported_fraction = 0.8` over the biomass-essential anabolic
-#' universe means four fifths of the curated biomass-essential anabolic
+#' frame means four fifths of the curated biomass-essential anabolic
 #' capabilities that were assessable are genomically supported; it does not mean
-#' the organism grows without supplementation. The database is not the universe
-#' of microbial function, which is why an unbounded universe reports no
+#' the organism grows without supplementation. The database is not the frame
+#' of microbial function, which is why an unbounded frame reports no
 #' fraction at all.
 #'
-#' Under the default policy `assessable` equals the size of the universe: every
+#' Under the default policy `assessable` equals the size of the frame: every
 #' member is treated as assessed, and a fragmented genome will report absences
 #' that a complete one would not. `assessable_fraction` states this in the
 #' output rather than leaving it implied.
 #'
 #' @param result A result returned by [evaluate_gifts()].
-#' @param universes Optional list of [gift_universe()] objects. A default set
+#' @param frames Optional list of [reference_frame()] objects. A default set
 #'   partitioning the catalogue by type, mode and resource strategy, plus the
-#'   bounded biomass-essential anabolic universe, is used if omitted.
+#'   bounded biomass-essential anabolic frame, is used if omitted.
 #' @param genome_id Identifier reported in the `target_id` column.
 #' @param quality Optional genome completeness, as a named numeric vector or a
 #'   data frame with `genome_id` and `completeness` columns. Read as
@@ -432,7 +432,7 @@
 #'   ambiguous.
 #' @param db Optional open gifter database connection.
 #' @return A `gifter_traits` list with `metrics` (one row per trait),
-#'   `trace` (the GIFTs behind each trait), `universes`, and
+#'   `trace` (the GIFTs behind each trait), `frames`, and
 #'   `database_version`.
 #' @examples
 #' markers <- data.frame(
@@ -445,9 +445,9 @@
 #' )
 #' traits <- genome_traits(evaluate_gifts(markers), genome_id = "MAG_001")
 #' subset(traits$metrics, metric_id == "gift_richness",
-#'        c("reference_universe", "value", "assessable"))
+#'        c("reference_frame", "value", "assessable"))
 #' @export
-genome_traits <- function(result, universes = NULL, genome_id = "genome",
+genome_traits <- function(result, frames = NULL, genome_id = "genome",
                           quality = NULL, policy = "none", threshold = NULL,
                           min_confidence = NULL, db = NULL) {
   if (!inherits(result, "gifter_genome")) {
@@ -470,22 +470,22 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
         "The result was evaluated against database version ",
         result_version,
         " but the supplied connection serves ", version,
-        ". Traits computed across releases would compare different universes.",
+        ". Traits computed across releases would compare different frames.",
         call. = FALSE
       )
     }
-    if (is.null(universes)) universes <- .default_universes(connection)
-    if (!is.list(universes) || !length(universes) ||
+    if (is.null(frames)) frames <- .default_frames(connection)
+    if (!is.list(frames) || !length(frames) ||
         !all(vapply(
-          universes, inherits, logical(1), "gifter_universe"
+          frames, inherits, logical(1), "gifter_frame"
         ))) {
-      stop("universes must be a non-empty list of gift_universe() objects", call. = FALSE)
+      stop("frames must be a non-empty list of reference_frame() objects", call. = FALSE)
     }
-    stale <- vapply(universes, function(u) !identical(u$database_version, version), logical(1))
+    stale <- vapply(frames, function(u) !identical(u$database_version, version), logical(1))
     if (any(stale)) {
       stop(
-        "Universes were built against a different database version: ",
-        paste(unique(vapply(universes[stale], function(u) u$label, character(1))), collapse = ", "),
+        "Frames were built against a different database version: ",
+        paste(unique(vapply(frames[stale], function(u) u$label, character(1))), collapse = ", "),
         call. = FALSE
       )
     }
@@ -503,8 +503,8 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
       calls$gift_id
     )
     graph <- gift_graph(db = connection)
-    parts <- lapply(universes, function(universe) {
-      .universe_metrics(connection, universe, calls, state, graph, genome_id, version)
+    parts <- lapply(frames, function(frame) {
+      .frame_metrics(connection, frame, calls, state, graph, genome_id, version)
     })
     parts <- c(parts, list(.cycle_metrics(result, connection, genome_id, version)))
 
@@ -518,7 +518,7 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
       list(
         metrics = metrics[.metric_columns],
         trace = trace[.trace_columns],
-        universes = universes,
+        frames = frames,
         genome_id = genome_id,
         assessability = list(
           policy = policy, threshold = threshold, completeness = completeness
@@ -530,25 +530,25 @@ genome_traits <- function(result, universes = NULL, genome_id = "genome",
   })
 }
 
-# A proportion over a universe that was mostly unassessable is arithmetically
+# A proportion over a frame that was mostly unassessable is arithmetically
 # fine and biologically empty: a supported fraction of 1.0 over one assessable
 # member says nothing. The warning is a nudge to read `assessable_fraction`, not
 # a claim about the genome.
 #
 # `unit` names what the thin rows are counted in. A genome or a community
-# reports one `assessable_fraction` per reference universe, which is the
-# default; a dataset reports one per sample per universe, and calling those
-# universes would undercount them by the sample count.
-.warn_thin_denominators <- function(metrics, unit = "universes") {
+# reports one `assessable_fraction` per reference frame, which is the
+# default; a dataset reports one per sample per frame, and calling those
+# frames would undercount them by the sample count.
+.warn_thin_denominators <- function(metrics, unit = "frames") {
   thin <- metrics[
     metrics$metric_id == "assessable_fraction" & metrics$value < 0.5, ,
     drop = FALSE
   ]
   if (!nrow(thin)) return(invisible(NULL))
   warning(
-    "Less than half of the reference universe was assessable for ",
+    "Less than half of the reference frame was assessable for ",
     nrow(thin), " of ", sum(metrics$metric_id == "assessable_fraction"),
-    " ", unit, ", including \"", thin$reference_universe[[1L]],
+    " ", unit, ", including \"", thin$reference_frame[[1L]],
     "\". Proportions over them rest on very few GIFTs; read them beside assessable_fraction.",
     call. = FALSE
   )
@@ -563,8 +563,8 @@ print.gifter_traits <- function(x, ...) {
     x$genome_id
   }
   cat("<gifter_traits>", scope, "\n")
-  cat("  metrics: ", nrow(x$metrics), "rows across", length(x$universes),
-      "reference universes\n")
+  cat("  metrics: ", nrow(x$metrics), "rows across", length(x$frames),
+      "reference frames\n")
   cat("  database version:", .gifter_database_version_value(x$database_version), "\n")
   headline <- if (any(x$metrics$target_type == "community")) {
     x$metrics[x$metrics$metric_id == "community_richness", , drop = FALSE]
@@ -575,7 +575,7 @@ print.gifter_traits <- function(x, ...) {
     cat("\n")
     for (index in seq_len(nrow(headline))) {
       cat(sprintf(
-        "  %-46s %3d / %3d supported\n", headline$reference_universe[[index]],
+        "  %-46s %3d / %3d supported\n", headline$reference_frame[[index]],
         as.integer(headline$value[[index]]), headline$assessable[[index]]
       ))
     }

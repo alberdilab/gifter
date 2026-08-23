@@ -126,12 +126,12 @@ test_that("edges inherit the edge quality of the GIFT edge beneath them", {
   expect_equal(nrow(inexact$edges), 0L)
 })
 
-test_that("a universe restricts which GIFTs may form edges", {
-  transport_only <- gift_universe(mode = "transport", label = "transport GIFTs")
-  network <- community_network(arabinoxylan_community(), universe = transport_only)
+test_that("a frame restricts which GIFTs may form edges", {
+  transport_only <- reference_frame(mode = "transport", label = "transport GIFTs")
+  network <- community_network(arabinoxylan_community(), frame = transport_only)
   # No transport GIFT hands off to another transport GIFT.
   expect_equal(nrow(network$edges), 0L)
-  expect_identical(network$universe$label, "transport GIFTs")
+  expect_identical(network$frame$label, "transport GIFTs")
 })
 
 test_that("interaction density counts ordered pairs and says so", {
@@ -162,11 +162,11 @@ test_that("only defined interaction types and matching versions are accepted", {
     community_network(community, interaction = "signal_response"),
     'should be "metabolic_handoff"'
   )
-  expect_error(community_network(community, universe = "metabolic"), "gift_universe")
-  stale <- gift_universe(type = "metabolic")
+  expect_error(community_network(community, frame = "metabolic"), "reference_frame")
+  stale <- reference_frame(type = "metabolic")
   stale$database_version <- "0000.0.0"
   expect_error(
-    community_network(community, universe = stale),
+    community_network(community, frame = stale),
     "different database version"
   )
 })

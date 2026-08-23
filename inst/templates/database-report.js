@@ -495,20 +495,20 @@
       });
   }
 
-  var universeFilter = "all";
-  var universeButtons = Array.prototype.slice.call(
-    document.querySelectorAll("[data-universe-filter]")
+  var frameFilter = "all";
+  var frameButtons = Array.prototype.slice.call(
+    document.querySelectorAll("[data-frame-filter]")
   );
 
-  function filterUniverses(query) {
-    var view = document.querySelector('[data-view="universes"]');
-    var cards = Array.prototype.slice.call(view.querySelectorAll("[data-universe-card]"));
+  function filterFrames(query) {
+    var view = document.querySelector('[data-view="frames"]');
+    var cards = Array.prototype.slice.call(view.querySelectorAll("[data-frame-card]"));
     var count = 0;
     cards.forEach(function (card) {
       var textMatches = !query || card.getAttribute("data-search").indexOf(query) !== -1;
-      var filterMatches = universeFilter === "all" ||
-        (universeFilter === "bounded" && card.getAttribute("data-universe-bounded") === "true") ||
-        card.getAttribute("data-universe-scopes").indexOf(" " + universeFilter + " ") !== -1;
+      var filterMatches = frameFilter === "all" ||
+        (frameFilter === "bounded" && card.getAttribute("data-frame-bounded") === "true") ||
+        card.getAttribute("data-frame-scopes").indexOf(" " + frameFilter + " ") !== -1;
       var matches = textMatches && filterMatches;
       card.hidden = !matches;
       if (matches) count += 1;
@@ -586,10 +586,10 @@
       }
       var giftCount = filterGifts(query);
       message = giftCount + (giftCount === 1 ? " matching GIFT" : " matching GIFTs");
-    } else if (section === "universes") {
-      var universeCount = filterUniverses(query);
-      message = universeCount +
-        (universeCount === 1 ? " matching reference universe" : " matching reference universes");
+    } else if (section === "frames") {
+      var frameCount = filterFrames(query);
+      message = frameCount +
+        (frameCount === 1 ? " matching reference frame" : " matching reference frames");
     } else if (section === "changelog") {
       var changeCount = filterChangelog(query);
       message = changeCount + (changeCount === 1 ? " matching change" : " matching changes");
@@ -607,7 +607,7 @@
     // An anchor filter narrows the list without any typed query, so the count
     // still needs announcing.
     var filtered = (section === "gifts" && Boolean(anchorFilter("input") || anchorFilter("output"))) ||
-      (section === "universes" && universeFilter !== "all");
+      (section === "frames" && frameFilter !== "all");
     if (announce && (query || filtered)) showStatus(message);
     if (!query && !filtered) status.classList.remove("visible");
   }
@@ -618,10 +618,10 @@
     });
   });
 
-  universeButtons.forEach(function (button) {
+  frameButtons.forEach(function (button) {
     button.addEventListener("click", function () {
-      universeFilter = button.getAttribute("data-universe-filter");
-      universeButtons.forEach(function (other) {
+      frameFilter = button.getAttribute("data-frame-filter");
+      frameButtons.forEach(function (other) {
         var active = other === button;
         other.classList.toggle("active", active);
         other.setAttribute("aria-pressed", active ? "true" : "false");

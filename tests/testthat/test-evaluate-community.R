@@ -254,7 +254,7 @@ test_that("the single-genome guardrail is applied to each genome separately", {
 test_that("the returned community is what the quantitative trait layer reads", {
   community <- evaluate_gifts_community(arabinoxylan_table(), workers = 1)
   traits <- community_traits(
-    community, universes = list(arabinoxylan_universe()),
+    community, frames = list(arabinoxylan_frame()),
     abundance = c(debrancher = 0.5, backbone = 0.3, consumer = 0.2)
   )
   expect_true(nrow(traits$metrics) > 0L)

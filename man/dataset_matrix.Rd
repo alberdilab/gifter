@@ -4,15 +4,15 @@
 \alias{dataset_matrix}
 \title{One metric of a dataset as a samples by target matrix}
 \usage{
-dataset_matrix(traits, metric_id, universe = NULL, fill = NA)
+dataset_matrix(traits, metric_id, frame = NULL, fill = NA)
 }
 \arguments{
 \item{traits}{A `gifter_dataset_traits` from [dataset_traits()].}
 
 \item{metric_id}{One metric identifier.}
 
-\item{universe}{Reference universe label. Required whenever the metric was
-reported for more than one, because stacking a metric across universes
+\item{frame}{Reference frame label. Required whenever the metric was
+reported for more than one, because stacking a metric across frames
 puts columns with different denominators side by side.}
 
 \item{fill}{Value for a cell the metric was not reported for. `NA` by
@@ -20,7 +20,7 @@ default.}
 }
 \value{
 A numeric matrix with samples as rows, carrying `metric_id`,
-  `reference_universe` and `database_version` attributes.
+  `reference_frame` and `database_version` attributes.
 }
 \description{
 Reshapes one metric of [dataset_traits()] into the shape an ordination or a

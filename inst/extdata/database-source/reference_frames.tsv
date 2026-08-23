@@ -1,4 +1,4 @@
-universe_id	label	description	bounded	interpretation
+frame_id	label	description	bounded	interpretation
 carbohydrate_degradation	Carbohydrate degradation	Catabolic GIFTs acting on polysaccharides, neutral monosaccharides, amino sugars or uronates.	0	Measures the supported repertoire in the current curated carbohydrate catalogue; it is not total carbohydrate metabolism, substrate use, growth or activity.
 plant_fibre_utilisation	Plant fibre utilisation	GIFTs curated with a fibre-degradation role, including polymer processing, uptake and intracellular catabolism of released sugars.	0	Measures encoded fibre-associated capabilities; it does not show that fibre is available, consumed or degraded in situ.
 host_glycan_foraging	Host glycan foraging	GIFTs acting on host-derived glycans or the sugars released from them.	0	Current membership covers released-sugar catabolism rather than complete mucin or host-glycan depolymerisation.

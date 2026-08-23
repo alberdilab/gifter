@@ -126,12 +126,12 @@ test_that("no cycle is closed across a sample's community", {
   expect_false(any(network$cycle_coverage$status == "community_distributed"))
 })
 
-test_that("the universe restricts which GIFTs may form an edge", {
+test_that("the frame restricts which GIFTs may form an edge", {
   dataset <- arabinoxylan_dataset()
-  narrow <- gift_universe(mode = "anabolic")
-  network <- dataset_network(dataset, universe = narrow)
+  narrow <- reference_frame(mode = "anabolic")
+  network <- dataset_network(dataset, frame = narrow)
   expect_equal(nrow(network$edges), 0L)
-  expect_identical(network$universe$label, narrow$label)
+  expect_identical(network$frame$label, narrow$label)
   wide <- dataset_network(dataset)
   expect_gt(nrow(wide$edges), 0L)
 })
@@ -141,7 +141,7 @@ test_that("the reading's arguments are checked", {
   expect_error(dataset_network(dataset$catalogue), "must come from gifter_dataset")
   expect_error(dataset_network(dataset, interaction = "co_occurrence"), "arg")
   expect_error(dataset_network(dataset, quality = "approximate"), "arg")
-  expect_error(dataset_network(dataset, universe = "all"), "gift_universe")
+  expect_error(dataset_network(dataset, frame = "all"), "reference_frame")
   expect_error(dataset_network(dataset, detection = -1), "non-negative")
   expect_error(
     dataset_network(dataset, detection = 0.45),

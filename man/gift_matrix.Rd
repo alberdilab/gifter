@@ -6,7 +6,7 @@
 \usage{
 gift_matrix(
   x,
-  universe = NULL,
+  frame = NULL,
   quality = NULL,
   policy = "none",
   threshold = NULL,
@@ -18,7 +18,7 @@ gift_matrix(
 its catalogue: calls are a property of a genome, so a dataset has exactly
 one call matrix and no sample can change it.}
 
-\item{universe}{Optional [gift_universe()] restricting the columns. Omitted,
+\item{frame}{Optional [reference_frame()] restricting the columns. Omitted,
 every GIFT the evaluation produced is a column.}
 
 \item{quality, policy, threshold, min_confidence}{Assessability, on the terms of
@@ -27,7 +27,7 @@ the matrix is Boolean, which is stated in the `assessability_policy`
 attribute rather than implied.}
 }
 \value{
-A logical genomes by GIFTs matrix with `reference_universe`,
+A logical genomes by GIFTs matrix with `reference_frame`,
   `database_version` and `assessability_policy` attributes.
 }
 \description{
@@ -56,7 +56,7 @@ packages that receive it. This is the transpose of the matrix a
 A supported call means the observed markers support at least one complete
 curated implementation. It does not mean expression, activity, flux,
 physiological state or phenotype, and no arrangement of the matrix makes it
-mean any of those. The reference universe and database version are carried as
+mean any of those. The reference frame and database version are carried as
 attributes so that a matrix exported from one release is not silently
 compared with one from another.
 }

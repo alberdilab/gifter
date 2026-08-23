@@ -1,4 +1,4 @@
-universe_id	scope	metric_id	rationale
+frame_id	scope	metric_id	rationale
 carbohydrate_degradation	genome	gift_richness	Count complete curated carbohydrate-degradation capabilities.
 carbohydrate_degradation	genome	breadth_substrate_class	Separate polymer, neutral-sugar, amino-sugar and uronate breadth from raw richness.
 carbohydrate_degradation	community	community_richness	Count carbohydrate-degradation capabilities represented anywhere in the community.
@@ -46,9 +46,9 @@ chemical_detoxification	community	provider_count	Report redundancy for each comp
 shikimate_derived_biosynthesis	genome	gift_richness	Count supported independently meaningful shikimate-derived biosynthetic capabilities.
 shikimate_derived_biosynthesis	community	community_richness	Count shikimate-derived capabilities represented anywhere in the community.
 shikimate_derived_biosynthesis	community	provider_count	Report providers for each shikimate-derived capability.
-biomass_essential_anabolism	genome	supported_fraction	Report coverage only because this universe is curated as bounded.
+biomass_essential_anabolism	genome	supported_fraction	Report coverage only because this frame is curated as bounded.
 biomass_essential_anabolism	genome	assessable_fraction	Expose how much of the bounded denominator could be assessed.
-biomass_essential_anabolism	community	community_coverage	Report bounded-universe coverage by at least one community member.
+biomass_essential_anabolism	community	community_coverage	Report bounded-frame coverage by at least one community member.
 biomass_essential_anabolism	community	provider_count	Report redundancy for each biomass-essential anabolic capability.
 amino_acid_autonomy	genome	supported_fraction	Report coverage of assessable biomass-essential amino-acid capabilities.
 amino_acid_autonomy	genome	assessable_fraction	Expose how much of the amino-acid denominator could be assessed.

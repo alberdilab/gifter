@@ -292,9 +292,9 @@ test_that("GH28 is substrate-coherent but cannot separate endo from exo", {
   expect_true(call$complete)
   expect_equal(call$evidence_confidence, "ambiguous")
 
-  universes <- list(gift_universe(preset = "carbohydrate_degradation"))
+  frames <- list(reference_frame(preset = "carbohydrate_degradation"))
   gated <- genome_traits(
-    evaluate_gifts("GH28"), universes = universes,
+    evaluate_gifts("GH28"), frames = frames,
     min_confidence = "high-confidence"
   )
   expect_equal(
@@ -411,7 +411,7 @@ test_that("a bare PL1 call is possible but never reads as real evidence", {
 
   gated <- genome_traits(
     evaluate_gifts(c("PL1", "K01730", "K01815", "K00065")),
-    universes = list(gift_universe(preset = "carbohydrate_degradation")),
+    frames = list(reference_frame(preset = "carbohydrate_degradation")),
     min_confidence = "high-confidence"
   )
   expect_equal(

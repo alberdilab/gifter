@@ -190,12 +190,12 @@ alone. Revisit that only once all three carry curated content.
 19. Adding a GIFT type is an architectural decision. A new type arrives with a
     stated completeness contract, its own validation rules, and a curated or
     fixture-backed example. Do not register a type with nothing behind it.
-20. A quantitative trait derived from GIFT calls states its reference universe,
-    and the universe is built from curated metadata -- `gift_type`, `mode`,
+20. A quantitative trait derived from GIFT calls states its reference frame,
+    and the frame is built from curated metadata -- `gift_type`, `mode`,
     facets, `gift_profile` -- never from a list of `gift_id`s written in R.
     No proportion without an explicit denominator; no fraction of the catalogue
-    unless the universe was declared `bounded`, which is a claim that curation
-    intends to cover that set completely. The database is not the universe of
+    unless the frame was declared `bounded`, which is a claim that curation
+    intends to cover that set completely. The database is not the whole of
     microbial function.
 21. Presence, abundance and context are three axes and never one number. Genome
     quality modifies the reading of absence only: nothing may convert an
@@ -250,7 +250,7 @@ for examples and rationale.
 | Source validation or compilation | `R/database-build.R`, `inst/schema/gifter.sql` | every source table, database tests, version metadata |
 | Runtime queries or public accessors | `R/database.R` | schema, generated `.Rd` files, database tests |
 | Evaluation behavior or traceability | `R/evaluation.R` | Boolean invariants, synthetic fixtures, evaluation tests |
-| Quantitative genome or community traits | `R/universe.R`, `R/traits.R`, `R/community.R`, `R/community-network.R`, `R/assessability.R`, `reference_universes.tsv`, `reference_universe_filters.tsv`, `reference_universe_metrics.tsv` | `proposal-quantitative-traits.md`, schema/compiler, reference universes, denominators, trait tests |
+| Quantitative genome or community traits | `R/frame.R`, `R/traits.R`, `R/community.R`, `R/community-network.R`, `R/assessability.R`, `reference_frames.tsv`, `reference_frame_filters.tsv`, `reference_frame_metrics.tsv` | `proposal-quantitative-traits.md`, schema/compiler, reference frames, denominators, trait tests |
 | Multi-sample datasets, detection, per-sample traits | `R/dataset.R`, `R/dataset-traits.R`, `R/dataset-export.R`, `R/dataset-network.R` | `proposal-multi-sample-datasets.md`, the equality of a sample's traits with `community_traits()`, dataset tests |
 | GIFT graph or database reports | `R/database-visualization.R` | declared-anchor behavior, composition tests |
 | Biological source provenance | `inst/extdata/database-source/SOURCES.md`, `database_release.tsv` | affected TSV records |
@@ -351,7 +351,7 @@ data frame. Depending on the change, cover:
 - stable identifiers, foreign keys, source validation, and independent version
   fields;
 - for derived quantitative traits: every proportion's denominator, that a
-  fraction of the catalogue is withheld for an unbounded universe, that no
+  fraction of the catalogue is withheld for an unbounded frame, that no
   assessability policy promotes an unsupported GIFT to supported, and that a
   cross-genome edge never carries a molecule that stays inside a cell.
 - for multi-sample datasets: that detection never changes a call, that raising

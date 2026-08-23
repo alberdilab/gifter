@@ -9,7 +9,7 @@
 community_metric <- function(traits, id, target = NULL) {
   rows <- traits$metrics[
     traits$metrics$metric_id == id &
-      traits$metrics$reference_universe == "all curated GIFTs", ,
+      traits$metrics$reference_frame == "all curated GIFTs", ,
     drop = FALSE
   ]
   if (!is.null(target)) rows <- rows[rows$target_id == target, , drop = FALSE]
@@ -81,7 +81,7 @@ test_that("abundance is validated against the genomes it weights", {
   )
   weighted <- function(abundance) {
     community_traits(
-      community, universes = list(arabinoxylan_universe()), abundance = abundance
+      community, frames = list(arabinoxylan_frame()), abundance = abundance
     )
   }
   expect_error(weighted(c(B = 1)), "exactly the supplied genomes")
@@ -96,7 +96,7 @@ test_that("abundance is validated against the genomes it weights", {
 
 test_that("provider counts match the distributed chain", {
   traits <- community_traits(
-    arabinoxylan_community(), universes = list(arabinoxylan_universe())
+    arabinoxylan_community(), frames = list(arabinoxylan_frame())
   )
   providers <- community_metric(traits, "provider_count")
   counts <- stats::setNames(providers$value, providers$target_id)
@@ -112,7 +112,7 @@ test_that("provider counts match the distributed chain", {
 
 test_that("the trace names the genomes behind every provider count", {
   traits <- community_traits(
-    arabinoxylan_community(), universes = list(arabinoxylan_universe())
+    arabinoxylan_community(), frames = list(arabinoxylan_frame())
   )
   trace <- traits$trace[
     traits$trace$metric_id == "provider_count" &
@@ -124,7 +124,7 @@ test_that("the trace names the genomes behind every provider count", {
 
 test_that("singleton fraction and unique contribution agree on who is alone", {
   traits <- community_traits(
-    arabinoxylan_community(), universes = list(arabinoxylan_universe())
+    arabinoxylan_community(), frames = list(arabinoxylan_frame())
   )
   # Two of four represented GIFTs have one provider each.
   singleton <- community_metric(traits, "singleton_fraction")
@@ -142,7 +142,7 @@ test_that("singleton fraction and unique contribution agree on who is alone", {
 
 test_that("presence and abundance stay in separate rows", {
   traits <- community_traits(
-    arabinoxylan_community(), universes = list(arabinoxylan_universe()),
+    arabinoxylan_community(), frames = list(arabinoxylan_frame()),
     abundance = c(A = 0.1, B = 0.2, C = 0.3, D = 0.4)
   )
   coverage <- community_metric(traits, "abundance_coverage")
@@ -160,14 +160,14 @@ test_that("presence and abundance stay in separate rows", {
 
 test_that("abundance coverage is absent when abundance was not supplied", {
   traits <- community_traits(
-    arabinoxylan_community(), universes = list(arabinoxylan_universe())
+    arabinoxylan_community(), frames = list(arabinoxylan_frame())
   )
   expect_equal(nrow(community_metric(traits, "abundance_coverage")), 0L)
 })
 
-test_that("repertoire overlap is a Jaccard index within the universe", {
+test_that("repertoire overlap is a Jaccard index within the frame", {
   traits <- community_traits(
-    arabinoxylan_community(), universes = list(arabinoxylan_universe())
+    arabinoxylan_community(), frames = list(arabinoxylan_frame())
   )
   overlaps <- community_metric(traits, "repertoire_overlap")
   values <- stats::setNames(overlaps$value, overlaps$target_id)
@@ -188,7 +188,7 @@ test_that("every pair is answered at once, and answered as the loop did", {
   # definition itself over a community large enough for the two to disagree.
   set.seed(4)
   genomes <- paste0("g", seq_len(24))
-  gifts <- utils::head(sort(arabinoxylan_universe()$gift_id), 30L)
+  gifts <- utils::head(sort(arabinoxylan_frame()$gift_id), 30L)
   supports <- matrix(
     stats::runif(length(gifts) * length(genomes)) < 0.3,
     nrow = length(gifts), dimnames = list(gifts, genomes)
@@ -217,7 +217,7 @@ test_that("every pair is answered at once, and answered as the loop did", {
   community$gift_id <- gifts
   community$matrix <- supports
   traits <- community_traits(
-    community, universes = list(arabinoxylan_universe())
+    community, frames = list(arabinoxylan_frame())
   )
   overlaps <- community_metric(traits, "repertoire_overlap")
   expect_identical(overlaps$target_id, expected$target_id)
@@ -231,9 +231,9 @@ test_that("the pair trace is recorded only when it is asked for", {
   # gigabytes at a few hundred genomes, while the overlaps it justifies are the
   # same either way. So it is off unless the caller wants it.
   community <- arabinoxylan_community()
-  quiet <- community_traits(community, universes = list(arabinoxylan_universe()))
+  quiet <- community_traits(community, frames = list(arabinoxylan_frame()))
   traced <- community_traits(
-    community, universes = list(arabinoxylan_universe()), pair_trace = TRUE
+    community, frames = list(arabinoxylan_frame()), pair_trace = TRUE
   )
   expect_equal(sum(quiet$trace$target_type == "genome_pair"), 0L)
   expect_equal(quiet$metrics, traced$metrics)
@@ -252,14 +252,14 @@ test_that("the pair trace is recorded only when it is asked for", {
   )
 })
 
-test_that("a community is read within the full default set of universes", {
+test_that("a community is read within the full default set of frames", {
   # A catalogue that is 94% metabolic makes an unstratified reading a metabolic
-  # reading wearing a general name, and the bounded anabolic universe is the
+  # reading wearing a general name, and the bounded anabolic frame is the
   # only one community_coverage is defined for. Everything except the pair
   # metric is cheap enough to report in all of them.
   traits <- community_traits(arabinoxylan_community(), progress = FALSE)
-  expect_gt(length(traits$universes), 1L)
-  labels <- vapply(traits$universes, function(u) u$label, character(1))
+  expect_gt(length(traits$frames), 1L)
+  labels <- vapply(traits$frames, function(u) u$label, character(1))
   expect_true("all curated GIFTs" %in% labels)
   expect_true("biomass-essential anabolic GIFTs" %in% labels)
   expect_true("community_coverage" %in% traits$metrics$metric_id)
@@ -268,13 +268,13 @@ test_that("a community is read within the full default set of universes", {
 test_that("the pair metric can be dropped without touching the others", {
   # repertoire_overlap is the one quantity that is quadratic in the community.
   # A community of thousands of genomes can afford every other metric within
-  # every universe, and this is how it asks for them.
+  # every frame, and this is how it asks for them.
   community <- arabinoxylan_community()
   full <- community_traits(
-    community, universes = list(arabinoxylan_universe())
+    community, frames = list(arabinoxylan_frame())
   )
   without <- community_traits(
-    community, universes = list(arabinoxylan_universe()), pairwise = FALSE
+    community, frames = list(arabinoxylan_frame()), pairwise = FALSE
   )
   expect_gt(sum(full$metrics$metric_id == "repertoire_overlap"), 0L)
   expect_equal(sum(without$metrics$metric_id == "repertoire_overlap"), 0L)
@@ -296,15 +296,15 @@ test_that("the pair metric can be dropped without touching the others", {
   )
 })
 
-test_that("overlap is reported within a universe, not only across the catalogue", {
-  transport <- gift_universe(mode = "transport", label = "transport GIFTs")
-  catabolic <- gift_universe(mode = "catabolic", label = "catabolic GIFTs")
+test_that("overlap is reported within a frame, not only across the catalogue", {
+  transport <- reference_frame(mode = "transport", label = "transport GIFTs")
+  catabolic <- reference_frame(mode = "catabolic", label = "catabolic GIFTs")
   traits <- community_traits(
-    arabinoxylan_community(), universes = list(transport, catabolic)
+    arabinoxylan_community(), frames = list(transport, catabolic)
   )
   within_transport <- traits$metrics[
     traits$metrics$metric_id == "repertoire_overlap" &
-      traits$metrics$reference_universe == "transport GIFTs", ,
+      traits$metrics$reference_frame == "transport GIFTs", ,
     drop = FALSE
   ]
   # B carries no transport GIFT, so B and C share nothing there, while C and D
@@ -312,47 +312,47 @@ test_that("overlap is reported within a universe, not only across the catalogue"
   values <- stats::setNames(within_transport$value, within_transport$target_id)
   expect_equal(values[["C | D"]], 1)
   expect_equal(values[["B | C"]], 0)
-  # A and B both hold nothing in this universe, so their overlap is undefined
+  # A and B both hold nothing in this frame, so their overlap is undefined
   # rather than zero, and an undefined quantity is withheld. Reporting 0 would
   # say two genomes were compared and found to share nothing.
   expect_false("A | B" %in% names(values))
   expect_gt(nrow(traits$metrics[
-    traits$metrics$reference_universe == "catabolic GIFTs", , drop = FALSE
+    traits$metrics$reference_frame == "catabolic GIFTs", , drop = FALSE
   ]), 0L)
 })
 
-test_that("community coverage is reported only for a bounded universe", {
-  bounded <- gift_universe(
+test_that("community coverage is reported only for a bounded frame", {
+  bounded <- reference_frame(
     mode = "anabolic", auxotrophy_indicator = TRUE, bounded = TRUE,
     label = "biomass-essential anabolic GIFTs"
   )
   traits <- community_traits(
     arabinoxylan_community(),
-    universes = list(arabinoxylan_universe(), bounded)
+    frames = list(arabinoxylan_frame(), bounded)
   )
   coverage <- traits$metrics[traits$metrics$metric_id == "community_coverage", ]
   expect_identical(
-    unique(coverage$reference_universe), "biomass-essential anabolic GIFTs"
+    unique(coverage$reference_frame), "biomass-essential anabolic GIFTs"
   )
 })
 
-test_that("community traits refuse a bad container or a stale universe", {
+test_that("community traits refuse a bad container or a stale frame", {
   expect_error(community_traits(list()), "must come from gifter_community")
   community <- arabinoxylan_community()
-  stale <- gift_universe(type = "metabolic")
+  stale <- reference_frame(type = "metabolic")
   stale$database_version <- "0000.0.0"
   expect_error(
-    community_traits(community, universes = list(stale)),
+    community_traits(community, frames = list(stale)),
     "different database version"
   )
 })
 
-test_that("every community metric names its universe and its target", {
+test_that("every community metric names its frame and its target", {
   traits <- community_traits(
-    arabinoxylan_community(), universes = list(arabinoxylan_universe()),
+    arabinoxylan_community(), frames = list(arabinoxylan_frame()),
     abundance = c(A = 1, B = 1, C = 1, D = 1)
   )
-  expect_true(all(nzchar(traits$metrics$reference_universe)))
+  expect_true(all(nzchar(traits$metrics$reference_frame)))
   expect_true(all(nzchar(traits$metrics$derivation_method)))
   expect_true(all(
     traits$metrics$target_type %in% c("community", "gift", "genome", "genome_pair")
@@ -362,14 +362,14 @@ test_that("every community metric names its universe and its target", {
   expect_true(all(proportions$value >= 0 & proportions$value <= 1))
 })
 
-test_that("progress counts reference universes summarised, and nothing finer", {
+test_that("progress counts reference frames summarised, and nothing finer", {
   # The display exists because reading a large community takes minutes, so what
-  # it counts has to be the work the caller asked for: the reference universes
+  # it counts has to be the work the caller asked for: the reference frames
   # the metrics are reported within, one tick each, never the GIFTs or genome
-  # pairs a universe happens to contain.
-  universes <- list(
-    arabinoxylan_universe(),
-    gift_universe(type = "metabolic", label = "metabolic GIFTs")
+  # pairs a frame happens to contain.
+  frames <- list(
+    arabinoxylan_frame(),
+    reference_frame(type = "metabolic", label = "metabolic GIFTs")
   )
   seen <- NULL
   counted <- integer()
@@ -382,29 +382,29 @@ test_that("progress counts reference universes summarised, and nothing finer", {
       dismiss = function() invisible(NULL)
     )
   }
-  testthat::local_mocked_bindings(.universe_progress = recorder)
+  testthat::local_mocked_bindings(.frame_progress = recorder)
 
   community <- arabinoxylan_community()
-  traits <- community_traits(community, universes = universes, progress = TRUE)
+  traits <- community_traits(community, frames = frames, progress = TRUE)
   expect_equal(seen$total, 2L)
   expect_true(seen$enabled)
-  # A count that went backwards would report a universe as unread again.
+  # A count that went backwards would report a frame as unread again.
   expect_false(is.unsorted(counted))
   expect_equal(max(counted), 2L)
 
   # The display is a display: the metrics are the same with it and without it.
-  quiet <- community_traits(community, universes = universes, progress = FALSE)
+  quiet <- community_traits(community, frames = frames, progress = FALSE)
   expect_false(seen$enabled)
   expect_equal(traits$metrics, quiet$metrics)
 })
 
 test_that("progress is shown to a watching console and to nobody else", {
   # A bar written into a log, a knitted document or a package check is noise,
-  # and a single universe is never partway through.
+  # and a single frame is never partway through.
   expect_identical(.resolve_progress(NULL, units = 3), interactive())
   expect_false(.resolve_progress(NULL, units = 1))
 
-  # A malformed request is answered before any universe is built, not after the
+  # A malformed request is answered before any frame is built, not after the
   # walk it would have decorated.
   expect_error(
     community_traits(arabinoxylan_community(), progress = "yes"), "TRUE"
@@ -413,6 +413,6 @@ test_that("progress is shown to a watching console and to nobody else", {
   # The default is silent here, which is what keeps the metrics the only thing
   # this function puts on the console.
   expect_silent(community_traits(
-    arabinoxylan_community(), universes = list(arabinoxylan_universe())
+    arabinoxylan_community(), frames = list(arabinoxylan_frame())
   ))
 })

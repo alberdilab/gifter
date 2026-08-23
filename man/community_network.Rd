@@ -7,7 +7,7 @@
 community_network(
   community,
   interaction = "metabolic_handoff",
-  universe = NULL,
+  frame = NULL,
   quality = NULL,
   limit = 100L,
   db = NULL
@@ -18,7 +18,7 @@ community_network(
 
 \item{interaction}{Interaction type. Only `"metabolic_handoff"` is defined.}
 
-\item{universe}{Optional [gift_universe()] restricting which GIFTs may form
+\item{frame}{Optional [reference_frame()] restricting which GIFTs may form
 edges.}
 
 \item{quality}{Optional `gift_graph()` edge quality filter, `"exact"` or

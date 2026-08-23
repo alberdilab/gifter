@@ -10,28 +10,28 @@ purine_result <- function() {
   evaluate_gifts(ko_annotations(direct_purine_markers(include_amp = TRUE)))
 }
 
-bounded_universe <- function() {
-  gift_universe(
+bounded_frame <- function() {
+  reference_frame(
     mode = "anabolic", auxotrophy_indicator = TRUE, bounded = TRUE,
     label = "biomass-essential anabolic GIFTs"
   )
 }
 
 test_that("the default policy declares nothing indeterminate", {
-  traits <- genome_traits(purine_result(), universes = list(bounded_universe()))
+  traits <- genome_traits(purine_result(), frames = list(bounded_frame()))
   fraction <- traits$metrics[traits$metrics$metric_id == "assessable_fraction", ]
   expect_equal(fraction$value, 1)
   expect_identical(traits$assessability$policy, "none")
 })
 
 test_that("a fragmented genome's absences leave every denominator", {
-  universe <- bounded_universe()
+  frame <- bounded_frame()
   full <- genome_traits(
-    purine_result(), universes = list(universe), genome_id = "MAG",
+    purine_result(), frames = list(frame), genome_id = "MAG",
     quality = c(MAG = 0.98), policy = "completeness", threshold = 0.9
   )
   fragmented <- suppressWarnings(genome_traits(
-    purine_result(), universes = list(universe), genome_id = "MAG",
+    purine_result(), frames = list(frame), genome_id = "MAG",
     quality = c(MAG = 0.55), policy = "completeness", threshold = 0.9
   ))
   richness <- function(traits) {
@@ -48,17 +48,17 @@ test_that("a fragmented genome's absences leave every denominator", {
 
 test_that("no policy can promote an unsupported GIFT to supported", {
   # The one constraint every future policy must also satisfy.
-  universe <- gift_universe(label = "all curated GIFTs")
+  frame <- reference_frame(label = "all curated GIFTs")
   supported <- function(quality) {
     traits <- suppressWarnings(genome_traits(
-      purine_result(), universes = list(universe), genome_id = "MAG",
+      purine_result(), frames = list(frame), genome_id = "MAG",
       quality = c(MAG = quality), policy = "completeness", threshold = 0.9
     ))
     sort(traits$trace$gift_id[traits$trace$metric_id == "gift_richness"])
   }
   baseline <- sort(
-    genome_traits(purine_result(), universes = list(universe))$trace$gift_id[
-      genome_traits(purine_result(), universes = list(universe))$trace$metric_id ==
+    genome_traits(purine_result(), frames = list(frame))$trace$gift_id[
+      genome_traits(purine_result(), frames = list(frame))$trace$metric_id ==
         "gift_richness"
     ]
   )
@@ -71,7 +71,7 @@ test_that("a collapsed denominator is visible and warned about", {
   # and biologically empty. The reader must be told before they quote it.
   expect_warning(
     traits <- genome_traits(
-      purine_result(), universes = list(bounded_universe()), genome_id = "MAG",
+      purine_result(), frames = list(bounded_frame()), genome_id = "MAG",
       quality = c(MAG = 0.30), policy = "completeness", threshold = 0.9
     ),
     "assessable_fraction"
@@ -112,7 +112,7 @@ test_that("the completeness policy refuses to invent its own parameters", {
 
 test_that("quality may be supplied as a data frame", {
   traits <- genome_traits(
-    purine_result(), universes = list(bounded_universe()), genome_id = "MAG",
+    purine_result(), frames = list(bounded_frame()), genome_id = "MAG",
     quality = data.frame(genome_id = "MAG", completeness = 0.98),
     policy = "completeness", threshold = 0.9
   )
@@ -144,13 +144,13 @@ test_that("completeness may be stated as a percentage", {
   # Every MAG quality table in circulation reports percentages. A proportion
   # cannot exceed 1, so the scale is readable from the values themselves and
   # the two statements of the same genome must agree exactly.
-  universe <- bounded_universe()
+  frame <- bounded_frame()
   as_proportion <- suppressWarnings(genome_traits(
-    purine_result(), universes = list(universe), genome_id = "MAG",
+    purine_result(), frames = list(frame), genome_id = "MAG",
     quality = c(MAG = 0.55), policy = "completeness", threshold = 0.9
   ))
   as_percentage <- suppressWarnings(genome_traits(
-    purine_result(), universes = list(universe), genome_id = "MAG",
+    purine_result(), frames = list(frame), genome_id = "MAG",
     quality = c(MAG = 55), policy = "completeness", threshold = 90
   ))
   expect_equal(as_percentage$assessability$completeness[["MAG"]], 0.55)
@@ -159,7 +159,7 @@ test_that("completeness may be stated as a percentage", {
   expect_equal(as_percentage$metrics$assessable, as_proportion$metrics$assessable)
   # A data frame is read on the same terms, and 100 is a complete genome.
   from_frame <- genome_traits(
-    purine_result(), universes = list(universe), genome_id = "MAG",
+    purine_result(), frames = list(frame), genome_id = "MAG",
     quality = data.frame(genome_id = c("MAG", "other"),
                          completeness = c(98, 100)),
     policy = "completeness", threshold = 90
@@ -177,7 +177,7 @@ test_that("the scale is decided over the table, not over one genome", {
   )
   expect_warning(
     traits <- community_traits(
-      community, universes = list(arabinoxylan_universe()),
+      community, frames = list(arabinoxylan_frame()),
       quality = c(A = 99, B = 0.99), policy = "completeness", threshold = 90
     ),
     "percentages"
@@ -193,16 +193,16 @@ test_that("the scale is decided over the table, not over one genome", {
 
 test_that("a percentage scale cannot promote an unsupported GIFT", {
   # The invariant holds on both scales: only the denominator may move.
-  universe <- gift_universe(label = "all curated GIFTs")
+  frame <- reference_frame(label = "all curated GIFTs")
   supported <- function(traits) {
     sort(traits$trace$gift_id[traits$trace$metric_id == "gift_richness"])
   }
   baseline <- supported(
-    genome_traits(purine_result(), universes = list(universe))
+    genome_traits(purine_result(), frames = list(frame))
   )
   expect_identical(
     supported(suppressWarnings(genome_traits(
-      purine_result(), universes = list(universe), genome_id = "MAG",
+      purine_result(), frames = list(frame), genome_id = "MAG",
       quality = c(MAG = 20), policy = "completeness", threshold = 90
     ))),
     baseline
@@ -236,7 +236,7 @@ test_that("a provider fraction counts only the genomes that could assess", {
     C = arabinoxylan_genome("consumer")
   )
   traits <- community_traits(
-    community, universes = list(arabinoxylan_universe()),
+    community, frames = list(arabinoxylan_frame()),
     quality = c(A = 0.99, B = 0.99, C = 0.40),
     policy = "completeness", threshold = 0.9
   )
@@ -261,7 +261,7 @@ test_that("a provider fraction counts only the genomes that could assess", {
 test_that("community traits carry the policy they were read under", {
   community <- gifter_community(A = arabinoxylan_genome("debrancher"))
   traits <- community_traits(
-    community, universes = list(arabinoxylan_universe()),
+    community, frames = list(arabinoxylan_frame()),
     quality = c(A = 0.95), policy = "completeness", threshold = 0.9
   )
   expect_identical(traits$assessability$policy, "completeness")
@@ -280,7 +280,7 @@ test_that("one community can be read under two thresholds", {
   )
   denominator <- function(threshold) {
     traits <- community_traits(
-      community, universes = list(arabinoxylan_universe()),
+      community, frames = list(arabinoxylan_frame()),
       quality = c(A = 0.99, B = 0.99, C = 0.40),
       policy = "completeness", threshold = threshold
     )

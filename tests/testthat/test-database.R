@@ -28,8 +28,8 @@ test_that("database compilation creates constrained SQLite schema", {
     "gift", "anchor", "gift_anchor", "reaction", "gift_route",
     "route_reaction", "enzyme_system", "enzyme_component", "marker",
     "component_marker", "gift_xref", "database_release",
-    "reference_universe", "reference_universe_filter",
-    "reference_universe_metric",
+    "reference_frame", "reference_frame_filter",
+    "reference_frame_metric",
     "gift_architecture", "architecture_function", "structural_function",
     "structural_system", "structural_component", "structural_component_marker",
     "gift_circuit", "circuit_function", "gift_mechanism", "mechanism_function"
@@ -258,30 +258,30 @@ test_that("database HTML atlas is self-contained and reflects compiled rows", {
   expect_match(html, 'aria-label="Atlas sections"', fixed = TRUE)
   expect_match(
     html,
-    '<button class="nav-button" data-view-button="universes">Reference universes</button>',
+    '<button class="nav-button" data-view-button="frames">Reference frames</button>',
     fixed = TRUE
   )
-  expect_match(html, "Choose a reference universe", fixed = TRUE)
-  universe_cards <- regmatches(
+  expect_match(html, "Choose a reference frame", fixed = TRUE)
+  frame_cards <- regmatches(
     html,
-    gregexpr('<article class="universe-card[^>]* data-universe-card', html)
+    gregexpr('<article class="frame-card[^>]* data-frame-card', html)
   )[[1]]
-  expect_length(universe_cards, 19L)
-  expect_match(html, 'data-universe-filter="genome"', fixed = TRUE)
-  expect_match(html, 'data-universe-filter="community"', fixed = TRUE)
-  expect_match(html, 'data-universe-filter="network"', fixed = TRUE)
-  expect_match(html, 'data-universe-filter="bounded"', fixed = TRUE)
+  expect_length(frame_cards, 19L)
+  expect_match(html, 'data-frame-filter="genome"', fixed = TRUE)
+  expect_match(html, 'data-frame-filter="community"', fixed = TRUE)
+  expect_match(html, 'data-frame-filter="network"', fixed = TRUE)
+  expect_match(html, 'data-frame-filter="bounded"', fixed = TRUE)
   expect_match(
     html,
-    'gift_universe(preset = &quot;carbohydrate_degradation&quot;)',
+    'reference_frame(preset = &quot;carbohydrate_degradation&quot;)',
     fixed = TRUE
   )
   expect_match(html, "Count complete curated carbohydrate-degradation capabilities.", fixed = TRUE)
   expect_match(html, "bounded &middot; coverage valid", fixed = TRUE)
-  expect_match(html, "function filterUniverses", fixed = TRUE)
+  expect_match(html, "function filterFrames", fixed = TRUE)
   expect_match(html, "GIFT explorer", fixed = TRUE)
   expect_match(html, "purine_core_biosynthesis", fixed = TRUE)
-  expect_match(html, "reference_universe", fixed = TRUE)
+  expect_match(html, "reference_frame", fixed = TRUE)
   expect_match(html, "carbohydrate_degradation", fixed = TRUE)
   expect_match(html, "guanylate_biosynthesis", fixed = TRUE)
   expect_match(html, "cytidylate_biosynthesis", fixed = TRUE)

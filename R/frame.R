@@ -1,14 +1,14 @@
-# Reference universes for quantitative traits.
+# Reference frames for quantitative traits.
 #
 # A count of supported GIFTs means nothing without the set it was counted over,
 # and that set changes between database releases. Every quantitative trait
-# therefore names the universe it was computed in, and a universe is built only
+# therefore names the frame it was computed in, and a frame is built only
 # from curated metadata -- gift_type, mode, the registered facet vocabulary, and
-# the derived gift_profile view. A universe may never be a literal list of
+# the derived gift_profile view. A frame may never be a literal list of
 # gift_ids written in R source: that would move biological content out of the
 # database and into code, where it cannot be validated or versioned.
 
-.universe_label <- function(filters) {
+.frame_label <- function(filters) {
   if (!length(filters)) return("all curated GIFTs")
   parts <- vapply(names(filters), function(name) {
     paste0(name, " = ", paste(filters[[name]], collapse = " | "))
@@ -16,25 +16,25 @@
   paste("GIFTs where", paste(parts, collapse = ", "))
 }
 
-.reference_universe_definition <- function(connection, preset) {
+.reference_frame_definition <- function(connection, preset) {
   if (length(preset) != 1L || is.na(preset) || !nzchar(trimws(as.character(preset)))) {
-    stop("preset must be one non-empty reference-universe identifier", call. = FALSE)
+    stop("preset must be one non-empty reference-frame identifier", call. = FALSE)
   }
   preset <- trimws(as.character(preset))
   definition <- .as_tibble_query(
     connection,
     paste(
-      "SELECT universe_pk, universe_id, label, description, bounded, interpretation",
-      "FROM reference_universe WHERE universe_id = ?"
+      "SELECT frame_pk, frame_id, label, description, bounded, interpretation",
+      "FROM reference_frame WHERE frame_id = ?"
     ),
     list(preset)
   )
   if (!nrow(definition)) {
     known <- .as_tibble_query(
-      connection, "SELECT universe_id FROM reference_universe ORDER BY universe_id"
-    )$universe_id
+      connection, "SELECT frame_id FROM reference_frame ORDER BY frame_id"
+    )$frame_id
     stop(
-      "Unknown reference-universe preset: ", preset,
+      "Unknown reference-frame preset: ", preset,
       ". Available presets are: ", paste(known, collapse = ", "),
       call. = FALSE
     )
@@ -42,29 +42,29 @@
   definition
 }
 
-.reference_universe_filters <- function(connection, universe_pk) {
+.reference_frame_filters <- function(connection, frame_pk) {
   .as_tibble_query(
     connection,
     paste(
-      "SELECT filter_key, value FROM reference_universe_filter",
-      "WHERE universe_pk = ? ORDER BY filter_key, value"
+      "SELECT filter_key, value FROM reference_frame_filter",
+      "WHERE frame_pk = ? ORDER BY filter_key, value"
     ),
-    list(universe_pk)
+    list(frame_pk)
   )
 }
 
-.reference_universe_metrics <- function(connection, universe_pk) {
+.reference_frame_metrics <- function(connection, frame_pk) {
   .as_tibble_query(
     connection,
     paste(
-      "SELECT scope, metric_id, rationale FROM reference_universe_metric",
-      "WHERE universe_pk = ? ORDER BY scope, metric_id"
+      "SELECT scope, metric_id, rationale FROM reference_frame_metric",
+      "WHERE frame_pk = ? ORDER BY scope, metric_id"
     ),
-    list(universe_pk)
+    list(frame_pk)
   )
 }
 
-.resolve_reference_universe_filters <- function(connection, filter_rows) {
+.resolve_reference_frame_filters <- function(connection, filter_rows) {
   conditions <- character()
   params <- list()
   filters <- split(filter_rows$value, filter_rows$filter_key)
@@ -110,7 +110,7 @@
       )
       params <- c(params, list(facet), as.list(values))
     } else {
-      stop("Unsupported reference-universe filter in compiled database: ", key, call. = FALSE)
+      stop("Unsupported reference-frame filter in compiled database: ", key, call. = FALSE)
     }
   }
 
@@ -125,79 +125,79 @@
   list(gift_id = members$gift_id, filters = filters)
 }
 
-#' List curated reference-universe presets
+#' List curated reference-frame presets
 #'
 #' Presets make recurring genome and community questions discoverable without
 #' hard-coding GIFT identifiers. Their memberships are resolved from curated
 #' metadata in the current database release. The returned filter expression is
-#' descriptive: use `gift_universe(preset = ...)` to construct the versioned
-#' universe object used by [genome_traits()] and [community_traits()].
+#' descriptive: use `reference_frame(preset = ...)` to construct the versioned
+#' frame object used by [genome_traits()] and [community_traits()].
 #'
 #' @param db Optional open gifter database connection.
 #' @return A tibble with one row per preset, its definition, boundedness,
 #'   current member count, metadata filter expression, and recommended metrics.
 #' @export
-list_gift_universes <- function(db = NULL) {
+list_reference_frames <- function(db = NULL) {
   .with_gifter_db(db, function(connection) {
     definitions <- .as_tibble_query(
       connection,
       paste(
-        "SELECT universe_pk, universe_id, label, description, bounded, interpretation",
-        "FROM reference_universe ORDER BY universe_id"
+        "SELECT frame_pk, frame_id, label, description, bounded, interpretation",
+        "FROM reference_frame ORDER BY frame_id"
       )
     )
-    describe_filters <- function(universe_pk) {
-      rows <- .reference_universe_filters(connection, universe_pk)
+    describe_filters <- function(frame_pk) {
+      rows <- .reference_frame_filters(connection, frame_pk)
       groups <- split(rows$value, rows$filter_key)
       paste(vapply(names(groups), function(key) {
         paste0(key, " = ", paste(groups[[key]], collapse = " | "))
       }, character(1)), collapse = ", ")
     }
-    describe_metrics <- function(universe_pk) {
-      rows <- .reference_universe_metrics(connection, universe_pk)
+    describe_metrics <- function(frame_pk) {
+      rows <- .reference_frame_metrics(connection, frame_pk)
       groups <- split(rows$metric_id, rows$scope)
       paste(vapply(names(groups), function(scope) {
         paste0(scope, ": ", paste(groups[[scope]], collapse = " | "))
       }, character(1)), collapse = "; ")
     }
-    definitions$member_count <- vapply(definitions$universe_pk, function(pk) {
-      rows <- .reference_universe_filters(connection, pk)
-      length(.resolve_reference_universe_filters(connection, rows)$gift_id)
+    definitions$member_count <- vapply(definitions$frame_pk, function(pk) {
+      rows <- .reference_frame_filters(connection, pk)
+      length(.resolve_reference_frame_filters(connection, rows)$gift_id)
     }, integer(1))
     definitions$filter_expression <- vapply(
-      definitions$universe_pk, describe_filters, character(1)
+      definitions$frame_pk, describe_filters, character(1)
     )
     definitions$recommended_metrics <- vapply(
-      definitions$universe_pk, describe_metrics, character(1)
+      definitions$frame_pk, describe_metrics, character(1)
     )
     definitions$bounded <- as.logical(definitions$bounded)
     definitions[c(
-      "universe_id", "label", "description", "bounded", "member_count",
+      "frame_id", "label", "description", "bounded", "member_count",
       "filter_expression", "recommended_metrics", "interpretation"
     )]
   })
 }
 
-#' Define a reference universe of GIFTs
+#' Define a reference frame of GIFTs
 #'
 #' A quantitative trait is only interpretable relative to the set of GIFTs that
 #' could have been called, so every metric [genome_traits()] reports names the
-#' universe it was computed in. This function builds one from curated metadata.
+#' frame it was computed in. This function builds one from curated metadata.
 #'
 #' Filters combine with AND. `facet` and `value` read the registered facet
 #' vocabulary; `resource_strategy` and `auxotrophy_indicator` read the derived
 #' [gift_profile()] view, which covers metabolic GIFTs only, so either of them
-#' bounds the universe to that type by construction.
+#' bounds the frame to that type by construction.
 #'
-#' @section Bounded universes:
+#' @section Bounded frames:
 #'
-#' `bounded` declares that the universe enumerates a biologically closed set
+#' `bounded` declares that the frame enumerates a biologically closed set
 #' that curation intends to cover completely, so the fraction of it a genome
 #' supports is a meaningful quantity. The curated biomass-essential anabolic
 #' capabilities are such a set. "All metabolic GIFTs" is not: the catalogue is
 #' open and growing, and a genome supporting 12 of 122 has not been shown to
 #' lack 110 capabilities. [genome_traits()] reports `supported_fraction` for
-#' bounded universes and withholds it otherwise, which is why the flag is a
+#' bounded frames and withholds it otherwise, which is why the flag is a
 #' biological claim rather than a formatting option. It defaults to `FALSE`.
 #'
 #' @param type Optional GIFT type: `"metabolic"`, `"structural"`,
@@ -215,25 +215,25 @@ list_gift_universes <- function(db = NULL) {
 #' @param label Optional human-readable name. Derived from the filters if
 #'   omitted.
 #' @param db Optional open gifter database connection.
-#' @param preset Optional identifier from [list_gift_universes()]. A preset
+#' @param preset Optional identifier from [list_reference_frames()]. A preset
 #'   supplies its versioned filters, label, interpretation and boundedness.
 #'   Direct filters cannot be combined with a preset. `label` may override its
 #'   display label, but an unbounded preset cannot be promoted with `bounded`.
-#' @return A `gifter_universe`: the member `gift_id`s, the `label`, the filters
+#' @return A `gifter_frame`: the member `gift_id`s, the `label`, the filters
 #'   that produced it, whether it is `bounded`, and the `database_version` it
-#'   was resolved against. Preset universes also carry their identifier,
+#'   was resolved against. Preset frames also carry their identifier,
 #'   description, interpretation limits and recommended metrics.
 #' @examples
-#' universe <- gift_universe(mode = "anabolic", auxotrophy_indicator = TRUE,
+#' frame <- reference_frame(mode = "anabolic", auxotrophy_indicator = TRUE,
 #'                           bounded = TRUE, label = "biomass-essential anabolic")
-#' length(universe$gift_id)
-#' carbohydrate <- gift_universe(preset = "carbohydrate_degradation")
+#' length(frame$gift_id)
+#' carbohydrate <- reference_frame(preset = "carbohydrate_degradation")
 #' carbohydrate$gift_id
 #' @export
-gift_universe <- function(type = NULL, mode = NULL, facet = NULL, value = NULL,
-                          resource_strategy = NULL, auxotrophy_indicator = NULL,
-                          status = NULL, bounded = FALSE, label = NULL,
-                          db = NULL, preset = NULL) {
+reference_frame <- function(type = NULL, mode = NULL, facet = NULL, value = NULL,
+                            resource_strategy = NULL, auxotrophy_indicator = NULL,
+                            status = NULL, bounded = FALSE, label = NULL,
+                            db = NULL, preset = NULL) {
   if (!is.null(type)) type <- match.arg(type, .gifter_gift_types, several.ok = TRUE)
   if (!is.null(mode)) mode <- match.arg(mode, .gifter_gift_modes, several.ok = TRUE)
   if (!is.null(resource_strategy)) {
@@ -256,20 +256,20 @@ gift_universe <- function(type = NULL, mode = NULL, facet = NULL, value = NULL,
         auxotrophy_indicator = auxotrophy_indicator, status = status
       )
       if (any(!vapply(direct_filters, is.null, logical(1)))) {
-        stop("Direct filters cannot be combined with a reference-universe preset", call. = FALSE)
+        stop("Direct filters cannot be combined with a reference-frame preset", call. = FALSE)
       }
-      definition <- .reference_universe_definition(connection, preset)
+      definition <- .reference_frame_definition(connection, preset)
       preset_bounded <- as.logical(definition$bounded[[1L]])
       if (isTRUE(bounded) && !preset_bounded) {
         stop(
-          "An unbounded reference-universe preset cannot be promoted to bounded",
+          "An unbounded reference-frame preset cannot be promoted to bounded",
           call. = FALSE
         )
       }
-      filter_rows <- .reference_universe_filters(
-        connection, definition$universe_pk[[1L]]
+      filter_rows <- .reference_frame_filters(
+        connection, definition$frame_pk[[1L]]
       )
-      resolved <- .resolve_reference_universe_filters(connection, filter_rows)
+      resolved <- .resolve_reference_frame_filters(connection, filter_rows)
       return(structure(
         list(
           gift_id = resolved$gift_id,
@@ -277,14 +277,14 @@ gift_universe <- function(type = NULL, mode = NULL, facet = NULL, value = NULL,
           filters = resolved$filters,
           bounded = preset_bounded,
           database_version = gifter_db_version(connection)$gifter_db_version,
-          preset = definition$universe_id[[1L]],
+          preset = definition$frame_id[[1L]],
           description = definition$description[[1L]],
           interpretation = definition$interpretation[[1L]],
-          recommended_metrics = .reference_universe_metrics(
-            connection, definition$universe_pk[[1L]]
+          recommended_metrics = .reference_frame_metrics(
+            connection, definition$frame_pk[[1L]]
           )
         ),
-        class = c("gifter_universe", "list")
+        class = c("gifter_frame", "list")
       ))
     }
 
@@ -359,12 +359,12 @@ gift_universe <- function(type = NULL, mode = NULL, facet = NULL, value = NULL,
     structure(
       list(
         gift_id = members$gift_id,
-        label = if (is.null(label)) .universe_label(filters) else as.character(label),
+        label = if (is.null(label)) .frame_label(filters) else as.character(label),
         filters = filters,
         bounded = isTRUE(bounded),
         database_version = gifter_db_version(connection)$gifter_db_version
       ),
-      class = c("gifter_universe", "list")
+      class = c("gifter_frame", "list")
     )
   })
 }
@@ -374,8 +374,8 @@ gift_universe <- function(type = NULL, mode = NULL, facet = NULL, value = NULL,
 }
 
 #' @export
-print.gifter_universe <- function(x, ...) {
-  cat("<gifter_universe>", x$label, "\n")
+print.gifter_frame <- function(x, ...) {
+  cat("<gifter_frame>", x$label, "\n")
   if (!is.null(x$preset)) cat("  preset:  ", x$preset, "\n")
   cat("  GIFTs:  ", length(x$gift_id), "\n")
   cat("  bounded:", x$bounded, "\n")
@@ -383,38 +383,38 @@ print.gifter_universe <- function(x, ...) {
   invisible(x)
 }
 
-# The universes reported when the caller supplies none. Types and modes
+# The frames reported when the caller supplies none. Types and modes
 # partition the catalogue two ways, because gift_type barely partitions a
 # database that is overwhelmingly metabolic while mode splits it usefully. Only
-# the biomass-essential anabolic set is bounded, and it is the universe that
+# the biomass-essential anabolic set is bounded, and it is the frame that
 # makes supported_fraction mean biosynthetic autonomy.
-.default_universes <- function(connection) {
-  universes <- list(gift_universe(db = connection, label = "all curated GIFTs"))
+.default_frames <- function(connection) {
+  frames <- list(reference_frame(db = connection, label = "all curated GIFTs"))
   present_types <- .as_tibble_query(
     connection, "SELECT DISTINCT gift_type FROM gift ORDER BY gift_type"
   )$gift_type
-  universes <- c(universes, lapply(present_types, function(type) {
-    gift_universe(type = type, db = connection, label = paste(type, "GIFTs"))
+  frames <- c(frames, lapply(present_types, function(type) {
+    reference_frame(type = type, db = connection, label = paste(type, "GIFTs"))
   }))
   present_modes <- .as_tibble_query(
     connection, "SELECT DISTINCT mode FROM gift WHERE mode IS NOT NULL ORDER BY mode"
   )$mode
-  universes <- c(universes, lapply(present_modes, function(mode) {
-    gift_universe(mode = mode, db = connection, label = paste(mode, "GIFTs"))
+  frames <- c(frames, lapply(present_modes, function(mode) {
+    reference_frame(mode = mode, db = connection, label = paste(mode, "GIFTs"))
   }))
   present_strategies <- .as_tibble_query(
     connection,
     "SELECT DISTINCT resource_strategy FROM gift_profile ORDER BY resource_strategy"
   )$resource_strategy
-  universes <- c(universes, lapply(present_strategies, function(strategy) {
-    gift_universe(
+  frames <- c(frames, lapply(present_strategies, function(strategy) {
+    reference_frame(
       resource_strategy = strategy, db = connection,
       label = paste0("GIFTs with resource strategy ", strategy)
     )
   }))
-  universes <- c(universes, list(gift_universe(
+  frames <- c(frames, list(reference_frame(
     preset = "biomass_essential_anabolism", db = connection,
     label = "biomass-essential anabolic GIFTs"
   )))
-  universes[vapply(universes, function(u) length(u$gift_id) > 0L, logical(1))]
+  frames[vapply(frames, function(u) length(u$gift_id) > 0L, logical(1))]
 }

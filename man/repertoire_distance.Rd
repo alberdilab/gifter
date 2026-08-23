@@ -4,14 +4,14 @@
 \alias{repertoire_distance}
 \title{Distance between genomes by encoded repertoire}
 \usage{
-repertoire_distance(x, universe = NULL, min_confidence = NULL)
+repertoire_distance(x, frame = NULL, min_confidence = NULL)
 }
 \arguments{
 \item{x}{A `gifter_community` or a `gifter_dataset`. A dataset delegates to
 its catalogue: a pair of genomes shares what it shares in every sample
 both are detected in, so the distance carries no `sample_id`.}
 
-\item{universe}{Optional [gift_universe()] restricting which GIFTs the
+\item{frame}{Optional [reference_frame()] restricting which GIFTs the
 repertoires are compared over. Omitted, every GIFT the evaluation produced
 is compared. Stratifying matters here: the catalogue is overwhelmingly
 metabolic, so an unstratified distance is a metabolic distance under a
@@ -22,7 +22,7 @@ rest on and still enter a repertoire, as in [community_traits()]. `NULL`,
 the default, compares every positive call whatever it rests on.}
 }
 \value{
-A [stats::dist] over the genomes, carrying `reference_universe`,
+A [stats::dist] over the genomes, carrying `reference_frame`,
   `database_version` and `min_confidence` attributes.
 }
 \description{
@@ -68,7 +68,7 @@ weak, and the set is what is being compared.
 \section{Pairs with no distance}{
 
 
-Two genomes that support nothing in the universe have no overlap to measure
+Two genomes that support nothing in the frame have no overlap to measure
 rather than an overlap of zero, so their distance is `NA`. Reporting `1`
 would say they were compared and found to share nothing.
 }

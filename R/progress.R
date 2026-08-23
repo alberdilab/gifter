@@ -2,19 +2,19 @@
 #
 # Two functions in this package run for minutes or hours over a large
 # community: evaluate_gifts_community(), which evaluates every genome, and
-# community_traits(), which walks every reference universe over the calls. A
+# community_traits(), which walks every reference frame over the calls. A
 # run of that length with a silent console is indistinguishable from a hung
 # one, so both say how far along they are, through the same object and on the
 # same terms.
 #
 # Progress is always reported in the unit the caller asked for -- genomes
-# evaluated, reference universes summarised -- and never in workers started,
+# evaluated, reference frames summarised -- and never in workers started,
 # blocks finished or genome pairs compared, which are implementation details of
 # how the same work was arranged. A display never changes a result.
 
 # The shape of a `progress` request, which is answerable before any work
 # starts. What it resolves to is not: that depends on how many units of work
-# there turn out to be, which a caller who supplied no reference universes has
+# there turn out to be, which a caller who supplied no reference frames has
 # not yet decided.
 .check_progress <- function(progress) {
   if (is.null(progress)) return(invisible(NULL))
@@ -91,23 +91,23 @@
   )
 }
 
-# Reference universes are the unit here because they are what the caller
-# supplied and what the returned metrics are reported within. A universe is not
+# Reference frames are the unit here because they are what the caller
+# supplied and what the returned metrics are reported within. A frame is not
 # a fixed quantity of work -- one spanning the whole catalogue takes longer
 # than a narrow one -- so the estimate is coarser than the genome count of an
 # evaluation, and it still measures the reading of a community rather than the
-# GIFTs and genome pairs each universe happens to contain.
-.universe_progress <- function(total, enabled) {
+# GIFTs and genome pairs each frame happens to contain.
+.frame_progress <- function(total, enabled) {
   .progress_display(
     total, enabled,
     format = paste0(
-      "{cli::pb_spin} Summarising universes ",
+      "{cli::pb_spin} Summarising frames ",
       "{cli::pb_bar} {cli::pb_current}/{cli::pb_total} ",
       "({cli::pb_percent}) | ETA {cli::pb_eta}"
     ),
     format_done = paste0(
       "{cli::col_green(cli::symbol$tick)} Summarised {cli::pb_total} ",
-      "reference universe{?s} in {cli::pb_elapsed}."
+      "reference frame{?s} in {cli::pb_elapsed}."
     )
   )
 }

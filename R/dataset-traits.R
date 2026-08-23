@@ -13,12 +13,12 @@
 #   assessors          (!is.na(C))   %*% S            GIFT x sample
 #   abundance coverage (C %in% TRUE) %*% W            GIFT x sample
 #
-# Three products per reference universe answer every sample and every GIFT.
+# Three products per reference frame answer every sample and every GIFT.
 # Everything else is a row or column reduction of them. A loop calling
 # community_traits() once per sample would repeat the whole quadratic walk of a
 # community for every sample, which is the cost the 0.5.0 release removed.
 #
-# Reference universes therefore stay the progress unit, unchanged from
+# Reference frames therefore stay the progress unit, unchanged from
 # community_traits(): the sample loop is vectorized away and there is no
 # sample-shaped work to count.
 #
@@ -76,13 +76,13 @@
   )
 }
 
-# One reference universe, read over every sample at once.
-.dataset_universe_metrics <- function(dataset, universe, version, calls,
-                                      detected, weights, pairwise) {
-  label <- universe$label
+# One reference frame, read over every sample at once.
+.dataset_frame_metrics <- function(dataset, frame, version, calls,
+                                   detected, weights, pairwise) {
+  label <- frame$label
   genomes <- dataset$genome_id
   samples <- dataset$sample_id
-  members <- intersect(dataset$catalogue$gift_id, universe$gift_id)
+  members <- intersect(dataset$catalogue$gift_id, frame$gift_id)
   state <- calls[members, , drop = FALSE]
   supports <- .logical_state(state %in% TRUE, state)
   assessed <- .logical_state(!is.na(state), state)
@@ -115,8 +115,8 @@
       detected_count, assessable, label, version,
       "supported GIFTs summed over the sample's detected genomes, divided by the number of them"
     ),
-    # Reported beside every richness in every universe, and not only once,
-    # because a metrics table filtered to one universe must still carry the
+    # Reported beside every richness in every frame, and not only once,
+    # because a metrics table filtered to one frame must still carry the
     # denominator its richness has to be read against. A genome absent from a
     # sample may be below detection rather than genuinely absent, and gifter
     # models no sequencing depth: this row is what says so, and nothing here
@@ -134,11 +134,11 @@
       samples, "community", "community", "assessable_fraction",
       assessable / length(members), "proportion", assessable, length(members),
       assessable, label, version,
-      "members of the reference universe at least one detected genome could assess"
+      "members of the reference frame at least one detected genome could assess"
     )))
   }
 
-  if (isTRUE(universe$bounded)) {
+  if (isTRUE(frame$bounded)) {
     readable <- assessable > 0L
     if (any(readable)) {
       metrics <- c(metrics, list(.sample_metric_row(
@@ -146,7 +146,7 @@
         richness[readable] / assessable[readable], "proportion",
         richness[readable], assessable[readable], assessable[readable], label,
         version,
-        "GIFTs supported by at least one detected genome, over assessable GIFTs in a bounded universe"
+        "GIFTs supported by at least one detected genome, over assessable GIFTs in a bounded frame"
       )))
     }
   }
@@ -222,7 +222,7 @@
   catalogue_metrics <- list(.metric_row(
     "genome", genomes, "gift_richness", gift_richness, "count", gift_richness,
     NA_integer_, sum(rowSums(assessed) > 0L), label, version,
-    "supported GIFTs in the reference universe; a property of the genome, so the same in every sample it is detected in"
+    "supported GIFTs in the reference frame; a property of the genome, so the same in every sample it is detected in"
   ))
 
   overlap <- NULL
@@ -247,7 +247,7 @@
       target_type = "gift",
       target_id = members[catalogue_providers[, "row"]],
       metric_id = "provider_count",
-      reference_universe = label,
+      reference_frame = label,
       gift_id = members[catalogue_providers[, "row"]],
       contribution = genomes[catalogue_providers[, "col"]]
     ))
@@ -271,7 +271,7 @@
   sizes <- colSums(supports)
   shared <- shared_counts[cbind(pairs$first, pairs$second)]
   union <- sizes[pairs$first] + sizes[pairs$second] - shared
-  # Two genomes holding nothing in this universe have an undefined overlap
+  # Two genomes holding nothing in this frame have an undefined overlap
   # rather than an overlap of zero, exactly as in community_traits(): reporting
   # zero would say they were compared and found to share nothing.
   comparable <- union > 0
@@ -284,7 +284,7 @@
       "genome_pair", paste(genomes[first], genomes[second], sep = " | "),
       "repertoire_overlap", shared / union, "proportion", shared, union,
       assessable, label, version,
-      "Jaccard index of the two genomes' supported GIFTs within this universe; a property of the pair, so the same in every sample both are detected in"
+      "Jaccard index of the two genomes' supported GIFTs within this frame; a property of the pair, so the same in every sample both are detected in"
     )
   } else {
     NULL
@@ -311,7 +311,7 @@
     pair_count[reportable], assessable[reportable], label, version,
     paste(
       "mean Jaccard index over the pairs of genomes both detected in this",
-      "sample whose repertoires within this universe are not both empty;",
+      "sample whose repertoires within this frame are not both empty;",
       "the terms are the repertoire_overlap rows of catalogue_metrics. A mean",
       "of ratios has no count for a numerator, and it is taken over a larger",
       "pair set in a sample that detected more genomes, so two samples' means",
@@ -323,23 +323,23 @@
 #' Quantitative traits of one genome catalogue across many samples
 #'
 #' Reports, per sample, how curated capabilities are distributed across the
-#' genomes detected in it, within declared reference universes. Nothing is
+#' genomes detected in it, within declared reference frames. Nothing is
 #' re-evaluated and nothing changes a call: the catalogue is read once, and a
 #' sample is a restriction of that reading to its detected genomes and a
 #' reweighting by their abundance.
 #'
-#' Metrics reported per sample per universe, in `metrics`:
+#' Metrics reported per sample per frame, in `metrics`:
 #'
 #' \describe{
 #'   \item{`community_richness`}{GIFTs supported by at least one detected
 #'     genome}
 #'   \item{`community_coverage`}{richness over assessable members, for bounded
-#'     universes only}
+#'     frames only}
 #'   \item{`mean_genome_richness`}{reported beside community richness rather
 #'     than divided into it, so both components stay visible}
 #'   \item{`detected_genomes`}{catalogue genomes detected in this sample, over
 #'     all catalogue genomes}
-#'   \item{`assessable_fraction`}{members of the universe at least one detected
+#'   \item{`assessable_fraction`}{members of the frame at least one detected
 #'     genome could assess}
 #'   \item{`singleton_fraction`}{represented GIFTs with exactly one provider}
 #'   \item{`provider_count`, `provider_fraction`}{per GIFT, the detected
@@ -355,7 +355,7 @@
 #' Metrics reported once, in `catalogue_metrics`:
 #'
 #' \describe{
-#'   \item{`gift_richness`}{per genome, its supported GIFTs in the universe}
+#'   \item{`gift_richness`}{per genome, its supported GIFTs in the frame}
 #'   \item{`repertoire_overlap`}{per genome pair, the Jaccard index of their
 #'     supported GIFTs}
 #' }
@@ -411,7 +411,7 @@
 #' or effect size between groups of samples, and interprets no metadata column.
 #' The design, the contrasts and the multiple-testing correction are the
 #' analyst's. What gifter contributes instead is an assessability-aware matrix
-#' with a declared reference universe --- see [gift_matrix()] and
+#' with a declared reference frame --- see [gift_matrix()] and
 #' [dataset_matrix()] --- in which a genome's silence about a capability it was
 #' never well enough observed to assess is `NA` rather than a fabricated zero.
 #'
@@ -429,7 +429,7 @@
 #' @section The trace:
 #'
 #' `trace` records the catalogue's providers: which genomes support each GIFT,
-#' per universe. Every per-sample trace is a recount over those rows restricted
+#' per frame. Every per-sample trace is a recount over those rows restricted
 #' to the sample's detected genomes, which is what [trace_sample()] does, so
 #' per-sample rows are derivable rather than stored. This is the same reasoning
 #' as the `pair_trace = FALSE` default of [community_traits()]: the rows are
@@ -437,7 +437,7 @@
 #' is carried around by default.
 #'
 #' @param dataset A dataset from [gifter_dataset()].
-#' @param universes Optional list of [gift_universe()] objects. The default set
+#' @param frames Optional list of [reference_frame()] objects. The default set
 #'   is used if omitted.
 #' @param quality,policy,threshold,min_confidence Assessability, on exactly the
 #'   terms of [community_traits()]. These are properties of a genome, so they
@@ -450,12 +450,12 @@
 #'   [community_traits()] it is paid once rather than once per sample.
 #' @param db Optional open gifter database connection.
 #' @param progress Whether to display a progress bar over the reference
-#'   universes. Reference universes remain the unit, because the sample loop is
+#'   frames. Reference frames remain the unit, because the sample loop is
 #'   vectorized away.
 #' @return A `gifter_dataset_traits` list with `metrics`, `catalogue_metrics`,
 #'   `trace`, and the metadata, detection and assessability the reading used.
 #' @export
-dataset_traits <- function(dataset, universes = NULL, quality = NULL,
+dataset_traits <- function(dataset, frames = NULL, quality = NULL,
                            policy = "none", threshold = NULL,
                            min_confidence = NULL, detection = 0,
                            pairwise = TRUE, db = NULL, progress = NULL) {
@@ -496,29 +496,29 @@ dataset_traits <- function(dataset, universes = NULL, quality = NULL,
         call. = FALSE
       )
     }
-    if (is.null(universes)) universes <- .default_universes(connection)
-    if (!is.list(universes) || !length(universes) ||
-        !all(vapply(universes, inherits, logical(1), "gifter_universe"))) {
+    if (is.null(frames)) frames <- .default_frames(connection)
+    if (!is.list(frames) || !length(frames) ||
+        !all(vapply(frames, inherits, logical(1), "gifter_frame"))) {
       stop(
-        "universes must be a non-empty list of gift_universe() objects",
+        "frames must be a non-empty list of reference_frame() objects",
         call. = FALSE
       )
     }
     stale <- vapply(
-      universes, function(u) !identical(u$database_version, version), logical(1)
+      frames, function(u) !identical(u$database_version, version), logical(1)
     )
     if (any(stale)) {
-      stop("Universes were built against a different database version", call. = FALSE)
+      stop("Frames were built against a different database version", call. = FALSE)
     }
 
-    display <- .universe_progress(
-      length(universes), .resolve_progress(progress, length(universes))
+    display <- .frame_progress(
+      length(frames), .resolve_progress(progress, length(frames))
     )
     on.exit(display$dismiss(), add = TRUE)
-    parts <- vector("list", length(universes))
-    for (index in seq_along(universes)) {
-      parts[[index]] <- .dataset_universe_metrics(
-        dataset, universes[[index]], version, calls, detected, weights, pairwise
+    parts <- vector("list", length(frames))
+    for (index in seq_along(frames)) {
+      parts[[index]] <- .dataset_frame_metrics(
+        dataset, frames[[index]], version, calls, detected, weights, pairwise
       )
       display$update(index)
     }
@@ -532,16 +532,16 @@ dataset_traits <- function(dataset, universes = NULL, quality = NULL,
     if (is.null(metrics)) metrics <- .empty_dataset_metrics()
     if (is.null(catalogue_metrics)) catalogue_metrics <- .empty_metrics()
     if (is.null(trace)) trace <- .empty_trace()
-    # One assessable_fraction per sample per universe, so the thin readings are
-    # counted in those rather than in universes.
-    .warn_thin_denominators(metrics, "sample-universe readings")
+    # One assessable_fraction per sample per frame, so the thin readings are
+    # counted in those rather than in frames.
+    .warn_thin_denominators(metrics, "sample-frame readings")
 
     structure(
       list(
         metrics = metrics[.dataset_metric_columns()],
         catalogue_metrics = catalogue_metrics[.metric_columns],
         trace = trace[.trace_columns],
-        universes = universes,
+        frames = frames,
         sample_id = dataset$sample_id,
         genome_id = dataset$genome_id,
         metadata = dataset$metadata,
@@ -571,22 +571,22 @@ print.gifter_dataset_traits <- function(x, ...) {
   cat(
     "  metrics: ", nrow(x$metrics), " sample rows and ",
     nrow(x$catalogue_metrics), " sample-invariant rows across ",
-    length(x$universes), " reference universes\n", sep = ""
+    length(x$frames), " reference frames\n", sep = ""
   )
   cat("  detection:", format(x$detection), "\n")
   cat("  database version:", .gifter_database_version_value(x$database_version), "\n")
   headline <- x$metrics[
     x$metrics$metric_id == "community_richness" &
-      x$metrics$reference_universe == x$universes[[1L]]$label, ,
+      x$metrics$reference_frame == x$frames[[1L]]$label, ,
     drop = FALSE
   ]
   detected <- x$metrics[
     x$metrics$metric_id == "detected_genomes" &
-      x$metrics$reference_universe == x$universes[[1L]]$label, ,
+      x$metrics$reference_frame == x$frames[[1L]]$label, ,
     drop = FALSE
   ]
   if (nrow(headline)) {
-    cat("\n  ", headline$reference_universe[[1L]], "\n", sep = "")
+    cat("\n  ", headline$reference_frame[[1L]], "\n", sep = "")
     shown <- seq_len(min(nrow(headline), 6L))
     for (index in shown) {
       cat(sprintf(
@@ -635,12 +635,12 @@ trace_sample <- function(traits, sample) {
     )
   }
   genomes <- traits$genome_id[traits$detected[, sample]]
-  parts <- lapply(traits$universes, function(universe) {
-    members <- intersect(rownames(traits$calls), universe$gift_id)
+  parts <- lapply(traits$frames, function(frame) {
+    members <- intersect(rownames(traits$calls), frame$gift_id)
     state <- traits$calls[members, genomes, drop = FALSE]
     supports <- .logical_state(state %in% TRUE, state)
     provider_count <- if (length(members)) rowSums(supports) else integer()
-    label <- universe$label
+    label <- frame$label
     represented <- members[provider_count > 0L]
     rows <- list(
       .trace_rows("community", "community", "community_richness", label, represented)
@@ -653,7 +653,7 @@ trace_sample <- function(traits, sample) {
       providers <- which(supports, arr.ind = TRUE)
       rows <- c(rows, list(tibble::tibble(
         target_type = "gift", target_id = members[providers[, "row"]],
-        metric_id = "provider_count", reference_universe = label,
+        metric_id = "provider_count", reference_frame = label,
         gift_id = members[providers[, "row"]],
         contribution = genomes[providers[, "col"]]
       )))

@@ -178,7 +178,7 @@ test_that("a sample's calls are the catalogue's, restricted", {
   }
 })
 
-test_that("the reference universe does not shrink with the sample", {
+test_that("the reference frame does not shrink with the sample", {
   # Genomes evaluated over different GIFT subsets are the one case where the
   # union over a sample differs from the catalogue's. Letting it shrink would
   # give every sample a different assessable denominator.

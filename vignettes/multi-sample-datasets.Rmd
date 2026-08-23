@@ -118,8 +118,8 @@ sample_community(dataset, "s1", detection = 0.15)$genome_id
 ## Per-sample traits
 
 ```{r}
-universe <- gift_universe(label = "all curated GIFTs")
-traits <- dataset_traits(dataset, universes = list(universe), progress = FALSE)
+frame <- reference_frame(label = "all curated GIFTs")
+traits <- dataset_traits(dataset, frames = list(frame), progress = FALSE)
 traits
 ```
 
@@ -198,7 +198,7 @@ multiple-testing correction under gifter's name. vegan, lme4, MaAsLin and ALDEx2
 already do that work, and do it better.
 
 What they cannot get anywhere else is an **assessability-aware matrix with a
-declared reference universe**:
+declared reference frame**:
 
 ```{r}
 capabilities <- gift_matrix(
@@ -208,7 +208,7 @@ capabilities <- gift_matrix(
 )
 
 dim(capabilities)
-attr(capabilities, "reference_universe")
+attr(capabilities, "reference_frame")
 attr(capabilities, "database_version")
 table(capabilities, useNA = "ifany")
 ```
@@ -240,7 +240,7 @@ vegan::adonis2(distances ~ group, data = metadata)
 ```
 
 The design is yours, the test is `vegan`'s, and the matrix is gifter's — carrying
-its reference universe and its database version so that the columns mean the same
+its reference frame and its database version so that the columns mean the same
 thing in six months.
 
 The tidy table joins the per-sample metrics to your metadata for the same

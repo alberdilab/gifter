@@ -6,7 +6,7 @@
 \usage{
 dataset_traits(
   dataset,
-  universes = NULL,
+  frames = NULL,
   quality = NULL,
   policy = "none",
   threshold = NULL,
@@ -20,7 +20,7 @@ dataset_traits(
 \arguments{
 \item{dataset}{A dataset from [gifter_dataset()].}
 
-\item{universes}{Optional list of [gift_universe()] objects. The default set
+\item{frames}{Optional list of [reference_frame()] objects. The default set
 is used if omitted.}
 
 \item{quality, policy, threshold, min_confidence}{Assessability, on exactly the
@@ -38,7 +38,7 @@ summary. `TRUE` by default. It is the one quadratic metric, and unlike in
 \item{db}{Optional open gifter database connection.}
 
 \item{progress}{Whether to display a progress bar over the reference
-universes. Reference universes remain the unit, because the sample loop is
+frames. Reference frames remain the unit, because the sample loop is
 vectorized away.}
 }
 \value{
@@ -47,24 +47,24 @@ A `gifter_dataset_traits` list with `metrics`, `catalogue_metrics`,
 }
 \description{
 Reports, per sample, how curated capabilities are distributed across the
-genomes detected in it, within declared reference universes. Nothing is
+genomes detected in it, within declared reference frames. Nothing is
 re-evaluated and nothing changes a call: the catalogue is read once, and a
 sample is a restriction of that reading to its detected genomes and a
 reweighting by their abundance.
 }
 \details{
-Metrics reported per sample per universe, in `metrics`:
+Metrics reported per sample per frame, in `metrics`:
 
 \describe{
   \item{`community_richness`}{GIFTs supported by at least one detected
     genome}
   \item{`community_coverage`}{richness over assessable members, for bounded
-    universes only}
+    frames only}
   \item{`mean_genome_richness`}{reported beside community richness rather
     than divided into it, so both components stay visible}
   \item{`detected_genomes`}{catalogue genomes detected in this sample, over
     all catalogue genomes}
-  \item{`assessable_fraction`}{members of the universe at least one detected
+  \item{`assessable_fraction`}{members of the frame at least one detected
     genome could assess}
   \item{`singleton_fraction`}{represented GIFTs with exactly one provider}
   \item{`provider_count`, `provider_fraction`}{per GIFT, the detected
@@ -80,7 +80,7 @@ Metrics reported per sample per universe, in `metrics`:
 Metrics reported once, in `catalogue_metrics`:
 
 \describe{
-  \item{`gift_richness`}{per genome, its supported GIFTs in the universe}
+  \item{`gift_richness`}{per genome, its supported GIFTs in the frame}
   \item{`repertoire_overlap`}{per genome pair, the Jaccard index of their
     supported GIFTs}
 }
@@ -143,7 +143,7 @@ gifter runs no hypothesis test, differential-abundance analysis, ordination
 or effect size between groups of samples, and interprets no metadata column.
 The design, the contrasts and the multiple-testing correction are the
 analyst's. What gifter contributes instead is an assessability-aware matrix
-with a declared reference universe --- see [gift_matrix()] and
+with a declared reference frame --- see [gift_matrix()] and
 [dataset_matrix()] --- in which a genome's silence about a capability it was
 never well enough observed to assess is `NA` rather than a fabricated zero.
 }
@@ -165,7 +165,7 @@ it and the pair rows together.
 
 
 `trace` records the catalogue's providers: which genomes support each GIFT,
-per universe. Every per-sample trace is a recount over those rows restricted
+per frame. Every per-sample trace is a recount over those rows restricted
 to the sample's detected genomes, which is what [trace_sample()] does, so
 per-sample rows are derivable rather than stored. This is the same reasoning
 as the `pair_trace = FALSE` default of [community_traits()]: the rows are

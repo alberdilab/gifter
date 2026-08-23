@@ -20,7 +20,7 @@
 
 # One sample's topology, from the catalogue's edges restricted to its members.
 .sample_topology <- function(community, catalogue_edges, graph, cycles,
-                             universe_ids, transferable, label, version,
+                             frame_ids, transferable, label, version,
                              sample) {
   genomes <- community$genome_id
   edges <- catalogue_edges[
@@ -45,7 +45,7 @@
   # Recounted rather than restricted: a link is completed within a genome only
   # if a *detected* genome holds both ends, and a cycle is closed only if a
   # detected genome closes it.
-  coverage <- .chain_coverage(community, graph, universe_ids, transferable)
+  coverage <- .chain_coverage(community, graph, frame_ids, transferable)
   cycle_coverage <- .distributed_cycles(community, cycles, transferable)
 
   pairs <- unique(edges[c("from_genome", "to_genome")])
@@ -55,7 +55,7 @@
     .sample_metric_row(
       sample, "community", "community", "interaction_density",
       if (ordered_pairs > 0L) nrow(pairs) / ordered_pairs else NA_real_,
-      "proportion", nrow(pairs), ordered_pairs, length(universe_ids), label,
+      "proportion", nrow(pairs), ordered_pairs, length(frame_ids), label,
       version,
       paste(
         "ordered pairs of genomes detected in this sample joined by at least",
@@ -65,13 +65,13 @@
     ),
     .sample_metric_row(
       sample, "community", "community", "handoff_edges", nrow(edges), "count",
-      nrow(edges), NA_integer_, length(universe_ids), label, version,
+      nrow(edges), NA_integer_, length(frame_ids), label, version,
       "GIFT-resolved potential resource handoffs between distinct genomes detected in this sample"
     ),
     .sample_metric_row(
       sample, "community", "community", "distributed_chain_links",
       sum(distributed), "count", sum(distributed), nrow(coverage),
-      length(universe_ids), label, version,
+      length(frame_ids), label, version,
       "curated composition links completed only by combining genomes detected in this sample, over represented links"
     )
   )
@@ -126,11 +126,11 @@
 #' Unlike the metrics of [dataset_traits()], the edges cannot be vectorized away:
 #' the returned `edges` table carries one row per sample per edge. A catalogue
 #' whose genomes are densely connected produces a large table for a dataset of
-#' many samples, and `universe` is the lever that narrows it.
+#' many samples, and `frame` is the lever that narrows it.
 #'
 #' @param dataset A dataset from [gifter_dataset()].
 #' @param interaction Interaction type. Only `"metabolic_handoff"` is defined.
-#' @param universe Optional [gift_universe()] restricting which GIFTs may form
+#' @param frame Optional [reference_frame()] restricting which GIFTs may form
 #'   edges.
 #' @param quality Optional [gift_graph()] edge quality filter, `"exact"` or
 #'   `"compartment_inexact"`. This is the quality of a curated GIFT edge, not a
@@ -145,7 +145,7 @@
 #'   column.
 #' @export
 dataset_network <- function(dataset, interaction = "metabolic_handoff",
-                            universe = NULL, quality = NULL, detection = 0,
+                            frame = NULL, quality = NULL, detection = 0,
                             limit = 100L, db = NULL) {
   if (!inherits(dataset, "gifter_dataset")) {
     stop("dataset must come from gifter_dataset()", call. = FALSE)
@@ -154,8 +154,8 @@ dataset_network <- function(dataset, interaction = "metabolic_handoff",
   if (!is.null(quality)) {
     quality <- match.arg(quality, c("exact", "compartment_inexact"))
   }
-  if (!is.null(universe) && !inherits(universe, "gifter_universe")) {
-    stop("universe must come from gift_universe()", call. = FALSE)
+  if (!is.null(frame) && !inherits(frame, "gifter_frame")) {
+    stop("frame must come from reference_frame()", call. = FALSE)
   }
   .check_cycle_limit(limit)
   detection <- .normalize_detection(detection)
@@ -171,22 +171,22 @@ dataset_network <- function(dataset, interaction = "metabolic_handoff",
         call. = FALSE
       )
     }
-    if (is.null(universe)) {
-      universe <- gift_universe(db = connection, label = "all curated GIFTs")
-    } else if (!identical(universe$database_version, version)) {
+    if (is.null(frame)) {
+      frame <- reference_frame(db = connection, label = "all curated GIFTs")
+    } else if (!identical(frame$database_version, version)) {
       stop(
-        "The universe was built against a different database version",
+        "The frame was built against a different database version",
         call. = FALSE
       )
     }
 
     graph <- gift_graph(db = connection, quality = quality)
     transferable <- .transferable_anchors(connection)
-    universe_ids <- universe$gift_id
+    frame_ids <- frame$gift_id
     # Built once. Which genome could hand which molecule to which other genome
     # does not depend on the sample either of them was seen in.
     catalogue_edges <- .handoff_edges(
-      dataset$catalogue, graph, universe_ids, transferable
+      dataset$catalogue, graph, frame_ids, transferable
     )
     cycles <- gift_cycles(db = connection, limit = limit)
 
@@ -195,8 +195,8 @@ dataset_network <- function(dataset, interaction = "metabolic_handoff",
         dataset$catalogue, dataset$genome_id[detected[, sample]]
       )
       .sample_topology(
-        community, catalogue_edges, graph, cycles, universe_ids, transferable,
-        universe$label, version, sample
+        community, catalogue_edges, graph, cycles, frame_ids, transferable,
+        frame$label, version, sample
       )
     })
     collect <- function(field) {
@@ -212,7 +212,7 @@ dataset_network <- function(dataset, interaction = "metabolic_handoff",
         chain_coverage = collect("chain_coverage"),
         cycle_coverage = collect("cycle_coverage"),
         metrics = collect("metrics"),
-        universe = universe,
+        frame = frame,
         sample_id = dataset$sample_id,
         detection = detection,
         database_version = dataset$database_version
