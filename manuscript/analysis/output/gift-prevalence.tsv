@@ -1,0 +1,154 @@
+gift_id	gift_type	mode	name	genomes	denominator	proportion	conf_ambiguous	conf_curated	conf_high-confidence
+glycine_biosynthesis	metabolic	anabolic	Serine to glycine	11535	11908	0.9687	0	11535	0
+cytidylate_biosynthesis	metabolic	anabolic	UTP to CTP	11328	11908	0.9513	0	11328	0
+guanylate_biosynthesis	metabolic	anabolic	IMP to GMP	11023	11908	0.9257	0	11023	0
+adenylate_biosynthesis	metabolic	anabolic	IMP to AMP	11002	11908	0.9239	0	11002	0
+glutamine_biosynthesis	metabolic	anabolic	L-glutamate and ammonium to L-glutamine	10998	11908	0.9236	0	10998	0
+pyruvate_to_acetyl_coa	metabolic	catabolic	Pyruvate to acetyl-CoA	10961	11908	0.9205	0	10961	0
+valine_biosynthesis	metabolic	anabolic	3-methyl-2-oxobutanoate to L-valine	10478	11908	0.8799	0	10478	0
+ammonium_assimilation	metabolic	anabolic	Ammonium and 2-oxoglutarate to glutamate	10344	11908	0.8687	0	10344	0
+isocitrate_to_oxoglutarate	metabolic	catabolic	Isocitrate to 2-oxoglutarate	10305	11908	0.8654	0	10305	0
+aspartate_semialdehyde_biosynthesis	metabolic	anabolic	Aspartate to aspartate 4-semialdehyde	10087	11908	0.8471	0	10087	0
+nad_biosynthesis_namn	metabolic	anabolic	Nicotinate D-ribonucleotide to NAD	9901	11908	0.8315	0	9901	0
+alanine_biosynthesis	metabolic	anabolic	Pyruvate to L-alanine	9821	11908	0.8247	0	9821	0
+acetyl_coa_to_isocitrate	metabolic	catabolic	Acetyl-CoA and oxaloacetate to isocitrate	9785	11908	0.8217	4539	5246	0
+pyrimidine_core_biosynthesis	metabolic	anabolic	Glutamine and PRPP to UMP	9653	11908	0.8106	0	9653	0
+homoserine_biosynthesis	metabolic	anabolic	Aspartate 4-semialdehyde to homoserine	9576	11908	0.8042	0	9576	0
+fumarate_oxaloacetate_interconversion	metabolic	interconversion	Fumarate and oxaloacetate interconversion	9533	11908	0.8006	0	9533	0
+lysine_biosynthesis_dap	metabolic	anabolic	meso-diaminopimelate to L-lysine	9424	11908	0.7914	0	9424	0
+succinate_fumarate_interconversion	metabolic	interconversion	Succinate and fumarate interconversion	9420	11908	0.7911	0	9420	0
+threonine_deamination	metabolic	catabolic	L-threonine to 2-oxobutanoate and ammonium	9212	11908	0.7736	0	9212	0
+proline_biosynthesis	metabolic	anabolic	L-glutamate to L-proline	9097	11908	0.7639	0	9097	0
+namn_salvage_nicotinate	metabolic	anabolic	Nicotinate to nicotinate D-ribonucleotide	9034	11908	0.7586	0	9034	0
+oxoglutarate_to_succinate	metabolic	catabolic	2-oxoglutarate to succinate	8933	11908	0.7502	0	8933	0
+oxoisovalerate_biosynthesis	metabolic	anabolic	Pyruvate to 3-methyl-2-oxobutanoate	8855	11908	0.7436	8855	0	0
+arginine_biosynthesis	metabolic	anabolic	L-ornithine to L-arginine	8776	11908	0.737	0	8776	0
+superoxide_detoxification	defense		Complete superoxide detoxification	8662	11908	0.7274	0	8662	0
+isoleucine_biosynthesis	metabolic	anabolic	2-oxobutanoate to L-isoleucine	8506	11908	0.7143	0	8506	0
+thiamine_phosphate_biosynthesis	metabolic	anabolic	Thiamine pyrimidine and thiazole to thiamine phosphate	8496	11908	0.7135	0	8496	0
+namn_biosynthesis_quinolinate	metabolic	anabolic	Quinolinate to nicotinate D-ribonucleotide	8454	11908	0.7099	0	8454	0
+threonine_biosynthesis	metabolic	anabolic	Homoserine to threonine	8394	11908	0.7049	0	8394	0
+leucine_biosynthesis	metabolic	anabolic	3-methyl-2-oxobutanoate to L-leucine	8330	11908	0.6995	0	8330	0
+asparagine_biosynthesis	metabolic	anabolic	L-aspartate to L-asparagine	8302	11908	0.6972	0	8302	0
+purine_core_biosynthesis	metabolic	anabolic	PRPP to IMP	8269	11908	0.6944	0	8269	0
+riboflavin_biosynthesis	metabolic	anabolic	GTP and D-ribulose 5-phosphate to riboflavin	8136	11908	0.6832	2844	5292	0
+phenylalanine_biosynthesis	metabolic	anabolic	Chorismate to L-phenylalanine	8067	11908	0.6774	0	8067	0
+heme_b_biosynthesis	metabolic	anabolic	Uroporphyrinogen III to heme b	8023	11908	0.6737	0	8023	0
+dap_biosynthesis	metabolic	anabolic	L-aspartate 4-semialdehyde to meso-diaminopimelate	7926	11908	0.6656	0	7926	0
+chorismate_biosynthesis	metabolic	anabolic	Phosphoenolpyruvate and erythrose 4-phosphate to chorismate	7902	11908	0.6636	1	7901	0
+serine_deamination	metabolic	catabolic	L-serine to pyruvate and ammonium	7742	11908	0.6502	0	7742	0
+aspartate_biosynthesis	metabolic	anabolic	Oxaloacetate to L-aspartate	7615	11908	0.6395	0	7615	0
+cysteine_biosynthesis_sulfide	metabolic	anabolic	Serine and sulfide to cysteine	7402	11908	0.6216	0	7402	0
+ornithine_biosynthesis	metabolic	anabolic	L-glutamate to L-ornithine	7175	11908	0.6025	0	7175	0
+methylglyoxal_detoxification	defense		Glutathione-dependent methylglyoxal detoxification	7047	11908	0.5918	0	7047	0
+quinolinate_biosynthesis_aspartate	metabolic	anabolic	L-aspartate to quinolinate	6921	11908	0.5812	0	6921	0
+histidine_biosynthesis	metabolic	anabolic	PRPP and L-glutamine to L-histidine	6891	11908	0.5787	0	6891	0
+serine_biosynthesis	metabolic	anabolic	3-phosphoglycerate to serine	6805	11908	0.5715	48	6757	0
+acetate_interconversion	metabolic	interconversion	Acetyl-CoA and acetate interconversion	6582	11908	0.5527	0	6582	0
+hmp_phosphate_biosynthesis	metabolic	anabolic	AIR to the thiamine pyrimidine	6450	11908	0.5417	0	6450	0
+methionine_biosynthesis_sulfhydrylation	metabolic	anabolic	Homoserine and sulfide to methionine	6309	11908	0.5298	0	6309	0
+tryptophan_biosynthesis	metabolic	anabolic	Chorismate and L-glutamine to L-tryptophan	6290	11908	0.5282	0	6290	0
+phosphate_starvation_response	regulatory		Phosphate starvation response	6189	11908	0.5197	0	6189	0
+tyrosine_biosynthesis	metabolic	anabolic	Chorismate to L-tyrosine	6179	11908	0.5189	0	6179	0
+folate_biosynthesis	metabolic	anabolic	GTP and 4-aminobenzoate to tetrahydrofolate	6131	11908	0.5149	1634	4497	0
+biotin_biosynthesis	metabolic	anabolic	Pimeloyl-CoA to biotin	5631	11908	0.4729	0	5631	0
+thiazole_phosphate_biosynthesis	metabolic	anabolic	DXP to the thiamine thiazole	5401	11908	0.4536	0	5401	0
+paba_biosynthesis	metabolic	anabolic	Chorismate to 4-aminobenzoate	5264	11908	0.4421	0	5264	0
+pantothenate_biosynthesis	metabolic	anabolic	2-oxoisovalerate and L-aspartate to pantothenate	5143	11908	0.4319	0	102	5041
+glyoxylate_bypass	metabolic	catabolic	Isocitrate and acetyl-CoA to succinate and malate	4830	11908	0.4056	0	4830	0
+type_i_restriction_modification	defense		Type I restriction-modification	4688	11908	0.3937	0	4688	0
+galactose_degradation_leloir	metabolic	catabolic	beta-D-galactose to alpha-D-glucose 1-phosphate	4655	11908	0.3909	0	4655	0
+cobinamide_biosynthesis	metabolic	anabolic	Cobyrinate a,c-diamide to adenosylcobinamide phosphate	4543	11908	0.3815	0	4543	0
+kdg_degradation	metabolic	catabolic	2-dehydro-3-deoxy-D-gluconate to pyruvate and D-glyceraldehyde 3-phosphate	4412	11908	0.3705	0	4412	0
+chemotaxis_signal_transduction	regulatory		Chemotaxis signal transduction	4391	11908	0.3687	0	4391	0
+siroheme_biosynthesis	metabolic	anabolic	Uroporphyrinogen III to siroheme	4338	11908	0.3643	3742	596	0
+lactate_formation	metabolic	catabolic	Pyruvate to (S)-lactate	4143	11908	0.3479	0	4143	0
+urea_hydrolysis	metabolic	catabolic	Urea to ammonium	3799	11908	0.319	0	3799	0
+xylose_degradation_isomerase	metabolic	catabolic	D-xylose to D-xylulose 5-phosphate	3738	11908	0.3139	0	3738	0
+plp_biosynthesis_r5p	metabolic	anabolic	Ribose 5-phosphate and glyceraldehyde 3-phosphate to pyridoxal 5-phosphate	3679	11908	0.309	0	3679	0
+thiamine_precursor_salvage	metabolic	anabolic	Thiamine precursor salvage to the activated moieties	3497	11908	0.2937	0	3497	0
+methionine_biosynthesis_transsulfuration	metabolic	anabolic	Homoserine and cysteine to methionine	3469	11908	0.2913	0	3469	0
+flagellar_apparatus	structural		Flagellar apparatus	3327	11908	0.2794	0	3327	0
+cobamide_nucleotide_loop_assembly	metabolic	anabolic	Adenosylcobinamide phosphate and dimethylbenzimidazole to cobalamin	3272	11908	0.2748	0	3272	0
+glcnac_degradation	metabolic	catabolic	N-acetyl-D-glucosamine to beta-D-fructose 6-phosphate	3189	11908	0.2678	0	3189	0
+menaquinone_biosynthesis	metabolic	anabolic	Chorismate to menaquinone	3188	11908	0.2677	2348	485	355
+cysteine_biosynthesis_homocysteine	metabolic	anabolic	Serine and homocysteine to cysteine	3136	11908	0.2634	0	3136	0
+nitrate_assimilation	metabolic	anabolic	Nitrate to ammonium	2977	11908	0.25	0	2977	0
+mucin_fucose_release	metabolic	catabolic	Mucin O-glycan to L-fucose	2944	11908	0.2472	0	2944	0
+glutamate_decarboxylation_gaba	metabolic	catabolic	L-glutamate to 4-aminobutanoate	2937	11908	0.2466	0	2937	0
+starch_degradation	metabolic	catabolic	Starch to D-glucose	2865	11908	0.2406	0	2865	0
+choline_to_betaine	metabolic	anabolic	Choline to glycine betaine	2726	11908	0.2289	0	2726	0
+ethanol_formation	metabolic	catabolic	Acetyl-CoA to ethanol	2519	11908	0.2115	0	2519	0
+methionine_degradation_methanethiol	metabolic	catabolic	L-methionine to methanethiol and 2-oxobutanoate	2518	11908	0.2115	0	2518	0
+cysteine_degradation_sulfide	metabolic	catabolic	L-cysteine to hydrogen sulfide and pyruvate	2383	11908	0.2001	0	2383	0
+histidine_degradation_glutamate	metabolic	catabolic	L-histidine to L-glutamate and ammonium	2166	11908	0.1819	0	2166	0
+dmb_biosynthesis_aerobic	metabolic	anabolic	FMNH2 to 5,6-dimethylbenzimidazole	2126	11908	0.1785	0	2126	0
+urate_degradation	metabolic	catabolic	Urate to allantoin	2087	11908	0.1753	0	2087	0
+arabinoxylan_debranching	metabolic	catabolic	Arabinoxylan to xylan and L-arabinose	2082	11908	0.1748	0	2082	0
+sarcosine_demethylation	metabolic	catabolic	Sarcosine to glycine	2069	11908	0.1737	0	2069	0
+xylose_uptake_abc	metabolic	transport	D-xylose uptake	1923	11908	0.1615	0	1923	0
+chitin_degradation	metabolic	catabolic	Chitin to N-acetyl-D-glucosamine	1891	11908	0.1588	0	1891	0
+arginine_deiminase_pathway	metabolic	catabolic	L-arginine to L-ornithine and ammonium	1764	11908	0.1481	0	1764	0
+acetoin_formation	metabolic	catabolic	Pyruvate to (R)-acetoin	1649	11908	0.1385	1599	50	0
+glucuronate_degradation	metabolic	catabolic	D-glucuronate to 2-dehydro-3-deoxy-D-gluconate	1606	11908	0.1349	0	1606	0
+hydroxyphenylpropanoate_hydroxylation	metabolic	catabolic	3-(3-Hydroxyphenyl)propanoate to 3-(2,3-dihydroxyphenyl)propanoate	1606	11908	0.1349	0	1606	0
+type_iva_pilus	structural		Type IVa pilus machinery	1481	11908	0.1244	87	1394	0
+taurine_uptake_abc	metabolic	transport	Taurine uptake	1462	11908	0.1228	0	1462	0
+arabinose_degradation	metabolic	catabolic	L-arabinose to D-xylulose 5-phosphate	1433	11908	0.1203	0	1433	0
+mucin_sialic_acid_release	metabolic	catabolic	Mucin O-glycan to N-acetylneuraminate	1373	11908	0.1153	0	1373	0
+oxopentenoate_degradation	metabolic	catabolic	2-Oxopent-4-enoate to pyruvate and acetyl-CoA	1357	11908	0.114	0	1357	0
+plp_biosynthesis_dxp	metabolic	anabolic	Erythrose 4-phosphate and DXP to pyridoxal 5-phosphate	1351	11908	0.1135	0	0	1351
+oxoadipate_activation	metabolic	catabolic	3-Oxoadipate to 3-oxoadipyl-CoA	1252	11908	0.1051	0	1252	0
+ectoine_biosynthesis	metabolic	anabolic	Aspartate semialdehyde to ectoine	1237	11908	0.1039	0	1237	0
+corrin_ring_biosynthesis	metabolic	anabolic	Uroporphyrinogen III to cobyrinate a,c-diamide	1125	11908	0.0945	355	770	0
+dihydroxybenzoate_biosynthesis	metabolic	anabolic	Chorismate to 2,3-dihydroxybenzoate	1122	11908	0.0942	0	15	1107
+galacturonate_degradation	metabolic	catabolic	D-galacturonate to 2-dehydro-3-deoxy-D-gluconate	1087	11908	0.0913	0	1087	0
+xylan_degradation	metabolic	catabolic	Xylan to D-xylose	1087	11908	0.0913	0	1087	0
+taurine_desulfonation_aerobic	metabolic	catabolic	Taurine to sulfite	1065	11908	0.0894	0	1065	0
+lactate_formation_lactaldehyde	metabolic	catabolic	(S)-lactaldehyde to (S)-lactate	1053	11908	0.0884	0	1053	0
+arabinose_uptake_abc	metabolic	transport	L-arabinose uptake	997	11908	0.0837	0	997	0
+mercury_detoxification	defense		Mercury detoxification	951	11908	0.0799	0	951	0
+allantoin_degradation	metabolic	catabolic	Allantoin to glyoxylate and urea	945	11908	0.0794	0	945	0
+carnitine_to_betaine	metabolic	catabolic	L-carnitine to glycine betaine	944	11908	0.0793	0	944	0
+hydroxyectoine_biosynthesis	metabolic	anabolic	L-ectoine to 5-hydroxyectoine	903	11908	0.0758	0	903	0
+catechol_ortho_cleavage	metabolic	catabolic	Catechol to 3-oxoadipate by ortho cleavage	874	11908	0.0734	0	874	0
+mucin_galnac_release	metabolic	catabolic	Mucin O-glycan to N-acetyl-D-galactosamine	854	11908	0.0717	0	854	0
+tryptophan_degradation_indole	metabolic	catabolic	L-tryptophan to indole, pyruvate and ammonium	816	11908	0.0685	0	816	0
+rhamnose_degradation	metabolic	catabolic	L-rhamnose to dihydroxyacetone phosphate and (S)-lactaldehyde	808	11908	0.0679	0	808	0
+benzoate_degradation_catechol	metabolic	catabolic	Benzoate to catechol	753	11908	0.0632	0	753	0
+betaine_demethylation	metabolic	catabolic	Glycine betaine to sarcosine	751	11908	0.0631	0	751	0
+nitrogen_fixation	metabolic	anabolic	Dinitrogen to ammonium	735	11908	0.0617	0	735	0
+type_i_e_crispr_cas_machinery	defense		Type I-E CRISPR-Cas machinery	725	11908	0.0609	0	725	0
+salicylate_biosynthesis	metabolic	anabolic	Chorismate to salicylate	661	11908	0.0555	0	290	371
+propanediol_formation	metabolic	catabolic	(S)-lactaldehyde to (S)-propane-1,2-diol	629	11908	0.0528	0	629	0
+oxobutanoate_biosynthesis_citramalate	metabolic	anabolic	Pyruvate to 2-oxobutanoate	585	11908	0.0491	0	585	0
+lactate_racemisation	metabolic	interconversion	(S)-lactate and (R)-lactate interconversion	560	11908	0.047	0	560	0
+collagen_cleavage	metabolic	catabolic	Collagen to collagen peptides	548	11908	0.046	0	548	0
+enterobactin_biosynthesis	metabolic	anabolic	2,3-Dihydroxybenzoate and serine to enterobactin	502	11908	0.0422	0	502	0
+dihydroxyphenylpropanoate_degradation	metabolic	catabolic	3-(2,3-Dihydroxyphenyl)propanoate to 2-oxopent-4-enoate and succinate	496	11908	0.0417	0	496	0
+aspartate_chemoreception	regulatory		Aspartate chemoreception	480	11908	0.0403	0	480	0
+neuac_degradation	metabolic	catabolic	N-acetylneuraminate to beta-D-fructose 6-phosphate	462	11908	0.0388	0	462	0
+ectoine_degradation	metabolic	catabolic	L-ectoine to L-2,4-diaminobutanoate	450	11908	0.0378	0	450	0
+anthranilate_degradation_catechol	metabolic	catabolic	Anthranilate to catechol	432	11908	0.0363	0	432	0
+taurine_degradation_sulfoacetaldehyde	metabolic	catabolic	Taurine to sulfite through sulfoacetaldehyde	388	11908	0.0326	0	388	0
+citrate_fermentation	metabolic	catabolic	Citrate to pyruvate and acetate	345	11908	0.029	0	345	0
+malolactic_fermentation	metabolic	catabolic	(S)-malate to (S)-lactate	337	11908	0.0283	0	337	0
+fucose_degradation_isomerase	metabolic	catabolic	L-fucose to dihydroxyacetone phosphate and (S)-lactaldehyde	332	11908	0.0279	0	332	0
+carnitine_degradation_trimethylamine	metabolic	catabolic	L-carnitine to trimethylamine	271	11908	0.0228	0	271	0
+catechol_meta_cleavage	metabolic	catabolic	Catechol to 2-oxopent-4-enoate by meta cleavage	263	11908	0.0221	0	263	0
+pectin_degradation	metabolic	catabolic	Pectin to D-galacturonate	258	11908	0.0217	0	258	0
+oxoadipyl_coa_thiolysis	metabolic	catabolic	3-Oxoadipyl-CoA to succinyl-CoA and acetyl-CoA	235	11908	0.0197	0	235	0
+phenylacetate_degradation	metabolic	catabolic	Phenylacetate to 3-oxoadipyl-CoA	215	11908	0.0181	0	215	0
+methylamine_degradation	metabolic	catabolic	Methylamine to ammonium	213	11908	0.0179	0	213	0
+phenol_hydroxylation	metabolic	catabolic	Phenol to catechol	206	11908	0.0173	0	206	0
+creatinine_degradation	metabolic	catabolic	Creatinine to sarcosine and urea	195	11908	0.0164	0	195	0
+propionate_formation_propanediol	metabolic	catabolic	(S)-propane-1,2-diol to propanoate	168	11908	0.0141	0	168	0
+glycine_reduction_stickland	metabolic	catabolic	Glycine to acetyl phosphate and ammonium	128	11908	0.0107	0	128	0
+phenylpropanoate_dihydroxylation	metabolic	catabolic	3-Phenylpropanoate to 3-(2,3-dihydroxyphenyl)propanoate	128	11908	0.0107	0	128	0
+pectate_lyase_degradation	metabolic	catabolic	Pectin to 2-dehydro-3-deoxy-D-gluconate by beta-elimination	97	11908	0.0081	0	97	0
+proline_reduction_stickland	metabolic	catabolic	L-proline to 5-aminopentanoate	90	11908	0.0076	0	90	0
+indole_3_acetate_biosynthesis	metabolic	anabolic	L-tryptophan to indole-3-acetate	87	11908	0.0073	78	9	0
+propionate_formation_acrylate	metabolic	catabolic	(R)-lactate to propanoate	4	11908	3e-04	0	4	0
+assimilatory_sulfate_reduction	metabolic	anabolic	Sulfate to hydrogen sulfide	0	11908	0			
+butyrate_formation	metabolic	catabolic	Acetyl-CoA and acetate to butanoate	0	11908	0			
+siroheme_to_heme_b	metabolic	anabolic	Siroheme to heme b	0	11908	0			
