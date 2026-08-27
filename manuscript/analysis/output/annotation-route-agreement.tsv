@@ -1,0 +1,88 @@
+route	term	layer	target	relation	recall_usable	n	both_positive	encoded_not_observed	observed_not_encoded	recall	genera
+kegg_ko	urea	gift	urea_hydrolysis	equivalent	TRUE	85	23	21	5	0.821	67
+kegg_ko	L-arabinose	gift	arabinose_degradation	equivalent	TRUE	43	7	1	10	0.412	37
+kegg_ko	L-arabinose	gift	arabinose_degradation	subset_of	TRUE	48	12	6	1	0.923	41
+kegg_ko	D-xylose	gift	xylose_degradation_isomerase	equivalent	TRUE	10	5	1	1	0.833	10
+kegg_ko	D-xylose	gift	xylose_degradation_isomerase	subset_of	TRUE	52	11	11	1	0.917	43
+kegg_ko	L-rhamnose	gift	rhamnose_degradation	equivalent	TRUE	11	0	0	4	0	11
+kegg_ko	L-rhamnose	gift	rhamnose_degradation	subset_of	TRUE	52	7	2	4	0.636	46
+kegg_ko	D-galactose	gift	galactose_degradation_leloir	equivalent	TRUE	13	3	3	2	0.6	13
+kegg_ko	D-galactose	gift	galactose_degradation_leloir	subset_of	TRUE	36	9	7	4	0.692	31
+kegg_ko	L-fucose	gift	fucose_degradation_isomerase	equivalent	TRUE	7	0	0	3	0	7
+kegg_ko	N-acetylglucosamine	gift	glcnac_degradation	equivalent	TRUE	36	1	2	12	0.077	31
+kegg_ko	citrate	gift	citrate_fermentation	superset_of	FALSE	66	3	0	23	0.115	53
+kegg_ko	glycogen	gift	starch_degradation	overlaps	FALSE	41	2	4	6	0.25	35
+kegg_ko	gelatin	gift	collagen_cleavage	refused	FALSE	103	8	0	27	0.229	80
+kegg_ko	indole	gift	tryptophan_degradation_indole	equivalent	TRUE	140	5	4	4	0.556	109
+kegg_ko	acetoin	gift	acetoin_formation	equivalent	TRUE	41	10	2	12	0.455	30
+kegg_ko	hydrogen sulfide	gift	cysteine_degradation_sulfide	superset_of	FALSE	50	5	20	5	0.5	41
+kegg_ko	urease	reaction	RHEA:20557	equivalent	TRUE	141	37	33	8	0.822	109
+kegg_ko	arginine deiminase	reaction	RHEA:19597	equivalent	TRUE	84	15	19	7	0.682	69
+kegg_ko	tryptophanase	reaction	RHEA:19553	equivalent	TRUE	45	0	2	2	0	35
+kegg_ko	glutamate decarboxylase	reaction	RHEA:17785	equivalent	TRUE	9	1	2	1	0.5	9
+kegg_ko	endo-1,4-beta-xylanase	reaction	RXN_XYLAN_ENDO_1_4	equivalent	TRUE	1	1	0	0	1	1
+kegg_ko	chitinase	reaction	RXN_CHITIN_ENDO	equivalent	TRUE	1	1	0	0	1	1
+kegg_ko	beta-N-acetylhexosaminidase	reaction	RXN_CHITOBIOSE_EXO	equivalent	TRUE	113	23	65	9	0.719	88
+kegg_ko	alpha-L-fucosidase	reaction	RXN_MUCIN_FUCOSE_RELEASE	equivalent	TRUE	114	5	22	0	1	89
+kegg_ko	alpha-glucosidase	reaction	RXN_MALTOOLIGO_EXO	equivalent	TRUE	112	46	21	8	0.852	89
+kegg_ko	alpha-L-arabinofuranosidase	reaction	RXN_ARABINOXYLAN_ARAF_RELEASE	equivalent	TRUE	9	0	1	0		9
+kegg_ko	alcohol dehydrogenase	reaction	RHEA:25290	related	FALSE	56	5	10	2	0.714	49
+kegg_ko	motility	gift	flagellar_apparatus	superset_of	FALSE	213	70	12	35	0.667	171
+annot_ko	urea	gift	urea_hydrolysis	equivalent	TRUE	85	22	19	6	0.786	67
+annot_ko	L-arabinose	gift	arabinose_degradation	equivalent	TRUE	43	7	1	10	0.412	37
+annot_ko	L-arabinose	gift	arabinose_degradation	subset_of	TRUE	48	12	6	1	0.923	41
+annot_ko	D-xylose	gift	xylose_degradation_isomerase	equivalent	TRUE	10	4	1	2	0.667	10
+annot_ko	D-xylose	gift	xylose_degradation_isomerase	subset_of	TRUE	52	8	8	4	0.667	43
+annot_ko	L-rhamnose	gift	rhamnose_degradation	equivalent	TRUE	11	0	0	4	0	11
+annot_ko	L-rhamnose	gift	rhamnose_degradation	subset_of	TRUE	52	7	2	4	0.636	46
+annot_ko	D-galactose	gift	galactose_degradation_leloir	equivalent	TRUE	13	3	1	2	0.6	13
+annot_ko	D-galactose	gift	galactose_degradation_leloir	subset_of	TRUE	36	6	6	7	0.462	31
+annot_ko	L-fucose	gift	fucose_degradation_isomerase	equivalent	TRUE	7	0	0	3	0	7
+annot_ko	N-acetylglucosamine	gift	glcnac_degradation	equivalent	TRUE	36	1	2	12	0.077	31
+annot_ko	citrate	gift	citrate_fermentation	superset_of	FALSE	66	3	0	23	0.115	53
+annot_ko	glycogen	gift	starch_degradation	overlaps	FALSE	41	4	3	4	0.5	35
+annot_ko	gelatin	gift	collagen_cleavage	refused	FALSE	103	8	0	27	0.229	80
+annot_ko	indole	gift	tryptophan_degradation_indole	equivalent	TRUE	140	5	5	4	0.556	109
+annot_ko	acetoin	gift	acetoin_formation	equivalent	TRUE	41	10	2	12	0.455	30
+annot_ko	hydrogen sulfide	gift	cysteine_degradation_sulfide	superset_of	FALSE	50	5	20	5	0.5	41
+annot_ko	urease	reaction	RHEA:20557	equivalent	TRUE	141	32	30	13	0.711	109
+annot_ko	arginine deiminase	reaction	RHEA:19597	equivalent	TRUE	84	15	19	7	0.682	69
+annot_ko	tryptophanase	reaction	RHEA:19553	equivalent	TRUE	45	0	2	2	0	35
+annot_ko	glutamate decarboxylase	reaction	RHEA:17785	equivalent	TRUE	9	1	2	1	0.5	9
+annot_ko	endo-1,4-beta-xylanase	reaction	RXN_XYLAN_ENDO_1_4	equivalent	TRUE	1	1	0	0	1	1
+annot_ko	chitinase	reaction	RXN_CHITIN_ENDO	equivalent	TRUE	1	1	0	0	1	1
+annot_ko	beta-N-acetylhexosaminidase	reaction	RXN_CHITOBIOSE_EXO	equivalent	TRUE	113	25	65	7	0.781	88
+annot_ko	alpha-L-fucosidase	reaction	RXN_MUCIN_FUCOSE_RELEASE	equivalent	TRUE	114	5	23	0	1	89
+annot_ko	alpha-glucosidase	reaction	RXN_MALTOOLIGO_EXO	equivalent	TRUE	112	36	13	18	0.667	89
+annot_ko	alpha-L-arabinofuranosidase	reaction	RXN_ARABINOXYLAN_ARAF_RELEASE	equivalent	TRUE	9	0	1	0		9
+annot_ko	alcohol dehydrogenase	reaction	RHEA:25290	related	FALSE	56	5	9	2	0.714	49
+annot_ko	motility	gift	flagellar_apparatus	superset_of	FALSE	213	42	2	63	0.4	171
+annot_full	urea	gift	urea_hydrolysis	equivalent	TRUE	85	22	19	6	0.786	67
+annot_full	L-arabinose	gift	arabinose_degradation	equivalent	TRUE	43	7	1	10	0.412	37
+annot_full	L-arabinose	gift	arabinose_degradation	subset_of	TRUE	48	12	6	1	0.923	41
+annot_full	D-xylose	gift	xylose_degradation_isomerase	equivalent	TRUE	10	4	1	2	0.667	10
+annot_full	D-xylose	gift	xylose_degradation_isomerase	subset_of	TRUE	52	8	8	4	0.667	43
+annot_full	L-rhamnose	gift	rhamnose_degradation	equivalent	TRUE	11	0	0	4	0	11
+annot_full	L-rhamnose	gift	rhamnose_degradation	subset_of	TRUE	52	7	2	4	0.636	46
+annot_full	D-galactose	gift	galactose_degradation_leloir	equivalent	TRUE	13	3	1	2	0.6	13
+annot_full	D-galactose	gift	galactose_degradation_leloir	subset_of	TRUE	36	6	6	7	0.462	31
+annot_full	L-fucose	gift	fucose_degradation_isomerase	equivalent	TRUE	7	0	0	3	0	7
+annot_full	N-acetylglucosamine	gift	glcnac_degradation	equivalent	TRUE	36	1	2	12	0.077	31
+annot_full	citrate	gift	citrate_fermentation	superset_of	FALSE	66	3	0	23	0.115	53
+annot_full	glycogen	gift	starch_degradation	overlaps	FALSE	41	8	29	0	1	35
+annot_full	gelatin	gift	collagen_cleavage	refused	FALSE	103	8	0	27	0.229	80
+annot_full	indole	gift	tryptophan_degradation_indole	equivalent	TRUE	140	5	5	4	0.556	109
+annot_full	acetoin	gift	acetoin_formation	equivalent	TRUE	41	10	2	12	0.455	30
+annot_full	hydrogen sulfide	gift	cysteine_degradation_sulfide	superset_of	FALSE	50	5	20	5	0.5	41
+annot_full	urease	reaction	RHEA:20557	equivalent	TRUE	141	32	30	13	0.711	109
+annot_full	arginine deiminase	reaction	RHEA:19597	equivalent	TRUE	84	15	19	7	0.682	69
+annot_full	tryptophanase	reaction	RHEA:19553	equivalent	TRUE	45	0	2	2	0	35
+annot_full	glutamate decarboxylase	reaction	RHEA:17785	equivalent	TRUE	9	1	2	1	0.5	9
+annot_full	endo-1,4-beta-xylanase	reaction	RXN_XYLAN_ENDO_1_4	equivalent	TRUE	1	1	0	0	1	1
+annot_full	chitinase	reaction	RXN_CHITIN_ENDO	equivalent	TRUE	1	1	0	0	1	1
+annot_full	beta-N-acetylhexosaminidase	reaction	RXN_CHITOBIOSE_EXO	equivalent	TRUE	113	28	68	4	0.875	88
+annot_full	alpha-L-fucosidase	reaction	RXN_MUCIN_FUCOSE_RELEASE	equivalent	TRUE	114	5	23	0	1	89
+annot_full	alpha-glucosidase	reaction	RXN_MALTOOLIGO_EXO	equivalent	TRUE	112	54	45	0	1	89
+annot_full	alpha-L-arabinofuranosidase	reaction	RXN_ARABINOXYLAN_ARAF_RELEASE	equivalent	TRUE	9	0	7	0		9
+annot_full	alcohol dehydrogenase	reaction	RHEA:25290	related	FALSE	56	5	9	2	0.714	49
+annot_full	motility	gift	flagellar_apparatus	superset_of	FALSE	213	42	2	63	0.4	171
