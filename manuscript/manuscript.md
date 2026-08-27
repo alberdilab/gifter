@@ -881,42 +881,46 @@ nothing else, so every medium–strain row carries growth, and the falsifiable
 cell is still the unsupported call. What defined media buy is leverage rather
 than polarity. A strain that grows on a chemically defined medium containing no
 L-tryptophan makes its own L-tryptophan, so one growth observation tests every
-anabolic capability whose product the medium omits, and 152 strain–medium pairs
-over 129 genomes become 3,644 nutrient-level tests. Where the medium does supply
+anabolic capability whose product the medium omits, and 264 strain–medium pairs
+over 201 genomes become 9,050 nutrient-level tests. Where the medium does supply
 a nutrient — a vitamin solution, casamino acids — the test is void rather than
 negative, and the ingredient list says which; media whose composition is less
 than three-quarters resolvable to identifiers are dropped rather than counted,
 because a medium that cannot be read cannot support the inference that a
-nutrient is absent.
+nutrient is absent. The strain-to-genome join runs through the same BacDive
+sweep as the catabolic half, so the two halves of this section are measured on
+one reference set; a recall is only comparable with another taken from the same
+sweep, and that rule is applied to these tables and not only to the literature.
 
 Two constraints bound the premise and both are stated rather than absorbed.
 It holds only where the nutrient is biomass-essential: menaquinone is not
 universal, and an organism handed ammonium has no reason to fix nitrogen at all,
-so those classes are measured and reported (menaquinone 0.086, ammonium 0.467)
+so those classes are measured and reported (menaquinone 0.091, ammonium 0.508)
 but excluded from the headline, because a low rate there is a false question
 rather than a failed call. And alternative curated routes to one product must be
 OR-ed rather than required separately, since an organism needs either the
 sulfide or the homocysteine route to cysteine and testing them individually
 scores whichever it does not use as a failure. Restricted to the
-biomass-essential classes and with alternatives OR-ed, recall is **0.849 over
-3,644 tests**.
+biomass-essential classes and with alternatives OR-ed, recall is **0.844 over
+5,803 tests**.
 
 This is also the only external check the quantitative layer of R4 has ever
 had, and the bounded frames are what make it possible: a proportion is emitted
 against them only because curation declares their coverage complete, so a
 strain growing on a mineral medium should score 1.0 and every point below is a
 named, traceable, falsified call. On strains observed to grow on media
-supplying none of it, **109 of 129 genomes score a full 1.0 on
-`nucleotide_autonomy`**; 6 do on `amino_acid_autonomy` and none on
-`cofactor_autonomy`. Per nutrient, the nucleotide rows run from 0.921 to 1.000
-and the amino-acid rows from serine's 0.296 to valine's 0.980, while the
-cofactor rows have a median of 0.520. The cofactor row is the honest one to
-dwell on: the cofactor classes contribute 910 of the 1,580 failing tests, and
-menaquinone, DMB, cobalamin, PLP and folate alone account for 588 of those —
-the first three being exactly where the biomass-essential premise is weakest.
-The anabolic test set is clustered too, and differently from the catabolic one
-— *Methanocaldococcus*, *Acidithiobacillus*, *Geobacter* and *Sulfurimonas*
-lead its failures, because defined media are written for methanogens,
+supplying none of it, **170 of 201 genomes score a full 1.0 on
+`nucleotide_autonomy`**; 7 do on `amino_acid_autonomy` and none on
+`cofactor_autonomy`. Per nutrient, the nucleotide rows run from 0.905 to 0.996
+and the amino-acid rows from serine's 0.302 to the 0.979 of glycine and valine,
+while the cofactor rows have a median of 0.531. The cofactor row is the honest
+one to dwell on: the cofactor classes contribute 1,404 of the 2,470 failing
+tests, and menaquinone, DMB, cobalamin, PLP and folate alone account for 906 of
+those — the first three being exactly where the biomass-essential premise is
+weakest. The anabolic test set is clustered too, and differently from the
+catabolic one — *Methanocaldococcus* (128 failing tests),
+*Acidithiobacillus* (93), *Nitrosopumilus* (86) and *Geobacter* (59) lead its
+failures across 155 genera, because defined media are written for methanogens,
 chemolithotrophs and anaerobes, not for the taxa a clinical phenotype panel
 covers.
 

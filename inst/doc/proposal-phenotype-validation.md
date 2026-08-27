@@ -296,10 +296,18 @@ kind; this is one.
 **The estimate of *n* was close.** 646 of the 662 defined media returned a
 composition, and they yield **1 748 growth-positive strain–medium pairs** over
 1 594 strains, against the 1 400 projected from a twelve-medium sample. Of those
-pairs, **171 reach a genome in the reference set**, covering 129 genomes — the
-attrition is the genome link, not the media. Ingredient resolution is not the
-problem the assessment feared: median 0.97 of a defined medium's ingredients
-carry a ChEBI identifier.
+pairs, **270 reach a genome in the reference set**, covering 225 genomes, and
+264 of them sit on a medium at least three-quarters readable — the attrition is
+the genome link, not the media. Ingredient resolution is not the problem the
+assessment feared: median 0.97 of a defined medium's ingredients carry a ChEBI
+identifier.
+
+*(The 171 pairs over 129 genomes this section first reported came from a smaller
+BacDive sweep than the catabolic half was run on. Re-running `04-auxotrophy.R`
+against the sweep of 2026-08-27 puts both halves of R9 on one reference set,
+which is §9's rule applied to our own tables rather than to the literature.
+Every figure below is from that run; the ones it moved are noted where they
+changed.)*
 
 **Correction 1: the premise holds only for nutrients the organism requires.**
 "Grows without X, therefore makes X" is valid only where X is biomass-essential.
@@ -307,7 +315,7 @@ Amino acids and nucleotides are, in every bacterium. Menaquinone is not — plen
 of lineages use ubiquinone instead — and neither siroheme nor DMB is universal.
 Nitrogen fixation is worse than non-essential: an organism handed ammonium has
 no reason to fix N₂ at all, so demanding it is simply a wrong question. Scoring
-those classes gives `MENAQUINONE` 0.086 and `AMMONIUM` 0.467, and neither number
+those classes gives `MENAQUINONE` 0.091 and `AMMONIUM` 0.508, and neither number
 is about gifter. The analysis reports every class and restricts the headline to
 the essential ones.
 
@@ -327,23 +335,33 @@ and §7.2's upper-bound caveat applies here with force.
 
 ### 5.2 The result
 
-With the premise restricted to biomass-essential classes and alternatives
-OR-ed: **3 644 nutrient-level tests over 129 genomes, recall 0.849**.
+264 strain–medium pairs over 201 genomes yield 9 050 nutrient-level tests. With
+the premise restricted to biomass-essential classes and alternatives OR-ed:
+**5 803 nutrient-level tests over 201 genomes, recall 0.844**.
 
 | Frame | Median proportion supported | Genomes scoring 1.0 |
 |---|---|---|
-| `nucleotide_autonomy` | **1.000** | 109 of 129 |
-| `amino_acid_autonomy` | 0.850 | 6 of 129 |
-| `cofactor_autonomy` | 0.500 | 0 of 129 |
+| `nucleotide_autonomy` | **1.000** | 170 of 201 |
+| `amino_acid_autonomy` | 0.850 | 7 of 201 |
+| `cofactor_autonomy` | 0.500 | 0 of 200 |
 
 The nucleotide row is the clean one, and it is the first external check R4 has
-ever had: 109 of 129 genomes score a full 1.0 on a bounded frame, on strains
+ever had: 170 of 201 genomes score a full 1.0 on a bounded frame, on strains
 observed to grow on media supplying none of it.
 
-`SERINE` at 0.296 and `HISTIDINE` at 0.520 are the rows worth curating against.
+`SERINE` at 0.302 and `HISTIDINE` at 0.574 are the rows worth curating against.
 Both are biomass-essential, neither has an alternative curated route to merge,
 and the premise is sound for both — so those are gifter's, and they are named in
 `auxotrophy-disagreements.tsv` with the genome behind every one.
+
+**What the enlarged sweep did and did not move.** Recall fell 0.849 → 0.844 and
+every per-nutrient row moved by less than 0.07, in both directions:
+`HISTIDINE` 0.520 → 0.574 and `GLUTAMATE` 0.757 → 0.818 rose, `TRYPTOPHAN`
+0.961 → 0.897 and `TYROSINE` 0.757 → 0.707 fell. That stability across a 59%
+larger test set is worth more than the headline: it says the anabolic figure is
+a property of the catalogue rather than of which strains happened to be in the
+sweep. The 39 scored rows are unchanged in identity — no nutrient entered or
+left the table.
 
 ## 6. What survives from the Madin synthesis
 
@@ -542,8 +560,8 @@ Items 1 to 6 are done; the state of each is recorded rather than the intention.
    another one measured on the same sweep. Before quoting a before-and-after,
    rescore the earlier database against the current reference rather than
    comparing two runs — the cached calls make that cheap, and the enlarged sweep
-   turned out to be the harder test set of the two. The auxotrophy figures are
-   untouched by that run.
+   turned out to be the harder test set of the two. The auxotrophy figures were
+   left untouched by that run, which is item 9.
 
 Done since:
 
@@ -583,6 +601,25 @@ Done since:
    a whole**, and a recall must be read against the ceiling of its own assay pair
    rather than against the best one available. Quoting the urea number as though
    it bounded the whole section would have flattered every recall in it.
+
+9. **Both halves of R9 are now on one sweep.** The caution in item 6 was
+   written about comparing our figures with someone else's and it applies with
+   the same force inside one section: `03-phenotype.R` had been re-run against
+   the enlarged sweep and `04-auxotrophy.R` had not, so the catabolic and
+   anabolic halves of R9 were measured on different reference sets and the two
+   were being reported side by side. `04` is re-run and §5.2 is updated. 171
+   strain–medium pairs over 129 genomes become 264 over 201, and 3 644
+   biomass-essential tests become 5 803.
+
+   **The headline barely moved, and that is the finding.** Recall goes 0.849 →
+   0.844, and no per-nutrient row moves by as much as 0.07 in either direction.
+   A 59% larger and taxonomically broader test set leaving the number where it
+   was is evidence that the anabolic figure is a property of the catalogue
+   rather than of the sweep — which is exactly what the catabolic half could not
+   claim, where `glcnac_degradation` moved from n = 119 to n = 229 and the
+   recall with it. The rule earns its keep in both directions: applied to the
+   catabolic half it caught a real artefact, and applied to the anabolic half it
+   confirmed there was none.
 
 Deferred, with rows in [the deferral register](deferral-register.md):
 
