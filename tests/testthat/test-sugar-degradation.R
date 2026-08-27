@@ -273,3 +273,115 @@ test_that("sugar degradation curation is recorded in the biological changelog", 
   changes <- database_changelog("neuac_degradation")$change_id
   expect_true("DBC-20260818-GNE-EXCLUDED" %in% changes)
 })
+
+test_that("glcnac_degradation offers two entries and neither requires the other", {
+  # Database 2026.26.1. The single curated route required a cytoplasmic
+  # N-acetylglucosamine kinase carried by 8.0% of the reference genomes, while
+  # the two reactions below it reach 59.5% and 47.3%. Most bacteria import the
+  # sugar through a PTS that phosphorylates it in transit, so they reach
+  # GlcNAc-6-phosphate having never needed the kinase. The fix is a second route
+  # between the same anchors, not a moved boundary.
+  routes <- get_gift_routes("glcnac_degradation")
+  expect_setequal(routes$route_id, c("GLCNAC_KINASE", "GLCNAC_PTS"))
+
+  reactions <- get_gift_reactions("glcnac_degradation")
+  entry <- list(GLCNAC_KINASE = "RHEA:17417", GLCNAC_PTS = "RHEA:49240")
+  shared <- c("RHEA:22936", "RHEA:12172")
+  for (route in names(entry)) {
+    in_route <- reactions$reaction_id[reactions$route_id == route]
+    expect_setequal(in_route, c(entry[[route]], shared))
+    # The other route's entry reaction is absent, which is what makes them
+    # alternatives rather than one longer route.
+    expect_false(entry[[setdiff(names(entry), route)]] %in% in_route)
+  }
+
+  downstream <- c("K01443", "K02564")
+  kinase <- evaluate_gifts(ko_annotations(c("K00884", downstream)))
+  pts <- evaluate_gifts(ko_annotations(c("K02804", downstream)))
+  neither <- evaluate_gifts(ko_annotations(downstream))
+
+  complete_route <- function(result, route_id) {
+    routes <- result$routes
+    routes$complete[routes$gift_id == "glcnac_degradation" &
+                      routes$route_id == route_id]
+  }
+  is_complete <- function(result) {
+    result$gifts$complete[result$gifts$gift_id == "glcnac_degradation"]
+  }
+
+  expect_true(is_complete(kinase))
+  expect_true(complete_route(kinase, "GLCNAC_KINASE"))
+  expect_false(complete_route(kinase, "GLCNAC_PTS"))
+
+  expect_true(is_complete(pts))
+  expect_true(complete_route(pts, "GLCNAC_PTS"))
+  expect_false(complete_route(pts, "GLCNAC_KINASE"))
+
+  # Neither entry, and the downstream chemistry alone proves nothing.
+  expect_false(is_complete(neither))
+})
+
+test_that("the GlcNAc PTS route claims no boundary the old one did not", {
+  # The decision recorded in DBC-20260827-GLCNAC-PTS-ROUTE was to leave the
+  # boundaries alone. Minting a GLCNAC_6P anchor for an internal intermediate
+  # would have broken the composition edge from chitin_degradation and left a
+  # one-reaction kinase GIFT, which invariant 9 refuses.
+  anchors <- get_gift_anchors("glcnac_degradation")
+  expect_setequal(
+    anchors$anchor_id[anchors$role == "input"], "GLCNAC"
+  )
+  expect_setequal(
+    anchors$anchor_id[anchors$role == "output"], c("FRUCTOSE_6P", "AMMONIUM")
+  )
+  expect_equal(get_gift("glcnac_degradation")$mode, "catabolic")
+  all_anchors <- do.call(rbind, lapply(list_gifts()$gift_id, get_gift_anchors))
+  expect_false("GLCNAC_6P" %in% all_anchors$anchor_id)
+
+  # GLCNAC stays compartment-unspecified because the two entries start on
+  # opposite sides of the membrane, so the chitin edge stays traversable and
+  # compartment-inexact rather than becoming a cross-organism edge.
+  expect_equal(anchors$compartment[anchors$role == "input"], "unspecified")
+})
+
+test_that("a promiscuous hexose PTS does not evidence GlcNAc translocation", {
+  # Invariant 16. ManXYZ moves glucose, mannose, fructose, glucosamine and
+  # N-acetylglucosamine through one enzyme II, so admitting it here would equate
+  # glcnac_degradation with four sugars it does not claim. The refusal is in the
+  # deferral register and this test is what makes it findable.
+  mannose_pts <- c("K02793", "K02794", "K02795", "K02796", "K25814")
+  expect_false(any(map_markers(ko_annotations(mannose_pts))$matched))
+
+  result <- evaluate_gifts(ko_annotations(c(mannose_pts, "K01443", "K02564")))
+  expect_false(result$gifts$complete[result$gifts$gift_id == "glcnac_degradation"])
+})
+
+test_that("the amino sugar NCBIfam equivalogs reach both capabilities", {
+  # NF046059.1 nagB-II is a second deaminase family K02564 does not cover, on a
+  # reaction glcnac_degradation and neuac_degradation share.
+  profiles <- c("NF046059.1", "TIGR00502.1", "TIGR01998.1", "NF008371.0")
+  annotation <- data.frame(
+    gene_id = paste0("gene_", seq_along(profiles)),
+    namespace = "NCBIFAM",
+    accession = profiles,
+    stringsAsFactors = FALSE
+  )
+  mapped <- map_markers(annotation)
+  expect_true(all(mapped$matched))
+
+  # An NCBIfam-only annotation completes the PTS route end to end: enzyme II,
+  # deacetylase, deaminase, with no KO involved.
+  result <- evaluate_gifts(annotation[annotation$accession != "NF046059.1", ])
+  expect_true(result$gifts$complete[result$gifts$gift_id == "glcnac_degradation"])
+
+  # And nagB-II alone stands in for the deaminase the KO layer misses.
+  nagb2 <- annotation[annotation$accession != "TIGR00502.1", ]
+  result <- evaluate_gifts(nagb2)
+  expect_true(result$gifts$complete[result$gifts$gift_id == "glcnac_degradation"])
+  # The deaminase is shared, so the gain lands on both amino sugar capabilities
+  # and the changelog says so on both.
+  expect_true("RHEA:12172" %in% get_gift_reactions("neuac_degradation")$reaction_id)
+  for (gift_id in c("glcnac_degradation", "neuac_degradation")) {
+    expect_true("DBC-20260827-AMINO-SUGAR-NCBIFAM-MARKERS" %in%
+                  database_changelog(gift_id)$change_id)
+  }
+})

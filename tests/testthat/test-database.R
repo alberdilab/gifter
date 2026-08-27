@@ -5,7 +5,7 @@ test_that("canonical source tables validate", {
   expect_true(report$valid)
   expect_length(report$errors, 0L)
   expect_equal(
-    unname(report$rows[c("gifts", "anchors", "reactions")]), c(153L, 156L, 439L)
+    unname(report$rows[c("gifts", "anchors", "reactions")]), c(153L, 156L, 440L)
   )
   # Every typed model now ships curated content.
   expect_equal(
@@ -216,7 +216,7 @@ test_that("database accessors return stable definitions", {
 test_that("database and schema versions are independent", {
   version <- gifter_db_version()
   expect_equal(version$package_version, "0.7.0")
-  expect_equal(version$gifter_db_version, "2026.24.1")
+  expect_equal(version$gifter_db_version, "2026.27.1")
   expect_equal(version$schema_version, 7L)
   expect_equal(version$rhea_release, "141")
 })
@@ -571,7 +571,11 @@ test_that("the changelog can be read from the perspective of one GIFT", {
   expect_true("DBC-20260817-ATCASE-PYRI" %in% pyrimidine$change_id)
   expect_false("DBC-20260817-ATCASE-PYRI" %in% purine$change_id)
   expect_equal(nrow(database_changelog("cytidylate_biosynthesis")), 2L)
-  expect_equal(nrow(database_changelog("glycine_biosynthesis")), 1L)
+  # Two entries since database 2026.27.1: the curation that created the GIFT,
+  # and the clarification that refused RHEA:15481 a forward direction in a
+  # second anabolic GIFT. A decision not to curate is still a decision the
+  # changelog has to carry, which is why it names both GIFTs it constrains.
+  expect_equal(nrow(database_changelog("glycine_biosynthesis")), 2L)
 })
 
 test_that("the two curation corrections of release 2026.08.2 are recorded", {

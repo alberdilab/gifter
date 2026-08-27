@@ -21,7 +21,7 @@ HOMOCYSTEINE	HOMOCYSTEINE	unspecified	L-homocysteine	CHEBI:58199	Input-only sulf
 FUCOSE	FUCOSE	unspecified	L-fucose	CHEBI:2181	Deoxyhexose of host mucin O-glycans and plant cell walls.
 RHAMNOSE	RHAMNOSE	unspecified	L-rhamnopyranose	CHEBI:62346	Deoxyhexose of pectic rhamnogalacturonan.
 GALACTOSE	GALACTOSE	unspecified	beta-D-galactose	CHEBI:27667	Hexose released from lactose, galactans and host glycans.
-GLCNAC	GLCNAC	unspecified	N-acetyl-D-glucosamine	CHEBI:506227	Amino sugar of chitin, peptidoglycan and host glycans.
+GLCNAC	GLCNAC	unspecified	N-acetyl-D-glucosamine	CHEBI:506227	Amino sugar of chitin, peptidoglycan and host glycans. Deliberately compartment-unspecified: it is released outside the cell by chitinases and mucinases and recovered inside it by peptidoglycan recycling, and the two curated entries into glcnac_degradation start on opposite sides of the membrane.
 NEUAC	NEUAC	unspecified	aceneuramate	CHEBI:173083	Open form of N-acetylneuraminate (sialic acid), the terminal residue of host mucin O-glycans released by sialidases.
 GLUCURONATE	GLUCURONATE	unspecified	D-glucuronate	CHEBI:58720	Uronic acid of glucuronoxylan and host glycosaminoglycans.
 GALACTURONATE	GALACTURONATE	unspecified	aldehydo-D-galacturonate	CHEBI:12952	Uronic acid backbone residue of pectin.

@@ -303,3 +303,126 @@ test_that("evidence traces from a call back to the markers that made it", {
   expect_setequal(unique(supported$accession), markers)
   expect_true(all(grepl("^gene_", supported$gene_id)))
 })
+
+test_that("the histidine phosphatase step accepts every family that solves it", {
+  # Database 2026.25.1. RHEA:14465 is solved by at least three unrelated protein
+  # families and RHEA:22828 occurs standalone and fused, which is why orthology
+  # splits both across several accessions and still under-called: the phenotype
+  # benchmark scored histidine_biosynthesis at recall 0.520 against strains
+  # observed to grow without histidine. The point of the test is that the
+  # alternatives are *alternatives* -- each family alone completes the step --
+  # rather than a longer list of jointly required components.
+  systems <- get_reaction_systems("RHEA:14465")
+  standalone <- systems[systems$component_id == "COMP_14465_HISN_CATALYTIC", ]
+  expect_true(all(c("TIGR02067.1", "NF005996.1", "NF052359.1", "NF052360.1") %in%
+                    standalone$accession))
+
+  # TIGR01261.1 is the phosphatase domain of the bifunctional HisB protein, so
+  # it belongs on the bifunctional component and nowhere else. Putting it on the
+  # standalone component would claim a protein the profile cannot see.
+  bifunctional <- systems[systems$component_id ==
+                            "COMP_14465_HISB_BIFUNCTIONAL_CATALYTIC", ]
+  expect_true("TIGR01261.1" %in% bifunctional$accession)
+  expect_false("TIGR01261.1" %in% standalone$accession)
+
+  # One marker from one family is enough for the step, which is the OR the
+  # component layer exists to express.
+  for (marker in c("TIGR02067.1", "NF005996.1", "NF052359.1", "NF052360.1")) {
+    reactions <- evaluate_reactions(
+      data.frame(namespace = "NCBIFAM", accession = marker))$reactions
+    expect_true(reactions$supported[reactions$reaction_id == "RHEA:14465"],
+                info = marker)
+  }
+
+  # The same for the diphosphatase, including the domain-grade profile whose
+  # source identifier reads hisI while its EC is the diphosphatase's.
+  for (marker in c("NF001610.0", "NF001611.0", "NF001613.0", "TIGR03188.1")) {
+    reactions <- evaluate_reactions(
+      data.frame(namespace = "NCBIFAM", accession = marker))$reactions
+    expect_true(reactions$supported[reactions$reaction_id == "RHEA:22828"],
+                info = marker)
+  }
+
+  # None of them fires the cyclohydrolase, which is a different reaction that
+  # the hisI naming would invite a curator to conflate with the diphosphatase.
+  cyclohydrolase <- evaluate_reactions(
+    data.frame(namespace = "NCBIFAM", accession = "TIGR03188.1"))$reactions
+  expect_false(cyclohydrolase$supported[cyclohydrolase$reaction_id == "RHEA:20049"])
+})
+
+test_that("the serine/glycine reaction stays on one side of one directed GIFT", {
+  # Database 2026.27.1. Serine hydroxymethyltransferase is reversible and its
+  # Rhea master runs glycine to serine, so its forward direction was proposed as
+  # a second entry into SERINE. It is refused: both GIFTs are anabolic and each
+  # asserts a direction, so the loop is a claim rather than the syntactic
+  # artefact the interconversion exemption covers, and the claim is false --
+  # gifter's only anabolic producer of GLYCINE is the reverse of this very
+  # reaction. See inst/doc/proposal-phenotype-curation-leads.md section 2.
+  routes <- read_source(gifter_source_dir(), "route_reactions")
+  shmt <- routes[routes$reaction_id == "RHEA:15481", ]
+  expect_equal(nrow(shmt), 1L)
+  expect_equal(shmt$route_id, "GLY_SHMT")
+  expect_equal(shmt$orientation, "reverse")
+
+  # The boundary that carries the refusal: GLYCINE is not an input of serine
+  # biosynthesis, and serine biosynthesis enters at 3-phosphoglycerate only.
+  anchors <- read_source(gifter_source_dir(), "gift_anchors")
+  serine_inputs <- anchors$anchor_id[anchors$gift_id == "serine_biosynthesis" &
+                                       anchors$role == "input"]
+  expect_equal(serine_inputs, "PG3")
+  expect_false("GLYCINE" %in% serine_inputs)
+
+  # And the mode that carries it: the pair stays two directed GIFTs. Converting
+  # glycine_biosynthesis to interconversion validates, which is why the decision
+  # is recorded rather than left to the build to enforce.
+  expect_equal(get_gift("glycine_biosynthesis")$mode, "anabolic")
+  expect_equal(get_gift("serine_biosynthesis")$mode, "anabolic")
+  graph <- gift_graph()
+  pair <- function(a, b) nrow(graph[graph$from_gift == a & graph$to_gift == b, ])
+  expect_gt(pair("serine_biosynthesis", "glycine_biosynthesis"), 0L)
+  expect_equal(pair("glycine_biosynthesis", "serine_biosynthesis"), 0L)
+
+  # Nothing else makes glycine anabolically, which is the reason the edge is
+  # refused rather than merely inconvenient.
+  glycine_sources <- sort(unique(
+    graph$from_gift[graph$shared_anchor == "GLYCINE"]
+  ))
+  expect_setequal(glycine_sources,
+                  c("glycine_biosynthesis", "sarcosine_demethylation"))
+  expect_equal(get_gift("sarcosine_demethylation")$mode, "catabolic")
+})
+
+test_that("the archaeal phosphoserine transaminase is admitted, and stays ambiguous", {
+  # Database 2026.27.1. K28205 is the only other orthology group KEGG assigns to
+  # RHEA:14329, the step gifter's trace names in 62 of the 86 organisms observed
+  # to grow without serine and called unsupported. It is narrower than the
+  # curated K00831, which also carries the pyridoxal phosphate transamination,
+  # so it must evidence the serine reaction and not the vitamin B6 one.
+  reactions <- evaluate_reactions(
+    data.frame(namespace = "KO", accession = "K28205"))$reactions
+  expect_true(reactions$supported[reactions$reaction_id == "RHEA:14329"])
+  expect_false(reactions$supported[reactions$reaction_id == "RHEA:16573"])
+
+  # It completes the route on its own in place of serC, and the call it produces
+  # is ambiguous, because UniProt names the characterised member a probable
+  # serine--glyoxylate aminotransferase. The weakest-confidence rule is what
+  # reports that honestly rather than a footnote nobody reads.
+  archaeal <- evaluate_gifts(ko_annotations(c("K00058", "K28205", "K01079")))$gifts
+  archaeal <- archaeal[archaeal$gift_id == "serine_biosynthesis", ]
+  expect_true(archaeal$complete)
+  expect_equal(archaeal$evidence_confidence, "ambiguous")
+
+  canonical <- evaluate_gifts(ko_annotations(c("K00058", "K00831", "K01079")))$gifts
+  canonical <- canonical[canonical$gift_id == "serine_biosynthesis", ]
+  expect_true(canonical$complete)
+  expect_equal(canonical$evidence_confidence, "curated")
+
+  # The refusals taken in the same pass: the sigma-factor phosphatases carry
+  # EC 3.1.3.3 for a phosphoserine residue, not the free metabolite, and are
+  # admitted nowhere in the database.
+  for (accession in c("K05518", "K07315", "K15781", "K00830", "K00049")) {
+    result <- evaluate_gifts(ko_annotations(accession))
+    expect_equal(nrow(result$evidence[result$evidence$accession == accession, ]),
+                 0L, info = accession)
+  }
+})

@@ -602,3 +602,4 @@ COMP_19093_AHBA	SYS_19093_AHBAB	AhbA	Required siroheme decarboxylase alpha subun
 COMP_19093_AHBB	SYS_19093_AHBAB	AhbB	Required siroheme decarboxylase beta subunit.
 COMP_37431_AHBC	SYS_37431_AHBC	AhbC	Required catalytic protein.
 COMP_56520_AHBD	SYS_56520_AHBD	AhbD	Required catalytic protein.
+COMP_49240_EII	SYS_49240_NAGE	N-acetylglucosamine-specific enzyme II protein	Required protein; alternative markers are OR. The enzyme II occurs as one fused EIICBA or EIICB polypeptide and as separate EIIB and EIIC chains; the fused forms and the substrate-specific EIIB are what the admitted namespaces resolve.

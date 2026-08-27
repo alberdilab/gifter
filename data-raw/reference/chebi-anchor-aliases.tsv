@@ -1,0 +1,156 @@
+anchor_id	anchor_chebi	anchor_label	alias_chebi	alias_label	relation	status	notes	verified
+ACETATE	CHEBI:30089	acetate	CHEBI:15366	acetic acid	is deprotonated form of	derived		2026-08-25
+ACETOIN	CHEBI:15686	(R)-acetoin	CHEBI:15688	acetoin	parent form	curated	Assays record acetoin without stereochemistry; the anchor is the (R) form because Rhea's participant is. One subClassOf step.	
+ACETYL_COA	CHEBI:57288	acetyl-CoA	CHEBI:15351	acetyl-CoA	is deprotonated form of	derived		2026-08-25
+ACETYL_PHOSPHATE	CHEBI:22191	acetyl phosphate	CHEBI:13711	acetyl phosphate(1-)	is deprotonated form of	derived		2026-08-25
+ADENOSYLCOBINAMIDE_P	CHEBI:58502	adenosylcobinamide phosphate	CHEBI:2481	adenosylcobinamide phosphate	is deprotonated form of	derived		2026-08-25
+AIR	CHEBI:138560	5-amino-1-(5-phospho-beta-D-ribosyl)imidazole	CHEBI:137981	5-amino-1-(5-phosphonato-beta-D-ribosyl)imidazol-3-ium	is protonated form of	derived		2026-08-25
+ALANINE	CHEBI:57972	L-alanine	CHEBI:16977	L-alanine	is tautomer of	derived		2026-08-25
+AMINOPENTANOATE	CHEBI:356010	5-aminopentanoate	CHEBI:15887	5-aminopentanoic acid	is tautomer of	derived		2026-08-25
+AMMONIUM	CHEBI:28938	ammonium	CHEBI:16134	ammonia	is protonated form of	derived		2026-08-25
+AMP	CHEBI:456215	adenosine 5'-monophosphate(2-)	CHEBI:16027	adenosine 5'-monophosphate	is deprotonated form of	derived		2026-08-25
+ANTHRANILATE	CHEBI:16567	anthranilate	CHEBI:30754	anthranilic acid	is deprotonated form of	derived		2026-08-25
+ARABINOSE_EX	CHEBI:17535	L-arabinose	CHEBI:30849	L-arabinose	parent form	curated	Same label, two ChEBI entries. One subClassOf step from the anchor to the parent an assay names.	
+ARABINOSE_IN	CHEBI:17535	L-arabinose	CHEBI:30849	L-arabinose	parent form	curated	As ARABINOSE_EX; the anchors differ only by compartment.	
+ARGININE	CHEBI:32682	L-arginine	CHEBI:16467	L-arginine	is protonated form of	derived		2026-08-25
+ARGININE	CHEBI:32682	L-arginine	CHEBI:32683	L-argininium(2+)	is deprotonated form of	derived		2026-08-25
+ASA	CHEBI:537519	L-aspartate 4-semialdehyde	CHEBI:18051	L-aspartic acid 4-semialdehyde	is tautomer of	derived		2026-08-25
+ASPARAGINE	CHEBI:58048	L-asparagine	CHEBI:17196	L-asparagine	is tautomer of	derived		2026-08-25
+ASPARTATE	CHEBI:29991	L-aspartate	CHEBI:17053	L-aspartic acid	is deprotonated form of	derived		2026-08-25
+ASPARTATE	CHEBI:29991	L-aspartate	CHEBI:29993	L-aspartate(2-)	is protonated form of	derived		2026-08-25
+BENZOATE	CHEBI:16150	benzoate	CHEBI:30746	benzoic acid	is deprotonated form of	derived		2026-08-25
+BETAINE	CHEBI:17750	glycine betaine	CHEBI:41139	N,N,N-trimethylglycinium	is deprotonated form of	derived		2026-08-25
+BIOTIN	CHEBI:15956	biotin	CHEBI:57586	biotinate	is protonated form of	derived		2026-08-25
+BUTYRATE	CHEBI:17968	butanoate	CHEBI:30772	butyric acid	is deprotonated form of	derived		2026-08-25
+CARNITINE	CHEBI:16347	(R)-carnitine	CHEBI:39547	(R)-carnitinium	is deprotonated form of	derived		2026-08-25
+CATECHOL	CHEBI:18135	catechol	CHEBI:50524	catecholate(1-)	is protonated form of	derived		2026-08-25
+CHORISMATE	CHEBI:17333	chorismate	CHEBI:29748	chorismate(2-)	is protonated form of	derived		2026-08-25
+CITRATE	CHEBI:16947	citrate	CHEBI:132362	citrate(4-)	is protonated form of	derived		2026-08-25
+CITRATE	CHEBI:16947	citrate	CHEBI:35808	citrate(2-)	is deprotonated form of	derived		2026-08-25
+COBYRINATE_DIAMIDE	CHEBI:27937	cob(II)yrinate a,c diamide	CHEBI:58537	cob(II)yrinic acid a,c diamide(4-)	is protonated form of	derived		2026-08-25
+CTP	CHEBI:37563	cytidine 5'-triphosphate(4-)	CHEBI:17677	CTP	is deprotonated form of	derived		2026-08-25
+CYSTEINE	CHEBI:35235	L-cysteine	CHEBI:17561	L-cysteine	is tautomer of	derived		2026-08-25
+CYSTEINE	CHEBI:35235	L-cysteine	CHEBI:32442	L-cysteinate(1-)	is protonated form of	derived		2026-08-25
+CYSTEINE	CHEBI:35235	L-cysteine	CHEBI:32445	L-cysteinium	is deprotonated form of	derived		2026-08-25
+DABA	CHEBI:58761	L-2,4-diaminobutanoate	CHEBI:48950	L-2,4-diaminobutyric acid	is protonated form of	derived		2026-08-25
+DHAP	CHEBI:57642	dihydroxyacetone phosphate	CHEBI:16108	dihydroxyacetone phosphate	is deprotonated form of	derived		2026-08-25
+DHPP	CHEBI:46951	3-(2,3-dihydroxyphenyl)propanoate	CHEBI:18136	3-(2,3-dihydroxyphenyl)propanoic acid	is deprotonated form of	derived		2026-08-25
+DIHYDROXYBENZOATE_2_3	CHEBI:36654	2,3-dihydroxybenzoate	CHEBI:18026	2,3-dihydroxybenzoic acid	is deprotonated form of	derived		2026-08-25
+DXP	CHEBI:16493	1-deoxy-D-xylulose 5-phosphate	CHEBI:57792	1-deoxy-D-xylulose 5-phosphate(2-)	is protonated form of	derived		2026-08-25
+E4P	CHEBI:48153	D-erythrose 4-phosphate	CHEBI:16897	D-erythrose 4-phosphate(2-)	is protonated form of	derived		2026-08-25
+ECTOINE	CHEBI:58515	L-ectoine	CHEBI:27592	ectoine	is tautomer of	derived		2026-08-25
+ENTEROBACTIN	CHEBI:77805	enterobactin	CHEBI:28855	enterobactin	is deprotonated form of	derived		2026-08-25
+ETHANOL	CHEBI:16236	ethanol	CHEBI:52092	ethoxide	is protonated form of	derived		2026-08-25
+FMNH2	CHEBI:16048	FMNH2	CHEBI:133886	FMNH2(3-)	is protonated form of	derived		2026-08-25
+FMNH2	CHEBI:16048	FMNH2	CHEBI:57618	FMNH2(2-)	is protonated form of	derived		2026-08-25
+FRUCTOSE_6P	CHEBI:57634	beta-D-fructose 6-phosphate	CHEBI:16084	beta-D-fructofuranose 6-phosphate	is deprotonated form of	derived		2026-08-25
+FUCOSE	CHEBI:2181	L-fucose	CHEBI:18287	L-fucose	parent form	curated	One subClassOf step. The sibling candidate CHEBI:48206 fucopyranose is refused: it drops the L.	
+FUMARATE	CHEBI:29806	fumarate	CHEBI:37154	fumarate(1-)	is deprotonated form of	derived		2026-08-25
+GABA	CHEBI:59888	4-aminobutanoate	CHEBI:16865	gamma-aminobutyric acid	is tautomer of	derived		2026-08-25
+GALACTOSE	CHEBI:27667	beta-D-galactose	CHEBI:12936	D-galactose	parent form	curated	Two steps, both anomeric generalisation: 27667 -> CHEBI:4139 D-galactopyranose -> 12936. No step leaves the sugar.	
+GALACTURONATE	CHEBI:12952	aldehydo-D-galacturonate	CHEBI:47962	aldehydo-D-galacturonic acid	is deprotonated form of	derived		2026-08-25
+GALNAC	CHEBI:28037	N-acetyl-D-galactosamine	CHEBI:28800	N-acetylgalactosamine	parent form	curated	One step, D dropped. The sibling candidate CHEBI:21601 N-acetyl-D-hexosamine is refused: it is a compound class.	
+GAP	CHEBI:59776	D-glyceraldehyde 3-phosphate	CHEBI:29052	D-glyceraldehyde 3-phosphate	is deprotonated form of	derived		2026-08-25
+GLCNAC	CHEBI:506227	N-acetyl-D-glucosamine	CHEBI:59640	N-acetylglucosamine	parent form	curated	One step, D dropped. The sibling candidate CHEBI:21601 N-acetyl-D-hexosamine is refused: it is a compound class.	
+GLUCOSE_1P	CHEBI:58601	alpha-D-glucose 1-phosphate	CHEBI:29042	alpha-D-glucose 1-phosphate	is deprotonated form of	derived		2026-08-25
+GLUCURONATE	CHEBI:58720	D-glucuronate	CHEBI:47952	D-glucopyranuronic acid	is deprotonated form of	derived		2026-08-25
+GLUTAMATE	CHEBI:29985	L-glutamate	CHEBI:16015	L-glutamic acid	is deprotonated form of	derived		2026-08-25
+GLUTAMATE	CHEBI:29985	L-glutamate	CHEBI:29988	L-glutamate(2-)	is protonated form of	derived		2026-08-25
+GLUTAMINE	CHEBI:58359	L-glutamine	CHEBI:18050	L-glutamine	is tautomer of	derived		2026-08-25
+GLYCINE	CHEBI:57305	glycine	CHEBI:15428	glycine	is tautomer of	derived		2026-08-25
+GLYOXYLATE	CHEBI:36655	glyoxylate	CHEBI:16891	glyoxylic acid	is deprotonated form of	derived		2026-08-25
+GMP	CHEBI:58115	guanosine 5'-monophosphate(2-)	CHEBI:17345	guanosine 5'-monophosphate	is deprotonated form of	derived		2026-08-25
+GTP	CHEBI:15996	GTP	CHEBI:57600	GTP(3-)	is protonated form of	derived		2026-08-25
+HEME_B	CHEBI:60344	heme b	CHEBI:17627	ferroheme b	is deprotonated form of	derived		2026-08-25
+HISTIDINE	CHEBI:57595	L-histidine	CHEBI:15971	L-histidine	is tautomer of	derived		2026-08-25
+HMP_PP	CHEBI:57841	4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine	CHEBI:16629	4-amino-2-methyl-5-diphosphooxymethylpyrimidine	is deprotonated form of	derived		2026-08-25
+HOMOCYSTEINE	CHEBI:58199	L-homocysteine	CHEBI:17588	L-homocysteine	is tautomer of	derived		2026-08-25
+HOMOSERINE	CHEBI:57476	L-homoserine	CHEBI:15699	L-homoserine	is tautomer of	derived		2026-08-25
+HPP	CHEBI:57277	3-(3-hydroxyphenyl)propanoate	CHEBI:1427	3-(3-hydroxyphenyl)propanoic acid	is deprotonated form of	derived		2026-08-25
+HYDROXYECTOINE	CHEBI:85413	5-hydroxyectoine	CHEBI:49432	5-hydroxyectoine	is tautomer of	derived		2026-08-25
+IMP	CHEBI:58053	inosine 5'-monophosphate(2-)	CHEBI:17202	IMP	is deprotonated form of	derived		2026-08-25
+INDOLE	CHEBI:16881	indole	CHEBI:35579	3H-indole	is tautomer of	derived		2026-08-25
+INDOLE	CHEBI:16881	indole	CHEBI:35581	indole	parent form	curated	Same label, two ChEBI entries. The sibling candidate CHEBI:38180 polycyclic heteroarene is refused: it is a compound class.	
+INDOLE_3_ACETATE	CHEBI:30854	(indol-3-yl)acetate	CHEBI:16411	indole-3-acetic acid	is deprotonated form of	derived		2026-08-25
+ISOCITRATE	CHEBI:15562	D-threo-isocitrate	CHEBI:151	D-threo-isocitric acid	is deprotonated form of	derived		2026-08-25
+ISOLEUCINE	CHEBI:58045	L-isoleucine	CHEBI:17191	L-isoleucine	is tautomer of	derived		2026-08-25
+KDG	CHEBI:57990	2-dehydro-3-deoxy-D-gluconate	CHEBI:17032	2-dehydro-3-deoxy-D-gluconic acid	is deprotonated form of	derived		2026-08-25
+LACTATE	CHEBI:16004	(R)-lactate	CHEBI:42111	(R)-lactic acid	is deprotonated form of	derived		2026-08-25
+LACTATE_L	CHEBI:16651	(S)-lactate	CHEBI:422	(S)-lactic acid	is deprotonated form of	derived		2026-08-25
+LEUCINE	CHEBI:57427	L-leucine	CHEBI:15603	L-leucine	is tautomer of	derived		2026-08-25
+LYSINE	CHEBI:32551	L-lysine	CHEBI:133538	L-lysine zwitterion	is protonated form of	derived		2026-08-25
+LYSINE	CHEBI:32551	L-lysine	CHEBI:18019	L-lysine	is protonated form of	derived		2026-08-25
+LYSINE	CHEBI:32551	L-lysine	CHEBI:32552	L-lysinium(2+)	is deprotonated form of	derived		2026-08-25
+MALATE	CHEBI:15589	(S)-malate	CHEBI:30797	(S)-malic acid	is deprotonated form of	derived		2026-08-25
+MESO_DAP	CHEBI:57791	meso-2,6-diaminopimelate	CHEBI:16488	meso-2,6-diaminopimelic acid	is tautomer of	derived		2026-08-25
+MESO_DAP	CHEBI:57791	meso-2,6-diaminopimelate	CHEBI:30308	meso-2,6-diaminopimelate(2-)	is protonated form of	derived		2026-08-25
+METHIONINE	CHEBI:57844	L-methionine	CHEBI:16643	L-methionine	is tautomer of	derived		2026-08-25
+METHYLAMINE	CHEBI:59338	methylammonium	CHEBI:16830	methylamine	is protonated form of	derived		2026-08-25
+NAD	CHEBI:15846	NAD(+)	CHEBI:44215	NAD zwitterion	is protonated form of	derived		2026-08-25
+NAD	CHEBI:15846	NAD(+)	CHEBI:57540	NAD(1-)	is protonated form of	derived		2026-08-25
+NAMN	CHEBI:57502	nicotinate D-ribonucleotide	CHEBI:15763	nicotinic acid D-ribonucleotide	is deprotonated form of	derived		2026-08-25
+NEUAC	CHEBI:173083	aceneuramate	CHEBI:173082	aceneuramic acid	is deprotonated form of	derived		2026-08-25
+NICOTINATE	CHEBI:32544	nicotinate	CHEBI:15940	nicotinic acid	is deprotonated form of	derived		2026-08-25
+NITRATE	CHEBI:17632	nitrate	CHEBI:48107	nitric acid	is deprotonated form of	derived		2026-08-25
+NITROGEN	CHEBI:17997	dinitrogen	CHEBI:30102	diazynium	is deprotonated form of	derived		2026-08-25
+ORNITHINE	CHEBI:46911	L-ornithine	CHEBI:15729	L-ornithine	is protonated form of	derived		2026-08-25
+ORNITHINE	CHEBI:46911	L-ornithine	CHEBI:44667	L-ornithinium(2+)	is deprotonated form of	derived		2026-08-25
+OXALOACETATE	CHEBI:16452	oxaloacetate	CHEBI:30744	oxaloacetic acid	is deprotonated form of	derived		2026-08-25
+OXOADIPATE	CHEBI:15775	3-oxoadipate	CHEBI:37440	3-oxoadipic acid	is deprotonated form of	derived		2026-08-25
+OXOADIPYL_COA	CHEBI:57348	3-oxoadipyl-CoA	CHEBI:15490	3-oxoadipyl-CoA	is deprotonated form of	derived		2026-08-25
+OXOBUTANOATE	CHEBI:16763	2-oxobutanoate	CHEBI:30831	2-oxobutanoic acid	is deprotonated form of	derived		2026-08-25
+OXOGLUTARATE	CHEBI:16810	2-oxoglutarate	CHEBI:30916	2-oxoglutarate(1-)	is deprotonated form of	derived		2026-08-25
+OXOISOVALERATE	CHEBI:11851	3-methyl-2-oxobutanoate	CHEBI:16530	3-methyl-2-oxobutanoic acid	is deprotonated form of	derived		2026-08-25
+OXOPENTENOATE	CHEBI:11641	2-oxopent-4-enoate	CHEBI:37318	2-oxopent-4-enoic acid	is deprotonated form of	derived		2026-08-25
+OXOPENTENOATE	CHEBI:11641	2-oxopent-4-enoate	CHEBI:37319	2-hydroxypenta-2,4-dienoate	is tautomer of	derived		2026-08-25
+PABA	CHEBI:17836	4-aminobenzoate	CHEBI:30753	4-aminobenzoic acid	is deprotonated form of	derived		2026-08-25
+PANTOTHENATE	CHEBI:29032	(R)-pantothenate	CHEBI:46905	(R)-pantothenic acid	is deprotonated form of	derived		2026-08-25
+PEP	CHEBI:58702	phosphoenolpyruvate	CHEBI:44897	phosphoenolpyruvic acid	is deprotonated form of	derived		2026-08-25
+PG3	CHEBI:58272	(2R)-3-phosphoglycerate	CHEBI:17794	3-phospho-D-glyceric acid	is deprotonated form of	derived		2026-08-25
+PHENOL	CHEBI:15882	phenol	CHEBI:50526	phenolate	is protonated form of	derived		2026-08-25
+PHENYLACETATE	CHEBI:18401	phenylacetate	CHEBI:30745	phenylacetic acid	is deprotonated form of	derived		2026-08-25
+PHENYLALANINE	CHEBI:58095	L-phenylalanine	CHEBI:17295	L-phenylalanine	is tautomer of	derived		2026-08-25
+PHENYLPROPANOATE	CHEBI:51057	3-phenylpropanoate	CHEBI:28631	3-phenylpropionic acid	is deprotonated form of	derived		2026-08-25
+PIMELOYL_COA	CHEBI:57360	pimeloyl-CoA	CHEBI:15504	pimeloyl-CoA	is deprotonated form of	derived		2026-08-25
+PLP	CHEBI:18405	pyridoxal 5'-phosphate	CHEBI:597326	pyridoxal 5'-phosphate(2-)	is protonated form of	derived		2026-08-25
+PROLINE	CHEBI:60039	L-proline	CHEBI:17203	L-proline	is tautomer of	derived		2026-08-25
+PROPIONATE	CHEBI:17272	propanoate	CHEBI:30768	propionic acid	is deprotonated form of	derived		2026-08-25
+PRPP	CHEBI:58017	5-phospho-alpha-D-ribose 1-diphosphate	CHEBI:17111	5-O-phosphono-alpha-D-ribofuranosyl diphosphate	is deprotonated form of	derived		2026-08-25
+PYRUVATE	CHEBI:15361	pyruvate	CHEBI:32816	pyruvic acid	is deprotonated form of	derived		2026-08-25
+QUINOLINATE	CHEBI:132942	quinolinate	CHEBI:16675	quinolinic acid	is deprotonated form of	derived		2026-08-25
+RHAMNOSE	CHEBI:62346	L-rhamnopyranose	CHEBI:62345	L-rhamnose	parent form	curated	One subClassOf step from the pyranose form to the sugar an assay names.	
+RIBOFLAVIN	CHEBI:17015	riboflavin	CHEBI:57986	riboflavin(1-)	is protonated form of	derived		2026-08-25
+RIBULOSE_5P	CHEBI:17363	D-ribulose 5-phosphate	CHEBI:58121	D-ribulose 5-phosphate(2-)	is protonated form of	derived		2026-08-25
+SALICYLATE	CHEBI:30762	salicylate	CHEBI:16914	salicylic acid	is deprotonated form of	derived		2026-08-25
+SARCOSINE	CHEBI:57433	sarcosine	CHEBI:15611	sarcosine	is tautomer of	derived		2026-08-25
+SERINE	CHEBI:33384	L-serine	CHEBI:17115	L-serine	is tautomer of	derived		2026-08-25
+SIROHEME	CHEBI:60052	siroheme	CHEBI:28599	siroheme	is deprotonated form of	derived		2026-08-25
+SUCCINATE	CHEBI:30031	succinate	CHEBI:30779	succinate(1-)	is deprotonated form of	derived		2026-08-25
+SUCCINYL_COA	CHEBI:57292	succinyl-CoA	CHEBI:15380	succinyl-CoA	is deprotonated form of	derived		2026-08-25
+SULFATE	CHEBI:16189	sulfate	CHEBI:45696	hydrogensulfate	is deprotonated form of	derived		2026-08-25
+SULFIDE	CHEBI:29919	hydrogen sulfide	CHEBI:15138	sulfide(2-)	is protonated form of	derived		2026-08-25
+SULFIDE	CHEBI:29919	hydrogen sulfide	CHEBI:16136	hydrogen sulfide	is deprotonated form of	derived		2026-08-25
+SULFITE	CHEBI:17359	sulfite	CHEBI:17137	hydrogensulfite	is deprotonated form of	derived		2026-08-25
+TAURINE_EX	CHEBI:507393	taurine	CHEBI:15891	taurine	is tautomer of	derived		2026-08-25
+TAURINE_IN	CHEBI:507393	taurine	CHEBI:15891	taurine	is tautomer of	derived		2026-08-25
+THF	CHEBI:15635	(6S)-5,6,7,8-tetrahydrofolate	CHEBI:57453	(6S)-5,6,7,8-tetrahydrofolate(2-)	is protonated form of	derived		2026-08-25
+THREONINE	CHEBI:57926	L-threonine	CHEBI:16857	L-threonine	is tautomer of	derived		2026-08-25
+THZ_P	CHEBI:58296	4-methyl-5-(2-phosphooxyethyl)-thiazole	CHEBI:17857	4-methyl-5-(2-phosphonooxyethyl)thiazole	is deprotonated form of	derived		2026-08-25
+TRIMETHYLAMINE	CHEBI:58389	trimethylammonium	CHEBI:18139	trimethylamine	is protonated form of	derived		2026-08-25
+TRYPTOPHAN	CHEBI:57912	L-tryptophan	CHEBI:16828	L-tryptophan	is tautomer of	derived		2026-08-25
+TYROSINE	CHEBI:58315	L-tyrosine	CHEBI:17895	L-tyrosine	is tautomer of	derived		2026-08-25
+TYROSINE	CHEBI:58315	L-tyrosine	CHEBI:32760	L-tyrosinate(1-)	is protonated form of	derived		2026-08-25
+TYROSINE	CHEBI:58315	L-tyrosine	CHEBI:32762	L-tyrosinium	is deprotonated form of	derived		2026-08-25
+UMP	CHEBI:57865	uridine 5'-monophosphate(2-)	CHEBI:16695	uridine 5'-monophosphate	is deprotonated form of	derived		2026-08-25
+URATE	CHEBI:17775	urate	CHEBI:46811	2,6-dihydroxy-7,9-dihydro-8H-purin-8-one	is tautomer of	derived		2026-08-25
+URATE	CHEBI:17775	urate	CHEBI:46814	9H-purine-2,6,8-triol	is tautomer of	derived		2026-08-25
+URATE	CHEBI:17775	urate	CHEBI:46817	7H-purine-2,6,8-triol	is tautomer of	derived		2026-08-25
+URATE	CHEBI:17775	urate	CHEBI:46823	1H-purine-2,6,8-triol	is tautomer of	derived		2026-08-25
+URATE	CHEBI:17775	urate	CHEBI:49051	5,7-dihydro-1H-purine-2,6,8(9H)-trione	is tautomer of	derived		2026-08-25
+UREA	CHEBI:16199	urea	CHEBI:48376	carbamimidic acid	is tautomer of	derived		2026-08-25
+UROGEN_III	CHEBI:15437	uroporphyrinogen III	CHEBI:57308	uroporphyrinogen III(8-)	is protonated form of	derived		2026-08-25
+UTP	CHEBI:46398	uridine 5'-triphosphate(4-)	CHEBI:15713	UTP	is deprotonated form of	derived		2026-08-25
+VALINE	CHEBI:57762	L-valine	CHEBI:16414	L-valine	is tautomer of	derived		2026-08-25
+XYLOSE_EX	CHEBI:53455	D-xylose	CHEBI:65327	D-xylose	parent form	curated	Same label, two ChEBI entries. One subClassOf step.	
+XYLOSE_IN	CHEBI:53455	D-xylose	CHEBI:65327	D-xylose	parent form	curated	As XYLOSE_EX; the anchors differ only by compartment.	
+XYLULOSE_5P	CHEBI:57737	D-xylulose 5-phosphate	CHEBI:16332	D-xylulose 5-phosphate	is deprotonated form of	derived		2026-08-25

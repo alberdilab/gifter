@@ -1,0 +1,57 @@
+source	source_field	source_id	source_label	kinds	layer	target_id	relation	polarity	notes
+BACDIVE	enzymes	EC:3.5.1.5	urease		reaction	RHEA:20557	equivalent	necessary	The assay is the reaction. Both layers of the urea slice rest on this row.
+BACDIVE	enzymes	EC:3.5.3.6	arginine deiminase		reaction	RHEA:19597	equivalent	necessary	First reaction of the deiminase route; the GIFT needs two more.
+BACDIVE	enzymes	EC:4.1.99.1	tryptophanase		reaction	RHEA:19553	equivalent	necessary	The same GIFT is also testable through indole production, independently.
+BACDIVE	enzymes	EC:4.1.1.15	glutamate decarboxylase		reaction	RHEA:17785	equivalent	necessary	
+BACDIVE	enzymes	EC:3.2.1.8	endo-1,4-beta-xylanase		reaction	RXN_XYLAN_ENDO_1_4	equivalent	necessary	Not seen in the 400-strain probe; frequency unmeasured rather than zero.
+BACDIVE	enzymes	EC:3.2.1.14	chitinase		reaction	RXN_CHITIN_ENDO	equivalent	necessary	As above.
+BACDIVE	enzymes	EC:3.2.1.18	sialidase		reaction	RXN_MUCIN_NEUAC_RELEASE	equivalent	necessary	As above.
+BACDIVE	enzymes	EC:3.2.1.52	beta-N-acetylhexosaminidase		reaction	RXN_CHITOBIOSE_EXO	equivalent	necessary	The activity is broader than chitobiose hydrolysis, but gifter cross-references this EC on this reaction: the breadth is gifter's to defend, not the crosswalk's to hide.
+BACDIVE	enzymes	EC:3.2.1.51	alpha-L-fucosidase		reaction	RXN_MUCIN_FUCOSE_RELEASE	equivalent	necessary	As above: the assay does not know the substrate was a mucin O-glycan.
+BACDIVE	enzymes	EC:3.2.1.20	alpha-glucosidase		reaction	RXN_MALTOOLIGO_EXO	equivalent	necessary	As above: alpha-glucosidase acts on many alpha-glucosides.
+BACDIVE	enzymes	EC:3.2.1.55	alpha-L-arabinofuranosidase		reaction	RXN_ARABINOXYLAN_ARAF_RELEASE	equivalent	necessary	As above.
+BACDIVE	enzymes	EC:1.1.1.1	alcohol dehydrogenase		reaction	RHEA:25290	related	necessary	Refused for the recall table. The assay states neither direction nor substrate, and gifter curates the ethanol-forming direction.
+BACDIVE	metabolite utilization	CHEBI:16199	urea	hydrolysis;degradation;carbon source;nitrogen source;growth	gift	urea_hydrolysis	equivalent	necessary	Identifier matches the anchor outright; no alias needed.
+BACDIVE	metabolite utilization	CHEBI:30849	L-arabinose	carbon source;assimilation;growth;energy source	gift	arabinose_degradation	equivalent	necessary	Alias to CHEBI:17535.
+BACDIVE	metabolite utilization	CHEBI:30849	L-arabinose	builds acid from;fermentation	gift	arabinose_degradation	subset_of	necessary	Acid from a sugar implies its catabolism; the converse does not hold.
+BACDIVE	metabolite utilization	CHEBI:65327	D-xylose	carbon source;assimilation;growth;energy source	gift	xylose_degradation_isomerase	equivalent	necessary	Alias to CHEBI:53455. gifter curates only the isomerase route, so an oxidative-route organism is a legitimate failure, not a bug.
+BACDIVE	metabolite utilization	CHEBI:65327	D-xylose	builds acid from;fermentation	gift	xylose_degradation_isomerase	subset_of	necessary	
+BACDIVE	metabolite utilization	CHEBI:62345	L-rhamnose	carbon source;assimilation;growth;energy source	gift	rhamnose_degradation	equivalent	necessary	Alias to CHEBI:62346. The oxidative LRA route is deferred, register section 1.
+BACDIVE	metabolite utilization	CHEBI:62345	L-rhamnose	builds acid from;fermentation	gift	rhamnose_degradation	subset_of	necessary	
+BACDIVE	metabolite utilization	CHEBI:12936	D-galactose	carbon source;assimilation;growth;energy source	gift	galactose_degradation_leloir	equivalent	necessary	Alias to CHEBI:27667 in two anomeric steps. The tagatose-6-phosphate route is not curated, so its users are legitimate failures.
+BACDIVE	metabolite utilization	CHEBI:12936	D-galactose	builds acid from;fermentation	gift	galactose_degradation_leloir	subset_of	necessary	
+BACDIVE	metabolite utilization	CHEBI:18287	L-fucose	carbon source;assimilation;growth;energy source	gift	fucose_degradation_isomerase	equivalent	necessary	Alias to CHEBI:2181.
+BACDIVE	metabolite utilization	CHEBI:59640	N-acetylglucosamine	carbon source;assimilation;growth;energy source	gift	glcnac_degradation	equivalent	necessary	Alias to CHEBI:506227. Relation re-checked on 2026-08-27 and kept at equivalent. It was only defensible once the PTS entry was curated in database 2026.26.1: the GIFT had meant "degrades GlcNAc via the kinase route", which the observation is broader than, and the correct downgrade would have been superset_of rather than subset_of -- discarding the observations rather than silencing them.
+BACDIVE	metabolite utilization	CHEBI:16947	citrate	fermentation	gift	citrate_fermentation	equivalent	necessary	Identifier matches the anchor outright.
+BACDIVE	metabolite utilization	CHEBI:16947	citrate	carbon source;assimilation;energy source	gift	citrate_fermentation	superset_of	necessary	Refused for the recall table: aerobic citrate use through the TCA cycle does not imply the fermentative route.
+BACDIVE	metabolite utilization	CHEBI:28087	glycogen	hydrolysis;degradation;builds acid from	gift	starch_degradation	overlaps	necessary	Refused for the recall table: glycogen and starch are different alpha-glucans and the curated reactions are starch's.
+BACDIVE	metabolite utilization	CHEBI:5291	gelatin	hydrolysis	gift	collagen_cleavage	refused	necessary	Gelatin is denatured collagen and gelatinase activity is not collagenase. Admitting it would breach the specificity invariant the GIFT was named under.
+BACDIVE	metabolite production	CHEBI:35581	indole		gift	tryptophan_degradation_indole	equivalent	necessary	Alias to CHEBI:16881. Independent of the tryptophanase assay on the same GIFT.
+BACDIVE	metabolite production	CHEBI:15688	acetoin		gift	acetoin_formation	equivalent	necessary	Alias to CHEBI:15686. The Voges-Proskauer test.
+BACDIVE	metabolite production	CHEBI:16136	hydrogen sulfide		gift	cysteine_degradation_sulfide	superset_of	necessary	Refused for the recall table: H2S also arises from thiosulfate and sulfate reduction, neither of them this GIFT.
+BACDIVE	cell morphology	motility	motility		gift	flagellar_apparatus	superset_of	necessary	Refused for the recall table: gliding and twitching are motility without a flagellum. See type_iva_pilus.
+MADIN	carbon_substrates	arabinose	arabinose		gift	arabinose_degradation	equivalent	necessary	Species-level record; a representative genome carries the strain's variation silently.
+MADIN	carbon_substrates	galactose	galactose		gift	galactose_degradation_leloir	equivalent	necessary	Species-level.
+MADIN	carbon_substrates	xylose	xylose		gift	xylose_degradation_isomerase	equivalent	necessary	Species-level.
+MADIN	carbon_substrates	gulcosamine	N-acetylgulcosamine		gift	glcnac_degradation	equivalent	necessary	The term is misspelled at source; matching the spelling in the data is deliberate and recovers 129 species. Relation re-checked on 2026-08-27 and kept at equivalent. It was only defensible once the PTS entry was curated in database 2026.26.1: the GIFT had meant "degrades GlcNAc via the kinase route", which the observation is broader than, and the correct downgrade would have been superset_of rather than subset_of -- discarding the observations rather than silencing them.
+MADIN	carbon_substrates	rhamnose	rhamnose		gift	rhamnose_degradation	equivalent	necessary	Species-level.
+MADIN	carbon_substrates	fucose	fucose		gift	fucose_degradation_isomerase	equivalent	necessary	Species-level.
+MADIN	carbon_substrates	phenylacetate	phenylacetate		gift	phenylacetate_degradation	equivalent	necessary	Species-level.
+MADIN	carbon_substrates	galacturonic	galacturonic acid		gift	galacturonate_degradation	equivalent	necessary	Species-level.
+MADIN	carbon_substrates	urea	urea		gift	urea_hydrolysis	equivalent	necessary	Species-level.
+MADIN	carbon_substrates	methylamine	methylamine		gift	methylamine_degradation	equivalent	necessary	Species-level. Match the term exactly: trimethylamine contains it as a substring.
+MADIN	carbon_substrates	trimethylamine	trimethylamine		gift	methylamine_degradation	superset_of	necessary	Refused for the recall table: trimethylamine catabolism is not the curated methylamine chemistry.
+MADIN	carbon_substrates	citrate	citrate		gift	citrate_fermentation	superset_of	necessary	Refused for the recall table, as for BacDive.
+MADIN	carbon_substrates	glycogen	glycogen		gift	starch_degradation	overlaps	necessary	Refused for the recall table.
+MADIN	carbon_substrates	dextrin	dextrin		gift	starch_degradation	overlaps	necessary	Refused for the recall table: dextrin is a partial starch hydrolysate, so its use may need none of the curated reactions.
+MADIN	carbon_substrates	histidine	histidine		gift	histidine_degradation_glutamate	overlaps	necessary	Refused for the recall table: histidine as a carbon source need not run through the curated route to glutamate.
+MADIN	motility	motility	motility		gift	flagellar_apparatus	superset_of	necessary	Refused for the recall table, as for BacDive.
+MEDIADIVE	ingredient_absent				frame	biomass_essential_anabolism	equivalent	falsifying	Growth on a defined medium that omits a nutrient means the strain makes it. The per-GIFT mapping is derived, not curated: match a MediaDive ingredient ChEBI to the output anchor of each frame member through the alias table. Only exceptions and voids are curated here.
+MEDIADIVE	ingredient_voids	16	Yeast extract		frame	biomass_essential_anabolism	voids	falsifying	Undefined composition. Its presence voids every anabolic test on that medium rather than making them negative.
+MEDIADIVE	ingredient_voids	1	Peptone		frame	biomass_essential_anabolism	voids	falsifying	As above.
+MEDIADIVE	ingredient_voids	71	Tryptone		frame	biomass_essential_anabolism	voids	falsifying	As above.
+MEDIADIVE	ingredient_voids	2	Meat extract		frame	biomass_essential_anabolism	voids	falsifying	As above.
+MEDIADIVE	ingredient_voids	21	Casein peptone		frame	biomass_essential_anabolism	voids	falsifying	As above.
+MEDIADIVE	ingredient_voids	101	Casamino acids		frame	biomass_essential_anabolism	voids	falsifying	As above.
+MEDIADIVE	ingredient_voids	654	Vitamin-free casamino acids		frame	amino_acid_autonomy	voids	falsifying	Voids the amino-acid frame only. Being vitamin-free, it leaves cofactor_autonomy testable -- which is why the void list is curated per frame rather than per medium.
+MEDIADIVE	ingredient_voids	154	Vitamin solution		frame	cofactor_autonomy	voids	falsifying	Voids the cofactor frame only; amino-acid tests on the same medium stand.

@@ -1243,6 +1243,31 @@ unresolved boundary from breaking a chain, while `gift_graph()` reports
 `edge_quality` so a traversal that crossed one is not mistaken for a fully
 resolved claim.
 
+**A translocation reaction is not automatically a transport GIFT.** Which of the
+two it becomes is decided by the anchors, not by the reaction's kind:
+
+- If the same molecule arrives and leaves, the translocation is the whole
+  capability and belongs in a `transport` GIFT. `xylose_uptake_abc`,
+  `arabinose_uptake_abc` and `taurine_uptake_abc` are the three curated
+  examples, each declaring `X_EX` in and `X_IN` out.
+- If crossing the membrane is one required step of reaching a *different*
+  declared output, the translocation is a route reaction inside the capability
+  that needs it. The transporter is then evidenced by its own markers exactly as
+  any other step is, and no second GIFT is created.
+
+Group translocation forces the second reading. A PTS phosphorylates its
+substrate in transit, so what leaves the reaction is not what entered it and
+there is no same-molecule pair to declare. `glcnac_degradation` carries
+`RHEA:49240` this way, as the first reaction of the `GLCNAC_PTS` route: the
+alternative to a cytoplasmic kinase, between the same anchors the kinase route
+already declared. Curating it as an uptake GIFT would have required minting an
+anchor for N-acetylglucosamine 6-phosphate, an internal intermediate of both
+routes -- the boundary molecule invariant 17 refuses.
+
+A GIFT may therefore hold routes whose entries start in different compartments,
+and when it does its input anchor stays `unspecified`, because specifying either
+compartment would make the anchor false for one of its own routes.
+
 ### Linking to external pathways
 
 A GIFT is not a pathway record, but users arrive from the resources they

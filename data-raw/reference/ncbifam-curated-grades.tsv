@@ -1,6 +1,11 @@
 accession	family_type	gene_symbol	product_name	ec_numbers	refseq_hits	source	in_release	admitted_grade	components	release
 NF000689.1	equivalog		ferrochelatase	4.98.1.1	20040	NCBI Protein Cluster (PRK)	1	1	COMP_22584_HEMH	hmm_PGAP/20.0
 NF001209.0	equivalog	metX	homoserine O-acetyltransferase MetX	2.3.1.31	37806	NCBI Protein Cluster (PRK)	1	1	COMP_13701_CATALYTIC	hmm_PGAP/20.0
+NF001610.0	equivalog		phosphoribosyl-ATP diphosphatase	3.6.1.31	7731	NCBI Protein Cluster (PRK)	1	1	COMP_22828_CATALYTIC	hmm_PGAP/20.0
+NF001611.0	equivalog		phosphoribosyl-ATP diphosphatase	3.6.1.31	16612	NCBI Protein Cluster (PRK)	1	1	COMP_22828_CATALYTIC	hmm_PGAP/20.0
+NF001613.0	equivalog		phosphoribosyl-ATP diphosphatase	3.6.1.31	8106	NCBI Protein Cluster (PRK)	1	1	COMP_22828_CATALYTIC	hmm_PGAP/20.0
+NF001682.0	equivalog		glucosamine-6-phosphate deaminase	3.5.99.6	257	NCBI Protein Cluster (PRK)	1	1	COMP_12172_CATALYTIC	hmm_PGAP/20.0
+NF001685.0	equivalog	nagB	glucosamine-6-phosphate deaminase	3.5.99.6	2406	NCBI Protein Cluster (PRK)	1	1	COMP_12172_CATALYTIC	hmm_PGAP/20.0
 NF002537.0	equivalog		phosphoadenylyl-sulfate reductase	1.8.4.8	54479	NCBI Protein Cluster (PRK)	1	1	COMP_11724_CYSH	hmm_PGAP/20.0
 NF003776.0	equivalog	metA	homoserine O-succinyltransferase MetA	2.3.1.46	1211	NCBI Protein Cluster (PRK)	1	1	COMP_22008_CATALYTIC	hmm_PGAP/20.0
 NF004057.0	equivalog		precorrin-8X methylmutase	5.4.99.61	454	NCBI Protein Cluster (PRK)	1	1	COMP_22512_CATALYTIC	hmm_PGAP/20.0
@@ -23,36 +28,52 @@ NF005968.0	equivalog		cobalt-precorrin-6A reductase	1.3.1.106	27257	NCBI Protein
 NF005969.0	equivalog		cobalt-precorrin-6A reductase	1.3.1.106	5566	NCBI Protein Cluster (PRK)	1	1	COMP_15625_CATALYTIC	hmm_PGAP/20.0
 NF005970.0	equivalog		cobalt-precorrin-6A reductase	1.3.1.106	1154	NCBI Protein Cluster (PRK)	1	1	COMP_15625_CATALYTIC	hmm_PGAP/20.0
 NF005971.0	equivalog		cobalt-precorrin-6A reductase	1.3.1.106	81	NCBI Protein Cluster (PRK)	1	1	COMP_15625_CATALYTIC	hmm_PGAP/20.0
+NF005996.1	equivalog	hisJ	histidinol-phosphatase HisJ	3.1.3.15	6700	NCBI Protein Cluster (PRK)	1	1	COMP_14465_HISN_CATALYTIC	hmm_PGAP/20.0
 NF006136.0	equivalog		precorrin-8X methylmutase	5.4.99.61	19152	NCBI Protein Cluster (PRK)	1	1	COMP_22512_CATALYTIC	hmm_PGAP/20.0
 NF006137.0	equivalog		cobalt-precorrin-8 methylmutase	5.4.99.60	1967	NCBI Protein Cluster (PRK)	1	1	COMP_16209_CATALYTIC	hmm_PGAP/20.0
 NF006449.0	equivalog	metX	homoserine O-succinyltransferase MetX	2.3.1.46	2062	NCBI Protein Cluster (PRK)	1	1	COMP_22008_CATALYTIC	hmm_PGAP/20.0
 NF006916.0	equivalog		succinic semialdehyde dehydrogenase	1.2.1.79	17569	NCBI Protein Cluster (PRK)	1	1	COMP_13213_CATALYTIC	hmm_PGAP/20.0
 NF007604.0	equivalog	entD	enterobactin synthase subunit EntD	6.3.2.14	4482	NCBI Protein Cluster (PRK)	1	1	COMP_30571_ENTD	hmm_PGAP/20.0
 NF007605.2	equivalog	entF	enterobactin non-ribosomal peptide synthetase EntF	6.3.2.14	11422	NCBI Protein Cluster (PRK)	1	1	COMP_30571_ENTF	hmm_PGAP/20.0
+NF007608.0	equivalog	nagE	PTS N-acetyl glucosamine transporter subunit IIABC	2.7.1.193	3362	NCBI Protein Cluster (PRK)	1	1	COMP_49240_EII	hmm_PGAP/20.0
 NF008220.0	equivalog		L-fucose isomerase	5.3.1.25	9680	NCBI Protein Cluster (PRK)	1	1	COMP_17233_CATALYTIC	hmm_PGAP/20.0
+NF008371.0	equivalog	nagA	N-acetylglucosamine-6-phosphate deacetylase	3.5.1.25	7117	NCBI Protein Cluster (PRK)	1	1	COMP_22936_CATALYTIC	hmm_PGAP/20.0
 NF008759.0	equivalog	serA	phosphoglycerate dehydrogenase	1.1.1.95	19517	NCBI Protein Cluster (PRK)	1	1	COMP_12641_CATALYTIC	hmm_PGAP/20.0
 NF008841.0	equivalog		protoporphyrinogen oxidase	1.3.3.4	2928	NCBI Protein Cluster (PRK)	1	1	COMP_25576_HEMY	hmm_PGAP/20.0
 NF008843.0	equivalog		protoporphyrinogen oxidase	1.3.3.4	86	NCBI Protein Cluster (PRK)	1	1	COMP_25576_HEMY	hmm_PGAP/20.0
 NF008845.0	equivalog	hemY	protoporphyrinogen oxidase	1.3.3.4	5976	NCBI Protein Cluster (PRK)	1	1	COMP_25576_HEMY	hmm_PGAP/20.0
 NF008907.0	equivalog		multifunctional oxoglutarate decarboxylase/oxoglutarate dehydrogenase thiamine pyrophosphate-binding subunit/dihydrolipoyllysine-residue succinyltransferase subunit	4.1.1.71	71314	NCBI Protein Cluster (PRK)	1	1	COMP_10524_CATALYTIC	hmm_PGAP/20.0
+NF009022.0	equivalog		glucosamine-6-phosphate deaminase	3.5.99.6	2302	NCBI Protein Cluster (PRK)	1	1	COMP_12172_CATALYTIC	hmm_PGAP/20.0
 NF009081.0	equivalog		protoporphyrinogen oxidase	1.3.3.4	2030	NCBI Protein Cluster (PRK)	1	1	COMP_25576_HEMY	hmm_PGAP/20.0
 NF009259.0	equivalog		bifunctional hydroxymethylpyrimidine kinase/phosphomethylpyrimidine kinase	2.7.1.49	2147	NCBI Protein Cluster (PRK)	1	1	COMP_23096_CATALYTIC	hmm_PGAP/20.0
+NF009835.0	equivalog	nagK	N-acetylglucosamine kinase	2.7.1.59	6570	NCBI Protein Cluster (PRK)	1	1	COMP_17417_CATALYTIC	hmm_PGAP/20.0
 NF011645.0	equivalog	aceA	isocitrate lyase	4.1.3.1	26011	NCBI Protein Cluster (PRK)	1	1	COMP_13245_CATALYTIC	hmm_PGAP/20.0
 NF012017.0	equivalog		cobalt-precorrin-4 methyltransferase	2.1.1.271	1764	NCBI Protein Cluster (PRK)	1	1	COMP_26277_CATALYTIC	hmm_PGAP/20.0
 NF040707.3	equivalog	ahbB	siroheme decarboxylase subunit beta	4.1.1.111	8656	NCBIFAM	1	1	COMP_19093_AHBB	hmm_PGAP/20.0
 NF040708.3	equivalog	ahbA	siroheme decarboxylase subunit alpha	4.1.1.111	1773	NCBIFAM	1	1	COMP_19093_AHBA	hmm_PGAP/20.0
+NF041128.1	equivalog	glmD	glucosamine-6-phosphate deaminase	3.5.99.6	39	NCBIFAM	1	1	COMP_12172_CATALYTIC	hmm_PGAP/20.0
+NF046058.1	equivalog	nagK	N-acetylglucosamine kinase	2.7.1.59	993	NCBIFAM	1	1	COMP_17417_CATALYTIC	hmm_PGAP/20.0
+NF046059.1	equivalog	nagB-II	glucosamine-6-phosphate deaminase NagB-II	3.5.99.6	763	NCBIFAM	1	1	COMP_12172_CATALYTIC	hmm_PGAP/20.0
+NF052359.1	equivalog		histidinol-phosphatase	3.1.3.15	337	NCBIFAM	1	1	COMP_14465_HISN_CATALYTIC	hmm_PGAP/20.0
+NF052360.1	equivalog		histidinol-phosphatase	3.1.3.15	8656	NCBIFAM	1	1	COMP_14465_HISN_CATALYTIC	hmm_PGAP/20.0
 TIGR00109.1	equivalog	hemH	ferrochelatase	4.98.1.1	70512	JCVI	1	1	COMP_22584_HEMH	hmm_PGAP/20.0
+TIGR00221.1	equivalog	nagA	N-acetylglucosamine-6-phosphate deacetylase	3.5.1.25	71976	JCVI	1	1	COMP_22936_CATALYTIC	hmm_PGAP/20.0
+TIGR00502.1	equivalog	nagB	glucosamine-6-phosphate deaminase	3.5.99.6	35984	JCVI	1	1	COMP_12172_CATALYTIC	hmm_PGAP/20.0
 TIGR00562.1	equivalog	hemG	protoporphyrinogen oxidase	1.3.3.4	35757	JCVI	1	1	COMP_25576_HEMY	hmm_PGAP/20.0
 TIGR00715.1	equivalog	cobK	precorrin-6A reductase	1.3.1.54	32358	JCVI	1	1	COMP_23408_CATALYTIC	hmm_PGAP/20.0
 TIGR01001.2	equivalog	metA	homoserine O-succinyltransferase MetA	2.3.1.46	4449	JCVI	1	1	COMP_22008_CATALYTIC	hmm_PGAP/20.0
 TIGR01089.1	equivalog	fucI	L-fucose isomerase	5.3.1.25	9572	JCVI	1	1	COMP_17233_CATALYTIC	hmm_PGAP/20.0
+TIGR01261.1	equivalog_domain	hisB	histidinol-phosphatase	3.1.3.15	19756	JCVI	1	1	COMP_14465_HISB_BIFUNCTIONAL_CATALYTIC	hmm_PGAP/20.0
 TIGR01327.1	equivalog	serA	phosphoglycerate dehydrogenase	1.1.1.95	36301	JCVI	1	1	COMP_12641_CATALYTIC	hmm_PGAP/20.0
 TIGR01346.1	equivalog	aceA	isocitrate lyase	4.1.3.1	26266	JCVI	1	1	COMP_13245_CATALYTIC	hmm_PGAP/20.0
 TIGR01465.1	equivalog	cobM	precorrin-4 C(11)-methyltransferase	2.1.1.133	36952	JCVI	1	1	COMP_22012_CATALYTIC	hmm_PGAP/20.0
 TIGR01466.1	equivalog_domain	cobJ	precorrin-3B C(17)-methyltransferase	2.1.1.131	45145	JCVI	1	1	COMP_12761_CATALYTIC	hmm_PGAP/20.0
 TIGR01467.1	equivalog	cobI	precorrin-2 C(20)-methyltransferase	2.1.1.130	36417	JCVI	1	1	COMP_16841_CATALYTIC	hmm_PGAP/20.0
 TIGR01608.1	equivalog	citD	citrate lyase acyl carrier protein	4.1.3.6	4816	JCVI	1	1	COMP_10760_CITD	hmm_PGAP/20.0
+TIGR01998.1	equivalog_domain	nagE	N-acetylglucosamine-specific PTS transporter subunit IIBC	2.7.1.193	23373	JCVI	1	1	COMP_49240_EII	hmm_PGAP/20.0
 TIGR02057.1	equivalog	cysH	phosphoadenosine phosphosulfate reductase	1.8.4.8	8875	JCVI	1	1	COMP_11724_CYSH	hmm_PGAP/20.0
+TIGR02067.1	equivalog	hisN	histidinol-phosphatase	3.1.3.15	23807	JCVI	1	1	COMP_14465_HISN_CATALYTIC	hmm_PGAP/20.0
+TIGR03188.1	equivalog_domain	hisE	phosphoribosyl-ATP diphosphatase	3.6.1.31	58388	JCVI	1	1	COMP_22828_CATALYTIC	hmm_PGAP/20.0
 TIGR03216.1	equivalog		2-hydroxymuconic semialdehyde dehydrogenase	1.2.1.85	6400	JCVI	1	1	COMP_34219_CATALYTIC	hmm_PGAP/20.0
 TIGR04545.1	equivalog	ahbD	heme b synthase	1.3.98.6	622	JCVI	1	1	COMP_56520_AHBD	hmm_PGAP/20.0
 TIGR04546.1	equivalog	ahbC	12,18-didecarboxysiroheme deacetylase		575	JCVI	1	1	COMP_37431_AHBC	hmm_PGAP/20.0

@@ -99,6 +99,73 @@ way.
 The assessment that produced these tables, including the individual reading of
 every flagged route, is `inst/doc/proposal-marker-specificity-screen.md`.
 
+## phenotype-crosswalk.tsv
+
+The curated mapping from an external phenotype observation to something gifter
+claims. It is the crux of R9 and the only part of that analysis that is
+judgment rather than engineering, so it is a reviewed table rather than a
+lookup buried in a script.
+
+One row is one (source field, term, kind-of-test) mapped to one target, with an
+explicit `relation` drawn from the vocabulary `gift_xrefs` already uses. The
+`layer` column says what the target is, because the observations reach three
+different depths: an EC-resolved enzyme assay tests a curated **reaction**, a
+substrate-use record tests a **gift**, and growth on a defined medium tests a
+whole bounded **frame**.
+
+**Read the relation before using a row.** Only `equivalent` and `subset_of` let
+the observation imply the target, so only those may enter a recall table.
+`superset_of` and `overlaps` rows are kept rather than deleted because they
+still bound the permitted cell and because a mapping that was considered and
+declined should stay findable — the deferral register's argument, applied to a
+reference set. `refused` marks a mapping that must never be used and says why;
+`voids` marks a medium ingredient whose presence makes a test inapplicable
+rather than negative.
+
+The `kinds` column is not metadata. BacDive records *how* a metabolite was
+tested, and the same metabolite maps differently depending: "carbon source"
+for L-arabinose is `equivalent` to the degradation GIFT, while "builds acid
+from" is `subset_of` it. A crosswalk that ignored the column would silently
+promote an acidification test into a catabolic-route claim.
+
+The reasoning behind every refusal is
+`inst/doc/proposal-phenotype-validation.md`. The reader that enforces the
+vocabulary and checks that every target still exists is
+`read_phenotype_crosswalk()` in `manuscript/analysis/_common.R`.
+
+## chebi-anchor-aliases.tsv and chebi-anchor-alias-candidates.tsv
+
+`chebi_anchor_aliases.R` in the parent directory regenerates both.
+
+gifter's anchors carry Rhea's participant identifiers, which are charge- and
+anomer-resolved. Every external record uses the parent instead: BacDive records
+L-arabinose as `CHEBI:30849` against the anchor's `CHEBI:17535`, and MediaDive
+lists L-Tryptophan as `CHEBI:16828` against `CHEBI:57912`. Of the 196 distinct
+metabolite identifiers in a 400-strain BacDive probe, 21 matched an anchor
+outright. Without a bridge the crosswalk cannot join at all.
+
+The bridge is split in two on purpose.
+
+**Derived rows** come from ChEBI relations that preserve chemical identity by
+definition — `is tautomer of`, `is protonated form of`, `is deprotonated form
+of` — and are regenerated on every run. 144 of them.
+
+**Curated rows** are the anomeric step, from `beta-D-galactose` to
+`D-galactose`, and that step is *not* derived. It cannot be: the ChEBI parent of
+an anomer is sometimes the sugar (`L-rhamnopyranose` to `L-rhamnose`) and
+sometimes another anomeric class (`beta-D-galactose` to `D-galactopyranose`),
+and the parent of a specific compound is sometimes a genuine widening carrying
+an identical molecular formula (`N-acetyl-D-glucosamine` to
+`N-acetyl-D-hexosamine`). No label or formula rule separates those, which is
+the assessment's point restated: a traversal that goes one step too far turns a
+specific anchor into a compound class. So every `subClassOf` step is written to
+`chebi-anchor-alias-candidates.tsv` for review, and a curator who accepts one
+adds it with `status = curated`. Reruns carry curated rows through untouched.
+
+The candidates file is worth reading beside the accepted one, because it shows
+both at once: `GLCNAC` proposes `N-acetylglucosamine` and `N-acetyl-D-hexosamine`
+as siblings, and only the first is a name for the same molecule.
+
 Downloaded inputs are cached in `.cache/` and are not committed. Reproduce with:
 
 ```sh

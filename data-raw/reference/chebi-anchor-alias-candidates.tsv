@@ -1,0 +1,214 @@
+anchor_id	anchor_chebi	anchor_label	alias_chebi	alias_label	relation	status	notes	verified
+ACETATE	CHEBI:30089	acetate	CHEBI:35757	monocarboxylic acid anion	subClassOf	candidate		2026-08-25
+ACETYL_COA	CHEBI:57288	acetyl-CoA	CHEBI:58342	acyl-CoA(4-)	subClassOf	candidate		2026-08-25
+ACETYL_PHOSPHATE	CHEBI:22191	acetyl phosphate	CHEBI:59918	acyl monophosphate(2-)	subClassOf	candidate		2026-08-25
+ADENOSYLCOBINAMIDE_P	CHEBI:58502	adenosylcobinamide phosphate	CHEBI:58945	organophosphate oxoanion	subClassOf	candidate		2026-08-25
+AIR	CHEBI:138560	5-amino-1-(5-phospho-beta-D-ribosyl)imidazole	CHEBI:22512	aminoimidazole	subClassOf	candidate		2026-08-25
+AIR	CHEBI:138560	5-amino-1-(5-phospho-beta-D-ribosyl)imidazole	CHEBI:37292	1-(phosphoribosyl)imidazole	subClassOf	candidate		2026-08-25
+ALANINE	CHEBI:57972	L-alanine	CHEBI:66916	alanine zwitterion	subClassOf	candidate		2026-08-25
+ALLANTOIN	CHEBI:15678	(S)-allantoin	CHEBI:15676	allantoin	subClassOf	candidate		2026-08-25
+AMINOPENTANOATE	CHEBI:356010	5-aminopentanoate	CHEBI:35238	amino-acid zwitterion	subClassOf	candidate		2026-08-25
+AMMONIUM	CHEBI:28938	ammonium	CHEBI:35106	nitrogen hydride	subClassOf	candidate		2026-08-25
+AMMONIUM	CHEBI:28938	ammonium	CHEBI:50313	onium cation	subClassOf	candidate		2026-08-25
+AMMONIUM	CHEBI:28938	ammonium	CHEBI:60242	monovalent inorganic cation	subClassOf	candidate		2026-08-25
+AMP	CHEBI:456215	adenosine 5'-monophosphate(2-)	CHEBI:58043	nucleoside 5'-monophosphate(2-)	subClassOf	candidate		2026-08-25
+ANTHRANILATE	CHEBI:16567	anthranilate	CHEBI:22494	aminobenzoate	subClassOf	candidate		2026-08-25
+ARGININE	CHEBI:32682	L-arginine	CHEBI:32696	argininium(1+)	subClassOf	candidate		2026-08-25
+ASA	CHEBI:537519	L-aspartate 4-semialdehyde	CHEBI:59869	L-alpha-amino acid zwitterion	subClassOf	candidate		2026-08-25
+ASPARAGINE	CHEBI:58048	L-asparagine	CHEBI:35238	amino-acid zwitterion	subClassOf	candidate		2026-08-25
+ASPARTATE	CHEBI:29991	L-aspartate	CHEBI:35391	aspartate(1-)	subClassOf	candidate		2026-08-25
+ASPARTATE	CHEBI:29991	L-aspartate	CHEBI:59869	L-alpha-amino acid zwitterion	subClassOf	candidate		2026-08-25
+ASPARTATE	CHEBI:29991	L-aspartate	CHEBI:62031	polar amino acid zwitterion	subClassOf	candidate		2026-08-25
+BENZOATE	CHEBI:16150	benzoate	CHEBI:22718	benzoates	subClassOf	candidate		2026-08-25
+BETAINE	CHEBI:17750	glycine betaine	CHEBI:22860	amino-acid betaine	subClassOf	candidate		2026-08-25
+BETAINE	CHEBI:17750	glycine betaine	CHEBI:24373	glycine derivative	subClassOf	candidate		2026-08-25
+BIOTIN	CHEBI:15956	biotin	CHEBI:176841	vitamin B7	subClassOf	candidate		2026-08-25
+BIOTIN	CHEBI:15956	biotin	CHEBI:51570	biotins	subClassOf	candidate		2026-08-25
+BUTYRATE	CHEBI:17968	butanoate	CHEBI:78115	fatty acid anion 4:0	subClassOf	candidate		2026-08-25
+CARNITINE	CHEBI:16347	(R)-carnitine	CHEBI:17126	carnitine	subClassOf	candidate		2026-08-25
+CATECHOL	CHEBI:18135	catechol	CHEBI:33566	catechols	subClassOf	candidate		2026-08-25
+CHITIN	CHEBI:17029	chitin	CHEBI:21638	N-acylglucosamine	subClassOf	candidate		2026-08-25
+CHITIN	CHEBI:17029	chitin	CHEBI:22506	aminoglycan	subClassOf	candidate		2026-08-25
+CHOLINE	CHEBI:15354	choline	CHEBI:23217	cholines	subClassOf	candidate		2026-08-25
+CHORISMATE	CHEBI:17333	chorismate	CHEBI:36166	5-[(1-carboxyethenyl)oxy]-6-hydroxycyclohexa-1,3-diene-1-carboxylic acid	subClassOf	candidate		2026-08-25
+CITRATE	CHEBI:16947	citrate	CHEBI:133748	citrate anion	subClassOf	candidate		2026-08-25
+CITRATE	CHEBI:16947	citrate	CHEBI:27092	tricarboxylic acid trianion	subClassOf	candidate		2026-08-25
+COBALAMIN	CHEBI:18408	adenosylcobalamin	CHEBI:23334	cobalamins	subClassOf	candidate		2026-08-25
+COBALAMIN	CHEBI:18408	adenosylcobalamin	CHEBI:33913	corrinoid	subClassOf	candidate		2026-08-25
+COBYRINATE_DIAMIDE	CHEBI:27937	cob(II)yrinate a,c diamide	CHEBI:48033	cobyrinic acid a,c diamide	subClassOf	candidate		2026-08-25
+CREATININE	CHEBI:16737	creatinine	CHEBI:24995	lactam	subClassOf	candidate		2026-08-25
+CREATININE	CHEBI:16737	creatinine	CHEBI:55370	imidazolidinone	subClassOf	candidate		2026-08-25
+CTP	CHEBI:37563	cytidine 5'-triphosphate(4-)	CHEBI:61557	nucleoside 5'-triphoshate(4-)	subClassOf	candidate		2026-08-25
+CYSTEINE	CHEBI:35235	L-cysteine	CHEBI:35237	cysteine zwitterion	subClassOf	candidate		2026-08-25
+DABA	CHEBI:58761	L-2,4-diaminobutanoate	CHEBI:33719	alpha-amino-acid cation	subClassOf	candidate		2026-08-25
+DHAP	CHEBI:57642	dihydroxyacetone phosphate	CHEBI:58945	organophosphate oxoanion	subClassOf	candidate		2026-08-25
+DHPP	CHEBI:46951	3-(2,3-dihydroxyphenyl)propanoate	CHEBI:35757	monocarboxylic acid anion	subClassOf	candidate		2026-08-25
+DIHYDROXYBENZOATE_2_3	CHEBI:36654	2,3-dihydroxybenzoate	CHEBI:36084	dihydroxybenzoate	subClassOf	candidate		2026-08-25
+DMB	CHEBI:15890	5,6-dimethylbenzimidazole	CHEBI:23809	dimethylbenzimidazole	subClassOf	candidate		2026-08-25
+DXP	CHEBI:16493	1-deoxy-D-xylulose 5-phosphate	CHEBI:27355	xylulose phosphate	subClassOf	candidate		2026-08-25
+E4P	CHEBI:48153	D-erythrose 4-phosphate	CHEBI:23956	erythrose phosphate	subClassOf	candidate		2026-08-25
+ECTOINE	CHEBI:58515	L-ectoine	CHEBI:27369	zwitterion	subClassOf	candidate		2026-08-25
+ENTEROBACTIN	CHEBI:77805	enterobactin	CHEBI:50525	phenolate anion	subClassOf	candidate		2026-08-25
+ETHANOL	CHEBI:16236	ethanol	CHEBI:134179	volatile organic compound	subClassOf	candidate		2026-08-25
+ETHANOL	CHEBI:16236	ethanol	CHEBI:15734	primary alcohol	subClassOf	candidate		2026-08-25
+ETHANOL	CHEBI:16236	ethanol	CHEBI:23982	ethanols	subClassOf	candidate		2026-08-25
+ETHANOL	CHEBI:16236	ethanol	CHEBI:50584	alkyl alcohol	subClassOf	candidate		2026-08-25
+FMNH2	CHEBI:16048	FMNH2	CHEBI:24041	flavin mononucleotide	subClassOf	candidate		2026-08-25
+FRUCTOSE_6P	CHEBI:57634	beta-D-fructose 6-phosphate	CHEBI:58945	organophosphate oxoanion	subClassOf	candidate		2026-08-25
+FRUCTOSE_6P	CHEBI:57634	beta-D-fructose 6-phosphate	CHEBI:61527	D-fructofuranose 6-phosphate(2-)	subClassOf	candidate		2026-08-25
+FUCOSE	CHEBI:2181	L-fucose	CHEBI:48206	fucopyranose	subClassOf	candidate		2026-08-25
+FUMARATE	CHEBI:29806	fumarate	CHEBI:36180	butenedioate	subClassOf	candidate		2026-08-25
+FUMARATE	CHEBI:29806	fumarate	CHEBI:61336	C4-dicarboxylate	subClassOf	candidate		2026-08-25
+GABA	CHEBI:59888	4-aminobutanoate	CHEBI:35238	amino-acid zwitterion	subClassOf	candidate		2026-08-25
+GALACTOSE	CHEBI:27667	beta-D-galactose	CHEBI:4139	D-galactopyranose	subClassOf	candidate		2026-08-25
+GALACTURONATE	CHEBI:12952	aldehydo-D-galacturonate	CHEBI:24175	galacturonate	subClassOf	candidate		2026-08-25
+GALNAC	CHEBI:28037	N-acetyl-D-galactosamine	CHEBI:21601	N-acetyl-D-hexosamine	subClassOf	candidate		2026-08-25
+GAP	CHEBI:59776	D-glyceraldehyde 3-phosphate	CHEBI:58945	organophosphate oxoanion	subClassOf	candidate		2026-08-25
+GLCNAC	CHEBI:506227	N-acetyl-D-glucosamine	CHEBI:21601	N-acetyl-D-hexosamine	subClassOf	candidate		2026-08-25
+GLUCOSE	CHEBI:4167	D-glucose	CHEBI:17634	D-glucose	subClassOf	candidate		2026-08-25
+GLUCOSE	CHEBI:4167	D-glucose	CHEBI:37661	glucopyranose	subClassOf	candidate		2026-08-25
+GLUCOSE_1P	CHEBI:58601	alpha-D-glucose 1-phosphate	CHEBI:140358	monosaccharide 1-phosphate(2-)	subClassOf	candidate		2026-08-25
+GLUCOSE_1P	CHEBI:58601	alpha-D-glucose 1-phosphate	CHEBI:58945	organophosphate oxoanion	subClassOf	candidate		2026-08-25
+GLUCURONATE	CHEBI:58720	D-glucuronate	CHEBI:33721	carbohydrate acid anion	subClassOf	candidate		2026-08-25
+GLUCURONATE	CHEBI:58720	D-glucuronate	CHEBI:35757	monocarboxylic acid anion	subClassOf	candidate		2026-08-25
+GLUTAMATE	CHEBI:29985	L-glutamate	CHEBI:14321	glutamate(1-)	subClassOf	candidate		2026-08-25
+GLUTAMINE	CHEBI:58359	L-glutamine	CHEBI:35238	amino-acid zwitterion	subClassOf	candidate		2026-08-25
+GLUTAMINE	CHEBI:58359	L-glutamine	CHEBI:62031	polar amino acid zwitterion	subClassOf	candidate		2026-08-25
+GLYCINE	CHEBI:57305	glycine	CHEBI:35238	amino-acid zwitterion	subClassOf	candidate		2026-08-25
+GLYOXYLATE	CHEBI:36655	glyoxylate	CHEBI:35179	2-oxo monocarboxylic acid anion	subClassOf	candidate		2026-08-25
+GMP	CHEBI:58115	guanosine 5'-monophosphate(2-)	CHEBI:58043	nucleoside 5'-monophosphate(2-)	subClassOf	candidate		2026-08-25
+GTP	CHEBI:15996	GTP	CHEBI:37045	purine ribonucleoside 5'-triphosphate	subClassOf	candidate		2026-08-25
+GTP	CHEBI:15996	GTP	CHEBI:37121	guanosine 5'-phosphate	subClassOf	candidate		2026-08-25
+HEME_B	CHEBI:60344	heme b	CHEBI:28965	dicarboxylic acid dianion	subClassOf	candidate		2026-08-25
+HEME_B	CHEBI:60344	heme b	CHEBI:58941	cyclic tetrapyrrole anion	subClassOf	candidate		2026-08-25
+HET	CHEBI:17957	5-(2-hydroxyethyl)-4-methylthiazole	CHEBI:15734	primary alcohol	subClassOf	candidate		2026-08-25
+HET	CHEBI:17957	5-(2-hydroxyethyl)-4-methylthiazole	CHEBI:38418	1,3-thiazoles	subClassOf	candidate		2026-08-25
+HISTIDINE	CHEBI:57595	L-histidine	CHEBI:35238	amino-acid zwitterion	subClassOf	candidate		2026-08-25
+HISTIDINE	CHEBI:57595	L-histidine	CHEBI:62031	polar amino acid zwitterion	subClassOf	candidate		2026-08-25
+HMP	CHEBI:16892	4-amino-5-hydroxymethyl-2-methylpyrimidine	CHEBI:33857	aromatic primary alcohol	subClassOf	candidate		2026-08-25
+HMP	CHEBI:16892	4-amino-5-hydroxymethyl-2-methylpyrimidine	CHEBI:38338	aminopyrimidine	subClassOf	candidate		2026-08-25
+HMP_PP	CHEBI:57841	4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine	CHEBI:58945	organophosphate oxoanion	subClassOf	candidate		2026-08-25
+HOMOCYSTEINE	CHEBI:58199	L-homocysteine	CHEBI:35238	amino-acid zwitterion	subClassOf	candidate		2026-08-25
+HOMOSERINE	CHEBI:57476	L-homoserine	CHEBI:35238	amino-acid zwitterion	subClassOf	candidate		2026-08-25
+HPP	CHEBI:57277	3-(3-hydroxyphenyl)propanoate	CHEBI:35757	monocarboxylic acid anion	subClassOf	candidate		2026-08-25
+HYDROXYECTOINE	CHEBI:85413	5-hydroxyectoine	CHEBI:35285	iminium betaine	subClassOf	candidate		2026-08-25
+IMP	CHEBI:58053	inosine 5'-monophosphate(2-)	CHEBI:58043	nucleoside 5'-monophosphate(2-)	subClassOf	candidate		2026-08-25
+INDOLE	CHEBI:16881	indole	CHEBI:38180	polycyclic heteroarene	subClassOf	candidate		2026-08-25
+INDOLE_3_ACETATE	CHEBI:30854	(indol-3-yl)acetate	CHEBI:38468	indol-3-yl carboxylic acid anion	subClassOf	candidate		2026-08-25
+ISOCITRATE	CHEBI:15562	D-threo-isocitrate	CHEBI:16087	isocitrate(3-)	subClassOf	candidate		2026-08-25
+ISOLEUCINE	CHEBI:58045	L-isoleucine	CHEBI:59869	L-alpha-amino acid zwitterion	subClassOf	candidate		2026-08-25
+KDG	CHEBI:57990	2-dehydro-3-deoxy-D-gluconate	CHEBI:33721	carbohydrate acid anion	subClassOf	candidate		2026-08-25
+KDG	CHEBI:57990	2-dehydro-3-deoxy-D-gluconate	CHEBI:35179	2-oxo monocarboxylic acid anion	subClassOf	candidate		2026-08-25
+LACTALDEHYDE	CHEBI:18041	(S)-lactaldehyde	CHEBI:18419	lactaldehyde	subClassOf	candidate		2026-08-25
+LACTATE	CHEBI:16004	(R)-lactate	CHEBI:24996	lactate	subClassOf	candidate		2026-08-25
+LACTATE_L	CHEBI:16651	(S)-lactate	CHEBI:24996	lactate	subClassOf	candidate		2026-08-25
+LEUCINE	CHEBI:57427	L-leucine	CHEBI:35238	amino-acid zwitterion	subClassOf	candidate		2026-08-25
+LYSINE	CHEBI:32551	L-lysine	CHEBI:32564	lysinium(1+)	subClassOf	candidate		2026-08-25
+LYSINE	CHEBI:32551	L-lysine	CHEBI:62031	polar amino acid zwitterion	subClassOf	candidate		2026-08-25
+MALATE	CHEBI:15589	(S)-malate	CHEBI:15595	malate(2-)	subClassOf	candidate		2026-08-25
+MENAQUINONE	CHEBI:16374	menaquinone	CHEBI:25185	menaquinones	subClassOf	candidate		2026-08-25
+MENAQUINONE	CHEBI:16374	menaquinone	CHEBI:28384	vitamin K	subClassOf	candidate		2026-08-25
+MESO_DAP	CHEBI:57791	meso-2,6-diaminopimelate	CHEBI:35238	amino-acid zwitterion	subClassOf	candidate		2026-08-25
+METHANETHIOL	CHEBI:16007	methanethiol	CHEBI:47908	alkanethiol	subClassOf	candidate		2026-08-25
+METHIONINE	CHEBI:57844	L-methionine	CHEBI:64558	methionine zwitterion	subClassOf	candidate		2026-08-25
+METHYLAMINE	CHEBI:59338	methylammonium	CHEBI:35274	ammonium ion derivative	subClassOf	candidate		2026-08-25
+NAD	CHEBI:15846	NAD(+)	CHEBI:13389	NAD	subClassOf	candidate		2026-08-25
+NAD	CHEBI:15846	NAD(+)	CHEBI:13390	NAD(P)(+)	subClassOf	candidate		2026-08-25
+NAMN	CHEBI:57502	nicotinate D-ribonucleotide	CHEBI:58945	organophosphate oxoanion	subClassOf	candidate		2026-08-25
+NEUAC	CHEBI:173083	aceneuramate	CHEBI:21619	N-acetylneuraminates	subClassOf	candidate		2026-08-25
+NEUAC	CHEBI:173083	aceneuramate	CHEBI:35179	2-oxo monocarboxylic acid anion	subClassOf	candidate		2026-08-25
+NICOTINATE	CHEBI:32544	nicotinate	CHEBI:176839	vitamin B3	subClassOf	candidate		2026-08-25
+NICOTINATE	CHEBI:32544	nicotinate	CHEBI:38181	pyridinemonocarboxylate	subClassOf	candidate		2026-08-25
+NITRATE	CHEBI:17632	nitrate	CHEBI:33458	nitrogen oxoanion	subClassOf	candidate		2026-08-25
+NITRATE	CHEBI:17632	nitrate	CHEBI:62764	reactive nitrogen species	subClassOf	candidate		2026-08-25
+NITRATE	CHEBI:17632	nitrate	CHEBI:79389	monovalent inorganic anion	subClassOf	candidate		2026-08-25
+NITROGEN	CHEBI:17997	dinitrogen	CHEBI:138675	gas molecular entity	subClassOf	candidate		2026-08-25
+NITROGEN	CHEBI:17997	dinitrogen	CHEBI:25362	elemental molecule	subClassOf	candidate		2026-08-25
+NITROGEN	CHEBI:17997	dinitrogen	CHEBI:33266	diatomic nitrogen	subClassOf	candidate		2026-08-25
+ORNITHINE	CHEBI:46911	L-ornithine	CHEBI:46912	ornithinium(1+)	subClassOf	candidate		2026-08-25
+ORNITHINE	CHEBI:46911	L-ornithine	CHEBI:62031	polar amino acid zwitterion	subClassOf	candidate		2026-08-25
+OXALOACETATE	CHEBI:16452	oxaloacetate	CHEBI:133294	oxo dicarboxylic acid dianion	subClassOf	candidate		2026-08-25
+OXALOACETATE	CHEBI:16452	oxaloacetate	CHEBI:61336	C4-dicarboxylate	subClassOf	candidate		2026-08-25
+OXOADIPATE	CHEBI:15775	3-oxoadipate	CHEBI:28965	dicarboxylic acid dianion	subClassOf	candidate		2026-08-25
+OXOADIPYL_COA	CHEBI:57348	3-oxoadipyl-CoA	CHEBI:58946	acyl-CoA oxoanion	subClassOf	candidate		2026-08-25
+OXOBUTANOATE	CHEBI:16763	2-oxobutanoate	CHEBI:35179	2-oxo monocarboxylic acid anion	subClassOf	candidate		2026-08-25
+OXOBUTANOATE	CHEBI:16763	2-oxobutanoate	CHEBI:58951	short-chain fatty acid anion	subClassOf	candidate		2026-08-25
+OXOGLUTARATE	CHEBI:16810	2-oxoglutarate	CHEBI:36147	oxo dicarboxylate	subClassOf	candidate		2026-08-25
+OXOISOVALERATE	CHEBI:11851	3-methyl-2-oxobutanoate	CHEBI:191201	branched-chain keto acid anion	subClassOf	candidate		2026-08-25
+OXOISOVALERATE	CHEBI:11851	3-methyl-2-oxobutanoate	CHEBI:35179	2-oxo monocarboxylic acid anion	subClassOf	candidate		2026-08-25
+OXOISOVALERATE	CHEBI:11851	3-methyl-2-oxobutanoate	CHEBI:58955	branched-chain fatty acid anion	subClassOf	candidate		2026-08-25
+OXOISOVALERATE	CHEBI:11851	3-methyl-2-oxobutanoate	CHEBI:59836	oxo fatty acid anion	subClassOf	candidate		2026-08-25
+OXOPENTENOATE	CHEBI:11641	2-oxopent-4-enoate	CHEBI:35179	2-oxo monocarboxylic acid anion	subClassOf	candidate		2026-08-25
+PABA	CHEBI:17836	4-aminobenzoate	CHEBI:22494	aminobenzoate	subClassOf	candidate		2026-08-25
+PABA	CHEBI:17836	4-aminobenzoate	CHEBI:63473	aromatic amino-acid anion	subClassOf	candidate		2026-08-25
+PANTOTHENATE	CHEBI:29032	(R)-pantothenate	CHEBI:16454	pantothenate	subClassOf	candidate		2026-08-25
+PANTOTHENATE	CHEBI:29032	(R)-pantothenate	CHEBI:176840	vitamin B5	subClassOf	candidate		2026-08-25
+PECTIN	CHEBI:17309	pectin	CHEBI:16966	heteroglycan	subClassOf	candidate		2026-08-25
+PEP	CHEBI:58702	phosphoenolpyruvate	CHEBI:35757	monocarboxylic acid anion	subClassOf	candidate		2026-08-25
+PEP	CHEBI:58702	phosphoenolpyruvate	CHEBI:58945	organophosphate oxoanion	subClassOf	candidate		2026-08-25
+PG3	CHEBI:58272	(2R)-3-phosphoglycerate	CHEBI:36059	hydroxy monocarboxylic acid anion	subClassOf	candidate		2026-08-25
+PG3	CHEBI:58272	(2R)-3-phosphoglycerate	CHEBI:58945	organophosphate oxoanion	subClassOf	candidate		2026-08-25
+PHENOL	CHEBI:15882	phenol	CHEBI:33853	phenols	subClassOf	candidate		2026-08-25
+PHENYLACETATE	CHEBI:18401	phenylacetate	CHEBI:35757	monocarboxylic acid anion	subClassOf	candidate		2026-08-25
+PHENYLALANINE	CHEBI:58095	L-phenylalanine	CHEBI:35238	amino-acid zwitterion	subClassOf	candidate		2026-08-25
+PHENYLPROPANOATE	CHEBI:51057	3-phenylpropanoate	CHEBI:35757	monocarboxylic acid anion	subClassOf	candidate		2026-08-25
+PIMELOYL_COA	CHEBI:57360	pimeloyl-CoA	CHEBI:133241	omega-carboxyacyl-CoA(5-)	subClassOf	candidate		2026-08-25
+PIMELOYL_COA	CHEBI:57360	pimeloyl-CoA	CHEBI:177898	omega-carboxy-(fatty acyl)-CoA(5-)	subClassOf	candidate		2026-08-25
+PLP	CHEBI:18405	pyridoxal 5'-phosphate	CHEBI:25340	methylpyridines	subClassOf	candidate		2026-08-25
+PLP	CHEBI:18405	pyridoxal 5'-phosphate	CHEBI:36970	vitamin B6 phosphate	subClassOf	candidate		2026-08-25
+PLP	CHEBI:18405	pyridoxal 5'-phosphate	CHEBI:38182	monohydroxypyridine	subClassOf	candidate		2026-08-25
+PLP	CHEBI:18405	pyridoxal 5'-phosphate	CHEBI:38187	pyridinecarbaldehyde	subClassOf	candidate		2026-08-25
+PROLINE	CHEBI:60039	L-proline	CHEBI:35238	amino-acid zwitterion	subClassOf	candidate		2026-08-25
+PROPANEDIOL	CHEBI:29002	(S)-propane-1,2-diol	CHEBI:16997	propane-1,2-diol	subClassOf	candidate		2026-08-25
+PROPIONATE	CHEBI:17272	propanoate	CHEBI:78113	fatty acid anion 3:0	subClassOf	candidate		2026-08-25
+PRPP	CHEBI:58017	5-phospho-alpha-D-ribose 1-diphosphate	CHEBI:58945	organophosphate oxoanion	subClassOf	candidate		2026-08-25
+PYRUVATE	CHEBI:15361	pyruvate	CHEBI:35179	2-oxo monocarboxylic acid anion	subClassOf	candidate		2026-08-25
+QUINOLINATE	CHEBI:132942	quinolinate	CHEBI:35693	dicarboxylic acid anion	subClassOf	candidate		2026-08-25
+RIBOFLAVIN	CHEBI:17015	riboflavin	CHEBI:176838	vitamin B2	subClassOf	candidate		2026-08-25
+RIBOFLAVIN	CHEBI:17015	riboflavin	CHEBI:30527	flavin	subClassOf	candidate		2026-08-25
+RIBOSE_5P	CHEBI:78679	D-ribose 5-phosphate	CHEBI:35159	ribose monophosphate	subClassOf	candidate		2026-08-25
+RIBULOSE_5P	CHEBI:17363	D-ribulose 5-phosphate	CHEBI:37455	ribulose 5-phosphate	subClassOf	candidate		2026-08-25
+SALICYLATE	CHEBI:30762	salicylate	CHEBI:25388	monohydroxybenzoate	subClassOf	candidate		2026-08-25
+SARCOSINE	CHEBI:57433	sarcosine	CHEBI:66884	N-alkylglycine zwitterion	subClassOf	candidate		2026-08-25
+SERINE	CHEBI:33384	L-serine	CHEBI:35243	serine zwitterion	subClassOf	candidate		2026-08-25
+SERINE	CHEBI:33384	L-serine	CHEBI:59869	L-alpha-amino acid zwitterion	subClassOf	candidate		2026-08-25
+SIROHEME	CHEBI:60052	siroheme	CHEBI:30413	heme	subClassOf	candidate		2026-08-25
+SIROHEME	CHEBI:60052	siroheme	CHEBI:58941	cyclic tetrapyrrole anion	subClassOf	candidate		2026-08-25
+STARCH	CHEBI:28017	starch	CHEBI:37163	glucan	subClassOf	candidate		2026-08-25
+SUCCINATE	CHEBI:30031	succinate	CHEBI:26806	succinate	subClassOf	candidate		2026-08-25
+SUCCINATE	CHEBI:30031	succinate	CHEBI:28965	dicarboxylic acid dianion	subClassOf	candidate		2026-08-25
+SUCCINATE	CHEBI:30031	succinate	CHEBI:61336	C4-dicarboxylate	subClassOf	candidate		2026-08-25
+SUCCINYL_COA	CHEBI:57292	succinyl-CoA	CHEBI:133241	omega-carboxyacyl-CoA(5-)	subClassOf	candidate		2026-08-25
+SULFATE	CHEBI:16189	sulfate	CHEBI:24834	inorganic anion	subClassOf	candidate		2026-08-25
+SULFATE	CHEBI:16189	sulfate	CHEBI:33482	sulfur oxoanion	subClassOf	candidate		2026-08-25
+SULFATE	CHEBI:16189	sulfate	CHEBI:48154	sulfur oxide	subClassOf	candidate		2026-08-25
+SULFATE	CHEBI:16189	sulfate	CHEBI:79388	divalent inorganic anion	subClassOf	candidate		2026-08-25
+SULFIDE	CHEBI:29919	hydrogen sulfide	CHEBI:33535	sulfur hydride	subClassOf	candidate		2026-08-25
+SULFITE	CHEBI:17359	sulfite	CHEBI:33482	sulfur oxoanion	subClassOf	candidate		2026-08-25
+SULFITE	CHEBI:17359	sulfite	CHEBI:48154	sulfur oxide	subClassOf	candidate		2026-08-25
+SULFITE	CHEBI:17359	sulfite	CHEBI:79388	divalent inorganic anion	subClassOf	candidate		2026-08-25
+TAURINE_EX	CHEBI:507393	taurine	CHEBI:27369	zwitterion	subClassOf	candidate		2026-08-25
+TAURINE_IN	CHEBI:507393	taurine	CHEBI:27369	zwitterion	subClassOf	candidate		2026-08-25
+THF	CHEBI:15635	(6S)-5,6,7,8-tetrahydrofolate	CHEBI:20506	5,6,7,8-tetrahydrofolic acid	subClassOf	candidate		2026-08-25
+THREONINE	CHEBI:57926	L-threonine	CHEBI:35238	amino-acid zwitterion	subClassOf	candidate		2026-08-25
+THZ_P	CHEBI:58296	4-methyl-5-(2-phosphooxyethyl)-thiazole	CHEBI:58945	organophosphate oxoanion	subClassOf	candidate		2026-08-25
+TMP	CHEBI:26945	thiamine phosphate	CHEBI:25703	organic phosphate	subClassOf	candidate		2026-08-25
+TMP	CHEBI:26945	thiamine phosphate	CHEBI:37734	phosphoric ester	subClassOf	candidate		2026-08-25
+TMP	CHEBI:26945	thiamine phosphate	CHEBI:38338	aminopyrimidine	subClassOf	candidate		2026-08-25
+TRIMETHYLAMINE	CHEBI:58389	trimethylammonium	CHEBI:35274	ammonium ion derivative	subClassOf	candidate		2026-08-25
+TRYPTOPHAN	CHEBI:57912	L-tryptophan	CHEBI:59869	L-alpha-amino acid zwitterion	subClassOf	candidate		2026-08-25
+TRYPTOPHAN	CHEBI:57912	L-tryptophan	CHEBI:64554	tryptophan zwitterion	subClassOf	candidate		2026-08-25
+TYROSINE	CHEBI:58315	L-tyrosine	CHEBI:35238	amino-acid zwitterion	subClassOf	candidate		2026-08-25
+UMP	CHEBI:57865	uridine 5'-monophosphate(2-)	CHEBI:138238	pyrimidine ribonucleoside 5'-monophosphate(2-)	subClassOf	candidate		2026-08-25
+UMP	CHEBI:57865	uridine 5'-monophosphate(2-)	CHEBI:26443	pyrimidine ribonucleoside monophosphate	subClassOf	candidate		2026-08-25
+UMP	CHEBI:57865	uridine 5'-monophosphate(2-)	CHEBI:26446	pyrimidine ribonucleotide	subClassOf	candidate		2026-08-25
+UMP	CHEBI:57865	uridine 5'-monophosphate(2-)	CHEBI:37010	ribonucleoside 5'-monophosphate	subClassOf	candidate		2026-08-25
+URATE	CHEBI:17775	urate	CHEBI:27226	uric acid	subClassOf	candidate		2026-08-25
+UREA	CHEBI:16199	urea	CHEBI:29347	monocarboxylic acid amide	subClassOf	candidate		2026-08-25
+UREA	CHEBI:16199	urea	CHEBI:64708	one-carbon compound	subClassOf	candidate		2026-08-25
+UROGEN_III	CHEBI:15437	uroporphyrinogen III	CHEBI:27258	uroporphyrinogen	subClassOf	candidate		2026-08-25
+UTP	CHEBI:46398	uridine 5'-triphosphate(4-)	CHEBI:61557	nucleoside 5'-triphoshate(4-)	subClassOf	candidate		2026-08-25
+VALINE	CHEBI:57762	L-valine	CHEBI:59869	L-alpha-amino acid zwitterion	subClassOf	candidate		2026-08-25
+XYLAN	CHEBI:37166	xylan	CHEBI:37164	homopolysaccharide	subClassOf	candidate		2026-08-25
+XYLAN	CHEBI:37166	xylan	CHEBI:61266	hemicellulose	subClassOf	candidate		2026-08-25
+XYLULOSE_5P	CHEBI:57737	D-xylulose 5-phosphate	CHEBI:58945	organophosphate oxoanion	subClassOf	candidate		2026-08-25
