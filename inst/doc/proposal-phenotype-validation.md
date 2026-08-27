@@ -573,7 +573,8 @@ reference set that grows, and the committed `phenotype-agreement.tsv` and
 `madin-agreement.tsv` are what R9 quotes. Nothing about the catalogue changed;
 the reference did, twice.
 
-The 62% is not a gap to be closed by finding another database. It is the
+The unreferenced share — 62% as first measured, 60% now — is not a gap to be
+closed by finding another database. It is the
 aromatic catabolic layer, most amino-acid catabolism, the cofactor and
 nucleotide interior, every anchor-to-anchor segment that is not a growth
 substrate, all three regulatory GIFTs and all five defense GIFTs. Nobody has
@@ -581,8 +582,11 @@ measured those phenotypes at scale, and for the regulatory and defense types the
 observation would not be a phenotype in the assay sense at all.
 
 R9 must therefore be written as *validation where validation is possible*, with
-this table in it. A reader who is told which 62% was untestable will trust the
-14% far more than a reader given a single headline agreement rate.
+this table in it. A reader who is told which majority of the catalogue was
+untestable will trust the tested minority far more than a reader given a single
+headline agreement rate. The shares move with the reference and the exact pair
+is whatever the committed tables say; the argument does not depend on which
+pair it is.
 
 ## 9. Recommendation
 
