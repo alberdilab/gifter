@@ -46,6 +46,9 @@
 #                             genome and gifter's own trace
 #   madin-attrition.tsv       per target, how often the genomes of one species
 #                             disagree about the call -- the cost of the join
+#   madin-substrate-frequency.tsv  every carbon substrate the record measures,
+#                             ranked by genome-backed species, and whether any
+#                             curated boundary can be tested against it
 #
 # Usage:
 #   Rscript manuscript/analysis/07-madin.R [--draws=100] [--seed=1]
@@ -349,8 +352,72 @@ print(table(failures$class))
 cat("\n  genera contributing the most failures:\n")
 print(head(sort(table(failures$genus), decreasing = TRUE), 12))
 
-# ----------------------------------------------------------------- 10. writing
-rule("10. Writing")
+# ------------------------------------------- 10. what the field bothered to measure
+rule("10. Substrate frequency, and what it prioritises")
+# Coverage read the other way. §8 of the assessment counts how much of the
+# catalogue has a reference; this counts the reverse -- how much of the
+# reference has a catalogue -- and it is a different and more actionable
+# question. A substrate the literature measures constantly and gifter cannot be
+# tested on is a curation candidate ranked by external testability rather than
+# by genomic prevalence, which is a signal the deferral register does not
+# currently use.
+#
+# The denominator is species with a reference genome behind them, so a term is
+# counted the same way every recall above is: it is what could be tested, not
+# what exists in the source.
+#
+# "Mapped" means a reviewed crosswalk row exists. That is the right test and not
+# a proxy for one: §7.3 requires a defensible boundary relation before an
+# observation may imply a target, so a term with no row is precisely a term no
+# curated boundary can be tested against. The anchor column beside it is a
+# mechanical check and not a second opinion -- GLUCOSE is an anchor, and it is a
+# boundary other traits produce or consume rather than a curated degradation
+# capability, which is why the observation still has nothing to test.
+exploded_all <- do.call(rbind, lapply(which(nzchar(madin$carbon_substrates) &
+                                              madin$species %in% shared), function(i) {
+  terms <- trimws(unlist(strsplit(madin$carbon_substrates[i], ",")))
+  if (!length(terms)) return(NULL)
+  data.frame(species = madin$species[i], term = terms, stringsAsFactors = FALSE)
+}))
+exploded_all <- unique(exploded_all)
+freq <- as.data.frame(table(term = exploded_all$term), stringsAsFactors = FALSE)
+names(freq)[2] <- "species"
+anchors <- dbGetQuery(con, "select anchor_id, name from anchor")
+freq$crosswalk_target <- crosswalk$target_id[match(freq$term, crosswalk$source_id)]
+freq$mapped <- !is.na(freq$crosswalk_target)
+freq$recall_usable <- freq$term %in% crosswalk$source_id[crosswalk$recall_usable]
+# Anchor names carry the stereochemistry and anomeric state Rhea's participants
+# have; Madin's vocabulary does not. Stripping the configuration prefix is what
+# lets "glucose" reach `D-glucose`, and it is deliberately loose because this
+# column is a check on the mapped one, not a mapping.
+bare <- function(x) {
+  y <- tolower(x)
+  y <- sub("^(alpha|beta)-", "", y)
+  sub("^[dl]-", "", y)
+}
+freq$anchor <- vapply(freq$term, function(t) {
+  hit <- anchors$anchor_id[bare(anchors$name) == bare(t)]
+  if (length(hit)) paste(hit, collapse = ";") else NA_character_
+}, character(1))
+freq <- freq[order(-freq$species), ]
+kv("carbon_substrate terms with a genome-backed species", nrow(freq))
+kv("of those, mapped by a reviewed crosswalk row", sum(freq$mapped))
+
+cat("\n  The twelve most-measured substrates:\n\n")
+print(head(freq[, c("term", "species", "mapped", "crosswalk_target", "anchor")], 12),
+      row.names = FALSE)
+best_mapped <- freq[freq$recall_usable, ][1, ]
+kv("best-covered substrate gifter can be tested on",
+   sprintf("%s, %d species, rank %d", best_mapped$term, best_mapped$species,
+           which(freq$term == best_mapped$term)))
+kv("unmapped terms ahead of it", sum(!freq$mapped[seq_len(which(freq$term == best_mapped$term))]))
+cat("\n  Every one of those outranks the best-covered substrate gifter curates,\n",
+    "  and none of them has a GIFT. That is not a failure of the reference; it\n",
+    "  is the reference naming the capabilities whose absence from the catalogue\n",
+    "  costs the most external testability.\n", sep = "")
+
+# ----------------------------------------------------------------- 11. writing
+rule("11. Writing")
 write.table(agreement_table, file.path(out_dir, "madin-agreement.tsv"),
             sep = "\t", quote = FALSE, row.names = FALSE, na = "")
 write.table(failures[, c("target", "term", "species", "org", "genus", "class", "missing")],
@@ -358,6 +425,9 @@ write.table(failures[, c("target", "term", "species", "org", "genus", "class", "
             sep = "\t", quote = FALSE, row.names = FALSE, na = "")
 write.table(attrition, file.path(out_dir, "madin-attrition.tsv"),
             sep = "\t", quote = FALSE, row.names = FALSE, na = "")
+write.table(freq, file.path(out_dir, "madin-substrate-frequency.tsv"),
+            sep = "\t", quote = FALSE, row.names = FALSE, na = "")
 kv("madin-agreement.tsv", nrow(agreement_table))
 kv("madin-disagreements.tsv", nrow(failures))
 kv("madin-attrition.tsv", nrow(attrition))
+kv("madin-substrate-frequency.tsv", nrow(freq))

@@ -455,15 +455,28 @@ reaches 1 869 species and stays outside the recall table, `superset_of`, exactly
 as the BacDive motility row does.
 
 **The most-measured substrates are the ones gifter does not curate**, and that
-is worth recording as a finding rather than as an embarrassment. Counted the
-same way as the table above — species with a KEGG genome behind them — glucose
-reaches 364, maltose 275, lactose 244, sucrose 227, mannitol 183, trehalose 169
-and cellobiose 165. Every one of them outranks arabinose, the best-covered
-substrate gifter can actually be tested on, and none has a GIFT. The
-phenotype record is a prevalence signal of a kind the register does not yet
-use — not what is *present* in genomes, but what the field bothered to measure —
-and it names the candidates whose absence from the catalogue costs the most
-external testability. That is a curation prioritisation input, and §9 files it.
+is worth recording as a finding rather than as an embarrassment. It is now
+measured by `07-madin.R`, which writes `madin-substrate-frequency.tsv`: all 106
+carbon substrates with a genome-backed species, ranked, each marked with whether
+a reviewed crosswalk row exists. Glucose reaches 364 species, maltose 275,
+mannose 263, fructose 228 and sucrose 227, and all five outrank arabinose (216),
+the best-covered substrate gifter can actually be tested on; mannitol (183),
+trehalose (169) and cellobiose (165) outrank xylose (150). 16 of the 106 terms
+are mapped. The phenotype record is a prevalence signal of a kind the register
+does not yet use — not what is *present* in genomes, but what the field bothered
+to measure — and it names the candidates whose absence from the catalogue costs
+the most external testability. That is a curation prioritisation input, and §9
+files it.
+
+*(Corrected. The figures first recorded here came from
+`data-raw/phenotype_reference_probe.R`, which matched substrate terms with
+`grepl(..., fixed = TRUE)` — a substring test against a comma-joined controlled
+vocabulary. `lactose` therefore also matched `galactose` and was reported at
+244 where the exact term reaches 142; `citrate` likewise swept up `trisodium
+citrate`. The committed script matches terms exactly, which is what a controlled
+vocabulary asks for, and it is what R9 quotes. The claim survives the
+correction, but four of the substrates it named do not outrank arabinose after
+all — they outrank xylose, or in lactose's case neither.)*
 
 ## 7. Three joins, three confounds
 

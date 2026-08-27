@@ -1055,10 +1055,24 @@ the first place.
 
 Coverage of this kind is not only a limit; read the other way it is a
 prioritisation signal, naming the capabilities whose absence from the catalogue
-costs the most external testability. *[The substrate-frequency ranking behind
-that reading is measured in `inst/doc/proposal-phenotype-validation.md` §6 but
-not yet by a committed script under `manuscript/analysis/`, so no figure from it
-is quoted here.]*
+costs the most external testability. Counted over the second reference — 106
+carbon substrates, each scored by the number of species with a reference genome
+behind them — the five most-measured are ones no curated boundary can be tested
+against: glucose (364 species), maltose (275), mannose (263), fructose (228) and
+sucrose (227). All five outrank L-arabinose (216), the best-covered substrate
+gifter *can* be tested on, and mannitol (183), trehalose (169) and cellobiose
+(165) all outrank D-xylose (150). Sixteen of the 106 terms carry a reviewed
+crosswalk row.
+
+The absence is not an oversight in every case, and the table says which is
+which: D-glucose is a declared anchor, so the catalogue reaches the molecule
+but bounds no capability on its consumption, while maltose, sucrose, trehalose
+and cellobiose have neither. This is a prevalence signal of a kind the deferral
+register does not currently use — not what is present in genomes, but what the
+field has bothered to measure — and it ranks curation candidates by how much
+external testability their absence costs. That ordering is different from the
+one genomic prevalence gives, and it is the one a validation section is in a
+position to produce.
 
 A reader told which 60% of the catalogue was untestable can weigh the 11% that
 was. That is why the coverage table is in the section rather than in a

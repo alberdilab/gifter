@@ -72,6 +72,11 @@ through KEGG at all.
 plus the representative-draw range, so the two can be read side by side without
 being pooled. `madin-attrition.tsv` is per target the share of multi-genome
 species whose genomes agree on the call.
+`madin-substrate-frequency.tsv` is coverage read the other way: every carbon
+substrate the record measures, ranked by genome-backed species, with whether any
+curated boundary can be tested against it. It ranks curation candidates by the
+external testability their absence costs, which is a different ordering from the
+one genomic prevalence gives.
 
 `gift-prevalence.tsv` supersedes the ad-hoc per-KO counts the curation proposals
 quote. Those were computed one accession at a time against

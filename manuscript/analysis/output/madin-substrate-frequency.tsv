@@ -1,0 +1,107 @@
+term	species	crosswalk_target	mapped	recall_usable	anchor
+glucose	364		FALSE	FALSE	GLUCOSE
+maltose	275		FALSE	FALSE	
+mannose	263		FALSE	FALSE	
+fructose	228		FALSE	FALSE	
+sucrose	227		FALSE	FALSE	
+arabinose	216	arabinose_degradation	TRUE	TRUE	ARABINOSE_EX;ARABINOSE_IN
+galactose	194	galactose_degradation_leloir	TRUE	TRUE	GALACTOSE
+mannitol	183		FALSE	FALSE	
+trehalose	169		FALSE	FALSE	
+cellobiose	165		FALSE	FALSE	
+xylose	150	xylose_degradation_isomerase	TRUE	TRUE	XYLOSE_EX;XYLOSE_IN
+lactose	142		FALSE	FALSE	
+ribose	141		FALSE	FALSE	
+glycerol	139		FALSE	FALSE	
+N-acetylgulcosamine	129	glcnac_degradation	TRUE	TRUE	
+acetate	122		FALSE	FALSE	ACETATE
+melibiose	112		FALSE	FALSE	
+raffinose	112		FALSE	FALSE	
+citrate	105	citrate_fermentation	TRUE	FALSE	CITRATE
+lactate	103		FALSE	FALSE	
+malate	102		FALSE	FALSE	
+rhamnose	99	rhamnose_degradation	TRUE	TRUE	
+glutamate	97		FALSE	FALSE	GLUTAMATE
+salicin	96		FALSE	FALSE	
+gluconic acid	90		FALSE	FALSE	
+sorbitol	86		FALSE	FALSE	
+alanine	83		FALSE	FALSE	ALANINE
+succinate	82		FALSE	FALSE	SUCCINATE
+serine	74		FALSE	FALSE	SERINE
+proline	71		FALSE	FALSE	PROLINE
+glycogen	70	starch_degradation	TRUE	FALSE	
+pyruvate	70		FALSE	FALSE	PYRUVATE
+Tween 80	65		FALSE	FALSE	
+propionate	57		FALSE	FALSE	
+aspartate	56		FALSE	FALSE	ASPARTATE
+dextrin	54	starch_degradation	TRUE	FALSE	
+fucose	52	fucose_degradation_isomerase	TRUE	TRUE	FUCOSE
+H2_CO2	51		FALSE	FALSE	
+asparagine	46		FALSE	FALSE	ASPARAGINE
+Tween 40	45		FALSE	FALSE	
+arabitol	42		FALSE	FALSE	
+threonine	39		FALSE	FALSE	THREONINE
+adipate	38		FALSE	FALSE	
+histidine	38	histidine_degradation_glutamate	TRUE	FALSE	HISTIDINE
+leucine	37		FALSE	FALSE	LEUCINE
+arginine	33		FALSE	FALSE	ARGININE
+phenylacetate	31	phenylacetate_degradation	TRUE	TRUE	PHENYLACETATE
+caprate	30		FALSE	FALSE	
+inosine	30		FALSE	FALSE	
+malonate	30		FALSE	FALSE	
+myo-inositol	29		FALSE	FALSE	
+adonitol	28		FALSE	FALSE	
+formic acid	27		FALSE	FALSE	
+pyruvic acid methyl ester	26		FALSE	FALSE	
+ethanol	25		FALSE	FALSE	ETHANOL
+gelatin	25		FALSE	FALSE	
+ornithine	25		FALSE	FALSE	ORNITHINE
+3-hydroxybutyrate	24		FALSE	FALSE	
+uridine	24		FALSE	FALSE	
+Tween 20	23		FALSE	FALSE	
+alaninamide	23		FALSE	FALSE	
+5-ketogluconate	22		FALSE	FALSE	
+xylitol	21		FALSE	FALSE	
+thymidine	20		FALSE	FALSE	
+2-ketogluconate	19		FALSE	FALSE	
+galacturonic acid	19	galacturonate_degradation	TRUE	TRUE	
+methyl beta-D-glucoside	19		FALSE	FALSE	
+methyl pyruvate	18		FALSE	FALSE	
+dimethylamine	17		FALSE	FALSE	
+methanol	17		FALSE	FALSE	
+trimethylamine	17	methylamine_degradation	TRUE	FALSE	
+methylamine	16	methylamine_degradation	TRUE	TRUE	
+putrescine	16		FALSE	FALSE	
+alpha-ketovaleric acid	15		FALSE	FALSE	
+glycine	14		FALSE	FALSE	GLYCINE
+phenylalanine	14		FALSE	FALSE	PHENYLALANINE
+urea	13	urea_hydrolysis	TRUE	TRUE	UREA
+4-hydroxbenzoate	12		FALSE	FALSE	
+valerate	12		FALSE	FALSE	
+Tween 60	11		FALSE	FALSE	
+quinic acid	10		FALSE	FALSE	
+alpha-cyclodextrin	9		FALSE	FALSE	
+glucosamine	9		FALSE	FALSE	
+glucuronamide	9		FALSE	FALSE	
+hyrdoxyproline	9		FALSE	FALSE	
+urocanic acid	9		FALSE	FALSE	
+2-butanol	8		FALSE	FALSE	
+itaconate	8		FALSE	FALSE	
+suberic acid	8		FALSE	FALSE	
+3-hydroxybenzoate	7		FALSE	FALSE	
+galactonic acid	7		FALSE	FALSE	
+tryptophan	7		FALSE	FALSE	TRYPTOPHAN
+trisodium citrate	5		FALSE	FALSE	
+2-aminethanol	4		FALSE	FALSE	
+2-propanol	4		FALSE	FALSE	
+butanol	4		FALSE	FALSE	
+dimethyl_sulfide	4		FALSE	FALSE	
+2	3	biomass_essential_anabolism	TRUE	FALSE	
+3-butanediol	3		FALSE	FALSE	
+H2_methanol	3		FALSE	FALSE	
+carnitine	3		FALSE	FALSE	
+cyclopentanol	3		FALSE	FALSE	
+phenethylamine	2		FALSE	FALSE	
+carbon_monoxide	1		FALSE	FALSE	
+gamma-aminobutyric acid	1		FALSE	FALSE	
+isobutanol	1		FALSE	FALSE	
