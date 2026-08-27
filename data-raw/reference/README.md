@@ -105,9 +105,9 @@ Downloaded inputs are cached in `.cache/` and are not committed. Reproduce with:
 Rscript data-raw/marker_specificity_screen.R
 ```
 
-## The four NCBIfam screen outputs
+## The five NCBIfam screen outputs
 
-`ncbifam_equivalog_screen.R` in the parent directory regenerates all four. They
+`ncbifam_equivalog_screen.R` in the parent directory regenerates all five. They
 answer for the NCBIfam namespace the question `marker_specificity_screen.R`
 answers for KO, and then the comparative question that decides whether admitting
 a profile buys anything: does a single-reaction equivalog resolve a curated
@@ -119,6 +119,7 @@ reaction that no single-reaction KO resolves?
 | `ncbifam-curated-reaction-gain.tsv` | Every curated reaction a single-reaction equivalog reaches, whether a single-reaction KO already reaches it, the curated components on the reaction, and the candidate profiles |
 | `ncbifam-grade-refusals.tsv` | Profiles that reach a curated reaction and are refused on grade alone — what the equivalog filter costs |
 | `ncbifam-curated-grades.tsv` | Every `NCBIFAM` accession in the database, with the grade the pinned release gives it |
+| `ncbifam-discovery-candidates.tsv` | Equivalog profiles the EC join cannot see, whose product name or gene symbol names a declared anchor |
 
 **The grade is the filter, not a footnote.** NCBIfam's `family_type` column
 grades each profile, and only `equivalog` and `equivalog_domain` assert that the
@@ -143,6 +144,42 @@ profiles in the target set passed the grade filter and were refused by a curator
 on biology, including a deferrochelatase that shares EC 4.98.1.1 with the
 ferrochelatase it runs backwards from. The screen finds the reactions worth
 reading; the reading is in `inst/doc/proposal-ncbifam-namespace.md`.
+
+**`ncbifam-discovery-candidates.tsv` joins by name, and that is weaker than
+joining by chemistry.** The EC join above is blind to most of the namespace:
+8,711 equivalog profiles carry no EC at all, 554 carry only an incomplete one
+and 385 carry a complete EC that reaches no Rhea master — 9,650 of 13,888.
+`TIGR04546.1` *ahbC* is in the first group, so the EC join would have found two
+of the three steps of the route the namespace was admitted for. The discovery
+table closes that gap by turning the declared anchor vocabulary into search
+terms and matching them against `product_name` and `gene_symbol`.
+
+Three properties of that match decide what the table contains, and the script
+argues each of them where it implements it:
+
+- The match is **left-permissive and right-anchored**, because chemical names
+  compose by prefixing. `siroheme` must match `12,18-didecarboxysiroheme`, which
+  a word-boundary match misses — that one rule is the difference between finding
+  *ahbC* and not.
+- A term **subsumed** by a longer term matched on the same profile is dropped,
+  so a homocysteine methyltransferase does not also read as a cysteine
+  candidate.
+- A match inside a phrase naming a protein residue or a protein substrate is
+  **marked and kept**, not deleted. `histidine kinase` is the largest false
+  positive in the raw match and has nothing to do with histidine. Read
+  `excluded_because` before reading a row.
+
+Rows are ranked by `anchor_rhea_degree`, computed from Rhea exactly as
+`marker_specificity_screen.R` computes it, so the two discovery queues can be
+read against each other. Three anchors — `GTP`, `NAD` and `UREA` — have no
+search term of five characters or more and are unsearchable by name; the run log
+names them, so the blind spot of the blind-spot screen is visible too.
+
+**A string inside a product name is not a reaction.** This table is a reading
+queue, not a candidate list: 772 profiles survive the anchor join and the
+`comment` column is carried for each of them because reading it is the point.
+The assessment that read the top of that queue, and the four verdicts it
+reached, is `inst/doc/proposal-ncbifam-discovery.md`.
 
 **`ncbifam-curated-grades.tsv` reads in one direction on purpose.** Its rows
 come from the database and its `family_type` column comes from NCBIfam. That

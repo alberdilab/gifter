@@ -27,7 +27,17 @@
 # one enzyme, which is exactly the case that motivated admitting the namespace.
 # The screen finds the reactions worth reading; a curator decides them.
 #
-# Two products:
+# The EC join has a blind spot, and it is most of the namespace. Two thirds of
+# the equivalog profiles carry no EC number at all, so nothing above can see
+# them -- `TIGR04546.1` *ahbC* is one of them, which means the EC join would
+# never have found half the route the namespace was admitted for. Discovery
+# therefore runs on a second join, by name rather than by chemistry: the anchor
+# vocabulary is turned into search terms and matched against `product_name` and
+# `gene_symbol`. That join is weaker than the KO screen's and the product says
+# so in a column -- a string inside a product name is not a reaction, and a
+# match is a question, never a verdict.
+#
+# Five products:
 #
 #   ncbifam-equivalog-specificity.tsv  every equivalog-grade profile carrying a
 #                                      complete EC, its Rhea fan-out and verdict
@@ -43,6 +53,9 @@
 #   ncbifam-curated-grades.tsv         every NCBIFAM accession in the database,
 #                                      with the grade the pinned release gives
 #                                      it
+#   ncbifam-discovery-candidates.tsv   equivalog profiles the EC join cannot
+#                                      see, whose product name or gene symbol
+#                                      names a declared anchor
 #
 # Usage:
 #   Rscript data-raw/ncbifam_equivalog_screen.R [--cache=DIR] [--out=DIR]
@@ -113,6 +126,15 @@ ko_names <- read_tsv(fetch("kegg-ko-list.tsv", file.path(kegg_rest, "list/ko")),
 ko_ec_link <- read_tsv(fetch("kegg-ko-enzyme.tsv",
                              file.path(kegg_rest, "link/enzyme/ko")),
                        header = FALSE, col.names = c("ko", "ec"))
+
+# Read only by the discovery section below, to demote hub metabolites the same
+# way `marker_specificity_screen.R` does. Both screens must rank an anchor by
+# the same measurement or their candidate lists cannot be compared.
+rhea_dir <- read_tsv(fetch("rhea-directions.tsv",
+                           file.path(rhea_ftp, "tsv/rhea-directions.tsv")))
+reactions_txt <- readLines(gzfile(fetch("rhea-reactions.txt.gz",
+                                        file.path(rhea_ftp, "ctfiles/rhea-reactions.txt.gz"))),
+                           warn = FALSE)
 
 ec2master <- unique(data.frame(
   ec = rhea2ec$ID,
@@ -411,5 +433,241 @@ if (nrow(grades)) {
     say("REFUSED GRADE PRESENT IN THE DATABASE: ", paste(bad, collapse = ", "))
   }
 }
+
+# ---------------------------------------------------------------------------
+# Discovery: the profiles the EC join cannot see
+#
+# 8,711 of the 13,888 equivalog profiles carry no EC number, several hundred
+# more carry only an incomplete one, and several hundred carry a complete EC
+# that reaches no Rhea master. Together they are the majority of the namespace
+# and everything above is blind to them. `TIGR04546.1` *ahbC* sits in the first
+# group: the EC join would have found two steps of the Ahb route and missed the
+# third, which is the whole reason this section exists.
+#
+# The second join is by name. Each declared anchor contributes search terms --
+# its ChEBI name, that name with its stereochemical and charge decorations
+# stripped, and its `molecule` token -- and those are matched against
+# `product_name` and `gene_symbol`. Three properties of the match are
+# deliberate:
+#
+#   * It is left-permissive and right-anchored. Chemical names compose by
+#     prefixing, so `siroheme` must match `12,18-didecarboxysiroheme`, which a
+#     word-boundary match would miss. The right side is anchored so that a term
+#     may not match the middle of a longer word.
+#   * A shorter term subsumed by a longer one on the same profile is dropped.
+#     Otherwise every homocysteine methyltransferase would also read as a
+#     cysteine candidate, and `HOMOSERINE` and `SERINE` would answer together
+#     for every product naming either.
+#   * A term matched inside a phrase that names a protein residue or a protein
+#     substrate is not a match on the free metabolite. `histidine kinase` is
+#     the largest single false positive in the raw match and it is not about
+#     histidine at all. Those rows are kept in the output and marked, not
+#     silently dropped, because a suppressed match nobody can re-read is
+#     indistinguishable from one that was never made.
+#
+# The join is weaker than the KO screen's, which reaches an anchor through a
+# reaction's ChEBI participants and therefore states chemistry. A string inside
+# a product name states nothing. This product is a reading queue: every row
+# needs its `comment` and `product_name` read before it is anything else, and
+# in the release that admitted this namespace roughly one profile in fourteen
+# that passed the grade filter was refused on biology after being read.
+
+anchors <- read_tsv(file.path(source_dir, "anchors.tsv"))
+gift_anchors <- read_tsv(file.path(source_dir, "gift_anchors.tsv"))
+
+# Anchor terms shorter than this are acronyms -- GTP, NAD, AIR, PLP -- and a
+# substring search on three characters finds noise rather than chemistry. The
+# anchors that lose every term are named in the run log so the blind spot of
+# the blind-spot screen is visible too.
+min_term_nchar <- 5L
+
+# Phrases in which an anchor's name denotes a protein residue, a protein-
+# modifying activity or a protein substrate rather than the free metabolite.
+# Named rather than inlined for the same reason `equivalog_grades` is: widening
+# or narrowing it is a biological decision and should be a visible edit.
+protein_context_phrases <- c(
+  "histidine kinase", "histidine phosphotransferase", "histidine phosphatase",
+  "serine/threonine", "serine protease", "serine endopeptidase",
+  "serine peptidase", "serine hydrolase", "serine carboxypeptidase",
+  "cysteine protease", "cysteine peptidase", "cysteine endopeptidase",
+  "twin-arginine", "twin arginine",
+  "alanine amidase", "alanine ligase", "alanyl",
+  "glutamate ligase", "aspartate ligase", "lysine ligase",
+  "serine acetyltransferase family", "trna", "ribosomal"
+)
+
+normalise <- function(x) {
+  x <- tolower(ifelse(is.na(x), "", x))
+  x <- gsub("\\([0-9]*[+-]\\)", "", x)
+  trimws(gsub("[[:space:]]+", " ", x))
+}
+
+# Strip the leading stereochemical, anomeric and configurational decorations
+# that a ChEBI name carries and a product name usually does not.
+strip_decoration <- function(x) {
+  repeat {
+    y <- sub("^(\\([a-z0-9,'-]+\\)|[ld]|alpha|beta|meso|aldehydo)-", "", x)
+    if (identical(y, x)) break
+    x <- y
+  }
+  x
+}
+
+anchor_terms <- do.call(rbind, lapply(seq_len(nrow(anchors)), function(i) {
+  term <- unique(c(normalise(anchors$name[i]),
+                   strip_decoration(normalise(anchors$name[i])),
+                   normalise(gsub("_", "-", anchors$molecule[i])),
+                   normalise(gsub("_", " ", anchors$molecule[i]))))
+  term <- term[nzchar(term) & nchar(term) >= min_term_nchar]
+  if (!length(term)) return(NULL)
+  data.frame(anchor_id = anchors$anchor_id[i], term = term,
+             stringsAsFactors = FALSE)
+}))
+anchor_terms <- unique(anchor_terms)
+unsearchable <- setdiff(anchors$anchor_id, anchor_terms$anchor_id)
+
+say("\nAnchor search terms: ", nrow(anchor_terms), " over ",
+    length(unique(anchor_terms$anchor_id)), " of ", nrow(anchors), " anchors")
+if (length(unsearchable)) {
+  say("  anchors with no term of ", min_term_nchar,
+      " characters or more, and therefore unsearchable by name: ",
+      paste(sort(unsearchable), collapse = ", "))
+}
+
+# The blind spot itself, classified so a reader can tell why each profile is
+# invisible: no EC at all, only an incomplete EC, or a complete EC that reaches
+# no Rhea master.
+ec_raw <- ifelse(is.na(equivalog$ec_numbers), "", equivalog$ec_numbers)
+has_any_ec <- nzchar(trimws(ec_raw))
+with_complete_ec <- unique(profile_ec$id[complete_ec(profile_ec$value)])
+with_master <- names(profile_masters)[lengths(profile_masters) > 0]
+
+screen_class <- ifelse(
+  !has_any_ec, "no_ec",
+  ifelse(!(equivalog$ncbi_accession %in% with_complete_ec), "partial_ec_only",
+         ifelse(!(equivalog$ncbi_accession %in% with_master),
+                "ec_without_rhea", "reaches_rhea"))
+)
+names(screen_class) <- equivalog$ncbi_accession
+blind <- equivalog[screen_class != "reaches_rhea", ]
+
+say("\nEquivalog profiles invisible to the EC join: ", nrow(blind), " of ",
+    nrow(equivalog))
+print(table(screen_class[screen_class != "reaches_rhea"]))
+
+haystack <- normalise(paste(blind$product_name, blind$gene_symbol))
+escape_re <- function(s) gsub("([.|()^{}+$*?\\[\\]\\\\])", "\\\\\\1", s)
+
+match_rows <- lapply(seq_len(nrow(anchor_terms)), function(k) {
+  which(grepl(paste0(escape_re(anchor_terms$term[k]), "([^a-z0-9]|$)"),
+              haystack, perl = TRUE))
+})
+n_hit <- lengths(match_rows)
+hit <- data.frame(
+  row = unlist(match_rows, use.names = FALSE),
+  anchor_id = rep(anchor_terms$anchor_id, n_hit),
+  term = rep(anchor_terms$term, n_hit),
+  stringsAsFactors = FALSE
+)
+say("\nRaw name matches: ", nrow(hit), " over ",
+    length(unique(hit$row)), " profiles")
+
+# Subsumption: a term that is a proper suffix of another term matched on the
+# same profile is describing the longer molecule, not its own.
+keep <- vapply(seq_len(nrow(hit)), function(i) {
+  others <- hit$term[hit$row == hit$row[i]]
+  others <- others[others != hit$term[i]]
+  !any(nchar(others) > nchar(hit$term[i]) &
+         endsWith(others, hit$term[i]))
+}, logical(1))
+say("  dropped as subsumed by a longer anchor name: ", sum(!keep))
+hit <- hit[keep, ]
+
+hit$protein_context <- vapply(seq_len(nrow(hit)), function(i) {
+  any(vapply(protein_context_phrases,
+             function(p) grepl(p, haystack[hit$row[i]], fixed = TRUE),
+             logical(1)))
+}, logical(1))
+say("  marked as protein context rather than free metabolite: ",
+    sum(hit$protein_context))
+
+# Anchor hub degree, from Rhea, exactly as `marker_specificity_screen.R`
+# computes it: the number of master reactions the anchor's ChEBI takes part in
+# across all of Rhea. Ammonium and L-glutamate are declared anchors and also
+# appear in thousands of reactions; a candidate that only names one of those is
+# not much of a candidate, and the degree says so without anyone hand-writing a
+# list of currency metabolites.
+master_ids <- paste0("RHEA:", rhea_dir$RHEA_ID_MASTER)
+entry_line <- grepl("^ENTRY ", reactions_txt)
+entry_id <- trimws(sub("^ENTRY", "", reactions_txt[entry_line]))
+entry_pos <- which(entry_line)
+equation_line <- which(grepl("^EQUATION ", reactions_txt))
+equation <- rep(NA_character_, length(entry_id))
+equation[findInterval(equation_line, entry_pos)] <-
+  trimws(sub("^EQUATION", "", reactions_txt[equation_line]))
+names(equation) <- entry_id
+equation <- equation[intersect(master_ids, names(equation))]
+chebi_degree <- table(unlist(lapply(equation, function(eq)
+  unique(unlist(regmatches(eq, gregexpr("CHEBI:[0-9]+", eq))))
+)))
+
+anchor_degree <- setNames(as.integer(chebi_degree[anchors$chebi_id]),
+                          anchors$anchor_id)
+
+gift_of_anchor <- tapply(gift_anchors$gift_id, gift_anchors$anchor_id,
+                         function(x) paste(sort(unique(x)), collapse = ";"))
+curated_accession <- unique(component_markers$accession[
+  component_markers$namespace == "NCBIFAM"
+])
+
+discovery <- data.frame(
+  accession = blind$ncbi_accession[hit$row],
+  family_type = blind$family_type[hit$row],
+  gene_symbol = blind$gene_symbol[hit$row],
+  product_name = blind$product_name[hit$row],
+  ec_numbers = blind$ec_numbers[hit$row],
+  screen_class = unname(screen_class[blind$ncbi_accession[hit$row]]),
+  refseq_hits = blind$n_refseq_protein_hits[hit$row],
+  anchor_id = hit$anchor_id,
+  matched_term = hit$term,
+  anchor_rhea_degree = unname(anchor_degree[hit$anchor_id]),
+  anchor_gifts = unname(gift_of_anchor[hit$anchor_id]),
+  already_curated = as.integer(blind$ncbi_accession[hit$row] %in%
+                                 curated_accession),
+  stringsAsFactors = FALSE
+)
+discovery$anchor_gifts[is.na(discovery$anchor_gifts)] <- ""
+discovery$excluded_because <- ifelse(
+  discovery$already_curated == 1L, "already a curated marker",
+  ifelse(hit$protein_context, "protein context, not the free metabolite", "")
+)
+# A comment is the single most load-bearing field in this table and it is free
+# text, so newlines and tabs are flattened rather than allowed to break the TSV.
+discovery$comment <- trimws(gsub("[[:space:]]+", " ",
+                                 blind$comment[hit$row]))
+discovery <- discovery[order(discovery$excluded_because != "",
+                             discovery$anchor_rhea_degree,
+                             -as.numeric(discovery$refseq_hits),
+                             discovery$accession), ]
+rownames(discovery) <- NULL
+
+utils::write.table(discovery,
+                   file.path(out_dir, "ncbifam-discovery-candidates.tsv"),
+                   sep = "\t", quote = FALSE, row.names = FALSE, na = "")
+
+survivors <- discovery[discovery$excluded_because == "", ]
+say("\nCandidates surviving the anchor join: ",
+    length(unique(survivors$accession)), " profiles over ",
+    nrow(survivors), " profile-anchor rows")
+say("  touching an anchor of Rhea degree 50 or less: ",
+    length(unique(survivors$accession[
+      !is.na(survivors$anchor_rhea_degree) &
+        survivors$anchor_rhea_degree <= 50
+    ])))
+say("  touching an anchor of Rhea degree 20 or less: ",
+    length(unique(survivors$accession[
+      !is.na(survivors$anchor_rhea_degree) &
+        survivors$anchor_rhea_degree <= 20
+    ])))
 
 say("\nwritten to ", out_dir)

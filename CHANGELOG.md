@@ -15,6 +15,42 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-08-25T04:50Z — The NCBIfam screen gains the discovery product it lacked
+
+**The problem.** The NCBIfam screen reached its profiles through their EC
+numbers, and most NCBIfam profiles do not have one. 8,711 of the 13,888
+equivalog-grade profiles carry no EC at all, 554 carry only an incomplete one
+and 385 carry a complete EC that reaches no Rhea master — 9,650 of 13,888 were
+invisible to it. `TIGR04546.1` *ahbC* is one of them, so the screen would have
+found two of the three steps of the Ahb route and missed the one in the middle.
+The KO screen has a discovery product, `discovery-candidates.tsv`; this one had
+none, and could not have had one built the same way, because a profile with no
+EC reaches no reaction and therefore no ChEBI participant to join an anchor on.
+
+**What changed.** `data-raw/ncbifam_equivalog_screen.R` gains a second join and
+a fifth output, `data-raw/reference/ncbifam-discovery-candidates.tsv`: the
+declared anchor vocabulary is turned into search terms and matched against
+`product_name` and `gene_symbol`. The match is left-permissive and
+right-anchored so that `siroheme` matches `12,18-didecarboxysiroheme`; a term
+subsumed by a longer term on the same profile is dropped; and a match inside a
+phrase naming a protein residue or substrate is marked in an
+`excluded_because` column rather than deleted. Rows carry the profile's
+`comment`, because the release that admitted the namespace refused four of 57
+profiles on biology after reading it. Ranking uses the anchor's Rhea degree,
+computed exactly as `marker_specificity_screen.R` computes it, so the two
+discovery queues can be read against each other; the screen therefore reads two
+further cached Rhea inputs. The grade filter is untouched — the two equivalog
+grades remain the admission rule, and widening them stays a separate
+architectural decision.
+
+**Effect.** 772 profiles survive the anchor join, 130 of them on an anchor of
+Rhea degree 20 or less. The method check is that the screen rediscovers
+`TIGR04546.1` on the `SIROHEME` anchor and marks it as already curated. No GIFT,
+marker, route, schema table or runtime behaviour changed, and no database
+release: the assessment that read the queue is
+`inst/doc/proposal-ncbifam-discovery.md`, and what it deferred or refused is
+indexed in `inst/doc/deferral-register.md`.
+
 ### 2026-08-23T14:30Z — NCBIfam accessions are recognised on input, suffix and all
 
 **The problem.** `NCBIFAM` markers are unusable if a user has to name the

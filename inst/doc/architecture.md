@@ -1361,7 +1361,11 @@ same profile, and the evidence row must declare `family_type=<grade>` in its
 `notes` with a grade of `equivalog` or `equivalog_domain`. Those are the two
 grades whose members share one function; a `subfamily` or `domain` profile is
 exactly the over-broad evidence the invariant below refuses. The reasoning is in
-[the NCBIfam assessment](proposal-ncbifam-namespace.md).
+[the NCBIfam assessment](proposal-ncbifam-namespace.md), and what the namespace
+does and does not unblock beyond the route it was admitted for is in
+[the discovery assessment](proposal-ncbifam-discovery.md) — including the
+consequence that NCBIfam's antimicrobial-resistance profiles carry the
+`exception` grade and are therefore outside the rule.
 
 `component_markers.tsv` records the type, confidence, source, and notes for the
 mapping. Use defined qualitative confidence terms such as `curated`,
