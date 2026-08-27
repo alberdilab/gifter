@@ -15,12 +15,13 @@ begun asking gifter to claim something it does not claim.
 | `_common.R` | Shared caching, KEGG and BacDive access, the agreement helper | all |
 | `00-slice-urea.R` | The R9 feasibility slice on one capability | R9 |
 | `01-marker-matrix.R` | The reference genome set, its calls, and the KO-only ceiling | R7, R8, R9 |
-| `02-incompleteness.R` | Call retention under progressive gene subsampling | R7 |
+| `02-incompleteness.R` | Call retention under progressive gene subsampling, and the assessability policy against a naive denominator | R7 |
 | `03-phenotype.R` | R9's catabolic half: BacDive against the call and the reaction | R9 |
 | `04-auxotrophy.R` | R9's anabolic half: defined media against the bounded frames | R9 |
 | `05-annotation-route.R` | The same genomes annotated three ways, and the delta | R9 |
 | `06-figure-phenotype.R` | Figure 8, and the reference-consistency measurement | R9 |
 | `07-madin.R` | R9's second reference: species-level trait records, and what the species join costs | R9 |
+| `08-figure-incompleteness.R` | Figure 6 | R7 |
 
 The curated inputs live with the other consulted evidence, in
 `data-raw/reference/`: `phenotype-crosswalk.tsv` maps an observation to
@@ -72,6 +73,12 @@ through KEGG at all.
 plus the representative-draw range, so the two can be read side by side without
 being pooled. `madin-attrition.tsv` is per target the share of multi-genome
 species whose genomes agree on the call.
+`incompleteness-assessability.tsv` is per genome, gene-content level, bounded
+frame and quality policy, the numerator and denominator of `supported_fraction`
+and `assessable_fraction`. Invariant 21 is checked on every one of its cells
+rather than asserted: if the completeness policy ever moved a numerator,
+`02-incompleteness.R` stops.
+
 `madin-substrate-frequency.tsv` is coverage read the other way: every carbon
 substrate the record measures, ranked by genome-backed species, with whether any
 curated boundary can be tested against it. It ranks curation candidates by the

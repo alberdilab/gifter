@@ -18,10 +18,13 @@
 #   missing     the distribution of minimum_missing_requirements among the
 #               calls that were lost -- the information a percentage discards
 #
-# And one thing is checked rather than measured: that the assessability policy
-# of R4 recovers interpretability a naive denominator destroys. A GIFT that is
+# And a fourth, which is R7's second panel: that the assessability policy of R4
+# recovers interpretability a naive denominator destroys. A GIFT that is
 # unsupported in a half-empty genome is not evidence of absence, and
-# `policy = "completeness"` is what says so.
+# `policy = "completeness"` is what says so. It is measured on the same
+# subsamples, across three bounded frames, and invariant 21 -- that a quality
+# policy moves a denominator and never a call -- is checked on every cell rather
+# than asserted.
 #
 # Genes, not markers, are dropped. A MAG loses genes; the markers follow. That
 # distinction matters because a multi-subunit system loses its components
@@ -99,7 +102,34 @@ fullness <- function(accessions) {
   out / as.numeric(gift_marker_n)
 }
 
+# ------------------------------------------------ the bounded frames of R4
+# Only bounded frames. A proportion is emitted against a frame only because
+# curation declares its coverage complete, so an unbounded frame has no honest
+# denominator to protect in the first place and nothing here would mean anything.
+frames <- lapply(c("amino_acid_autonomy", "nucleotide_autonomy", "cofactor_autonomy"),
+                 function(x) reference_frame(preset = x))
+frame_metrics <- function(evaluated, org, keep, rep) {
+  pull <- function(x, policy) {
+    m <- as.data.frame(x$metrics)
+    m <- m[m$metric_id %in% c("supported_fraction", "assessable_fraction"), ]
+    data.frame(org = org, kept = keep, replicate = rep, policy = policy,
+               frame = m$reference_frame, metric = m$metric_id,
+               value = m$value, numerator = m$numerator,
+               denominator = m$denominator, stringsAsFactors = FALSE)
+  }
+  # The "less than half the frame was assessable" warning is expected at the low
+  # levels: the genome is deliberately half-empty and the frame layer is saying
+  # so. Suppressed here because it fires 120 times a level, not because it is
+  # noise -- section 5 reports exactly what it warns about.
+  naive <- suppressWarnings(genome_traits(evaluated, frames = frames, policy = "none"))
+  aware <- suppressWarnings(genome_traits(evaluated, frames = frames,
+                                          policy = "completeness",
+                                          quality = c(genome = keep), threshold = 0.9))
+  rbind(pull(naive, "none"), pull(aware, "completeness"))
+}
+
 rows <- list()
+assess <- list()
 for (i in seq_along(chosen)) {
   org <- chosen[[i]]
   genes <- annotation[annotation$genome_id == org, ]
@@ -116,8 +146,14 @@ for (i in seq_along(chosen)) {
       kept_genes <- if (keep == 1) all_genes else
         sample(all_genes, max(1L, round(length(all_genes) * keep)))
       part <- genes[genes$gene_id %in% kept_genes, ]
-      res <- evaluate_gifts(part[, c("namespace", "accession", "gene_id")],
-                            max_genes = Inf)$gifts
+      evaluated <- evaluate_gifts(part[, c("namespace", "accession", "gene_id")],
+                                  max_genes = Inf)
+      res <- evaluated$gifts
+      # The second half of R7, measured on the same subsample rather than
+      # demonstrated once. `policy = "none"` divides by the whole frame, which
+      # is the naive denominator; `policy = "completeness"` divides by what the
+      # genome could speak to, and records the rest as unassessed.
+      assess[[length(assess) + 1L]] <- frame_metrics(evaluated, org, keep, rep)
       still <- res$gift_id[res$complete]
       lost <- setdiff(supported_at_full, still)
       missing <- res$minimum_missing_requirements[res$gift_id %in% lost]
@@ -162,45 +198,103 @@ cat("\n  That percentage is the result. A percentage-based score at the same\n",
     "  route-based call reports which step went missing, which is what makes a\n",
     "  negative result reviewable rather than merely smaller.\n", sep = "")
 
-# ------------------------------------------------- 5. assessability, as a check
+# ------------------------------------------- 5. assessability, the second panel
 rule("5. Assessability moves denominators, never calls")
-# Invariant 21: genome quality modifies the reading of absence only. The check
-# is that raising incompleteness converts negatives to indeterminate and never
-# converts an unsupported GIFT into a supported one.
-org <- chosen[[1]]
-genes <- annotation[annotation$genome_id == org, ]
-set.seed(seed)
-half <- genes[genes$gene_id %in% sample(unique(genes$gene_id),
-                                        round(length(unique(genes$gene_id)) * 0.5)), ]
-res <- evaluate_gifts(half[, c("namespace", "accession", "gene_id")], max_genes = Inf)
+# Invariant 21: genome quality modifies the reading of absence only. A GIFT that
+# is unsupported in a half-empty genome is not evidence of absence, and this is
+# what says so.
+#
+# The claim has two halves and both are measured across every genome and level
+# rather than shown once. First, the numerator never moves: a quality policy may
+# not turn an unsupported call into a supported one, and if it ever did the
+# policy would be manufacturing capability out of missing data. Second, the
+# naive denominator is what destroys interpretability -- dividing by the whole
+# frame makes an incomplete genome look like an organism that lost capabilities,
+# where dividing by what the genome could speak to says the honest thing and
+# reports the withheld remainder separately.
+assessability <- do.call(rbind, assess)
 
-frame <- list(reference_frame(preset = "amino_acid_autonomy"))
-# quality is named by genome identifier, which is what says which completeness
-# belongs to which genome. A single-genome result is named "genome".
-# The "less than half the frame was assessable" warning is expected here: the
-# genome is deliberately half-empty. It is the frame layer doing its job.
-naive <- suppressWarnings(genome_traits(res, frames = frame, policy = "none"))
-aware <- suppressWarnings(genome_traits(res, frames = frame, policy = "completeness",
-                                        quality = c(genome = 0.5), threshold = 0.9))
-show <- function(label, x) {
-  m <- as.data.frame(x$metrics)
-  m <- m[m$metric_id %in% c("gift_richness", "assessable_fraction", "supported_fraction"),
-         c("metric_id", "value", "numerator", "denominator", "assessable")]
-  cat("  ", label, "\n", sep = "")
-  print(m, row.names = FALSE, digits = 3)
-}
-show("policy = none", naive)
-show("policy = completeness, quality 0.5, threshold 0.9", aware)
-cat("\n  supported_fraction reads 14/22 under no policy and 14/14 under the\n",
-    "  completeness policy. The numerator does not move; the denominator does,\n",
-    "  and assessable_fraction records what was withheld. That is the whole of\n",
-    "  what a quality policy is allowed to do -- invariant 21, demonstrated\n",
-    "  rather than asserted.\n", sep = "")
+supported <- assessability[assessability$metric == "supported_fraction", ]
+wide <- reshape(supported[, c("org", "kept", "replicate", "frame", "policy",
+                              "value", "numerator", "denominator")],
+                idvar = c("org", "kept", "replicate", "frame"),
+                timevar = "policy", direction = "wide")
+
+# The invariant, checked rather than asserted. Numerators must be identical
+# wherever both policies emit one.
+#
+# The absent ones are not an inconvenience to skip past, and a check that only
+# compared the cells that happen to line up would pass even if every cell had
+# gone missing. Where nothing in a frame is assessable at all, the policy emits
+# no supported_fraction -- not NA, not zero, absent -- because there is no
+# denominator to divide by. Those cells are counted separately and confirmed to
+# be exactly the ones where the assessable numerator is zero.
+comparable <- !is.na(wide$numerator.none) & !is.na(wide$numerator.completeness)
+withheld <- wide[is.na(wide$numerator.completeness), ]
+moved <- which(wide$numerator.none[comparable] != wide$numerator.completeness[comparable])
+kv("frame-genome-level cells measured", nrow(wide))
+kv("cells where both policies emit a supported count", sum(comparable))
+kv("cells where the policy emits none at all", nrow(withheld))
+kv("cells where the policy moved the numerator", length(moved))
+if (length(moved))
+  stop("invariant 21 violated: the completeness policy changed a supported ",
+       "count in ", length(moved), " cells. A quality policy may move a ",
+       "denominator and nothing else.")
+
+zero_assessable <- assessability[assessability$metric == "assessable_fraction" &
+                                   assessability$policy == "completeness" &
+                                   assessability$numerator == 0, ]
+if (nrow(withheld) != nrow(zero_assessable))
+  stop("a supported_fraction went missing in ", nrow(withheld), " cells but ",
+       nrow(zero_assessable), " had nothing assessable. The metric may only be ",
+       "withheld when there is no denominator for it.")
+kv("  all of them have nothing assessable", nrow(zero_assessable))
+
+cat("\n  supported_fraction, mean across genomes, by gene content:\n\n")
+by_level <- aggregate(cbind(value.none, value.completeness) ~ kept + frame, wide, mean)
+by_level <- by_level[order(by_level$frame, -by_level$kept), ]
+names(by_level) <- c("kept", "frame", "naive_denominator", "assessability_policy")
+print(by_level, row.names = FALSE, digits = 3)
+
+assessable <- assessability[assessability$metric == "assessable_fraction" &
+                              assessability$policy == "completeness", ]
+cat("\n  assessable_fraction under the policy -- what the genome could speak to:\n\n")
+print(aggregate(value ~ kept + frame, assessable, mean), row.names = FALSE, digits = 3)
+
+# What the policy actually does below the threshold, stated rather than
+# summarised. `quality = keep` against `threshold = 0.9` makes 0.9 and 1.0 the
+# only levels at or above it, so this is a step and not a slope -- and the step
+# is a parameter choice, not a property of the data.
+below <- wide[wide$kept < 0.9, ]
+scored <- below[!is.na(below$numerator.completeness), ]
+kv("cells below the quality threshold", nrow(below))
+kv("of those, the policy emits a supported_fraction", nrow(scored))
+kv("  of those, it is exactly 1.000",
+   sum(scored$numerator.completeness == scored$denominator.completeness))
+kv("  of those, the numerator is zero", sum(scored$numerator.completeness == 0))
+
+cat("\n  Read this carefully, because it is not the shape the design expected.\n",
+    "  Above the threshold nothing is withheld and the two policies agree to the\n",
+    "  digit. Below it every unsupported member is withheld, so the denominator\n",
+    "  collapses onto the numerator and supported_fraction reads 1.000 by\n",
+    "  construction -- and where not even one member is assessable the metric is\n",
+    "  not emitted at all. The policy does not produce a better proportion; it\n",
+    "  refuses to produce one, and assessable_fraction reports how much it\n",
+    "  refused.\n\n",
+    "  That is the correct behaviour under invariant 21 -- an unsupported call in\n",
+    "  a genome this incomplete is not evidence of absence, so there is no honest\n",
+    "  denominator to divide by -- but it means supported_fraction under this\n",
+    "  policy must never be read without assessable_fraction beside it. The\n",
+    "  numerator is what does not move, and the check above is what proves it.\n",
+    sep = "")
 
 rule("6. Writing")
 write.table(decay, file.path(out_dir, "incompleteness-decay.tsv"),
             sep = "\t", quote = FALSE, row.names = FALSE, na = "")
 write.table(summary_by_level, file.path(out_dir, "incompleteness-summary.tsv"),
             sep = "\t", quote = FALSE, row.names = FALSE, na = "")
+write.table(assessability, file.path(out_dir, "incompleteness-assessability.tsv"),
+            sep = "\t", quote = FALSE, row.names = FALSE, na = "")
 kv("incompleteness-decay.tsv", nrow(decay))
 kv("incompleteness-summary.tsv", nrow(summary_by_level))
+kv("incompleteness-assessability.tsv", nrow(assessability))

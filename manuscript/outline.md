@@ -224,8 +224,12 @@ route-based calls against percentage-based module completeness.
 - Second panel: assessability policy (R4) recovers interpretability that a
   naive denominator destroys.
 
-**Depends on:** reference genome set; `manuscript/analysis/01-incompleteness.R`.
-**Not started. This is the submission blocker.**
+**Depends on:** reference genome set; `manuscript/analysis/02-incompleteness.R`
+and `08-figure-incompleteness.R`.
+**Written.** The hypothesis holds in both halves and the cost is stated with it:
+the call falls faster than the percentage (0.792 against 0.911 at 90% gene
+content, 0.260 against 0.474 at half), and 66.9% of lost calls are exactly one
+named reaction short. Figure 6 carries all three panels.
 
 ### R8. Comparison with existing tools *(evaluation)*
 

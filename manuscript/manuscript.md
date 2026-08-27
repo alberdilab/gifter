@@ -738,18 +738,134 @@ a Microbiome/mSystems paper rather than a software note.
 
 ### R7. Behaviour under genome incompleteness
 
-*[Status: NOT STARTED — submission blocker. Needs
-`manuscript/analysis/01-incompleteness.R` and a reference genome set.]*
+*[Status: written from the committed tables of `manuscript/analysis/output/`,
+produced by `02-incompleteness.R` at database 2026.27.1. Backed by Figure 6.]*
 
-**Design.** Progressively subsample genes
-from complete reference genomes to simulate MAG incompleteness, and compare how
-route-based calls and percentage-based module completeness degrade. Hypothesis:
-the route-based call is more conservative and, critically, reports *which*
-reaction was lost, whereas the percentage decays smoothly and uninformatively.
-Report call retention against genome completeness, and the distribution of
-`minimum_missing_requirements`. A second panel should show that the
-assessability policy of R4 recovers interpretability that a naive denominator
-destroys.
+Most genomes gifter will ever be run on are incomplete. A recovered genome is
+assembled from a metagenome and is missing genes it does not know it is missing,
+so the question a reviewer asks first is not how the abstraction behaves on a
+finished genome but how it fails on an unfinished one. This section answers it
+by breaking genomes on purpose.
+
+**Design.** 120 KEGG reference genomes, sampled stratified across the
+marker-count distribution rather than from its top — from 21 to 1,060 curated
+KO markers — because a set of unusually complete organisms would make the decay
+look gentler than it is on the assemblies gifter is actually used on. Genes are
+dropped at random to 90%, 80%, 70%, 60% and 50% of the gene content, three
+independent subsamples at each level, and every subsample re-evaluated: 1,920
+evaluations in all. The median genome carries a complete implementation of 58
+GIFTs before anything is dropped.
+
+**Genes are dropped, not markers**, and the distinction is the point rather
+than a detail. A recovered genome loses genes and the markers follow, so a
+multi-subunit system loses its components together with the contigs that
+carried them. Dropping markers independently would break exactly the
+correlation the five-layer model exists to see.
+
+The comparator is computed here rather than cited. For each GIFT, the fraction
+of its curated KO markers the genome carries — the marker-fraction score that a
+percentage-based abstraction reports — is recomputed on the same subsamples of
+the same genomes, so the two numbers are like for like.
+
+**The two numbers do not fall the same way, and the route-based one falls
+faster.** At 90% gene content the call retains 0.792 of the GIFTs it supported
+at full content (interquartile range 0.718–0.824) while the marker-fraction
+score still reads 0.911 of its full-genome value (0.864–0.962). At half the
+genes, 0.260 against 0.474. A call is lost outright when any required reaction
+loses its last marker; a fraction is merely reduced. Figure 6a is that gap, and
+it is a cost, not a result in gifter's favour: a route-based call reports fewer
+capabilities from a broken genome than a percentage does, and any comparison
+that stops here should conclude that the percentage is the better-behaved
+number.
+
+It is worth stating what does *not* happen. Across all 1,800 subsampled
+evaluations, **no GIFT was ever called in a subsample that was not called at
+full gene content**. Removing evidence never manufactures a capability, which is
+the monotonicity a Boolean resolution guarantees and a scoring threshold does
+not.
+
+**What makes the cost worth paying is that a lost call names what it lost.**
+Across the 1,800 subsampled evaluations, 42,636 calls are lost; the median lost
+call is missing a single reaction and **66.9% are exactly one reaction short**,
+named by
+`minimum_missing_requirements` and located by `missing_reactions_best_route`.
+The share rises as the genome gets more complete — 83.7% at 90% gene content,
+75.4% at 80%, and 58.7% at half — so in the completeness range where recovered
+genomes actually sit, a lost call is overwhelmingly one identified reaction away
+from being made. That is Figure 6b, and it is the panel that decides whether
+Figure 6a was a fair trade. A marker-fraction score of 0.6 on the same genome is
+compatible with any of those situations and distinguishes none of them: it
+cannot say whether the missing 40% is one terminal step or the entire route, and
+so it cannot be acted on. The route-based call reports less and says more.
+
+The practical consequence is that a negative result becomes reviewable. An
+absent capability in an 80%-complete MAG arrives with the reaction that would
+have completed it, which a curator can check against the assembly, a reviewer
+can challenge, and a downstream analysis can treat as a candidate rather than an
+absence.
+
+**A naive denominator turns the same loss into a false biological claim.** A
+proportion is emitted against a bounded frame only because curation declares
+its coverage complete, so the denominator is a claim rather than an artefact of
+the data. Divide by the whole frame in an incomplete genome and every
+unsupported member is asserted to be a member the organism lacks — precisely
+the inference the genome cannot support. Measured on the same subsamples across
+the three bounded frames, that is what happens: `supported_fraction` on
+`nucleotide_autonomy` falls from 0.900 at full gene content to 0.710, 0.583,
+0.487, 0.405 and 0.351, and `amino_acid_autonomy` from 0.676 to 0.245. Nothing
+about the organisms changed. Read at face value, the curve says a bacterium
+progressively loses the ability to make its own nucleotides, and it would be
+reported that way.
+
+**The assessability policy of R4 does not produce a better proportion. It
+refuses to produce one, and says how much it refused** — and that turned out to
+be a sharper result than the design anticipated. Under
+`policy = "completeness"`, members whose absence the genome quality renders
+uninformative are withheld from the denominator. Above the quality threshold
+nothing is withheld and the two policies agree to the digit. Below it the
+refusal takes two forms. In the 3,823 frame–genome–level cells below the
+threshold where a proportion is still emitted, *every* unsupported member is
+withheld, the denominator collapses onto the numerator, and
+`supported_fraction` reads exactly 1.000 — in every one of them, never because
+the numerator rose and never with a numerator of zero. In a further **497 cells
+the metric is not emitted at all**: not `NA`, not zero, absent, because nothing
+in the frame was assessable and there was no denominator to divide by. Those
+497 are exactly the cells whose assessable numerator is zero, and the analysis
+stops if they are ever anything else.
+
+All of the information moves into `assessable_fraction`, which is emitted in
+every cell and falls to 0.560, 0.448, 0.342 and 0.258 on `nucleotide_autonomy`
+as gene content drops from 80% to 50%, and to 0.252 and 0.095 on
+`cofactor_autonomy`.
+
+Three things follow. The policy behaves exactly as invariant 21 requires: in all
+5,263 cells where both policies emit a supported count, **the completeness
+policy never moved one** — only a denominator — and `02-incompleteness.R` stops
+if it ever does. The interpretability a naive denominator destroys is recovered
+as a refusal rather than as a correction, which is the only honest form it could
+take: there is no defensible proportion to report when absence carries no
+information, and the strongest version of that is declining to report one. And
+it imposes an obligation the paper should state plainly: `supported_fraction`
+under this policy must never be read without `assessable_fraction` beside it,
+because below the threshold it is 1.000 by construction and means only *nothing
+here could be assessed as absent*. Figure 6c draws the pair together for that
+reason.
+
+The step at the threshold is a parameter, not a finding: `threshold = 0.9`
+against a quality equal to the retained gene fraction puts only the 90% and
+100% levels at or above it. A different threshold moves the step, and choosing
+one is a judgement about how incomplete a genome has to be before absence stops
+meaning anything — which is a decision the analyst makes and the software
+records, not one gifter makes for them.
+
+Two limits of this experiment are worth naming. Random gene loss is not how a
+metagenomic assembly loses genes — recovery is biased by coverage, by GC
+content and by repeat structure, so the real loss is correlated in ways this
+does not reproduce, and the retention curve should be read as a shape rather
+than as a calibration. And gene calling is held fixed throughout: these are
+deposited protein sets with genes removed, not assemblies re-called from
+fragmented contigs, so the annotation cost measured in R9 sits on top of this
+one rather than inside it.
 
 ### R8. Comparison with existing tools
 
@@ -873,7 +989,7 @@ a falsifiable prediction. Madin's `carbon_substrates` records substrate use, so
 it should track BacDive's growth records and diverge from its acidification
 panels. It does, and by a wide margin — the mean absolute difference from
 BacDive's carbon-source rows is **0.057** and from its acidification rows
-**0.274**. Two of the five growth comparisons agree to within 0.015 (L-arabinose
+**0.274**. Two of the six growth comparisons agree to within 0.015 (L-arabinose
 0.309 against 0.294, D-galactose 0.559 against 0.557), while every acidification
 comparison is at least 0.15 apart and L-rhamnose is 0.487 apart. The `kinds`
 column is not bookkeeping; it separates two claims that two independent
@@ -1388,7 +1504,7 @@ analysis scripts under `manuscript/analysis/`.]*
 | 3 | Compartment and strategy: one polysaccharide resolved as public-goods degradation, selfish foraging, cross-feeding | R3, R5 | Not started |
 | 4 | Frames and honest denominators: bounded vs. unbounded, assessability under MAG incompleteness | R4 | Not started |
 | 5 | Community: capability distribution, redundancy, potential handoff topology | R5 | Not started |
-| 6 | Call retention vs. genome completeness, route-based vs. percentage | R7 | Blocked on analysis |
+| 6 | Incompleteness: call retention against gene content beside the marker-fraction score (a), the share of lost calls that are exactly one reaction short (b), and the assessability policy against a naive denominator on three bounded frames (c) | R7 | **Drawn**; `08-figure-incompleteness.R` |
 | 7 | Case-study results | R10 | Blocked on dataset |
 | 8 | Phenotype agreement: recall per target with test-set size and taxonomic spread (a), the anabolic half on defined media (b), every disagreement classified by gifter's own trace (c), the reference measured against itself (d), the coverage panel naming what has no reference at all (e), and the same genomes annotated three ways (f) | R9 | **Drawn**; `06-figure-phenotype.R` |
 | S1 | Data lifecycle: TSV sources, validation, compilation, runtime, and the version tracks | M2, M3 | Not started |
@@ -1420,7 +1536,7 @@ before the text can be finalised.
 | R4. Quantitative traits | Frame API stable | **Drafted; needs worked example + Fig 4** |
 | R5. Community | Community API stable | **Drafted; needs worked example + Fig 5** |
 | R6. Reference database | Counts regenerated at submission | Complete, counts to refresh |
-| R7. Incompleteness | `analysis/01-incompleteness.R` + genome set | **Not started — blocker** |
+| R7. Incompleteness | Nothing outstanding | **Complete**; prose and Figure 6 from `02-incompleteness.R` |
 | R8. Tool comparison | Genome set + tool runs | Not started |
 | R9. Phenotype agreement | Nothing outstanding | **Complete**; prose, Figure 8 and the annotation route all from committed scripts |
 | R10. Case study | **Dataset undecided** | Not started |
@@ -1443,7 +1559,9 @@ before the text can be finalised.
    What remains is the curated phenotype-to-GIFT crosswalk and the analysis
    script.
 2. **Case-study dataset for R10** — determines whether the ecological argument lands.
-3. Reference genome set for R7 and R8, and which comparison tools to actually run.
+3. ~~Reference genome set for R7~~ — **decided**: the 11,908-genome KEGG
+   prokaryote set of `01-marker-matrix.R`, sampled stratified for R7. What
+   remains is which comparison tools to actually run for R8.
 4. Microbiome vs. mSystems (both fit this structure; affects whether Conclusions
    is required, and overall length).
 5. Author list and contributions.
