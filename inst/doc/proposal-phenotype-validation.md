@@ -482,6 +482,13 @@ The 14 are `urea_hydrolysis`, `tryptophan_degradation_indole`,
 `glutamate_decarboxylation_gaba` — six of them reached only through the
 reaction layer, which is why that layer earns its place.
 
+**Re-measured on the enlarged sweep of 2026-08-27, the row moved to 15 / 44 / 94.**
+`fucose_degradation_isomerase` crossed n ≥ 20 (it now stands at n = 75), so the
+individually testable share is 10% and the unreferenced share 61%. The §9
+caution applies to this row as much as to a recall: it is a count over a
+reference set that grows, and the committed `phenotype-agreement.tsv` is what
+R9 quotes. Nothing about the catalogue changed; the reference did.
+
 The 62% is not a gap to be closed by finding another database. It is the
 aromatic catabolic layer, most amino-acid catabolism, the cofactor and
 nucleotide interior, every anchor-to-anchor segment that is not a growth
@@ -538,14 +545,44 @@ Items 1 to 6 are done; the state of each is recorded rather than the intention.
    turned out to be the harder test set of the two. The auxotrophy figures are
    untouched by that run.
 
-Still to do:
+Done since:
 
-- **The annotation route of §7.2.** Everything measured so far runs on KEGG's own
-  per-genome KO assignment, which is an upper bound. Nobody yet knows how much
-  of the reported recall is gifter and how much is an idealised annotation.
-- **A reference-consistency figure.** The urea slice found BacDive's two
-  independent observations agreeing 385 of 386 times. That number bounds every
-  recall in this document and belongs in the paper.
+7. **The annotation route of §7.2 is run, and the bound is 9.4%.**
+   `05-annotation-route.R` scores 398 matched genomes three ways — KEGG's
+   per-genome KO assignment, KofamScan on the deposited proteins of the same
+   assemblies, and that run plus the NCBIfam, dbCAN and Pfam namespaces the KEGG
+   route cannot reach — with every cutoff the published one for its pipeline.
+   Against 21,771 complete calls on the KEGG route, KofamScan alone returns
+   19,735 (90.6%) and the whole pipeline 20,955 (96.3%).
+
+   **The two steps have opposite signs and must not be pooled.** The annotation
+   cost falls on long biosynthetic routes, where losing one marker loses the
+   call: pyrimidine core biosynthesis 350 genomes to 162, NAD biosynthesis 336 to
+   209. The recovery falls on carbohydrate chemistry, where CAZy is the evidence
+   and orthology never was: `arabinoxylan_debranching` 42 to 322,
+   `starch_degradation` 61 to 302. Six GIFTs the KEGG route calls in no genome at
+   all are called on the annotation route, `mucin_galnac_release` in 222 of 398.
+   Across the catalogue 47 GIFTs come out ahead of the KEGG route and 82 behind.
+
+   **It is also the only place part of the curation is visible.** The nine
+   NCBIfam equivalogs 2026.25.1 admitted to the histidine steps raise the call
+   from 160 genomes to 206, and recover 10 of the 39 nutrient-level tests the
+   annotation route otherwise loses. On a KO-only genome set that curation cannot
+   appear by construction — which is the general point. **Curation aimed at a
+   namespace the evaluation cannot see will be scored as worthless by that
+   evaluation**, so the screen that proposes such markers and the route that can
+   measure them have to be run together.
+8. **The reference-consistency figure is measured**, and it is not one number.
+   `06-figure-phenotype.R` writes `phenotype-reference-consistency.tsv` and draws
+   it as Figure 8d. Urease activity against urea utilisation agrees on 560 of 563
+   genome-backed strains, which is the clean case the urea slice found at a
+   smaller sweep. Tryptophanase activity against indole production agrees on only
+   321 of 351, in both directions — 19 strains produce indole with no
+   tryptophanase recorded and 11 the reverse. **The 385-of-386 figure the urea
+   slice reported was true of one capability and is not true of the reference as
+   a whole**, and a recall must be read against the ceiling of its own assay pair
+   rather than against the best one available. Quoting the urea number as though
+   it bounded the whole section would have flattered every recall in it.
 
 Deferred, with rows in [the deferral register](deferral-register.md):
 
@@ -566,7 +603,8 @@ Deferred, with rows in [the deferral register](deferral-register.md):
 Probed 2026-08-23 against live services; `data-raw/phenotype_reference_probe.R`
 regenerates every figure in sections 1 to 4 and prints the sample seed. The
 measured results in §5, §8 and §9 come from `manuscript/analysis/01-marker-matrix.R`,
-`03-phenotype.R` and `04-auxotrophy.R`, whose committed outputs are in
+`03-phenotype.R`, `04-auxotrophy.R`, `05-annotation-route.R` and
+`06-figure-phenotype.R`, whose committed outputs are in
 `manuscript/analysis/output/`. Nothing
 here may enter the manuscript until a committed script in `manuscript/analysis/`
 has produced it, per the standing rule of `manuscript/manuscript.md`.
