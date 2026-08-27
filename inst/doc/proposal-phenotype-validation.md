@@ -514,14 +514,29 @@ Items 1 to 6 are done; the state of each is recorded rather than the intention.
    aliases from identity-preserving ChEBI relations and refuses to derive the
    anomeric step at all; 11 of those are curated by hand and 223 candidates
    await review. §4.4 has the reasoning.
-6. **Done for the first three.** `phenotype-disagreements.tsv` and
-   `auxotrophy-disagreements.tsv` hold the rows;
+6. **Done for the first three, and all three are now closed.**
+   `phenotype-disagreements.tsv` and `auxotrophy-disagreements.tsv` hold the rows;
    [the curation leads](proposal-phenotype-curation-leads.md) reads
    `glcnac_degradation` (0.154), `SERINE` (0.296) and `HISTIDINE` (0.520) down to
    the reaction. Two are unblocked marker gains the NCBIfam screen had already
    listed, and two are architectural decisions. All four have register rows.
    This is the layer paying for itself: a benchmark that found an under-call, a
    screen that had already listed the fix, and a taxonomy that explains both.
+   `HISTIDINE` was curated in database 2026.25.1; `glcnac_degradation` was decided
+   and curated in 2026.26.1, where a second route through the PTS raised recall
+   from 0.128 to 0.205 on a matched test set; and `SERINE` was decided in
+   2026.27.1, where the lead's premise did not survive the measurement and no
+   second route was curated. Two leads, two decisions, opposite conclusions.
+
+   **A caution about these figures, learned the hard way.** The catabolic half
+   was re-run on 2026-08-27 against a BacDive sweep that had grown since the
+   numbers above were recorded, and the test set moved from n = 119 to n = 229
+   for `glcnac_degradation` alone. A recall figure here is only comparable to
+   another one measured on the same sweep. Before quoting a before-and-after,
+   rescore the earlier database against the current reference rather than
+   comparing two runs — the cached calls make that cheap, and the enlarged sweep
+   turned out to be the harder test set of the two. The auxotrophy figures are
+   untouched by that run.
 
 Still to do:
 

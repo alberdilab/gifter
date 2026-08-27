@@ -1,15 +1,20 @@
 # Three curation leads found by the phenotype benchmark
 
-Status: **assessment, with two of the three leads now carried through.** Each
-lead names a capability the phenotype layer says gifter under-calls, the reaction
-responsible, and what would fix it. Two of the three were unblocked and needed
-only curation; the third needed a decision first.
+Status: **assessment, and all three leads are now carried through.** Each lead
+names a capability the phenotype layer says gifter under-calls, the reaction
+responsible, and what would fix it. Two were unblocked and needed only curation;
+the other two needed a decision first, and the two decisions went opposite ways.
 
-- §1 `glcnac_degradation` — **decided and curated, database 2026.26.1.** The
-  decision is §1.1; the marker gain is §1.2.
-- §2 `serine_biosynthesis` — still open. The direction question is unanswered
-  and has a row in the deferral register.
+- §1 `glcnac_degradation` — **decided and curated, database 2026.26.1.** A second
+  route through the PTS. The decision is §1.1; the marker gain is §1.2.
+- §2 `serine_biosynthesis` — **decided, database 2026.27.1.** No second route is
+  curated: the lead's premise did not survive the measurement. §2 is the record.
 - §3 `histidine_biosynthesis` — **curated, database 2026.25.1.**
+
+The two decisions are worth reading together. §1 found that the boundaries were
+right and the route inventory was incomplete; §2 found that the route inventory
+was right and the premise was wrong. A benchmark lead is a question, not a
+diagnosis.
 
 These are the first findings the validation layer of
 [the phenotype assessment](proposal-phenotype-validation.md) has produced, and
@@ -163,13 +168,37 @@ damage invariant 16 describes. `K02793`–`K02796` and `K25814` are admitted
 nowhere, the refusal is in the deferral register, and `test-sugar-degradation.R`
 asserts that they match no marker in the database.
 
-**Effect, measured.** Over the 11 908-genome reference set the enzyme II reaches
-2 929 genomes, of which 2 180 carry no kinase at all. With the deacetylase and
-deaminase conjunction at 5 090 genomes, the kinase route completes in 1 532, the
-PTS route in 2 362, and their union in 3 157 — from 12.9% of the catalogue to
-26.5%. That is a doubling and it is not a fix. **The remaining ceiling is the
-downstream conjunction at 42.7%**, which no boundary choice could have moved and
-which the marker gain below is aimed at.
+**Effect, measured.** `gift-prevalence.tsv` was regenerated after the rebuild:
+`glcnac_degradation` moves from **1 564 to 3 189 genomes, 13.1% to 26.8%** of the
+11 908-genome reference set. `neuac_degradation` is unchanged at 462, correctly —
+it shares the deacetylase and the deaminase but not the entry, so the PTS route
+cannot reach it.
+
+That is a doubling and it is not a fix. **The remaining ceiling is the downstream
+deacetylase-and-deaminase conjunction at 42.7%**, which no boundary choice could
+have moved and which §1.2 is aimed at.
+
+**Recall, re-measured — and the comparison had to be rebuilt to be honest.** The
+benchmark was re-run after curation. Between the two runs the BacDive sweep grew,
+so the test set moved from n = 119 to n = 229 paired observations over 142
+genera, and reporting 0.154 → 0.205 across that boundary would be reading two
+different experiments as one. The pre-change calls were therefore rescored
+against the *same* enlarged test set:
+
+| Database | n | both positive | observed, not encoded | encoded, not observed | Recall |
+|---|---|---|---|---|---|
+| 2026.25.1 | 229 | 10 | 68 | 6 | **0.128** |
+| 2026.26.1 | 229 | 16 | 62 | 11 | **0.205** |
+
+Six of the 78 observed-positive strains are recovered, and the permitted
+encoded-not-observed cell grows from 6 to 11, which is what a broadening looks
+like. Note also that the enlarged sweep is a *harder* test set than the one the
+0.154 was measured on: the same database scores 0.128 on it.
+
+Sixty-two strains still use GlcNAc and are still called unsupported. That is
+consistent with the 42.7% conjunction ceiling rather than with the entry boundary
+still being wrong, and it is the reason this section does not claim the lead is
+closed by the route alone.
 
 ### 1.2 The marker gain, carried through
 
