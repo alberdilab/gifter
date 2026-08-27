@@ -1,0 +1,17 @@
+source	field	term	kinds	layer	target	relation	recall_usable	n	both_positive	both_negative	encoded_not_observed	observed_not_encoded	recall	genera	recall_min_draw	recall_max_draw
+MADIN	motility	motility		gift	flagellar_apparatus	superset_of	FALSE	1869	584	916	51	318	0.647	768	0.643	0.653
+MADIN	carbon_substrates	arabinose		gift	arabinose_degradation	equivalent	TRUE	217	67	0	0	150	0.309	138	0.304	0.309
+MADIN	carbon_substrates	galactose		gift	galactose_degradation_leloir	equivalent	TRUE	195	109	0	0	86	0.559	127	0.559	0.559
+MADIN	carbon_substrates	xylose		gift	xylose_degradation_isomerase	equivalent	TRUE	151	100	0	0	51	0.662	99	0.662	0.675
+MADIN	carbon_substrates	N-acetylgulcosamine		gift	glcnac_degradation	equivalent	TRUE	130	39	0	0	91	0.3	79	0.3	0.3
+MADIN	carbon_substrates	citrate		gift	citrate_fermentation	superset_of	FALSE	106	2	0	0	104	0.019	74	0.009	0.019
+MADIN	carbon_substrates	rhamnose		gift	rhamnose_degradation	equivalent	TRUE	100	18	0	0	82	0.18	72	0.18	0.18
+MADIN	carbon_substrates	glycogen		gift	starch_degradation	overlaps	FALSE	71	32	0	0	39	0.451	55	0.451	0.451
+MADIN	carbon_substrates	dextrin		gift	starch_degradation	overlaps	FALSE	55	20	0	0	35	0.364	45	0.364	0.364
+MADIN	carbon_substrates	fucose		gift	fucose_degradation_isomerase	equivalent	TRUE	53	0	0	0	53	0	43	0	0
+MADIN	carbon_substrates	histidine		gift	histidine_degradation_glutamate	overlaps	FALSE	39	19	0	0	20	0.487	31	0.487	0.487
+MADIN	carbon_substrates	phenylacetate		gift	phenylacetate_degradation	equivalent	TRUE	32	0	0	0	32	0	20	0	0
+MADIN	carbon_substrates	galacturonic acid		gift	galacturonate_degradation	equivalent	TRUE	20	8	0	0	12	0.4	18	0.4	0.4
+MADIN	carbon_substrates	trimethylamine		gift	methylamine_degradation	superset_of	FALSE	18	0	0	0	18	0	7	0	0
+MADIN	carbon_substrates	methylamine		gift	methylamine_degradation	equivalent	TRUE	17	0	0	0	17	0	7	0	0
+MADIN	carbon_substrates	urea		gift	urea_hydrolysis	equivalent	TRUE	14	9	0	0	5	0.643	13	0.643	0.643

@@ -766,8 +766,9 @@ agreement rate.
 ### R9. Agreement with observed phenotypes
 
 *[Status: written from the committed tables of `manuscript/analysis/output/`,
-produced by `03-phenotype.R`, `04-auxotrophy.R`, `05-annotation-route.R` and
-`06-figure-phenotype.R` at database 2026.27.1. Backed by Figure 8.]*
+produced by `03-phenotype.R`, `04-auxotrophy.R`, `05-annotation-route.R`,
+`06-figure-phenotype.R` and `07-madin.R` at database 2026.27.1. Backed by
+Figure 8.]*
 
 A capability call is not a phenotype prediction, so a section comparing the two
 has to settle in advance what a disagreement means. Under the scope statement of
@@ -802,7 +803,9 @@ activities onto reaction cross-references, and INSDC accessions onto the
 genome under evaluation. A sweep of the whole resource returned 102,187
 records, of which 3,081 strains carry an assembly that resolves to a genome in
 the reference set; 1,577 of those genomes carry at least one usable
-observation. MediaDive's chemically defined media cover the anabolic half.
+observation. MediaDive's chemically defined media cover the anabolic half, and
+the Madin trait synthesis is a second, species-level catabolic reference whose
+independence from BacDive is what it is used for.
 Everything BacDive labels as a genome-based prediction is dropped at
 ingestion, because a reference set that quietly contained another tool's
 genomic inferences would make R9 a tool comparison with the wrong label on it.
@@ -813,7 +816,8 @@ framework declines by design. It belongs in R8 as one more abstraction to
 compare with.
 
 The mapping from an observation to something gifter claims is curated rather
-than mechanical. `phenotype-crosswalk.tsv` holds 56 reviewed rows, each
+than mechanical. `phenotype-crosswalk.tsv` holds 56 reviewed rows across the
+three adopted sources, all of them exercised, each
 carrying an explicit boundary relation from the vocabulary the database
 already uses, and only `equivalent` and `subset_of` rows may enter a recall
 table. The `kind of utilization tested` field is part of the claim rather than
@@ -858,6 +862,44 @@ on different strain sets, so the gap is not a single effect with a single cause;
 what it does show is that collapsing them into one number per substrate — which
 is what a crosswalk without the `kinds` column would do — would have produced an
 average of two things that are not the same observation.
+
+**A second reference tests the crosswalk rather than the catalogue.** The Madin
+trait synthesis is a species-level compilation of published trait records, and
+16 crosswalk rows reach it. Its intersection with the reference genome set is
+3,738 species covering 6,377 genomes, and eight targets reach *n* ≥ 20 there.
+Its value is not additional *n*: it is that a reference assembled by different
+people from different evidence makes the acidification-versus-growth split above
+a falsifiable prediction. Madin's `carbon_substrates` records substrate use, so
+it should track BacDive's growth records and diverge from its acidification
+panels. It does, and by a wide margin — the mean absolute difference from
+BacDive's carbon-source rows is **0.057** and from its acidification rows
+**0.274**. Two of the five growth comparisons agree to within 0.015 (L-arabinose
+0.309 against 0.294, D-galactose 0.559 against 0.557), while every acidification
+comparison is at least 0.15 apart and L-rhamnose is 0.487 apart. The `kinds`
+column is not bookkeeping; it separates two claims that two independent
+references also separate.
+
+That reference costs a join the strain-resolved one does not, and the cost is
+measured rather than assumed. A Madin record names a species, 574 of the shared
+species carry more than one reference genome, and gifter calls each genome
+separately, so a representative has to be chosen. Across all targets the genomes
+of one species agree on the call **90.8%** of the time — from 98.1% on
+phenylacetate down to 79.3% on the flagellar apparatus — and repeating every
+recall over 100 independent draws of the representative moves no figure by more
+than 0.013. That range is the sensitivity of a number to a choice the reference
+cannot make; it is not a confidence interval, and the clustering argument above
+applies to this test set exactly as it does to the others.
+
+Two targets reach *n* ≥ 20 here and nowhere else, which is why the coverage row
+below moves. Galacturonate degradation scores 0.400 (*n* = 20). Phenylacetate
+degradation scores **0.000** over 32 species, and that is a curation lead rather
+than a rounding artefact: gifter calls the capability complete in 215 of 11,908
+reference genomes, and 31 of the 32 failures name a missing requirement on the
+closest route rather than an absence of evidence, 17 of them three reactions
+short. Motility reaches 1,869 species, the structural type's only external check
+at scale, and stays outside the recall table for the same reason BacDive's does
+— `flagellar_apparatus` is narrower than motility, so the relation is
+`superset_of` and the observation cannot imply the target.
 
 **The disagreements are the result; the ratio is its summary.** Across the 21
 primary rows, 1,569 genomes fall in the permitted cell and 705 in the failure
@@ -1000,9 +1042,10 @@ experiences: gifter is only ever as good as the markers it is handed, which is
 why every call carries the evidence that produced it.
 
 **Coverage, stated in the section itself.** Measured rather than estimated:
-**15 of 153 GIFTs are individually testable** at *n* ≥ 20, a further 44 only
-as a bounded-frame aggregate, and the remaining 94 have no phenotype reference
-of any kind. Figure 8e names what falls in each. The 94 are not a gap another
+**17 of 153 GIFTs are individually testable** at *n* ≥ 20 — two of them only
+because the second reference exists — a further 44 only as a bounded-frame
+aggregate, and the remaining 92 have no phenotype reference
+of any kind. Figure 8e names what falls in each. The 92 are not a gap another
 database would close: they are the aromatic catabolic layer, most amino-acid
 catabolism, the cofactor and nucleotide interior, every anchor-to-anchor
 segment that is not a growth substrate, and all three regulatory and all five
@@ -1017,7 +1060,7 @@ that reading is measured in `inst/doc/proposal-phenotype-validation.md` §6 but
 not yet by a committed script under `manuscript/analysis/`, so no figure from it
 is quoted here.]*
 
-A reader told which 61% of the catalogue was untestable can weigh the 10% that
+A reader told which 60% of the catalogue was untestable can weigh the 11% that
 was. That is why the coverage table is in the section rather than in a
 supplement.
 

@@ -405,6 +405,55 @@ Within that intersection:
 
 Motility in the same intersection reaches 2 118 species.
 
+### 6.1 What running it changed
+
+The 16 MADIN rows were curated in this document and then read by nothing.
+`collect_observations()` in `03-phenotype.R` handles BacDive fields only and is
+keyed on `bacdive_id` end to end, so a species-level record had nowhere to
+enter. `07-madin.R` closes that, and three things came out of it.
+
+**Two curated rows named terms that do not exist.** `gulcosamine` and
+`galacturonic` match nothing in the source vocabulary, which spells them
+`N-acetylgulcosamine` — misspelled at source, and distinct from its own
+correctly spelled `glucosamine` — and `galacturonic acid`. Both are corrected.
+`read_phenotype_crosswalk()` validates that a *target* still exists because a
+renamed GIFT is the failure it was written for; nothing validated the source
+side, and a `source_id` naming a term the vocabulary does not contain fails
+identically and silently, as a test that never runs. `07-madin.R` now stops on
+one. The general form of the lesson: a curated row that is never executed is
+indistinguishable from a curated row that is wrong.
+
+**The second reference confirms the `kinds` split, which is the point of having
+one.** Madin's `carbon_substrates` records substrate *use*, so it is BacDive's
+carbon-source rows and not its acidification panels. If §7.3's insistence on
+keeping the two kinds apart is right, Madin should track the former and diverge
+from the latter — a prediction the second reference can falsify. Mean absolute
+difference from BacDive's carbon-source rows is **0.057**; from its
+acidification rows, **0.274**. `L-arabinose` agrees to 0.015 and `D-galactose`
+to 0.002 against the growth records, while `L-rhamnose` sits 0.487 from its
+acidification row. Two references assembled by different people from different
+evidence separating the same two claims is the strongest available statement
+that the low carbon-source recalls are about the boundary rather than about
+either reference.
+
+**The species join costs something, and it is measured rather than asserted.**
+§7.1 says a representative genome absorbs within-species variation silently. It
+need not be silent: 574 of the 3 738 shared species carry more than one
+reference genome, and their genomes agree on the call **90.8%** of the time —
+98.1% on `phenylacetate_degradation`, 79.3% on `flagellar_apparatus`. Repeating
+every recall over 100 independent draws of the representative moves no figure by
+more than 0.013. That is a sensitivity to a choice the reference cannot make,
+and it is reported as a range and never as a confidence interval.
+
+**Coverage moves because of this.** `phenylacetate_degradation` (*n* = 32) and
+`galacturonate_degradation` (*n* = 20) reach the threshold here and nowhere
+else, so §8's row goes 15 / 44 / 94 → **17 / 44 / 92**. Phenylacetate scores
+0.000, and it is a curation lead rather than an artefact: the GIFT is complete
+in 215 of 11 908 reference genomes, and 31 of the 32 failures name a missing
+requirement on the closest route rather than an absence of evidence. Motility
+reaches 1 869 species and stays outside the recall table, `superset_of`, exactly
+as the BacDive motility row does.
+
 **The most-measured substrates are the ones gifter does not curate**, and that
 is worth recording as a finding rather than as an embarrassment. Counted the
 same way as the table above — species with a KEGG genome behind them — glucose
@@ -500,12 +549,16 @@ The 14 are `urea_hydrolysis`, `tryptophan_degradation_indole`,
 `glutamate_decarboxylation_gaba` — six of them reached only through the
 reaction layer, which is why that layer earns its place.
 
-**Re-measured on the enlarged sweep of 2026-08-27, the row moved to 15 / 44 / 94.**
-`fucose_degradation_isomerase` crossed n ≥ 20 (it now stands at n = 75), so the
-individually testable share is 10% and the unreferenced share 61%. The §9
+**Re-measured on the enlarged sweep of 2026-08-27, the row moved to 15 / 44 / 94,
+and once the Madin rows were wired in it moved again to 17 / 44 / 92.**
+`fucose_degradation_isomerase` crossed n ≥ 20 on the enlarged sweep (it now
+stands at n = 75), and `phenylacetate_degradation` and
+`galacturonate_degradation` cross it in the second reference alone (§6.1). The
+individually testable share is now 11% and the unreferenced share 60%. The §9
 caution applies to this row as much as to a recall: it is a count over a
-reference set that grows, and the committed `phenotype-agreement.tsv` is what
-R9 quotes. Nothing about the catalogue changed; the reference did.
+reference set that grows, and the committed `phenotype-agreement.tsv` and
+`madin-agreement.tsv` are what R9 quotes. Nothing about the catalogue changed;
+the reference did, twice.
 
 The 62% is not a gap to be closed by finding another database. It is the
 aromatic catabolic layer, most amino-acid catabolism, the cofactor and
@@ -621,6 +674,16 @@ Done since:
    catabolic half it caught a real artefact, and applied to the anabolic half it
    confirmed there was none.
 
+10. **The Madin rows are exercised, and they were not before.** 31 of the 56
+   crosswalk rows are BACDIVE and 9 are MEDIADIVE; the remaining 16 were curated
+   here and read by no script, because `collect_observations()` handles BacDive
+   fields only. `07-madin.R` closes that. Two of the 16 named terms that do not
+   exist in the source vocabulary and were therefore untestable as written; both
+   are corrected, and the script now refuses to run on a `source_id` the
+   vocabulary does not contain. §6.1 has the results. The rule this establishes:
+   **a curated row that no script reads is not evidence of anything, and a file
+   of them implies a coverage the work does not have.**
+
 Deferred, with rows in [the deferral register](deferral-register.md):
 
 - **Regulatory and defense GIFT validation.** No phenotype reference exists.
@@ -640,8 +703,8 @@ Deferred, with rows in [the deferral register](deferral-register.md):
 Probed 2026-08-23 against live services; `data-raw/phenotype_reference_probe.R`
 regenerates every figure in sections 1 to 4 and prints the sample seed. The
 measured results in §5, §8 and §9 come from `manuscript/analysis/01-marker-matrix.R`,
-`03-phenotype.R`, `04-auxotrophy.R`, `05-annotation-route.R` and
-`06-figure-phenotype.R`, whose committed outputs are in
+`03-phenotype.R`, `04-auxotrophy.R`, `05-annotation-route.R`,
+`06-figure-phenotype.R` and `07-madin.R`, whose committed outputs are in
 `manuscript/analysis/output/`. Nothing
 here may enter the manuscript until a committed script in `manuscript/analysis/`
 has produced it, per the standing rule of `manuscript/manuscript.md`.

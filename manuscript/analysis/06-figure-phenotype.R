@@ -21,8 +21,9 @@
 #   D  the reference against itself. Where BacDive records the same capability
 #      twice through independent assays, how often do the two agree. That bounds
 #      every recall in the figure.
-#   E  what could be tested at all: 15 GIFTs individually, 44 only as a
-#      bounded-frame aggregate, 94 with no phenotype reference of any kind.
+#   E  what could be tested at all: 17 GIFTs individually (two of them only
+#      because 07-madin.R exists), 44 only as a bounded-frame aggregate, and 92
+#      with no phenotype reference of any kind.
 #   F  the annotation route, if 05-annotation-route.R has been run.
 #
 # Everything is read from the committed tables in output/ and from the compiled
@@ -85,6 +86,13 @@ disagreements   <- read.delim(file.path(out_dir, "phenotype-disagreements.tsv"),
                               stringsAsFactors = FALSE)
 auxotrophy      <- read.delim(file.path(out_dir, "auxotrophy-agreement.tsv"),
                               stringsAsFactors = FALSE)
+# The second reference reaches two GIFTs BacDive does not, so the coverage panel
+# has to read it or it under-reports what was tested. It is deliberately not
+# folded into panel A: a species-level record and a strain-level one are not
+# interchangeable points on one axis, and 07-madin.R reports its own attrition.
+madin_path <- file.path(out_dir, "madin-agreement.tsv")
+madin <- if (file.exists(madin_path))
+  read.delim(madin_path, stringsAsFactors = FALSE) else agreement_table[0, ]
 
 # ------------------------------------------------------------------- panel A
 rule("A. Recall per target, catabolic half")
@@ -343,7 +351,9 @@ via_reaction <- dbGetQuery(con, "
   join route_reaction rr on rr.reaction_pk = r.reaction_pk
   join gift_route gr on gr.route_pk = rr.route_pk
   join gift g on g.gift_pk = gr.gift_pk")
+madin_primary <- madin[madin$recall_usable & madin$n >= 20, ]
 tested <- unique(c(primary$target[primary$layer == "gift"],
+                   madin_primary$target[madin_primary$layer == "gift"],
                    via_reaction$gift_id[via_reaction$reaction_id %in%
                                           primary$target[primary$layer == "reaction"]]))
 frame_only <- setdiff(dbGetQuery(con, "select gift_id from gift_profile
@@ -353,6 +363,9 @@ gifts$reach <- ifelse(gifts$gift_id %in% tested, "individually testable",
                ifelse(gifts$gift_id %in% frame_only, "only as a bounded-frame aggregate",
                       "no phenotype reference at all"))
 kv("individually testable", sum(gifts$reach == "individually testable"))
+kv("  of those, reachable only through Madin",
+   length(setdiff(madin_primary$target, c(primary$target, via_reaction$gift_id[
+     via_reaction$reaction_id %in% primary$target[primary$layer == "reaction"]]))))
 kv("bounded-frame aggregate only", sum(gifts$reach == "only as a bounded-frame aggregate"))
 kv("no reference of any kind", sum(gifts$reach == "no phenotype reference at all"))
 

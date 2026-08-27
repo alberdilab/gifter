@@ -20,6 +20,7 @@ begun asking gifter to claim something it does not claim.
 | `04-auxotrophy.R` | R9's anabolic half: defined media against the bounded frames | R9 |
 | `05-annotation-route.R` | The same genomes annotated three ways, and the delta | R9 |
 | `06-figure-phenotype.R` | Figure 8, and the reference-consistency measurement | R9 |
+| `07-madin.R` | R9's second reference: species-level trait records, and what the species join costs | R9 |
 
 The curated inputs live with the other consulted evidence, in
 `data-raw/reference/`: `phenotype-crosswalk.tsv` maps an observation to
@@ -33,6 +34,23 @@ script here with an external binary dependency, and it is also the only one that
 downloads gigabytes: the pinned KOfam, NCBIfam and dbCAN profile libraries, from
 which it keeps just the profiles gifter curates. Budget several hours on a first
 run. Everything is cached, so a second run is minutes.
+
+`07-madin.R` is separate from `03-phenotype.R` rather than folded into it
+because the two references join differently. BacDive supplies an assembly
+accession per strain; Madin supplies a species name, so a representative genome
+has to be chosen and the within-species variation absorbed. Putting both behind
+one recall column would hide which confound a disagreement belongs to. The
+script measures the cost of its own join instead of asserting it away: how often
+the several reference genomes of one species disagree about a call, and how far
+each recall moves across 100 independent draws of the representative. That range
+is a sensitivity to a choice the reference cannot make, and it is not a
+confidence interval.
+
+It is also the only script whose input is not fetched. The Madin condensed trait
+table is a single release-tagged file rather than a service, so
+`condensed_traits_NCBI.csv` has to be placed at
+`manuscript/analysis/.cache/madin/` by hand; the script stops with that
+instruction if it is missing.
 
 `05-annotation-route.R` rebuilds both R9 test sets from the cached sweeps rather
 than reading the tables `03` and `04` wrote. That is deliberate. A BacDive sweep
@@ -49,6 +67,11 @@ genomes carry a complete implementation of each GIFT, with the denominator
 stated in the table rather than assumed. `marker-reach.tsv` is per curated
 marker, how many genomes carry it, and `NA` where the namespace is not reachable
 through KEGG at all.
+
+`madin-agreement.tsv` carries the same columns as `phenotype-agreement.tsv`
+plus the representative-draw range, so the two can be read side by side without
+being pooled. `madin-attrition.tsv` is per target the share of multi-genome
+species whose genomes agree on the call.
 
 `gift-prevalence.tsv` supersedes the ad-hoc per-KO counts the curation proposals
 quote. Those were computed one accession at a time against
