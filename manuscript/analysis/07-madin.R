@@ -228,7 +228,7 @@ rule("7. Agreement, per target")
 # species in this test set are as taxonomically clustered as every other test
 # set in R9, and the draw varies the genome, not the sample.
 by_species <- split(genome_set$org, genome_set$binomial)
-draw_representatives <- function(s) {
+draw_representatives <- function() {
   vapply(by_species, function(x) if (length(x) == 1) x else sample(x, 1L), character(1))
 }
 
