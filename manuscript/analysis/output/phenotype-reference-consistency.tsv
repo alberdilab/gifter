@@ -1,0 +1,3 @@
+gift_id	observation_1	field_1	observation_2	field_2	strains	both_positive	both_negative	disagree	strains_with_genome	agree_with_genome	only_1_positive	only_2_positive	agree
+urea_hydrolysis	urease	enzymes	urea	metabolite utilization	16364	2823	13527	14	563	560	1	2	16350
+tryptophan_degradation_indole	tryptophanase	enzymes	indole	metabolite production	7350	489	5874	987	351	321	11	19	6363
