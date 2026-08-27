@@ -1,0 +1,1271 @@
+source	target	target_term	org	binomial	class	missing
+BACDIVE	urea_hydrolysis	urea	bcv	Beutenbergia cavernae	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	cprp	Corynebacterium propinquum	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	caui	Corynebacterium auris	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	camc	Corynebacterium amycolatum	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	wvi	Weeksella virosa	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	nge	Natronobacterium gregoryi	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	lxy	Leifsonia xyli	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	ria	Rathayibacter iranicus	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	rry	Rathayibacter rathayi	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	mfol	Microbacterium foliorum	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	mau	Micromonospora aurantiaca	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	mcun	Moraxella cuniculi	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	usu	Uruburuella suis	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	aer	Aeromicrobium erythreum	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	tfa	Tessaracoccus flavescens	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	xce	Xylanimonas cellulosilytica	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	sse	Shewanella sediminis	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	ske	Sanguibacter keddieii	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	fln	Filimonas lacunae	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	ima	Iamia majanohamensis	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	ute	Uruburuella testudinis	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	pyc	Pyrococcus kukulkanii	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	als	Arcticibacterium luteifluviistationis	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	rdi	Rhizorhabdus dicambivorans	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	nmr	Nitrosopumilus maritimus	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	bshi	Bacillus shivajii	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	nav	Natronoglycomyces albus	incomplete route	1
+BACDIVE	urea_hydrolysis	urea	spha	Sphingomonas paeninsulae	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	aaw	Alteromonas stellipolaris	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	oan	Brucella anthropi	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	bur	Burkholderia lata	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	psaa	Paraburkholderia sabiae	incomplete route	2
+BACDIVE	arabinose_degradation	L-arabinose	pmeg	Paraburkholderia megapolitana	incomplete route	2
+BACDIVE	arabinose_degradation	L-arabinose	pter	Paraburkholderia terrae	incomplete route	2
+BACDIVE	arabinose_degradation	L-arabinose	bpy	Paraburkholderia phytofirmans	incomplete route	2
+BACDIVE	arabinose_degradation	L-arabinose	phs	Paraburkholderia hospita	incomplete route	2
+BACDIVE	arabinose_degradation	L-arabinose	bte	Burkholderia thailandensis	incomplete route	2
+BACDIVE	arabinose_degradation	L-arabinose	bpyr	Burkholderia pyrrocinia	incomplete route	2
+BACDIVE	arabinose_degradation	L-arabinose	bvi	Burkholderia vietnamiensis	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	bgu	Burkholderia glumae	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	bgo	Burkholderia gladioli	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	cpat	Clostridium pasteurianum	incomplete route	2
+BACDIVE	arabinose_degradation	L-arabinose	aaa	Paracidovorax avenae	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	vei	Verminephrobacter eiseniae	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	ams	Actinoplanes missouriensis	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	nie	Nocardia iowensis	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	hsz	Herbaspirillum seropedicae	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	mfla	Pseudoduganella flava	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	mpli	Pseudoduganella plicata	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	prh	Pseudomonas rhizosphaerae	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	ptae	Pseudomonas taetrolens	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	pmud	Pseudomonas mucidolens	incomplete route	2
+BACDIVE	arabinose_degradation	L-arabinose	pdx	Pseudonocardia benzenivorans	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	esj	Sinorhizobium sojae	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	rtr	Rhizobium tropici	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	rxy	Rubrobacter xylanophilus	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	ssan	Sphingomonas sanxanigenens	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	swi	Rhizorhabdus wittichii	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	sufl	Sphingobium fuliginis	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	ccz	Chthonomonas calidirosea	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	ate	Caldicellulosiruptor bescii	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	mum	Pseudoduganella umbonata	incomplete route	2
+BACDIVE	arabinose_degradation	L-arabinose	tmj	Telluria mixta	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	slio	Simiduia litorea	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	ppsy	Pseudomonas versuta	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	tfl	Tessaracoccus flavus	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	bio	Brucella inopinata	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	agy	Agromyces aureus	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	pcaf	Paraburkholderia caffeinilytica	incomplete route	2
+BACDIVE	arabinose_degradation	L-arabinose	sroe	Skermanella rosea	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	gar	Glutamicibacter halophytocola	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	pcon	Paracoccus contaminans	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	tii	Thalassospira indica	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	mlo	Mesorhizobium japonicum	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	snap	Sphingomonas naphthae	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	plq	Pseudomonas lundensis	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	thw	Thioclava nitratireducens	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	fla	Flavisolibacter tropicus	incomplete route	2
+BACDIVE	arabinose_degradation	L-arabinose	bpb	Butyrivibrio proteoclasticus	incomplete route	2
+BACDIVE	arabinose_degradation	L-arabinose	ahu	Azospirillum humicireducens	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	kus	Kushneria konosiri	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	meso	Aquibium oceanicum	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	aei	Acinetobacter equi	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	palg	Parasphingopyxis algicola	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	aacd	Amycolatopsis acidiphila	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	hrb	Herbaspirillum rubrisubalbicans	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	kyr	Kyrpidia spormannii	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	cber	Cognaticolwellia beringensis	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	pmob	Pyruvatibacter mobilis	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	srhi	Sphingomonas rhizophila	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	tes	Tessaracoccus aquimaris	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	hsi	Halomonas aestuarii	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	parb	Paraburkholderia aromaticivorans	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	smam	Stieleria maiorica	incomplete route	2
+BACDIVE	arabinose_degradation	L-arabinose	masz	Pseudoduganella armeniaca	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	thac	Thalassospira marina	incomplete route	2
+BACDIVE	arabinose_degradation	L-arabinose	mee	Methylobacterium currus	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	sari	Sphingomonas aliaeris	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	paro	Paracoccus tegillarcae	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	palw	Pseudooceanicola algae	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	rtu	Arminella tumorigenes	incomplete route	2
+BACDIVE	arabinose_degradation	L-arabinose	sdd	Streptomyces dangxiongensis	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	spsr	Shewanella psychromarinicola	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	spun	Streptomyces fodineus	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	mhau	Microbulbifer harenosus	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	scad	Streptomyces cadmiisoli	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	scya	Streptomyces cyaneochromogenes	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	mets	Methylobacterium durans	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	ppru	Paroceanicella profunda	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	xya	Xylanimonas protaetiae	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	azm	Azospirillum ramasamyi	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	afus	Aequoribacter fuscus	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	lyd	Protaetiibacter intestinalis	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	salh	Saliniradius amylolyticus	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	gry	Gryllotalpicola protaetiae	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	psdm	Pseudosulfitobacter sp.	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	pfit	Pseudomonas fitomaticsae	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	kba	Kozakia baliensis	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	bcor	Bifidobacterium coryneforme	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	bcat	Bifidobacterium catenulatum	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	bang	Bifidobacterium angulatum	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	bxy	Bacteroides xylanisolvens	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	bcac	Bacteroides caccae	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	pdo	Parascardovia denticolens	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	bact	Bifidobacterium actinocoloniiforme	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	bni	Bifidobacterium animalis	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	bsca	Bifidobacterium scardovii	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	bpsc	Bifidobacterium pseudocatenulatum	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	blm	Bifidobacterium longum	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	bii	Bifidobacterium indicum	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	aex	Asticcacaulis excentricus	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	cfl	Cellulomonas flavigena	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	cfi	Cellulomonas fimi	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	yak	Yersinia aleksiciae	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	lrf	Limosilactobacillus reuteri	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	lol	Paucilactobacillus oligofermentans	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	lgs	Leuconostoc gasicomitatum	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	plue	Pseudoduganella lutea	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	mali	Pseudoduganella albidiflava	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	pgm	Paenibacillus graminis	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	pste	Paenibacillus stellifer	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	pbd	Paenibacillus borealis	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	xce	Xylanimonas cellulosilytica	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	rxy	Rubrobacter xylanophilus	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	zmp	Zymomonas mobilis	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	scd	Gracilinema caldarium	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	mfun	Megamonas funiformis	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	dji	Dyella jiangningensis	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	rcb	Rouxiella chamberiensis	incomplete route	2
+BACDIVE	arabinose_degradation	L-arabinose	cphy	Cnuibacter physcomitrellae	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	tfl	Tessaracoccus flavus	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	beu	Bifidobacterium eulemuris	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	pbv	Paenibacillus bovis	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	nbe	Nocardioides baekrokdamisoli	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	sroe	Skermanella rosea	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	gar	Glutamicibacter halophytocola	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	mlo	Mesorhizobium japonicum	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	lbr	Levilactobacillus brevis	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	ido	Isoptericola dokdonensis	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	bno	Bacteroides nordii	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	jpo	Jeotgalibaca porci	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	ahu	Azospirillum humicireducens	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	kus	Kushneria konosiri	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	dss	Demequina sediminis	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	cber	Cognaticolwellia beringensis	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	tes	Tessaracoccus aquimaris	incomplete route	1
+BACDIVE	arabinose_degradation	L-arabinose	paro	Paracoccus tegillarcae	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	mhau	Microbulbifer harenosus	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	pgy	Pseudomonas glycinae	incomplete route	3
+BACDIVE	arabinose_degradation	L-arabinose	neh	Oecophyllibacter saccharovorans	incomplete route	3
+BACDIVE	xylose_degradation_isomerase	D-xylose	boc	Burkholderia oklahomensis	incomplete route	1
+BACDIVE	xylose_degradation_isomerase	D-xylose	cpat	Clostridium pasteurianum	incomplete route	1
+BACDIVE	xylose_degradation_isomerase	D-xylose	vei	Verminephrobacter eiseniae	incomplete route	1
+BACDIVE	xylose_degradation_isomerase	D-xylose	gma	Granulicella mallensis	incomplete route	1
+BACDIVE	xylose_degradation_isomerase	D-xylose	sfo	Chania multitudinisentens	incomplete route	1
+BACDIVE	xylose_degradation_isomerase	D-xylose	pcaf	Paraburkholderia caffeinilytica	incomplete route	1
+BACDIVE	xylose_degradation_isomerase	D-xylose	bpb	Butyrivibrio proteoclasticus	incomplete route	1
+BACDIVE	xylose_degradation_isomerase	D-xylose	kyr	Kyrpidia spormannii	incomplete route	2
+BACDIVE	xylose_degradation_isomerase	D-xylose	spsr	Shewanella psychromarinicola	incomplete route	2
+BACDIVE	xylose_degradation_isomerase	D-xylose	kba	Kozakia baliensis	incomplete route	1
+BACDIVE	xylose_degradation_isomerase	D-xylose	aex	Asticcacaulis excentricus	incomplete route	2
+BACDIVE	xylose_degradation_isomerase	D-xylose	cuv	Corynebacterium ureicelerivorans	incomplete route	2
+BACDIVE	xylose_degradation_isomerase	D-xylose	clap	Cedecea lapagei	incomplete route	1
+BACDIVE	xylose_degradation_isomerase	D-xylose	slq	Serratia liquefaciens	incomplete route	1
+BACDIVE	xylose_degradation_isomerase	D-xylose	mhol	Mycolicibacterium holsaticum	incomplete route	1
+BACDIVE	xylose_degradation_isomerase	D-xylose	mhib	Mycolicibacter hiberniae	incomplete route	1
+BACDIVE	xylose_degradation_isomerase	D-xylose	plue	Pseudoduganella lutea	incomplete route	2
+BACDIVE	xylose_degradation_isomerase	D-xylose	mali	Pseudoduganella albidiflava	incomplete route	2
+BACDIVE	xylose_degradation_isomerase	D-xylose	mfun	Megamonas funiformis	incomplete route	1
+BACDIVE	xylose_degradation_isomerase	D-xylose	rdi	Rhizorhabdus dicambivorans	incomplete route	2
+BACDIVE	xylose_degradation_isomerase	D-xylose	kus	Kushneria konosiri	incomplete route	1
+BACDIVE	xylose_degradation_isomerase	D-xylose	sdb	Staphylococcus debuckii	incomplete route	1
+BACDIVE	xylose_degradation_isomerase	D-xylose	mhau	Microbulbifer harenosus	incomplete route	2
+BACDIVE	xylose_degradation_isomerase	D-xylose	alil	Actinomyces lilanjuaniae	incomplete route	1
+BACDIVE	xylose_degradation_isomerase	D-xylose	emv	Erythrobacter mangrovi	incomplete route	2
+BACDIVE	xylose_degradation_isomerase	D-xylose	lack	Lactococcus protaetiae	incomplete route	1
+BACDIVE	xylose_degradation_isomerase	D-xylose	cee	Corynebacterium endometrii	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	tsa	Terriglobus saanensis	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	trs	Terriglobus roseus	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	aaw	Alteromonas stellipolaris	incomplete route	3
+BACDIVE	rhamnose_degradation	L-rhamnose	bmeg	Bacillus megaterium	incomplete route	3
+BACDIVE	rhamnose_degradation	L-rhamnose	vei	Verminephrobacter eiseniae	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	dge	Deinococcus geothermalis	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	ams	Actinoplanes missouriensis	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	rxy	Rubrobacter xylanophilus	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	agd	Anseongella ginsenosidimutans	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	pgin	Panacibacter ginsenosidivorans	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	agy	Agromyces aureus	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	wfu	Wenyingzhuangia fucanilytica	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	mlo	Mesorhizobium japonicum	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	agi	Arachidicoccus ginsenosidivorans	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	als	Arcticibacterium luteifluviistationis	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	moc	Microvirga ossetica	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	ahal	Alkalicoccus halolimnae	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	mff	Mariniblastus fucicola	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	ahu	Azospirillum humicireducens	incomplete route	3
+BACDIVE	rhamnose_degradation	L-rhamnose	micc	Microbulbifer aggregans	incomplete route	3
+BACDIVE	rhamnose_degradation	L-rhamnose	apel	Alteromonas pelagimontana	incomplete route	3
+BACDIVE	rhamnose_degradation	L-rhamnose	bfw	Blastomonas fulva	incomplete route	3
+BACDIVE	rhamnose_degradation	L-rhamnose	aacd	Amycolatopsis acidiphila	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	woc	Woeseia oceani	incomplete route	3
+BACDIVE	rhamnose_degradation	L-rhamnose	erz	Egibacter rhizosphaerae	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	sdv	Streptomyces davaonensis	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	mcra	Micromonospora craniellae	incomplete route	3
+BACDIVE	rhamnose_degradation	L-rhamnose	kyr	Kyrpidia spormannii	incomplete route	3
+BACDIVE	rhamnose_degradation	L-rhamnose	chh	Chryseobacterium glaciei	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	pht	Phyllobacterium zundukense	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	smam	Stieleria maiorica	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	cfer	Clostridium fermenticellae	incomplete route	3
+BACDIVE	rhamnose_degradation	L-rhamnose	pseg	Paraflavitalea soli	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	scad	Streptomyces cadmiisoli	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	nib	Nibribacter ruber	incomplete route	3
+BACDIVE	rhamnose_degradation	L-rhamnose	afus	Aequoribacter fuscus	incomplete route	3
+BACDIVE	rhamnose_degradation	L-rhamnose	lyd	Protaetiibacter intestinalis	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	bcv	Beutenbergia cavernae	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	aex	Asticcacaulis excentricus	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	cwo	Conexibacter woesei	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	dfe	Dyadobacter fermentans	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	cmai	Cobetia marina	incomplete route	3
+BACDIVE	rhamnose_degradation	L-rhamnose	bcam	Brochothrix campestris	incomplete route	3
+BACDIVE	rhamnose_degradation	L-rhamnose	gta	Gordonia terrae	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	plue	Pseudoduganella lutea	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	mali	Pseudoduganella albidiflava	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	ami	Actinosynnema mirum	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	ske	Sanguibacter keddieii	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	zmp	Zymomonas mobilis	incomplete route	3
+BACDIVE	rhamnose_degradation	L-rhamnose	cmr	Cyclobacterium marinum	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	rcb	Rouxiella chamberiensis	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	ghn	Gordonia hongkongensis	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	mlo	Mesorhizobium japonicum	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	camu	Cyclobacterium amurskyense	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	pbk	Paenibacillus baekrokdamisoli	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	tes	Tessaracoccus aquimaris	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	fcm	Flavobacterium commune	incomplete route	2
+BACDIVE	rhamnose_degradation	L-rhamnose	dph	Deinococcus psychrotolerans	incomplete route	1
+BACDIVE	rhamnose_degradation	L-rhamnose	ecog	Paremcibacter congregatus	incomplete route	3
+BACDIVE	rhamnose_degradation	L-rhamnose	prz	Paenibacillus rhizovicinus	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	gdj	Gluconacetobacter diazotrophicus	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	rxy	Rubrobacter xylanophilus	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	bbd	Belliella baltica	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	tfl	Tessaracoccus flavus	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	naj	Natrarchaeobaculum aegyptiacum	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	pcaf	Paraburkholderia caffeinilytica	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	sroe	Skermanella rosea	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	pcon	Paracoccus contaminans	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	rhl	Rhizobium favelukesii	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	hre	Halobaculum roseum	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	moc	Microvirga ossetica	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	php	Phaeobacter porticola	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	mff	Mariniblastus fucicola	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	mhw	Megasphaera hexanoica	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	micc	Microbulbifer aggregans	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	dcs	Dyella caseinilytica	incomplete route	3
+BACDIVE	galactose_degradation_leloir	D-galactose	nyu	Nocardia yunnanensis	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	kyr	Kyrpidia spormannii	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	eke	Epidermidibacterium keratini	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	afla	Antarcticibacterium flavum	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	pht	Phyllobacterium zundukense	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	smam	Stieleria maiorica	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	sdd	Streptomyces dangxiongensis	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	spsr	Shewanella psychromarinicola	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	ppai	Paraburkholderia pallida	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	pgy	Pseudomonas glycinae	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	ppru	Paroceanicella profunda	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	kba	Kozakia baliensis	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	aex	Asticcacaulis excentricus	incomplete route	3
+BACDIVE	galactose_degradation_leloir	D-galactose	cfy	Corynebacterium freneyi	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	dfe	Dyadobacter fermentans	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	cmai	Cobetia marina	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	pfre	Propionibacterium freudenreichii	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	pbo	Acidipropionibacterium acidipropionici	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	xce	Xylanimonas cellulosilytica	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	phe	Pedobacter heparinus	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	ntd	Caenibius tardaugens	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	cmr	Cyclobacterium marinum	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	dji	Dyella jiangningensis	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	dva	Dermabacter vaginalis	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	tfl	Tessaracoccus flavus	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	pei	Phycicoccus endophyticus	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	nbe	Nocardioides baekrokdamisoli	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	sroe	Skermanella rosea	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	mlo	Mesorhizobium japonicum	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	camu	Cyclobacterium amurskyense	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	ido	Isoptericola dokdonensis	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	fla	Flavisolibacter tropicus	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	kus	Kushneria konosiri	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	schj	Streptococcus chenjunshii	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	buy	Butyricimonas faecalis	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	acij	Acidipropionibacterium virtanenii	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	tes	Tessaracoccus aquimaris	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	cbae	Chitinophaga caeni	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	paro	Paracoccus tegillarcae	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	alm	Algoriphagus sanaruensis	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	mhau	Microbulbifer harenosus	incomplete route	3
+BACDIVE	galactose_degradation_leloir	D-galactose	actt	Actinobaculum sp.	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	lzh	Companilactobacillus zhachilii	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	alil	Actinomyces lilanjuaniae	incomplete route	1
+BACDIVE	galactose_degradation_leloir	D-galactose	emv	Erythrobacter mangrovi	incomplete route	2
+BACDIVE	galactose_degradation_leloir	D-galactose	neh	Oecophyllibacter saccharovorans	incomplete route	2
+BACDIVE	fucose_degradation_isomerase	L-fucose	aaw	Alteromonas stellipolaris	incomplete route	3
+BACDIVE	fucose_degradation_isomerase	L-fucose	vei	Verminephrobacter eiseniae	incomplete route	2
+BACDIVE	fucose_degradation_isomerase	L-fucose	dfe	Dyadobacter fermentans	incomplete route	3
+BACDIVE	fucose_degradation_isomerase	L-fucose	sfj	Serratia ficaria	incomplete route	3
+BACDIVE	fucose_degradation_isomerase	L-fucose	cmr	Cyclobacterium marinum	incomplete route	3
+BACDIVE	fucose_degradation_isomerase	L-fucose	agd	Anseongella ginsenosidimutans	incomplete route	3
+BACDIVE	fucose_degradation_isomerase	L-fucose	wfu	Wenyingzhuangia fucanilytica	incomplete route	2
+BACDIVE	fucose_degradation_isomerase	L-fucose	mlo	Mesorhizobium japonicum	incomplete route	3
+BACDIVE	fucose_degradation_isomerase	L-fucose	ahu	Azospirillum humicireducens	incomplete route	2
+BACDIVE	fucose_degradation_isomerase	L-fucose	woc	Woeseia oceani	incomplete route	3
+BACDIVE	fucose_degradation_isomerase	L-fucose	stri	Peterkaempfera bronchialis	incomplete route	2
+BACDIVE	fucose_degradation_isomerase	L-fucose	kyr	Kyrpidia spormannii	incomplete route	2
+BACDIVE	fucose_degradation_isomerase	L-fucose	smam	Stieleria maiorica	incomplete route	1
+BACDIVE	fucose_degradation_isomerase	L-fucose	ari	Psychromicrobium lacuslunae	incomplete route	3
+BACDIVE	fucose_degradation_isomerase	L-fucose	cfer	Clostridium fermenticellae	incomplete route	3
+BACDIVE	fucose_degradation_isomerase	L-fucose	nsl	Nocardia mangyaensis	incomplete route	2
+BACDIVE	fucose_degradation_isomerase	L-fucose	pseg	Paraflavitalea soli	incomplete route	3
+BACDIVE	fucose_degradation_isomerase	L-fucose	ppai	Paraburkholderia pallida	incomplete route	2
+BACDIVE	fucose_degradation_isomerase	L-fucose	nib	Nibribacter ruber	incomplete route	3
+BACDIVE	fucose_degradation_isomerase	L-fucose	ppru	Paroceanicella profunda	incomplete route	2
+BACDIVE	fucose_degradation_isomerase	L-fucose	niy	Nitratireductor mangrovi	incomplete route	3
+BACDIVE	fucose_degradation_isomerase	L-fucose	agf	Agromyces protaetiae	incomplete route	3
+BACDIVE	fucose_degradation_isomerase	L-fucose	bsym	Bradyrhizobium symbiodeficiens	incomplete route	2
+BACDIVE	fucose_degradation_isomerase	L-fucose	rii	Rhizobium indicum	incomplete route	2
+BACDIVE	glcnac_degradation	N-acetylglucosamine	oan	Brucella anthropi	incomplete route	2
+BACDIVE	glcnac_degradation	N-acetylglucosamine	bur	Burkholderia lata	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	psaa	Paraburkholderia sabiae	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	pmeg	Paraburkholderia megapolitana	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	boc	Burkholderia oklahomensis	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	pter	Paraburkholderia terrae	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	bpy	Paraburkholderia phytofirmans	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	bxe	Paraburkholderia xenovorans	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	phs	Paraburkholderia hospita	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	bfn	Paraburkholderia fungorum	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	bstl	Burkholderia stabilis	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	bte	Burkholderia thailandensis	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	bpyr	Burkholderia pyrrocinia	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	bvi	Burkholderia vietnamiensis	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	bpla	Burkholderia plantarii	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	bgo	Burkholderia gladioli	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	dfe	Dyadobacter fermentans	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	dtm	Dietzia timorensis	incomplete route	3
+BACDIVE	glcnac_degradation	N-acetylglucosamine	fjo	Flavobacterium johnsoniae	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	cvi	Chromobacterium violaceum	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	nie	Nocardia iowensis	incomplete route	2
+BACDIVE	glcnac_degradation	N-acetylglucosamine	hsz	Herbaspirillum seropedicae	incomplete route	2
+BACDIVE	glcnac_degradation	N-acetylglucosamine	pprc	Pseudomonas protegens	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	pmud	Pseudomonas mucidolens	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	abar	Amycolatopsis bartoniae	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	ami	Actinosynnema mirum	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	ssyi	Saccharothrix syringae	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	sen	Saccharopolyspora erythraea	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	esj	Sinorhizobium sojae	incomplete route	2
+BACDIVE	glcnac_degradation	N-acetylglucosamine	rtr	Rhizobium tropici	incomplete route	2
+BACDIVE	glcnac_degradation	N-acetylglucosamine	sil	Ruegeria pomeroyi	incomplete route	2
+BACDIVE	glcnac_degradation	N-acetylglucosamine	pga	Phaeobacter inhibens	incomplete route	2
+BACDIVE	glcnac_degradation	N-acetylglucosamine	nar	Novosphingobium aromaticivorans	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	smiz	Sphingobacterium mizutaii	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	stha	Sphingobacterium thalpophilum	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	sspi	Sphingobacterium spiritivorum	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	laq	Lysobacter antibioticus	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	lrz	Luteibacter rhizovicinus	incomplete route	2
+BACDIVE	glcnac_degradation	N-acetylglucosamine	xcc	Xanthomonas campestris	incomplete route	2
+BACDIVE	glcnac_degradation	N-acetylglucosamine	rhd	Rhodanobacter denitrificans	incomplete route	2
+BACDIVE	glcnac_degradation	N-acetylglucosamine	pall	Ectopseudomonas alcaliphila	incomplete route	3
+BACDIVE	glcnac_degradation	N-acetylglucosamine	pen	Pseudomonas entomophila	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	slio	Simiduia litorea	incomplete route	2
+BACDIVE	glcnac_degradation	N-acetylglucosamine	bio	Brucella inopinata	incomplete route	2
+BACDIVE	glcnac_degradation	N-acetylglucosamine	cfon	Chitinibacter fontanus	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	buo	Caballeronia insecticola	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	thac	Thalassospira marina	incomplete route	2
+BACDIVE	glcnac_degradation	N-acetylglucosamine	cbae	Chitinophaga caeni	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	zsp	Zhouia spongiae	incomplete route	2
+BACDIVE	glcnac_degradation	N-acetylglucosamine	fcr	Flavobacterium crocinum	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	paro	Paracoccus tegillarcae	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	spsr	Shewanella psychromarinicola	incomplete route	3
+BACDIVE	glcnac_degradation	N-acetylglucosamine	chri	Chromobacterium phragmitis	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	hyf	Ephemeroptericola cinctiostellae	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	pseg	Paraflavitalea soli	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	iod	Iodobacter ciconiae	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	amq	Amycolatopsis methanolica	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	nib	Nibribacter ruber	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	prz	Paenibacillus rhizovicinus	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	niy	Nitratireductor mangrovi	incomplete route	2
+BACDIVE	glcnac_degradation	N-acetylglucosamine	amyd	Amycolatopsis sp.	incomplete route	1
+BACDIVE	glcnac_degradation	N-acetylglucosamine	pfit	Pseudomonas fitomaticsae	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	axx	Achromobacter xylosoxidans	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	amim	Advenella mimigardefordensis	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	aka	Advenella kashmirensis	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	bpt	Bordetella petrii	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	cdn	Castellaniella defragrans	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	ais	Achromobacter insolitus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	mhc	Marinobacter nauticus	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	aac	Alicyclobacillus acidocaldarius	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	saf	Sulfurihydrogenibium azorense	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	bld	Bacillus licheniformis	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	aol	Bradyrhizobium oligotrophicum	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	bur	Burkholderia lata	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	psaa	Paraburkholderia sabiae	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	bxe	Paraburkholderia xenovorans	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	phs	Paraburkholderia hospita	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	bfn	Paraburkholderia fungorum	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	bstl	Burkholderia stabilis	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	bte	Burkholderia thailandensis	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	bpyr	Burkholderia pyrrocinia	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	bgu	Burkholderia glumae	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	bpla	Burkholderia plantarii	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	bgo	Burkholderia gladioli	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	pve	Pandoraea vervacti	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	pox	Pandoraea oxalativorans	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	pfg	Pandoraea faecigallinarum	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	ppnm	Pandoraea pnomenusa	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	ppul	Pandoraea pulmonicola	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	pnr	Pandoraea norimbergensis	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	rme	Cupriavidus metallidurans	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	aaa	Paracidovorax avenae	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	pna	Polaromonas naphthalenivorans	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	ctez	Comamonas terrigena	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	cgu	Corynebacterium glutamicum	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	cmd	Corynebacterium maris	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	kse	Kytococcus sedentarius	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	eta	Erwinia tasmaniensis	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	kco	Kosakonia cowanii	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	clap	Cedecea lapagei	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	bng	Brenneria nigrifluens	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	kie	Kluyvera intermedia	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	raq	Rahnella aquatilis	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	psx	Providencia stuartii	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	phei	Providencia heimbachae	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	pws	Pectobacterium wasabiae	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	pgz	Mixta gaviniae	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	pcd	Mixta calida	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	pey	Pantoea eucalypti	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	tci	Tatumella citrea	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	senp	Serratia entomophila	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	slq	Serratia liquefaciens	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	sof	Serratia odorifera	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	sfw	Serratia fonticola	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	sfj	Serratia ficaria	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	sbg	Salmonella bongori	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	cmw	Cronobacter muytjensii	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	cdm	Cronobacter dublinensis	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	cmj	Cronobacter malonaticus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	csj	Cronobacter sakazakii	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	yeg	Yersinia entomophaga	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	ymo	Yersinia mollaretii	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	ysi	Yersinia similis	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	yak	Yersinia aleksiciae	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	sna	Stackebrandtia nassauensis	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	gob	Geodermatophilus obscurus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	kma	Kushneria marisflavi	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	mphy	Methylobacterium phyllosphaerae	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	mor	Methylobacterium oryzae	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	ria	Rathayibacter iranicus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	rry	Rathayibacter rathayi	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	acry	Crystallibacter crystallopoietes	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	satk	Sinomonas atrocyanea	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	dros	Dactylosporangium roseum	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	ams	Actinoplanes missouriensis	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	mau	Micromonospora aurantiaca	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	pcr	Psychrobacter cryohalolentis	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	gta	Gordonia terrae	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	aer	Aeromicrobium erythreum	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	rtm	Rhodococcus triatomae	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	jag	Janthinobacterium agaricidamnosum	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	psop	Paenibacillus sophorae	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	mph	Microlunatus phosphovorus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	pstu	Stutzerimonas decontaminans	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	psz	Stutzerimonas stutzeri	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	pkc	Pseudomonas knackmussii	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	ptae	Pseudomonas taetrolens	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	pmud	Pseudomonas mucidolens	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	aja	Amycolatopsis japonica	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	ppel	Pseudonocardia petroleophila	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	ssyi	Saccharothrix syringae	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	sinl	Sulfitobacter indolifex	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	dsh	Dinoroseobacter shibae	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	rtr	Rhizobium tropici	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	psap	Paracoccus saliphilus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	samb	Streptomyces ambofaciens	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	salw	Streptomyces alboniger	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	scir	Streptomyces cinnabarinus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	scin	Streptomyces cinereoruber	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	scha	Streptomyces chartreusis	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	spra	Streptomyces prasinus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	scoe	Streptomyces coeruleorubidus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	sgf	Streptomyces griseofuscus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	ska	Streptomyces kanamyceticus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	snk	Streptomyces nitrosporeus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	stud	Streptomyces tubercidicus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	sspb	Streptomyces spectabilis	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	sgk	Streptomyces goshikiensis	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	sast	Streptomyces calvus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	stui	Streptomyces tuirus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	ksk	Kitasatospora setae	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	slau	Streptomyces laurentii	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	snf	Streptomyces nojiriensis	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	sro	Streptosporangium roseum	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	xcc	Xanthomonas campestris	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	ppac	Palaeococcus pacificus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	cui	Cronobacter universalis	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	ccon	Cronobacter condimenti	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	ens	Enterobacter sp.	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	dso	Dickeya solani	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	gfo	Christiangramia forsetii	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	gsb	Geoalkalibacter subterraneus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	rcb	Rouxiella chamberiensis	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	ksa	Kosakonia sacchari	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	ern	Enterobacter roggenkampii	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	ete	Edwardsiella anguillarum	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	hav	Hafnia alvei	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	ree	Klebsiella electrica	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	dfn	Dickeya fangzhongdai	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	cfac	Corynebacterium faecale	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	vsu	Varunaivibrio sulfuroxidans	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	salv	Snodgrassella alvi	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	pcaf	Paraburkholderia caffeinilytica	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	tii	Thalassospira indica	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	rhl	Rhizobium favelukesii	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	msq	Marinobacter salinus	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	kor	Kosakonia oryzae	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	ala	Acinetobacter larvae	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	mno	Methylobacterium nodulans	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	apop	Algimonas porphyrae	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	pspw	Paraburkholderia sprentiae	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	hpel	Halosimplex pelagicum	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	kan	Kordia antarctica	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	llp	Litorivicinus lipolyticus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	psc	Stutzerimonas stutzeri	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	php	Phaeobacter porticola	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	thw	Thioclava nitratireducens	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	ahu	Azospirillum humicireducens	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	apel	Alteromonas pelagimontana	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	meso	Aquibium oceanicum	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	aei	Acinetobacter equi	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	palg	Parasphingopyxis algicola	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	stri	Peterkaempfera bronchialis	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	eke	Epidermidibacterium keratini	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	miu	Mitsuaria sp.	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	hsi	Halomonas aestuarii	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	ssai	Salinirubellus salinus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	haq	Haloplanus rubicundus	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	chri	Chromobacterium phragmitis	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	prq	Providencia huaxiensis	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	hmi	Hydrocarboniclastica marina	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	izh	Jejuibacter calystegiae	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	bcab	Bacillus cabrialesii	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	ppai	Paraburkholderia pallida	incomplete route	2
+BACDIVE	citrate_fermentation	citrate	pgy	Pseudomonas glycinae	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	ehu	Enterobacter huaxiensis	incomplete route	1
+BACDIVE	citrate_fermentation	citrate	edy	Enterobacter dykesii	incomplete route	1
+BACDIVE	starch_degradation	glycogen	acas	Arcanobacterium canis	incomplete route	1
+BACDIVE	starch_degradation	glycogen	aaw	Alteromonas stellipolaris	incomplete route	1
+BACDIVE	starch_degradation	glycogen	bcoh	Sutcliffiella cohnii	incomplete route	1
+BACDIVE	starch_degradation	glycogen	bbrn	Bifidobacterium breve	incomplete route	1
+BACDIVE	starch_degradation	glycogen	sij	Scardovia inopinata	incomplete route	1
+BACDIVE	starch_degradation	glycogen	pdo	Parascardovia denticolens	incomplete route	1
+BACDIVE	starch_degradation	glycogen	cfl	Cellulomonas flavigena	incomplete route	1
+BACDIVE	starch_degradation	glycogen	cacc	Corynebacterium accolens	incomplete route	2
+BACDIVE	starch_degradation	glycogen	cmq	Corynebacterium marinum	incomplete route	2
+BACDIVE	starch_degradation	glycogen	cter	Corynebacterium terpenotabidum	incomplete route	1
+BACDIVE	starch_degradation	glycogen	cpho	Corynebacterium phocae	incomplete route	2
+BACDIVE	starch_degradation	glycogen	dpc	Dietzia psychralcaliphila	incomplete route	1
+BACDIVE	starch_degradation	glycogen	pod	Paenibacillus odorifer	incomplete route	1
+BACDIVE	starch_degradation	glycogen	pgm	Paenibacillus graminis	incomplete route	1
+BACDIVE	starch_degradation	glycogen	xce	Xylanimonas cellulosilytica	incomplete route	1
+BACDIVE	starch_degradation	glycogen	ske	Sanguibacter keddieii	incomplete route	1
+BACDIVE	starch_degradation	glycogen	nar	Novosphingobium aromaticivorans	incomplete route	1
+BACDIVE	starch_degradation	glycogen	lba	Leptotrichia buccalis	incomplete route	1
+BACDIVE	starch_degradation	glycogen	pkb	Paenibacillus kribbensis	incomplete route	1
+BACDIVE	starch_degradation	glycogen	nbe	Nocardioides baekrokdamisoli	incomplete route	2
+BACDIVE	starch_degradation	glycogen	srq	Streptococcus ruminantium	incomplete route	2
+BACDIVE	starch_degradation	glycogen	fla	Flavisolibacter tropicus	incomplete route	2
+BACDIVE	starch_degradation	glycogen	dss	Demequina sediminis	incomplete route	1
+BACDIVE	starch_degradation	glycogen	tes	Tessaracoccus aquimaris	incomplete route	1
+BACDIVE	starch_degradation	glycogen	fcm	Flavobacterium commune	incomplete route	1
+BACDIVE	starch_degradation	glycogen	dph	Deinococcus psychrotolerans	incomplete route	1
+BACDIVE	starch_degradation	glycogen	salm	Salinimonas sediminis	incomplete route	1
+BACDIVE	starch_degradation	glycogen	mhau	Microbulbifer harenosus	incomplete route	2
+BACDIVE	starch_degradation	glycogen	fll	Flammeovirga pectinis	incomplete route	1
+BACDIVE	starch_degradation	glycogen	actt	Actinobaculum sp.	incomplete route	2
+BACDIVE	starch_degradation	glycogen	emv	Erythrobacter mangrovi	incomplete route	1
+BACDIVE	starch_degradation	glycogen	vaq	Vibrio aquimaris	incomplete route	2
+BACDIVE	collagen_cleavage	gelatin	cdn	Castellaniella defragrans	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	mhyd	Microbulbifer hydrolyticus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	aac	Alicyclobacillus acidocaldarius	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	bld	Bacillus licheniformis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	bmeg	Bacillus megaterium	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	bsm	Bacillus smithii	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	bcoh	Sutcliffiella cohnii	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	vpt	Virgibacillus pantothenticus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	bpla	Burkholderia plantarii	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	csta	Corynebacterium stationis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	lby	Leadbetterella byssophila	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	dco	Dermatophilus congolensis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	kse	Kytococcus sedentarius	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pws	Pectobacterium wasabiae	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pgz	Mixta gaviniae	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pcd	Mixta calida	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	xne	Xenorhabdus nematophila	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	senp	Serratia entomophila	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	slq	Serratia liquefaciens	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	sfj	Serratia ficaria	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	cdm	Cronobacter dublinensis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	yeg	Yersinia entomophaga	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	smoe	Solobacterium moorei	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	cao	Cellulophaga algicola	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	cly	Cellulophaga lytica	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	asl	Aequorivita sublithincola	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	fjo	Flavobacterium johnsoniae	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	cil	Chryseobacterium indoltheticum	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	fpt	Francisella philomiragia	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	zpr	Zunongwangia profunda	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	hba	Hirschia baltica	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	mfol	Microbacterium foliorum	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	ach	Pseudarthrobacter chlorophenolicus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pnv	Paenarthrobacter nicotinovorans	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	apn	Pseudarthrobacter phenanthrenivorans	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	dvc	Dactylosporangium vinaceum	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	dfu	Dactylosporangium fulvum	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	dmat	Dactylosporangium vinaceum	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	ams	Actinoplanes missouriensis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	mau	Micromonospora aurantiaca	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	meno	Micromonospora endophytica	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	msak	Mycobacterium saskatchewanense	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	gta	Gordonia terrae	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	aer	Aeromicrobium erythreum	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	ndp	Nocardioides daphniae	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	naqu	Nocardioides aquaticus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	mfla	Pseudoduganella flava	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	mpli	Pseudoduganella plicata	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	plue	Pseudoduganella lutea	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	saci	Singulisphaera acidiphila	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pscj	Prevotella scopos	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pend	Porphyromonas endodontalis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pah	Porphyromonas asaccharolytica	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pprc	Pseudomonas protegens	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	kal	Kutzneria viridogrisea	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	abar	Amycolatopsis bartoniae	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	aja	Amycolatopsis japonica	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	ami	Actinosynnema mirum	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	aaur	Actinokineospora auranticolor	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	ppel	Pseudonocardia petroleophila	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	ssyi	Saccharothrix syringae	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	samb	Streptomyces ambofaciens	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	sals	Streptomyces albus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	scir	Streptomyces cinnabarinus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	spra	Streptomyces prasinus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	scoe	Streptomyces coeruleorubidus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	sgm	Streptomyces aurantiacus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	sgal	Streptomyces galilaeus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	snq	Streptomyces nodosus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	snk	Streptomyces nitrosporeus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	sast	Streptomyces calvus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	stui	Streptomyces tuirus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	sma	Streptomyces avermitilis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	vfu	Vibrio furnissii	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	vta	Vibrio tapetis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	lrz	Luteibacter rhizovicinus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	rhd	Rhodanobacter denitrificans	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	cpi	Chitinophaga pinensis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	ima	Iamia majanohamensis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	aey	Actinopolyspora erythraea	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pdc	Clostridioides difficile	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	cui	Cronobacter universalis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	dso	Dickeya solani	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	gfo	Christiangramia forsetii	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	dji	Dyella jiangningensis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	ahg	Actinoalloteichus hoggarensis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	tmj	Telluria mixta	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	kphy	Kibdelosporangium phytohabitans	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	wma	Wenzhouxiangella marina	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	cphy	Cnuibacter physcomitrellae	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pbv	Paenibacillus bovis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pei	Phycicoccus endophyticus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pbor	Paludisphaera borealis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pgo	Pseudobacter ginsenosidimutans	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	lut	Lutibacter profundi	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	gar	Glutamicibacter halophytocola	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pcaz	Piscinibacterium candidicorallinum	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pad	Cutibacterium acnes	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	als	Arcticibacterium luteifluviistationis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	msq	Marinobacter salinus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	plq	Pseudomonas lundensis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	bno	Bacteroides nordii	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	mff	Mariniblastus fucicola	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	fla	Flavisolibacter tropicus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	gsn	Gynuella sunshinyii	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	hfl	Hyphococcus flavus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	apel	Alteromonas pelagimontana	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	kus	Kushneria konosiri	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	nro	Nocardioides rotundus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	fek	Flavivirga eckloniae	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	hlu	Halobacterium litoreum	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	dcs	Dyella caseinilytica	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	woc	Woeseia oceani	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	nod	Nocardia otitidiscaviarum	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	mgro	Mycolicibacterium grossiae	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	apra	Ancylobacter pratisalsi	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	stri	Peterkaempfera bronchialis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	avu	Boudabousia tangfeifanii	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	cber	Cognaticolwellia beringensis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pmob	Pyruvatibacter mobilis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	fsd	Flavobacterium sediminilitoris	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	fki	Flavobacterium kingsejongi	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	chh	Chryseobacterium glaciei	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	ten	Tenacibaculum todarodis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	miu	Mitsuaria sp.	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	tum	Tumebacillus avium	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	phr	Phreatobacter cathodiphilus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	grl	Christiangramia salexigens	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	xba	Ahniella affigens	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	cbae	Chitinophaga caeni	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	ari	Psychromicrobium lacuslunae	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	otk	Ottowia oryzae	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	salm	Salinimonas sediminis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	falb	Flavobacterium album	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	lum	Luteimonas chenhongjianii	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	nav	Natronoglycomyces albus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	rom	Roseovarius faecimaris	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pmar	Planococcus sp.	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pseg	Paraflavitalea soli	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	sutk	Sutterella faecalis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	csal	Chryseobacterium salivictor	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	amq	Amycolatopsis methanolica	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	hgn	Hankyongella ginsenosidimutans	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	lue	Solilutibacter oculi	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pgy	Pseudomonas glycinae	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	xya	Xylanimonas protaetiae	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	tsig	Tenacibaculum singaporense	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	aue	Pukyongia salina	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	atw	Pseudazoarcus pumilus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	afus	Aequoribacter fuscus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	lyd	Protaetiibacter intestinalis	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	ftj	Frigoriglobus tundricola	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	atq	Actinomarinicola tropica	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	rhae	Rodentibacter haemolyticus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	lul	Urechidicola croceus	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	psds	Pseudonocardia sp.	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	pfit	Pseudomonas fitomaticsae	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	lfx	Luteimonas fraxinea	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	mich	Micromonospora sp.	incomplete route	1
+BACDIVE	collagen_cleavage	gelatin	vaq	Vibrio aquimaris	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	ckp	Corynebacterium kroppenstedtii	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	bsau	Brachybacterium saurashtrense	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	cjg	Kaistella jeonii	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	cgle	Chryseobacterium gleum	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	wvi	Weeksella virosa	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	ccag	Chromohalobacter canadensis	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	phc	Planococcus halocryophilus	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	tfa	Tessaracoccus flavescens	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	pcaf	Paraburkholderia caffeinilytica	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	als	Arcticibacterium luteifluviistationis	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	ctak	Chryseobacterium taklimakanense	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	hmp	Halobaculum magnesiiphilum	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	pseo	Pseudoalteromonas piratica	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	cnan	Cupriavidus nantongensis	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	parb	Paraburkholderia aromaticivorans	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	bcab	Bacillus cabrialesii	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	alil	Actinomyces lilanjuaniae	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	lyd	Protaetiibacter intestinalis	incomplete route	1
+BACDIVE	tryptophan_degradation_indole	indole	saca	Saccharibacillus brassicae	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	axx	Achromobacter xylosoxidans	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	aac	Alicyclobacillus acidocaldarius	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	mmed	Martelella mediterranea	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	blen	Lederbergia lenta	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	bcy	Bacillus cytotoxicus	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	ptb	Parageobacillus toebii	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	bcv	Beutenbergia cavernae	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	cgu	Corynebacterium glutamicum	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	ccn	Corynebacterium callunae	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	camg	Corynebacterium ammoniagenes	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	cmq	Corynebacterium marinum	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	dth	Dictyoglomus thermophilum	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	pshi	Plesiomonas shigelloides	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	ysi	Yersinia similis	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	gob	Geodermatophilus obscurus	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	acry	Crystallibacter crystallopoietes	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	satk	Sinomonas atrocyanea	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	dfu	Dactylosporangium fulvum	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	dros	Dactylosporangium roseum	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	dmat	Dactylosporangium vinaceum	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	ams	Actinoplanes missouriensis	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	mau	Micromonospora aurantiaca	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	gta	Gordonia terrae	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	gbr	Gordonia bronchialis	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	kal	Kutzneria viridogrisea	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	aja	Amycolatopsis japonica	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	ppel	Pseudonocardia petroleophila	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	sesp	Saccharothrix espanaensis	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	ssyi	Saccharothrix syringae	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	ske	Sanguibacter keddieii	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	mvt	Mammaliicoccus vitulinus	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	salw	Streptomyces alboniger	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	scir	Streptomyces cinnabarinus	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	scin	Streptomyces cinereoruber	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	schf	Streptomyces chromofuscus	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	scha	Streptomyces chartreusis	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	spra	Streptomyces prasinus	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	sgm	Streptomyces aurantiacus	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	sgal	Streptomyces galilaeus	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	ska	Streptomyces kanamyceticus	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	scal	Streptomyces californicus	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	snk	Streptomyces nitrosporeus	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	stud	Streptomyces tubercidicus	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	sspb	Streptomyces spectabilis	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	sgk	Streptomyces goshikiensis	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	smob	Streptomyces mobaraensis	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	stui	Streptomyces tuirus	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	sma	Streptomyces avermitilis	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	slau	Streptomyces laurentii	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	sro	Streptosporangium roseum	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	erx	Enterococcus rotai	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	aab	Amycolatopsis albispora	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	tii	Thalassospira indica	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	ala	Acinetobacter larvae	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	ahal	Alkalicoccus halolimnae	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	pseo	Pseudoalteromonas piratica	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	fki	Flavobacterium kingsejongi	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	dez	Deinococcus irradiatisoli	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	ecog	Paremcibacter congregatus	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	thac	Thalassospira marina	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	zsp	Zhouia spongiae	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	fll	Flammeovirga pectinis	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	hmi	Hydrocarboniclastica marina	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	nak	Nakamurella antarctica	incomplete route	1
+BACDIVE	acetoin_formation	acetoin	lpv	Limnobaculum parvum	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	saf	Sulfurihydrogenibium azorense	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	vpt	Virgibacillus pantothenticus	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	csho	Campylobacter showae	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	hhw	Hathewaya histolytica	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	cmed	Caminibacter mediatlanticus	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	dca	Desulfotomaculum nigrificans	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	phc	Planococcus halocryophilus	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	rba	Rhodopirellula baltica	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	tpd	Thermoanaerobacter pseudethanolicus	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	ttk	Thermosulfidibacter takaii	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	sbr	Fretibacterium fastidiosum	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	aana	Halarcobacter anaerophilus	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	pyc	Pyrococcus kukulkanii	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	hlm	Halobellus limi	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	hrr	Halosimplex rubrum	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	hlo	Natrinema longum	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	cspf	Campylobacter sputorum	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	hlu	Halobacterium litoreum	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	abut	Aminipila butyrica	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	acaa	Malaciobacter canalis	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	ecog	Paremcibacter congregatus	incomplete route	1
+BACDIVE	cysteine_degradation_sulfide	hydrogen sulfide	pmar	Planococcus sp.	incomplete route	1
+BACDIVE	RHEA:20557	urease	bco	Evansella cellulosilytica	no evidence	
+BACDIVE	RHEA:20557	urease	camc	Corynebacterium amycolatum	no evidence	
+BACDIVE	RHEA:20557	urease	eol	Emticicia oligotrophica	no evidence	
+BACDIVE	RHEA:20557	urease	wvi	Weeksella virosa	no evidence	
+BACDIVE	RHEA:20557	urease	mau	Micromonospora aurantiaca	no evidence	
+BACDIVE	RHEA:20557	urease	mcun	Moraxella cuniculi	no evidence	
+BACDIVE	RHEA:20557	urease	aer	Aeromicrobium erythreum	no evidence	
+BACDIVE	RHEA:20557	urease	tfa	Tessaracoccus flavescens	no evidence	
+BACDIVE	RHEA:20557	urease	sse	Shewanella sediminis	no evidence	
+BACDIVE	RHEA:20557	urease	dtx	Dyella thiooxydans	no evidence	
+BACDIVE	RHEA:20557	urease	fln	Filimonas lacunae	no evidence	
+BACDIVE	RHEA:20557	urease	ima	Iamia majanohamensis	no evidence	
+BACDIVE	RHEA:20557	urease	mlv	Microbacterium lemovicicum	no evidence	
+BACDIVE	RHEA:20557	urease	clw	Corynebacterium lactis	no evidence	
+BACDIVE	RHEA:20557	urease	ute	Uruburuella testudinis	no evidence	
+BACDIVE	RHEA:20557	urease	als	Arcticibacterium luteifluviistationis	no evidence	
+BACDIVE	RHEA:20557	urease	frb	Fretibacter rubidus	no evidence	
+BACDIVE	RHEA:20557	urease	cagg	Costertonia aggregata	no evidence	
+BACDIVE	RHEA:20557	urease	naw	Neisseria arctica	no evidence	
+BACDIVE	RHEA:20557	urease	apel	Alteromonas pelagimontana	no evidence	
+BACDIVE	RHEA:20557	urease	dcs	Dyella caseinilytica	no evidence	
+BACDIVE	RHEA:20557	urease	tim	Tuwongella immobilis	no evidence	
+BACDIVE	RHEA:20557	urease	srhi	Sphingomonas rhizophila	no evidence	
+BACDIVE	RHEA:20557	urease	chh	Chryseobacterium glaciei	no evidence	
+BACDIVE	RHEA:20557	urease	bshi	Bacillus shivajii	no evidence	
+BACDIVE	RHEA:20557	urease	salm	Salinimonas sediminis	no evidence	
+BACDIVE	RHEA:20557	urease	nav	Natronoglycomyces albus	no evidence	
+BACDIVE	RHEA:20557	urease	chri	Chromobacterium phragmitis	no evidence	
+BACDIVE	RHEA:20557	urease	mets	Methylobacterium durans	no evidence	
+BACDIVE	RHEA:20557	urease	spha	Sphingomonas paeninsulae	no evidence	
+BACDIVE	RHEA:20557	urease	nib	Nibribacter ruber	no evidence	
+BACDIVE	RHEA:20557	urease	melm	Pulveribacter suum	no evidence	
+BACDIVE	RHEA:20557	urease	ftj	Frigoriglobus tundricola	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	phon	Pauljensenia hongkongensis	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	ctub	Corynebacterium tuberculostearicum	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	ria	Rathayibacter iranicus	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	rry	Rathayibacter rathayi	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	hsz	Herbaspirillum seropedicae	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	pana	Planococcus antarcticus	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	pscj	Prevotella scopos	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	tpr	Tsukamurella paurometabola	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	dji	Dyella jiangningensis	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	naj	Natrarchaeobaculum aegyptiacum	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	djj	Dermabacter jinjuensis	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	gar	Glutamicibacter halophytocola	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	tii	Thalassospira indica	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	mff	Mariniblastus fucicola	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	srhi	Sphingomonas rhizophila	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	aswu	Adhaeribacter swui	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	rbd	Aerosticca soli	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	dez	Deinococcus irradiatisoli	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	salm	Salinimonas sediminis	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	izh	Jejuibacter calystegiae	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	mets	Methylobacterium durans	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	ppai	Paraburkholderia pallida	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	xyk	Xylophilus rhododendri	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	nib	Nibribacter ruber	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	hrs	Hymenobacter sp.	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	ppru	Paroceanicella profunda	no evidence	
+BACDIVE	RHEA:19597	arginine deiminase	lyd	Protaetiibacter intestinalis	no evidence	
+BACDIVE	RHEA:19553	tryptophanase	ppee	Proteus penneri	no evidence	
+BACDIVE	RHEA:19553	tryptophanase	mau	Micromonospora aurantiaca	no evidence	
+BACDIVE	RHEA:19553	tryptophanase	shaw	Streptomyces hawaiiensis	no evidence	
+BACDIVE	RHEA:19553	tryptophanase	sfi	Streptomyces microflavus	no evidence	
+BACDIVE	RHEA:19553	tryptophanase	ska	Streptomyces kanamyceticus	no evidence	
+BACDIVE	RHEA:19553	tryptophanase	scal	Streptomyces californicus	no evidence	
+BACDIVE	RHEA:19553	tryptophanase	sspb	Streptomyces spectabilis	no evidence	
+BACDIVE	RHEA:19553	tryptophanase	snf	Streptomyces nojiriensis	no evidence	
+BACDIVE	RHEA:19553	tryptophanase	tpr	Tsukamurella paurometabola	no evidence	
+BACDIVE	RHEA:19553	tryptophanase	agy	Agromyces aureus	no evidence	
+BACDIVE	RHEA:19553	tryptophanase	als	Arcticibacterium luteifluviistationis	no evidence	
+BACDIVE	RHEA:19553	tryptophanase	pseo	Pseudoalteromonas piratica	no evidence	
+BACDIVE	RHEA:19553	tryptophanase	fki	Flavobacterium kingsejongi	no evidence	
+BACDIVE	RHEA:19553	tryptophanase	bcab	Bacillus cabrialesii	no evidence	
+BACDIVE	RHEA:19553	tryptophanase	saca	Saccharibacillus brassicae	no evidence	
+BACDIVE	RHEA:17785	glutamate decarboxylase	ctub	Corynebacterium tuberculostearicum	no evidence	
+BACDIVE	RHEA:17785	glutamate decarboxylase	obj	Dysosmobacter welbionis	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	koi	Komagataeibacter oboediens	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	tsa	Terriglobus saanensis	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	trs	Terriglobus roseus	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	aha	Aeromonas hydrophila	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	mad	Marinobacter adhaerens	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	maq	Marinobacter nauticus	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	bhl	Bacteroides helcogenes	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	bfs	Bacteroides fragilis	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	bxy	Bacteroides xylanisolvens	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	bvu	Phocaeicola vulgatus	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	cfl	Cellulomonas flavigena	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	efq	Enterococcus faecalis	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	lga	Lactobacillus gasseri	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	lrf	Limosilactobacillus reuteri	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	larg	Lactiplantibacillus argentoratensis	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	lgz	Listeria grayi	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	saci	Singulisphaera acidiphila	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	ppn	Paludibacter propionicigenes	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	pfus	Prevotella fusca	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	poc	Segatella oris	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	pmz	Prevotella melaninogenica	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	bvs	Barnesiella viscericola	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	ske	Sanguibacter keddieii	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	afd	Alistipes finegoldii	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	sspi	Sphingobacterium spiritivorum	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	str	Sebaldella termitidis	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	lgo	Pseudoleptotrichia goodfellowii	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	ccz	Chthonomonas calidirosea	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	bhan	Blautia hansenii	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	gma	Granulicella mallensis	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	acm	Granulicella tundricola	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	gfo	Christiangramia forsetii	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	cfas	Coprobacter fastidiosus	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	aiu	Alistipes ihumii	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	apii	Arcanobacterium pinnipediorum	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	bcae	Bacteroides caecimuris	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	erx	Enterococcus rotai	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	orp	Occallatibacter riparius	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	pbor	Paludisphaera borealis	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	staw	Spongiibacter taiwanensis	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	agi	Arachidicoccus ginsenosidivorans	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	lmow	Listeria monocytogenes	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	ido	Isoptericola dokdonensis	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	lmoa	Listeria monocytogenes	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	pdt	Prevotella dentalis	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	bno	Bacteroides nordii	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	psac	Proteiniphilum saccharofermentans	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	lalw	Companilactobacillus allii	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	bzg	Bacteroides zoogleoformans	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	ppe	Pediococcus pentosaceus	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	pii	Paramuribaculum intestinale	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	fsd	Flavobacterium sediminilitoris	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	lpw	Lactobacillus paragasseri	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	zsp	Zhouia spongiae	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	bfg	Bacteroides fragilis	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	lzh	Companilactobacillus zhachilii	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	xya	Xylanimonas protaetiae	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	afus	Aequoribacter fuscus	no evidence	
+BACDIVE	RXN_CHITOBIOSE_EXO	beta-N-acetylhexosaminidase	ftj	Frigoriglobus tundricola	no evidence	
+BACDIVE	RXN_MUCIN_FUCOSE_RELEASE	alpha-L-fucosidase	bcat	Bifidobacterium catenulatum	no evidence	
+BACDIVE	RXN_MUCIN_FUCOSE_RELEASE	alpha-L-fucosidase	snap	Sphingomonas naphthae	no evidence	
+BACDIVE	RXN_MUCIN_FUCOSE_RELEASE	alpha-L-fucosidase	gsn	Gynuella sunshinyii	no evidence	
+BACDIVE	RXN_MUCIN_FUCOSE_RELEASE	alpha-L-fucosidase	schj	Streptococcus chenjunshii	no evidence	
+BACDIVE	RXN_MUCIN_FUCOSE_RELEASE	alpha-L-fucosidase	dez	Deinococcus irradiatisoli	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	acg	Aerococcus christensenii	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	bpt	Bordetella petrii	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	aaw	Alteromonas stellipolaris	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	asq	Alteromonas stellipolaris	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	bals	Bartonella alsatica	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	amyt	Malaciobacter mytili	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	cmuc	Campylobacter mucosalis	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	cis	Campylobacter insulaenigrae	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	ccoc	Campylobacter concisus	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	apv	Lancefieldella parvula	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	cvt	Corynebacterium vitaeruminis	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	cmat	Corynebacterium matruchotii	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	cpho	Corynebacterium phocae	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	epr	Erwinia pyrifoliae	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	xne	Xenorhabdus nematophila	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	xdo	Xenorhabdus doucetiae	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	eio	Erysipelothrix inopinata	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	fin	Flavobacterium indicum	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	cjg	Kaistella jeonii	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	cjt	Chryseobacterium joostei	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	cil	Chryseobacterium indoltheticum	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	cgle	Chryseobacterium gleum	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	ccag	Chromohalobacter canadensis	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	dfm	Dorea formicigenerans	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	lcy	Loigolactobacillus coryniformis	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	lol	Paucilactobacillus oligofermentans	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	lsu	Leuconostoc suionicum	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	lme	Leuconostoc mesenteroides	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	rdn	Rothia dentocariosa	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	ndp	Nocardioides daphniae	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	pfus	Prevotella fusca	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	poc	Segatella oris	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	tfa	Tessaracoccus flavescens	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	ppan	Paracoccus pantotrophus	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	mvt	Mammaliicoccus vitulinus	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	scv	Staphylococcus condimenti	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	scai	Streptococcus canis	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	fsa	Fastidiosipila sanguinis	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	str	Sebaldella termitidis	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	lwd	Leptotrichia wadei	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	lhf	Leptotrichia hofstadii	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	lba	Leptotrichia buccalis	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	brm	Brachyspira murdochii	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	ccz	Chthonomonas calidirosea	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	apr	Anaerococcus prevotii	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	btr	Bartonella tribocorum	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	bhe	Bartonella henselae	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	pkb	Paenibacillus kribbensis	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	agd	Anseongella ginsenosidimutans	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	cfac	Corynebacterium faecale	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	fgl	Flavobacterium gilvum	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	hhe	Helicobacter hepaticus	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	cspf	Campylobacter sputorum	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	spd	Streptococcus pneumoniae	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	chv	Campylobacter helveticus	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	bip	Brachyspira intermedia	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	pdt	Prevotella dentalis	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	pbt	Fermentimonas caenicola	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	psac	Proteiniphilum saccharofermentans	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	vte	Vagococcus teuberi	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	mff	Mariniblastus fucicola	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	srq	Streptococcus ruminantium	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	fla	Flavisolibacter tropicus	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	apor	Actinobacillus porcitonsillarum	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	schj	Streptococcus chenjunshii	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	fki	Flavobacterium kingsejongi	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	chh	Chryseobacterium glaciei	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	fse	Flavobacterium sediminis	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	spsr	Shewanella psychromarinicola	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	csal	Chryseobacterium salivictor	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	actt	Actinobaculum sp.	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	hgn	Hankyongella ginsenosidimutans	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	alil	Actinomyces lilanjuaniae	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	psez	Aquirufa nivalisilvae	no evidence	
+BACDIVE	RXN_MALTOOLIGO_EXO	alpha-glucosidase	ftj	Frigoriglobus tundricola	no evidence	
+BACDIVE	RHEA:25290	alcohol dehydrogenase	phon	Pauljensenia hongkongensis	no evidence	
+BACDIVE	RHEA:25290	alcohol dehydrogenase	gse	Geobacillus stearothermophilus	no evidence	
+BACDIVE	RHEA:25290	alcohol dehydrogenase	bxe	Paraburkholderia xenovorans	no evidence	
+BACDIVE	RHEA:25290	alcohol dehydrogenase	bte	Burkholderia thailandensis	no evidence	
+BACDIVE	RHEA:25290	alcohol dehydrogenase	rme	Cupriavidus metallidurans	no evidence	
+BACDIVE	RHEA:25290	alcohol dehydrogenase	ckp	Corynebacterium kroppenstedtii	no evidence	
+BACDIVE	RHEA:25290	alcohol dehydrogenase	cmat	Corynebacterium matruchotii	no evidence	
+BACDIVE	RHEA:25290	alcohol dehydrogenase	koa	Kingella oralis	no evidence	
+BACDIVE	RHEA:25290	alcohol dehydrogenase	ptae	Pseudomonas taetrolens	no evidence	
+BACDIVE	RHEA:25290	alcohol dehydrogenase	scv	Staphylococcus condimenti	no evidence	
+BACDIVE	flagellar_apparatus	motility	afo	Acidimicrobium ferrooxidans	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	amim	Advenella mimigardefordensis	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	ais	Achromobacter insolitus	incomplete route	3
+BACDIVE	flagellar_apparatus	motility	bww	Bacillus mycoides	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	bkw	Halalkalibacter krulwichiae	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	bcy	Bacillus cytotoxicus	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	vne	Virgibacillus necropolis	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	oan	Brucella anthropi	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	brh	Mycetohabitans rhizoxinica	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	ccf	Campylobacter coli	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	cfi	Cellulomonas fimi	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	bsb	Brevundimonas subvibrioides	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	din	Desulfurispirillum indicum	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	rca	Roseiflexus castenholzii	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	cck	Clostridium carboxidivorans	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	oho	Owenweeksia hongkongensis	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	fte	Fluviicola taffensis	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	chu	Cytophaga hutchinsonii	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	cni	Calditerrivibrio nitroreducens	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	dfd	Desulfurococcus amylolyticus	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	acj	Aeropyrum camini	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	ape	Aeropyrum pernix	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	ipc	Ignicoccus pacificus	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	iis	Ignicoccus islandicus	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	tag	Thermosphaera aggregans	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	sbg	Salmonella bongori	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	pns	Erythrobacter neustonensis	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	cao	Cellulophaga algicola	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	cly	Cellulophaga lytica	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	fpo	Flavobacterium psychrophilum	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	fjo	Flavobacterium johnsoniae	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	tmar	Tenacibaculum maritimum	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	tmp	Tenacibaculum mesophilum	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	nmo	Natronomonas moolapensis	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	nph	Natronomonas pharaonis	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	hmu	Halomicrobium mukohataei	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	nmg	Natrialba magadii	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	hna	Halothiobacillus neapolitanus	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	hsr	Vreelandella sulfidaeris	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	hnp	Vreelandella neptunia	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	hba	Hirschia baltica	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	aaeo	Acidihalobacter aeolianus	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	ladl	Legionella adelaidensis	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	lsg	Listeria seeligeri	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	lgz	Listeria grayi	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	mae	Methanococcus aeolicus	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	mphy	Methylobacterium phyllosphaerae	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	mtad	Methylobacterium tardum	incomplete route	3
+BACDIVE	flagellar_apparatus	motility	mor	Methylobacterium oryzae	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	mdi	Methylorubrum extorquens	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	msed	Microbacterium sediminis	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	mfol	Microbacterium foliorum	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	mant	Marisediminicola antarctica	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	bmar	Bermanella marisrubri	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	tol	Thalassolituus oleivorans	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	dhd	Desulfitobacterium hafniense	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	nki	Nitratireductor kimnyeongensis	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	psz	Stutzerimonas stutzeri	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	pbm	Stutzerimonas balearica	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	dsh	Dinoroseobacter shibae	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	ngg	Neorhizobium galegae	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	rli	Roseobacter litoralis	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	rde	Roseobacter denitrificans	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	ske	Sanguibacter keddieii	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	sclo	Sphingobium cloacae	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	smaz	Sphingopyxis macrogoltabida	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	sal	Sphingopyxis alaskensis	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	spap	Sphingomonas alpina	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	saei	Sporomusa aerivorans	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	vaf	Vibrio alfacsensis	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	dko	Dokdonella koreensis	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	azc	Azorhizobium caulinodans	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	cex	Caldisericum exile	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	fln	Filimonas lacunae	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	evi	Echinicola vietnamensis	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	asx	Alkalitalea saponilacus	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	ttk	Thermosulfidibacter takaii	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	lwi	Paenilisteria weihenstephanensis	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	moj	Microbacterium oryzae	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	sdk	Shewanella dokdonensis	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	ppac	Palaeococcus pacificus	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	sbr	Fretibacterium fastidiosum	incomplete route	8
+BACDIVE	flagellar_apparatus	motility	gfo	Christiangramia forsetii	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	fka	Flammeovirga kamogawensis	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	pgd	Phaeobacter gallaeciensis	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	afy	Acidihalobacter ferrooxydans	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	msx	Marinobacter similis	incomplete route	3
+BACDIVE	flagellar_apparatus	motility	msr	Marinobacter salarius	incomplete route	7
+BACDIVE	flagellar_apparatus	motility	gsb	Geoalkalibacter subterraneus	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	hlq	Haloimpatiens lingqiaonensis	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	slim	Sulfuricaulis limicola	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	thg	Thermogladius calderae	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	dfn	Dickeya fangzhongdai	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	pyc	Pyrococcus kukulkanii	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	manq	Methanomicrobium antiquum	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	vsu	Varunaivibrio sulfuroxidans	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	agy	Agromyces aureus	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	pdl	Pyrodictium delaneyi	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	rap	Rhodovastum atsumiense	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	cfon	Chitinibacter fontanus	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	sroe	Skermanella rosea	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	blep	Beggiatoa leptomitoformis	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	est	Echinicola strongylocentroti	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	rpod	Roseitalea porphyridii	incomplete route	3
+BACDIVE	flagellar_apparatus	motility	ctak	Chryseobacterium taklimakanense	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	cman	Croceicoccus marinus	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	svm	Shewanella vesiculosa	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	ppsv	Persicobacter psychrovividus	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	emp	Endozoicomonas montiporae	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	egi	Sinorhizobium garamanticum	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	enu	Sinorhizobium numidicum	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	pson	Paenibacillus sonchi	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	mno	Methylobacterium nodulans	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	tpk	Treponema putidum	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	mpo	Methylorubrum populi	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	hlm	Halobellus limi	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	apop	Algimonas porphyrae	incomplete route	3
+BACDIVE	flagellar_apparatus	motility	mgm	Magnetococcus marinus	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	naei	Naasia aerilata	incomplete route	3
+BACDIVE	flagellar_apparatus	motility	hrr	Halosimplex rubrum	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	hpel	Halosimplex pelagicum	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	eei	Endozoicomonas euniceicola	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	nas	Natronorubrum aibiense	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	cagg	Costertonia aggregata	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	alf	Agrobacterium larrymoorei	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	rbl	Pseudogemmobacter blasticus	incomplete route	3
+BACDIVE	flagellar_apparatus	motility	hpy	Helicobacter pylori	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	lmow	Listeria monocytogenes	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	atu	Agrobacterium fabrum	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	lmoa	Listeria monocytogenes	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	fco	Flavobacterium columnare	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	php	Phaeobacter porticola	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	cgeo	Campylobacter geochelonis	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	dalk	Desulfosarcina alkanivorans	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	dwd	Desulfosarcina widdelii	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	saqi	Silvanigrella aquatica	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	thw	Thioclava nitratireducens	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	gsn	Gynuella sunshinyii	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	cga	Cellulomonas gilvus	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	pstg	Phreatobacter stygius	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	aaqa	Ampullimonas aquatilis	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	hlu	Halobacterium litoreum	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	ise	Ichthyobacterium seriolicida	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	pmob	Pyruvatibacter mobilis	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	fsd	Flavobacterium sediminilitoris	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	ten	Tenacibaculum todarodis	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	vil	Virgibacillus phasianinus	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	miu	Mitsuaria sp.	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	hsi	Halomonas aestuarii	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	ssai	Salinirubellus salinus	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	pht	Phyllobacterium zundukense	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	dov	Desulfosarcina ovata	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	hra	Haloplanus rallus	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	ecog	Paremcibacter congregatus	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	grl	Christiangramia salexigens	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	simp	Simplicispira suum	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	mee	Methylobacterium currus	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	fpal	Flavobacterium pallidum	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	fcr	Flavobacterium crocinum	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	ttz	Tenuifilum thalassicum	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	nan	Natrarchaeobaculum sulfurireducens	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	haq	Haloplanus rubicundus	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	mhau	Microbulbifer harenosus	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	upi	Neoundibacterium piscinae	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	fll	Flammeovirga pectinis	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	pseg	Paraflavitalea soli	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	brq	Bradyrhizobium amphicarpaeae	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	mbas	Labilibaculum antarcticum	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	mets	Methylobacterium durans	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	tsig	Tenacibaculum singaporense	incomplete route	9
+BACDIVE	flagellar_apparatus	motility	azm	Azospirillum ramasamyi	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	pus	Pollutimonas thiosulfatoxidans	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	ftj	Frigoriglobus tundricola	incomplete route	2
+BACDIVE	flagellar_apparatus	motility	azz	Azospirillum thermophilum	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	edy	Enterobacter dykesii	incomplete route	1
+BACDIVE	flagellar_apparatus	motility	rii	Rhizobium indicum	incomplete route	2

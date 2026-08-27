@@ -1,0 +1,31 @@
+source	field	term	kinds	layer	target	relation	recall_usable	n	both_positive	both_negative	encoded_not_observed	observed_not_encoded	recall	genera
+BACDIVE	cell morphology	motility		gift	flagellar_apparatus	superset_of	FALSE	1253	343	662	72	176	0.661	678
+BACDIVE	enzymes	urease		reaction	RHEA:20557	equivalent	TRUE	1012	214	574	191	33	0.866	481
+BACDIVE	metabolite production	indole		gift	tryptophan_degradation_indole	equivalent	TRUE	1011	49	911	32	19	0.721	492
+BACDIVE	enzymes	beta-N-acetylhexosaminidase		reaction	RXN_CHITOBIOSE_EXO	equivalent	TRUE	900	181	164	496	59	0.754	444
+BACDIVE	enzymes	alpha-L-fucosidase		reaction	RXN_MUCIN_FUCOSE_RELEASE	equivalent	TRUE	874	52	648	169	5	0.912	442
+BACDIVE	enzymes	alpha-glucosidase		reaction	RXN_MALTOOLIGO_EXO	equivalent	TRUE	856	353	266	162	75	0.825	434
+BACDIVE	metabolite utilization	urea	hydrolysis;degradation;carbon source;nitrogen source;growth	gift	urea_hydrolysis	equivalent	TRUE	661	129	368	136	28	0.822	330
+BACDIVE	enzymes	arginine deiminase		reaction	RHEA:19597	equivalent	TRUE	622	102	365	128	27	0.791	347
+BACDIVE	metabolite utilization	gelatin	hydrolysis	gift	collagen_cleavage	refused	FALSE	613	39	408	6	160	0.196	324
+BACDIVE	metabolite utilization	citrate	carbon source;assimilation;energy source	gift	citrate_fermentation	superset_of	FALSE	470	5	298	2	165	0.029	255
+BACDIVE	metabolite utilization	L-arabinose	builds acid from;fermentation	gift	arabinose_degradation	subset_of	TRUE	395	68	255	19	53	0.562	228
+BACDIVE	metabolite utilization	D-xylose	builds acid from;fermentation	gift	xylose_degradation_isomerase	subset_of	TRUE	389	80	228	63	18	0.816	201
+BACDIVE	enzymes	alcohol dehydrogenase		reaction	RHEA:25290	related	FALSE	388	17	273	88	10	0.63	219
+BACDIVE	metabolite utilization	L-rhamnose	builds acid from;fermentation	gift	rhamnose_degradation	subset_of	TRUE	371	46	290	12	23	0.667	213
+BACDIVE	enzymes	tryptophanase		reaction	RHEA:19553	equivalent	TRUE	361	8	305	33	15	0.348	220
+BACDIVE	metabolite utilization	L-arabinose	carbon source;assimilation;growth;energy source	gift	arabinose_degradation	equivalent	TRUE	337	37	199	12	89	0.294	207
+BACDIVE	metabolite utilization	glycogen	hydrolysis;degradation;builds acid from	gift	starch_degradation	overlaps	FALSE	321	27	213	49	32	0.458	185
+BACDIVE	metabolite production	hydrogen sulfide		gift	cysteine_degradation_sulfide	superset_of	FALSE	313	21	150	120	22	0.488	178
+BACDIVE	metabolite utilization	D-galactose	builds acid from;fermentation	gift	galactose_degradation_leloir	subset_of	TRUE	288	110	92	51	35	0.759	178
+BACDIVE	metabolite production	acetoin		gift	acetoin_formation	equivalent	TRUE	275	66	122	22	65	0.504	154
+BACDIVE	metabolite utilization	N-acetylglucosamine	carbon source;assimilation;growth;energy source	gift	glcnac_degradation	equivalent	TRUE	229	16	140	11	62	0.205	142
+BACDIVE	enzymes	glutamate decarboxylase		reaction	RHEA:17785	equivalent	TRUE	121	9	98	12	2	0.818	78
+BACDIVE	enzymes	alpha-L-arabinofuranosidase		reaction	RXN_ARABINOXYLAN_ARAF_RELEASE	equivalent	TRUE	121	20	92	9	0	1	79
+BACDIVE	metabolite utilization	L-rhamnose	carbon source;assimilation;growth;energy source	gift	rhamnose_degradation	equivalent	TRUE	104	4	63	0	37	0.098	90
+BACDIVE	metabolite utilization	D-galactose	carbon source;assimilation;growth;energy source	gift	galactose_degradation_leloir	equivalent	TRUE	95	34	31	3	27	0.557	83
+BACDIVE	metabolite utilization	L-fucose	carbon source;assimilation;growth;energy source	gift	fucose_degradation_isomerase	equivalent	TRUE	75	1	50	0	24	0.04	65
+BACDIVE	metabolite utilization	D-xylose	carbon source;assimilation;growth;energy source	gift	xylose_degradation_isomerase	equivalent	TRUE	71	30	24	8	9	0.769	59
+BACDIVE	enzymes	endo-1,4-beta-xylanase		reaction	RXN_XYLAN_ENDO_1_4	equivalent	TRUE	2	1	1	0	0	1	2
+BACDIVE	enzymes	chitinase		reaction	RXN_CHITIN_ENDO	equivalent	TRUE	2	1	1	0	0	1	2
+BACDIVE	enzymes	sialidase		reaction	RXN_MUCIN_NEUAC_RELEASE	equivalent	TRUE	1	0	0	1	0		1
