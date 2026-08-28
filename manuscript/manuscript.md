@@ -739,7 +739,8 @@ a Microbiome/mSystems paper rather than a software note.
 ### R7. Behaviour under genome incompleteness
 
 *[Status: written from the committed tables of `manuscript/analysis/output/`,
-produced by `02-incompleteness.R` at database 2026.27.1. Backed by Figure 6.]*
+produced by `02-incompleteness.R` at database 2026.27.1, with R7.1 from
+`09-cooccurrence.R` and `10-block-drop.R`. Backed by Figure 6.]*
 
 Most genomes gifter will ever be run on are incomplete. A recovered genome is
 assembled from a metagenome and is missing genes it does not know it is missing,
@@ -862,10 +863,116 @@ Two limits of this experiment are worth naming. Random gene loss is not how a
 metagenomic assembly loses genes — recovery is biased by coverage, by GC
 content and by repeat structure, so the real loss is correlated in ways this
 does not reproduce, and the retention curve should be read as a shape rather
-than as a calibration. And gene calling is held fixed throughout: these are
-deposited protein sets with genes removed, not assemblies re-called from
-fragmented contigs, so the annotation cost measured in R9 sits on top of this
-one rather than inside it.
+than as a calibration. R7.1 relaxes that assumption for the question it bears
+on most directly, by dropping contiguous runs of adjacent genes rather than
+independent ones; Figure 6 itself remains a random-loss result. And gene
+calling is held fixed throughout: these are deposited protein sets with genes
+removed, not assemblies re-called from fragmented contigs, so the annotation
+cost measured in R9 sits on top of this one rather than inside it.
+
+#### R7.1 Marker context does not license filling the gaps
+
+The obvious response to a call that is one reaction short is to fill it. If the
+rest of a route is present, and the missing reaction is one that in a reference
+panel essentially never occurs without its neighbours, the absence looks more
+like a gap in the assembly than a fact about the organism. That reasoning is
+available to gifter in a form it is not available to a marker checklist,
+because the Boolean hierarchy already declares which evidence is jointly
+required: the conditioning set is curated rather than guessed. Whether it is
+*sufficient* is an empirical question, and this section answers it. It is not.
+
+**The estimand.** For every context the hierarchy defines — a component within
+its enzyme system, a required unit within its route, mechanism, architecture or
+circuit — `pi` is the probability that the target is supported given the rest
+of its context is, estimated across the 11,766 reference genomes carrying at
+least 20 curated markers. It is paired with the lift over the target's own
+prevalence, because a marker that is simply common earns a high `pi` for free
+and filling on that basis would insert it into genomes that genuinely lack the
+capability. Writing `d` for the probability that a truly present gene goes
+unobserved, the two feed
+
+```text
+P(present | not observed, context) = d*pi / (d*pi + (1 - pi))
+```
+
+which at 80% gene content, under `d = 1 - q`, reaches 0.90 only at `pi` of
+0.978 or above. The question is therefore not whether gaps can be filled but
+how many curated contexts are tight enough that filling one would be defensible
+at all.
+
+**The hierarchy's own layers separate as designed.** Across the 718 contexts
+with at least 50 panel genomes behind them, median `pi` is 0.984 for a
+component within its enzyme system and 0.957 for a required unit within its
+container, the latter with a first quartile of 0.725. Subunits of a complex are
+near-deterministically co-inherited; alternative steps of a route are ordinary
+biological variation. The distinction the five-layer model draws is visible in
+the co-occurrence structure of an independent panel, which is a result in its
+own right and does not depend on what follows.
+
+**Two controls remove most of what looked fillable.** 260 of the 718 contexts
+clear the `pi` bar, measured on a Wilson lower bound rather than a point
+estimate so that a `pi` of 1.000 over eleven genomes cannot pass. Recomputing
+each over one genome per genus — 3,163 genera — drops 105 of them, so
+**ancestry rather than functional coupling was doing the work in 40% of the
+contexts that appeared tight**. A further 150 have lift below 2, the target's
+own prevalence accounting for the result. Forty-three survive both, spanning 17
+of the 153 GIFTs, and 17 of the 43 belong to the flagellar apparatus.
+
+**The posterior that produced those 43 assumes something false.** Setting
+`d = 1 - q` is correct only if losing one gene says nothing about whether its
+neighbour was lost. A recovered genome is missing contigs, and a contig is a
+run of adjacent genes, so a physically clustered system is present or absent
+nearly as a unit. Conditional on seeing the rest of such a context, the region
+was recovered, and the true dropout rate for its one missing member is far
+below the genome-wide figure. The assumption was therefore replaced by a
+measurement. Gene coordinates were taken from KEGG's per-organism gene lists
+for 397 of the sampled genomes (median 3,658 genes), and contiguous runs of
+adjacent genes removed — clipped at replicon boundaries, since a contig does
+not span two chromosomes — until a fifth of the gene content was gone, with the
+mean run length swept from one gene to fifty. A mean run of one gene is the
+unlinked model and passes through the same code, so the assumption and its
+replacement are measured on the same genomes, the same contexts and the same
+replicates.
+
+Matched context by context, the conditional dropout rate falls to 0.353 of its
+unlinked value at a mean run of five genes, 0.216 at twenty and 0.186 at fifty.
+**Independence overstates the case for filling roughly fivefold at realistic
+contig lengths.**
+
+Recounting with the measured dropout rate in place of the assumed one leaves
+**three contexts at a mean run of five genes and two at twenty and at fifty,
+from 43**. The flagellar block falls from twelve under unlinked loss to one at
+twenty genes and none at fifty. It was an artefact of the independence
+assumption, and it was concentrated there for the same reason it collapses
+first: it is among the most tightly clustered operonic regions in bacteria,
+which is precisely the condition under which linkage matters most. The two
+contexts surviving at a mean run of twenty are not the two surviving at fifty,
+so the residue does not replicate across run lengths and is best read as
+sampling noise rather than as a usable set.
+
+**The direction of the sensitivity is the last reason to decline.** Licensing
+loosens as a genome gets worse: even under the unlinked model, two contexts
+clear the bar at 95% gene content, 43 at 80% and 127 at 50%, because dropout
+explains more when there is more of it. Every part of the inference is carried
+by the prior, in exactly the regime where the prior is least able to be checked
+against the genome in hand. A correction with that shape is one that grows most
+confident where the evidence is weakest.
+
+**gifter therefore fills no gaps, and the refusal is now measured rather than
+asserted.** Invariant 21 holds that nothing may convert an unsupported GIFT
+into a supported one, and the assessability layer of R4 stays a genome-level
+refusal rather than becoming a per-GIFT correction. That is not merely a
+consequence of the invariant — a rule that moved individual absences to
+indeterminate rather than to supported would satisfy it — but a consequence of
+the panel, which does not support one. Two contexts out of 718, not replicating
+across loss models, is not a layer.
+
+One defect in the estimator should be recorded for anyone who revisits this. In
+4 of the 192 component contexts the target shares an accepted marker with a
+member of its own context, which makes `pi` 1.000 by construction rather than
+by biology; two of them are among the 43. They are a small share here and they
+do not change the conclusion, but any future use of these statistics has to
+exclude them rather than discover them again.
 
 ### R8. Comparison with existing tools
 
