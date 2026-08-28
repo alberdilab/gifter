@@ -1,0 +1,5 @@
+block_mean	contexts	d_marginal	d_conditional	ratio	contexts_tested	survivors_assumed	survivors_measured	flagellar_measured
+1	237	0.1813	0.1561	0.861	237	40	36	12
+5	248	0.1743	0.0712	0.408	248	43	3	2
+20	254	0.1793	0.0517	0.289	254	43	2	1
+50	249	0.19	0.0509	0.268	249	43	2	0

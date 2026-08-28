@@ -22,6 +22,8 @@ begun asking gifter to claim something it does not claim.
 | `06-figure-phenotype.R` | Figure 8, and the reference-consistency measurement | R9 |
 | `07-madin.R` | R9's second reference: species-level trait records, and what the species join costs | R9 |
 | `08-figure-incompleteness.R` | Figure 6 | R7 |
+| `09-cooccurrence.R` | Whether marker context licenses filling a gap: per-context co-occurrence on the reference panel | exploratory |
+| `10-block-drop.R` | The same question under contiguous gene loss: conditional dropout measured rather than assumed | exploratory |
 
 The curated inputs live with the other consulted evidence, in
 `data-raw/reference/`: `phenotype-crosswalk.tsv` maps an observation to
@@ -35,6 +37,36 @@ script here with an external binary dependency, and it is also the only one that
 downloads gigabytes: the pinned KOfam, NCBIfam and dbCAN profile libraries, from
 which it keeps just the profiles gifter curates. Budget several hours on a first
 run. Everything is cached, so a second run is minutes.
+
+`09-cooccurrence.R` is exploratory and feeds no section yet. It asks whether the
+assessability layer could be sharpened from a genome-wide rule into a per-GIFT
+one: instead of declaring every absence in a 70%-complete genome indeterminate,
+declare indeterminate only those absences the panel says are probably artefacts.
+It estimates, for every curated context the hierarchy already defines, the
+probability that a target is supported given the rest of its context is —
+`pi` — together with the lift over the target's own base rate, a Wilson lower
+bound, and the same estimate recomputed over one genome per genus. It fills
+nothing and moves no call; invariant 21 is not at stake in it. Calibrating a
+posterior against known truth belongs to the drop simulation in
+`02-incompleteness.R`, not here.
+
+`10-block-drop.R` is what decides whether `09` means anything. The posterior in
+`09` assumes that losing one gene says nothing about whether its neighbour was
+lost, which is false: a recovered genome is missing contigs, and a contig is a
+run of adjacent genes. So the assumption is replaced by a measurement. Gene
+order comes from KEGG's per-organism gene list, one request per genome, which
+carries a replicon and coordinates for every gene — contiguity among curated
+genes alone is not contiguity on a chromosome. Runs of adjacent genes are
+removed until the target loss is reached, clipped at replicon boundaries, with
+the mean run length swept from one gene (the unlinked model, sampled
+independently through the same code) to fifty.
+
+The statistic is `d_conditional`, the chance a target is unobserved given its
+context still is, and it is compared against the same quantity at a run length
+of one rather than against the genome's marginal loss. The two differ even
+under independent loss, because conditioning on the context selects genomes
+with more redundancy behind their components; attributing that offset to
+linkage would overstate the effect this script exists to measure.
 
 `07-madin.R` is separate from `03-phenotype.R` rather than folded into it
 because the two references join differently. BacDive supplies an assembly
@@ -78,6 +110,19 @@ frame and quality policy, the numerator and denominator of `supported_fraction`
 and `assessable_fraction`. Invariant 21 is checked on every one of its cells
 rather than asserted: if the completeness policy ever moved a numerator,
 `02-incompleteness.R` stops.
+
+`cooccurrence-contexts.tsv` is one row per curated context — a component within
+its enzyme system, or a required unit within its route, mechanism, architecture
+or circuit — with the panel counts behind every proportion in it, including
+`gaps_in_panel`: the reference genomes that satisfy the context and lack the
+target anyway. That column is the irreducible false-fill rate, and it is in the
+table rather than in a summary because it is the number that decides whether any
+of this is usable.
+
+`block-drop-contexts.tsv` is one row per context per run length, carrying the
+conditioned and unconditioned trial counts behind both dropout rates and the
+posterior recomputed from each, so the assumed and measured versions of the same
+number sit in one table.
 
 `madin-substrate-frequency.tsv` is coverage read the other way: every carbon
 substrate the record measures, ranked by genome-backed species, with whether any
