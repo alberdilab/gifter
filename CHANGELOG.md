@@ -15,18 +15,21 @@ versioned with the package.
 
 ## Unreleased
 
-### 2026-10-01T03:26Z — The database CI job declares its verifier dependency
+### 2026-10-01T03:26Z — Database CI declares its verifier prerequisites
 
 **The problem.** The first post-release database-reproducibility job installed
 gifter and its check dependencies, but the standalone verifier also loads the
-source tree through `devtools`, which was not part of that bootstrap set.
+source tree through `devtools`, which was not part of that bootstrap set. Once
+installed, the verifier correctly refused the default one-commit shallow clone
+because it could not resolve the earlier commit recorded by the database.
 
-**What changed.** The database CI job now requests `devtools` explicitly before
-running `data-raw/verify_database.R`.
+**What changed.** The database CI job now requests `devtools` explicitly and
+checks out full Git history before running `data-raw/verify_database.R`.
 
 **Effect.** A fresh runner can execute the same non-mutating 41-table comparison
-used locally. The released package archive, database artifact, biological
-content, API, tag and checksums are unchanged.
+used locally and prove that the database's source commit exists and contains
+the compiled inputs. The released package archive, database artifact,
+biological content, API, tag and checksums are unchanged.
 
 ## 0.7.0 — 2026-10-01
 
