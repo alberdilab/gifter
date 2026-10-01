@@ -15,6 +15,20 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-10-01T08:22Z — Candidate M9 evidence loss and mixing are explicit
+
+**What changed.** The prospective analysis now stress-tests the exact collagen
+candidate annotation rows under one-gene loss, complete M9-evidence loss, and a
+deliberately labelled PAO1/*Hathewaya* evidence mixture. It retains the full
+gifter trace for each input rather than reducing the mixed result to a PAO1
+label.
+
+**Effect.** The expected alternative-marker OR logic is demonstrated, and the
+synthetic mixture visibly completes only because it carries foreign M9 evidence.
+It is not a MAG experiment, phenotype observation, prospective-study result or
+database change; package API, schema, biological source and SQLite artifact are
+unchanged.
+
 ### 2026-10-01T08:06Z — The first collagen specificity contrast is checksum-pinned and re-annotated
 
 **What changed.** The prospective-analysis record now contains a small runner,

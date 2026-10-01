@@ -26,6 +26,7 @@ begun asking gifter to claim something it does not claim.
 | `10-block-drop.R` | The same question under contiguous gene loss: conditional dropout measured rather than assumed | exploratory |
 | `11-prospective-validation.R` | A locked prospective-study registry evaluated against deposited annotations, with raw assay rows and traces | prospective validation |
 | `12-priority1-collagen-annotation.R` | Checksum-pinned M9/domain audit of the exact collagen-specificity candidate assemblies; no assay input | prospective validation |
+| `13-priority2-collagen-evidence-stress.R` | Synthetic loss and deliberate evidence-mixture stress test of the exact collagen audit; not a MAG | prospective validation |
 
 The curated inputs live with the other consulted evidence, in
 `data-raw/reference/`: `phenotype-crosswalk.tsv` maps an observation to
@@ -58,6 +59,13 @@ passes only accepted M9 markers to gifter. It records PAO1 LasB from the exact
 FASTA header as a broad-protease control but never treats it as a collagen
 marker. Its committed audit is genomic evidence only, not a registry row or
 phenotype result.
+
+`13-priority2-collagen-evidence-stress.R` takes those accepted marker rows and
+removes them one at a time, then adds one labelled *Hathewaya* marker to PAO1's
+M9-empty input. It makes the expected alternative-marker retention and the
+contaminated-bin failure mode reviewable at the gene level. A synthetic mixture
+is never called a PAO1 genome, and these tables neither estimate MAG quality nor
+substitute for matched metagenome assemblies.
 
 `09-cooccurrence.R` is exploratory and feeds no section yet. It asks whether the
 assessability layer could be sharpened from a genome-wide rule into a per-GIFT

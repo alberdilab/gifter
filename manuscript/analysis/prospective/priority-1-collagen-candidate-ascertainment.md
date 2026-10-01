@@ -108,6 +108,25 @@ cleavage under a culture condition, or any physiological outcome. The audit
 therefore remains outside `studies.tsv`, `samples.tsv`, `annotations.tsv`, and
 `observations.tsv` until a protocol has been locked and matched assays exist.
 
+## Priority 2 evidence stress test — not a MAG experiment
+
+The follow-on [evidence stress test](collagen-evidence-stress/) uses only the
+accepted, provenance-labelled rows from the exact-assembly audit. Dropping
+either `VTQ90952.1` or `VTQ92554.1` leaves the M9 call complete, because each
+protein independently supplies accepted marker evidence; dropping both makes
+the one required reaction unsupported. This is the expected component-level OR
+logic, not a claim that a real MAG would retain the same genes or be equally
+assessable at any estimated completeness.
+
+The test also inserts one named *H. histolytica* `K01387` row into PAO1's
+otherwise M9-empty input. The evaluator completes `COLLAGEN_M9`, but the marker
+and output trace preserve its `HHIST_ATCC_19401:` gene prefix. That result is
+not a PAO1 call: it is the intended demonstration that a mixed bin can combine
+evidence and therefore cannot be read as a single genome. The script and its
+gene-level output are
+[`13-priority2-collagen-evidence-stress.R`](../13-priority2-collagen-evidence-stress.R)
+and [`collagen-evidence-stress/`](collagen-evidence-stress/).
+
 ## What must happen before the runner is used
 
 1. Decide the exact intact-collagen and generic-protease endpoints, culture
@@ -115,7 +134,9 @@ therefore remains outside `studies.tsv`, `samples.tsv`, `annotations.tsv`, and
 2. Reuse or independently reproduce the checksum-pinned exact-assembly audit
    above, retaining the annotation rows and gene identifiers selected under the
    locked study protocol.
-3. Collect the matched assays. Only then add rows to `studies.tsv`,
+3. Treat any mixed or incomplete bin as a separate, provenance-labelled sample;
+   do not use the synthetic evidence stress test as a MAG result.
+4. Collect the matched assays. Only then add rows to `studies.tsv`,
    `samples.tsv`, `annotations.tsv` and `observations.tsv` and run
    `11-prospective-validation.R`.
 

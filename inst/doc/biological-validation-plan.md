@@ -140,5 +140,8 @@ control, and refuses a same-species genome substitution where the historical
 assay strain has no established assembly. The candidate record now also links a
 content-addressed exact-assembly M9 audit: it records both raw proteome and
 profile/database checksums, hit-level thresholds and the resulting gene trace.
-The audit establishes the planned genomic contrast, not an assay outcome. It
-therefore does not enter the registry or change any GIFT claim.
+The audit establishes the planned genomic contrast, not an assay outcome. Its
+follow-on synthetic loss/mixing test confirms the expected alternative-marker
+logic and makes the contaminated-bin failure mode visible with source-labelled
+genes; it is explicitly not a MAG result. Neither enters the registry or changes
+any GIFT claim.
