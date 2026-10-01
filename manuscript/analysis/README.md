@@ -30,6 +30,7 @@ begun asking gifter to claim something it does not claim.
 | `14-priority1-aspartate-chemoreception-annotation.R` | Checksum-pinned Tar/circuit audit of the exact receptor-specificity candidates; no assay input | prospective validation |
 | `15-priority1-starch-annotation.R` | Checksum-pinned KOfam/dbCAN audit of exact starch-specificity candidates, including the broad-family failure check; no assay input | prospective validation |
 | `16-priority1-type-ie-crispr-annotation.R` | Checksum-pinned KOfam audit of exact Type I-E machinery candidates, including incomplete-Cascade logic; no array or assay input | prospective validation |
+| `17-priority2-matched-mag-robustness.R` | Checksum-pinned matched-isolate reassembly and annotation audit: exact isolate plus one de-novo MAG-like read-subset draft, full traces and fixed-table invariants; no MAG, bin or assay | prospective validation |
 
 The curated inputs live with the other consulted evidence, in
 `data-raw/reference/`: `phenotype-crosswalk.tsv` maps an observation to
@@ -101,6 +102,20 @@ lacks CasA and CasE, so the Cascade system and GIFT remain incomplete. The
 audit does not detect a CRISPR array and cannot support interference, defense,
 activity or phenotype. It creates no registry, database, SQLite, schema or API
 change.
+
+`17-priority2-matched-mag-robustness.R` is the first real read-reassembly
+exercise for Priority 2. It rejects MG1655's standard assembly/SRA linkage
+because those linked records are ChIP data, then requires a complete isolate
+assembly and WGS read run that share BioSample and BioProject. The accepted
+PacBio MG1655 pair is checksum-verified, its exact assembly and one deterministic
+read-subset draft are gene-called and searched under the same pinned
+KOfam/NCBIfam/TIGRFAM/Pfam/dbCAN pipeline, and every GIFT call and trace is
+retained per source. The draft is MAG-like only; no metagenome, binning,
+contamination estimate, MAG-quality estimate or foreign read is used. Its
+transition table calls only annotation/assembly differences, while its separate
+fixed-table deletion and assessability rows test evaluator invariants rather
+than genome or biological change. It produces no assay or phenotype result and
+does not modify the package, schema, biological source or SQLite artifact.
 
 `09-cooccurrence.R` is exploratory and feeds no section yet. It asks whether the
 assessability layer could be sharpened from a genome-wide rule into a per-GIFT

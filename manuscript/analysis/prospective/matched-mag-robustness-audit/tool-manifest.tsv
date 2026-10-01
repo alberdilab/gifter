@@ -1,0 +1,7 @@
+role	tool	path_or_source	version	sha256	rule_or_scope
+assembler	Flye	/opt/homebrew/bin/flye	2.9.6-b1802	4acfa57c2ea89369201725ab91e3d4ae96b075ccf0a0496779ef9e3979d58179	--pacbio-raw; --genome-size 4636831; one deterministic read subset with unique Flye header tokens and retained raw IDs; no reference-guided assembly
+binning	not run	single-isolate read run; no bin exists	not applicable		No binning: source reads are one linked isolate, and no output may be called a MAG or contaminated bin.
+gene_caller	Prodigal	/Users/anttonalberdi/panmapper/prodigal	Prodigal V2.6.3: February, 2016	18acaa441c07160d1c00f60d2a7a167c2a8d592e37c3ddcf219ec86de2708feb	-p meta for isolate and every draft, so gene calling does not vary by source role
+profile_search	HMMER hmmsearch	/opt/miniconda3/bin/hmmsearch	# HMMER 3.4 (Aug 2023); http://hmmer.org/	39171bfd192b6749361e68e88fcae1efff9950cee61912d02da98aa9e3ab97df	KOfam adaptive thresholds; NCBIfam/TIGRFAM/Pfam --cut_ga; dbCAN independent E-value/coverage filter
+R	R	/Library/Frameworks/R.framework/Resources/bin	R version 4.3.3 (2024-02-29)		runner
+gifter_package	gifter	/Users/anttonalberdi/Github/gifter	0.7.3		pinned evaluator and SQLite database

@@ -177,3 +177,17 @@ generic/accessory Cas evidence and partial Cascade do not license the Type I-E
 claim. This is a genomic annotation audit only: it says nothing about a CRISPR
 array, guide RNAs, interference, defence, activity or phenotype, and does not
 enter the registry or change the database.
+
+Priority 2 now has a narrow matched-isolate annotation case study in
+[`priority-2-matched-mag-robustness-candidate-ascertainment.md`](../../manuscript/analysis/prospective/priority-2-matched-mag-robustness-candidate-ascertainment.md).
+It rejects the standard MG1655 reference's ChIP-linked SRA records, then accepts
+the separately deposited complete `GCA_000801205.1` assembly only because its
+PacBio WGS read run `SRR1284073` shares both BioSample and BioProject. It
+creates one deterministic read-subset, de-novo reassembly from that isolate,
+reannotates the isolate and draft through one checksum-pinned pipeline, and
+preserves all gene-level and GIFT traces. The isolate and MAG-like draft remain
+distinct; no actual MAG, bin or mixed/contaminated evidence is included.
+Call differences are annotation/assembly changes only. A separately labelled
+fixed-annotation deletion series checks monotonicity, missing requirements and
+the denominator-only assessability contract without estimating MAG quality.
+This is not an assay outcome, prospective-registry record or biological result.

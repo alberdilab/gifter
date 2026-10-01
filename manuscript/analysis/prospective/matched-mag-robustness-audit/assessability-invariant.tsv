@@ -1,0 +1,2 @@
+reference_frame	numerator_none	assessable_none	denominator_none	numerator_completeness	assessable_completeness	denominator_completeness	policy_input	policy_threshold	interpretation
+biomass-essential anabolic GIFTs	35	44	44	35	35	35	0.5	0.9	Synthetic assessability-policy exercise on bounded supported-fraction rows only; policy input is not MAG quality. Calls and supported numerators are identical; only absence denominators are withheld.

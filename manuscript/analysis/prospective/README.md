@@ -97,3 +97,18 @@ only for MG1655: the MLHE-1 Cas1/Cas2, Cas3 and partial Cascade evidence remain
 incomplete because two jointly required Cascade components are unsupported.
 This remains outside the prospective registry and does not detect a CRISPR
 array, guide RNAs, interference, defence, activity or phenotype.
+
+Priority 2's matched-isolate case study is documented in
+[the MAG-like draft candidate ascertainment](priority-2-matched-mag-robustness-candidate-ascertainment.md).
+[`../17-priority2-matched-mag-robustness.R`](../17-priority2-matched-mag-robustness.R)
+checks the ENA read and NCBI assembly checksums for a WGS run that shares
+BioSample and BioProject with one exact MG1655 isolate assembly, makes one deterministic read subset,
+reassembles it de novo, and runs the same pinned multi-namespace annotation
+pipeline for the exact isolate and MAG-like draft. Its
+`matched-mag-robustness-audit/` outputs retain source-separated marker rows,
+every GIFT trace and explicit call transitions, all labelled as
+annotation/assembly changes. It includes no real MAG, bin or contaminated/mixed
+input, and it does not estimate MAG quality, observe biology or enter the
+prospective registry. Its synthetic fixed-annotation deletion and assessability
+exercises are likewise labelled as evaluator-contract checks, not drafts or
+biological outcomes.

@@ -15,6 +15,26 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-10-01T16:00Z — A checksum-pinned matched isolate / MAG-like draft audit tests Priority 2
+
+**What changed.** The prospective analyses now contain a candidate ascertainment
+record and reproducible runner for one defensibly matched *E. coli* K-12 MG1655
+pair: complete isolate assembly `GCA_000801205.1` and PacBio WGS run
+`SRR1284073`, which share BioSample and BioProject. The runner verifies the
+ENA raw-read and NCBI assembly checksums, then pins every source/profile/tool/database digest and version,
+reannotates the exact isolate plus one deterministic, de-novo reassembled
+MAG-like read-subset draft, and retains marker rows, calls and `trace_gift()`
+output for every source. It also writes each call transition and executes
+source-labelled fixed-annotation removal and assessability-contract checks.
+
+**Effect.** A draft difference is reported only as an annotation/assembly
+change—never as biological gain or loss. No actual MAG, bin, contaminated or
+mixed input is created or interpreted as one genome, and the audit neither
+measures MAG quality nor observes an assay, growth, activity, phenotype or
+ecological outcome. The prior collagen evidence-stress exercise remains a
+synthetic non-MAG test. No prospective registry, biological database, SQLite
+artifact, schema, package API or runtime code changed.
+
 ### 2026-10-01T13:00Z — The Type I-E machinery contrast pins complete and partial architecture
 
 **What changed.** The prospective analysis now contains an exact-assembly,
