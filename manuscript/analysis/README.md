@@ -24,14 +24,15 @@ begun asking gifter to claim something it does not claim.
 | `08-figure-incompleteness.R` | Figure 6 | R7 |
 | `09-cooccurrence.R` | Whether marker context licenses filling a gap: per-context co-occurrence on the reference panel | exploratory |
 | `10-block-drop.R` | The same question under contiguous gene loss: conditional dropout measured rather than assumed | exploratory |
-| `11-prospective-validation.R` | A locked prospective-study registry evaluated against deposited annotations, with raw assay rows and traces | prospective validation |
-| `12-priority1-collagen-annotation.R` | Checksum-pinned M9/domain audit of the exact collagen-specificity candidate assemblies; no assay input | prospective validation |
-| `13-priority2-collagen-evidence-stress.R` | Synthetic loss and deliberate evidence-mixture stress test of the exact collagen audit; not a MAG | prospective validation |
-| `14-priority1-aspartate-chemoreception-annotation.R` | Checksum-pinned Tar/circuit audit of the exact receptor-specificity candidates; no assay input | prospective validation |
-| `15-priority1-starch-annotation.R` | Checksum-pinned KOfam/dbCAN audit of exact starch-specificity candidates, including the broad-family failure check; no assay input | prospective validation |
-| `16-priority1-type-ie-crispr-annotation.R` | Checksum-pinned KOfam audit of exact Type I-E machinery candidates, including incomplete-Cascade logic; no array or assay input | prospective validation |
-| `17-priority2-matched-mag-robustness.R` | Checksum-pinned matched-isolate reassembly and annotation audit: exact isolate plus one de-novo MAG-like read-subset draft, full traces and fixed-table invariants; no MAG, bin or assay | prospective validation |
-| `18-priority3-flagellar-annotation.R` | Checksum-pinned structural-pilot audit of PAO1's complete flagellar-marker evidence and component trace; no microscopy, motility or assay input | prospective validation |
+| `11-prospective-validation.R` | Archived prospective-study registry template; it is not run or populated in this database-only project | archived template |
+| `12-priority1-collagen-annotation.R` | Checksum-pinned M9/domain audit of the exact collagen-specificity candidate assemblies; no assay input | database-only evidence |
+| `13-priority2-collagen-evidence-stress.R` | Synthetic loss and deliberate evidence-mixture stress test of the exact collagen audit; not a MAG | database-only evidence |
+| `14-priority1-aspartate-chemoreception-annotation.R` | Checksum-pinned Tar/circuit audit of the exact receptor-specificity candidates; no assay input | database-only evidence |
+| `15-priority1-starch-annotation.R` | Checksum-pinned KOfam/dbCAN audit of exact starch-specificity candidates, including the broad-family failure check; no assay input | database-only evidence |
+| `16-priority1-type-ie-crispr-annotation.R` | Checksum-pinned KOfam audit of exact Type I-E machinery candidates, including incomplete-Cascade logic; no array or assay input | database-only evidence |
+| `17-priority2-matched-mag-robustness.R` | Checksum-pinned matched-isolate reassembly and annotation audit: exact isolate plus one de-novo MAG-like read-subset draft, full traces and fixed-table invariants; no MAG, bin or assay | database-only evidence |
+| `18-priority3-flagellar-annotation.R` | Checksum-pinned structural-pilot audit of PAO1's complete flagellar-marker evidence and component trace; no microscopy, motility or assay input | database-only evidence |
+| `19-phenotype-validation-coverage.R` | Checksum-pinned audit of which GIFTs have usable, frame-only, related, refused or no current public phenotype/genome evidence; no new score | R9 validation scope |
 
 The curated inputs live with the other consulted evidence, in
 `data-raw/reference/`: `phenotype-crosswalk.tsv` maps an observation to
@@ -126,16 +127,19 @@ adaptive thresholds, and writes every hit alongside the component-level
 architectures, with the diderm architecture selected as best; that supports
 only encoded machinery. It is not a microscopy or motility observation.
 
-The paired [future microscopy test specification](prospective/priority-3-flagellar-microscopy-test.md)
-locks a negative-stain TEM endpoint, the paired culture and grid conditions,
-randomised blinded image scoring, three independent biological replicates and
-an isogenic `Delta fliC` loss-of-required-function control. It is deliberately
-not a runner or an observation: no strain-matched working stock, pre-assay WGS
-identity record, independently verified physical control, stock-specific
-annotation or image data exists. The prescribed endpoint is condition-specific
-external-filament evidence related to the full encoded-machinery GIFT; it does
-not establish all components, motility, rotation or ion coupling, and it creates
-no registry row or biological result.
+The paired [microscopy plan](prospective/priority-3-flagellar-microscopy-test.md)
+is archived because this project uses existing phenotype/genome information
+only. The annotation audit is retained, but it cannot be extended with a
+synthetic annotation deletion, motility proxy or ion-coupling inference.
+
+`19-phenotype-validation-coverage.R` is the next database-only validation
+audit. It reads the committed BacDive/MediaDive and Madin agreement tables,
+pins each input and the database by SHA-256, expands reaction observations to
+their owning GIFTs, and writes one evidence/status row per GIFT. It separates
+individual recall-usable evidence from bounded-frame aggregates, low-n records,
+related context and explicitly refused proxies. That distinction makes the
+manuscript's coverage claim auditable without treating a missing record as a
+negative phenotype or creating another score.
 
 `09-cooccurrence.R` is exploratory and feeds no section yet. It asks whether the
 assessability layer could be sharpened from a genome-wide rule into a per-GIFT

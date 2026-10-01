@@ -1,0 +1,5 @@
+input_kind	path	sha256	database_version	role
+phenotype_agreement	/Users/anttonalberdi/Github/gifter/manuscript/analysis/output/phenotype-agreement.tsv	bbfda348d3cd92c2dbb112c64d31bc819201d0139f9fd3dcf33a518f8f880cc0		strain-matched BacDive phenotype and MediaDive frame results
+madin_agreement	/Users/anttonalberdi/Github/gifter/manuscript/analysis/output/madin-agreement.tsv	fc36a06d4a0591c20185de743ac846f343ea01f0811332af7ff8320c03006d39		species-level Madin phenotype results with representative-genome sensitivity
+auxotrophy_agreement	/Users/anttonalberdi/Github/gifter/manuscript/analysis/output/auxotrophy-agreement.tsv	f845271b3175906c36c3dab1e3f0c4904acb4a89b4afc16cfe3badbc75784e12		defined-medium bounded-frame result
+gifter_database	/Users/anttonalberdi/Github/gifter/inst/extdata/gifter.sqlite	724b810ba2489299edccf20caad12ff48e0989c1dd39696b45490cddc91beaaa	2026.27.1	current GIFT catalogue and reaction-to-GIFT mapping

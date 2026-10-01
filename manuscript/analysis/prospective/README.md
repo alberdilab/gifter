@@ -1,135 +1,62 @@
-# Prospective biological-validation registry
+# Database-only validation records and archived prospective templates
 
-This directory holds the hand-curated inputs to the prospective study described
-in [the biological validation plan](../../../inst/doc/biological-validation-plan.md).
-It intentionally contains templates, not observations. Do not put these rows in
-the gifter reference database: an assay and its crosswalk are external evidence,
-whereas the database records what gifter claims.
+The active work described by [the biological validation plan](../../../inst/doc/biological-validation-plan.md)
+uses existing phenotype/genome databases, deposited assemblies and cached
+annotations only. The candidate records and checksum-pinned annotation audits
+in this directory remain useful evidence and curation material, but they are
+not assay observations or prospective biological outcomes.
 
-Copy the four templates to a study-owned, version-controlled directory, fill
-them before interpreting calls, change `status` from `planned` to `locked`, and
-record the UTC lock time. A runner refuses a planned protocol, observations
-dated before that lock, a changed database release, unknown targets, unpinned
-annotations, or a sample with no annotation or assay record.
+`studies.tsv`, `samples.tsv`, `annotations.tsv`, `observations.tsv` and
+`11-prospective-validation.R` are retained as **archived templates** for an
+independently resourced future study. This project must not create a study row,
+copy the templates into an active registry, simulate a control or add invented
+observations. Do not put any external observation in the gifter reference
+database: the database records genomic claims, not phenotypes.
 
-```sh
-Rscript manuscript/analysis/11-prospective-validation.R \
-  --studies=path/studies.tsv \
-  --samples=path/samples.tsv \
-  --annotations=path/annotations.tsv \
-  --observations=path/observations.tsv \
-  --database=the-pinned/gifter.sqlite \
-  --output=path/output
-```
+The archived runner's constraints document what real prospective evidence would
+need. They do not authorise a local phenotype study. The database-only analyses
+instead preserve source version/checksum, assembly/representative selection,
+crosswalk relation and gene-level trace, and never emit accuracy, precision,
+F1, AUC or a catalogue-wide score.
 
-The runner writes one row per assay observation, preserving its sample, strain,
-assembly accession, annotation pipeline/version, database version, assay
-conditions and biological replicate. It evaluates each sample separately and
-writes a GIFT or reaction trace to the supplied genes. The summary reports
-counts and denominators required by the plan, including broad-marker-only
-genomes completing a specificity claim. It has no accuracy, precision, F1,
-AUC, or catalogue-wide score.
+## Existing evidence-only audits
 
-`studies.tsv` is one pre-registered claim/assay comparison. Its `target_layer`
-is `gift` or `reaction`; its `crosswalk_relation` uses the same explicit
-vocabulary as the retrospective validation layer. The `database_version` must
-be the exact release evaluated. Allowed priorities are `specificity`,
-`mag_robustness`, `machinery`, and `auxotrophy`.
+[The collagen](priority-1-collagen-candidate-ascertainment.md),
+[aspartate-chemoreception](priority-1-aspartate-chemoreception-candidate-ascertainment.md),
+[starch](priority-1-starch-candidate-ascertainment.md), and
+[Type I-E machinery](priority-1-type-ie-crispr-candidate-ascertainment.md)
+records pin their exact assemblies, annotation inputs, marker hits and
+`trace_gift()` output. They can identify a marker-specificity or curation
+problem, but cannot become activity, receptor response, polymer-degradation,
+CRISPR-interference or phenotype results.
 
-`samples.tsv` identifies the genome matched to a strain. A reannotation or
-MAG-like draft is a distinct sample, even when it derives from the same strain.
-`genome_role` distinguishes an isolate, MAG-like draft, MAG, and contaminated
-bin so mixed evidence is never silently interpreted as one genome. For a
-specificity study, `marker_evidence_class` records the independently checked
-marker contrast (`specific_evidence`, `broad_marker_only`, or
-`no_relevant_marker`); `not_applicable` is refused. State the independent
-sequence/domain check in the accompanying method and reference fields.
+[The matched-isolate/MAG-like audit](priority-2-matched-mag-robustness-candidate-ascertainment.md)
+uses deposited WGS data to reannotate an isolate and one deterministic draft.
+It retains every source-separated marker row, GIFT trace and call transition as
+an annotation/assembly difference. Its fixed-table deletion and assessability
+checks are evaluator-contract tests, not synthetic genomes, MAGs or biology.
 
-`annotations.tsv` is the exact annotation input given to gifter: one
-`sample_id`, `gene_id`, namespaced marker and accession per row. It is retained
-separately from a call so a trace remains reproducible.
+[The flagellar structural audit](priority-3-flagellar-candidate-ascertainment.md)
+pins the PAO1 proteome and reports complete encoded structural machinery at the
+component level. The former [microscopy plan](priority-3-flagellar-microscopy-test.md)
+is archived: it cannot be simulated with annotation deletion or motility data.
+BacDive and Madin motility records remain visible only as `superset_of` context;
+they cannot validate complete machinery, assembly, rotation or ion coupling.
 
-`observations.tsv` is the raw biological outcome. `positive`, `negative`, and
-`indeterminate` remain separate. For auxotrophy rows it also records the
-baseline medium, omitted nutrient and rescue result; none may be
-`not_applicable`.
+## Active phenotype/genome validation
 
-The empty templates are deliberately not runnable. They prevent placeholder
-organisms, annotations or assays from being mistaken for observations.
+The manuscript-facing analyses live one directory up:
 
-The first assay-first screen is recorded in
-[the collagen candidate ascertainment](priority-1-collagen-candidate-ascertainment.md).
-Its checksum-pinned exact-assembly audit is generated by
-[`../12-priority1-collagen-annotation.R`](../12-priority1-collagen-annotation.R)
-from the source URLs in
-[`collagen-annotation-inputs.tsv`](collagen-annotation-inputs.tsv), and writes
-the inspected hits, manifest and gifter trace to `collagen-annotation-audit/`.
-The immediately following loss/mixing check is generated by
-[`../13-priority2-collagen-evidence-stress.R`](../13-priority2-collagen-evidence-stress.R)
-and writes source-labelled synthetic scenarios to `collagen-evidence-stress/`.
-The next Priority 1 screen,
-[aspartate chemoreception](priority-1-aspartate-chemoreception-candidate-ascertainment.md),
-is generated by
-[`../14-priority1-aspartate-chemoreception-annotation.R`](../14-priority1-aspartate-chemoreception-annotation.R)
-and writes its checksum-pinned circuit audit to
-`aspartate-chemoreception-annotation-audit/`. It keeps historical strain
-evidence and all of these genomic exercises out of the prospective registry
-until a protocol and matched assays are actually locked.
+- `03-phenotype.R` uses accession-matched BacDive observations, excluding
+  BacDive genome-based predictions.
+- `04-auxotrophy.R` uses MediaDive defined-medium growth to test bounded
+  anabolic frames only where nutrient absence is defensible from composition.
+- `07-madin.R` uses species-level Madin records and reports the sensitivity to
+  representative-genome selection.
+- `19-phenotype-validation-coverage.R` checksum-pins those committed outputs
+  and reports, per GIFT, whether evidence is individually recall-usable,
+  bounded-frame-only, related context, a refused proxy, or absent from the
+  current public sources.
 
-The substrate-specific carbohydrate screen is documented in
-[the starch candidate ascertainment](priority-1-starch-candidate-ascertainment.md).
-[`../15-priority1-starch-annotation.R`](../15-priority1-starch-annotation.R)
-pins exact assemblies, KOfam and dbCAN inputs, thresholds, individual hits and
-gene traces in `starch-annotation-audit/`. It compares all currently mapped
-marker rows with a resolving-marker diagnostic. Its broad-CAZy control currently
-completes the named starch GIFT from ambiguous family evidence, which is an
-explicit curation finding—not support for starch degradation—and remains
-outside the prospective registry pending a separate decision and a locked
-assay protocol.
-
-The Type I-E machinery screen is documented in
-[the CRISPR-Cas candidate ascertainment](priority-1-type-ie-crispr-candidate-ascertainment.md).
-[`../16-priority1-type-ie-crispr-annotation.R`](../16-priority1-type-ie-crispr-annotation.R)
-pins exact MG1655 and *Alkalilimnicola ehrlichii* MLHE-1 proteomes, KOfam
-models and thresholds, each profile hit, and the defense trace in
-`type-ie-crispr-annotation-audit/`. It calls the complete protein architecture
-only for MG1655: the MLHE-1 Cas1/Cas2, Cas3 and partial Cascade evidence remain
-incomplete because two jointly required Cascade components are unsupported.
-This remains outside the prospective registry and does not detect a CRISPR
-array, guide RNAs, interference, defence, activity or phenotype.
-
-Priority 2's matched-isolate case study is documented in
-[the MAG-like draft candidate ascertainment](priority-2-matched-mag-robustness-candidate-ascertainment.md).
-[`../17-priority2-matched-mag-robustness.R`](../17-priority2-matched-mag-robustness.R)
-checks the ENA read and NCBI assembly checksums for a WGS run that shares
-BioSample and BioProject with one exact MG1655 isolate assembly, makes one deterministic read subset,
-reassembles it de novo, and runs the same pinned multi-namespace annotation
-pipeline for the exact isolate and MAG-like draft. Its
-`matched-mag-robustness-audit/` outputs retain source-separated marker rows,
-every GIFT trace and explicit call transitions, all labelled as
-annotation/assembly changes. It includes no real MAG, bin or contaminated/mixed
-input, and it does not estimate MAG quality, observe biology or enter the
-prospective registry. Its synthetic fixed-annotation deletion and assessability
-exercises are likewise labelled as evaluator-contract checks, not drafts or
-biological outcomes.
-
-Priority 3 has started with a structural candidate audit in
-[the flagellar-apparatus ascertainment](priority-3-flagellar-candidate-ascertainment.md).
-[`../18-priority3-flagellar-annotation.R`](../18-priority3-flagellar-annotation.R)
-requires PAO1's pre-pinned exact protein FASTA, derives the current flagellar
-marker contract from the database, and writes all KOfam hits, input/model hashes
-and the component-level `trace_gift()` result to
-`priority-3-flagellar-annotation-audit/`. Its complete architecture call is
-annotation evidence only; it does not observe flagella, assembly, motility or
-any assay endpoint.
-
-[The future microscopy test specification](priority-3-flagellar-microscopy-test.md)
-now locks the condition-specific TEM endpoint, culture/preparation conditions,
-randomised blinded sampling, three biological replicates and a real isogenic
-`Delta fliC` required-function-loss control. It preserves the annotation audit
-and does not add a registry row or observation. A physical PAO1 parent/control
-pair, checksum-pinned stock identity and control verification, stock-specific
-annotations/traces and raw microscopy data remain absent. The future endpoint
-can see a filament but cannot establish every genomic component, motility or
-ion coupling, so it must be recorded as `related` rather than a GIFT-equivalent
-outcome. Priority 3's regulatory and defense portions have not started.
+The direct prospective registry remains empty by design. An absent public
+record is never a negative phenotype or an unsupported genomic call.

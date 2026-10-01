@@ -1,0 +1,11 @@
+gift_type	validation_status	gift_n
+defense	no_public_observation	5
+metabolic	bounded_frame_aggregate	44
+metabolic	individual_below_threshold	3
+metabolic	individual_recall_usable	17
+metabolic	no_public_observation	74
+metabolic	refused_proxy_only	1
+metabolic	related_context_only	4
+regulatory	no_public_observation	3
+structural	no_public_observation	1
+structural	related_context_only	1

@@ -15,6 +15,25 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-10-01T18:35Z — Validation is explicitly database-only and coverage is auditable
+
+**What changed.** The biological-validation plan now limits this project to
+existing phenotype/genome databases, deposited genomes and checksum-pinned
+annotations. The prospective assay registry and flagellar TEM plan are archived
+templates, not active work. A new R9 coverage runner pins the committed
+BacDive/MediaDive and Madin results plus the SQLite database, expands
+reaction-level observations to their GIFTs, and writes per-GIFT evidence,
+coverage and summary tables.
+
+**Effect.** At database `2026.27.1`, 17 GIFTs have individually
+recall-usable public observations and 44 more are testable only through a
+bounded anabolic-frame aggregate. `flagellar_apparatus` has related motility
+context only; the three regulatory and five defense GIFTs have no admissible
+public observation in these sources. A missing record is not an absence call,
+and refused proxies—such as gelatin for collagen cleavage—remain visibly
+refused. No laboratory observation, synthetic biological control, biological
+database, SQLite artifact, schema, package API or runtime code changed.
+
 ### 2026-10-01T16:42Z — A future direct flagellar microscopy test is specified, not observed
 
 **What changed.** The Priority 3 structural pilot now has a dated,

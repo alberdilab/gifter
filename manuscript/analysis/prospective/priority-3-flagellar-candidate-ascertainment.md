@@ -1,11 +1,11 @@
 # Priority 3 structural pilot: flagellar-apparatus candidate ascertainment
 
 Status: candidate ascertainment and exact-assembly annotation audit completed
-2026-10-01T16:11Z. A future microscopy protocol specification was subsequently
-locked on 2026-10-01T16:42Z, but no study, working stock, control, image or
-observation exists. This starts only the structural portion of Priority 3. It is
-not a direct microscopy experiment, a motility experiment, a prospective assay
-outcome, or a GIFT redefinition, and it adds no row to the prospective registry.
+2026-10-01T16:11Z. The later microscopy plan is archived because this project
+uses existing phenotype/genome databases only. This remains a structural
+annotation audit, not a microscopy experiment, a motility experiment, a
+prospective assay outcome, or a GIFT redefinition, and it adds no row to the
+prospective registry.
 
 ## Question and invariant
 
@@ -61,32 +61,18 @@ architecture only**. It is not an image of a flagellum, a measurement of
 assembly, ion coupling, rotation, swimming, chemotaxis, growth, virulence or
 any other biological outcome.
 
-## Future direct test and remaining blockers
+## Database-only structural context
 
-The [future flagellar microscopy test](priority-3-flagellar-microscopy-test.md)
-now locks the TEM endpoint, LB mid-exponential culture condition, three
-independent biological replicates, image sampling/blinding, per-replicate
-decision rule, and use of an isogenic real `Delta fliC` required-function-loss
-control. It is a pre-registry protocol specification, not a biological result.
+The [former microscopy plan](priority-3-flagellar-microscopy-test.md) is
+archived, not deferred for local simulation. No synthetic annotation deletion,
+motility result, gene name or generic stator marker can serve as its biological
+control or outcome.
 
-No observation has been placed in `observations.tsv`, and no study has been
-locked in `studies.tsv`. The following concrete inputs remain absent and block a
-prospective structural result:
-
-1. A strain-matched working stock and a pre-assay identity check linked to the
-   deposited assembly, including checksum-pinned stock DNA data. The reference
-   proteome cannot establish the identity of a future culture.
-2. A real, strain-matched `Delta fliC` control with independently verified
-   locus and protein loss, plus its own deposited or generated genome,
-   annotation and trace. No synthetic annotation deletion is used here, because
-   it is an evaluator exercise rather than a strain or microscopy control.
-3. The actual culture, FliC-verification and image data manifests. A published
-   PAO1 control class or an image selected for a figure is not a record of this
-   future study.
-
-Only after these inputs exist may a registry row be locked and processed by
-`11-prospective-validation.R`. The direct TEM endpoint will remain a
-condition-specific structural observation related to, rather than equivalent
-to, the full genomic GIFT; it cannot establish motility or ion coupling. The
-remaining regulatory and defense portions of Priority 3 have not been started
-by this structural pilot.
+The active structural context is instead the existing public-record comparison
+in `07-madin.R`: BacDive and Madin motility rows are explicitly
+`superset_of` `flagellar_apparatus`. They remain visible in the database-only
+coverage audit but cannot validate complete machinery, assembly under a
+condition, rotation or ion coupling. No currently pinned phenotype/genome
+record directly tests the structural GIFT. The regulatory and defense portions
+of Priority 3 likewise have no admissible public observation in the current
+sources.

@@ -1,0 +1,154 @@
+gift_id	gift_type	individual_recall_usable	individual_below_threshold	related_context	refused_proxy	bounded_frame_aggregate	source_records	validation_status
+acetate_interconversion	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+acetoin_formation	metabolic	TRUE	FALSE	FALSE	FALSE	FALSE	BACDIVE:metabolite production:acetoin:equivalent:n=275	individual_recall_usable
+acetyl_coa_to_isocitrate	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+adenylate_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+alanine_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+allantoin_degradation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+ammonium_assimilation	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+anthranilate_degradation_catechol	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+arabinose_degradation	metabolic	TRUE	FALSE	FALSE	FALSE	FALSE	BACDIVE:metabolite utilization:L-arabinose:equivalent:n=337;BACDIVE:metabolite utilization:L-arabinose:subset_of:n=395;MADIN:carbon_substrates:arabinose:equivalent:n=217	individual_recall_usable
+arabinose_uptake_abc	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+arabinoxylan_debranching	metabolic	TRUE	FALSE	FALSE	FALSE	FALSE	BACDIVE:enzymes:alpha-L-arabinofuranosidase:equivalent:n=121	individual_recall_usable
+arginine_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+arginine_deiminase_pathway	metabolic	TRUE	FALSE	FALSE	FALSE	FALSE	BACDIVE:enzymes:arginine deiminase:equivalent:n=622	individual_recall_usable
+asparagine_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+aspartate_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+aspartate_chemoreception	regulatory	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+aspartate_semialdehyde_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+assimilatory_sulfate_reduction	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+benzoate_degradation_catechol	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+betaine_demethylation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+biotin_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+butyrate_formation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+carnitine_degradation_trimethylamine	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+carnitine_to_betaine	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+catechol_meta_cleavage	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+catechol_ortho_cleavage	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+chemotaxis_signal_transduction	regulatory	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+chitin_degradation	metabolic	TRUE	TRUE	FALSE	FALSE	FALSE	BACDIVE:enzymes:beta-N-acetylhexosaminidase:equivalent:n=900;BACDIVE:enzymes:chitinase:equivalent:n=2	individual_recall_usable
+choline_to_betaine	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+chorismate_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+citrate_fermentation	metabolic	FALSE	FALSE	TRUE	FALSE	FALSE	BACDIVE:metabolite utilization:citrate:superset_of:n=470;MADIN:carbon_substrates:citrate:superset_of:n=106	related_context_only
+cobamide_nucleotide_loop_assembly	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+cobinamide_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+collagen_cleavage	metabolic	FALSE	FALSE	FALSE	TRUE	FALSE	BACDIVE:metabolite utilization:gelatin:refused:n=613	refused_proxy_only
+corrin_ring_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+creatinine_degradation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+cysteine_biosynthesis_homocysteine	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+cysteine_biosynthesis_sulfide	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+cysteine_degradation_sulfide	metabolic	FALSE	FALSE	TRUE	FALSE	FALSE	BACDIVE:metabolite production:hydrogen sulfide:superset_of:n=313	related_context_only
+cytidylate_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+dap_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+dihydroxybenzoate_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+dihydroxyphenylpropanoate_degradation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+dmb_biosynthesis_aerobic	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+ectoine_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+ectoine_degradation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+enterobactin_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+ethanol_formation	metabolic	FALSE	FALSE	TRUE	FALSE	FALSE	BACDIVE:enzymes:alcohol dehydrogenase:related:n=388	related_context_only
+flagellar_apparatus	structural	FALSE	FALSE	TRUE	FALSE	FALSE	BACDIVE:cell morphology:motility:superset_of:n=1253;MADIN:motility:motility:superset_of:n=1869	related_context_only
+folate_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+fucose_degradation_isomerase	metabolic	TRUE	FALSE	FALSE	FALSE	FALSE	BACDIVE:metabolite utilization:L-fucose:equivalent:n=75;MADIN:carbon_substrates:fucose:equivalent:n=53	individual_recall_usable
+fumarate_oxaloacetate_interconversion	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+galactose_degradation_leloir	metabolic	TRUE	FALSE	FALSE	FALSE	FALSE	BACDIVE:metabolite utilization:D-galactose:equivalent:n=95;BACDIVE:metabolite utilization:D-galactose:subset_of:n=288;MADIN:carbon_substrates:galactose:equivalent:n=195	individual_recall_usable
+galacturonate_degradation	metabolic	TRUE	FALSE	FALSE	FALSE	FALSE	MADIN:carbon_substrates:galacturonic acid:equivalent:n=20	individual_recall_usable
+glcnac_degradation	metabolic	TRUE	FALSE	FALSE	FALSE	FALSE	BACDIVE:metabolite utilization:N-acetylglucosamine:equivalent:n=229;MADIN:carbon_substrates:N-acetylgulcosamine:equivalent:n=130	individual_recall_usable
+glucuronate_degradation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+glutamate_decarboxylation_gaba	metabolic	TRUE	FALSE	FALSE	FALSE	FALSE	BACDIVE:enzymes:glutamate decarboxylase:equivalent:n=121	individual_recall_usable
+glutamine_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+glycine_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+glycine_reduction_stickland	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+glyoxylate_bypass	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+guanylate_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+heme_b_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+histidine_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+histidine_degradation_glutamate	metabolic	FALSE	FALSE	TRUE	FALSE	FALSE	MADIN:carbon_substrates:histidine:overlaps:n=39	related_context_only
+hmp_phosphate_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+homoserine_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+hydroxyectoine_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+hydroxyphenylpropanoate_hydroxylation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+indole_3_acetate_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+isocitrate_to_oxoglutarate	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+isoleucine_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+kdg_degradation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+lactate_formation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+lactate_formation_lactaldehyde	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+lactate_racemisation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+leucine_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+lysine_biosynthesis_dap	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+malolactic_fermentation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+menaquinone_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+mercury_detoxification	defense	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+methionine_biosynthesis_sulfhydrylation	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+methionine_biosynthesis_transsulfuration	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+methionine_degradation_methanethiol	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+methylamine_degradation	metabolic	FALSE	TRUE	TRUE	FALSE	FALSE	MADIN:carbon_substrates:methylamine:equivalent:n=17;MADIN:carbon_substrates:trimethylamine:superset_of:n=18	individual_below_threshold
+methylglyoxal_detoxification	defense	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+mucin_fucose_release	metabolic	TRUE	FALSE	FALSE	FALSE	FALSE	BACDIVE:enzymes:alpha-L-fucosidase:equivalent:n=874	individual_recall_usable
+mucin_galnac_release	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+mucin_sialic_acid_release	metabolic	FALSE	TRUE	FALSE	FALSE	FALSE	BACDIVE:enzymes:sialidase:equivalent:n=1	individual_below_threshold
+nad_biosynthesis_namn	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+namn_biosynthesis_quinolinate	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+namn_salvage_nicotinate	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+neuac_degradation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+nitrate_assimilation	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+nitrogen_fixation	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+ornithine_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+oxoadipate_activation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+oxoadipyl_coa_thiolysis	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+oxobutanoate_biosynthesis_citramalate	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+oxoglutarate_to_succinate	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+oxoisovalerate_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+oxopentenoate_degradation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+paba_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+pantothenate_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+pectate_lyase_degradation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+pectin_degradation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+phenol_hydroxylation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+phenylacetate_degradation	metabolic	TRUE	FALSE	FALSE	FALSE	FALSE	MADIN:carbon_substrates:phenylacetate:equivalent:n=32	individual_recall_usable
+phenylalanine_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+phenylpropanoate_dihydroxylation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+phosphate_starvation_response	regulatory	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+plp_biosynthesis_dxp	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+plp_biosynthesis_r5p	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+proline_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+proline_reduction_stickland	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+propanediol_formation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+propionate_formation_acrylate	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+propionate_formation_propanediol	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+purine_core_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+pyrimidine_core_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+pyruvate_to_acetyl_coa	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+quinolinate_biosynthesis_aspartate	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+rhamnose_degradation	metabolic	TRUE	FALSE	FALSE	FALSE	FALSE	BACDIVE:metabolite utilization:L-rhamnose:equivalent:n=104;BACDIVE:metabolite utilization:L-rhamnose:subset_of:n=371;MADIN:carbon_substrates:rhamnose:equivalent:n=100	individual_recall_usable
+riboflavin_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+salicylate_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+sarcosine_demethylation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+serine_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+serine_deamination	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+siroheme_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+siroheme_to_heme_b	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+starch_degradation	metabolic	TRUE	FALSE	TRUE	FALSE	FALSE	BACDIVE:enzymes:alpha-glucosidase:equivalent:n=856;BACDIVE:metabolite utilization:glycogen:overlaps:n=321;MADIN:carbon_substrates:dextrin:overlaps:n=55;MADIN:carbon_substrates:glycogen:overlaps:n=71	individual_recall_usable
+succinate_fumarate_interconversion	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+superoxide_detoxification	defense	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+taurine_degradation_sulfoacetaldehyde	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+taurine_desulfonation_aerobic	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+taurine_uptake_abc	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+thiamine_phosphate_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+thiamine_precursor_salvage	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+thiazole_phosphate_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+threonine_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+threonine_deamination	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+tryptophan_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+tryptophan_degradation_indole	metabolic	TRUE	FALSE	FALSE	FALSE	FALSE	BACDIVE:enzymes:tryptophanase:equivalent:n=361;BACDIVE:metabolite production:indole:equivalent:n=1011	individual_recall_usable
+type_i_e_crispr_cas_machinery	defense	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+type_i_restriction_modification	defense	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+type_iva_pilus	structural	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+tyrosine_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+urate_degradation	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
+urea_hydrolysis	metabolic	TRUE	TRUE	FALSE	FALSE	FALSE	BACDIVE:enzymes:urease:equivalent:n=1012;BACDIVE:metabolite utilization:urea:equivalent:n=661;MADIN:carbon_substrates:urea:equivalent:n=14	individual_recall_usable
+valine_biosynthesis	metabolic	FALSE	FALSE	FALSE	FALSE	TRUE		bounded_frame_aggregate
+xylan_degradation	metabolic	FALSE	TRUE	FALSE	FALSE	FALSE	BACDIVE:enzymes:endo-1,4-beta-xylanase:equivalent:n=2	individual_below_threshold
+xylose_degradation_isomerase	metabolic	TRUE	FALSE	FALSE	FALSE	FALSE	BACDIVE:metabolite utilization:D-xylose:equivalent:n=71;BACDIVE:metabolite utilization:D-xylose:subset_of:n=389;MADIN:carbon_substrates:xylose:equivalent:n=151	individual_recall_usable
+xylose_uptake_abc	metabolic	FALSE	FALSE	FALSE	FALSE	FALSE		no_public_observation
