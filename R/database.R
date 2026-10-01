@@ -11,7 +11,7 @@
 
 # Schema compatibility is a package-code decision, independent of both the
 # package version and biological database release. A package may support more
-# than one schema during a migration; 0.7.0 and the intended 1.0 contract read
+# than one schema during a migration; 0.7.x and the intended 1.0 contract read
 # schema 7 only.
 .gifter_supported_schema_versions <- 7L
 

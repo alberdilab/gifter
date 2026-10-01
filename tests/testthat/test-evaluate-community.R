@@ -61,7 +61,14 @@ test_that("workers change wall time and nothing else", {
   # Two workers over three genomes: one worker carries two of them, so this
   # also covers a block being evaluated on one connection.
   sequential <- evaluate_gifts_community(arabinoxylan_table(), workers = 1)
-  parallel_run <- evaluate_gifts_community(arabinoxylan_table(), workers = 2)
+  parallel_run <- if (identical(.Platform$OS.type, "windows")) {
+    expect_warning(
+      evaluate_gifts_community(arabinoxylan_table(), workers = 2),
+      "cannot fork"
+    )
+  } else {
+    evaluate_gifts_community(arabinoxylan_table(), workers = 2)
+  }
   # Including the order: a community ordered by which worker finished first
   # would give the same calls a different genome axis.
   expect_identical(parallel_run$genome_id, sequential$genome_id)
@@ -186,6 +193,8 @@ test_that("the worker count is bounded by the work and by the platform", {
 })
 
 test_that("a worker that fails or dies is not passed off as a result", {
+  skip_on_os("windows")
+
   # A child reports a failure as a value rather than by raising it, so a
   # community could otherwise come back quietly short of a genome.
   testthat::local_mocked_bindings(
@@ -228,7 +237,8 @@ test_that("progress counts genomes evaluated, however the work was spread", {
   }
   testthat::local_mocked_bindings(.genome_progress = recorder)
 
-  for (workers in c(1, 2)) {
+  worker_counts <- if (identical(.Platform$OS.type, "windows")) 1 else c(1, 2)
+  for (workers in worker_counts) {
     seen <- list()
     community <- evaluate_gifts_community(
       arabinoxylan_table(), workers = workers, progress = TRUE
@@ -242,6 +252,8 @@ test_that("progress counts genomes evaluated, however the work was spread", {
 })
 
 test_that("a forked child reports its genomes to the parent it cannot speak to", {
+  skip_on_os("windows")
+
   # The count crosses the process boundary through a file, one appended byte per
   # genome, because a child has no console and the parent is waiting on results.
   ticker <- .new_genome_ticker(TRUE)
@@ -276,7 +288,8 @@ test_that("progress is shown to a watching console and to nobody else", {
 
   # The default is silent here, which is also what keeps the calls the only
   # thing this function puts on the console.
-  expect_silent(evaluate_gifts_community(arabinoxylan_table(), workers = 2))
+  workers <- if (identical(.Platform$OS.type, "windows")) 1 else 2
+  expect_silent(evaluate_gifts_community(arabinoxylan_table(), workers = workers))
 })
 
 test_that("the genome column is required and never inferred", {

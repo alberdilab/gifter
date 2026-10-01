@@ -149,7 +149,9 @@
       unlink(existing)
     }
   }
-  on.exit(cleanup(), add = TRUE)
+  # Windows will not unlink an open SQLite file. Keep cleanup last, after the
+  # read-only snapshot connection registered below has been disconnected.
+  on.exit(cleanup(), add = TRUE, after = TRUE)
 
   RSQLite::sqliteCopyDatabase(source, path)
   if (!file.exists(path)) {
@@ -157,7 +159,7 @@
   }
   Sys.chmod(path, mode = "0444")
   snapshot <- gifter_db_connect(path, read_only = TRUE)
-  on.exit(DBI::dbDisconnect(snapshot), add = TRUE)
+  on.exit(DBI::dbDisconnect(snapshot), add = TRUE, after = FALSE)
   code(snapshot)
 }
 

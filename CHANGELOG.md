@@ -13,7 +13,25 @@ versioned with the package.
 
 ---
 
-## Unreleased
+## 0.7.1 — 2026-10-01
+
+### 2026-10-01T03:52Z — Community evaluation checks are portable to Windows
+
+**The problem.** The first post-release Windows check exercised fork-only test
+expectations on a platform where `evaluate_gifts_community()` deliberately
+falls back to sequential evaluation. It also exposed that the immutable SQLite
+snapshot was unlinked before its read-only connection was closed, which Unix
+permits but Windows refuses.
+
+**What changed.** Snapshot teardown now closes its connection before removing
+the temporary database. Fork-specific tests skip or use their sequential
+equivalent on Windows, while the worker-equivalence test explicitly verifies
+the documented fallback warning and identical calls.
+
+**Effect.** Community evaluation retains the same calls, ordering and evidence
+on every platform, and its temporary database is removed after success, error
+or interruption on Windows as well as Unix. The released package archive,
+database artifact, biological content, API, tag and checksums are unchanged.
 
 ### 2026-10-01T03:26Z — Database CI declares its verifier prerequisites
 

@@ -59,7 +59,7 @@ version identifies curated biological content. The schema version identifies
 the relational contract. None is inferred from either of the others, and a
 change to one does not automatically require a change to all three.
 
-Package 0.7.0, and the intended initial 1.x implementation, support schema 7.
+Package 0.7.x, and the intended initial 1.x implementation, support schema 7.
 A later package may list more than one supported schema during a migration.
 Every connection is checked before a query: an unsupported schema fails with
 an error naming the version found, the versions supported, and the remedies.
