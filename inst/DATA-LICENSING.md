@@ -24,6 +24,11 @@ source and terms URLs, the material used, and the current redistribution
 assessment. `inst/extdata/database-source/SOURCES.md` remains the detailed
 record of biological derivation and boundary decisions.
 
+`inst/doc/licensing-review.md` is the dated, source-level dossier for the
+unresolved rows. It records the public evidence and exact content inventory a
+human reviewer must consider; it is not legal advice, permission, or a licence
+interpretation.
+
 Rhea and ChEBI state CC BY 4.0 terms, and Pfam states CC0. Those sources must
 still be cited as recorded in the manifest. Public access is not treated as a
 licence for any other resource.

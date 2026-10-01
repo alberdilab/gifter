@@ -8,7 +8,9 @@ approval.
 
 - Resolve every `human_review_required` row in
   `inst/extdata/UPSTREAM-SOURCES.tsv`, recording permission or removing affected
-  redistributed content. Keep the evidence for that decision locally.
+  redistributed content. Begin with the dated evidence and content inventory in
+  `inst/doc/licensing-review.md`; keep the human decision and any conditions
+  with that record.
 - Confirm package, database, and schema versions independently. Update the
   appropriate changelog: code/API decisions in `CHANGELOG.md`, biological
   decisions in `database_changes.tsv` and `change_gifts.tsv`.
@@ -16,6 +18,15 @@ approval.
   all four vignettes.
 - Replace the DOI note in `inst/CITATION` only after an archive has actually
   assigned one. Current state: **PENDING EXTERNAL ACTION — no DOI exists**.
+
+## Operational CI maintenance — separate from biological curation
+
+GitHub Actions has issued maintenance warnings about the Node.js 20 migration
+for `actions/upload-artifact@v4` and the future `ubuntu-latest` move to Ubuntu
+26. These are workflow-maintenance items, not licensing or biological-database
+decisions. Address them in a separately scoped compatibility change with a
+dedicated CI run; do not use a runner change to reclassify an upstream source or
+to plan a v1 release.
 
 ## Reproducible database and source commit
 

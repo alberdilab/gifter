@@ -13,6 +13,22 @@ versioned with the package.
 
 ---
 
+## Unreleased
+
+### 2026-10-01T05:53Z — Human redistribution review is evidence-backed without legal clearance
+
+**What changed.** `inst/doc/licensing-review.md` records public primary-source
+evidence and the exact gifter inventory for each unresolved KEGG, dbCAN/CAZy,
+InterPro-member, NCBIfam/TIGRFAM and MetaCyc/BioCyc review. The data-licensing
+statement and release checklist now point to that dossier. The checklist also
+records the separate GitHub Actions maintenance warnings for
+`actions/upload-artifact@v4` and `ubuntu-latest`.
+
+**Effect.** No upstream row is cleared; no database content, SQLite artifact,
+schema, package API, release metadata, DOI, tag or external service changed.
+The dossier makes the next human permission, terms-interpretation, removal or
+replacement decision reviewable without treating public access as permission.
+
 ## 0.7.3 — 2026-10-01
 
 ### 2026-10-01T05:10Z — Interaction-type refusal is tested across supported R versions
