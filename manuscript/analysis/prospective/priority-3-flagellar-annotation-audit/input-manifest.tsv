@@ -1,0 +1,31 @@
+input_kind	identifier	source	sha256	call_rule
+proteome	GCF_000006765.1	https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/006/765/GCF_000006765.1_ASM676v1/GCF_000006765.1_ASM676v1_protein.faa.gz	f1640583fef81a2ed8fbd12a0f6d7186fe1923640e2855111a7087a5e7485fe0	exact NCBI protein FASTA; SHA-256 must match pre-recorded pin
+KOfam_library	curated-ko.hmm	https://www.genome.jp/ftp/db/kofam/profiles.tar.gz	3e6243b3a7fad269c1656af4a7a53d5512610b807807e6ea9345869262287429	content-addressed source library
+KOfam_threshold_table	ko_list.gz	https://www.genome.jp/ftp/db/kofam/ko_list.gz	fd22f28e3dc6deaf1d579b9c80022d04acd69543e4639f08b2d34f5708bd920b	KOfam adaptive threshold table
+KOfam_model	K02387	extracted from curated-ko.hmm	30cd3c37ef3fa262cb6df2dac032922664bef8d328394f5017bfa417b567d570	domain score >= 70.6
+KOfam_model	K02388	extracted from curated-ko.hmm	890eb62721eb84efd39d70134818d02246ec687cd3dfcc27d8c1c0f4d2b2b717	domain score >= 63.5
+KOfam_model	K02390	extracted from curated-ko.hmm	8b2b6d65feb459e515d76f399089fc839f4367b489470eb783b0f956c48c5e82	domain score >= 182.17
+KOfam_model	K02391	extracted from curated-ko.hmm	71f34b98b36167021479335a9ad68b6cf7dde8aab3a5390bb3180a8ff368264a	full score >= 233.83
+KOfam_model	K02392	extracted from curated-ko.hmm	25c3ae07c98f9df6c57cb1e550911e0caa618aa182b047ba675c8f44a71c1829	full score >= 292.33
+KOfam_model	K02393	extracted from curated-ko.hmm	743cf5b5a209607b660c0b1ee7a0290415d485ae626f1526508f1721d6743e8e	full score >= 46.87
+KOfam_model	K02394	extracted from curated-ko.hmm	f6ee053b0d208160876414042ad7bb9f40ef7debc0c5b2182053a48fb0a6adf8	full score >= 176.23
+KOfam_model	K02396	extracted from curated-ko.hmm	0dcd434629f2fdbc5209f4ceceaa080914c1b629142cbd269bb1d3776c3523c9	domain score >= 93.6
+KOfam_model	K02397	extracted from curated-ko.hmm	8e42c285f8932cc44e34a01f3c1ebbd09cd59ea99d98b23e38651d9221739f2f	full score >= 149.63
+KOfam_model	K02400	extracted from curated-ko.hmm	2722ccd16694c7bf2169ebd982e6c5d37941f1e68ecfe1e4253976d1bbd98b5d	full score >= 726.83
+KOfam_model	K02401	extracted from curated-ko.hmm	d9b3508f76aa8778316b48bbdd10cb3d9aa0e3057a265295f93f3ec1cd7e1775	domain score >= 369.33
+KOfam_model	K02406	extracted from curated-ko.hmm	08ec19986221663cf4cc9b62446a8122b1ac3be8a6adb139c1cc7aaf26289c38	full score >= 132.53
+KOfam_model	K02407	extracted from curated-ko.hmm	4bf702526419ff6734369d7fa7197697f6901b25f8f6bc5aa8105b589bd311bc	full score >= 67.13
+KOfam_model	K02408	extracted from curated-ko.hmm	386ec9fc14d13a188c94e852518c197f2e0a00102b6d7b19c36f2289f140199c	full score >= 33.2
+KOfam_model	K02409	extracted from curated-ko.hmm	c098473495141dd39ac550dc62da19a792ae598e7816c6ff9d7ab4392bcafa76	full score >= 125.6
+KOfam_model	K02410	extracted from curated-ko.hmm	8d701c096df9c0e3ce81811b108766859afec7d4effcd0c63372474b09cc43e9	full score >= 73.77
+KOfam_model	K02411	extracted from curated-ko.hmm	425fa0664df53f9789aaf3f8774638d7b733748fa0d0c7689bf94c5a6ba55442	domain score >= 75.47
+KOfam_model	K02412	extracted from curated-ko.hmm	92c9d0bc235b8eae9675045390cbd3f4471bcefc4695121263750aa2bb187962	domain score >= 643.83
+KOfam_model	K02416	extracted from curated-ko.hmm	f708f9a12de44c133fd326439411211537a223e1d63080c6cebe7fa50d62322f	domain score >= 87.93
+KOfam_model	K02417	extracted from curated-ko.hmm	bce7c52867ec470acfac115a09d73d8f3f267cc0df2480ae297fdf6fba1006db	domain score >= 64.53
+KOfam_model	K02419	extracted from curated-ko.hmm	4db0cdfad481c0b8e1f83f3c3c9ad9a76770c8b1740d2131e68a6e4f8a8568f7	full score >= 284.4
+KOfam_model	K02420	extracted from curated-ko.hmm	e8bd68c0d3dee4c3c5557f56f92bc3d06eafcf7ef4d759c5ff1cde026c20b7da	full score >= 86.3
+KOfam_model	K02421	extracted from curated-ko.hmm	4ff4d57739ff49510542ccaaec4d5a9306940117a2669d0a25668af447888cf0	full score >= 168.77
+KOfam_model	K02556	extracted from curated-ko.hmm	f87d58b8735ff2c9e5ab8c68fe0265f695a982a1f5d829a977e5469770bf39ca	full score >= 96.53
+KOfam_model	K02557	extracted from curated-ko.hmm	5f50beb38c61ac1db18d33d8983514f0e89eaebac943e9221d4b49d02ef05c11	domain score >= 141.9
+KOfam_model	K13820	extracted from curated-ko.hmm	d36f1d64a9013bcb2970da64641ffb21b173bc6ebcec36c06356edf8d9615f15	full score >= 636.97
+database	2026.27.1	/Users/anttonalberdi/Github/gifter/inst/extdata/gifter.sqlite	724b810ba2489299edccf20caad12ff48e0989c1dd39696b45490cddc91beaaa	gifter database used for final structural call

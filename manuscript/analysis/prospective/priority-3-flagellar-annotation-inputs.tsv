@@ -1,0 +1,2 @@
+candidate_id	assembly_accession	protein_fasta_url	expected_protein_sha256
+PAO1_FLAGELLAR_STRUCTURAL	GCF_000006765.1	https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/006/765/GCF_000006765.1_ASM676v1/GCF_000006765.1_ASM676v1_protein.faa.gz	f1640583fef81a2ed8fbd12a0f6d7186fe1923640e2855111a7087a5e7485fe0

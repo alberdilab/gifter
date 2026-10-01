@@ -191,3 +191,14 @@ Call differences are annotation/assembly changes only. A separately labelled
 fixed-annotation deletion series checks monotonicity, missing requirements and
 the denominator-only assessability contract without estimating MAG quality.
 This is not an assay outcome, prospective-registry record or biological result.
+
+Priority 3 has now begun with one narrow structural-pilot annotation audit in
+[`priority-3-flagellar-candidate-ascertainment.md`](../../manuscript/analysis/prospective/priority-3-flagellar-candidate-ascertainment.md).
+It checksum-pins PAO1's exact deposited proteome, preserves every searched
+marker hit and `trace_gift()` component row, and finds complete diderm and
+monoderm flagellar architectures in that annotation. This is evidence only for
+the encoded structural machinery, not microscopy, flagellar assembly, motility
+or another outcome. No direct-test protocol, matched working stock, or real
+required-function-loss strain control has yet been locked, so it remains outside
+the prospective registry and supplies no biological denominator. The regulatory
+and defense portions of Priority 3 remain unresolved.

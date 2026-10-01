@@ -15,6 +15,25 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-10-01T16:11Z — Priority 3 starts with a checksum-pinned structural candidate audit
+
+**What changed.** The prospective analyses now include a narrow Priority 3
+flagellar-apparatus candidate record and runner for the exact PAO1 assembly
+`GCF_000006765.1`. The runner verifies the pre-recorded protein FASTA SHA-256,
+derives the current all-required component contract from the pinned database,
+applies the KOfam adaptive thresholds, and retains all marker hits, input/model
+hashes and the component-level `trace_gift()` output.
+
+**Effect.** The deposited PAO1 protein annotation completes the two curated
+flagellar architectures, with the diderm architecture selected as best. This is
+annotation evidence only for encoded structural machinery: it neither images
+flagella nor establishes their assembly, ion coupling, motility, chemotaxis,
+activity or phenotype. No protocol, strain-matched working stock, biological
+replicate, or real independently verified required-function-loss control has
+been locked, so no prospective registry row or biological denominator exists.
+No biological database, SQLite artifact, schema, package API or runtime code
+changed.
+
 ### 2026-10-01T16:00Z — A checksum-pinned matched isolate / MAG-like draft audit tests Priority 2
 
 **What changed.** The prospective analyses now contain a candidate ascertainment

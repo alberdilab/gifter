@@ -112,3 +112,15 @@ input, and it does not estimate MAG quality, observe biology or enter the
 prospective registry. Its synthetic fixed-annotation deletion and assessability
 exercises are likewise labelled as evaluator-contract checks, not drafts or
 biological outcomes.
+
+Priority 3 has started only as a structural candidate audit in
+[the flagellar-apparatus ascertainment](priority-3-flagellar-candidate-ascertainment.md).
+[`../18-priority3-flagellar-annotation.R`](../18-priority3-flagellar-annotation.R)
+requires PAO1's pre-pinned exact protein FASTA, derives the current flagellar
+marker contract from the database, and writes all KOfam hits, input/model hashes
+and the component-level `trace_gift()` result to
+`priority-3-flagellar-annotation-audit/`. Its complete architecture call is
+annotation evidence only; it does not observe flagella, assembly, motility or
+any assay endpoint. No protocol, strain-matched working stock, required-function
+control or prospective registry row exists yet, so the structural direct test is
+not complete and Priority 3's regulatory and defense portions have not started.

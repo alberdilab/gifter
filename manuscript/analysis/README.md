@@ -31,6 +31,7 @@ begun asking gifter to claim something it does not claim.
 | `15-priority1-starch-annotation.R` | Checksum-pinned KOfam/dbCAN audit of exact starch-specificity candidates, including the broad-family failure check; no assay input | prospective validation |
 | `16-priority1-type-ie-crispr-annotation.R` | Checksum-pinned KOfam audit of exact Type I-E machinery candidates, including incomplete-Cascade logic; no array or assay input | prospective validation |
 | `17-priority2-matched-mag-robustness.R` | Checksum-pinned matched-isolate reassembly and annotation audit: exact isolate plus one de-novo MAG-like read-subset draft, full traces and fixed-table invariants; no MAG, bin or assay | prospective validation |
+| `18-priority3-flagellar-annotation.R` | Checksum-pinned structural-pilot audit of PAO1's complete flagellar-marker evidence and component trace; no microscopy, motility or assay input | prospective validation |
 
 The curated inputs live with the other consulted evidence, in
 `data-raw/reference/`: `phenotype-crosswalk.tsv` maps an observation to
@@ -116,6 +117,17 @@ transition table calls only annotation/assembly differences, while its separate
 fixed-table deletion and assessability rows test evaluator invariants rather
 than genome or biological change. It produces no assay or phenotype result and
 does not modify the package, schema, biological source or SQLite artifact.
+
+`18-priority3-flagellar-annotation.R` starts the next unresolved priority only
+as a structural candidate annotation audit. It requires the pre-pinned exact
+PAO1 protein FASTA, extracts all current flagellar KOfam models, applies their
+adaptive thresholds, and writes every hit alongside the component-level
+`trace_gift()` output. The deposited annotation completes both curated
+architectures, with the diderm architecture selected as best; that supports
+only encoded machinery. It is not a microscopy or motility observation. A
+matched working stock, locked imaging endpoint and conditions, biological
+replicates, and an independently verified real required-function-loss control
+remain absent, so it creates no registry row or biological result.
 
 `09-cooccurrence.R` is exploratory and feeds no section yet. It asks whether the
 assessability layer could be sharpened from a genome-wide rule into a per-GIFT
