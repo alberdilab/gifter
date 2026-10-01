@@ -28,6 +28,7 @@ begun asking gifter to claim something it does not claim.
 | `12-priority1-collagen-annotation.R` | Checksum-pinned M9/domain audit of the exact collagen-specificity candidate assemblies; no assay input | prospective validation |
 | `13-priority2-collagen-evidence-stress.R` | Synthetic loss and deliberate evidence-mixture stress test of the exact collagen audit; not a MAG | prospective validation |
 | `14-priority1-aspartate-chemoreception-annotation.R` | Checksum-pinned Tar/circuit audit of the exact receptor-specificity candidates; no assay input | prospective validation |
+| `15-priority1-starch-annotation.R` | Checksum-pinned KOfam/dbCAN audit of exact starch-specificity candidates, including the broad-family failure check; no assay input | prospective validation |
 
 The curated inputs live with the other consulted evidence, in
 `data-raw/reference/`: `phenotype-crosswalk.tsv` maps an observation to
@@ -75,6 +76,19 @@ marker may complete the core chemotaxis GIFT, but it is never allowed to
 complete `aspartate_chemoreception`; the retained gene-level traces make that
 distinction inspectable. Its output is a candidate annotation audit, not an
 assay or a claim of chemotactic behaviour.
+
+`15-priority1-starch-annotation.R` performs the corresponding substrate
+specificity contrast from the exact, strain-matched *Bacillus licheniformis*
+DSM 13 and *Hydrogenobacter thermophilus* TK-6 proteomes. It derives the
+required route and markers from the pinned database, applies KOfam adaptive
+thresholds plus dbCAN's independent-E-value/profile-coverage filter, and
+records each hit and trace to its protein. The control has only broad `GH13`
+and `GH57` family evidence, yet those rows currently complete
+`starch_degradation` with ambiguous confidence; the resolving-marker
+diagnostic leaves both required reactions missing. That is an explicit
+curation problem, not a starch-degradation observation or a licence to make
+the named claim. No prospective registry, database, SQLite artifact, schema or
+package API changes follow from the audit.
 
 `09-cooccurrence.R` is exploratory and feeds no section yet. It asks whether the
 assessability layer could be sharpened from a genome-wide rule into a per-GIFT

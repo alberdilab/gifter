@@ -153,3 +153,16 @@ generic-MCP control, pins both exact assemblies and verifies that Tar plus the
 complete circuit is present only in MG1655. The historical motility observation
 and the genomic audit are not prospective outcomes; the endpoint still must be
 locked as a receptor/pathway response before collection.
+
+The carbohydrate contrast is now recorded in
+[`priority-1-starch-candidate-ascertainment.md`](../../manuscript/analysis/prospective/priority-1-starch-candidate-ascertainment.md).
+It selects the exact *Bacillus licheniformis* DSM 13 assembly as a
+route-complete resolving-evidence candidate and exact *Hydrogenobacter
+thermophilus* TK-6 as a broad-CAZy control, while excluding a contaminated
+one-`GH13` assembly before audit. The content-addressed KOfam/dbCAN audit finds
+that TK-6's broad `GH13` and `GH57` hits complete `starch_degradation` in the
+unmodified database even though its resolving-marker input lacks both required
+reactions. This is the failure condition the plan says must be zero: generic
+CAZy/family evidence cannot support a named substrate claim. It is an
+annotation-audit finding requiring separate biological curation review, not an
+assay outcome, registry row, GIFT redefinition or database change.

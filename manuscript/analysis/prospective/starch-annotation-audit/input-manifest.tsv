@@ -1,0 +1,12 @@
+input_kind	identifier	source	sha256	call_rule
+proteome	GCA_000008425.1	https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/008/425/GCA_000008425.1_ASM842v1/GCA_000008425.1_ASM842v1_protein.faa.gz	3b018e2ece08785521a34247901143731fefaaa423bce8543a8d365079a540fc	exact NCBI protein FASTA
+proteome	GCA_000010785.1	https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/010/785/GCA_000010785.1_ASM1078v1/GCA_000010785.1_ASM1078v1_protein.faa.gz	9ed0adab29bcb39206c67f9c391e9a793692ff5f46d15695d361701162e7ff9a	exact NCBI protein FASTA
+KOfam_library	curated-ko.hmm	https://www.genome.jp/ftp/db/kofam/profiles.tar.gz	3e6243b3a7fad269c1656af4a7a53d5512610b807807e6ea9345869262287429	content-addressed source library
+KOfam_threshold_table	ko_list.gz	https://www.genome.jp/ftp/db/kofam/ko_list.gz	fd22f28e3dc6deaf1d579b9c80022d04acd69543e4639f08b2d34f5708bd920b	KOfam adaptive threshold table
+KOfam_model	K01176	extracted from curated-ko.hmm	a0f5e3088f8b5a6126f67cf17bf4f9f20cc0aca36392077dad25c7427b860cbd	full score >= 235.03
+KOfam_model	K01187	extracted from curated-ko.hmm	ea6b3ef62443cf4158ff8c2c36d8b9a8540ff8e9ee2bd4cc95b342c015191be3	domain score >= 314.3
+KOfam_model	K07405	extracted from curated-ko.hmm	87f908d7ab9ea28de713c72b6107edbfdb0d596f0090c786e76bf0c95c0b1b70	full score >= 306.07
+dbCAN_family_library	dbCAN.hmm	https://dbcan.s3.us-west-2.amazonaws.com/db_v5-2-9_5-5-2026/dbCAN.hmm	fdc7c232478fce7fad0ea27cb126ab42812ad4c03a550cb7c1e4ba2c300aa1bb	dbCAN i-E < 1e-15; profile coverage > 0.35; -Z 875
+dbCAN_subfamily_library	dbCAN_sub.hmm	https://dbcan.s3.us-west-2.amazonaws.com/db_v5-2-9_5-5-2026/dbCAN_sub.hmm	1606556cae5b50f0257aeb11367f67f8ec7d7ef50dfc10984b870997accda891	dbCAN i-E < 1e-15; profile coverage > 0.35; -Z 53411
+dbCAN_library_size_table	dbcan-library-sizes.tsv	derived during manuscript/analysis/05-annotation-route.R	3613acea5fea00a9b1a29ed1cb47e804ab86e4081f254bd935dca08a5a1e484f	pins full dbCAN library sizes used with filtered HMM files
+database	2026.27.1	/Users/anttonalberdi/Github/gifter/inst/extdata/gifter.sqlite	724b810ba2489299edccf20caad12ff48e0989c1dd39696b45490cddc91beaaa	gifter database used for final route calls

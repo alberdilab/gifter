@@ -15,6 +15,23 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-10-01T12:30Z — The starch-specificity audit exposes broad-family route completion
+
+**What changed.** The prospective analysis now contains an exact-assembly,
+checksum-pinned KOfam/dbCAN audit of `starch_degradation`. It records the
+curated two-reaction route, profile thresholds, individual hits and gene-level
+traces for a *Bacillus licheniformis* DSM 13 resolving-evidence candidate and a
+*Hydrogenobacter thermophilus* TK-6 broad-family control; a contaminated
+one-`GH13` candidate is explicitly excluded.
+
+**Effect.** TK-6's broad `GH13` and `GH57` hits currently complete the named
+starch GIFT at ambiguous confidence even though no resolving marker supports
+either required reaction. The audit makes that curation failure reviewable and
+states that generic CAZy/family evidence cannot support the named substrate
+claim. It is not an activity, growth, polymer-degradation or phenotype result;
+no prospective registry, biological database, SQLite artifact, schema or
+package API changed.
+
 ### 2026-10-01T08:28Z — The Tar specificity contrast has exact candidate assemblies and traces
 
 **What changed.** The prospective analysis now records a strain-matched MG1655

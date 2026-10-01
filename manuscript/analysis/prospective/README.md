@@ -75,3 +75,14 @@ and writes its checksum-pinned circuit audit to
 `aspartate-chemoreception-annotation-audit/`. It keeps historical strain
 evidence and all of these genomic exercises out of the prospective registry
 until a protocol and matched assays are actually locked.
+
+The substrate-specific carbohydrate screen is documented in
+[the starch candidate ascertainment](priority-1-starch-candidate-ascertainment.md).
+[`../15-priority1-starch-annotation.R`](../15-priority1-starch-annotation.R)
+pins exact assemblies, KOfam and dbCAN inputs, thresholds, individual hits and
+gene traces in `starch-annotation-audit/`. It compares all currently mapped
+marker rows with a resolving-marker diagnostic. Its broad-CAZy control currently
+completes the named starch GIFT from ambiguous family evidence, which is an
+explicit curation finding—not support for starch degradation—and remains
+outside the prospective registry pending a separate decision and a locked
+assay protocol.
