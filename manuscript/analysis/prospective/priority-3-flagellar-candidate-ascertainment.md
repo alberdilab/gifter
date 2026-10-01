@@ -1,7 +1,9 @@
 # Priority 3 structural pilot: flagellar-apparatus candidate ascertainment
 
 Status: candidate ascertainment and exact-assembly annotation audit completed
-2026-10-01T16:11Z. This starts only the structural portion of Priority 3. It is
+2026-10-01T16:11Z. A future microscopy protocol specification was subsequently
+locked on 2026-10-01T16:42Z, but no study, working stock, control, image or
+observation exists. This starts only the structural portion of Priority 3. It is
 not a direct microscopy experiment, a motility experiment, a prospective assay
 outcome, or a GIFT redefinition, and it adds no row to the prospective registry.
 
@@ -59,31 +61,32 @@ architecture only**. It is not an image of a flagellum, a measurement of
 assembly, ion coupling, rotation, swimming, chemotaxis, growth, virulence or
 any other biological outcome.
 
-## Exclusions and blockers before a direct Priority 3 test
+## Future direct test and remaining blockers
+
+The [future flagellar microscopy test](priority-3-flagellar-microscopy-test.md)
+now locks the TEM endpoint, LB mid-exponential culture condition, three
+independent biological replicates, image sampling/blinding, per-replicate
+decision rule, and use of an isogenic real `Delta fliC` required-function-loss
+control. It is a pre-registry protocol specification, not a biological result.
 
 No observation has been placed in `observations.tsv`, and no study has been
 locked in `studies.tsv`. The following concrete inputs remain absent and block a
 prospective structural result:
 
 1. A strain-matched working stock and a pre-assay identity check linked to the
-   deposited assembly. The reference proteome cannot establish the identity of a
-   future culture.
-2. A locked microscopy protocol: growth condition, preparation method, blinded
-   field/cell selection, apparatus endpoint, biological replicate count and
-   image-level exclusion criteria are all still decisions. A swimming or soft-
-   agar result may be recorded as separate context but cannot replace visual
-   evidence of the structural apparatus.
-3. A real, strain-matched control with an independently verified loss of one
-   required assembly function, plus its own deposited or generated genome and
-   annotation. No synthetic deletion is used here, because removing an
-   annotation row is an evaluator exercise rather than a strain or a microscopy
-   control.
-4. A protocol decision about whether PAO1 itself is an appropriate organism for
-   the planned culture and imaging environment. If it is not, selection must be
-   repeated prospectively on another strain rather than transferring this
-   annotation call across strains.
+   deposited assembly, including checksum-pinned stock DNA data. The reference
+   proteome cannot establish the identity of a future culture.
+2. A real, strain-matched `Delta fliC` control with independently verified
+   locus and protein loss, plus its own deposited or generated genome,
+   annotation and trace. No synthetic annotation deletion is used here, because
+   it is an evaluator exercise rather than a strain or microscopy control.
+3. The actual culture, FliC-verification and image data manifests. A published
+   PAO1 control class or an image selected for a figure is not a record of this
+   future study.
 
-Only after those choices are locked and matched microscopy observations exist
-may they be entered in the registry and processed by
-`11-prospective-validation.R`. The remaining regulatory and defense portions of
-Priority 3 have not been started by this structural pilot.
+Only after these inputs exist may a registry row be locked and processed by
+`11-prospective-validation.R`. The direct TEM endpoint will remain a
+condition-specific structural observation related to, rather than equivalent
+to, the full genomic GIFT; it cannot establish motility or ion coupling. The
+remaining regulatory and defense portions of Priority 3 have not been started
+by this structural pilot.

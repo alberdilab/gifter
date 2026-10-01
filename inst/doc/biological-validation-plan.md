@@ -198,7 +198,17 @@ It checksum-pins PAO1's exact deposited proteome, preserves every searched
 marker hit and `trace_gift()` component row, and finds complete diderm and
 monoderm flagellar architectures in that annotation. This is evidence only for
 the encoded structural machinery, not microscopy, flagellar assembly, motility
-or another outcome. No direct-test protocol, matched working stock, or real
-required-function-loss strain control has yet been locked, so it remains outside
-the prospective registry and supplies no biological denominator. The regulatory
-and defense portions of Priority 3 remain unresolved.
+or another outcome.
+
+The next structural step is specified, but not enrolled, in the
+[`future flagellar microscopy test`](../../manuscript/analysis/prospective/priority-3-flagellar-microscopy-test.md).
+It locks a condition-specific negative-stain TEM endpoint, culture conditions,
+field/cell selection and three biological replicates, and requires a physical
+PAO1 parent/control pair with an independently verified `Delta fliC`
+loss-of-required-function control. The endpoint can observe an external
+filament but cannot show every curated component or a coupling ion, so its
+eventual crosswalk is `related`, not a GIFT-equivalent validation claim. No
+strain-matched working stock, stock identity check, real verified control,
+stock-specific annotation, image or assay data exists yet. Those blockers keep
+it outside the prospective registry and leave no biological denominator or
+outcome. The regulatory and defense portions of Priority 3 remain unresolved.

@@ -15,6 +15,26 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-10-01T16:42Z — A future direct flagellar microscopy test is specified, not observed
+
+**What changed.** The Priority 3 structural pilot now has a dated,
+pre-registry specification for a direct PAO1 flagellar microscopy test. It
+locks a negative-stain TEM endpoint, paired mid-exponential LB culture and grid
+preparation, randomised blinded image scoring, three biological replicates and
+an isogenic real `Delta fliC` loss-of-required-function control. It carries
+forward the checksum-pinned PAO1 annotation manifest and `trace_gift()` output
+without changing either.
+
+**Effect.** A visible external filament would be a condition-specific structural
+observation related to the full genomic GIFT, not proof of every curated
+component, assembly in general, motility, rotation or a stator coupling ion.
+No physical PAO1 parent/control pair, stock identity sequencing,
+independently verified control, stock-specific annotation or microscopy data is
+present, so no registry row, biological denominator or outcome exists. A
+synthetic annotation deletion is explicitly excluded as a biological control.
+No biological database, SQLite artifact, schema, package API or runtime code
+changed.
+
 ### 2026-10-01T16:11Z — Priority 3 starts with a checksum-pinned structural candidate audit
 
 **What changed.** The prospective analyses now include a narrow Priority 3

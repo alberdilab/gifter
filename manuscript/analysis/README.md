@@ -124,10 +124,18 @@ PAO1 protein FASTA, extracts all current flagellar KOfam models, applies their
 adaptive thresholds, and writes every hit alongside the component-level
 `trace_gift()` output. The deposited annotation completes both curated
 architectures, with the diderm architecture selected as best; that supports
-only encoded machinery. It is not a microscopy or motility observation. A
-matched working stock, locked imaging endpoint and conditions, biological
-replicates, and an independently verified real required-function-loss control
-remain absent, so it creates no registry row or biological result.
+only encoded machinery. It is not a microscopy or motility observation.
+
+The paired [future microscopy test specification](prospective/priority-3-flagellar-microscopy-test.md)
+locks a negative-stain TEM endpoint, the paired culture and grid conditions,
+randomised blinded image scoring, three independent biological replicates and
+an isogenic `Delta fliC` loss-of-required-function control. It is deliberately
+not a runner or an observation: no strain-matched working stock, pre-assay WGS
+identity record, independently verified physical control, stock-specific
+annotation or image data exists. The prescribed endpoint is condition-specific
+external-filament evidence related to the full encoded-machinery GIFT; it does
+not establish all components, motility, rotation or ion coupling, and it creates
+no registry row or biological result.
 
 `09-cooccurrence.R` is exploratory and feeds no section yet. It asks whether the
 assessability layer could be sharpened from a genome-wide rule into a per-GIFT
