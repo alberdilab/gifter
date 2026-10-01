@@ -1,7 +1,7 @@
 Package: gifter
 Type: Package
 Title: Genome-Inferred Functional Traits from Genomic Evidence
-Version: 0.7.2
+Version: 0.7.3
 Authors@R: person("Antton", "Alberdi", email = "antton.alberdi@sund.ku.dk", role = c("aut", "cre"))
 Description: Infers whether a genome encodes biologically defined metabolic,
     structural, regulatory, and defense capabilities. Each claim is evaluated

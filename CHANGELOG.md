@@ -13,6 +13,22 @@ versioned with the package.
 
 ---
 
+## 0.7.3 — 2026-10-01
+
+### 2026-10-01T05:10Z — Interaction-type refusal is tested across supported R versions
+
+**The problem.** R 4.1 and current R use different connective wording in the
+base `match.arg()` error for an unsupported community interaction type. The
+test asserted the newer full phrase even though both errors name the same sole
+accepted value.
+
+**What changed.** The refusal test now matches the stable
+`metabolic_handoff` value rather than version-specific base-R prose.
+
+**Effect.** The supported R 4.1 lane tests the same API refusal without making
+base error wording part of gifter's contract. Runtime behavior, the database,
+biological content, API and completeness models are unchanged from 0.7.2.
+
 ## 0.7.2 — 2026-10-01
 
 ### 2026-10-01T04:37Z — The Windows fallback test retains its evaluated result

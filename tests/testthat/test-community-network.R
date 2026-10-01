@@ -160,7 +160,7 @@ test_that("only defined interaction types and matching versions are accepted", {
   expect_error(community_network(list()), "must come from gifter_community")
   expect_error(
     community_network(community, interaction = "signal_response"),
-    'should be "metabolic_handoff"'
+    "metabolic_handoff"
   )
   expect_error(community_network(community, frame = "metabolic"), "reference_frame")
   stale <- reference_frame(type = "metabolic")
