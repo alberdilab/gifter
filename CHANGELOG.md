@@ -15,6 +15,25 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-10-01T06:15Z — CI uses maintained Actions runtime and a stable Ubuntu image
+
+**The problem.** GitHub Actions has removed Node 20 and is moving the
+`ubuntu-latest` label from Ubuntu 24.04 to Ubuntu 26.04. The check-artifact
+upload still used the Node-20 `actions/upload-artifact@v4` line, and the
+current-R, database-reproducibility and pkgdown jobs would otherwise change OS
+during that rollout.
+
+**What changed.** Check-result uploads now use `actions/upload-artifact@v7`,
+which runs on Node 24. The Linux release-R matrix entry, database
+reproducibility job, and pkgdown build and deploy jobs are pinned to
+`ubuntu-24.04`; the supported R 4.1 matrix entry remains on `ubuntu-22.04`.
+
+**Effect.** CI keeps the same R-version/platform coverage and artifact inputs
+while avoiding the retired JavaScript runtime and an untested Ubuntu 26.04
+transition. Package code, biological content, database, SQLite artifact,
+schema, licensing statuses, release metadata, DOI and deployments are
+unchanged.
+
 ### 2026-10-01T05:53Z — Human redistribution review is evidence-backed without legal clearance
 
 **What changed.** `inst/doc/licensing-review.md` records public primary-source
