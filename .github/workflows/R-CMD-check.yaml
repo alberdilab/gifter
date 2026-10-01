@@ -75,7 +75,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: local::.
+          extra-packages: local::., any::devtools
           needs: check
 
       - name: Validate sources, compile separately, and compare with packaged SQLite

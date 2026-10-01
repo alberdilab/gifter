@@ -15,7 +15,18 @@ versioned with the package.
 
 ## Unreleased
 
-No entries yet.
+### 2026-10-01T03:26Z — The database CI job declares its verifier dependency
+
+**The problem.** The first post-release database-reproducibility job installed
+gifter and its check dependencies, but the standalone verifier also loads the
+source tree through `devtools`, which was not part of that bootstrap set.
+
+**What changed.** The database CI job now requests `devtools` explicitly before
+running `data-raw/verify_database.R`.
+
+**Effect.** A fresh runner can execute the same non-mutating 41-table comparison
+used locally. The released package archive, database artifact, biological
+content, API, tag and checksums are unchanged.
 
 ## 0.7.0 — 2026-10-01
 
