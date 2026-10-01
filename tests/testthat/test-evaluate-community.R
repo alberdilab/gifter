@@ -61,13 +61,14 @@ test_that("workers change wall time and nothing else", {
   # Two workers over three genomes: one worker carries two of them, so this
   # also covers a block being evaluated on one connection.
   sequential <- evaluate_gifts_community(arabinoxylan_table(), workers = 1)
-  parallel_run <- if (identical(.Platform$OS.type, "windows")) {
+  if (identical(.Platform$OS.type, "windows")) {
+    parallel_run <- NULL
     expect_warning(
-      evaluate_gifts_community(arabinoxylan_table(), workers = 2),
+      parallel_run <- evaluate_gifts_community(arabinoxylan_table(), workers = 2),
       "cannot fork"
     )
   } else {
-    evaluate_gifts_community(arabinoxylan_table(), workers = 2)
+    parallel_run <- evaluate_gifts_community(arabinoxylan_table(), workers = 2)
   }
   # Including the order: a community ordered by which worker finished first
   # would give the same calls a different genome axis.

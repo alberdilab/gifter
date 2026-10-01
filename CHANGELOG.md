@@ -13,6 +13,22 @@ versioned with the package.
 
 ---
 
+## 0.7.2 — 2026-10-01
+
+### 2026-10-01T04:37Z — The Windows fallback test retains its evaluated result
+
+**The problem.** The 0.7.1 Windows check correctly observed the documented
+sequential-fallback warning, but that runner's testthat version returned
+`NULL` from `expect_warning()`. The assertion then compared `NULL` rather than
+the successful community evaluation with the one-worker result.
+
+**What changed.** The test now assigns the evaluation inside the warning
+expectation, so warning verification cannot discard the value being tested.
+
+**Effect.** Windows checks exercise both the fallback warning and identical
+calls. Runtime behavior, the database, biological content, API and completeness
+models are unchanged from 0.7.1.
+
 ## 0.7.1 — 2026-10-01
 
 ### 2026-10-01T03:52Z — Community evaluation checks are portable to Windows
