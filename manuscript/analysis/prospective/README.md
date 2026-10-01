@@ -86,3 +86,14 @@ completes the named starch GIFT from ambiguous family evidence, which is an
 explicit curation finding—not support for starch degradation—and remains
 outside the prospective registry pending a separate decision and a locked
 assay protocol.
+
+The Type I-E machinery screen is documented in
+[the CRISPR-Cas candidate ascertainment](priority-1-type-ie-crispr-candidate-ascertainment.md).
+[`../16-priority1-type-ie-crispr-annotation.R`](../16-priority1-type-ie-crispr-annotation.R)
+pins exact MG1655 and *Alkalilimnicola ehrlichii* MLHE-1 proteomes, KOfam
+models and thresholds, each profile hit, and the defense trace in
+`type-ie-crispr-annotation-audit/`. It calls the complete protein architecture
+only for MG1655: the MLHE-1 Cas1/Cas2, Cas3 and partial Cascade evidence remain
+incomplete because two jointly required Cascade components are unsupported.
+This remains outside the prospective registry and does not detect a CRISPR
+array, guide RNAs, interference, defence, activity or phenotype.

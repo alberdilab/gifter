@@ -15,6 +15,21 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-10-01T13:00Z — The Type I-E machinery contrast pins complete and partial architecture
+
+**What changed.** The prospective analysis now contains an exact-assembly,
+checksum-pinned KOfam audit of `type_i_e_crispr_cas_machinery`. It records the
+curated five-component Cascade, fused Cas3 and accessory Cas1/Cas2 contract,
+profile thresholds, individual hits and gene-level traces for MG1655 and the
+incomplete-machinery type-material control *Alkalilimnicola ehrlichii* MLHE-1.
+
+**Effect.** MG1655 completes the protein-only Type I-E architecture. MLHE-1
+retains Cas1/Cas2, Cas3 and partial Cascade evidence, but lacks CasA and CasE;
+the jointly required Cascade system and GIFT correctly remain incomplete. The
+audit cannot detect a CRISPR array or establish interference, defence, activity
+or phenotype. It is not a prospective outcome and changes no registry,
+biological database, SQLite artifact, schema or package API.
+
 ### 2026-10-01T12:30Z — The starch-specificity audit exposes broad-family route completion
 
 **What changed.** The prospective analysis now contains an exact-assembly,

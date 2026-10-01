@@ -1,0 +1,14 @@
+input_kind	identifier	source	sha256	call_rule
+proteome	GCF_000005845.2	https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_protein.faa.gz	283c91ff66d0597f2488fd1c00ad40f8d0a0b37a92f981b6148d75fa4a934896	exact NCBI protein FASTA
+proteome	GCA_000014785.1	https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/014/785/GCA_000014785.1_ASM1478v1/GCA_000014785.1_ASM1478v1_protein.faa.gz	84216eaef0ed878f984ce52aa749524f5ed09ec8b947d023af10a21e6b3d61e8	exact NCBI protein FASTA
+KOfam_library	curated-ko.hmm	https://www.genome.jp/ftp/db/kofam/profiles.tar.gz	3e6243b3a7fad269c1656af4a7a53d5512610b807807e6ea9345869262287429	content-addressed source library
+KOfam_threshold_table	ko_list.gz	https://www.genome.jp/ftp/db/kofam/ko_list.gz	fd22f28e3dc6deaf1d579b9c80022d04acd69543e4639f08b2d34f5708bd920b	KOfam adaptive threshold table
+KOfam_model	K07012	extracted from curated-ko.hmm	59751859f4ce004d19c5c77cbac24e2bc4268cd217d303001221d0197354ce11	domain score >= 140.3
+KOfam_model	K09951	extracted from curated-ko.hmm	35603225f81085f12f84b50b5d4b3d3f2236eb01b07f2a593cacb68b717d4305	domain score >= 32.1
+KOfam_model	K15342	extracted from curated-ko.hmm	cb9a26f48a41bb64a438ac95a58a3de9d97797dd50ee54e100ce1cdd21da8cf3	full score >= 56.2
+KOfam_model	K19046	extracted from curated-ko.hmm	66ac1e8c1ac96ce34218eb4262a58970824e5e468f215d7239e93b3b67b65fe4	full score >= 26.37
+KOfam_model	K19123	extracted from curated-ko.hmm	e419242d0d9b1c3d1bd4e4bcb4401c3d35c6e1ca1ad2a11290471b0c02825cdc	domain score >= 139.7
+KOfam_model	K19124	extracted from curated-ko.hmm	702aeb648912676d29d5a02fb4975376281310e307c6509fe6e5c1dc501acb13	full score >= 185.73
+KOfam_model	K19125	extracted from curated-ko.hmm	5058200d8f7d1ac6980b243a47107a1fa5adb57a6236269c9e513e6b5fbfb389	full score >= 57.73
+KOfam_model	K19126	extracted from curated-ko.hmm	28619ea97614371f4d958fbd5a7d5dddd405c33301ffbc03d213d4486a568780	domain score >= 38.53
+database	2026.27.1	/Users/anttonalberdi/Github/gifter/inst/extdata/gifter.sqlite	724b810ba2489299edccf20caad12ff48e0989c1dd39696b45490cddc91beaaa	gifter database used for final machinery call

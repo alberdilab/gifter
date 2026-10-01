@@ -166,3 +166,14 @@ reactions. This is the failure condition the plan says must be zero: generic
 CAZy/family evidence cannot support a named substrate claim. It is an
 annotation-audit finding requiring separate biological curation review, not an
 assay outcome, registry row, GIFT redefinition or database change.
+
+The Type I-E machinery contrast is now recorded in
+[`priority-1-type-ie-crispr-candidate-ascertainment.md`](../../manuscript/analysis/prospective/priority-1-type-ie-crispr-candidate-ascertainment.md).
+It pins the exact MG1655 assembly with all five required Cascade components and
+fused Cas3 against exact type-material *Alkalilimnicola ehrlichii* MLHE-1,
+which retains Cas1/Cas2, Cas3 and partial Cascade evidence but lacks two
+jointly required components. The complete complex is called only for MG1655;
+generic/accessory Cas evidence and partial Cascade do not license the Type I-E
+claim. This is a genomic annotation audit only: it says nothing about a CRISPR
+array, guide RNAs, interference, defence, activity or phenotype, and does not
+enter the registry or change the database.

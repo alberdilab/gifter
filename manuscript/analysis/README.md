@@ -29,6 +29,7 @@ begun asking gifter to claim something it does not claim.
 | `13-priority2-collagen-evidence-stress.R` | Synthetic loss and deliberate evidence-mixture stress test of the exact collagen audit; not a MAG | prospective validation |
 | `14-priority1-aspartate-chemoreception-annotation.R` | Checksum-pinned Tar/circuit audit of the exact receptor-specificity candidates; no assay input | prospective validation |
 | `15-priority1-starch-annotation.R` | Checksum-pinned KOfam/dbCAN audit of exact starch-specificity candidates, including the broad-family failure check; no assay input | prospective validation |
+| `16-priority1-type-ie-crispr-annotation.R` | Checksum-pinned KOfam audit of exact Type I-E machinery candidates, including incomplete-Cascade logic; no array or assay input | prospective validation |
 
 The curated inputs live with the other consulted evidence, in
 `data-raw/reference/`: `phenotype-crosswalk.tsv` maps an observation to
@@ -89,6 +90,17 @@ diagnostic leaves both required reactions missing. That is an explicit
 curation problem, not a starch-degradation observation or a licence to make
 the named claim. No prospective registry, database, SQLite artifact, schema or
 package API changes follow from the audit.
+
+`16-priority1-type-ie-crispr-annotation.R` performs the machinery-specific
+contrast from exact MG1655 and *Alkalilimnicola ehrlichii* MLHE-1 proteomes. It
+derives the five jointly required Cascade components, fused Cas3, and accessory
+Cas1/Cas2 from the pinned database, applies the KOfam adaptive thresholds, and
+retains every hit and trace to its protein. MG1655 completes the protein-only
+Type I-E claim; MLHE-1 has Cas1/Cas2, Cas3 and partial Cascade evidence but
+lacks CasA and CasE, so the Cascade system and GIFT remain incomplete. The
+audit does not detect a CRISPR array and cannot support interference, defense,
+activity or phenotype. It creates no registry, database, SQLite, schema or API
+change.
 
 `09-cooccurrence.R` is exploratory and feeds no section yet. It asks whether the
 assessability layer could be sharpened from a genome-wide rule into a per-GIFT

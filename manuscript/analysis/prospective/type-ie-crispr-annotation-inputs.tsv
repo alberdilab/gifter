@@ -1,0 +1,3 @@
+candidate_id	assembly_accession	protein_fasta_url
+ECOLI_MG1655_IE	GCF_000005845.2	https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_protein.faa.gz
+AERL_MLHE1	GCA_000014785.1	https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/014/785/GCA_000014785.1_ASM1478v1/GCA_000014785.1_ASM1478v1_protein.faa.gz
