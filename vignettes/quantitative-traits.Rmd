@@ -11,9 +11,9 @@ vignette: >
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
 
-Vignette 1 produced 130 calls for one genome. This one turns them into numbers
-you can compare between genomes — and shows why a number of that kind is
-meaningless until you say what it was counted over.
+Vignette 1 produced one call per curated GIFT for one genome. This one turns
+those calls into numbers you can compare between genomes — and shows why a
+number of that kind is meaningless until you say what it was counted over.
 
 ```{r}
 library(gifter)
@@ -45,8 +45,8 @@ sum(result$gifts$complete)
 
 This genome supports ten GIFTs. Is that a lot?
 
-The question has no answer until you say ten *out of what*. Out of the 130
-GIFTs curated today? Out of the 122 metabolic ones? Out of the amino-acid
+The question has no answer until you say ten *out of what*. Out of the
+catalogue curated today? Out of all metabolic ones? Out of the amino-acid
 biosynthetic capabilities, of which this genome was tested for none? And when
 the next curation campaign adds forty GIFTs, does "ten" still mean the same
 thing?
@@ -135,10 +135,10 @@ Filters combine with AND:
 reference_frame(mode = "catabolic", resource_strategy = "uptake")
 ```
 
-Note that `mode` partitions this database far better than `gift_type` does —
-122 of the 130 GIFTs are metabolic, so "metabolic GIFTs" is nearly the whole
-catalogue, while anabolic/catabolic/transport/interconversion splits it 57 /
-58 / 3 / 4.
+Note that `mode` partitions this database more finely than `gift_type` does:
+most current GIFTs are metabolic, while mode separates those capabilities into
+anabolic, catabolic, transport and interconversion questions. The current
+counts are returned by `list_gifts()` rather than fixed in the tutorial.
 
 ## Step 2: compute traits
 
@@ -204,8 +204,8 @@ Here is a metric that is **not** in the output above:
 ```
 
 gifter will not tell you what fraction of the metabolic catalogue this genome
-supports. Supporting 8 of 122 does not mean a genome lacks 114 capabilities; it
-means the catalogue currently stops at 122 and will not tomorrow. A fraction of
+supports. Supporting eight curated metabolic GIFTs does not mean a genome lacks
+every other metabolic capability; the open catalogue will grow. A fraction of
 an open, growing set reads as "the share of microbial function this organism
 carries", which is not what it measures.
 

@@ -85,11 +85,19 @@ community can be evaluated once and read under several thresholds.
 \section{Parallel evaluation}{
 
 
-Genomes are evaluated in forked worker processes, each holding its own
-read-only database connection. Parallelism changes wall time only: the calls,
-their order, and the assembled community are the same at any number of
-workers. Forking is unavailable on Windows and for a connection with no file
-behind it, where the genomes are evaluated one after another.
+Before the first genome is evaluated, a SQLite database is copied with
+SQLite's online backup API to a run-specific, read-only snapshot. Sequential
+evaluation and every forked worker read that same snapshot. Rebuilding or
+replacing the original database during a run therefore cannot mix releases,
+and the temporary snapshot is removed on success, error, or interruption.
+There is no retry against a newer database. A non-SQLite custom DBI
+connection cannot be copied and is evaluated sequentially on that one open
+connection.
+
+Parallelism changes wall time only: the calls, their order, and the assembled
+community are the same at any number of workers. Forking is unavailable on
+Windows and for a connection with no file behind it, where the genomes are
+evaluated one after another.
 
 A community of any size reports its progress at an interactive console, in
 genomes evaluated out of genomes to evaluate, with an estimate of the time

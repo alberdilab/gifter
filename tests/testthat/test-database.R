@@ -221,6 +221,57 @@ test_that("database and schema versions are independent", {
   expect_equal(version$rhea_release, "141")
 })
 
+test_that("release source commits are explicit, exact, and reproducible", {
+  commit <- paste(rep("a", 40), collapse = "")
+  clean_git <- function(args) {
+    if ("rev-parse" %in% args) return(commit)
+    character()
+  }
+  expect_null(.release_source_commit(value = "", git = clean_git))
+  expect_identical(.release_source_commit(value = commit, git = clean_git), commit)
+  expect_error(
+    .release_source_commit(value = "not-a-commit", git = clean_git),
+    "full Git commit hash"
+  )
+  expect_error(
+    .release_source_commit(
+      value = commit,
+      git = function(args) if ("rev-parse" %in% args) sub("a$", "b", commit) else character()
+    ),
+    "existing full Git commit"
+  )
+  expect_error(
+    .release_source_commit(
+      value = commit,
+      git = function(args) if ("rev-parse" %in% args) commit else " M inst/schema/gifter.sql"
+    ),
+    "uncommitted changes"
+  )
+  expect_error(
+    .release_source_commit(
+      value = commit,
+      git = function(args) {
+        if ("rev-parse" %in% args) return(commit)
+        if ("diff" %in% args) return(structure(character(), status = 1L))
+        character()
+      }
+    ),
+    "differ from GIFTER_SOURCE_COMMIT"
+  )
+
+  source_dir <- gifter_source_copy()
+  output <- tempfile(fileext = ".sqlite")
+  on.exit(unlink(output), add = TRUE)
+  expect_error(
+    build_gifter_database(source_dir, output, source_commit = "invented"),
+    "full Git commit hash"
+  )
+  build_gifter_database(source_dir, output, source_commit = commit)
+  connection <- gifter_db_connect(output)
+  on.exit(DBI::dbDisconnect(connection), add = TRUE)
+  expect_identical(gifter_db_version(connection)$source_commit, commit)
+})
+
 test_that("database HTML atlas is self-contained and reflects compiled rows", {
   output <- tempfile(fileext = ".html")
   on.exit(unlink(output), add = TRUE)

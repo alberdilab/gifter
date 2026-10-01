@@ -69,6 +69,100 @@ test_that("workers change wall time and nothing else", {
   expect_equal(parallel_run$results, sequential$results)
 })
 
+test_that("one immutable database snapshot serves every worker", {
+  skip_on_os("windows")
+
+  # Build the current release at a custom path and prepare a second release
+  # that will replace it only after the worker processes have started.
+  original_sources <- gifter_source_copy()
+  replacement_sources <- gifter_source_copy()
+  release <- read_source(replacement_sources, "database_release")
+  release$gifter_db_version <- "9999.1.0"
+  release$source_commit <- "replacement-fixture"
+  write_source(replacement_sources, "database_release", release)
+
+  original_path <- tempfile("gifter-original-", fileext = ".sqlite")
+  on.exit(unlink(original_path), add = TRUE)
+  build_gifter_database(original_sources, original_path)
+  connection <- gifter_db_connect(original_path)
+  on.exit(DBI::dbDisconnect(connection), add = TRUE)
+
+  real_block <- .evaluate_genome_block
+  replaced <- tempfile("gifter-replaced-")
+  on.exit(unlink(replaced), add = TRUE)
+  testthat::local_mocked_bindings(
+    .evaluate_genome_block = function(tables, namespace, path, ticker = NULL) {
+      if ("backbone" %in% names(tables)) {
+        # The other worker waits until the original database has been rebuilt,
+        # so at least one worker opens its database after the replacement.
+        on.exit(file.create(replaced), add = TRUE)
+        build_gifter_database(
+          replacement_sources, original_path, overwrite = TRUE
+        )
+        file.create(replaced)
+      } else {
+        deadline <- Sys.time() + 20
+        while (!file.exists(replaced) && Sys.time() < deadline) Sys.sleep(0.01)
+        if (!file.exists(replaced)) stop("replacement worker did not finish")
+      }
+      real_block(tables, namespace, path, ticker)
+    }
+  )
+
+  community <- evaluate_gifts_community(
+    arabinoxylan_table(), db = connection, workers = 2
+  )
+  metadata <- lapply(community$results, `[[`, "database_version")
+  expect_true(all(vapply(metadata[-1L], identical, logical(1), metadata[[1L]])))
+  expect_equal(metadata[[1L]]$gifter_db_version, "2026.27.1")
+  expect_equal(metadata[[1L]]$source_commit, "unreleased")
+
+  replacement <- gifter_db_connect(original_path)
+  on.exit(DBI::dbDisconnect(replacement), add = TRUE)
+  expect_equal(gifter_db_version(replacement)$gifter_db_version, "9999.1.0")
+})
+
+test_that("database snapshots are removed on success, failure, and interruption", {
+  paths <- character()
+  remember <- function(connection) {
+    path <- DBI::dbGetInfo(connection)$dbname
+    paths <<- c(paths, path)
+    expect_true(file.exists(path))
+    path
+  }
+
+  value <- .with_gifter_database_snapshot(NULL, function(connection) {
+    remember(connection)
+    gifter_db_version(connection)$gifter_db_version
+  })
+  expect_equal(value, "2026.27.1")
+  expect_false(file.exists(paths[[1L]]))
+
+  expect_error(
+    .with_gifter_database_snapshot(NULL, function(connection) {
+      remember(connection)
+      stop("worker fixture failed")
+    }),
+    "worker fixture failed"
+  )
+  expect_false(file.exists(paths[[2L]]))
+
+  interruption <- structure(
+    list(message = "interrupted fixture", call = NULL),
+    class = c("interrupt", "condition")
+  )
+  handled <- FALSE
+  tryCatch(
+    .with_gifter_database_snapshot(NULL, function(connection) {
+      remember(connection)
+      signalCondition(interruption)
+    }),
+    interrupt = function(condition) handled <<- TRUE
+  )
+  expect_true(handled)
+  expect_false(file.exists(paths[[3L]]))
+})
+
 test_that("the worker count is bounded by the work and by the platform", {
   # More workers than genomes would fork a process with nothing to evaluate.
   expect_identical(.resolve_workers(100, genomes = 3, forkable = TRUE), 3L)

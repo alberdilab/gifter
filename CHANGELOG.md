@@ -15,6 +15,113 @@ versioned with the package.
 
 ## Unreleased
 
+No entries yet.
+
+## 0.7.0 — 2026-10-01
+
+### 2026-10-01T02:17Z — Citation and data terms are visible, including unresolved blockers
+
+**The problem.** The software licence could be read as covering the compiled
+biological database, there was no package citation or release checklist, and no
+single manifest connected shipped upstream content to versions, terms and
+redistribution status.
+
+**What changed.** `inst/CITATION` now supplies a local software citation and an
+explicitly pending post-release DOI action. `inst/DATA-LICENSING.md` separates the
+MIT-0 software scope from the mixed-provenance database, and
+`inst/extdata/UPSTREAM-SOURCES.tsv` records every upstream resource, pin/date,
+URL, terms link, use and review status. A local checklist covers the source
+commit, audit, archive checksums, tag and DOI steps without performing any
+external action.
+
+**Effect.** Rhea, ChEBI, Pfam and citation-only literature use have documented
+terms. KEGG, dbCAN/CAZy, InterPro member records, NCBIfam/TIGRFAM and
+MetaCyc/BioCyc are explicitly retained as human-review release blockers rather
+than being declared redistributable without evidence. No data was relicensed,
+published, tagged or uploaded.
+
+### 2026-10-01T02:17Z — The v1 compatibility boundary is explicit and enforced
+
+**The problem.** Package, database and schema versions were described as
+independent, but a custom database with an obsolete or missing schema failed
+only when a later SQL query happened to touch an incompatible table. The
+repository also had no bounded promise distinguishing stable result fields from
+incidental internal columns.
+
+**What changed.** Every database connection is now checked for one readable
+release row and a schema version in the package's supported set, currently
+schema 7, with actionable errors. `inst/doc/compatibility.md` defines the
+intended v1 guarantees for exported functions and named arguments, nine result
+classes and their stable core fields, independent versioning, custom databases,
+and deprecation. Contract tests cover representative signatures, fields,
+traceability columns and failure messages.
+
+**Effect.** Compatible biological releases remain independently updatable under
+schema 7; incompatible custom databases fail before evaluation. The policy
+does not freeze SQLite primary keys or undocumented diagnostic columns, and it
+does not alter any completeness model or call.
+
+### 2026-10-01T02:17Z — Public metadata describes the four implemented models
+
+**The problem.** `DESCRIPTION` still described only enzymatic routes between
+anchors, the README understated the metabolic catalogue and listed three of
+four vignettes, and two quantitative examples embedded an obsolete catalogue
+count. Release metadata also had an override for `source_commit` but no safe
+procedure proving that the value named the sources being compiled.
+
+**What changed.** Package metadata now names metabolic, structural, regulatory
+and defense capabilities and states the encoded-capability claim boundary. The
+README reports the database-tested 153-GIFT breakdown and lists the
+multi-sample tutorial. Count-sensitive prose no longer hard-codes incidental
+denominators. A release-only `GIFTER_SOURCE_COMMIT` path now accepts only a full,
+existing hash whose database sources, schema and compiler exactly match the
+clean worktree; ordinary development builds retain `unreleased`. The source
+commit can precede an artifact-only commit, avoiding a circular self-reference.
+
+**Effect.** Public descriptions match the implementation, while a future
+release artifact can carry a real, auditable source commit without changing the
+package, database or schema version in advance.
+
+### 2026-10-01T02:17Z — A community evaluation is pinned to one database snapshot
+
+**The problem.** Replacing the packaged SQLite file during a long
+`evaluate_gifts_community()` run could make later worker connections read a
+newer release than earlier workers. The calls remained individually valid but
+the community silently combined two biological catalogues.
+
+**What changed.** At the start of a community evaluation, SQLite's online
+backup API now creates one run-specific snapshot from either the packaged
+database or a custom SQLite connection. The parent and every forked worker open
+that same file read-only; it is removed on success, worker failure, and
+interruption. Non-SQLite custom DBI connections retain their existing
+single-connection sequential path. The community constructor also refuses
+genome results whose full database metadata differ even when their release
+number happens to match.
+
+**Effect.** One call cannot combine releases, does not retry against a database
+that appeared later, and remains deterministic across worker counts. The
+guarantee concerns the database artifact only and changes no GIFT completeness
+logic or biological claim.
+
+### 2026-10-01T02:17Z — Release checks now gate code and database reproducibility
+
+**The problem.** The only GitHub Actions workflow built the documentation site
+and database atlas. A pull request could therefore merge without running the
+package tests, checking a built source archive, or proving that the packaged
+SQLite database still compiled exactly from the reviewable TSV source.
+
+**What changed.** A package-check workflow now checks a built tarball on current
+R for Linux, macOS and Windows, plus the declared minimum R 4.1 on Linux, with
+cached dependencies. A separate database gate validates every TSV source,
+compiles to a temporary database, compares every table logically with the
+packaged artifact, and checks SQLite integrity and foreign keys for both files.
+The gate never writes to `inst/extdata/gifter.sqlite`.
+
+**Effect.** CI now refuses code, schema or curation changes that fail the
+package contract or leave the compiled database out of sync with its source.
+No biological claim, package API, schema, database version or packaged artifact
+changed.
+
 ### 2026-08-25T04:50Z — The NCBIfam screen gains the discovery product it lacked
 
 **The problem.** The NCBIfam screen reached its profiles through their EC

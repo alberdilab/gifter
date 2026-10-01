@@ -1,3 +1,7 @@
+Scope: this license covers the original gifter software code and documentation.
+It does not relicense third-party database content or source-resource material;
+see inst/DATA-LICENSING.md and inst/extdata/UPSTREAM-SOURCES.tsv.
+
 MIT No Attribution
 
 Copyright 2026 Antton Alberdi

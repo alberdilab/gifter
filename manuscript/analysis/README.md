@@ -137,22 +137,24 @@ GIFT, through the route logic rather than through a single marker — which is a
 different and better number, because a GIFT is complete when a route is, not
 when one of its markers is present.
 
-## Do not run these while the database is being rebuilt
+## Database consistency during long evaluations
 
-`01-marker-matrix.R` holds one SQLite connection for the length of a run that
-takes about ninety minutes, and `evaluate_gifts_community` reads through it
-chunk by chunk. A `data-raw/build_database.R` that lands mid-run replaces the
-file underneath it, and the result is a `gift-prevalence.tsv` in which some
-GIFTs were scored against the old database and some against the new one.
+`evaluate_gifts_community()` now takes one SQLite online-backup snapshot before
+it evaluates the first genome. Sequential evaluation and every forked worker
+open that same read-only, run-specific file; it is removed on success, failure,
+or interruption. A `data-raw/build_database.R` that lands mid-run can therefore
+replace the original file without changing any call already in progress, and
+the evaluator never retries against the newer database.
 
-This has happened once, on 2026-08-27: a run spanning the 2026.27.1 rebuild
+The race this guarantee closes happened once, on 2026-08-27: a run spanning the 2026.27.1 rebuild
 reported `serine_biosynthesis` at 6 757 genomes, where a clean run against the
 finished database gives 6 805 and the database before it gave 6 752. Nothing
 errors and nothing looks wrong; the file is simply a blend of two databases, and
 it was 48 genomes out on the one GIFT the release touched.
 
-**The check is to re-run against a settled database and compare, on a GIFT whose
-evidence the rebuild changed.** Two things that do *not* work:
+The affected historical output still has to be re-run against a settled
+database and compared on a GIFT whose evidence the rebuild changed. Two
+diagnostics that do *not* establish consistency are:
 
 - *Probing a few hundred genomes for call disagreements.* A release that moves 48
   genomes out of 11 908 will not appear in a 300-genome probe, so a clean result

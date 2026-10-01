@@ -122,6 +122,45 @@
   NULL
 }
 
+# Run one community evaluation against an immutable SQLite snapshot. SQLite's
+# online backup API copies a transactionally consistent view, including a
+# database using WAL, and is safe for an already-open custom SQLite connection.
+# The source is never reopened after the copy: every sequential read and every
+# forked worker reads the same run-specific file instead. A non-SQLite custom
+# DBI connection cannot be copied this way, so it keeps the existing sequential
+# behaviour on that one connection.
+.with_gifter_database_snapshot <- function(db, code) {
+  owned_source <- is.null(db)
+  source <- if (owned_source) gifter_db_connect() else db
+  if (!inherits(source, "DBIConnection") || !DBI::dbIsValid(source)) {
+    stop("db must be a valid DBI connection", call. = FALSE)
+  }
+  .assert_gifter_database_compatible(source)
+  if (owned_source) on.exit(DBI::dbDisconnect(source), add = TRUE)
+
+  if (!inherits(source, "SQLiteConnection")) return(code(source))
+
+  path <- tempfile("gifter-evaluation-snapshot-", fileext = ".sqlite")
+  cleanup <- function() {
+    files <- c(path, paste0(path, c("-journal", "-shm", "-wal")))
+    existing <- files[file.exists(files)]
+    if (length(existing)) {
+      Sys.chmod(existing, mode = "0600")
+      unlink(existing)
+    }
+  }
+  on.exit(cleanup(), add = TRUE)
+
+  RSQLite::sqliteCopyDatabase(source, path)
+  if (!file.exists(path)) {
+    stop("Could not create an immutable database snapshot for evaluation", call. = FALSE)
+  }
+  Sys.chmod(path, mode = "0444")
+  snapshot <- gifter_db_connect(path, read_only = TRUE)
+  on.exit(DBI::dbDisconnect(snapshot), add = TRUE)
+  code(snapshot)
+}
+
 # The progress display of this run, and the rule for whether there is one, are
 # in R/progress.R, where community_traits() reports through the same object.
 
@@ -323,11 +362,19 @@
 #'
 #' @section Parallel evaluation:
 #'
-#' Genomes are evaluated in forked worker processes, each holding its own
-#' read-only database connection. Parallelism changes wall time only: the calls,
-#' their order, and the assembled community are the same at any number of
-#' workers. Forking is unavailable on Windows and for a connection with no file
-#' behind it, where the genomes are evaluated one after another.
+#' Before the first genome is evaluated, a SQLite database is copied with
+#' SQLite's online backup API to a run-specific, read-only snapshot. Sequential
+#' evaluation and every forked worker read that same snapshot. Rebuilding or
+#' replacing the original database during a run therefore cannot mix releases,
+#' and the temporary snapshot is removed on success, error, or interruption.
+#' There is no retry against a newer database. A non-SQLite custom DBI
+#' connection cannot be copied and is evaluated sequentially on that one open
+#' connection.
+#'
+#' Parallelism changes wall time only: the calls, their order, and the assembled
+#' community are the same at any number of workers. Forking is unavailable on
+#' Windows and for a connection with no file behind it, where the genomes are
+#' evaluated one after another.
 #'
 #' A community of any size reports its progress at an interactive console, in
 #' genomes evaluated out of genomes to evaluate, with an estimate of the time
@@ -395,6 +442,8 @@ evaluate_gifts_community <- function(annotation_table, namespace = NULL, db = NU
   # question asked in a forked child has nobody to answer it.
   for (id in identifiers) .check_single_genome(tables[[id]], max_genes, genome = id)
 
-  results <- .evaluate_genomes(tables, namespace, db, workers, progress)
+  results <- .with_gifter_database_snapshot(db, function(snapshot) {
+    .evaluate_genomes(tables, namespace, snapshot, workers, progress)
+  })
   .gifter_community(results)
 }

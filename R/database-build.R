@@ -1492,6 +1492,55 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
   invisible(NULL)
 }
 
+# A release database records the commit whose reviewable sources it compiled.
+# Development builds deliberately keep the `unreleased` value in the source
+# table. The release path is opt-in, proves the supplied identifier names a
+# commit containing exactly the relevant inputs in the worktree, and refuses
+# uncommitted inputs so the metadata never names a commit that did not actually
+# contain the source used for the build. The source commit may precede a later
+# artifact-only commit, which avoids a circular requirement for SQLite to name
+# the commit that contains SQLite itself. `git` is injectable only to make the
+# decision testable without changing a repository.
+.release_source_commit <- function(
+    value = Sys.getenv("GIFTER_SOURCE_COMMIT", unset = ""), root = ".",
+    git = function(args) system2("git", args, stdout = TRUE, stderr = TRUE)) {
+  value <- trimws(as.character(value))
+  if (!length(value) || !nzchar(value[[1L]])) return(NULL)
+  if (length(value) != 1L || is.na(value) ||
+      !grepl("^([0-9a-fA-F]{40}|[0-9a-fA-F]{64})$", value)) {
+    stop("GIFTER_SOURCE_COMMIT must be one full Git commit hash", call. = FALSE)
+  }
+
+  resolved <- git(c("-C", root, "rev-parse", "--verify", paste0(value, "^{commit}")))
+  if (!is.null(attr(resolved, "status")) || length(resolved) != 1L ||
+      !identical(tolower(trimws(resolved)), tolower(value))) {
+    stop("GIFTER_SOURCE_COMMIT must name an existing full Git commit", call. = FALSE)
+  }
+
+  relevant <- c(
+    "R/database-build.R", "data-raw/build_database.R",
+    "inst/schema/gifter.sql", "inst/extdata/database-source"
+  )
+  status <- git(c("-C", root, "status", "--porcelain", "--", relevant))
+  if (!is.null(attr(status, "status"))) {
+    stop("Could not verify the release source tree with Git", call. = FALSE)
+  }
+  if (length(status)) {
+    stop(
+      "Release-relevant database sources have uncommitted changes; commit them before recording HEAD",
+      call. = FALSE
+    )
+  }
+  difference <- git(c("-C", root, "diff", "--quiet", value, "--", relevant))
+  if (!is.null(attr(difference, "status"))) {
+    stop(
+      "Release-relevant database sources differ from GIFTER_SOURCE_COMMIT",
+      call. = FALSE
+    )
+  }
+  tolower(value)
+}
+
 #' Compile gifter source tables into SQLite
 #'
 #' Validates the human-readable TSV source tables and compiles a normalized,
@@ -1506,6 +1555,11 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
 #' @export
 build_gifter_database <- function(source_dir, output, overwrite = FALSE, source_commit = NULL) {
   validate_gifter_sources(source_dir, stop_on_error = TRUE)
+  if (!is.null(source_commit) &&
+      (length(source_commit) != 1L || is.na(source_commit) ||
+       !grepl("^([0-9a-fA-F]{40}|[0-9a-fA-F]{64})$", source_commit))) {
+    stop("source_commit must be one full Git commit hash", call. = FALSE)
+  }
   tables <- .read_gifter_sources(source_dir)
   output <- normalizePath(output, winslash = "/", mustWork = FALSE)
   if (file.exists(output) && !isTRUE(overwrite)) {

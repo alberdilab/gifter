@@ -5,6 +5,10 @@
 ![Status: under development](https://img.shields.io/badge/status-under%20development-orange.svg)
 [![License: MIT-0](https://img.shields.io/badge/license-MIT--0-blue.svg)](LICENSE)
 
+MIT-0 covers the software and original documentation. The curated database has
+mixed upstream provenance; read [data licensing and review status](inst/DATA-LICENSING.md)
+before redistributing it or using it commercially.
+
 gifter infers whether a genome encodes a biologically defined capability, and
 shows the curated evidence behind every call.
 
@@ -12,6 +16,11 @@ shows the curated evidence behind every call.
 > **Development status:** gifter is under active development. Its API and
 > curated reference database may change as its completeness models and content
 > mature.
+
+The intended 1.0 public API, result-field, schema and deprecation guarantees are
+spelled out in the [v1 compatibility contract](inst/doc/compatibility.md). The
+current 0.7 series enforces those database and result checks before the promise
+takes effect.
 
 A genome-inferred functional trait (GIFT) is a biologically meaningful
 capability whose genomic support is evaluated through an explicit, curated and
@@ -26,10 +35,12 @@ GIFT
 └── defense       the machinery to execute a defined defense mechanism
 ```
 
-All four carry curated content: 126 metabolic capabilities; the flagellar
-apparatus and type IVa pilus; chemotaxis, aspartate chemoreception and
-phosphate-response signalling; and type I restriction-modification, type I-E
-CRISPR-Cas and mercury-detoxification machinery.
+The packaged database currently contains 153 GIFTs: 143 metabolic, 2
+structural, 3 regulatory and 5 defense capabilities. These counts are checked
+against the compiled database in the package tests. Examples include the
+flagellar apparatus and type IVa pilus; chemotaxis, aspartate chemoreception and
+phosphate-response signalling; and restriction-modification, CRISPR-Cas and
+chemical-detoxification machinery.
 
 ## What gifter does
 
@@ -121,13 +132,14 @@ library(gifter)
 
 ## Tutorials
 
-Three vignettes walk through a complete analysis. Start at the first if gifter
+Four vignettes walk through a complete analysis. Start at the first if gifter
 is new to you.
 
 ```r
 vignette("evaluating-a-genome", package = "gifter")   # annotations -> calls -> evidence
 vignette("quantitative-traits", package = "gifter")   # calls -> comparable numbers
 vignette("community-analysis", package = "gifter")    # many genomes -> distribution and topology
+vignette("multi-sample-datasets", package = "gifter") # samples -> detection-aware comparisons
 browseVignettes("gifter")
 ```
 
@@ -136,6 +148,7 @@ browseVignettes("gifter")
 | [1. Evaluating a genome](https://alberdilab.github.io/gifter/articles/evaluating-a-genome.html) | the input format, which markers were used, reading complete and incomplete calls, why evidence specificity bounds a claim, tracing a call back to genes |
 | [2. From calls to quantitative traits](https://alberdilab.github.io/gifter/articles/quantitative-traits.html) | reference frames, richness and breadth, when gifter refuses to give you a fraction, MAG completeness and honest denominators |
 | [3. A genome-resolved community](https://alberdilab.github.io/gifter/articles/community-analysis.html) | provider counts and redundancy, presence versus abundance, potential resource handoffs, and why a cytoplasmic molecule never crosses between genomes |
+| [4. Many samples over one catalogue](https://alberdilab.github.io/gifter/articles/multi-sample-datasets.html) | one fixed catalogue across samples, detection thresholds, per-sample traits and networks, and traceable exports |
 
 ## Evaluate a genome
 
@@ -240,9 +253,9 @@ subset(traits$trace, metric_id == "gift_richness")
 ```
 
 A fraction of the catalogue is reported only for a frame declared `bounded`,
-meaning curation intends to cover it completely. Supporting 12 of 122 metabolic
-GIFTs does not mean a genome lacks 110 capabilities, so no such fraction is
-offered:
+meaning curation intends to cover it completely. Supporting 12 metabolic GIFTs
+does not mean a genome lacks every other possible metabolic capability, so no
+fraction of the unbounded metabolic catalogue is offered:
 
 ```r
 list_reference_frames()  # reusable, versioned frames and recommended metrics
@@ -356,6 +369,14 @@ build_gifter_database(
   overwrite = TRUE
 )
 ```
+
+Development rebuilds retain the source table's explicit `unreleased` marker.
+For a final release artifact, set `GIFTER_SOURCE_COMMIT` to the full commit that
+contains the TSV sources, schema and compiler before running
+`data-raw/build_database.R`. The build proves that the commit exists, that those
+inputs are unchanged from it, and that none has uncommitted work. This permits a
+later artifact-only commit without a circular self-reference; the identifier is
+never guessed or fabricated.
 
 Generate a self-contained, interactive atlas after curating or rebuilding the
 database:

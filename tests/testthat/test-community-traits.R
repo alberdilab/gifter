@@ -59,6 +59,16 @@ test_that("genomes evaluated against different releases are refused", {
     gifter_community(A = genome, B = other),
     "different database versions"
   )
+
+  # A release identifier alone is not the whole artifact identity. A database
+  # rebuilt from another source commit must not be combined under the same
+  # nominal release.
+  other <- genome
+  other$database_version$source_commit <- "different-fixture-commit"
+  expect_error(
+    gifter_community(A = genome, B = other),
+    "different database metadata"
+  )
 })
 
 test_that("a community holds calls, not abundance or completeness", {

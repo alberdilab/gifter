@@ -211,6 +211,17 @@ gifter_community <- function(...) {
       call. = FALSE
     )
   }
+  metadata <- lapply(results, `[[`, "database_version")
+  same_metadata <- vapply(
+    metadata[-1L], identical, logical(1), metadata[[1L]]
+  )
+  if (length(same_metadata) && !all(same_metadata)) {
+    stop(
+      "Genomes carry different database metadata for release ", versions[[1L]],
+      ". Re-evaluate them against one database artifact",
+      call. = FALSE
+    )
+  }
 
   frame_ids <- sort(unique(unlist(lapply(results, function(result) {
     result$gifts$gift_id

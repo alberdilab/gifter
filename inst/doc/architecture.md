@@ -1726,6 +1726,13 @@ database version, schema version, build date, upstream resource releases, and
 source commit. Keep upstream release identifiers distinct from gifter's own
 curation release.
 
+The public compatibility policy is maintained separately in
+[`compatibility.md`](compatibility.md). It defines the exported function and
+result-field guarantees, the schema versions this package can open, custom
+database failure behavior, and the deprecation window. The package checks a
+database's `database_release` row before any public query; a schema version not
+listed by the installed package is refused with the supported versions named.
+
 ### Two changelogs
 
 Biological history and code history are different records and are kept apart.

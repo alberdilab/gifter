@@ -9,6 +9,51 @@
   )
 }
 
+# Schema compatibility is a package-code decision, independent of both the
+# package version and biological database release. A package may support more
+# than one schema during a migration; 0.7.0 and the intended 1.0 contract read
+# schema 7 only.
+.gifter_supported_schema_versions <- 7L
+
+.assert_gifter_database_compatible <- function(connection) {
+  if (!inherits(connection, "DBIConnection") || !DBI::dbIsValid(connection)) {
+    stop("db must be a valid DBI connection", call. = FALSE)
+  }
+  tables <- tryCatch(DBI::dbListTables(connection), error = function(condition) character())
+  if (!"database_release" %in% tables) {
+    stop(
+      "Incompatible gifter database: missing database_release metadata; ",
+      "supported schema version: ", paste(.gifter_supported_schema_versions, collapse = ", "),
+      call. = FALSE
+    )
+  }
+  release <- tryCatch(
+    DBI::dbGetQuery(
+      connection,
+      "SELECT gifter_db_version, schema_version FROM database_release WHERE release_pk = 1"
+    ),
+    error = function(condition) NULL
+  )
+  if (is.null(release) || nrow(release) != 1L ||
+      !all(c("gifter_db_version", "schema_version") %in% names(release))) {
+    stop(
+      "Incompatible gifter database: database_release must contain one readable release row",
+      call. = FALSE
+    )
+  }
+  schema <- suppressWarnings(as.integer(release$schema_version[[1L]]))
+  if (is.na(schema) || !schema %in% .gifter_supported_schema_versions) {
+    found <- if (is.na(schema)) "unreadable" else as.character(schema)
+    stop(
+      "Unsupported gifter database schema version ", found, "; this package supports ",
+      paste(.gifter_supported_schema_versions, collapse = ", "),
+      ". Use a database compiled for a supported schema or a matching gifter package.",
+      call. = FALSE
+    )
+  }
+  invisible(release)
+}
+
 .as_tibble_query <- function(connection, sql, params = NULL) {
   value <- if (is.null(params)) {
     DBI::dbGetQuery(connection, sql)
@@ -24,6 +69,7 @@
   if (!inherits(db, "DBIConnection") || !DBI::dbIsValid(db)) {
     stop("db must be a valid DBI connection", call. = FALSE)
   }
+  .assert_gifter_database_compatible(db)
   if (owned) on.exit(DBI::dbDisconnect(db), add = TRUE)
   code(db)
 }
@@ -67,7 +113,11 @@ gifter_db_connect <- function(path = NULL, read_only = TRUE) {
   }
   flags <- if (isTRUE(read_only)) RSQLite::SQLITE_RO else RSQLite::SQLITE_RWC
   connection <- DBI::dbConnect(RSQLite::SQLite(), dbname = path, flags = flags)
+  compatible <- FALSE
+  on.exit(if (!compatible && DBI::dbIsValid(connection)) DBI::dbDisconnect(connection))
   DBI::dbExecute(connection, "PRAGMA foreign_keys = ON")
+  .assert_gifter_database_compatible(connection)
+  compatible <- TRUE
   connection
 }
 

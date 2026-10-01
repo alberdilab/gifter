@@ -47,6 +47,10 @@ test_that("gift_type reaches the browsing API and the call summary", {
   )
   expect_equal(nrow(list_gifts(type = "regulatory")), 3L)
   expect_equal(
+    as.integer(table(factor(list_gifts()$gift_type, levels = .gifter_gift_types))),
+    c(143L, 2L, 3L, 5L)
+  )
+  expect_equal(
     nrow(list_gifts(type = c("metabolic", "structural", "regulatory", "defense"))),
     nrow(list_gifts())
   )

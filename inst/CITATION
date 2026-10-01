@@ -1,0 +1,20 @@
+meta <- packageDescription("gifter")
+
+citHeader("To cite the gifter software in publications, use:")
+
+bibentry(
+  bibtype = "Manual",
+  title = "gifter: Genome-Inferred Functional Traits from Genomic Evidence",
+  author = person("Antton", "Alberdi"),
+  year = "2026",
+  note = paste("R package version", meta$Version),
+  url = "https://github.com/alberdilab/gifter"
+)
+
+citFooter(paste(
+  "A versioned archive DOI has not yet been created.",
+  "PENDING RELEASE ACTION: replace this note with the DOI only after the",
+  "approved public release and archive deposition. When using the curated",
+  "database, also cite the upstream resources recorded in",
+  "inst/extdata/UPSTREAM-SOURCES.tsv."
+))
