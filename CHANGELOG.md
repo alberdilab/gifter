@@ -15,6 +15,52 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-10-01T08:06Z — The first collagen specificity contrast is checksum-pinned and re-annotated
+
+**What changed.** The prospective-analysis record now contains a small runner,
+exact NCBI protein-input manifest, input hashes, marker-hit table and gene-level
+gifter traces for the two Priority 1 collagen candidates. It reruns KOfam
+`K01387` at its adaptive threshold and Pfam `PF01752` at its gathering threshold
+against the exact assemblies. The *Hathewaya histolytica* candidate completes
+the M9 route; PAO1 does not, while its exact FASTA identifies the deliberately
+separate LasB broad-protease control.
+
+**Effect.** The planned genomic marker contrast is independently reproducible
+without promoting LasB, a generic protease, or a historical phenotype into a
+collagen call. These are candidate annotation-audit records only: no wet-lab
+observation, prospective registry result, GIFT marker, database, schema, SQLite
+artifact or package API changed.
+
+### 2026-10-01T07:48Z — Priority 1 collagen candidate ascertainment starts without scoring historical data
+
+**What changed.** The prospective-analysis record now has an assay-first,
+strain-matched candidate roster for the collagen-specificity challenge. It
+admits the type-strain-linked *Hathewaya histolytica* M9 candidate and PAO1 as
+a broad-LasB marker control, while documenting why a published *Vibrio*
+observation cannot be joined to a different strain's genome. A pre-existing
+annotation-cache call is recorded only as an excluded audit.
+
+**Effect.** The work starts the biological analysis without mistaking literature
+selection evidence, denatured-collagen observations, or unversioned cached
+annotations for prospective results. No GIFT call, marker, database, schema,
+SQLite artifact or package API changes.
+
+### 2026-10-01T07:30Z — Prospective biological validation has a locked, traceable analysis contract
+
+**What changed.** The manuscript analyses now include a version-pinned
+prospective-study registry, empty input templates and a runner for deposited
+strain annotations and assay observations. It checks the protocol lock,
+assembly and annotation provenance, biological replicate, assay conditions,
+observation/claim relation and exact database release; evaluates samples
+separately; and writes GIFT or reaction traces to genes.
+
+**Effect.** Prospective observations stay distinct from the committed
+retrospective analyses. The runner reports the planned asymmetric counts,
+denominators, lineages and broad-marker-only control count, while refusing
+planned or post-lock-inconsistent data. It does not add a package API, change
+any GIFT definition, call, database, schema or SQLite artifact, and does not
+compute accuracy, precision, F1, AUC or a catalogue-wide score.
+
 ### 2026-10-01T06:15Z — CI uses maintained Actions runtime and a stable Ubuntu image
 
 **The problem.** GitHub Actions has removed Node 20 and is moving the

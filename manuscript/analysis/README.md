@@ -24,6 +24,8 @@ begun asking gifter to claim something it does not claim.
 | `08-figure-incompleteness.R` | Figure 6 | R7 |
 | `09-cooccurrence.R` | Whether marker context licenses filling a gap: per-context co-occurrence on the reference panel | exploratory |
 | `10-block-drop.R` | The same question under contiguous gene loss: conditional dropout measured rather than assumed | exploratory |
+| `11-prospective-validation.R` | A locked prospective-study registry evaluated against deposited annotations, with raw assay rows and traces | prospective validation |
+| `12-priority1-collagen-annotation.R` | Checksum-pinned M9/domain audit of the exact collagen-specificity candidate assemblies; no assay input | prospective validation |
 
 The curated inputs live with the other consulted evidence, in
 `data-raw/reference/`: `phenotype-crosswalk.tsv` maps an observation to
@@ -37,6 +39,25 @@ script here with an external binary dependency, and it is also the only one that
 downloads gigabytes: the pinned KOfam, NCBIfam and dbCAN profile libraries, from
 which it keeps just the profiles gifter curates. Budget several hours on a first
 run. Everything is cached, so a second run is minutes.
+
+`11-prospective-validation.R` has no network dependency and produces no result
+until a real study has been locked. Its four input templates live in
+`prospective/`; the accompanying README specifies the required assembly,
+pipeline, database-version, marker-control and assay fields. It refuses a
+planned protocol or an observation dated before the protocol lock, evaluates
+each submitted sample independently, and writes the raw observation beside the
+call and gene-level trace. The summary deliberately reports asymmetric counts
+and denominators rather than accuracy, F1, AUC or a catalogue-wide score.
+
+`12-priority1-collagen-annotation.R` is the completed first computational
+tranche of that plan. It downloads no inputs itself: the two exact NCBI protein
+FASTAs named in `prospective/collagen-annotation-inputs.tsv` are retrieved into
+the local cache, then the script pins every raw input by SHA-256, applies the
+KOfam `K01387` adaptive threshold and Pfam `PF01752` gathering threshold, and
+passes only accepted M9 markers to gifter. It records PAO1 LasB from the exact
+FASTA header as a broad-protease control but never treats it as a collagen
+marker. Its committed audit is genomic evidence only, not a registry row or
+phenotype result.
 
 `09-cooccurrence.R` is exploratory and feeds no section yet. It asks whether the
 assessability layer could be sharpened from a genome-wide rule into a per-GIFT

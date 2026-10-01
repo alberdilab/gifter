@@ -1,0 +1,8 @@
+input_kind	identifier	source	sha256	call_rule
+proteome	GCA_901482605.1	https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/901/482/605/GCA_901482605.1_45532_E01/GCA_901482605.1_45532_E01_protein.faa.gz	d353db141e6652118d54a330d64e8c6e6f4e94e2f03ef78936f5d48851287aa9	exact NCBI protein FASTA
+proteome	GCF_000006765.1	https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/006/765/GCF_000006765.1_ASM676v1/GCF_000006765.1_ASM676v1_protein.faa.gz	f1640583fef81a2ed8fbd12a0f6d7186fe1923640e2855111a7087a5e7485fe0	exact NCBI protein FASTA
+KOfam_library	curated-ko.hmm	https://www.genome.jp/ftp/db/kofam/profiles.tar.gz	3e6243b3a7fad269c1656af4a7a53d5512610b807807e6ea9345869262287429	content-addressed source library
+KOfam_threshold_table	ko_list.gz	https://www.genome.jp/ftp/db/kofam/ko_list.gz	fd22f28e3dc6deaf1d579b9c80022d04acd69543e4639f08b2d34f5708bd920b	Kofam adaptive threshold table
+KOfam_model	K01387	extracted from curated-ko.hmm	d0736365f619901e7159f718532ae103ff33a0b789acee3a7884612ad75e3bff	domain score >= 186.63
+Pfam_model	PF01752.24	https://www.ebi.ac.uk/interpro/entry/pfam/PF01752/	df2e779e5bc8c0ff4fad2e25b50a15e4b6c80a7fb6d62428fe6e89f888277d0e	HMMER --cut_ga
+database	2026.27.1	/Users/anttonalberdi/Github/gifter/inst/extdata/gifter.sqlite	724b810ba2489299edccf20caad12ff48e0989c1dd39696b45490cddc91beaaa	gifter database used for the final call

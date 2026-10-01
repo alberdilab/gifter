@@ -1,0 +1,3 @@
+candidate_id	assembly_accession	protein_fasta_url	broad_control_protein_accession	broad_control_header_pattern
+HHIST_ATCC_19401	GCA_901482605.1	https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/901/482/605/GCA_901482605.1_45532_E01/GCA_901482605.1_45532_E01_protein.faa.gz	not_applicable	not_applicable
+PAO1_LASB	GCF_000006765.1	https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/006/765/GCF_000006765.1_ASM676v1/GCF_000006765.1_ASM676v1_protein.faa.gz	NP_252413.1	elastase LasB
