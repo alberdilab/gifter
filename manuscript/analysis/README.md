@@ -27,6 +27,7 @@ begun asking gifter to claim something it does not claim.
 | `11-prospective-validation.R` | A locked prospective-study registry evaluated against deposited annotations, with raw assay rows and traces | prospective validation |
 | `12-priority1-collagen-annotation.R` | Checksum-pinned M9/domain audit of the exact collagen-specificity candidate assemblies; no assay input | prospective validation |
 | `13-priority2-collagen-evidence-stress.R` | Synthetic loss and deliberate evidence-mixture stress test of the exact collagen audit; not a MAG | prospective validation |
+| `14-priority1-aspartate-chemoreception-annotation.R` | Checksum-pinned Tar/circuit audit of the exact receptor-specificity candidates; no assay input | prospective validation |
 
 The curated inputs live with the other consulted evidence, in
 `data-raw/reference/`: `phenotype-crosswalk.tsv` maps an observation to
@@ -66,6 +67,14 @@ M9-empty input. It makes the expected alternative-marker retention and the
 contaminated-bin failure mode reviewable at the gene level. A synthetic mixture
 is never called a PAO1 genome, and these tables neither estimate MAG quality nor
 substitute for matched metagenome assemblies.
+
+`14-priority1-aspartate-chemoreception-annotation.R` performs the parallel
+regulatory contrast. It reads the six required Tar-circuit markers from the
+pinned database and adds generic MCP `K03406` only as a diagnostic. The generic
+marker may complete the core chemotaxis GIFT, but it is never allowed to
+complete `aspartate_chemoreception`; the retained gene-level traces make that
+distinction inspectable. Its output is a candidate annotation audit, not an
+assay or a claim of chemotactic behaviour.
 
 `09-cooccurrence.R` is exploratory and feeds no section yet. It asks whether the
 assessability layer could be sharpened from a genome-wide rule into a per-GIFT

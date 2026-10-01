@@ -145,3 +145,11 @@ follow-on synthetic loss/mixing test confirms the expected alternative-marker
 logic and makes the contaminated-bin failure mode visible with source-labelled
 genes; it is explicitly not a MAG result. Neither enters the registry or changes
 any GIFT claim.
+
+The same approach has begun for the regulatory specificity contrast in
+[`priority-1-aspartate-chemoreception-candidate-ascertainment.md`](../../manuscript/analysis/prospective/priority-1-aspartate-chemoreception-candidate-ascertainment.md).
+It pairs MG1655's strain-matched historical aspartate response with PAO1's
+generic-MCP control, pins both exact assemblies and verifies that Tar plus the
+complete circuit is present only in MG1655. The historical motility observation
+and the genomic audit are not prospective outcomes; the endpoint still must be
+locked as a receptor/pathway response before collection.

@@ -1,0 +1,13 @@
+input_kind	identifier	source	sha256	call_rule
+proteome	GCF_000005845.2	https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_protein.faa.gz	283c91ff66d0597f2488fd1c00ad40f8d0a0b37a92f981b6148d75fa4a934896	exact NCBI protein FASTA
+proteome	GCF_000006765.1	https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/006/765/GCF_000006765.1_ASM676v1/GCF_000006765.1_ASM676v1_protein.faa.gz	f1640583fef81a2ed8fbd12a0f6d7186fe1923640e2855111a7087a5e7485fe0	exact NCBI protein FASTA
+KOfam_library	curated-ko.hmm	https://www.genome.jp/ftp/db/kofam/profiles.tar.gz	3e6243b3a7fad269c1656af4a7a53d5512610b807807e6ea9345869262287429	content-addressed source library
+KOfam_threshold_table	ko_list.gz	https://www.genome.jp/ftp/db/kofam/ko_list.gz	fd22f28e3dc6deaf1d579b9c80022d04acd69543e4639f08b2d34f5708bd920b	Kofam adaptive threshold table
+KOfam_model	K00575	extracted from curated-ko.hmm	6f03fe2830d529f6d71636e52fc253bccf320883e165c835555d23c1e2c8a5e5	domain score >= 142.6
+KOfam_model	K03406	extracted from curated-ko.hmm	42064c1868aad1826f685c1efd5d203027c5672fc36a5b1af674aa3404dba097	domain score >= 58.43
+KOfam_model	K03407	extracted from curated-ko.hmm	b056215221bba7d9c6a956000dc272c44d16f1e8e2dcf1e844832b881c041bf3	domain score >= 503.27
+KOfam_model	K03408	extracted from curated-ko.hmm	ab5bc962f6e08c228e48a03a95a583a7486940107c1da6fa39059f7a11af489a	full score >= 103.93
+KOfam_model	K03412	extracted from curated-ko.hmm	5b83345d73bba8d25df19f855c1fd2120b3357052ad3fcbfe4d52998365d96fc	domain score >= 206.9
+KOfam_model	K03413	extracted from curated-ko.hmm	1774ad90cc4b7efd12db74cee2b50969de872c57d94ef9228a8565ef7c41574a	domain score >= 136.73
+KOfam_model	K05875	extracted from curated-ko.hmm	505800b88f52317c18c1bc1bee867f8a80b3b9098aebb83271277a6cec04d494	full score >= 639.23
+database	2026.27.1	/Users/anttonalberdi/Github/gifter/inst/extdata/gifter.sqlite	724b810ba2489299edccf20caad12ff48e0989c1dd39696b45490cddc91beaaa	gifter database used for final circuit calls

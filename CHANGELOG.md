@@ -15,6 +15,20 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-10-01T08:28Z — The Tar specificity contrast has exact candidate assemblies and traces
+
+**What changed.** The prospective analysis now records a strain-matched MG1655
+candidate, a PAO1 generic-MCP control, a checksum-pinned seven-profile KOfam
+audit and both regulatory GIFT traces. The exact audit completes the
+Tar-dependent aspartate circuit in MG1655, while PAO1 completes the generic
+chemotaxis core but lacks Tar and remains one required function short.
+
+**Effect.** Broad MCP evidence is demonstrably insufficient for the
+ligand-specific claim even in a complete core circuit. The historical response
+studies and this genomic audit remain selection/evidence records only: no
+receptor assay, phenotype, prospective result, biological database, schema,
+SQLite artifact or package API changed.
+
 ### 2026-10-01T08:22Z — Candidate M9 evidence loss and mixing are explicit
 
 **What changed.** The prospective analysis now stress-tests the exact collagen
