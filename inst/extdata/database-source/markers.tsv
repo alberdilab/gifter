@@ -1358,3 +1358,21 @@ NCBIFAM	NF009835.0	nagK N-acetylglucosamine kinase	NCBIfam equivalog-grade profi
 NCBIFAM	NF046058.1	nagK N-acetylglucosamine kinase	NCBIfam equivalog-grade profile. N-acetylglucosamine kinase, EC 2.7.1.59. Taxonomic range Pseudomonadota; 993 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
 NCBIFAM	TIGR00221.1	nagA N-acetylglucosamine-6-phosphate deacetylase	NCBIfam equivalog-grade profile. N-acetylglucosamine-6-phosphate deacetylase, EC 3.5.1.25. Built from TIGR00221; 71976 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
 NCBIFAM	NF008371.0	nagA N-acetylglucosamine-6-phosphate deacetylase	NCBIfam equivalog-grade profile. N-acetylglucosamine-6-phosphate deacetylase, EC 3.5.1.25. Built from NCBI Protein Cluster (PRK11170); 7117 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K09774	LPS export system protein LptA	KEGG orthology marker.
+KO	K06861	LPS export ATP-binding protein LptB	KEGG orthology marker.
+KO	K11719	LPS export system protein LptC	KEGG orthology marker.
+KO	K04744	LPS-assembly protein LptD	KEGG orthology marker.
+KO	K03643	LPS-assembly lipoprotein LptE	KEGG orthology marker.
+KO	K07091	LPS export system permease protein LptF	KEGG orthology marker.
+KO	K11720	LPS export system permease protein LptG	KEGG orthology marker.
+NCBIFAM	TIGR03002.1	lptA lipopolysaccharide transport periplasmic protein	NCBIfam equivalog-grade profile. LptA periplasmic bridge protein; 18220 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	NF008143.0	lptA lipopolysaccharide ABC transporter substrate-binding protein	NCBIfam equivalog-grade profile. LptA profile restricted to Enterobacterales; 1615 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	TIGR04406.1	lptB LPS export ABC transporter ATP-binding protein	NCBIfam equivalog-grade profile. LptB ATP-binding component; 30612 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	NF008144.0	lptB LPS export ABC transporter ATP-binding protein	NCBIfam equivalog-grade profile. LptB profile restricted to Gammaproteobacteria; 5351 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	TIGR04409.1	lptC LPS export ABC transporter periplasmic protein	NCBIfam equivalog-grade profile. LptC inner-membrane connector; 28890 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	NF008142.0	lptC LPS export ABC transporter periplasmic protein	NCBIfam equivalog-grade profile. LptC profile restricted to Enterobacterales; 1960 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	TIGR04407.1	lptF LPS export ABC transporter permease	NCBIfam equivalog-grade profile. Component-specific LptF permease profile; 27649 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	TIGR04408.1	lptG LPS export ABC transporter permease	NCBIfam equivalog-grade profile. Component-specific LptG permease profile; 28899 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	NF002997.0	lptD LPS assembly outer membrane complex protein	NCBIfam equivalog-grade profile. LptD profile restricted to Gammaproteobacteria; 9959 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	NF003358.0	lptD LPS-assembly protein	NCBIfam equivalog-grade profile. A second LptD profile restricted to Gammaproteobacteria; 1113 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	NF008062.1	lptE LPS assembly lipoprotein	NCBIfam equivalog-grade profile. LptE profile restricted to Enterobacterales; 2899 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.

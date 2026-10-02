@@ -117,6 +117,7 @@ because the behaviours have names people already use:
 |---|---|
 | `flagellar_apparatus` | that the cell is motile, that the flagellum is expressed or assembled, or that it rotates in any environment |
 | `type_iva_pilus` | twitching motility, natural competence, or adhesion to anything |
+| `lpt_lipopolysaccharide_export_apparatus` | that lipopolysaccharide is synthesized, expressed or transported in the sampled condition, or that the cell has any particular permeability or viability phenotype |
 | a regulatory GIFT | that the circuit is active, or that its regulon responds |
 | a defense GIFT | that an attacker is actually resisted |
 
@@ -217,7 +218,7 @@ Every type carries curated content:
 | Type | Curated GIFTs |
 |---|---|
 | `metabolic` | 126, from purine biosynthesis and central metabolism to nutrient acquisition and polysaccharide saccharification |
-| `structural` | `flagellar_apparatus`, `type_iva_pilus` |
+| `structural` | `flagellar_apparatus`, `type_iva_pilus`, `lpt_lipopolysaccharide_export_apparatus` |
 | `regulatory` | `chemotaxis_signal_transduction`, `aspartate_chemoreception`, `phosphate_starvation_response` |
 | `defense` | `type_i_restriction_modification`, `type_i_e_crispr_cas_machinery`, `mercury_detoxification` |
 

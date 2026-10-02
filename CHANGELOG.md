@@ -15,6 +15,20 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-10-02T11:29Z — The canonical LptA--G apparatus is a structural GIFT
+
+**What changed.** Database 2026.28.1 adds
+`lpt_lipopolysaccharide_export_apparatus`, represented by three jointly required
+functions and seven component roles. Public catalogue, evaluation, trace,
+changelog and atlas views expose the new structural capability through their
+existing type-neutral interfaces.
+
+**Effect.** A call requires the complete canonical LptB/C/F/G extractor, LptA
+bridge and LptD/E translocon. It does not report lipopolysaccharide synthesis,
+activity, phenotype or a generic outer membrane. The addition changes no schema
+or API; the biological decision and marker evidence are recorded in
+`DBC-20261002-LPT-APPARATUS` inside the database changelog.
+
 ### 2026-10-01T18:35Z — Validation is explicitly database-only and coverage is auditable
 
 **What changed.** The biological-validation plan now limits this project to

@@ -267,6 +267,20 @@ type_iva_pilus_markers <- function() {
     "K02665", "K02666")
 }
 
+lpt_ko_markers <- function() {
+  c(
+    LptA = "K09774", LptB = "K06861", LptC = "K11719", LptD = "K04744",
+    LptE = "K03643", LptF = "K07091", LptG = "K11720"
+  )
+}
+
+lpt_annotations <- function(markers = lpt_ko_markers()) {
+  data.frame(
+    gene_id = paste0("gene_", names(markers)), namespace = "KO",
+    accession = unname(markers), stringsAsFactors = FALSE
+  )
+}
+
 test_that("the diderm and monoderm flagellar architectures share their machinery", {
   machinery <- get_gift_machinery("flagellar_apparatus")
   by_architecture <- split(unique(machinery[c("architecture_id", "function_id")]),
@@ -415,6 +429,214 @@ test_that("a pilin marker of uncertain role weakens the call it supports", {
   expect_equal(
     ambiguous$gifts$evidence_confidence[ambiguous$gifts$gift_id == "type_iva_pilus"],
     "ambiguous"
+  )
+})
+
+test_that("the canonical LptA--G apparatus requires all three machine functions", {
+  result <- evaluate_gifts(lpt_annotations())
+  gift <- result$structural$gifts[
+    result$structural$gifts$gift_id == "lpt_lipopolysaccharide_export_apparatus",
+  ]
+
+  expect_true(gift$complete)
+  expect_equal(gift$best_architecture, "ARCH_LPT_CANONICAL")
+  expect_equal(gift$minimum_missing_functions, 0L)
+  expect_setequal(
+    gift$supporting_functions[[1]],
+    c(
+      "SF_LPT_INNER_MEMBRANE_EXTRACTION", "SF_LPT_PERIPLASMIC_BRIDGE",
+      "SF_LPT_OUTER_MEMBRANE_TRANSLOCON"
+    )
+  )
+
+  machinery <- get_gift_machinery("lpt_lipopolysaccharide_export_apparatus")
+  expect_equal(length(unique(machinery$architecture_id)), 1L)
+  expect_equal(length(unique(machinery$function_id)), 3L)
+  expect_equal(length(unique(machinery$component_id)), 7L)
+  expect_true(all(machinery$required))
+})
+
+test_that("removing any LptA--G role makes the apparatus incomplete", {
+  missing_function <- c(
+    LptA = "SF_LPT_PERIPLASMIC_BRIDGE",
+    LptB = "SF_LPT_INNER_MEMBRANE_EXTRACTION",
+    LptC = "SF_LPT_INNER_MEMBRANE_EXTRACTION",
+    LptD = "SF_LPT_OUTER_MEMBRANE_TRANSLOCON",
+    LptE = "SF_LPT_OUTER_MEMBRANE_TRANSLOCON",
+    LptF = "SF_LPT_INNER_MEMBRANE_EXTRACTION",
+    LptG = "SF_LPT_INNER_MEMBRANE_EXTRACTION"
+  )
+
+  for (component in names(lpt_ko_markers())) {
+    markers <- lpt_ko_markers()[names(lpt_ko_markers()) != component]
+    result <- evaluate_gifts(lpt_annotations(markers))
+    gift <- result$structural$gifts[
+      result$structural$gifts$gift_id == "lpt_lipopolysaccharide_export_apparatus",
+    ]
+    expect_false(gift$complete, info = component)
+    expect_equal(
+      gift$missing_functions_best_architecture[[1]],
+      unname(missing_function[[component]]), info = component
+    )
+  }
+})
+
+test_that("both Lpt permeases and both outer-membrane partners are jointly required", {
+  cases <- list(
+    LptF = c(system = "SYS_LPTBCFG", component = "COMP_LPTF"),
+    LptG = c(system = "SYS_LPTBCFG", component = "COMP_LPTG"),
+    LptD = c(system = "SYS_LPTDE", component = "COMP_LPTD"),
+    LptE = c(system = "SYS_LPTDE", component = "COMP_LPTE")
+  )
+
+  for (missing in names(cases)) {
+    markers <- lpt_ko_markers()[names(lpt_ko_markers()) != missing]
+    systems <- evaluate_gifts(lpt_annotations(markers))$structural$systems
+    system <- systems[systems$system_id == cases[[missing]][["system"]], ]
+    expect_false(system$supported, info = missing)
+    expect_equal(system$missing_components[[1]], cases[[missing]][["component"]],
+                 info = missing)
+  }
+})
+
+test_that("generic envelope evidence and broad Lpt profiles do not support Lpt", {
+  unrelated <- data.frame(
+    gene_id = paste0("unrelated_", 1:9),
+    namespace = c(rep("KO", 4), rep("NCBIFAM", 5)),
+    accession = c(
+      "K02003", # generic ABC ATP-binding protein
+      "K06048", # MsbA lipid A exporter
+      "K07277", # BamA outer-membrane protein assembly factor
+      "K02535", # LpxC lipid A precursor synthesis
+      "NF015684.7", # combined LptF/LptG subfamily
+      "NF015901.7", # LptA/LptD_N domain
+      "NF018537.7", # LptC domain
+      "NF016290.7", # LptE Pfam-equivalent profile
+      "NF053613.1"  # unrelated Pseudomonas lipotoxin F
+    ),
+    stringsAsFactors = FALSE
+  )
+  result <- evaluate_gifts(unrelated)
+  gift <- result$gifts[
+    result$gifts$gift_id == "lpt_lipopolysaccharide_export_apparatus",
+  ]
+
+  expect_false(gift$complete)
+  expect_false(any(result$structural$components$supported[
+    grepl("^COMP_LPT", result$structural$components$component_id)
+  ]))
+  machinery <- get_gift_machinery("lpt_lipopolysaccharide_export_apparatus")
+  expect_false(any(unrelated$accession %in% machinery$accession))
+})
+
+test_that("LptM and YedD are not requirements or shortcut markers", {
+  result <- evaluate_gifts(lpt_annotations())
+  gift <- result$gifts[
+    result$gifts$gift_id == "lpt_lipopolysaccharide_export_apparatus",
+  ]
+  machinery <- get_gift_machinery("lpt_lipopolysaccharide_export_apparatus")
+
+  expect_true(gift$complete)
+  expect_false(any(grepl("LPTM|YEDD", toupper(paste(
+    machinery$component_id, machinery$component_name
+  )))))
+  expect_false(any(machinery$accession %in% c("NF047847.2", "NF025353.8")))
+})
+
+test_that("Lpt evaluates beside a metabolic GIFT without changing either model", {
+  annotations <- rbind(
+    ko_annotations(direct_purine_markers()),
+    lpt_annotations()
+  )
+  result <- evaluate_gifts(annotations)
+  complete <- result$gifts[result$gifts$complete, ]
+
+  expect_true("purine_core_biosynthesis" %in% complete$gift_id)
+  expect_true("lpt_lipopolysaccharide_export_apparatus" %in% complete$gift_id)
+  expect_equal(
+    complete$gift_type[complete$gift_id == "lpt_lipopolysaccharide_export_apparatus"],
+    "structural"
+  )
+})
+
+test_that("the Lpt trace retains every role and observed gene", {
+  annotations <- lpt_annotations()
+  result <- evaluate_gifts(annotations)
+  trace <- trace_gift(result, "lpt_lipopolysaccharide_export_apparatus")
+
+  expect_equal(unique(trace$architecture_id), "ARCH_LPT_CANONICAL")
+  expect_true(all(trace$architecture_complete))
+  expect_setequal(trace$component_id, paste0("COMP_", toupper(names(lpt_ko_markers()))))
+  expect_setequal(trace$accession, unname(lpt_ko_markers()))
+  expect_setequal(trace$gene_id, annotations$gene_id)
+  expect_true(all(trace$component_supported))
+})
+
+test_that("component-specific NCBIfam evidence can complete the Lpt apparatus", {
+  markers <- c(
+    LptA = "TIGR03002.1", LptB = "TIGR04406.1", LptC = "TIGR04409.1",
+    LptD = "NF002997.0", LptE = "NF008062.1", LptF = "TIGR04407.1",
+    LptG = "TIGR04408.1"
+  )
+  annotations <- data.frame(
+    gene_id = paste0("ncbifam_", names(markers)), namespace = "NCBIFAM",
+    accession = unname(markers), stringsAsFactors = FALSE
+  )
+  result <- evaluate_gifts(annotations)
+  gift <- result$gifts[
+    result$gifts$gift_id == "lpt_lipopolysaccharide_export_apparatus",
+  ]
+
+  expect_true(gift$complete)
+  expect_equal(gift$evidence_confidence, "high-confidence")
+  expect_setequal(
+    trace_gift(result, "lpt_lipopolysaccharide_export_apparatus")$gene_id,
+    annotations$gene_id
+  )
+})
+
+test_that("a fused LptF/G annotation satisfies both retained permease roles", {
+  annotations <- lpt_annotations(lpt_ko_markers()[1:5])
+  annotations <- rbind(
+    annotations,
+    data.frame(
+      gene_id = c("gene_LptFG", "gene_LptFG"), namespace = "KO",
+      accession = c("K07091", "K11720"), stringsAsFactors = FALSE
+    )
+  )
+  result <- evaluate_gifts(annotations)
+  gift <- result$gifts[
+    result$gifts$gift_id == "lpt_lipopolysaccharide_export_apparatus",
+  ]
+  trace <- trace_gift(result, "lpt_lipopolysaccharide_export_apparatus")
+
+  expect_true(gift$complete)
+  expect_equal(
+    unique(trace$gene_id[trace$component_id %in% c("COMP_LPTF", "COMP_LPTG")]),
+    "gene_LptFG"
+  )
+})
+
+test_that("Lpt evaluation is deterministic under annotation order", {
+  forward <- evaluate_gifts(lpt_annotations())
+  reverse <- evaluate_gifts(lpt_annotations(rev(lpt_ko_markers())))
+  gift_columns <- c(
+    "complete", "best_architecture", "minimum_missing_functions",
+    "evidence_confidence"
+  )
+  forward_gift <- forward$structural$gifts[
+    forward$structural$gifts$gift_id == "lpt_lipopolysaccharide_export_apparatus",
+    gift_columns, drop = FALSE
+  ]
+  reverse_gift <- reverse$structural$gifts[
+    reverse$structural$gifts$gift_id == "lpt_lipopolysaccharide_export_apparatus",
+    gift_columns, drop = FALSE
+  ]
+
+  expect_equal(forward_gift, reverse_gift)
+  expect_equal(
+    trace_gift(forward, "lpt_lipopolysaccharide_export_apparatus"),
+    trace_gift(reverse, "lpt_lipopolysaccharide_export_apparatus")
   )
 })
 

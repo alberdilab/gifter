@@ -35,3 +35,10 @@ COMP_T4AP_PILO	SYS_T4AP_ALIGNMENT_COMPLEX	PilO inner membrane protein	Alignment 
 COMP_T4AP_PILP	SYS_T4AP_ALIGNMENT_COMPLEX	PilP periplasmic lipoprotein	Alignment subcomplex.
 COMP_T4AP_PILQ	SYS_T4AP_SECRETIN	PilQ secretin	Outer membrane channel.
 COMP_T4AP_PILT	SYS_T4AP_RETRACTION_ATPASE	PilT retraction ATPase	Depolymerisation motor.
+COMP_LPTB	SYS_LPTBCFG	LptB ATPase	Cytoplasmic ATPase that powers lipopolysaccharide extraction.
+COMP_LPTC	SYS_LPTBCFG	LptC connector	Inner-membrane complex component that connects LptBFG to the periplasmic bridge.
+COMP_LPTF	SYS_LPTBCFG	LptF permease	One of the two jointly required transmembrane components of the extractor.
+COMP_LPTG	SYS_LPTBCFG	LptG permease	One of the two jointly required transmembrane components of the extractor.
+COMP_LPTA	SYS_LPTA	LptA bridge protein	Dedicated soluble periplasmic component of the trans-envelope bridge.
+COMP_LPTD	SYS_LPTDE	LptD translocon beta-barrel	Outer-membrane beta-barrel component of the translocon.
+COMP_LPTE	SYS_LPTDE	LptE translocon lipoprotein	Lipoprotein partner within the canonical LptD/E translocon.

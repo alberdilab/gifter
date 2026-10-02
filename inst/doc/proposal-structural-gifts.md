@@ -1,8 +1,9 @@
 # Structural GIFTs: curated content, refusals, and open questions
 
-Status: partly implemented. `flagellar_apparatus` and `type_iva_pilus` are
-curated; the coupling-ion-specific flagellar traits are **refused** at the
-current evidence level and are documented here rather than silently curated.
+Status: partly implemented. `flagellar_apparatus`, `type_iva_pilus` and
+`lpt_lipopolysaccharide_export_apparatus` are curated; the coupling-ion-specific
+flagellar traits are **refused** at the current evidence level and are
+documented here rather than silently curated.
 
 A **structural GIFT** claims:
 
@@ -175,3 +176,68 @@ type vocabularies stop meaning anything.
    from anchors. Whether a structural analogue — surface-exposed, envelope-
    spanning, cytoplasmic — is worth deriving is an open question, and it should
    be derived from curated component properties rather than curated directly.
+
+## 5. Lpt lipopolysaccharide export apparatus
+
+This candidate was implemented as `lpt_lipopolysaccharide_export_apparatus` in
+database 2026.28.1. Reconstitution showed that LptA through LptG are necessary
+and sufficient, with ATP, for membrane-to-membrane lipopolysaccharide transport
+([PMID 29449493](https://pubmed.ncbi.nlm.nih.gov/29449493/)). The curated GIFT
+claims:
+
+> The genome encodes the Lpt machinery required to extract lipopolysaccharide
+> from the inner membrane, conduct it across the periplasm and insert it into
+> the outer leaflet of the outer membrane.
+
+Its architecture maps cleanly onto the current tables:
+
+```text
+ARCH_LPT_CANONICAL
+  inner-membrane extraction   SYS_LPTBCFG = LptB AND LptC AND LptF AND LptG
+  periplasmic bridge          SYS_LPTA    = LptA
+  outer-membrane translocon   SYS_LPTDE   = LptD AND LptE
+```
+
+KEGG has component-resolving orthologues for all seven: `K09774` LptA,
+`K06861` LptB, `K11719` LptC, `K04744` LptD, `K03643` LptE, `K07091` LptF and
+`K11720` LptG. On 2026-10-02, 3,426 KEGG organism records carried all seven.
+The high co-occurrence is a prevalence check, not evidence of completeness;
+the completeness argument comes from the reconstituted machine.
+
+The marker layer also admits eleven component-specific profiles from pinned
+NCBIfam `hmm_PGAP/20.0`, all at `equivalog` grade. It refuses the combined
+LptF/LptG subfamily, the broad LptA/LptD_N and LptC domains, and the
+Pfam-equivalent LptD and LptE profiles. Seventeen current KEGG gene records carry
+both `K07091` and `K11720`; this is handled as a fused LptF/G protein whose one
+gene can satisfy both separately retained component roles, not by collapsing
+the roles into a generic permease. No current KEGG record or primary evidence
+supported a corresponding LptA/C fusion architecture.
+
+The boundary excludes lipopolysaccharide precursor synthesis, MsbA, accessory
+LptM/YedD proteins, outer-membrane protein insertion by BAM and the outer
+membrane as a whole. It is the **Lpt apparatus**, not a proxy for a generic
+diderm envelope. `structural_class = secretion_machine` already describes this
+boundary, and no new facet term is needed.
+
+The only reported LptC bypass depends on particular suppressor substitutions in
+LptF rather than ordinary component presence
+([PMID 36541759](https://pubmed.ncbi.nlm.nih.gov/36541759/)). Because gifter does
+not model residues, the canonical architecture requires LptC rather than
+claiming a second marker-only architecture.
+
+Two further boundary decisions keep the claim honest:
+
+- LptE is not universally indispensable. *Neisseria meningitidis* can transport
+  lipopolysaccharide after `lptE` deletion
+  ([PMID 21705335](https://pubmed.ncbi.nlm.nih.gov/21705335/)). A generic
+  LptD-only system would nevertheless make every LptD marker sufficient in
+  every lineage. The alternative therefore remains a documented under-call
+  until a marker or other admitted evidence distinguishes the permissive
+  architecture.
+- LptM stabilises LptD maturation in Enterobacteriaceae
+  ([PMID 37821449](https://pubmed.ncbi.nlm.nih.gov/37821449/)), while YedD is
+  required for optimal transport in sensitised backgrounds rather than for the
+  basal reconstituted machine
+  ([PMID 40127101](https://pubmed.ncbi.nlm.nih.gov/40127101/)). Neither is a
+  universal required function of `ARCH_LPT_CANONICAL`, and neither is accepted
+  as a shortcut marker.

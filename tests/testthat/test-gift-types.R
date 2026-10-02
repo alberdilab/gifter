@@ -36,7 +36,10 @@ test_that("gift_type reaches the browsing API and the call summary", {
   expect_equal(get_gift("purine_core_biosynthesis")$gift_type, "metabolic")
 
   expect_setequal(list_gifts(type = "structural")$gift_id,
-                  c("flagellar_apparatus", "type_iva_pilus"))
+                  c(
+                    "flagellar_apparatus", "type_iva_pilus",
+                    "lpt_lipopolysaccharide_export_apparatus"
+                  ))
   expect_setequal(
     list_gifts(type = "defense")$gift_id,
     c(
@@ -48,7 +51,7 @@ test_that("gift_type reaches the browsing API and the call summary", {
   expect_equal(nrow(list_gifts(type = "regulatory")), 3L)
   expect_equal(
     as.integer(table(factor(list_gifts()$gift_type, levels = .gifter_gift_types))),
-    c(143L, 2L, 3L, 5L)
+    c(143L, 3L, 3L, 5L)
   )
   expect_equal(
     nrow(list_gifts(type = c("metabolic", "structural", "regulatory", "defense"))),
@@ -121,6 +124,37 @@ test_that("a structural GIFT may not borrow the metabolic anchor and route model
     validate_gifter_sources(source_dir),
     "gift_routes describes the metabolic model"
   )
+})
+
+test_that("the Lpt apparatus cannot borrow metabolic mode, anchors or routes", {
+  source_dir <- gifter_source_copy()
+  gifts <- read_source(source_dir, "gifts")
+  gifts$mode[gifts$gift_id == "lpt_lipopolysaccharide_export_apparatus"] <- "anabolic"
+  write_source(source_dir, "gifts", gifts)
+  expect_error(validate_gifter_sources(source_dir), "mode applies to metabolic GIFTs only")
+
+  source_dir <- gifter_source_copy()
+  append_source(
+    source_dir, "gift_anchors",
+    gift_id = "lpt_lipopolysaccharide_export_apparatus",
+    anchor_id = "PRPP", role = "input", ordinal = "1"
+  )
+  expect_error(validate_gifter_sources(source_dir), "gift_anchors describes the metabolic model")
+
+  source_dir <- gifter_source_copy()
+  append_source(
+    source_dir, "gift_routes",
+    route_id = "FAKE_LPT_ROUTE",
+    gift_id = "lpt_lipopolysaccharide_export_apparatus",
+    name = "fake", description = "fake", status = "curated",
+    oxygen_requirement = "independent"
+  )
+  append_source(
+    source_dir, "route_reactions",
+    route_id = "FAKE_LPT_ROUTE", reaction_id = "RHEA:14905",
+    orientation = "forward", step_order = "1", required = "1"
+  )
+  expect_error(validate_gifter_sources(source_dir), "gift_routes describes the metabolic model")
 })
 
 test_that("typed source rows cannot be attached to the wrong GIFT type", {

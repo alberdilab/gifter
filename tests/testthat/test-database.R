@@ -5,12 +5,12 @@ test_that("canonical source tables validate", {
   expect_true(report$valid)
   expect_length(report$errors, 0L)
   expect_equal(
-    unname(report$rows[c("gifts", "anchors", "reactions")]), c(153L, 156L, 440L)
+    unname(report$rows[c("gifts", "anchors", "reactions")]), c(154L, 156L, 440L)
   )
   # Every typed model now ships curated content.
   expect_equal(
     unname(report$rows[c("gift_architectures", "gift_circuits", "gift_mechanisms")]),
-    c(3L, 4L, 5L)
+    c(4L, 4L, 5L)
   )
 })
 
@@ -117,6 +117,7 @@ test_that("database accessors return stable definitions", {
       "isoleucine_biosynthesis", "kdg_degradation",
       "lactate_formation", "lactate_formation_lactaldehyde",
       "lactate_racemisation", "leucine_biosynthesis",
+      "lpt_lipopolysaccharide_export_apparatus",
       "lysine_biosynthesis_dap", "malolactic_fermentation",
       "menaquinone_biosynthesis", "mercury_detoxification", "methionine_biosynthesis_sulfhydrylation",
       "methionine_biosynthesis_transsulfuration",
@@ -216,7 +217,7 @@ test_that("database accessors return stable definitions", {
 test_that("database and schema versions are independent", {
   version <- gifter_db_version()
   expect_equal(version$package_version, "0.7.3")
-  expect_equal(version$gifter_db_version, "2026.27.1")
+  expect_equal(version$gifter_db_version, "2026.28.1")
   expect_equal(version$schema_version, 7L)
   expect_equal(version$rhea_release, "141")
 })

@@ -38,3 +38,21 @@ COMP_T4AP_PILO	KO	K02664	orthology	curated	KEGG orthology, verified against KEGG
 COMP_T4AP_PILP	KO	K02665	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
 COMP_T4AP_PILQ	KO	K02666	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
 COMP_T4AP_PILT	KO	K02669	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_LPTA	KO	K09774	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	LptA-specific orthology; the broader LptA/LptD_N profiles are not admitted.
+COMP_LPTB	KO	K06861	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	LptB-specific orthology, not a generic ABC ATPase marker.
+COMP_LPTC	KO	K11719	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	LptC-specific orthology. LptC remains required because bypass depends on residue-level LptF suppressors that this marker cannot resolve.
+COMP_LPTD	KO	K04744	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	LptD-specific orthology; historical aliases Imp and OstA do not widen the accepted function.
+COMP_LPTE	KO	K03643	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	LptE-specific orthology; required only in the canonical architecture represented here.
+COMP_LPTF	KO	K07091	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	Component-specific LptF orthology; a combined LptF/LptG family is not admitted.
+COMP_LPTG	KO	K11720	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	Component-specific LptG orthology; a combined LptF/LptG family is not admitted.
+COMP_LPTA	NCBIFAM	TIGR03002.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. LptA-specific periplasmic bridge profile.
+COMP_LPTA	NCBIFAM	NF008143.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Enterobacterales LptA profile.
+COMP_LPTB	NCBIFAM	TIGR04406.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. LptB-specific ATPase profile.
+COMP_LPTB	NCBIFAM	NF008144.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Gammaproteobacterial LptB profile.
+COMP_LPTC	NCBIFAM	TIGR04409.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. LptC-specific connector profile.
+COMP_LPTC	NCBIFAM	NF008142.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Enterobacterales LptC profile.
+COMP_LPTF	NCBIFAM	TIGR04407.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. LptF-specific permease profile, separated from LptG by NCBIfam.
+COMP_LPTG	NCBIFAM	TIGR04408.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. LptG-specific permease profile, separated from LptF by NCBIfam.
+COMP_LPTD	NCBIFAM	NF002997.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Gammaproteobacterial LptD profile.
+COMP_LPTD	NCBIFAM	NF003358.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Alternative Gammaproteobacterial LptD profile.
+COMP_LPTE	NCBIFAM	NF008062.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Enterobacterales LptE profile; the broader Pfam-equivalent profile is not admitted.

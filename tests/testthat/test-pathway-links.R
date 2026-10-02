@@ -87,9 +87,11 @@ test_that("pathway links are filterable and KEGG context is complete or named", 
   # and K08365 belong to no KEGG pathway and no module, which is why the mer
   # operon was curated from the operon biology rather than from a module
   # boundary. taurine
-  # uptake is a seventh: map00430 carries the taurine chemistry but not the
+  # uptake is another: map00430 carries the taurine chemistry but not the
   # translocation, and linking a transport GIFT to a chemistry map would assert
   # a containment that is false.
+  # The Lpt apparatus likewise has component orthology records but no external
+  # pathway record whose boundary is the complete trans-envelope machine.
   #
   # citrate_fermentation is the fifth and its gap is a different one: KEGG has
   # no metabolic map for fermentative citrate cleavage at all. R00362 carries no
@@ -102,7 +104,8 @@ test_that("pathway links are filterable and KEGG context is complete or named", 
     unname(gift_ids[linked == 0L]),
     c(
       "carnitine_degradation_trimethylamine", "carnitine_to_betaine",
-      "citrate_fermentation", "collagen_cleavage", "mercury_detoxification",
+      "citrate_fermentation", "collagen_cleavage",
+      "lpt_lipopolysaccharide_export_apparatus", "mercury_detoxification",
       "taurine_uptake_abc", "type_i_e_crispr_cas_machinery",
       "type_i_restriction_modification", "type_iva_pilus"
     )

@@ -1310,3 +1310,32 @@ pipeline — KofamScan, BlastKOALA, GhostKOALA, eggNOG-mapper's KEGG output —
 emits no NCBIfam accession at all, so for those users these markers simply never
 match. That is why the namespace enters as an additional marker on components
 that already work rather than as a replacement for a KO.
+
+## Lpt lipopolysaccharide export apparatus, release 2026.28.1
+
+The canonical LptA--G machine is curated from the complete reconstituted system
+of Sherman et al. ([PMID 29449493](https://pubmed.ncbi.nlm.nih.gov/29449493/)).
+Its seven components plus ATP were necessary and sufficient for
+membrane-to-membrane lipopolysaccharide transport. gifter represents that
+machine as three required functions: LptB/C/F/G inner-membrane extraction,
+the LptA periplasmic bridge and the LptD/E outer-membrane translocon.
+
+The seven KEGG orthology records and their organism links were retrieved from
+KEGG REST on 2026-10-02: K09774, K06861, K11719, K04744, K03643, K07091 and
+K11720. Of the 11,949 organisms in the pinned reference frame, 3,426 carried
+all seven. Eleven component-specific `equivalog` profiles from NCBIfam
+`hmm_PGAP/20.0` supplement the KO evidence. Broader LptA/LptD_N, combined
+LptF/LptG, LptC-domain and Pfam-equivalent profiles were inspected and refused.
+
+The alternatives and accessories were checked separately. The LptC bypass
+requires specific suppressor substitutions in LptF
+([PMID 36541759](https://pubmed.ncbi.nlm.nih.gov/36541759/)), so it cannot be
+represented from ordinary presence markers. *Neisseria meningitidis* can
+transport lipopolysaccharide without LptE
+([PMID 21705335](https://pubmed.ncbi.nlm.nih.gov/21705335/)), but no admitted
+marker distinguishes that permissive architecture; it is recorded as an
+under-call rather than used to make all LptD proteins sufficient. LptM
+([PMID 37821449](https://pubmed.ncbi.nlm.nih.gov/37821449/)) and YedD
+([PMID 40127101](https://pubmed.ncbi.nlm.nih.gov/40127101/)) are maturation or
+conditional-support factors, not universal required components of the
+canonical reconstituted machine.

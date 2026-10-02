@@ -378,3 +378,4 @@ lactate_formation_lactaldehyde	substrate_class	organic_acid	Lactate is the produ
 lactate_formation_lactaldehyde	physiological_role	fermentative_end_product	
 siroheme_to_heme_b	substrate_class	cofactor	Heme b is the product boundary, and siroheme is a cofactor too.
 siroheme_to_heme_b	physiological_role	biosynthesis	Converts one tetrapyrrole cofactor into another.
+lpt_lipopolysaccharide_export_apparatus	structural_class	secretion_machine	A dedicated trans-envelope machine that moves lipopolysaccharide from the inner membrane to the outer leaflet of the outer membrane.
