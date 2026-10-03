@@ -56,3 +56,20 @@ COMP_LPTG	NCBIFAM	TIGR04408.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/2
 COMP_LPTD	NCBIFAM	NF002997.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Gammaproteobacterial LptD profile.
 COMP_LPTD	NCBIFAM	NF003358.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Alternative Gammaproteobacterial LptD profile.
 COMP_LPTE	NCBIFAM	NF008062.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Enterobacterales LptE profile; the broader Pfam-equivalent profile is not admitted.
+COMP_WTA_MNAA	KO	K01791	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	Activity-level UDP-GlcNAc 2-epimerase marker; it is not WTA-specific and is accepted only as one required role in the complete architecture.
+COMP_WTA_TAGO	KO	K02851	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	Shared TagO/WecA/Rfe activity marker; it never establishes WTA alone.
+COMP_WTA_TAGA	KO	K05946	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TagA/TarA linkage-unit mannosaminyltransferase orthology.
+COMP_WTA_TAGB	KO	K21285	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TagB/TarB linkage-unit glycerol-phosphate primase orthology.
+COMP_WTA_TAGD	KO	K00980	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TagD glycerol-3-phosphate cytidylyltransferase orthology.
+COMP_WTA_TARI	KO	K21030	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TarI CDP-ribitol synthase orthology.
+COMP_WTA_TARJ	KO	K05352	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TarJ ribitol-5-phosphate dehydrogenase orthology.
+COMP_WTA_STAPH_TARF	NCBIFAM	NF041712.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-02	family_type=equivalog. Staphylococcus aureus TarF profile; K21591 and broad TagF-family profiles are not admitted as alternatives.
+COMP_WTA_STAPH_TARL	NCBIFAM	NF041713.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-02	family_type=equivalog. Staphylococcus TarL profile; K18704 alone is not admitted for this lineage-resolved role.
+COMP_WTA_W23_TARK	KO	K21592	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TarK ribitol-phosphate primase orthology; required together with TarL.
+COMP_WTA_W23_TARL	KO	K18704	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TarL ribitol-phosphate polymerase orthology; required together with TarK so it cannot identify the W23 design alone.
+COMP_WTA_TAGG	KO	K09692	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TagG WTA-export permease orthology.
+COMP_WTA_TAGH	KO	K09693	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TagH WTA-export ATPase orthology.
+COMP_WTA_LCP	KO	K01005	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TagT/TagU/TagV LCP-family teichoic-acid attachment orthology; accepted only inside the complete architecture.
+COMP_LTA_YPFP	NCBIFAM	NF010134.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-02	family_type=equivalog. Processive diglucosyldiacylglycerol synthase profile; K03429 is not admitted as an alternative.
+COMP_LTA_LTAA	NCBIFAM	NF047396.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-02	family_type=equivalog. LTA-biosynthesis MFS flippase profile for the diglucosyldiacylglycerol anchor.
+COMP_LTA_LTAS	NCBIFAM	NF053595.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-02	family_type=equivalog. LtaS poly(glycerol-phosphate) synthase profile; the broader K19005 orthology is deliberately not admitted.

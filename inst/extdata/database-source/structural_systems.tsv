@@ -20,3 +20,14 @@ SYS_T4AP_RETRACTION_ATPASE	SF_T4AP_RETRACTION_ATPASE	PilT retraction ATPase	PilT
 SYS_LPTBCFG	SF_LPT_INNER_MEMBRANE_EXTRACTION	LptB/C/F/G inner-membrane complex	LptB, LptC, LptF and LptG are jointly required. A protein annotated to both the component-specific LptF and LptG markers may satisfy both roles, preserving naturally fused permease architectures without collapsing the roles.
 SYS_LPTA	SF_LPT_PERIPLASMIC_BRIDGE	LptA periplasmic bridge protein	LptA supplies the dedicated soluble bridge component.
 SYS_LPTDE	SF_LPT_OUTER_MEMBRANE_TRANSLOCON	LptD/E outer-membrane complex	LptD and LptE are jointly required by the canonical architecture. LptD alone is not accepted as evidence of this system.
+SYS_WTA_MNAA	SF_WTA_UDP_MANNAC_SUPPLY	MnaA-class UDP-GlcNAc 2-epimerase	A non-hydrolysing UDP-GlcNAc 2-epimerase supplies the UDP-ManNAc donor required by the linkage unit.
+SYS_WTA_TAGOAB	SF_WTA_LINKAGE_UNIT	TagO/TagA/TagB linkage-unit system	TagO, TagA and TagB are jointly required to initiate and construct the conserved undecaprenyl-linked disaccharide-glycerol-phosphate unit.
+SYS_WTA_TAGD	SF_WTA_CDP_GLYCEROL_SUPPLY	TagD CDP-glycerol synthase	TagD supplies CDP-glycerol for the linkage-unit glycerol-phosphate step.
+SYS_WTA_TARIJ	SF_WTA_CDP_RIBITOL_SUPPLY	TarI/TarJ CDP-ribitol supply system	TarI and TarJ are jointly required to form the activated CDP-ribitol donor.
+SYS_RIBITOL_WTA_STAPH_TARFL	SF_RIBITOL_WTA_STAPH_POLYMERIZATION	Staphylococcus TarF/TarL system	Equivalog-resolved TarF and TarL roles are jointly required; broader TagF-like or generic TarL evidence is not accepted for this architecture.
+SYS_RIBITOL_WTA_W23_TARKL	SF_RIBITOL_WTA_W23_POLYMERIZATION	W23 TarK/TarL system	The W23-specific TarK primase and TarL polymerase roles are jointly required.
+SYS_WTA_TAGGH	SF_WTA_EXPORT	TagG/TagH exporter	The permease TagG and ATPase TagH are jointly required for the wall-teichoic-acid exporter.
+SYS_WTA_LCP	SF_WTA_PEPTIDOGLYCAN_ATTACHMENT	LCP-family attachment ligase	At least one accepted LCP-family ligase supplies the attachment function; individual paralog identities are not required.
+SYS_LTA_YPFP	SF_LTA_GLC2DAG_ANCHOR_SYNTHESIS	YpfP/UgtP diglucosyldiacylglycerol synthase	The processive glycolipid glycosyltransferase supplies the named disaccharide anchor; a generic glycolipid-synthesis KO is not accepted as a shortcut.
+SYS_LTA_LTAA	SF_LTA_GLC2DAG_TRANSLOCATION	LtaA glycolipid flippase	The LTA-specific MFS flippase presents the diglucosyldiacylglycerol anchor at the outer leaflet of the cytoplasmic membrane.
+SYS_LTA_LTAS	SF_LTA_POLYGLYCEROL_PHOSPHATE_POLYMERIZATION	LtaS polymerase	The LtaS-family enzyme polymerizes the glycerol-phosphate chain; K19005 is not accepted because it does not resolve the required architecture.

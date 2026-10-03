@@ -38,7 +38,9 @@ test_that("gift_type reaches the browsing API and the call summary", {
   expect_setequal(list_gifts(type = "structural")$gift_id,
                   c(
                     "flagellar_apparatus", "type_iva_pilus",
-                    "lpt_lipopolysaccharide_export_apparatus"
+                    "lpt_lipopolysaccharide_export_apparatus",
+                    "ribitol_phosphate_wall_teichoic_acid",
+                    "diglucosyl_diacylglycerol_anchored_lipoteichoic_acid"
                   ))
   expect_setequal(
     list_gifts(type = "defense")$gift_id,
@@ -51,7 +53,7 @@ test_that("gift_type reaches the browsing API and the call summary", {
   expect_equal(nrow(list_gifts(type = "regulatory")), 3L)
   expect_equal(
     as.integer(table(factor(list_gifts()$gift_type, levels = .gifter_gift_types))),
-    c(143L, 3L, 3L, 5L)
+    c(143L, 5L, 3L, 5L)
   )
   expect_equal(
     nrow(list_gifts(type = c("metabolic", "structural", "regulatory", "defense"))),

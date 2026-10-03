@@ -19,14 +19,13 @@ approval.
 - Replace the DOI note in `inst/CITATION` only after an archive has actually
   assigned one. Current state: **PENDING EXTERNAL ACTION — no DOI exists**.
 
-## Operational CI maintenance — separate from biological curation
+## Operational CI status
 
-GitHub Actions has issued maintenance warnings about the Node.js 20 migration
-for `actions/upload-artifact@v4` and the future `ubuntu-latest` move to Ubuntu
-26. These are workflow-maintenance items, not licensing or biological-database
-decisions. Address them in a separately scoped compatibility change with a
-dedicated CI run; do not use a runner change to reclassify an upstream source or
-to plan a v1 release.
+The Node.js 20 artifact-upload warning and the `ubuntu-latest` migration were
+addressed on 2026-10-01: check uploads use `actions/upload-artifact@v7`, and
+the Linux jobs are pinned to tested Ubuntu images. Confirm the current matrix
+passes on the candidate commit; these earlier warnings are no longer open
+release tasks. CI status does not change upstream licensing review.
 
 ## Reproducible database and source commit
 

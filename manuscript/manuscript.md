@@ -18,8 +18,8 @@ keywords:
   - microbial ecology
   - metabolic inference
 target: "Microbiome (BMC, Methodology) or mSystems (Research article) — Results-first structure"
-software_version: "gifter 0.5.0 (in development)"
-database_version: "2026.21.3 (schema 7)"
+software_version: "gifter 0.7.3 (in development)"
+database_version: "2026.27.1 (schema 7)"
 status: "Working draft. Structure follows manuscript/outline.md (agreed 2026-08-22)."
 ---
 
@@ -29,7 +29,7 @@ DRAFTING CONVENTIONS
     Conclusions / Materials and Methods. See manuscript/outline.md.
   * R1-R3 and R6 describe behaviour that exists in the package today and are
     written as final prose.
-  * R4 and R5 are drafted from a stable API and need a worked example each.
+  * R4 and R5 include reproducible, deliberately illustrative worked examples.
   * R7-R10 are results. Never write a number there that has not been produced
     by a committed script in `manuscript/analysis/`.
   * Every quantitative claim about the database must name the database version
@@ -68,23 +68,29 @@ headline evaluation result; availability statement.]*
 
 ## Background
 
-*[Status: prose complete, citations pending.]*
+*[Status: complete.]*
 
 Genome-resolved metagenomics routinely yields hundreds to thousands of
 metagenome-assembled genomes (MAGs) per study, and the analytical bottleneck has
 moved from recovering genomes to interpreting them. The question asked of each
 genome is almost always functional: does this organism degrade this substrate,
 synthesise this compound, respire this electron acceptor, or depend on a partner
-for a metabolite it cannot make? *[cite: MAG-based ecology reviews; HoloFood /
-Earth Hologenome Initiative style datasets.]*
+for a metabolite it cannot make? ([Bowers et al.,
+2017](https://doi.org/10.1038/nbt.3893); [Alberdi et al.,
+2022](https://doi.org/10.1038/s41576-021-00421-0)).
 
 Three families of tools currently answer that question, and each answers a
 different version of it.
 
 **Marker checklists** map annotation identifiers onto predefined gene sets and
 report the fraction observed. KEGG module completeness and the pathway summaries
-of tools such as DRAM, METABOLIC and MicrobeAnnotator are of this kind. *[cite:
-KEGG/KofamScan; DRAM; METABOLIC; MicrobeAnnotator; anvi'o estimate-metabolism.]*
+of tools such as DRAM, METABOLIC and MicrobeAnnotator are of this kind
+([Kanehisa et al., 2025](https://doi.org/10.1093/nar/gkae909); [Aramaki et al.,
+2020](https://doi.org/10.1093/bioinformatics/btz859); [Shaffer et al.,
+2020](https://doi.org/10.1093/nar/gkaa621); [Zhou et al.,
+2022](https://doi.org/10.1186/s40168-021-01213-8); [Ruiz-Perez et al.,
+2021](https://doi.org/10.1186/s12859-020-03940-5); [Eren et al.,
+2021](https://doi.org/10.1038/s41564-020-00834-3)).
 They are fast, reproducible and easy to explain, but the abstraction they use —
 a flat list of expected identifiers with a percentage attached — cannot
 distinguish four situations that are biologically distinct: an organism that
@@ -95,23 +101,30 @@ incomplete. All four can produce "80% complete", and the number carries no
 statement of which chemistry is unsupported.
 
 **Genome-scale metabolic models** reconstruct a stoichiometric network and
-simulate flux. *[cite: carveMe; gapseq; ModelSEED/KBase; CarveFungi et al.]*
+simulate flux ([Henry et al., 2010](https://doi.org/10.1038/nbt.1672); [Machado
+et al., 2018](https://doi.org/10.1093/nar/gky537); [Zimmermann et al.,
+2021](https://doi.org/10.1186/s13059-021-02295-1)).
 They represent alternatives, cofactors and mass balance properly, but they
 require gap filling to become simulable, which introduces reactions that the
 genome does not encode, and the provenance of an individual conclusion is
-difficult to recover. For comparative ecology across thousands of partially
+difficult to recover ([Bernstein et al.,
+2021](https://doi.org/10.1186/s13059-021-02289-z)). For comparative ecology across thousands of partially
 complete MAGs, the modelling machinery answers a question — *will this organism
 grow on this medium?* — that the underlying evidence often cannot support.
 
 **Trait databases and curated schemes** assign organisms to functional
-categories from literature or taxonomy. *[cite: FAPROTAX; MDB/ Madin et al.
-trait database; BacDive.]* They are biologically meaningful but are not derived
+categories from literature or taxonomy ([Louca et al.,
+2016](https://doi.org/10.1126/science.aaf4507); [Madin et al.,
+2020](https://doi.org/10.1038/s41597-020-0497-4); [Schober et al.,
+2025](https://doi.org/10.1093/nar/gkae959)). They are biologically meaningful but are not derived
 from the genome at hand, so they cannot describe a novel or uncultured lineage.
 Their measured members are, however, what R9 validates against, and the
 distinction between a measured phenotype and a taxonomically propagated one
 decides which of them can serve that purpose.
 
-gifter's predecessor, distillR *[cite: distillR 1.x usage papers]*, belonged to
+gifter's predecessor, [distillR](https://github.com/anttonalberdi/distillR),
+which has been used in comparative microbiome analysis ([Koziol et al.,
+2023](https://doi.org/10.1128/mbio.01606-23)), belonged to
 the first family. It matched KEGG orthologue and Enzyme Commission identifiers
 against roughly five hundred curated gene bundles and returned a fullness value
 per bundle, aggregated into compounds, functions and domains. That design was
@@ -388,19 +401,33 @@ drawn.
 
 #### R2.5 Worked example
 
-*[Status: expand into a full figure-backed walkthrough once the case-study
-dataset is chosen. The purine example below is stable and is retained as an
-architectural fixture in the test suite.]*
+*[Status: complete; reproduced by `manuscript/analysis/20-figures-core.R`.]*
 
-Given a marker table of KEGG orthologue accessions, `evaluate_gifts()` resolves
-every GIFT in the database, of any type, and returns a list of tibbles — `gifts`,
-`routes`, `reactions`, `systems`, `components` and `evidence`, plus `structural`,
-`regulatory` and `defense` views — that share stable identifiers.
-`trace_gift(result, "adenylate_biosynthesis")` returns the long-form path from
-the called route through its reactions, selected enzyme systems and required
-components to the observed markers and, where supplied, the gene identifiers
-responsible. `trace_gift(result, "flagellar_apparatus")` returns the same shape
-of evidence through architectures and structural functions.
+We followed a nine-marker purine fixture through every layer of the hierarchy
+(Figure 1). The input is deliberately an architectural fixture rather than an
+annotation of a named organism: nine supplied gene identifiers carry the KEGG
+orthologues K00764, K01945, K00601, K01952, K01933, K01587, K01756, K00602 and
+K01939. At database version 2026.27.1, `evaluate_gifts()` supports both
+`purine_core_biosynthesis` and its downstream
+`adenylate_biosynthesis` GIFT.
+
+The adenylate call makes the alternating logic concrete. One complete route,
+`AMP_ADENYLOSUCCINATE`, requires two ordered reactions. K01939 supports the
+catalytic component of `SYS_15753_ADSS`, which supports RHEA:15753 in the
+forward orientation; K01756 independently supports the catalytic component of
+`SYS_16853_ADSL`, which supports forward RHEA:16853. Both required reactions
+are supported, so the route is complete, and that one complete route is
+sufficient for the GIFT. Each marker-to-component mapping in this trace carries
+`curated` confidence, so the call does too.
+
+`trace_gift(result, "adenylate_biosynthesis")` retains the route identifier,
+step order, reaction orientation, selected system and component, marker,
+confidence and the supplied `purine_gene_9` and `purine_gene_7` identifiers in
+one long-form table. The exact rows underlying Figure 1 are written to
+`worked-example-purine-trace.tsv`. The same evaluator returns parallel
+structural, regulatory and defense views: for example, a flagellar trace passes
+through an architecture and structural functions in place of a route and
+reactions, without changing the Boolean operations between layers.
 
 ### R3. Anchors bound metabolic traits and compose them without duplication
 
@@ -422,7 +449,7 @@ A longer capability is a traversal of that graph, not a separate curated object.
 gifter does not store a `PRPP > AMP` trait that copies the reactions of the
 two atomic traits; it stores the atomic traits and lets the chain be read from
 the graph. Composition without duplication is what keeps the curation internally
-consistent as the database grows.
+consistent as the database grows (Figure 2).
 
 #### R3.1 Cycles are a design constraint, not a formality
 
@@ -451,7 +478,7 @@ single extension beyond pure chemistry, and it exists for one reason:
 depolymerising a polymer outside the cell, importing the product and
 saccharifying it inside are different ecological strategies — public-goods
 degrader, selfish forager, cross-feeder — and they are invisible if every
-boundary molecule is compartment-blind.
+boundary molecule is compartment-blind (Figure 3).
 
 The model is narrow by construction. Compartment is a **curated boundary claim,
 not a genomic inference**: a KO or CAZy family identifies chemistry, not
@@ -498,7 +525,8 @@ logic that produces one.
 
 ### R4. Quantitative traits are reported only against a declared frame
 
-*[Status: drafted from a stable API; needs a worked example and Figure 4.]*
+*[Status: complete; worked example and Figure 4 reproduced by
+`manuscript/analysis/20-figures-core.R`.]*
 
 Calls are the primary result. A quantitative layer summarises sets of them
 without changing any, and every number it produces carries the set it was
@@ -625,12 +653,34 @@ a precision gifter cannot support — and it changes only the reading of
 absence: no policy can turn an unsupported GIFT into a supported one. This
 is the methodological counterpart of R7.
 
-*[Add: worked example over a real MAG catalogue; the bounded/unbounded contrast
-shown on one figure.]*
+**Worked example.** We assembled a synthetic marker profile from accepted
+markers for five members of the bounded amino-acid-autonomy frame and five
+members of the unbounded carbohydrate-degradation frame. This is a controlled
+demonstration of denominator behaviour, not an annotation of a named genome.
+The same evaluated call set contains five supported GIFTs in each frame
+(Figure 4a). For amino-acid autonomy, gifter reports both the count and
+`supported_fraction = 5/22 = 0.227`, because the 22-member frame is intended to
+be complete. For carbohydrate degradation it reports the count, five of the 18
+capabilities currently selected by the frame, but withholds
+`supported_fraction`: 18 is the current curated set, not the size of
+carbohydrate-degradation biology.
+
+The same example separates call status from assessability (Figure 4b). Under
+the default policy, all 22 amino-acid-autonomy members are assessable, so the
+five positives give `supported_fraction = 0.227` and
+`assessable_fraction = 1.000`. When the illustrative profile is assigned 60%
+genome completeness and evaluated at a 90% threshold, the five supported calls
+remain supported while the 17 negative calls become indeterminate. The
+resulting `supported_fraction` is 1.000 over five assessable members, but
+`assessable_fraction` is only 0.227. The pair must therefore be read together:
+the former describes the evidence-bearing part of the frame, and the latter
+states how little of the full frame could be judged. All input-derived values
+and denominators are retained in `worked-example-frame-metrics.tsv`.
 
 ### R5. Capability distribution and potential handoffs across a community
 
-*[Status: drafted from a stable API; needs a worked example and Figure 5.]*
+*[Status: complete; worked example and Figure 5 reproduced by
+`manuscript/analysis/20-figures-core.R`.]*
 
 A genome-resolved community is a set of per-genome results, and the community
 layer asks how curated capability is distributed across it.
@@ -665,7 +715,24 @@ encodes a capability whose declared extracellular product another genome's
 capability can consume. It is not evidence that the exchange occurs, that the
 organisms co-occur, or that either capability is expressed.
 
-*[Add: worked example on the case-study community; Figure 5.]*
+**Worked example.** A four-genome fixture follows one extracellular
+arabinoxylan chain without claiming that exchange occurs (Figure 5). Genome A
+carries `arabinoxylan_debranching`; genome B carries `xylan_degradation`; and
+genomes C and D each carry both `xylose_uptake_abc` and
+`xylose_degradation_isomerase`. Each genome is evaluated independently from
+its own marker rows. The community consequently contains four distinct
+supported GIFTs across six genome–GIFT presences. Two GIFTs have one provider
+and two have two providers, giving a singleton fraction of 2/4 = 0.5.
+
+Projecting the declared composition graph produces exactly three
+cross-genome edges: A to B through extracellular `XYLAN`, and B to each of C
+and D through extracellular `XYLOSE_EX`. All three inherit `exact` edge
+quality. `XYLOSE_IN` never becomes a cross-genome edge: uptake moves xylose to
+the cytoplasmic boundary, where its composition with catabolism remains inside
+C or D. Thus the network records three potential compatibility relationships,
+not metabolite transfer or activity. The values and exact edge list are written
+to `worked-example-community-metrics.tsv` and
+`worked-example-community-edges.tsv`.
 
 ### R6. The curated reference database
 
@@ -976,15 +1043,25 @@ exclude them rather than discover them again.
 
 ### R8. Comparison with existing tools
 
-*[Status: NOT STARTED. Needs a common genome set and tool runs.]*
+*[Scope decided 2026-10-02; result NOT STARTED. R8 needs a common genome subset
+and the KEGG-module and DRAM runs only.]*
 
-**Design.** On a common genome set, compare
-gifter calls with KEGG module completeness and with the pathway summaries of
-DRAM and METABOLIC. This is a comparison of abstractions, not a benchmark with a
-winner: quantify where the tools agree, and characterise the disagreements by
-cause (alternative route, non-homologous enzyme, incomplete complex,
-boundary difference). The classification of disagreements is the result, not the
-agreement rate.
+**Design.** On a common genome set and a fixed per-gene marker table, compare
+gifter calls with KEGG module completeness and DRAM distillation. This is a
+comparison of abstractions, not a benchmark with a winner: quantify where the
+methods agree, and characterise the disagreements by cause (alternative route,
+non-homologous enzyme, incomplete complex, boundary difference). The
+classification of disagreements is the result, not the agreement rate.
+
+METABOLIC is deliberately excluded from this controlled comparison. Its native
+workflow accepts genome or protein FASTA, then generates and validates its own
+profile evidence before emitting pathway and module summaries; it cannot consume
+the shared marker table. A native METABOLIC run would therefore confound
+annotation with completeness logic rather than answer R8's question. Its raw
+gene-level marker hits can be normalised into gifter's `gene_id`, `namespace`,
+`accession` input when they are retained, but its `FunctionHit`, module and
+pathway summaries are already distillations and are not gifter evidence. No
+METABOLIC run is pending for R8. *[cite: METABOLIC]*
 
 ### R9. Agreement with observed phenotypes
 
@@ -1035,8 +1112,8 @@ genomic inferences would make R9 a tool comparison with the wrong label on it.
 FAPROTAX is **refused** as a reference: it propagates function by taxonomic
 name rather than observing it, so a disagreement cannot say which side was
 wrong, and its discriminating categories are the electron-acceptor class this
-framework declines by design. It belongs in R8 as one more abstraction to
-compare with.
+framework declines by design. It is not an R9 reference; any comparison with
+that taxonomy-propagated abstraction would need its own scope.
 
 The mapping from an observation to something gifter claims is curated rather
 than mechanical. `phenotype-crosswalk.tsv` holds 56 reviewed rows across the
@@ -1369,16 +1446,78 @@ are what make a capability claim auditable.]*
 
 ### M1. Curation protocol
 
-*[Status: to write. Boundary rules, the defended-boundary requirement, the
-refusal cases of R2.4, and the review record. Much of the raw material is in
-the type proposals under `inst/doc/`.]*
+*[Status: complete.]*
 
-The working boundary rule for a metabolic GIFT is to start at the nearest
-biologically meaningful shared precursor, host- or environment-derived
-substrate, or metabolic junction before trait-specific chemistry begins, and to
-end at the first stable product or branchpoint that establishes the
-capability's identity before broadly shared metabolism resumes. The purine cut
-worked through in R3 illustrates both ends.
+Every new or changed GIFT began with a one-sentence definition of what a
+positive call would mean and why that encoded capability was useful to infer.
+We then assigned the claim to one of the four completeness contracts. A
+metabolic claim had to be expressible as at least one complete directed
+enzymatic route between declared molecular boundaries. A structural,
+regulatory or defense claim instead had to be expressible as at least one
+complete architecture, circuit or mechanism. Candidate descriptions that
+combined independently useful capabilities were split; higher-order phenotypes
+or ecological strategies were retained only as possible derived descriptions,
+not made into primary GIFT types.
+
+We read the deferral register before curating a candidate. If the proposed
+specificity could not be supported by available markers, if the boundaries
+could not be defended, or if a complete implementation could not be stated, we
+stopped at a curation proposal and added a discoverable deferral record. Each
+record states the blocking evidence and what would trigger reassessment. This
+procedure makes a refusal—such as declining to infer substrate specificity
+from a polyspecific enzyme family or ion coupling from a shared stator
+orthologue—a curation result rather than an unrecorded omission.
+
+For a metabolic GIFT, we placed the input boundary at the nearest meaningful
+shared precursor, host- or environment-derived substrate, or metabolic
+junction before trait-specific chemistry begins. We placed the output at the
+first stable product or branchpoint that establishes the capability before
+broadly shared metabolism resumes. Existing anchors were reused when molecule,
+role and compartment denoted the same boundary; internal reaction participants
+were not promoted to anchors merely because they occur in the chemistry. Each
+GIFT was assigned an anabolic, catabolic, transport or interconversion mode,
+and every anchor received only the boundary-level compartment required for
+composition. The PRPP to IMP to AMP/GMP cut in R3 illustrates these rules.
+
+Within those boundaries, reactions were matched to Rhea master identifiers
+where available and their route-specific forward or reverse orientation was
+recorded separately. Each supported alternative minimal route was materialised
+as an ordered route rather than encoded as a Boolean expression. Upstream
+pathway records were treated as evidence to inspect, not as trait definitions;
+an external cross-reference was added only with an explicit boundary relation
+(`equivalent`, `subset_of`, `superset_of`, `overlaps` or `related`). For every
+reaction we enumerated alternative enzyme systems, and for every system all
+jointly required components, including multisubunit forms, non-homologous
+replacements, fused proteins and taxon-specific alternatives where the
+evidence supported them.
+
+For structural, regulatory and defense GIFTs, the parallel procedure replaced
+anchors and routes with alternative complete architectures, circuits or
+mechanisms. Curators enumerated their required and optional biological
+functions, the alternative systems capable of each function, and all jointly
+required components of each system. These GIFTs were prohibited from declaring
+anchors or a metabolic mode: an invented boundary molecule would change the
+biological claim rather than adapt its representation.
+
+Markers were linked only to components, using the extensible
+`namespace + accession` identity. Each mapping recorded its evidence type,
+source, qualitative confidence and relevant ambiguity. We accepted a marker
+only when its specificity was at least that of the component and the GIFT it
+could support. Candidate markers were therefore screened for multifunctional
+proteins, shared orthologues, polyspecific families and incomplete complexes;
+adding a broad marker for one trait was also evaluated for the false
+equivalences it would create in every other trait using that marker.
+
+Before release, we inspected the existing anchor graph for composition,
+redundancy and cycles and reused existing reactions, systems, components and
+markers wherever they represented the same entity. Changes were made in the
+human-readable TSV sources, with provenance updated beside them. Source
+validation, SQLite compilation, foreign-key and integrity checks, logic tests
+and public-accessor inspection then had to pass. Finally, we traced the new call
+to observed markers and supplied gene identifiers and recorded the decision in
+`database_changes.tsv` with a UTC timestamp, rationale, evidence, effect on
+calls and links to every affected GIFT. The compiled SQLite file was generated
+from the reviewed sources and was never edited directly.
 
 ### M2. Schema, validation and compilation
 
@@ -1510,17 +1649,77 @@ taxonomy-propagated trait predictions — including FAPROTAX, ProTraits and
 BacDive's own genome-based prediction section — are refused as phenotype
 references, because benchmarking a genome-based caller against genome-derived
 labels measures agreement between two predictors rather than agreement with
-observation. They may appear in R8 as comparators, never in R9 as a reference.
-Separately, gifter queries no resource at runtime: a genome enters as a table of
+observation. They are never R9 references. Separately, gifter queries no
+resource at runtime: a genome enters as a table of
 `namespace` and `accession` pairs, so the annotation tool is the user's choice
 and the marker key remains an open vocabulary.
 
 ### M4. Evaluation algorithm
 
-*[Status: to write. Marker normalisation and indexed lookup; resolution order
-through the five layers; deterministic closest-implementation selection and
-tie-breaking; confidence propagation; parallelisation and its invariance.
-Several of these are currently asserted in R2 and must be specified here.]*
+*[Status: complete.]*
+
+`evaluate_gifts()` accepts either a character vector of marker accessions or a
+table containing `namespace` and `accession`; an optional `gene_id` is retained
+as evidence and never enters the call. Namespaces are trimmed, upper-cased and
+normalised through explicit aliases (for example, `KEGG` to `KO`). KO and EC
+prefixes are removed, profile accessions are case-normalised, and the
+lower-case suffix of dbCAN eCAMI clusters is restored after normalisation.
+Where no namespace is supplied, accession patterns can identify KO, EC, Pfam,
+TIGRFAM, NCBIfam and CAZy markers; an accession whose namespace remains
+ambiguous is rejected rather than guessed.
+
+Unique normalised `namespace + accession` pairs are looked up through the
+indexed marker table in parameterised batches of at most 300 pairs. The same
+lookup traverses the metabolic and three machinery table families and labels
+each row with its `gift_type`. The observed-marker table is then left-joined to
+those results so unmatched annotations remain visible. Consequently a single
+observed marker may support several components, whereas an unused marker is
+retained with `matched = FALSE`; neither multiplicity is discarded before
+evaluation.
+
+Support is resolved bottom-up. Any accepted observed marker supports its
+component. A system is supported only when all of its required components are
+supported. Any supported system satisfies its owning reaction or machinery
+function. An implementation is complete only when all requirements marked
+required are satisfied; optional requirements are reported but excluded from
+the Boolean call. Finally, any complete implementation supports the GIFT. The
+metabolic path names the middle layers enzyme system, reaction and route; the
+structural, regulatory and defense paths use their own system, function and
+architecture, circuit or mechanism tables but apply the same operations.
+
+Diagnostics are computed even for an unsupported call. For each reaction or
+machinery function, systems are ordered first by the number of missing
+components and then lexicographically by stable `system_id`. For each GIFT,
+implementations are ordered first by the number of missing required
+requirements and then by stable implementation identifier. The first row is
+reported as the best system or implementation, so ties and all-complete cases
+are deterministic. Missing and supporting identifiers are retained as lists;
+the route score is the supported proportion of required reactions in the
+selected route and is a secondary summary, never the completeness decision.
+
+Evidence confidence follows the same Boolean structure. Alternative markers
+for one component are disjunctive, so the highest-confidence accepted marker
+sets that component's confidence. Required components are conjunctive, so the
+weakest selected component confidence is propagated through the selected
+implementation to the GIFT. The ordered vocabulary, from weakest to strongest,
+is `insufficient
+evidence`, `ambiguous`, `putative`, `high-confidence` and `curated`; the terms
+are not averaged or converted to a numeric probability. Output tables retain
+the database version and stable identifiers needed to join the call, its best
+or complete implementation, all systems and components, the observed markers
+and supplied genes. `trace_gift()` performs that join without re-evaluating the
+claim.
+
+Community evaluation preserves the genome as the unit of inference.
+`evaluate_gifts_community()` splits the input by `genome_id`, creates one
+transactionally consistent read-only SQLite snapshot, and evaluates each
+genome against that snapshot. On platforms that support process forking, the
+genome tables are divided among workers and each worker opens its own read-only
+connection; otherwise the same routine runs sequentially. Results are restored
+to deterministic genome order before assembly. Tests require a genome's result
+to be identical whether evaluated alone, in a community, sequentially or with
+multiple workers, preventing marker pooling and worker count from changing a
+biological call.
 
 ### M5. Implementation and testing
 
@@ -1606,26 +1805,127 @@ analysis scripts under `manuscript/analysis/`.]*
 
 | # | Content | Supports | Status |
 |---|---|---|---|
-| 1 | The five-layer hierarchy under four vocabularies; purine resolved through all layers from markers to call | R1, R2 | Not started |
-| 2 | Anchors as boundaries: purine cut points, composition through declared anchors, derived trait graph | R3 | Not started |
-| 3 | Compartment and strategy: one polysaccharide resolved as public-goods degradation, selfish foraging, cross-feeding | R3, R5 | Not started |
-| 4 | Frames and honest denominators: bounded vs. unbounded, assessability under MAG incompleteness | R4 | Not started |
-| 5 | Community: capability distribution, redundancy, potential handoff topology | R5 | Not started |
+| 1 | The five-layer hierarchy under four vocabularies; purine resolved through all layers from markers to call | R1, R2 | **Drawn**; `20-figures-core.R` |
+| 2 | Anchors as boundaries: purine cut points, composition through declared anchors, derived trait graph | R3 | **Drawn**; `20-figures-core.R` |
+| 3 | Compartment and strategy: one polysaccharide resolved as public-goods degradation, selfish foraging, cross-feeding | R3, R5 | **Drawn**; `20-figures-core.R` |
+| 4 | Frames and honest denominators: bounded vs. unbounded, assessability under MAG incompleteness | R4 | **Drawn**; `20-figures-core.R` |
+| 5 | Community: capability distribution, redundancy, potential handoff topology | R5 | **Drawn**; `20-figures-core.R` |
 | 6 | Incompleteness: call retention against gene content beside the marker-fraction score (a), the share of lost calls that are exactly one reaction short (b), and the assessability policy against a naive denominator on three bounded frames (c) | R7 | **Drawn**; `08-figure-incompleteness.R` |
 | 7 | Case-study results | R10 | Blocked on dataset |
 | 8 | Phenotype agreement: recall per target with test-set size and taxonomic spread (a), the anabolic half on defined media (b), every disagreement classified by gifter's own trace (c), the reference measured against itself (d), the coverage panel naming what has no reference at all (e), and the same genomes annotated three ways (f) | R9 | **Drawn**; `06-figure-phenotype.R` |
 | S1 | Data lifecycle: TSV sources, validation, compilation, runtime, and the version tracks | M2, M3 | Not started |
 | S2 | The interactive database atlas | R6 | Exists; needs packaging |
 
-Figures 1-5 are derivable from the software as it stands and are not blocked.
+**Figure 1. One Boolean hierarchy resolves four capability types and retains
+the evidence path.** (a) The OR/AND operators are identical across metabolic,
+structural, regulatory and defense GIFTs while their biological entities remain
+distinct. (b) The complete adenylate-biosynthesis fixture is traced from two
+observed KO–gene pairs through components, systems and Rhea reactions to one
+complete route and GIFT. Identifiers and confidence are evaluator output from
+database 2026.27.1, not diagram-only labels.
+
+**Figure 2. Declared anchors bound and compose metabolic GIFTs.** (a) IMP is the
+curated branchpoint between purine-core biosynthesis and the separate adenylate
+and guanylate branches. (b) PRPP-to-AMP capability is consequently a traversal
+of two atomic GIFTs through IMP, not a stored composite; shared internal
+reaction participants create no graph edge.
+
+**Figure 3. Anchor compartment distinguishes three resource strategies.**
+Extracellular polysaccharide cleavage can produce (a) a public-good product,
+(b) a selfish chain when one genome also encodes uptake and catabolism, or (c)
+a potential cross-genome compatibility when another genome can take up the
+declared extracellular product. The panels describe encoded machinery and
+boundary compatibility, not realised secretion, uptake or exchange.
+
+**Figure 4. Declared frames and assessability make denominators explicit.**
+(a) A synthetic accepted-marker profile supports five GIFTs in each of two
+current frames. Amino-acid autonomy is bounded, so 5/22 is reportable;
+carbohydrate degradation is unbounded, so its five-of-18 count has no licensed
+fraction. (b) Treating the same illustrative profile as a 60%-complete MAG at a
+90% threshold leaves its five positive calls unchanged but moves 17
+amino-acid-autonomy negatives to indeterminate. `supported_fraction` must be
+read with `assessable_fraction`. The profile is not a named genome.
+
+**Figure 5. Community summaries preserve per-genome calls and project only
+curated potential handoffs.** (a) Four illustrative genomes distribute four
+arabinoxylan-chain GIFTs across six presences. (b) Provider counts retain
+redundancy separately from community richness (four) and singleton fraction
+(0.5). (c) The declared extracellular boundaries yield three exact potential
+handoffs: A–B through XYLAN and B–C/B–D through XYLOSE_EX. Cytoplasmic
+XYLOSE_IN remains within a genome.
 
 ## References
 
-*[To be assembled. Minimum set to cite: Rhea; ChEBI; KEGG/KofamScan; UniProt;
-Pfam; TIGRFAM; dbCAN/CAZy; DRAM; METABOLIC; MicrobeAnnotator; anvi'o
-estimate-metabolism; carveMe; gapseq; ModelSEED; FAPROTAX; Madin et al. trait
-database; BacDive (NAR 2025 database issue); MediaDive; MAG-recovery and
-MAG-quality standards (MIMAG); distillR 1.x application papers.]*
+Alberdi A, Andersen SB, Limborg MT, Dunn RR, Gilbert MTP. 2022. Disentangling
+host–microbiota complexity through hologenomics. *Nature Reviews Genetics*
+23:281–297. <https://doi.org/10.1038/s41576-021-00421-0>
+
+Aramaki T, Blanc-Mathieu R, Endo H, Ohkubo K, Kanehisa M, Goto S, Ogata H.
+2020. KofamKOALA: KEGG Ortholog assignment based on profile HMM and adaptive
+score threshold. *Bioinformatics* 36:2251–2252.
+<https://doi.org/10.1093/bioinformatics/btz859>
+
+Bernstein DB, Sulheim S, Almaas E, Segrè D. 2021. Addressing uncertainty in
+genome-scale metabolic model reconstruction and analysis. *Genome Biology*
+22:64. <https://doi.org/10.1186/s13059-021-02289-z>
+
+Bowers RM et al. 2017. Minimum information about a single amplified genome and
+a metagenome-assembled genome. *Nature Biotechnology* 35:725–731.
+<https://doi.org/10.1038/nbt.3893>
+
+Eren AM et al. 2021. Community-led, integrated, reproducible multi-omics with
+anvi'o. *Nature Microbiology* 6:3–6.
+<https://doi.org/10.1038/s41564-020-00834-3>
+
+Henry CS et al. 2010. High-throughput generation, optimization and analysis of
+genome-scale metabolic models. *Nature Biotechnology* 28:977–982.
+<https://doi.org/10.1038/nbt.1672>
+
+Kanehisa M, Furumichi M, Sato Y, Matsuura Y, Ishiguro-Watanabe M. 2025. KEGG:
+biological systems database as a model of the real world. *Nucleic Acids
+Research* 53:D672–D677. <https://doi.org/10.1093/nar/gkae909>
+
+Koziol A et al. 2023. Mammals show distinct functional gut microbiome dynamics
+to identical series of environmental stressors. *mBio* 14:e01606-23.
+<https://doi.org/10.1128/mbio.01606-23>
+
+Louca S et al. 2016. Function and functional redundancy in microbial systems.
+*Science* 353:1272–1277. <https://doi.org/10.1126/science.aaf4507>
+
+Machado D, Andrejev S, Tramontano M, Patil KR. 2018. Fast automated
+reconstruction of genome-scale metabolic models for microbial species and
+communities. *Nucleic Acids Research* 46:7542–7553.
+<https://doi.org/10.1093/nar/gky537>
+
+Madin JS et al. 2020. A synthesis of bacterial and archaeal phenotypic trait
+data. *Scientific Data* 7:170. <https://doi.org/10.1038/s41597-020-0497-4>
+
+Ruiz-Perez CA, Conrad RE, Konstantinidis KT. 2021. MicrobeAnnotator: a
+user-friendly, comprehensive functional annotation pipeline for microbial
+genomes. *BMC Bioinformatics* 22:11.
+<https://doi.org/10.1186/s12859-020-03940-5>
+
+Schober I et al. 2025. BacDive in 2025: the core database for prokaryotic strain
+data. *Nucleic Acids Research* 53:D748–D756.
+<https://doi.org/10.1093/nar/gkae959>
+
+Shaffer M et al. 2020. DRAM for distilling microbial metabolism to automate the
+curation of microbiome function. *Nucleic Acids Research* 48:8883–8900.
+<https://doi.org/10.1093/nar/gkaa621>
+
+Zhou Z et al. 2022. METABOLIC: high-throughput profiling of microbial genomes
+for functional traits, metabolism, biogeochemistry, and community-scale
+functional networks. *Microbiome* 10:33.
+<https://doi.org/10.1186/s40168-021-01213-8>
+
+Zimmermann J et al. 2021. gapseq: informed prediction of bacterial metabolic
+pathways and reconstruction of accurate metabolic models. *Genome Biology*
+22:81. <https://doi.org/10.1186/s13059-021-02295-1>
+
+The distillR software cited in the Background is archived at
+<https://github.com/anttonalberdi/distillR>. References for database resources
+used specifically in M3 and the submission analyses will be added with the
+release-specific bibliography.
 
 ---
 
@@ -1636,39 +1936,40 @@ before the text can be finalised.
 
 | Section | Depends on | Status |
 |---|---|---|
-| Background | Citations only | Prose complete, citations pending |
+| Background | — | **Complete** |
 | R1. GIFT primitive | Type model frozen | **Complete** |
 | R2. Boolean hierarchy | Five layers frozen across four types | **Complete** |
 | R3. Anchors and composition | Compartment model frozen (schema 7) | Complete |
-| R4. Quantitative traits | Frame API stable | **Drafted; needs worked example + Fig 4** |
-| R5. Community | Community API stable | **Drafted; needs worked example + Fig 5** |
+| R4. Quantitative traits | Frame API stable | **Complete**; worked example + Figure 4 |
+| R5. Community | Community API stable | **Complete**; worked example + Figure 5 |
 | R6. Reference database | Counts regenerated at submission | Complete, counts to refresh |
 | R7. Incompleteness | Nothing outstanding | **Complete**; prose and Figure 6 from `02-incompleteness.R` |
-| R8. Tool comparison | Genome set + tool runs | Not started |
+| R8. Tool comparison | Common genome subset + pinned KEGG-module/DRAM runs; METABOLIC excluded | Not started |
 | R9. Phenotype agreement | Nothing outstanding | **Complete**; prose, Figure 8 and the annotation route all from committed scripts |
 | R10. Case study | **Dataset undecided** | Not started |
 | Discussion | R7-R10 | Skeleton |
 | Conclusions | Discussion | Not started |
-| M1. Curation protocol | Nothing; `inst/doc/` proposals are the raw material | Stub |
+| M1. Curation protocol | Nothing; `inst/doc/` proposals are the raw material | **Complete** |
 | M2. Schema and validation | Schema 7 frozen | Complete |
 | M3. Versioning and provenance | — | Complete |
-| M4. Evaluation algorithm | Assertions made in R2 must be specified | Stub |
+| M4. Evaluation algorithm | Assertions made in R2 must be specified | **Complete** |
 | M5. Implementation | Public API frozen for 1.0.0 | Written, revisit at freeze |
 | M6. Datasets and analysis | R7-R10 | Blocked |
 | Availability | Release tag, Zenodo DOI | Pending release |
 | Abstract | Everything | Draft, rewrite last |
-| Figures 1-5 | Nothing — derivable today | Not started |
+| Figures 1-5 | Nothing — derivable today | **Complete**; `20-figures-core.R` |
 
 **Open decisions**
 
 1. ~~Phenotype reference set for R9~~ — **decided**: BacDive, MediaDive and Madin
    adopted, FAPROTAX refused, in `inst/doc/proposal-phenotype-validation.md`.
-   What remains is the curated phenotype-to-GIFT crosswalk and the analysis
-   script.
+   The curated phenotype-to-GIFT crosswalk and the committed analysis scripts
+   now exercise the decision.
 2. **Case-study dataset for R10** — determines whether the ecological argument lands.
 3. ~~Reference genome set for R7~~ — **decided**: the 11,908-genome KEGG
-   prokaryote set of `01-marker-matrix.R`, sampled stratified for R7. What
-   remains is which comparison tools to actually run for R8.
+   prokaryote set of `01-marker-matrix.R`, sampled stratified for R7. R8 still
+   needs a common subset and pinned KEGG-module/DRAM runs; METABOLIC is
+   deliberately excluded because it cannot use the common marker table.
 4. Microbiome vs. mSystems (both fit this structure; affects whether Conclusions
    is required, and overall length).
 5. Author list and contributions.

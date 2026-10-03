@@ -715,6 +715,11 @@ Deferred, with rows in [the deferral register](deferral-register.md):
   *failing* to grow without a nutrient, so the one direction that could falsify
   a positive anabolic call is unavailable. §2 has the argument.
 
+The [prospective biological validation plan](biological-validation-plan.md)
+turns these remaining questions into strain-matched specificity, assembly,
+machinery and nutrient-dropout experiments. Its proposed assays are distinct
+from the retrospective results reported here.
+
 ## 10. How these numbers were obtained
 
 Probed 2026-08-23 against live services; `data-raw/phenotype_reference_probe.R`

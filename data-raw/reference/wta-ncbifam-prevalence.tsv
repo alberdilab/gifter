@@ -1,0 +1,4 @@
+ncbifam_release	frame_genomes	prokaryotic_frame_genomes	candidate	ko_proxy_genomes	ncbifam_profiles_required	ncbifam_profile_positive_genomes	candidate_gene_sequences_scanned	marker_resolved_complete_genomes	standing_test	result
+hmm_PGAP/20.0	11949	11908	poly(glycerol-phosphate) WTA, 168-type	267					not_assessable_marker_specificity	deferred: no equivalog separates the 168-type TagF polymerase from the W23 non-WTA homologue
+hmm_PGAP/20.0	11949	11908	poly(ribitol-phosphate) WTA, Staphylococcus-type	49	NF041712.1;NF041713.1	NF041712.1=49;NF041713.1=48	146	48	defer_20_to_49	standing prevalence band: below 50 genomes; curation disposition is recorded separately
+hmm_PGAP/20.0	11949	11908	poly(ribitol-phosphate) WTA, W23-type	22				22	defer_20_to_49	standing prevalence band: complete TarK-plus-TarL architecture remains below 50 genomes; curation disposition is recorded separately

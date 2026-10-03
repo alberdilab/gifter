@@ -19,3 +19,14 @@ SF_T4AP_RETRACTION_ATPASE	type IVa pilus retraction ATPase	The ATPase that depol
 SF_LPT_INNER_MEMBRANE_EXTRACTION	Lpt inner-membrane extraction	The LptB2FGC complex extracts lipopolysaccharide from the inner membrane and passes it into the trans-envelope bridge.
 SF_LPT_PERIPLASMIC_BRIDGE	Lpt periplasmic bridge	LptA extends the periplasm-spanning hydrophobic groove that conducts lipopolysaccharide between the inner- and outer-membrane complexes.
 SF_LPT_OUTER_MEMBRANE_TRANSLOCON	Lpt outer-membrane translocon	The LptDE complex receives lipopolysaccharide from the bridge and inserts it into the outer leaflet of the outer membrane.
+SF_WTA_UDP_MANNAC_SUPPLY	UDP-ManNAc donor supply	Provides UDP-N-acetylmannosamine for the conserved wall-teichoic-acid linkage unit through a non-hydrolysing UDP-GlcNAc 2-epimerase.
+SF_WTA_LINKAGE_UNIT	wall-teichoic-acid linkage-unit construction	TagO initiates the undecaprenyl-linked unit, TagA adds N-acetylmannosamine and TagB primes it with glycerol phosphate; all three roles are jointly required.
+SF_WTA_CDP_GLYCEROL_SUPPLY	CDP-glycerol donor supply	TagD produces the CDP-glycerol used for the conserved glycerol-phosphate linkage step in ribitol-phosphate WTA assembly.
+SF_WTA_CDP_RIBITOL_SUPPLY	CDP-ribitol donor supply	TarJ produces ribitol 5-phosphate and TarI activates it as CDP-ribitol for ribitol-phosphate backbone construction.
+SF_RIBITOL_WTA_STAPH_POLYMERIZATION	Staphylococcus-type ribitol-WTA priming and polymerization	The Staphylococcus design uses TarF to add the glycerol-phosphate adaptor and bifunctional TarL to prime and extend the ribitol-phosphate chain.
+SF_RIBITOL_WTA_W23_POLYMERIZATION	W23-type ribitol-WTA priming and polymerization	The Bacillus subtilis W23 design uses TarK to prime the ribitol-phosphate chain and TarL to extend it; the two roles are jointly required.
+SF_WTA_EXPORT	wall-teichoic-acid export	The TagG/TagH ABC transporter exports the completed wall teichoic acid precursor across the cytoplasmic membrane.
+SF_WTA_PEPTIDOGLYCAN_ATTACHMENT	wall-teichoic-acid attachment to peptidoglycan	An LCP-family ligase transfers the exported wall teichoic acid from its lipid carrier to peptidoglycan.
+SF_LTA_GLC2DAG_ANCHOR_SYNTHESIS	diglucosyldiacylglycerol anchor synthesis	A processive glycosyltransferase forms the diglucosyldiacylglycerol membrane anchor that distinguishes this LTA boundary from residual diacylglycerol-anchored material.
+SF_LTA_GLC2DAG_TRANSLOCATION	diglucosyldiacylglycerol anchor translocation	LtaA flips the glycolipid anchor across the cytoplasmic membrane so that extracellular polymerization can proceed from it.
+SF_LTA_POLYGLYCEROL_PHOSPHATE_POLYMERIZATION	lipoteichoic-acid poly(glycerol-phosphate) polymerization	LtaS transfers glycerol phosphate from phosphatidylglycerol to construct the membrane-anchored poly(glycerol-phosphate) LTA chain.

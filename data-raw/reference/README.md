@@ -4,6 +4,63 @@ Evidence files consulted during curation. They are **not** compiled into the
 database and are not loaded at runtime; they are kept so that a curation
 decision can be re-checked against the exact input that informed it.
 
+## lta-peptidoglycan-prevalence.tsv and lta-peptidoglycan-marker-audit.tsv
+
+These tables retain the 2026-10-02 dedicated reassessment of lipoteichoic acid
+and the peptidoglycan sacculus. The denominator is the stored 11,908-genome
+prokaryotic KEGG frame. KO counts use current KEGG gene links. Boolean proxy
+sets explicitly account for the MurE/MurF and Alr/MurF fusions; they are
+diagnostics, not GIFT architectures.
+
+For the narrow LTA candidate, the screen first intersected `K19005` and
+`K03429`, searched the exact KO-assigned proteins with NCBIfam 20.0 profiles
+`NF053595.1` and `NF010134.0`, and then searched the 128 available NCBI protein
+sets from the 129-profile intersection with `NF047396.1` LtaA. The resulting
+three-profile set supports the narrow, curated diglucosyldiacylglycerol-anchored
+poly(glycerol-phosphate) LTA architecture. It includes Gram-negative
+*Sulfitobacter donghicola*, whose three proteins pass the profiles at or above
+the scores of the Staphylococcus controls. That genome is retained as positive:
+taxonomy and neighbourhood were not used to reinterpret admitted marker
+evidence. One *Staphylococcus pseudintermedius* proteome lacked LtaA evidence
+and one *S. aureus* assembly had no downloadable protein package, so neither
+was silently promoted. The 127 three-profile genomes are therefore an observed
+minimum, not an exact full-frame NCBIfam prevalence.
+
+The peptidoglycan proxies separately measure meso-DAP and lysine precursor
+chemistries, an intentionally unsafe extended meso-DAP set, and a
+lysine/pentaglycine set. Their failures are the result: `K03588` merges FtsW,
+RodA and SpoVE; the pinned NCBIfam Amj profile is `PfamAutoEq`, not an admitted
+equivalog; and no marker inventory resolves all flippase, polymerase and
+cross-linking alternatives. The underlying KEGG assignments and NCBI protein
+packages remain uncommitted because only aggregate diagnostic results are
+redistributable here.
+
+## wta-ncbifam-prevalence.tsv and wta-tagf-marker-audit.tsv
+
+`wta_ncbifam_prevalence.R` in the parent directory regenerates both tables for
+the wall-teichoic-acid structural assessment. The prevalence screen is exact
+over the stored KEGG frame without annotating all 11,949 proteomes: it first
+intersects every required KO proxy, then searches the lineage-resolving
+NCBIfam profiles against the exact polymerase sequences KEGG assigned in every
+genome in that complete candidate set. A safe
+NCBIfam-complete architecture can only be a subset of the KO-complete set, so
+this preserves the full-frame denominator and never substitutes taxonomy for a
+marker. Only aggregate counts are retained here; the KEGG-derived per-genome
+matrix and downloaded amino-acid sequences remain in the ignored cache.
+
+The marker audit records the exhaustive result of seeking an admitted 168-type
+TagF profile in NCBIfam `hmm_PGAP/20.0`. `NF016357.7` is a domain spanning the
+TagF-like family and cannot distinguish polymerases from primases;
+`NF041712.1` is an equivalog for the *Staphylococcus aureus* TarF primase in the
+separate ribitol-WTA architecture. Neither licenses the 168-type polymerase.
+
+Reproduce online once, then verify from the pinned cache:
+
+```sh
+Rscript data-raw/wta_ncbifam_prevalence.R
+Rscript data-raw/wta_ncbifam_prevalence.R --offline
+```
+
 ## fam-substrate-mapping.tsv
 
 CAZy family and subfamily to substrate and characterised-activity mapping, from

@@ -281,6 +281,46 @@ lpt_annotations <- function(markers = lpt_ko_markers()) {
   )
 }
 
+ribitol_wta_common_markers <- function() {
+  c(
+    MnaA = "K01791", TagO = "K02851", TagA = "K05946", TagB = "K21285",
+    TagD = "K00980", TarI = "K21030", TarJ = "K05352", TagG = "K09692",
+    TagH = "K09693", LCP = "K01005"
+  )
+}
+
+staphylococcus_ribitol_wta_annotations <- function() {
+  common <- ribitol_wta_common_markers()
+  rbind(
+    data.frame(
+      gene_id = paste0("gene_", names(common)), namespace = "KO",
+      accession = unname(common), stringsAsFactors = FALSE
+    ),
+    data.frame(
+      gene_id = c("gene_TarF", "gene_TarL"), namespace = "NCBIFAM",
+      accession = c("NF041712.1", "NF041713.1"), stringsAsFactors = FALSE
+    )
+  )
+}
+
+w23_ribitol_wta_annotations <- function() {
+  markers <- c(ribitol_wta_common_markers(), TarK = "K21592", TarL = "K18704")
+  data.frame(
+    gene_id = paste0("gene_", names(markers)), namespace = "KO",
+    accession = unname(markers), stringsAsFactors = FALSE
+  )
+}
+
+lta_glc2dag_annotations <- function() {
+  markers <- c(
+    YpfP = "NF010134.0", LtaA = "NF047396.1", LtaS = "NF053595.1"
+  )
+  data.frame(
+    gene_id = paste0("gene_", names(markers)), namespace = "NCBIFAM",
+    accession = unname(markers), stringsAsFactors = FALSE
+  )
+}
+
 test_that("the diderm and monoderm flagellar architectures share their machinery", {
   machinery <- get_gift_machinery("flagellar_apparatus")
   by_architecture <- split(unique(machinery[c("architecture_id", "function_id")]),
@@ -638,6 +678,180 @@ test_that("Lpt evaluation is deterministic under annotation order", {
     trace_gift(forward, "lpt_lipopolysaccharide_export_apparatus"),
     trace_gift(reverse, "lpt_lipopolysaccharide_export_apparatus")
   )
+})
+
+test_that("ribitol-phosphate WTA exposes two complete alternative architectures", {
+  machinery <- get_gift_machinery("ribitol_phosphate_wall_teichoic_acid")
+  expect_setequal(
+    unique(machinery$architecture_id),
+    c("ARCH_RIBITOL_WTA_STAPHYLOCOCCUS", "ARCH_RIBITOL_WTA_W23")
+  )
+  expect_equal(length(unique(machinery$function_id)), 8L)
+  expect_equal(length(unique(machinery$system_id)), 8L)
+  expect_equal(length(unique(machinery$component_id)), 14L)
+  expect_true(all(machinery$required))
+
+  by_architecture <- split(
+    unique(machinery[c("architecture_id", "function_id")]),
+    unique(machinery[c("architecture_id", "function_id")])$architecture_id
+  )
+  staph <- by_architecture$ARCH_RIBITOL_WTA_STAPHYLOCOCCUS$function_id
+  w23 <- by_architecture$ARCH_RIBITOL_WTA_W23$function_id
+  expect_equal(setdiff(staph, w23), "SF_RIBITOL_WTA_STAPH_POLYMERIZATION")
+  expect_equal(setdiff(w23, staph), "SF_RIBITOL_WTA_W23_POLYMERIZATION")
+  expect_equal(length(intersect(staph, w23)), 6L)
+})
+
+test_that("each ribitol-WTA architecture completes independently", {
+  staph <- evaluate_gifts(staphylococcus_ribitol_wta_annotations())
+  w23 <- evaluate_gifts(w23_ribitol_wta_annotations())
+  call <- function(result) result$structural$gifts[
+    result$structural$gifts$gift_id == "ribitol_phosphate_wall_teichoic_acid",
+  ]
+
+  expect_true(call(staph)$complete)
+  expect_equal(call(staph)$best_architecture, "ARCH_RIBITOL_WTA_STAPHYLOCOCCUS")
+  expect_equal(call(staph)$number_of_complete_architectures, 1L)
+  expect_true(call(w23)$complete)
+  expect_equal(call(w23)$best_architecture, "ARCH_RIBITOL_WTA_W23")
+  expect_equal(call(w23)$number_of_complete_architectures, 1L)
+
+  staph_architectures <- staph$structural$architectures
+  w23_architectures <- w23$structural$architectures
+  expect_false(staph_architectures$complete[
+    staph_architectures$architecture_id == "ARCH_RIBITOL_WTA_W23"
+  ])
+  expect_false(w23_architectures$complete[
+    w23_architectures$architecture_id == "ARCH_RIBITOL_WTA_STAPHYLOCOCCUS"
+  ])
+})
+
+test_that("every shared ribitol-WTA role remains jointly required", {
+  annotations <- staphylococcus_ribitol_wta_annotations()
+  for (marker in ribitol_wta_common_markers()) {
+    result <- evaluate_gifts(annotations[annotations$accession != marker, ])
+    gift <- result$gifts[
+      result$gifts$gift_id == "ribitol_phosphate_wall_teichoic_acid",
+    ]
+    expect_false(gift$complete, info = marker)
+    expect_equal(gift$minimum_missing_requirements, 1L, info = marker)
+  }
+})
+
+test_that("ribitol-WTA priming and polymerization evidence cannot be weakened", {
+  common <- ribitol_wta_common_markers()
+  common_annotations <- data.frame(
+    gene_id = paste0("gene_", names(common)), namespace = "KO",
+    accession = unname(common), stringsAsFactors = FALSE
+  )
+  broad <- rbind(
+    common_annotations,
+    data.frame(
+      gene_id = c("gene_KO_TarF", "gene_KO_TarL", "gene_broad_TagF"),
+      namespace = c("KO", "KO", "NCBIFAM"),
+      accession = c("K21591", "K18704", "NF016357.7"),
+      stringsAsFactors = FALSE
+    )
+  )
+  broad_result <- evaluate_gifts(broad)
+  expect_false(broad_result$gifts$complete[
+    broad_result$gifts$gift_id == "ribitol_phosphate_wall_teichoic_acid"
+  ])
+  expect_false(any(c("K21591", "NF016357.7") %in%
+                   get_gift_machinery("ribitol_phosphate_wall_teichoic_acid")$accession))
+
+  for (marker in c("NF041712.1", "NF041713.1")) {
+    annotations <- staphylococcus_ribitol_wta_annotations()
+    result <- evaluate_gifts(annotations[annotations$accession != marker, ])
+    expect_false(result$gifts$complete[
+      result$gifts$gift_id == "ribitol_phosphate_wall_teichoic_acid"
+    ], info = marker)
+  }
+  for (marker in c("K21592", "K18704")) {
+    annotations <- w23_ribitol_wta_annotations()
+    result <- evaluate_gifts(annotations[annotations$accession != marker, ])
+    expect_false(result$gifts$complete[
+      result$gifts$gift_id == "ribitol_phosphate_wall_teichoic_acid"
+    ], info = marker)
+  }
+})
+
+test_that("ribitol-WTA traces and calls are deterministic", {
+  annotations <- staphylococcus_ribitol_wta_annotations()
+  forward <- evaluate_gifts(annotations)
+  reverse <- evaluate_gifts(annotations[nrow(annotations):1L, ])
+  columns <- c(
+    "complete", "best_architecture", "minimum_missing_functions",
+    "evidence_confidence"
+  )
+  call <- function(result) result$structural$gifts[
+    result$structural$gifts$gift_id == "ribitol_phosphate_wall_teichoic_acid",
+    columns, drop = FALSE
+  ]
+  expect_equal(call(forward), call(reverse))
+  expect_equal(
+    trace_gift(forward, "ribitol_phosphate_wall_teichoic_acid"),
+    trace_gift(reverse, "ribitol_phosphate_wall_teichoic_acid")
+  )
+  trace <- trace_gift(forward, "ribitol_phosphate_wall_teichoic_acid")
+  expect_setequal(trace$gene_id, annotations$gene_id)
+  expect_true(all(trace$architecture_complete))
+})
+
+test_that("diglucosyldiacylglycerol-anchored LTA requires all three functions", {
+  annotations <- lta_glc2dag_annotations()
+  result <- evaluate_gifts(annotations)
+  gift_id <- "diglucosyl_diacylglycerol_anchored_lipoteichoic_acid"
+  gift <- result$structural$gifts[result$structural$gifts$gift_id == gift_id, ]
+  machinery <- get_gift_machinery(gift_id)
+
+  expect_true(gift$complete)
+  expect_equal(gift$best_architecture, "ARCH_LTA_GLC2DAG")
+  expect_equal(length(unique(machinery$function_id)), 3L)
+  expect_equal(length(unique(machinery$system_id)), 3L)
+  expect_equal(length(unique(machinery$component_id)), 3L)
+  expect_setequal(
+    machinery$accession,
+    c("NF010134.0", "NF047396.1", "NF053595.1")
+  )
+  expect_true(all(machinery$namespace == "NCBIFAM"))
+
+  for (marker in annotations$accession) {
+    incomplete <- evaluate_gifts(annotations[annotations$accession != marker, ])
+    call <- incomplete$structural$gifts[
+      incomplete$structural$gifts$gift_id == gift_id,
+    ]
+    expect_false(call$complete, info = marker)
+    expect_equal(call$minimum_missing_functions, 1L, info = marker)
+  }
+})
+
+test_that("broad LTA proxies cannot complete the narrow LTA architecture", {
+  annotations <- data.frame(
+    gene_id = c("gene_UgtP", "gene_LtaS"), namespace = "KO",
+    accession = c("K03429", "K19005"), stringsAsFactors = FALSE
+  )
+  result <- evaluate_gifts(annotations)
+  gift_id <- "diglucosyl_diacylglycerol_anchored_lipoteichoic_acid"
+
+  expect_false(result$gifts$complete[result$gifts$gift_id == gift_id])
+  expect_false(any(c("K03429", "K19005") %in%
+                   get_gift_machinery(gift_id)$accession))
+})
+
+test_that("the narrow LTA trace retains each observed marker and is deterministic", {
+  annotations <- lta_glc2dag_annotations()
+  reverse <- annotations[nrow(annotations):1L, ]
+  gift_id <- "diglucosyl_diacylglycerol_anchored_lipoteichoic_acid"
+  forward_result <- evaluate_gifts(annotations)
+  reverse_result <- evaluate_gifts(reverse)
+  trace <- trace_gift(forward_result, gift_id)
+
+  expect_equal(unique(trace$architecture_id), "ARCH_LTA_GLC2DAG")
+  expect_true(all(trace$architecture_complete))
+  expect_setequal(trace$gene_id, annotations$gene_id)
+  expect_setequal(trace$accession, annotations$accession)
+  expect_equal(trace, trace_gift(reverse_result, gift_id))
 })
 
 test_that("the structural claim stops at the encoded machinery", {

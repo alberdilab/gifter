@@ -1,0 +1,3 @@
+ncbi_accession	family_type	product_name	gene_symbol	taxonomic_range_name	taxonomic_rank_name	n_refseq_protein_hits	source	licenses_168_type_tagf	decision	ncbifam_release	metadata_sha256
+NF041712.1	equivalog	teichoic acid glycerol-phosphate transferase TarF	tarF	Staphylococcus aureus	species	393	NCBIFAM	FALSE	refused for this role: equivalog is the S. aureus TarF primase in ribitol-WTA synthesis	hmm_PGAP/20.0	972f910ac7c54c6373e286c0d96dee71f643f9abd576a019bcb05ec7f5834b7b
+NF016357.7	domain	CDP-glycerol glycerophosphotransferase family protein		cellular organisms	cellular root	112702	EBI-EMBL	FALSE	refused: domain grade merges TagF-like primases and polymerases	hmm_PGAP/20.0	972f910ac7c54c6373e286c0d96dee71f643f9abd576a019bcb05ec7f5834b7b

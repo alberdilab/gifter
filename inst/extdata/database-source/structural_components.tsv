@@ -42,3 +42,20 @@ COMP_LPTG	SYS_LPTBCFG	LptG permease	One of the two jointly required transmembran
 COMP_LPTA	SYS_LPTA	LptA bridge protein	Dedicated soluble periplasmic component of the trans-envelope bridge.
 COMP_LPTD	SYS_LPTDE	LptD translocon beta-barrel	Outer-membrane beta-barrel component of the translocon.
 COMP_LPTE	SYS_LPTDE	LptE translocon lipoprotein	Lipoprotein partner within the canonical LptD/E translocon.
+COMP_WTA_MNAA	SYS_WTA_MNAA	UDP-GlcNAc 2-epimerase	Non-hydrolysing epimerase that produces UDP-ManNAc; the activity may be supplied by MnaA/WecB-class proteins.
+COMP_WTA_TAGO	SYS_WTA_TAGOAB	TagO-class linkage initiator	Transfers GlcNAc-1-phosphate to the polyprenyl-phosphate carrier. The accepted orthology is shared with WecA/Rfe and is specific to the activity, not to WTA by itself.
+COMP_WTA_TAGA	SYS_WTA_TAGOAB	TagA mannosaminyltransferase	Adds N-acetylmannosamine to the lipid-linked GlcNAc linkage precursor.
+COMP_WTA_TAGB	SYS_WTA_TAGOAB	TagB glycerol-phosphate primase	Adds the conserved glycerol-phosphate unit to the WTA linkage precursor.
+COMP_WTA_TAGD	SYS_WTA_TAGD	TagD glycerol-3-phosphate cytidylyltransferase	Forms CDP-glycerol for linkage-unit construction.
+COMP_WTA_TARI	SYS_WTA_TARIJ	TarI ribitol-phosphate cytidylyltransferase	Forms CDP-ribitol from ribitol 5-phosphate and CTP.
+COMP_WTA_TARJ	SYS_WTA_TARIJ	TarJ ribitol-5-phosphate dehydrogenase	Supplies ribitol 5-phosphate for CDP-ribitol formation.
+COMP_WTA_STAPH_TARF	SYS_RIBITOL_WTA_STAPH_TARFL	Staphylococcus TarF transferase	Staphylococcus aureus-type glycerol-phosphate adaptor transferase, accepted only through the equivalog-grade profile.
+COMP_WTA_STAPH_TARL	SYS_RIBITOL_WTA_STAPH_TARFL	Staphylococcus TarL polymerase	Staphylococcus-type bifunctional ribitol-phosphate primase and polymerase, accepted only through the genus-resolved equivalog profile.
+COMP_WTA_W23_TARK	SYS_RIBITOL_WTA_W23_TARKL	W23-type TarK primase	Ribitol-phosphate primase that distinguishes the W23-type architecture.
+COMP_WTA_W23_TARL	SYS_RIBITOL_WTA_W23_TARKL	W23-type TarL polymerase	Ribitol-phosphate polymerase required alongside TarK in the W23-type architecture.
+COMP_WTA_TAGG	SYS_WTA_TAGGH	TagG exporter permease	Membrane permease component of the WTA ABC exporter.
+COMP_WTA_TAGH	SYS_WTA_TAGGH	TagH exporter ATPase	ATP-binding component of the WTA ABC exporter.
+COMP_WTA_LCP	SYS_WTA_LCP	LCP-family WTA attachment ligase	Transfers polyprenyl-linked teichoic acid to peptidoglycan; the accepted orthology covers the substitutable TagT/TagU/TagV family.
+COMP_LTA_YPFP	SYS_LTA_YPFP	YpfP/UgtP-family diglucosyldiacylglycerol synthase	Processive glycosyltransferase that makes the glycolipid anchor named by the GIFT.
+COMP_LTA_LTAA	SYS_LTA_LTAA	LtaA glycolipid flippase	LTA-biosynthesis MFS flippase for the diglucosyldiacylglycerol anchor.
+COMP_LTA_LTAS	SYS_LTA_LTAS	LtaS poly(glycerol-phosphate) synthase	Polymerase that transfers glycerol-phosphate units from phosphatidylglycerol to the extracellular LTA chain.

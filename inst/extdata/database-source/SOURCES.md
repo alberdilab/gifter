@@ -1339,3 +1339,64 @@ under-call rather than used to make all LptD proteins sufficient. LptM
 ([PMID 40127101](https://pubmed.ncbi.nlm.nih.gov/40127101/)) are maturation or
 conditional-support factors, not universal required components of the
 canonical reconstituted machine.
+
+## Poly(ribitol-phosphate) wall teichoic acid, release 2026.29.1
+
+The public GIFT is bounded by backbone chemistry and contains two alternative
+complete architectures. Both require UDP-ManNAc supply; TagO, TagA and TagB
+linkage-unit construction; TagD-dependent CDP-glycerol supply; TarI and TarJ
+CDP-ribitol supply; TagG/TagH export; and LCP-family attachment to
+peptidoglycan. The Staphylococcus architecture uses TarF plus bifunctional TarL
+([PMID 18281399](https://pubmed.ncbi.nlm.nih.gov/18281399/)); the Bacillus
+subtilis W23 architecture instead requires TarK priming plus TarL elongation
+([PMID 21035733](https://pubmed.ncbi.nlm.nih.gov/21035733/)). TagB's distinct
+linkage-unit primase role follows
+[PMID 16150696](https://pubmed.ncbi.nlm.nih.gov/16150696/), and the substitutable
+LCP-family attachment requirement follows
+[PMID 23935043](https://pubmed.ncbi.nlm.nih.gov/23935043/).
+
+The twelve KEGG orthology records admitted on shared and W23-specific roles
+were checked through KEGG REST on 2026-10-02. The Staphylococcus-specific
+polymerisation system deliberately does not admit its broader KO proxies:
+`NF041712.1` TarF and `NF041713.1` TarL are equivalogs in NCBIfam
+`hmm_PGAP/20.0`, and both profiles are required. The exact screen retained in
+`data-raw/reference/wta-ncbifam-prevalence.tsv` resolves 48 Staphylococcus-type
+and 22 W23-type genomes in the 11,949-genome frame. Both architectures were
+admitted through an explicit biological-importance exception to the standing
+prevalence threshold; no required role was removed. The 168-type
+poly(glycerol-phosphate) architecture remains excluded because no admitted
+profile distinguishes its backbone TagF from the W23 homologue that produces
+glycerol-phosphate polymer outside W23 WTA.
+
+## Diglucosyldiacylglycerol-anchored lipoteichoic acid, release 2026.30.1
+
+The public boundary names both the anchor and backbone chemistry rather than
+claiming all lipoteichoic acid. In the curated architecture, a processive
+YpfP/UgtP-family glycosyltransferase makes diglucosyldiacylglycerol, LtaA flips
+that anchor across the cytoplasmic membrane and LtaS polymerizes the
+poly(glycerol-phosphate) chain. The anchor pathway follows
+[PMID 17209021](https://pubmed.ncbi.nlm.nih.gov/17209021/), LtaS synthesis
+follows [PMID 17483484](https://pubmed.ncbi.nlm.nih.gov/17483484/), and the
+LtaA transport role follows
+[PMID 32367070](https://pubmed.ncbi.nlm.nih.gov/32367070/). The shorter
+diacylglycerol-anchored material remaining after `ypfP` loss
+([PMID 17640274](https://pubmed.ncbi.nlm.nih.gov/17640274/)) is outside this
+named structure and does not make anchor synthesis optional.
+
+The three component markers are equivalogs from NCBIfam `hmm_PGAP/20.0`:
+`NF010134.0` diglucosyldiacylglycerol synthase, `NF047396.1` LtaA and
+`NF053595.1` LtaS. Their seed taxonomic scopes are profile metadata, not a
+runtime gate. A targeted screen over the 11,908-prokaryote KEGG frame found
+127 complete profile sets among 128 downloadable proteomes selected by the
+K03429/K19005 proxy intersection. *Sulfitobacter donghicola* passes all three
+profiles and is retained rather than removed by taxonomic negative evidence.
+The result is an observed minimum because the full frame was not searched
+directly with all three profiles; the aggregate audit is retained in
+`data-raw/reference/lta-peptidoglycan-prevalence.tsv`.
+
+K03429 and K19005 are not admitted as markers. K03429 is only an anchor-enzyme
+proxy, while K19005 spans related glycerophosphotransferase reactions and does
+not resolve the primase-dependent Listeria design. The Listeria LtaP/LtaS
+architecture ([PMID 19682249](https://pubmed.ncbi.nlm.nih.gov/19682249/)),
+Bacillus paralogues, other LTA types and decoration machinery remain outside
+the GIFT and are recorded in `inst/doc/proposal-structural-gifts.md`.

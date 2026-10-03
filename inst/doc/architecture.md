@@ -118,6 +118,7 @@ because the behaviours have names people already use:
 | `flagellar_apparatus` | that the cell is motile, that the flagellum is expressed or assembled, or that it rotates in any environment |
 | `type_iva_pilus` | twitching motility, natural competence, or adhesion to anything |
 | `lpt_lipopolysaccharide_export_apparatus` | that lipopolysaccharide is synthesized, expressed or transported in the sampled condition, or that the cell has any particular permeability or viability phenotype |
+| `ribitol_phosphate_wall_teichoic_acid` | that the polymer is expressed, decorated or assembled, or that the cell has any particular resistance, virulence or envelope phenotype |
 | a regulatory GIFT | that the circuit is active, or that its regulon responds |
 | a defense GIFT | that an attacker is actually resisted |
 
@@ -218,7 +219,7 @@ Every type carries curated content:
 | Type | Curated GIFTs |
 |---|---|
 | `metabolic` | 126, from purine biosynthesis and central metabolism to nutrient acquisition and polysaccharide saccharification |
-| `structural` | `flagellar_apparatus`, `type_iva_pilus`, `lpt_lipopolysaccharide_export_apparatus` |
+| `structural` | `flagellar_apparatus`, `type_iva_pilus`, `lpt_lipopolysaccharide_export_apparatus`, `ribitol_phosphate_wall_teichoic_acid` |
 | `regulatory` | `chemotaxis_signal_transduction`, `aspartate_chemoreception`, `phosphate_starvation_response` |
 | `defense` | `type_i_restriction_modification`, `type_i_e_crispr_cas_machinery`, `mercury_detoxification` |
 
@@ -1562,6 +1563,20 @@ kept in the relevant source columns.
 
 ## Curating a new or changed GIFT
 
+### 0. Search the history and open the attempt
+
+Before collecting evidence, search
+[`catalogue-expansion-attempts.tsv`](catalogue-expansion-attempts.tsv) for the
+candidate name, aliases, proposed identifier and broader request scope. Read
+the linked sources and any earlier attempts named in `revisits`. A prior refusal
+is reopened only when its recorded evidence, blocker or retrigger changed.
+
+Append an `in_progress` row for the new bounded investigation before doing new
+screening. This is required even if no GIFT is ultimately curated: an empty
+result, a refusal and an interrupted pass are all results future curators must
+be able to find. The register's workflow and field contract are documented in
+[`catalogue-expansion-log.md`](catalogue-expansion-log.md).
+
 ### 1. Define the biological claim
 
 Write one sentence that states what a positive call means. Explain why the
@@ -1637,6 +1652,21 @@ Run the source validator before compilation. Rebuild SQLite from the TSVs, run
 logic and integration tests, and inspect the resulting GIFT with public
 accessors. Confirm that its call can be traced to observed genes/markers and
 that its graph edges arise only from declared anchors.
+
+### 9. Close the attempt and preserve both outcomes
+
+Update the attempt row in the same change that records the result. List exact
+new `gift_id` values under `implemented_gifts`, unresolved candidates under
+`deferred_or_open`, and rejected or superseded claims under
+`refused_or_superseded`; link the durable proposal or assessment. A later
+reassessment appends a new row linked through `revisits` rather than rewriting
+the earlier conclusion.
+
+The attempt register does not replace the biological histories below. A
+curated change still needs `database_changes.tsv` and `change_gifts.tsv`; a
+standing blocker still needs `deferral-register.md`. The register is the
+chronological index across both outcomes and remains outside the compiled
+ontology.
 
 ## Build and runtime workflow
 

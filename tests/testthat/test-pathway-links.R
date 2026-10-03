@@ -38,6 +38,9 @@ test_that("the relation records how curated boundaries differ from the source", 
   expect_equal(
     relation("cysteine_biosynthesis_homocysteine", "M00609"), "overlaps"
   )
+  expect_equal(
+    relation("ribitol_phosphate_wall_teichoic_acid", "map00552"), "subset_of"
+  )
 })
 
 test_that("one module can resolve to the several GIFTs that split it", {
@@ -91,7 +94,9 @@ test_that("pathway links are filterable and KEGG context is complete or named", 
   # translocation, and linking a transport GIFT to a chemistry map would assert
   # a containment that is false.
   # The Lpt apparatus likewise has component orthology records but no external
-  # pathway record whose boundary is the complete trans-envelope machine.
+  # pathway record whose boundary is the complete trans-envelope machine. The
+  # narrow LTA structure is evidenced through NCBIfam components and has no
+  # external pathway record with the same anchor-and-backbone boundary.
   #
   # citrate_fermentation is the fifth and its gap is a different one: KEGG has
   # no metabolic map for fermentative citrate cleavage at all. R00362 carries no
@@ -105,6 +110,7 @@ test_that("pathway links are filterable and KEGG context is complete or named", 
     c(
       "carnitine_degradation_trimethylamine", "carnitine_to_betaine",
       "citrate_fermentation", "collagen_cleavage",
+      "diglucosyl_diacylglycerol_anchored_lipoteichoic_acid",
       "lpt_lipopolysaccharide_export_apparatus", "mercury_detoxification",
       "taurine_uptake_abc", "type_i_e_crispr_cas_machinery",
       "type_i_restriction_modification", "type_iva_pilus"

@@ -379,3 +379,5 @@ lactate_formation_lactaldehyde	physiological_role	fermentative_end_product
 siroheme_to_heme_b	substrate_class	cofactor	Heme b is the product boundary, and siroheme is a cofactor too.
 siroheme_to_heme_b	physiological_role	biosynthesis	Converts one tetrapyrrole cofactor into another.
 lpt_lipopolysaccharide_export_apparatus	structural_class	secretion_machine	A dedicated trans-envelope machine that moves lipopolysaccharide from the inner membrane to the outer leaflet of the outer membrane.
+ribitol_phosphate_wall_teichoic_acid	structural_class	envelope_structure	A covalently peptidoglycan-attached poly(ribitol-phosphate) cell-envelope polymer built through either of two complete curated architectures.
+diglucosyl_diacylglycerol_anchored_lipoteichoic_acid	structural_class	envelope_structure	A membrane-anchored poly(glycerol-phosphate) LTA structure whose diglucosyldiacylglycerol anchor and polymer are both resolved by the required architecture.

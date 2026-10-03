@@ -1,0 +1,3 @@
+gift_id	gift_complete	route_id	route_complete	step_order	required	reaction_id	rhea_master	orientation	reaction_supported	system_id	system_supported	component_id	component_supported	accepted_markers	gene_id	namespace	accession	evidence_type	confidence	source
+adenylate_biosynthesis	TRUE	AMP_ADENYLOSUCCINATE	TRUE	1	TRUE	RHEA:15753	RHEA:15753	forward	TRUE	SYS_15753_ADSS	TRUE	COMP_15753_CATALYTIC	TRUE	KO:K01939	purine_gene_9	KO	K01939	orthology	curated	KEGG M00049 2026-08-17
+adenylate_biosynthesis	TRUE	AMP_ADENYLOSUCCINATE	TRUE	2	TRUE	RHEA:16853	RHEA:16853	forward	TRUE	SYS_16853_ADSL	TRUE	COMP_16853_CATALYTIC	TRUE	KO:K01756	purine_gene_7	KO	K01756	orthology	curated	KEGG M00049 2026-08-17

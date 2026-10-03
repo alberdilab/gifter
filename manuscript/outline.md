@@ -2,8 +2,8 @@
 title: "gifter manuscript — restructured outline"
 target: "Microbiome (BMC, Methodology article) / mSystems (Research article)"
 scope: "All four GIFT types, unified framing"
-software_version: "gifter 0.5.0"
-database_version: "2026.21.3 (schema 7)"
+software_version: "gifter 0.7.3"
+database_version: "2026.27.1 (schema 7)"
 status: "Outline agreed 2026-08-22. Supersedes the section order in manuscript.md."
 ---
 
@@ -81,8 +81,8 @@ background section.
 - **B5.** Scope statement: gifter reports what a genome *encodes*. Not
   expression, activity, flux, growth or phenotype.
 
-**Status:** prose complete, citations pending. Reframe B4 lightly so the
-comparison reads as motivation rather than self-criticism.
+**Status:** complete, including citations. B4 is framed as motivation rather
+than self-criticism.
 
 ## Results
 
@@ -104,7 +104,7 @@ definition.**
 - Completeness is discrete in every type. An incomplete call names the closest
   implementation and what is missing from it, never a percentage.
 
-**Depends on:** nothing further; the model is frozen. **Write now.**
+**Status:** complete.
 
 ### R2. One Boolean hierarchy resolves four capability types *(≈900 words)*
 
@@ -128,7 +128,7 @@ type-neutral result columns.
   separated. This pair — one merge, one split, same principle — is the single
   most persuasive passage available and belongs here, not in a README.
 
-**Depends on:** nothing. **Write now.** Backed by Figure 1.
+**Status:** complete. Backed by Figure 1 and its committed trace table.
 
 ### R3. Anchors bound metabolic traits and compose them without duplication *(≈900 words)*
 
@@ -149,12 +149,12 @@ Current Section 4, narrowed explicitly to the metabolic type.
 - Facets and the derived profile (`resource_strategy`, `network_position`,
   `auxotrophy_indicator`); classification never enters the logic.
 
-**Depends on:** nothing. **Write now.** Backed by Figures 2 and 3.
+**Status:** complete. Backed by Figures 2 and 3.
 
-### R4. Quantitative traits are reported only against a declared frame *(≈800 words)* — **NEW**
+### R4. Quantitative traits are reported only against a declared frame *(≈800 words)*
 
-Absent from the current draft. Half the package, and the "honest denominator"
-argument is distinctive enough to be a selling point rather than a caveat.
+Now present in the draft. The "honest denominator" argument is distinctive
+enough to be a selling point rather than a caveat.
 
 - Calls are the primary result; the quantitative layer summarises sets of them
   without changing any.
@@ -171,11 +171,12 @@ argument is distinctive enough to be a selling point rather than a caveat.
   lacks. This is the direct methodological answer to the field's most common
   silent error, and it ties straight into R7.
 
-**Depends on:** API stable (it is). **Write after R1–R3.**
+**Status:** complete. The reproducible illustrative worked example is backed by
+Figure 4 and its metric table.
 
-### R5. Capability distribution and potential handoffs across a community *(≈800 words)* — **NEW**
+### R5. Capability distribution and potential handoffs across a community *(≈800 words)*
 
-Also absent. Carries the ecological weight the venue expects.
+Now present in the draft and carrying the ecological weight the venue expects.
 
 - `evaluate_gifts_community()`: one table split on `genome_id`, evaluated in
   parallel; a genome evaluated in a community is identical to the same genome
@@ -192,16 +193,16 @@ Also absent. Carries the ecological weight the venue expects.
 - An edge is a **potential** compatibility relationship, never evidence that
   exchange occurs. Every edge carries its underlying `edge_quality`.
 
-**Depends on:** API stable (it is). **Write after R4.**
+**Status:** complete. The reproducible four-genome fixture is backed by Figure
+5, its metric table and its edge list.
 
 ### R6. The curated reference database *(≈700 words)*
 
 Scale, coverage and the review surface. Curation *mechanics* move to Methods;
 what stays here is what a reader needs to judge the resource.
 
-- Table 1 (already refreshed): 149 GIFTs / 154 anchors / 432 reactions /
-  204 routes / 495 systems / 595 components / 1,271 markers / 1,315 mappings /
-  19 frames / 112 changelog entries, at db 2026.21.3, schema 7.
+- Table 1 must be regenerated from the compiled 2026.27.1 database at
+  submission. Do not retain the earlier 2026.21.3 row counts in the manuscript.
 - Coverage by substrate class, and the non-metabolic content.
 - Marker namespace distribution (KO 743, CAZY 520, TIGRFAM 5, EC 2, PFAM 1) and
   the confidence distribution (curated 866, high-confidence 293, ambiguous 156)
@@ -233,22 +234,33 @@ named reaction short. Figure 6 carries all three panels.
 
 ### R8. Comparison with existing tools *(evaluation)*
 
-gifter calls vs. KEGG module completeness, DRAM and METABOLIC pathway
-summaries on a common genome set. A comparison of abstractions, not a
-benchmark with a winner: quantify agreement, then classify each disagreement by
-cause (alternative route, non-homologous enzyme, incomplete complex, boundary
-difference). The classification *is* the result.
+gifter calls vs. KEGG module completeness and DRAM distillation on a common
+genome set with fixed per-gene marker evidence. A comparison of abstractions,
+not a benchmark with a winner: quantify agreement, then classify each
+disagreement by cause (alternative route, non-homologous enzyme, incomplete
+complex, boundary difference). The classification *is* the result.
 
-**Depends on:** genome set + tool runs. **Not started.**
+**Scope decided 2026-10-02; not started.** The 11,908-genome KEGG reference set
+is already pinned for R7 and R9; R8 still needs an explicit common subset,
+pinned KEGG-module/DRAM versions and parameters, and tool runs before any prose
+is written. METABOLIC is excluded: its native FASTA/protein workflow regenerates
+annotation evidence and cannot consume the shared marker table. Its raw
+gene-level hits may be normalised into gifter input, but its pathway/module
+summaries cannot be used as marker evidence and no METABOLIC comparison is
+pending.
 
 ### R9. Agreement with observed phenotypes *(evaluation)*
 
 Genomes of organisms with documented substrate-use or auxotrophy phenotypes;
-report agreement and analyse disagreements frankly. **This section bounds what
-the paper may claim about accuracy — the reference set must be chosen before
-anything here is written.** mSystems and Microbiome will both expect it.
+report target-specific recall and analyse disagreements frankly. This section
+bounds what the paper may claim about genomic support, not accuracy.
 
-**Depends on:** phenotype reference set (undecided). **Not started.**
+**Written.** BacDive, MediaDive and Madin are the adopted references;
+FAPROTAX is refused. `03-phenotype.R`, `04-auxotrophy.R`,
+`05-annotation-route.R`, `06-figure-phenotype.R` and `07-madin.R` produce the
+committed evidence, and Figure 8 carries the result. The coverage audit in
+`19-phenotype-validation-coverage.R` states which GIFTs have no usable public
+reference rather than treating that silence as a negative phenotype.
 
 ### R10. Ecological case study *(evaluation)*
 
@@ -286,8 +298,8 @@ it a Microbiome paper rather than a Bioinformatics note.
 Mechanism, moved out of the narrative. Existing prose re-homes here largely
 verbatim.
 
-- **M1. Curation protocol.** Boundary rules, the defended-boundary requirement,
-  refusal cases, review record.
+- **M1. Curation protocol — complete.** Boundary rules, the
+  defended-boundary requirement, refusal cases, review record.
 - **M2. Schema, validation and compilation.** The two paths
   (`anchor → GIFT → anchor`; `marker → component → system → requirement →
   implementation → GIFT`); Rhea identity with direction stored per
@@ -297,7 +309,7 @@ verbatim.
   schema), two changelogs, upstream release pinning (Rhea 141, ChEBI 253,
   KEGG 2026-08-20), and the explicit statement that no upstream database
   endorses a gifter boundary decision.
-- **M4. Evaluation algorithm.** Marker normalisation and indexed lookup;
+- **M4. Evaluation algorithm — complete.** Marker normalisation and indexed lookup;
   resolution order; deterministic closest-implementation and tie-breaking;
   confidence propagation; parallelisation and its invariance.
 - **M5. Implementation and testing.** R ≥ 4.1, small dependency surface,
@@ -318,17 +330,19 @@ DOI decision, analysis repository.
 
 | # | Content | Supports | Status |
 |---|---|---|---|
-| 1 | The five-layer hierarchy under four vocabularies; purine resolved through all layers from markers to call | R1, R2 | Not started |
-| 2 | Anchors as boundaries: purine cut points, composition through declared anchors, derived trait graph | R3 | Not started |
-| 3 | Compartment and strategy: one polysaccharide resolved as public-goods degradation, selfish foraging, cross-feeding | R3, R5 | Not started |
-| 4 | Frames and honest denominators: bounded vs. unbounded, assessability under MAG incompleteness | R4 | Not started |
-| 5 | Community: capability distribution, redundancy, potential handoff topology | R5 | Not started |
-| 6 | Call retention vs. genome completeness, route-based vs. percentage | R7 | Blocked on analysis |
+| 1 | The five-layer hierarchy under four vocabularies; purine resolved through all layers from markers to call | R1, R2 | **Drawn**; `20-figures-core.R` |
+| 2 | Anchors as boundaries: purine cut points, composition through declared anchors, derived trait graph | R3 | **Drawn**; `20-figures-core.R` |
+| 3 | Compartment and strategy: one polysaccharide resolved as public-goods degradation, selfish foraging, cross-feeding | R3, R5 | **Drawn**; `20-figures-core.R` |
+| 4 | Frames and honest denominators: bounded vs. unbounded, assessability under MAG incompleteness | R4 | **Drawn**; `20-figures-core.R` |
+| 5 | Community: capability distribution, redundancy, potential handoff topology | R5 | **Drawn**; `20-figures-core.R` |
+| 6 | Call retention vs. genome completeness, route-based vs. percentage | R7 | **Drawn**; `08-figure-incompleteness.R` |
 | 7 | Case-study results | R10 | Blocked on dataset |
+| 8 | Phenotype agreement, disagreement traces, coverage and annotation route | R9 | **Drawn**; `06-figure-phenotype.R` |
 | S1 | Data lifecycle: TSV sources → validation → compilation → runtime, and the version tracks | M2, M3 | Not started |
 | S2 | The interactive database atlas | R6 | Exists; needs packaging |
 
-Figures 1–5 are all derivable from the software today and are not blocked.
+Figures 1–5 and their worked-example trace tables are generated from the public
+API by `manuscript/analysis/20-figures-core.R`.
 
 ---
 
@@ -347,13 +361,17 @@ Nothing in `manuscript.md` is discarded.
 | §7 Evaluation plan | R7–R10 | Becomes results |
 | §8 Discussion | Discussion | Keep; finalise after results |
 | §9 Availability | Availability | Fill at release |
-| — | **R4, R5** | **Write from scratch** |
+| — | **R4, R5** | **Written with reproducible worked examples** |
 
 # Open decisions
 
-1. **Phenotype reference set for R9** — bounds every accuracy claim in the paper.
+1. ~~Phenotype reference set for R9~~ — **decided and executed**: BacDive,
+   MediaDive and Madin are adopted; FAPROTAX is refused. The rationale and
+   crosswalk are in `inst/doc/proposal-phenotype-validation.md`.
 2. **Case-study dataset for R10** — determines whether the ecological argument lands.
-3. Reference genome set for R7 and R8, and which comparison tools to actually run.
+3. ~~Reference genome set for R7~~ — **decided and executed**: the 11,908-genome
+   KEGG prokaryote set. R8 still needs a common subset and pinned KEGG-module
+   and DRAM runs; METABOLIC is deliberately excluded from its controlled scope.
 4. Microbiome vs. mSystems (both fit this outline; affects Conclusions section and length).
 5. Author list and contributions.
 6. Whether the database gets its own DOI separate from the software.

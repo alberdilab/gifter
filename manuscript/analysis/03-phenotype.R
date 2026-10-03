@@ -23,10 +23,11 @@
 # against independent observations, which is what bounds the reference itself.
 #
 # Depends on 01-marker-matrix.R having produced the genome set and the cached
-# calls. The auxotrophy half of R9 -- MediaDive defined media against the
-# bounded anabolic frames, where the polarity inverts and a positive call
-# becomes falsifiable -- is not here; it is 04-auxotrophy.R and it is the
-# remaining piece.
+# calls. MediaDive defined media against the bounded anabolic frames is
+# analysed in 04-auxotrophy.R. Its records show growth on supplied media, not
+# failure to grow after nutrient omission, so they test observed positives in
+# the same direction as this analysis. The missing negative-growth experiment
+# is a prospective study in inst/doc/biological-validation-plan.md.
 #
 # Usage:
 #   Rscript manuscript/analysis/03-phenotype.R [--bacdive-max=180000]

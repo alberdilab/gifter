@@ -1,0 +1,21 @@
+target_type	target_id	metric_id	value	unit	numerator	denominator	assessable	reference_frame	database_version	derivation_method
+community	community	community_richness	4	count	4		153	all curated GIFTs	2026.27.1	GIFTs supported by at least one genome
+community	community	mean_genome_richness	1.5	count	6	4	153	all curated GIFTs	2026.27.1	supported GIFTs summed over genomes, divided by the number of genomes
+community	community	assessable_fraction	1	proportion	153	153	153	all curated GIFTs	2026.27.1	members of the reference frame at least one genome could assess
+community	community	singleton_fraction	0.5	proportion	2	4	153	all curated GIFTs	2026.27.1	represented GIFTs with exactly one provider, over represented GIFTs
+gift	arabinoxylan_debranching	provider_count	1	count	1	4	153	all curated GIFTs	2026.27.1	genomes supporting this GIFT, over genomes that could assess it
+gift	arabinoxylan_debranching	provider_fraction	0.25	proportion	1	4	153	all curated GIFTs	2026.27.1	genomes supporting this GIFT, over genomes that could assess it
+gift	xylan_degradation	provider_count	1	count	1	4	153	all curated GIFTs	2026.27.1	genomes supporting this GIFT, over genomes that could assess it
+gift	xylan_degradation	provider_fraction	0.25	proportion	1	4	153	all curated GIFTs	2026.27.1	genomes supporting this GIFT, over genomes that could assess it
+gift	xylose_degradation_isomerase	provider_count	2	count	2	4	153	all curated GIFTs	2026.27.1	genomes supporting this GIFT, over genomes that could assess it
+gift	xylose_degradation_isomerase	provider_fraction	0.5	proportion	2	4	153	all curated GIFTs	2026.27.1	genomes supporting this GIFT, over genomes that could assess it
+gift	xylose_uptake_abc	provider_count	2	count	2	4	153	all curated GIFTs	2026.27.1	genomes supporting this GIFT, over genomes that could assess it
+gift	xylose_uptake_abc	provider_fraction	0.5	proportion	2	4	153	all curated GIFTs	2026.27.1	genomes supporting this GIFT, over genomes that could assess it
+genome	A	gift_richness	1	count	1		153	all curated GIFTs	2026.27.1	supported GIFTs in the reference frame
+genome	A	unique_contribution	1	count	1	1	153	all curated GIFTs	2026.27.1	GIFTs for which this genome is the community's only provider
+genome	B	gift_richness	1	count	1		153	all curated GIFTs	2026.27.1	supported GIFTs in the reference frame
+genome	B	unique_contribution	1	count	1	1	153	all curated GIFTs	2026.27.1	GIFTs for which this genome is the community's only provider
+genome	C	gift_richness	2	count	2		153	all curated GIFTs	2026.27.1	supported GIFTs in the reference frame
+genome	C	unique_contribution	0	count	0	2	153	all curated GIFTs	2026.27.1	GIFTs for which this genome is the community's only provider
+genome	D	gift_richness	2	count	2		153	all curated GIFTs	2026.27.1	supported GIFTs in the reference frame
+genome	D	unique_contribution	0	count	0	2	153	all curated GIFTs	2026.27.1	GIFTs for which this genome is the community's only provider

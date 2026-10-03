@@ -15,6 +15,35 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-10-02T19:44Z — A chemistry-specific LTA structure becomes callable
+
+**What changed.** Database 2026.30.1 adds
+`diglucosyl_diacylglycerol_anchored_lipoteichoic_acid` as one structural
+architecture with separately required anchor synthesis, LtaA translocation and
+LtaS polymerisation functions. Only three equivalog-grade NCBIfam profiles are
+admitted; K03429 and K19005 remain diagnostic proxies rather than shortcuts.
+
+**Effect.** A genome completes the GIFT only with all three resolved roles. The
+call does not generalise to broad, Listeria-type, Bacillus-type or non-type-I
+LTA, and the independently reassessed peptidoglycan sacculus remains deferred.
+The schema and public API are unchanged; the full decision is recorded in
+`DBC-20261002-GLC2DAG-LTA` inside the database changelog.
+
+### 2026-10-02T13:32Z — Candidate-specific NCBIfam prevalence is reproducible
+
+**What changed.** A curation-only screen now intersects the full stored KEGG
+frame on every required wall-teichoic-acid KO and runs the two lineage-resolving
+NCBIfam profiles on the exact KO-assigned polymerase sequences in that complete
+candidate set. It retains aggregate results and an exhaustive 168-type TagF
+marker audit under `data-raw/reference/` while keeping the per-genome matrix and
+downloaded sequences in the ignored cache.
+
+**Effect.** The Staphylococcus-type ribitol-WTA architecture is now measured at
+48 marker-resolved genomes rather than left unquantified. The W23 architecture
+remains at 22, and no equivalog separates the 168-type glycerol-WTA TagF from
+the W23 non-WTA homologue. All three candidates remain deferred; no biological
+database source, SQLite artifact, schema, package API or runtime call changed.
+
 ### 2026-10-02T11:29Z — The canonical LptA--G apparatus is a structural GIFT
 
 **What changed.** Database 2026.28.1 adds
@@ -28,6 +57,38 @@ bridge and LptD/E translocon. It does not report lipopolysaccharide synthesis,
 activity, phenotype or a generic outer membrane. The addition changes no schema
 or API; the biological decision and marker evidence are recorded in
 `DBC-20261002-LPT-APPARATUS` inside the database changelog.
+
+### 2026-10-02T06:18Z — Catalogue expansion attempts become append-only and searchable
+
+**What changed.** A repository-wide catalogue-expansion log now indexes every
+recoverable prior effort, including successful, deferred, refused and
+no-new-GIFT outcomes. The curation contract requires a new attempt row before
+evidence work begins, a linked row for every re-investigation, and closure with
+the exact implemented identifiers and all unresolved or rejected candidates.
+Tests validate the log and require its completed attempts to account for every
+currently curated GIFT.
+
+**Effect.** A request to expand the catalogue now starts by searching one
+chronological record and reading the linked evidence, rather than rediscovering
+work scattered across proposals, the deferral register and database changes.
+The log is curation-process documentation, not ontology or runtime evidence;
+no GIFT, call, database release, schema, API or compiled artifact changes.
+
+### 2026-10-02T04:02Z — The non-data-blocked manuscript core is reproducible
+
+**What changed.** A new public-API analysis generates Figures 1–5 in PDF and
+PNG form together with the exact purine evidence trace, reference-frame
+metrics, community metrics and potential-handoff edge list behind their worked
+examples. The manuscript now contains the corresponding R2, R4 and R5
+walkthroughs, full curation and evaluation methods, figure captions, and
+primary citations for the Background.
+
+**Effect.** The figures and prose are pinned to database `2026.27.1` and
+explicitly label their marker profiles and four-genome community as controlled
+fixtures rather than empirical organisms or the undecided R10 case study.
+Discussion, Conclusions and M6 remain open until R8 and R10 are resolved. No
+package API, evaluation behaviour, biological source, compiled SQLite artifact
+or schema changed.
 
 ### 2026-10-01T18:35Z — Validation is explicitly database-only and coverage is auditable
 

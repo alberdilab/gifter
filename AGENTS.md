@@ -256,6 +256,7 @@ for examples and rationale.
 | Biological source provenance | `inst/extdata/database-source/SOURCES.md`, `database_release.tsv` | affected TSV records |
 | Architecture or curator guidance | `AGENTS.md`, `inst/doc/architecture.md`, `README.md` | behavior and links remain consistent |
 | User-facing tutorials | `vignettes/*.Rmd` | every chunk executes at `R CMD check`; illustrative marker sets are labelled as fixtures, never presented as annotation output from a named organism |
+| Catalogue-expansion attempt | `inst/doc/catalogue-expansion-attempts.tsv`, `inst/doc/catalogue-expansion-log.md` | prior matching attempts, proposal or assessment, deferral register, and any shipped database changes |
 | Biological curation decisions | `database_changes.tsv`, `change_gifts.tsv` | affected GIFTs, `database_release.tsv`, atlas changelog view |
 | Code, API, or report decisions | `CHANGELOG.md` | the entry states change, reason, and effect |
 
@@ -267,6 +268,11 @@ validate them, and rebuild the database.
 ## Rules for biological curation
 
 Before adding or redefining a GIFT, be able to answer:
+
+- Which prior rows in
+  [the catalogue-expansion attempt log](inst/doc/catalogue-expansion-log.md)
+  match this candidate, its aliases, or the requested scope, and has the
+  evidence or retrigger actually changed?
 
 - Which `gift_type` is this, and does the capability actually fit that type's
   completeness contract?
@@ -304,6 +310,15 @@ candidate and what would unblock it. Read the register before curating: the
 candidate may already have been assessed, and the assessment may already have
 been retriggered. The full
 procedure is in [Curating a GIFT](inst/doc/architecture.md#curating-a-new-or-changed-gift).
+
+Every bounded request, screen or investigation whose purpose is to add or
+discover GIFTs also gets a row in
+`inst/doc/catalogue-expansion-attempts.tsv`. Open it with `state = in_progress`
+before collecting new evidence, even when the likely outcome is refusal, and
+close it with the implemented, deferred and refused candidates plus a durable
+source. A re-investigation appends a new row and links the earlier attempt; it
+does not erase the earlier result. The deferral register records standing
+blockers and is not a substitute for this chronological attempt history.
 
 Materialize alternative valid minimal routes during curation. Do not store or
 parse compact expressions such as `R1 AND (R2 OR R3)` at runtime.
@@ -402,6 +417,8 @@ Before handing off a change, verify that:
 - the decision is recorded with a UTC timestamp, its evidence, and its effect:
   biological changes as a `database_changes.tsv` entry linked to the GIFTs it
   affects, code changes in `CHANGELOG.md`;
+- every catalogue-expansion effort, including one that added nothing, is closed
+  in `catalogue-expansion-attempts.tsv` and links its evidence document;
 - unrelated user changes were not overwritten.
 
 When uncertain, prefer the design that makes it easiest to state, defend, test,

@@ -487,7 +487,7 @@ enzymes that orthology does not group and NCBIfam does not grade, and because a
 tenth of the reference set genuinely cannot make serine. Neither is fixed by a
 route.
 
-## 3. `histidine_biosynthesis`: unblocked, and the profiles are already listed
+## 3. `histidine_biosynthesis`: curated after the profiles were identified
 
 Two steps carry the shortfall, and both are textbook non-homologous replacement:
 
@@ -497,11 +497,12 @@ Two steps carry the shortfall, and both are textbook non-homologous replacement:
 | `RHEA:22828` | Phosphoribosyl-ATP pyrophosphohydrolase | `K11755`, `K14152`, `K01523` | 38.7% |
 
 The phosphatase is known to be solved by at least three unrelated protein
-families, and the orthology namespace splits it accordingly. gifter already
-carries five KOs for it and still misses.
+families, and the orthology namespace splits it accordingly. At the time of
+the initial benchmark, gifter carried five KOs for it and still under-called.
 
-**`NCBIFAM` was admitted in database 2026.23.1, and the screen already lists the
-profiles that close this.** From `ncbifam-curated-reaction-gain.tsv`:
+**`NCBIFAM` was admitted in database 2026.23.1, and the screen listed the
+profiles later curated in 2026.25.1.** From
+`ncbifam-curated-reaction-gain.tsv`:
 
 | Reaction | Profile | Grade | Gene | Sequences |
 |---|---|---|---|---|
@@ -523,20 +524,25 @@ largest single genus, with *Corynebacterium* next at 25. A benchmark that found
 an under-call, a screen that had already listed the fix, and a taxonomy that
 explains both is as clear as a curation lead gets.
 
-This one is ready. It needs the marker rows, a release, and the usual
-verification that each profile's chemistry is the curated reaction — not an
-architectural decision.
+**Implemented in database 2026.25.1.** Nine profiles were checked against the
+curated reaction cross-references and admitted on these existing steps. The
+database change `DBC-20260827-HISTIDINE-PHOSPHATASE-MARKERS` records the
+broadened evidence and its effect on calls; `test-amino-acids.R` checks the
+alternative families and the cyclohydrolase negative control. The earlier
+benchmark figures above describe the pre-curation lead, not the current call.
 
 ## Recommendation
 
-1. **Curate the histidine markers.** Five profiles on `RHEA:14465`, four on
-   `RHEA:22828`, verified individually against the reaction. It is a `broadens`
-   change and needs its own release entry.
-2. **Curate the GlcNAc deaminase families**, `NF046059.1` and its four
-   companions, independently of the route question.
-3. **Decide the GlcNAc entry boundary** before touching the route. If the answer
-   is "not now", downgrade the crosswalk row to `subset_of` so the benchmark
-   stops reporting a boundary choice as a failure.
+1. ~~**Curate the histidine markers.**~~ **Done in database 2026.25.1.** Five
+   profiles on `RHEA:14465` and four on `RHEA:22828` were individually checked
+   against the reactions and recorded as a `broadens` change.
+2. ~~**Curate the GlcNAc deaminase families** independently of the route
+   question.~~ **Done in database 2026.26.1**, together with other amino-sugar
+   markers; see `DBC-20260827-AMINO-SUGAR-NCBIFAM-MARKERS`.
+3. ~~**Decide the GlcNAc entry boundary before touching the route.**~~
+   **Decided in database 2026.26.1.** A second, PTS-entry route was curated;
+   the matched benchmark comparison is recorded in
+   `proposal-phenotype-validation.md` §9.
 4. ~~**Decide the serine direction question** before curating a second route.~~
    **Decided in database 2026.27.1, against a second route in any shape.** §2.6.
    The direction question turned out not to be the load-bearing one: the

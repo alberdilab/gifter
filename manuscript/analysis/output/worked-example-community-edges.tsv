@@ -1,0 +1,4 @@
+from_genome	to_genome	from_gift	to_gift	shared_anchor	edge_quality
+A	B	arabinoxylan_debranching	xylan_degradation	XYLAN	exact
+B	C	xylan_degradation	xylose_uptake_abc	XYLOSE_EX	exact
+B	D	xylan_degradation	xylose_uptake_abc	XYLOSE_EX	exact

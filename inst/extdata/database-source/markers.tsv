@@ -1376,3 +1376,20 @@ NCBIFAM	TIGR04408.1	lptG LPS export ABC transporter permease	NCBIfam equivalog-g
 NCBIFAM	NF002997.0	lptD LPS assembly outer membrane complex protein	NCBIfam equivalog-grade profile. LptD profile restricted to Gammaproteobacteria; 9959 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
 NCBIFAM	NF003358.0	lptD LPS-assembly protein	NCBIfam equivalog-grade profile. A second LptD profile restricted to Gammaproteobacteria; 1113 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
 NCBIFAM	NF008062.1	lptE LPS assembly lipoprotein	NCBIfam equivalog-grade profile. LptE profile restricted to Enterobacterales; 2899 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K01791	UDP-N-acetylglucosamine 2-epimerase (non-hydrolysing)	KEGG orthology marker; the WecB/MnaA-class activity supplies UDP-ManNAc but is not WTA-specific by itself.
+KO	K02851	UDP-GlcNAc:polyprenyl-phosphate GlcNAc-1-phosphate transferase	KEGG orthology marker shared by wecA, tagO and rfe.
+KO	K05946	TagA/TarA linkage-unit mannosaminyltransferase	KEGG orthology marker for N-acetylglucosaminyldiphosphoundecaprenol N-acetyl-beta-D-mannosaminyltransferase.
+KO	K21285	TagB/TarB teichoic acid glycerol-phosphate primase	KEGG orthology marker.
+KO	K00980	TagD glycerol-3-phosphate cytidylyltransferase	KEGG orthology marker.
+KO	K21030	TarI D-ribitol-5-phosphate cytidylyltransferase	KEGG orthology marker.
+KO	K05352	TarJ ribitol-5-phosphate 2-dehydrogenase	KEGG orthology marker.
+NCBIFAM	NF041712.1	teichoic acid glycerol-phosphate transferase TarF	NCBIfam equivalog-grade profile restricted to Staphylococcus aureus; 393 RefSeq protein hits in release hmm_PGAP/20.0.
+NCBIFAM	NF041713.1	teichoic acid ribitol-phosphate polymerase TarL	NCBIfam equivalog-grade profile restricted to Staphylococcus; 1254 RefSeq protein hits in release hmm_PGAP/20.0.
+KO	K21592	TarK teichoic acid ribitol-phosphate primase	KEGG orthology marker.
+KO	K18704	TarL CDP-ribitol ribitolphosphotransferase / teichoic acid ribitol-phosphate polymerase	KEGG orthology marker.
+KO	K09692	TagG teichoic acid transport system permease	KEGG orthology marker.
+KO	K09693	TagH teichoic acid transport system ATP-binding protein	KEGG orthology marker.
+KO	K01005	TagT/TagU/TagV polyisoprenyl-teichoic acid--peptidoglycan transferase	KEGG orthology marker for an LCP-family attachment enzyme.
+NCBIFAM	NF010134.0	diglucosyldiacylglycerol synthase	NCBIfam equivalog-grade processive glycolipid glycosyltransferase profile restricted to Staphylococcaceae in its seed scope; 1035 RefSeq protein hits in release hmm_PGAP/20.0.
+NCBIFAM	NF047396.1	lipoteichoic acid biosynthesis MFS flippase LtaA	NCBIfam equivalog-grade LtaA profile restricted to Staphylococcaceae in its seed scope; 1045 RefSeq protein hits in release hmm_PGAP/20.0.
+NCBIFAM	NF053595.1	lipoteichoic acid synthase LtaS	NCBIfam equivalog-grade LtaS profile restricted to Caryophanales in its seed scope; 5195 RefSeq protein hits in release hmm_PGAP/20.0.

@@ -5,12 +5,12 @@ test_that("canonical source tables validate", {
   expect_true(report$valid)
   expect_length(report$errors, 0L)
   expect_equal(
-    unname(report$rows[c("gifts", "anchors", "reactions")]), c(154L, 156L, 440L)
+    unname(report$rows[c("gifts", "anchors", "reactions")]), c(156L, 156L, 440L)
   )
   # Every typed model now ships curated content.
   expect_equal(
     unname(report$rows[c("gift_architectures", "gift_circuits", "gift_mechanisms")]),
-    c(4L, 4L, 5L)
+    c(7L, 4L, 5L)
   )
 })
 
@@ -98,7 +98,8 @@ test_that("database accessors return stable definitions", {
       "corrin_ring_biosynthesis", "creatinine_degradation",
       "cysteine_biosynthesis_homocysteine", "cysteine_biosynthesis_sulfide",
       "cysteine_degradation_sulfide", "cytidylate_biosynthesis",
-      "dap_biosynthesis", "dihydroxybenzoate_biosynthesis",
+      "dap_biosynthesis", "diglucosyl_diacylglycerol_anchored_lipoteichoic_acid",
+      "dihydroxybenzoate_biosynthesis",
       "dihydroxyphenylpropanoate_degradation", "dmb_biosynthesis_aerobic",
       "ectoine_biosynthesis", "ectoine_degradation",
       "enterobactin_biosynthesis", "ethanol_formation",
@@ -142,7 +143,8 @@ test_that("database accessors return stable definitions", {
       "propionate_formation_acrylate", "propionate_formation_propanediol",
       "purine_core_biosynthesis", "pyrimidine_core_biosynthesis",
       "pyruvate_to_acetyl_coa", "quinolinate_biosynthesis_aspartate",
-      "rhamnose_degradation", "riboflavin_biosynthesis",
+      "rhamnose_degradation", "ribitol_phosphate_wall_teichoic_acid",
+      "riboflavin_biosynthesis",
       "salicylate_biosynthesis", "sarcosine_demethylation",
       "serine_biosynthesis", "serine_deamination", "siroheme_biosynthesis",
       "siroheme_to_heme_b", "starch_degradation",
@@ -217,7 +219,7 @@ test_that("database accessors return stable definitions", {
 test_that("database and schema versions are independent", {
   version <- gifter_db_version()
   expect_equal(version$package_version, "0.7.3")
-  expect_equal(version$gifter_db_version, "2026.28.1")
+  expect_equal(version$gifter_db_version, "2026.30.1")
   expect_equal(version$schema_version, 7L)
   expect_equal(version$rhea_release, "141")
 })

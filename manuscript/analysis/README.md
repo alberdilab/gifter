@@ -33,12 +33,26 @@ begun asking gifter to claim something it does not claim.
 | `17-priority2-matched-mag-robustness.R` | Checksum-pinned matched-isolate reassembly and annotation audit: exact isolate plus one de-novo MAG-like read-subset draft, full traces and fixed-table invariants; no MAG, bin or assay | database-only evidence |
 | `18-priority3-flagellar-annotation.R` | Checksum-pinned structural-pilot audit of PAO1's complete flagellar-marker evidence and component trace; no microscopy, motility or assay input | database-only evidence |
 | `19-phenotype-validation-coverage.R` | Checksum-pinned audit of which GIFTs have usable, frame-only, related, refused or no current public phenotype/genome evidence; no new score | R9 validation scope |
+| `20-figures-core.R` | Figures 1–5 plus the purine, frame and four-genome community trace tables; all values are derived through the public API | R1–R5, M4 |
+| `21-r10-chicken.R` | Figure 7 and the 822-MAG × 388-sample chicken caecal case study: Drakkar marker audit, completeness-aware traits, detection sensitivity, age contrasts and exact extracellular-anchor-compatible topology | R10 |
 
 The curated inputs live with the other consulted evidence, in
 `data-raw/reference/`: `phenotype-crosswalk.tsv` maps an observation to
 something gifter claims, and `chebi-anchor-aliases.tsv` lets a metabolite
 record find its anchor. `read_phenotype_crosswalk()` validates both on load and
 refuses a row whose target no longer exists.
+
+## R8 scope
+
+R8 is a controlled comparison of gifter, KEGG module completeness and DRAM
+distillation from a common per-gene marker table. METABOLIC is deliberately not
+an R8 comparator: its native workflow requires genome or protein FASTA and
+reruns profile annotation and motif validation before creating summaries, so it
+cannot consume the common marker table. No METABOLIC version, parameter set or
+tool run is pending for R8. Its retained raw gene-level KO or profile hits can
+be normalised into gifter's `gene_id`, `namespace`, `accession` input, whereas
+METABOLIC pathway and module summaries are already distillations and must never
+be ingested as gifter evidence.
 
 `05-annotation-route.R` needs HMMER on the path, or `GIFTER_HMMER` pointing at
 the directory that holds `hmmsearch`, `hmmscan` and `hmmpress`. It is the only
@@ -203,6 +217,16 @@ genomes carry a complete implementation of each GIFT, with the denominator
 stated in the table rather than assumed. `marker-reach.tsv` is per curated
 marker, how many genomes carry it, and `NA` where the namespace is not reachable
 through KEGG at all.
+
+The four `worked-example-*.tsv` files are the numeric and evidential source for
+Figures 1, 4 and 5. `worked-example-purine-trace.tsv` follows the complete AMP
+route to its two supplied gene identifiers;
+`worked-example-frame-metrics.tsv` records the bounded/unbounded and
+assessability contrasts; and the two community files record the metric values
+and three exact extracellular edges of the four-genome arabinoxylan fixture.
+These are controlled illustrations assembled from accepted database markers,
+not annotations of named organisms or substitutes for the undecided R10 case
+study.
 
 `madin-agreement.tsv` carries the same columns as `phenotype-agreement.tsv`
 plus the representative-draw range, so the two can be read side by side without
