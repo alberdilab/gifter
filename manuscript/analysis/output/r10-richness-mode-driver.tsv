@@ -1,0 +1,2 @@
+driver_genome	mode_lower_maximum	mode_upper_minimum	samples	lower_mode_samples	upper_mode_samples	detection_mode_agreement	genomes_with_equal_or_better_agreement	next_best_genome_agreement	phi	metabolic_gifts_in_driver	plant_fibre_gifts_in_driver	completeness_score	contamination_score	mag_length	phylum	family	genus	species
+cmag_510	97	108	388	78	310	1	1	0.804123711340206	1	90	11	99.97	0.07	4775931	Proteobacteria	Enterobacteriaceae	Escherichia	Escherichia coli

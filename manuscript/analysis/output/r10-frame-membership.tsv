@@ -1,0 +1,255 @@
+frame_id	reference_frame	bounded	member_count	gift_id	gift_name	gift_type	mode
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	alanine_biosynthesis	Pyruvate to L-alanine	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	arginine_biosynthesis	L-ornithine to L-arginine	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	asparagine_biosynthesis	L-aspartate to L-asparagine	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	aspartate_biosynthesis	Oxaloacetate to L-aspartate	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	cysteine_biosynthesis_homocysteine	Serine and homocysteine to cysteine	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	cysteine_biosynthesis_sulfide	Serine and sulfide to cysteine	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	dap_biosynthesis	L-aspartate 4-semialdehyde to meso-diaminopimelate	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	glutamine_biosynthesis	L-glutamate and ammonium to L-glutamine	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	glycine_biosynthesis	Serine to glycine	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	histidine_biosynthesis	PRPP and L-glutamine to L-histidine	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	isoleucine_biosynthesis	2-oxobutanoate to L-isoleucine	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	leucine_biosynthesis	3-methyl-2-oxobutanoate to L-leucine	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	lysine_biosynthesis_dap	meso-diaminopimelate to L-lysine	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	methionine_biosynthesis_sulfhydrylation	Homoserine and sulfide to methionine	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	methionine_biosynthesis_transsulfuration	Homoserine and cysteine to methionine	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	phenylalanine_biosynthesis	Chorismate to L-phenylalanine	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	proline_biosynthesis	L-glutamate to L-proline	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	serine_biosynthesis	3-phosphoglycerate to serine	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	threonine_biosynthesis	Homoserine to threonine	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	tryptophan_biosynthesis	Chorismate and L-glutamine to L-tryptophan	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	tyrosine_biosynthesis	Chorismate to L-tyrosine	metabolic	anabolic
+amino_acid_autonomy	Amino-acid autonomy	TRUE	22	valine_biosynthesis	3-methyl-2-oxobutanoate to L-valine	metabolic	anabolic
+aromatic_catabolism	Aromatic catabolism	FALSE	12	anthranilate_degradation_catechol	Anthranilate to catechol	metabolic	catabolic
+aromatic_catabolism	Aromatic catabolism	FALSE	12	benzoate_degradation_catechol	Benzoate to catechol	metabolic	catabolic
+aromatic_catabolism	Aromatic catabolism	FALSE	12	catechol_meta_cleavage	Catechol to 2-oxopent-4-enoate by meta cleavage	metabolic	catabolic
+aromatic_catabolism	Aromatic catabolism	FALSE	12	catechol_ortho_cleavage	Catechol to 3-oxoadipate by ortho cleavage	metabolic	catabolic
+aromatic_catabolism	Aromatic catabolism	FALSE	12	dihydroxyphenylpropanoate_degradation	3-(2,3-Dihydroxyphenyl)propanoate to 2-oxopent-4-enoate and succinate	metabolic	catabolic
+aromatic_catabolism	Aromatic catabolism	FALSE	12	hydroxyphenylpropanoate_hydroxylation	3-(3-Hydroxyphenyl)propanoate to 3-(2,3-dihydroxyphenyl)propanoate	metabolic	catabolic
+aromatic_catabolism	Aromatic catabolism	FALSE	12	oxoadipate_activation	3-Oxoadipate to 3-oxoadipyl-CoA	metabolic	catabolic
+aromatic_catabolism	Aromatic catabolism	FALSE	12	oxoadipyl_coa_thiolysis	3-Oxoadipyl-CoA to succinyl-CoA and acetyl-CoA	metabolic	catabolic
+aromatic_catabolism	Aromatic catabolism	FALSE	12	oxopentenoate_degradation	2-Oxopent-4-enoate to pyruvate and acetyl-CoA	metabolic	catabolic
+aromatic_catabolism	Aromatic catabolism	FALSE	12	phenol_hydroxylation	Phenol to catechol	metabolic	catabolic
+aromatic_catabolism	Aromatic catabolism	FALSE	12	phenylacetate_degradation	Phenylacetate to 3-oxoadipyl-CoA	metabolic	catabolic
+aromatic_catabolism	Aromatic catabolism	FALSE	12	phenylpropanoate_dihydroxylation	3-Phenylpropanoate to 3-(2,3-dihydroxyphenyl)propanoate	metabolic	catabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	adenylate_biosynthesis	IMP to AMP	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	alanine_biosynthesis	Pyruvate to L-alanine	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	ammonium_assimilation	Ammonium and 2-oxoglutarate to glutamate	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	arginine_biosynthesis	L-ornithine to L-arginine	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	asparagine_biosynthesis	L-aspartate to L-asparagine	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	aspartate_biosynthesis	Oxaloacetate to L-aspartate	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	biotin_biosynthesis	Pimeloyl-CoA to biotin	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	cobamide_nucleotide_loop_assembly	Adenosylcobinamide phosphate and dimethylbenzimidazole to cobalamin	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	cysteine_biosynthesis_homocysteine	Serine and homocysteine to cysteine	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	cysteine_biosynthesis_sulfide	Serine and sulfide to cysteine	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	cytidylate_biosynthesis	UTP to CTP	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	dap_biosynthesis	L-aspartate 4-semialdehyde to meso-diaminopimelate	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	dmb_biosynthesis_aerobic	FMNH2 to 5,6-dimethylbenzimidazole	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	folate_biosynthesis	GTP and 4-aminobenzoate to tetrahydrofolate	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	glutamine_biosynthesis	L-glutamate and ammonium to L-glutamine	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	glycine_biosynthesis	Serine to glycine	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	guanylate_biosynthesis	IMP to GMP	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	heme_b_biosynthesis	Uroporphyrinogen III to heme b	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	histidine_biosynthesis	PRPP and L-glutamine to L-histidine	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	isoleucine_biosynthesis	2-oxobutanoate to L-isoleucine	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	leucine_biosynthesis	3-methyl-2-oxobutanoate to L-leucine	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	lysine_biosynthesis_dap	meso-diaminopimelate to L-lysine	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	menaquinone_biosynthesis	Chorismate to menaquinone	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	methionine_biosynthesis_sulfhydrylation	Homoserine and sulfide to methionine	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	methionine_biosynthesis_transsulfuration	Homoserine and cysteine to methionine	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	nad_biosynthesis_namn	Nicotinate D-ribonucleotide to NAD	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	nitrate_assimilation	Nitrate to ammonium	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	nitrogen_fixation	Dinitrogen to ammonium	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	paba_biosynthesis	Chorismate to 4-aminobenzoate	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	pantothenate_biosynthesis	2-oxoisovalerate and L-aspartate to pantothenate	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	phenylalanine_biosynthesis	Chorismate to L-phenylalanine	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	plp_biosynthesis_dxp	Erythrose 4-phosphate and DXP to pyridoxal 5-phosphate	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	plp_biosynthesis_r5p	Ribose 5-phosphate and glyceraldehyde 3-phosphate to pyridoxal 5-phosphate	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	proline_biosynthesis	L-glutamate to L-proline	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	pyrimidine_core_biosynthesis	Glutamine and PRPP to UMP	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	riboflavin_biosynthesis	GTP and D-ribulose 5-phosphate to riboflavin	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	serine_biosynthesis	3-phosphoglycerate to serine	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	siroheme_biosynthesis	Uroporphyrinogen III to siroheme	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	siroheme_to_heme_b	Siroheme to heme b	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	thiamine_phosphate_biosynthesis	Thiamine pyrimidine and thiazole to thiamine phosphate	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	threonine_biosynthesis	Homoserine to threonine	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	tryptophan_biosynthesis	Chorismate and L-glutamine to L-tryptophan	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	tyrosine_biosynthesis	Chorismate to L-tyrosine	metabolic	anabolic
+biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	valine_biosynthesis	3-methyl-2-oxobutanoate to L-valine	metabolic	anabolic
+carbohydrate_degradation	Carbohydrate degradation	FALSE	18	arabinose_degradation	L-arabinose to D-xylulose 5-phosphate	metabolic	catabolic
+carbohydrate_degradation	Carbohydrate degradation	FALSE	18	arabinoxylan_debranching	Arabinoxylan to xylan and L-arabinose	metabolic	catabolic
+carbohydrate_degradation	Carbohydrate degradation	FALSE	18	chitin_degradation	Chitin to N-acetyl-D-glucosamine	metabolic	catabolic
+carbohydrate_degradation	Carbohydrate degradation	FALSE	18	fucose_degradation_isomerase	L-fucose to dihydroxyacetone phosphate and (S)-lactaldehyde	metabolic	catabolic
+carbohydrate_degradation	Carbohydrate degradation	FALSE	18	galactose_degradation_leloir	beta-D-galactose to alpha-D-glucose 1-phosphate	metabolic	catabolic
+carbohydrate_degradation	Carbohydrate degradation	FALSE	18	galacturonate_degradation	D-galacturonate to 2-dehydro-3-deoxy-D-gluconate	metabolic	catabolic
+carbohydrate_degradation	Carbohydrate degradation	FALSE	18	glcnac_degradation	N-acetyl-D-glucosamine to beta-D-fructose 6-phosphate	metabolic	catabolic
+carbohydrate_degradation	Carbohydrate degradation	FALSE	18	glucuronate_degradation	D-glucuronate to 2-dehydro-3-deoxy-D-gluconate	metabolic	catabolic
+carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mucin_fucose_release	Mucin O-glycan to L-fucose	metabolic	catabolic
+carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mucin_galnac_release	Mucin O-glycan to N-acetyl-D-galactosamine	metabolic	catabolic
+carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mucin_sialic_acid_release	Mucin O-glycan to N-acetylneuraminate	metabolic	catabolic
+carbohydrate_degradation	Carbohydrate degradation	FALSE	18	neuac_degradation	N-acetylneuraminate to beta-D-fructose 6-phosphate	metabolic	catabolic
+carbohydrate_degradation	Carbohydrate degradation	FALSE	18	pectate_lyase_degradation	Pectin to 2-dehydro-3-deoxy-D-gluconate by beta-elimination	metabolic	catabolic
+carbohydrate_degradation	Carbohydrate degradation	FALSE	18	pectin_degradation	Pectin to D-galacturonate	metabolic	catabolic
+carbohydrate_degradation	Carbohydrate degradation	FALSE	18	rhamnose_degradation	L-rhamnose to dihydroxyacetone phosphate and (S)-lactaldehyde	metabolic	catabolic
+carbohydrate_degradation	Carbohydrate degradation	FALSE	18	starch_degradation	Starch to D-glucose	metabolic	catabolic
+carbohydrate_degradation	Carbohydrate degradation	FALSE	18	xylan_degradation	Xylan to D-xylose	metabolic	catabolic
+carbohydrate_degradation	Carbohydrate degradation	FALSE	18	xylose_degradation_isomerase	D-xylose to D-xylulose 5-phosphate	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	allantoin_degradation	Allantoin to glyoxylate and urea	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	arabinose_degradation	L-arabinose to D-xylulose 5-phosphate	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	arabinoxylan_debranching	Arabinoxylan to xylan and L-arabinose	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	betaine_demethylation	Glycine betaine to sarcosine	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	carnitine_degradation_trimethylamine	L-carnitine to trimethylamine	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	carnitine_to_betaine	L-carnitine to glycine betaine	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	chitin_degradation	Chitin to N-acetyl-D-glucosamine	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	citrate_fermentation	Citrate to pyruvate and acetate	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	creatinine_degradation	Creatinine to sarcosine and urea	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	dihydroxyphenylpropanoate_degradation	3-(2,3-Dihydroxyphenyl)propanoate to 2-oxopent-4-enoate and succinate	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	ectoine_degradation	L-ectoine to L-2,4-diaminobutanoate	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	fucose_degradation_isomerase	L-fucose to dihydroxyacetone phosphate and (S)-lactaldehyde	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	galactose_degradation_leloir	beta-D-galactose to alpha-D-glucose 1-phosphate	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	galacturonate_degradation	D-galacturonate to 2-dehydro-3-deoxy-D-gluconate	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	glcnac_degradation	N-acetyl-D-glucosamine to beta-D-fructose 6-phosphate	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	glucuronate_degradation	D-glucuronate to 2-dehydro-3-deoxy-D-gluconate	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	histidine_degradation_glutamate	L-histidine to L-glutamate and ammonium	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	malolactic_fermentation	(S)-malate to (S)-lactate	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	methylamine_degradation	Methylamine to ammonium	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	mucin_fucose_release	Mucin O-glycan to L-fucose	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	mucin_galnac_release	Mucin O-glycan to N-acetyl-D-galactosamine	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	mucin_sialic_acid_release	Mucin O-glycan to N-acetylneuraminate	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	neuac_degradation	N-acetylneuraminate to beta-D-fructose 6-phosphate	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	oxoadipyl_coa_thiolysis	3-Oxoadipyl-CoA to succinyl-CoA and acetyl-CoA	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	oxopentenoate_degradation	2-Oxopent-4-enoate to pyruvate and acetyl-CoA	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	pectate_lyase_degradation	Pectin to 2-dehydro-3-deoxy-D-gluconate by beta-elimination	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	pectin_degradation	Pectin to D-galacturonate	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	rhamnose_degradation	L-rhamnose to dihydroxyacetone phosphate and (S)-lactaldehyde	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	sarcosine_demethylation	Sarcosine to glycine	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	serine_deamination	L-serine to pyruvate and ammonium	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	starch_degradation	Starch to D-glucose	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	taurine_degradation_sulfoacetaldehyde	Taurine to sulfite through sulfoacetaldehyde	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	threonine_deamination	L-threonine to 2-oxobutanoate and ammonium	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	urate_degradation	Urate to allantoin	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	xylan_degradation	Xylan to D-xylose	metabolic	catabolic
+carbon_acquisition	Carbon acquisition	FALSE	36	xylose_degradation_isomerase	D-xylose to D-xylulose 5-phosphate	metabolic	catabolic
+chemical_detoxification	Chemical detoxification	FALSE	3	mercury_detoxification	Mercury detoxification	defense	
+chemical_detoxification	Chemical detoxification	FALSE	3	methylglyoxal_detoxification	Glutathione-dependent methylglyoxal detoxification	defense	
+chemical_detoxification	Chemical detoxification	FALSE	3	superoxide_detoxification	Complete superoxide detoxification	defense	
+cofactor_autonomy	Cofactor autonomy	TRUE	15	biotin_biosynthesis	Pimeloyl-CoA to biotin	metabolic	anabolic
+cofactor_autonomy	Cofactor autonomy	TRUE	15	cobamide_nucleotide_loop_assembly	Adenosylcobinamide phosphate and dimethylbenzimidazole to cobalamin	metabolic	anabolic
+cofactor_autonomy	Cofactor autonomy	TRUE	15	dmb_biosynthesis_aerobic	FMNH2 to 5,6-dimethylbenzimidazole	metabolic	anabolic
+cofactor_autonomy	Cofactor autonomy	TRUE	15	folate_biosynthesis	GTP and 4-aminobenzoate to tetrahydrofolate	metabolic	anabolic
+cofactor_autonomy	Cofactor autonomy	TRUE	15	heme_b_biosynthesis	Uroporphyrinogen III to heme b	metabolic	anabolic
+cofactor_autonomy	Cofactor autonomy	TRUE	15	menaquinone_biosynthesis	Chorismate to menaquinone	metabolic	anabolic
+cofactor_autonomy	Cofactor autonomy	TRUE	15	nad_biosynthesis_namn	Nicotinate D-ribonucleotide to NAD	metabolic	anabolic
+cofactor_autonomy	Cofactor autonomy	TRUE	15	paba_biosynthesis	Chorismate to 4-aminobenzoate	metabolic	anabolic
+cofactor_autonomy	Cofactor autonomy	TRUE	15	pantothenate_biosynthesis	2-oxoisovalerate and L-aspartate to pantothenate	metabolic	anabolic
+cofactor_autonomy	Cofactor autonomy	TRUE	15	plp_biosynthesis_dxp	Erythrose 4-phosphate and DXP to pyridoxal 5-phosphate	metabolic	anabolic
+cofactor_autonomy	Cofactor autonomy	TRUE	15	plp_biosynthesis_r5p	Ribose 5-phosphate and glyceraldehyde 3-phosphate to pyridoxal 5-phosphate	metabolic	anabolic
+cofactor_autonomy	Cofactor autonomy	TRUE	15	riboflavin_biosynthesis	GTP and D-ribulose 5-phosphate to riboflavin	metabolic	anabolic
+cofactor_autonomy	Cofactor autonomy	TRUE	15	siroheme_biosynthesis	Uroporphyrinogen III to siroheme	metabolic	anabolic
+cofactor_autonomy	Cofactor autonomy	TRUE	15	siroheme_to_heme_b	Siroheme to heme b	metabolic	anabolic
+cofactor_autonomy	Cofactor autonomy	TRUE	15	thiamine_phosphate_biosynthesis	Thiamine pyrimidine and thiazole to thiamine phosphate	metabolic	anabolic
+extracellular_public_goods	Extracellular processing outputs	FALSE	3	arabinoxylan_debranching	Arabinoxylan to xylan and L-arabinose	metabolic	catabolic
+extracellular_public_goods	Extracellular processing outputs	FALSE	3	collagen_cleavage	Collagen to collagen peptides	metabolic	catabolic
+extracellular_public_goods	Extracellular processing outputs	FALSE	3	xylan_degradation	Xylan to D-xylose	metabolic	catabolic
+fermentation_products	Fermentation products	FALSE	11	acetate_interconversion	Acetyl-CoA and acetate interconversion	metabolic	interconversion
+fermentation_products	Fermentation products	FALSE	11	acetoin_formation	Pyruvate to (R)-acetoin	metabolic	catabolic
+fermentation_products	Fermentation products	FALSE	11	butyrate_formation	Acetyl-CoA and acetate to butanoate	metabolic	catabolic
+fermentation_products	Fermentation products	FALSE	11	citrate_fermentation	Citrate to pyruvate and acetate	metabolic	catabolic
+fermentation_products	Fermentation products	FALSE	11	ethanol_formation	Acetyl-CoA to ethanol	metabolic	catabolic
+fermentation_products	Fermentation products	FALSE	11	lactate_formation	Pyruvate to (S)-lactate	metabolic	catabolic
+fermentation_products	Fermentation products	FALSE	11	lactate_formation_lactaldehyde	(S)-lactaldehyde to (S)-lactate	metabolic	catabolic
+fermentation_products	Fermentation products	FALSE	11	malolactic_fermentation	(S)-malate to (S)-lactate	metabolic	catabolic
+fermentation_products	Fermentation products	FALSE	11	proline_reduction_stickland	L-proline to 5-aminopentanoate	metabolic	catabolic
+fermentation_products	Fermentation products	FALSE	11	propionate_formation_acrylate	(R)-lactate to propanoate	metabolic	catabolic
+fermentation_products	Fermentation products	FALSE	11	propionate_formation_propanediol	(S)-propane-1,2-diol to propanoate	metabolic	catabolic
+host_glycan_foraging	Host glycan foraging	FALSE	7	fucose_degradation_isomerase	L-fucose to dihydroxyacetone phosphate and (S)-lactaldehyde	metabolic	catabolic
+host_glycan_foraging	Host glycan foraging	FALSE	7	galactose_degradation_leloir	beta-D-galactose to alpha-D-glucose 1-phosphate	metabolic	catabolic
+host_glycan_foraging	Host glycan foraging	FALSE	7	glcnac_degradation	N-acetyl-D-glucosamine to beta-D-fructose 6-phosphate	metabolic	catabolic
+host_glycan_foraging	Host glycan foraging	FALSE	7	mucin_fucose_release	Mucin O-glycan to L-fucose	metabolic	catabolic
+host_glycan_foraging	Host glycan foraging	FALSE	7	mucin_galnac_release	Mucin O-glycan to N-acetyl-D-galactosamine	metabolic	catabolic
+host_glycan_foraging	Host glycan foraging	FALSE	7	mucin_sialic_acid_release	Mucin O-glycan to N-acetylneuraminate	metabolic	catabolic
+host_glycan_foraging	Host glycan foraging	FALSE	7	neuac_degradation	N-acetylneuraminate to beta-D-fructose 6-phosphate	metabolic	catabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	allantoin_degradation	Allantoin to glyoxylate and urea	metabolic	catabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	ammonium_assimilation	Ammonium and 2-oxoglutarate to glutamate	metabolic	anabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	arginine_deiminase_pathway	L-arginine to L-ornithine and ammonium	metabolic	catabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	betaine_demethylation	Glycine betaine to sarcosine	metabolic	catabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	creatinine_degradation	Creatinine to sarcosine and urea	metabolic	catabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	ectoine_degradation	L-ectoine to L-2,4-diaminobutanoate	metabolic	catabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	glcnac_degradation	N-acetyl-D-glucosamine to beta-D-fructose 6-phosphate	metabolic	catabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	glycine_reduction_stickland	Glycine to acetyl phosphate and ammonium	metabolic	catabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	histidine_degradation_glutamate	L-histidine to L-glutamate and ammonium	metabolic	catabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	methionine_degradation_methanethiol	L-methionine to methanethiol and 2-oxobutanoate	metabolic	catabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	methylamine_degradation	Methylamine to ammonium	metabolic	catabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	neuac_degradation	N-acetylneuraminate to beta-D-fructose 6-phosphate	metabolic	catabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	nitrate_assimilation	Nitrate to ammonium	metabolic	anabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	nitrogen_fixation	Dinitrogen to ammonium	metabolic	anabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	sarcosine_demethylation	Sarcosine to glycine	metabolic	catabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	serine_deamination	L-serine to pyruvate and ammonium	metabolic	catabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	threonine_deamination	L-threonine to 2-oxobutanoate and ammonium	metabolic	catabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	tryptophan_degradation_indole	L-tryptophan to indole, pyruvate and ammonium	metabolic	catabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	urate_degradation	Urate to allantoin	metabolic	catabolic
+nitrogen_acquisition	Nitrogen acquisition	FALSE	20	urea_hydrolysis	Urea to ammonium	metabolic	catabolic
+nucleotide_autonomy	Nucleotide autonomy	TRUE	4	adenylate_biosynthesis	IMP to AMP	metabolic	anabolic
+nucleotide_autonomy	Nucleotide autonomy	TRUE	4	cytidylate_biosynthesis	UTP to CTP	metabolic	anabolic
+nucleotide_autonomy	Nucleotide autonomy	TRUE	4	guanylate_biosynthesis	IMP to GMP	metabolic	anabolic
+nucleotide_autonomy	Nucleotide autonomy	TRUE	4	pyrimidine_core_biosynthesis	Glutamine and PRPP to UMP	metabolic	anabolic
+nutrient_uptake	Nutrient uptake	FALSE	3	arabinose_uptake_abc	L-arabinose uptake	metabolic	transport
+nutrient_uptake	Nutrient uptake	FALSE	3	taurine_uptake_abc	Taurine uptake	metabolic	transport
+nutrient_uptake	Nutrient uptake	FALSE	3	xylose_uptake_abc	D-xylose uptake	metabolic	transport
+plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	arabinose_degradation	L-arabinose to D-xylulose 5-phosphate	metabolic	catabolic
+plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	arabinose_uptake_abc	L-arabinose uptake	metabolic	transport
+plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	arabinoxylan_debranching	Arabinoxylan to xylan and L-arabinose	metabolic	catabolic
+plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	galactose_degradation_leloir	beta-D-galactose to alpha-D-glucose 1-phosphate	metabolic	catabolic
+plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	galacturonate_degradation	D-galacturonate to 2-dehydro-3-deoxy-D-gluconate	metabolic	catabolic
+plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	glucuronate_degradation	D-glucuronate to 2-dehydro-3-deoxy-D-gluconate	metabolic	catabolic
+plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	pectate_lyase_degradation	Pectin to 2-dehydro-3-deoxy-D-gluconate by beta-elimination	metabolic	catabolic
+plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	pectin_degradation	Pectin to D-galacturonate	metabolic	catabolic
+plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	rhamnose_degradation	L-rhamnose to dihydroxyacetone phosphate and (S)-lactaldehyde	metabolic	catabolic
+plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	starch_degradation	Starch to D-glucose	metabolic	catabolic
+plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	xylan_degradation	Xylan to D-xylose	metabolic	catabolic
+plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	xylose_degradation_isomerase	D-xylose to D-xylulose 5-phosphate	metabolic	catabolic
+plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	xylose_uptake_abc	D-xylose uptake	metabolic	transport
+released_bioactive_products	Released bioactive products	FALSE	5	carnitine_degradation_trimethylamine	L-carnitine to trimethylamine	metabolic	catabolic
+released_bioactive_products	Released bioactive products	FALSE	5	cysteine_degradation_sulfide	L-cysteine to hydrogen sulfide and pyruvate	metabolic	catabolic
+released_bioactive_products	Released bioactive products	FALSE	5	glutamate_decarboxylation_gaba	L-glutamate to 4-aminobutanoate	metabolic	catabolic
+released_bioactive_products	Released bioactive products	FALSE	5	methionine_degradation_methanethiol	L-methionine to methanethiol and 2-oxobutanoate	metabolic	catabolic
+released_bioactive_products	Released bioactive products	FALSE	5	tryptophan_degradation_indole	L-tryptophan to indole, pyruvate and ammonium	metabolic	catabolic
+shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	chorismate_biosynthesis	Phosphoenolpyruvate and erythrose 4-phosphate to chorismate	metabolic	anabolic
+shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	dihydroxybenzoate_biosynthesis	Chorismate to 2,3-dihydroxybenzoate	metabolic	anabolic
+shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	enterobactin_biosynthesis	2,3-Dihydroxybenzoate and serine to enterobactin	metabolic	anabolic
+shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	indole_3_acetate_biosynthesis	L-tryptophan to indole-3-acetate	metabolic	anabolic
+shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	menaquinone_biosynthesis	Chorismate to menaquinone	metabolic	anabolic
+shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	paba_biosynthesis	Chorismate to 4-aminobenzoate	metabolic	anabolic
+shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	phenylalanine_biosynthesis	Chorismate to L-phenylalanine	metabolic	anabolic
+shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	salicylate_biosynthesis	Chorismate to salicylate	metabolic	anabolic
+shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	tryptophan_biosynthesis	Chorismate and L-glutamine to L-tryptophan	metabolic	anabolic
+shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	tyrosine_biosynthesis	Chorismate to L-tyrosine	metabolic	anabolic
+short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	acetate_interconversion	Acetyl-CoA and acetate interconversion	metabolic	interconversion
+short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	butyrate_formation	Acetyl-CoA and acetate to butanoate	metabolic	catabolic
+short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	propionate_formation_acrylate	(R)-lactate to propanoate	metabolic	catabolic
+short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	propionate_formation_propanediol	(S)-propane-1,2-diol to propanoate	metabolic	catabolic
+sulfur_acquisition	Sulfur acquisition	FALSE	4	assimilatory_sulfate_reduction	Sulfate to hydrogen sulfide	metabolic	anabolic
+sulfur_acquisition	Sulfur acquisition	FALSE	4	cysteine_degradation_sulfide	L-cysteine to hydrogen sulfide and pyruvate	metabolic	catabolic
+sulfur_acquisition	Sulfur acquisition	FALSE	4	taurine_degradation_sulfoacetaldehyde	Taurine to sulfite through sulfoacetaldehyde	metabolic	catabolic
+sulfur_acquisition	Sulfur acquisition	FALSE	4	taurine_desulfonation_aerobic	Taurine to sulfite	metabolic	catabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	biotin_biosynthesis	Pimeloyl-CoA to biotin	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	cobamide_nucleotide_loop_assembly	Adenosylcobinamide phosphate and dimethylbenzimidazole to cobalamin	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	cobinamide_biosynthesis	Cobyrinate a,c-diamide to adenosylcobinamide phosphate	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	corrin_ring_biosynthesis	Uroporphyrinogen III to cobyrinate a,c-diamide	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	dmb_biosynthesis_aerobic	FMNH2 to 5,6-dimethylbenzimidazole	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	folate_biosynthesis	GTP and 4-aminobenzoate to tetrahydrofolate	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	hmp_phosphate_biosynthesis	AIR to the thiamine pyrimidine	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	menaquinone_biosynthesis	Chorismate to menaquinone	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	nad_biosynthesis_namn	Nicotinate D-ribonucleotide to NAD	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	namn_biosynthesis_quinolinate	Quinolinate to nicotinate D-ribonucleotide	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	namn_salvage_nicotinate	Nicotinate to nicotinate D-ribonucleotide	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	paba_biosynthesis	Chorismate to 4-aminobenzoate	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	pantothenate_biosynthesis	2-oxoisovalerate and L-aspartate to pantothenate	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	plp_biosynthesis_dxp	Erythrose 4-phosphate and DXP to pyridoxal 5-phosphate	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	plp_biosynthesis_r5p	Ribose 5-phosphate and glyceraldehyde 3-phosphate to pyridoxal 5-phosphate	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	quinolinate_biosynthesis_aspartate	L-aspartate to quinolinate	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	riboflavin_biosynthesis	GTP and D-ribulose 5-phosphate to riboflavin	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	thiamine_phosphate_biosynthesis	Thiamine pyrimidine and thiazole to thiamine phosphate	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	thiamine_precursor_salvage	Thiamine precursor salvage to the activated moieties	metabolic	anabolic
+vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	thiazole_phosphate_biosynthesis	DXP to the thiamine thiazole	metabolic	anabolic

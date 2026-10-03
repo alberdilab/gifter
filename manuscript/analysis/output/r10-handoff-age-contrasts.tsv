@@ -1,0 +1,101 @@
+confidence_floor	detection	metric_id	contrast	estimate	standard_error	degrees_freedom	p_value	model_status	q_value
+all accepted	0	distributed_chain_links	day_21_minus_day_7					constant_metric	
+all accepted	0	distributed_chain_links	day_35_minus_day_7					constant_metric	
+all accepted	0	distributed_link_fraction	day_21_minus_day_7					constant_metric	
+all accepted	0	distributed_link_fraction	day_35_minus_day_7					constant_metric	
+all accepted	0	gift_resolved_handoff_edges	day_21_minus_day_7	2326.01677835709	1511.35894509202	338	0.124734197446118	ok	0.145256816780987
+all accepted	0	gift_resolved_handoff_edges	day_35_minus_day_7	6923.89043501041	1476.15290778833	338	3.96225264564455e-06	ok	8.13304490421776e-06
+all accepted	0	handoff_anchor_richness	day_21_minus_day_7					constant_metric	
+all accepted	0	handoff_anchor_richness	day_35_minus_day_7					constant_metric	
+all accepted	0	interaction_density	day_21_minus_day_7	-0.00290568561452374	0.00102949260586654	338	0.00504803512495577	ok	0.00715903163175545
+all accepted	0	interaction_density	day_35_minus_day_7	-0.000907896013406489	0.00100608768198183	338	0.367485724362657	ok	0.409484092861247
+all accepted	0	provider_genome_fraction	day_21_minus_day_7	-0.00387322637449633	0.00106538795893595	338	0.000320614920743582	ok	0.000532084336553179
+all accepted	0	provider_genome_fraction	day_35_minus_day_7	-0.00423218971899045	0.00104112831113543	338	5.97904792999763e-05	ok	0.000119580958599953
+all accepted	0	recipient_genome_fraction	day_21_minus_day_7	-0.00242848066708252	0.000939272794854807	338	0.0101422113883921	ok	0.0141266515766889
+all accepted	0	recipient_genome_fraction	day_35_minus_day_7	0.000257547667081585	0.000917892222105866	338	0.779199650808652	ok	0.856022151592604
+all accepted	0	represented_chain_links	day_21_minus_day_7					constant_metric	
+all accepted	0	represented_chain_links	day_35_minus_day_7					constant_metric	
+all accepted	0	unique_handoff_pairs	day_21_minus_day_7	2306.97231975423	1499.1349268556	338	0.124771881081104	ok	0.145256816780987
+all accepted	0	unique_handoff_pairs	day_35_minus_day_7	6881.01936262925	1464.21294429676	338	3.80238508385285e-06	ok	8.01583882541953e-06
+all accepted	0	within_genome_chain_links	day_21_minus_day_7					constant_metric	
+all accepted	0	within_genome_chain_links	day_35_minus_day_7					constant_metric	
+all accepted	1e-05	distributed_chain_links	day_21_minus_day_7					constant_metric	
+all accepted	1e-05	distributed_chain_links	day_35_minus_day_7					constant_metric	
+all accepted	1e-05	distributed_link_fraction	day_21_minus_day_7					constant_metric	
+all accepted	1e-05	distributed_link_fraction	day_35_minus_day_7					constant_metric	
+all accepted	1e-05	gift_resolved_handoff_edges	day_21_minus_day_7	13967.5074548316	1484.12393003051	338	7.79726225344109e-19	ok	1.90058267427627e-18
+all accepted	1e-05	gift_resolved_handoff_edges	day_35_minus_day_7	25021.9498180797	1450.30826068865	338	2.76883772666649e-48	ok	1.66130263599989e-47
+all accepted	1e-05	handoff_anchor_richness	day_21_minus_day_7					constant_metric	
+all accepted	1e-05	handoff_anchor_richness	day_35_minus_day_7					constant_metric	
+all accepted	1e-05	interaction_density	day_21_minus_day_7	-0.0229354350337575	0.0018032173091177	338	1.48982956543856e-30	ok	4.84194608767532e-30
+all accepted	1e-05	interaction_density	day_35_minus_day_7	-0.0242295271734877	0.00176201965842061	338	1.76165387351205e-34	ok	6.24586373336089e-34
+all accepted	1e-05	provider_genome_fraction	day_21_minus_day_7	-0.0258232332820661	0.00190843694126455	338	1.23187944106198e-33	ok	4.17767810447106e-33
+all accepted	1e-05	provider_genome_fraction	day_35_minus_day_7	-0.0312951060263494	0.00186534841303767	338	2.19971354321872e-46	ok	1.07236035231913e-45
+all accepted	1e-05	recipient_genome_fraction	day_21_minus_day_7	-0.0202651334583557	0.00166215330368686	338	1.37894391010841e-28	ok	4.13683173032523e-28
+all accepted	1e-05	recipient_genome_fraction	day_35_minus_day_7	-0.0203379295260152	0.00162399443662416	338	8.07226241733232e-30	ok	2.51854587420768e-29
+all accepted	1e-05	represented_chain_links	day_21_minus_day_7					constant_metric	
+all accepted	1e-05	represented_chain_links	day_35_minus_day_7					constant_metric	
+all accepted	1e-05	unique_handoff_pairs	day_21_minus_day_7	13947.2772253045	1474.22120603387	338	5.36594170792e-19	ok	1.35014017167019e-18
+all accepted	1e-05	unique_handoff_pairs	day_35_minus_day_7	25002.7346493084	1440.67706898007	338	1.08266850950287e-48	ok	7.03734531176864e-48
+all accepted	1e-05	within_genome_chain_links	day_21_minus_day_7					constant_metric	
+all accepted	1e-05	within_genome_chain_links	day_35_minus_day_7					constant_metric	
+all accepted	1e-04	distributed_chain_links	day_21_minus_day_7	-4.33810309724103e-05	0.0127768743884788	338	0.997292968900375	ok	0.997292973881062
+all accepted	1e-04	distributed_chain_links	day_35_minus_day_7	0.0274526140297403	0.0124870264173352	338	0.0285914730168336	ok	0.0353990323426438
+all accepted	1e-04	distributed_link_fraction	day_21_minus_day_7	-2.16904755471571e-05	0.00638843718529944	338	0.997292973881062	ok	0.997292973881062
+all accepted	1e-04	distributed_link_fraction	day_35_minus_day_7	0.0137263070820843	0.0062435131992569	338	0.0285914720052658	ok	0.0353990323426438
+all accepted	1e-04	gift_resolved_handoff_edges	day_21_minus_day_7	10951.0663425665	1093.22566751233	338	7.46840236432331e-21	ok	1.94178461472406e-20
+all accepted	1e-04	gift_resolved_handoff_edges	day_35_minus_day_7	19575.1565882097	1068.23914182463	338	1.42199372737437e-52	ok	1.10915510735201e-51
+all accepted	1e-04	handoff_anchor_richness	day_21_minus_day_7	4.33810301454803e-05	0.0127768743882936	338	0.997292968951937	ok	0.997292973881062
+all accepted	1e-04	handoff_anchor_richness	day_35_minus_day_7	-0.0274526140311322	0.0124870264171402	338	0.028591473006358	ok	0.0353990323426438
+all accepted	1e-04	interaction_density	day_21_minus_day_7	-0.0462185452906852	0.00284348180458895	338	2.6623689303457e-44	ok	1.09297250824718e-43
+all accepted	1e-04	interaction_density	day_35_minus_day_7	-0.0566503035174618	0.00277788526058932	338	7.71631110413661e-61	ok	2.00624088707552e-59
+all accepted	1e-04	provider_genome_fraction	day_21_minus_day_7	-0.0485076725749032	0.00278394125859831	338	5.72215745812767e-49	ok	4.05752983394507e-48
+all accepted	1e-04	provider_genome_fraction	day_35_minus_day_7	-0.0608689571004605	0.00271978481460947	338	1.07412098830315e-68	ok	4.18907185438229e-67
+all accepted	1e-04	recipient_genome_fraction	day_21_minus_day_7	-0.0399761485217805	0.00267878856053351	338	4.86275057074209e-39	ok	1.80616449770421e-38
+all accepted	1e-04	recipient_genome_fraction	day_35_minus_day_7	-0.0495510922574502	0.00261700026389045	338	5.15918335929548e-55	ok	6.70693836708413e-54
+all accepted	1e-04	represented_chain_links	day_21_minus_day_7	4.33810301454803e-05	0.0127768743882936	338	0.997292968951937	ok	0.997292973881062
+all accepted	1e-04	represented_chain_links	day_35_minus_day_7	-0.0274526140311322	0.0124870264171402	338	0.028591473006358	ok	0.0353990323426438
+all accepted	1e-04	unique_handoff_pairs	day_21_minus_day_7	10933.2133512975	1086.81327294093	338	5.35199691158531e-21	ok	1.43950261759881e-20
+all accepted	1e-04	unique_handoff_pairs	day_35_minus_day_7	19537.0500509503	1061.98439420974	338	7.31879844989466e-53	ok	6.34295865657537e-52
+all accepted	1e-04	within_genome_chain_links	day_21_minus_day_7	8.67704489422497e-05	0.0255537506543044	338	0.997292707420664	ok	0.997292973881062
+all accepted	1e-04	within_genome_chain_links	day_35_minus_day_7	-0.0549052139448362	0.0249740548108662	338	0.0285915261229046	ok	0.0353990323426438
+all accepted	0.001	distributed_chain_links	day_21_minus_day_7	-0.000111071017372659	0.00913165823009484	338	0.990302513156987	ok	0.997292973881062
+all accepted	0.001	distributed_chain_links	day_35_minus_day_7	-0.00829424392285157	0.00892465743216413	338	0.353364378641424	ok	0.399455384595453
+all accepted	0.001	distributed_link_fraction	day_21_minus_day_7	-5.55355086405038e-05	0.00456582911521609	338	0.990302513165347	ok	0.997292973881062
+all accepted	0.001	distributed_link_fraction	day_35_minus_day_7	-0.00414712196125299	0.00446232871625969	338	0.353364378680593	ok	0.399455384595453
+all accepted	0.001	gift_resolved_handoff_edges	day_21_minus_day_7	-535.917592431164	220.967441567816	338	0.0158180325320714	ok	0.0216457287280977
+all accepted	0.001	gift_resolved_handoff_edges	day_35_minus_day_7	431.999794872919	215.917985193521	338	0.046217768995818	ok	0.0554613227949816
+all accepted	0.001	handoff_anchor_richness	day_21_minus_day_7	-0.324609161426634	0.0994475300375089	338	0.00121029219309318	ok	0.00178118473700506
+all accepted	0.001	handoff_anchor_richness	day_35_minus_day_7	-0.370081865624011	0.0972031627480113	338	0.000166796902544725	ok	0.000289114631077523
+all accepted	0.001	interaction_density	day_21_minus_day_7	-0.0795992373409832	0.00469921558760476	338	4.9751731130663e-47	ok	2.58709001879448e-46
+all accepted	0.001	interaction_density	day_35_minus_day_7	-0.0860866987542068	0.00459316201653316	338	3.02539796766615e-54	ok	3.37115773539942e-53
+all accepted	0.001	provider_genome_fraction	day_21_minus_day_7	-0.0760461832543925	0.00454416796443034	338	3.24078537666792e-46	ok	1.48694858458881e-45
+all accepted	0.001	provider_genome_fraction	day_35_minus_day_7	-0.0871532260099584	0.00444161356334901	338	9.18776263538953e-58	ok	1.43329097112077e-56
+all accepted	0.001	recipient_genome_fraction	day_21_minus_day_7	-0.0712471095072468	0.00473383799299999	338	1.53672803206703e-39	ok	5.9932393250614e-39
+all accepted	0.001	recipient_genome_fraction	day_35_minus_day_7	-0.0757311704959037	0.00462700305113973	338	9.45496564452302e-45	ok	4.09715177929331e-44
+all accepted	0.001	represented_chain_links	day_21_minus_day_7	-0.324609161426634	0.0994475300375089	338	0.00121029219309318	ok	0.00178118473700506
+all accepted	0.001	represented_chain_links	day_35_minus_day_7	-0.370081865624011	0.0972031627480113	338	0.000166796902544725	ok	0.000289114631077523
+all accepted	0.001	unique_handoff_pairs	day_21_minus_day_7	-504.313556829376	215.996113662162	338	0.0201374509831507	ok	0.0270813995980302
+all accepted	0.001	unique_handoff_pairs	day_35_minus_day_7	453.09679469814	211.049717582462	338	0.0325145626161904	ok	0.039627123188482
+all accepted	0.001	within_genome_chain_links	day_21_minus_day_7	-0.3245009621503	0.100440034072466	338	0.00135582347982117	ok	0.00195841169307502
+all accepted	0.001	within_genome_chain_links	day_35_minus_day_7	-0.361799231164611	0.0981732675989257	338	0.000265952605140224	ok	0.000450963113063859
+high-confidence	0.001	distributed_chain_links	day_21_minus_day_7	-0.324609161426634	0.0994475300375085	338	0.00121029219309309	ok	0.00178118473700506
+high-confidence	0.001	distributed_chain_links	day_35_minus_day_7	-0.370081865624012	0.0972031627480109	338	0.000166796902544706	ok	0.000289114631077523
+high-confidence	0.001	distributed_link_fraction	day_21_minus_day_7	-0.108221087007968	0.0330879673653312	338	0.00118332040375058	ok	0.00178118473700506
+high-confidence	0.001	distributed_link_fraction	day_35_minus_day_7	-0.124741060940042	0.03234122633109	338	0.000137423233454452	ok	0.00026797530523618
+high-confidence	0.001	gift_resolved_handoff_edges	day_21_minus_day_7	-246.14931228222	31.7080343483294	338	9.96145185966961e-14	ok	2.35452498501282e-13
+high-confidence	0.001	gift_resolved_handoff_edges	day_35_minus_day_7	-162.733623431903	30.9817678770277	338	2.65977282064758e-07	ok	5.92749371458603e-07
+high-confidence	0.001	handoff_anchor_richness	day_21_minus_day_7	-0.324609161426634	0.0994475300375089	338	0.00121029219309318	ok	0.00178118473700506
+high-confidence	0.001	handoff_anchor_richness	day_35_minus_day_7	-0.370081865624011	0.0972031627480113	338	0.000166796902544725	ok	0.000289114631077523
+high-confidence	0.001	interaction_density	day_21_minus_day_7	-0.0194902951348004	0.00113058073011441	338	3.13979020188673e-48	ok	1.74931168390832e-47
+high-confidence	0.001	interaction_density	day_35_minus_day_7	-0.0217155007447367	0.00110506538141956	338	7.04350924398796e-58	ok	1.37348430257765e-56
+high-confidence	0.001	provider_genome_fraction	day_21_minus_day_7	-0.115870137612228	0.00622168791666367	338	9.04142699862891e-54	ok	8.81539132366318e-53
+high-confidence	0.001	provider_genome_fraction	day_35_minus_day_7	-0.138177930221968	0.00608127464787873	338	4.91901476245787e-70	ok	3.83683151471714e-68
+high-confidence	0.001	recipient_genome_fraction	day_21_minus_day_7	-0.0253293510141799	0.00220628640510272	338	5.5352742002629e-26	ok	1.54196924150181e-25
+high-confidence	0.001	recipient_genome_fraction	day_35_minus_day_7	-0.0261508116036718	0.00215649414740169	338	2.40981730299275e-28	ok	6.96169443086794e-28
+high-confidence	0.001	represented_chain_links	day_21_minus_day_7	-0.324609161426634	0.0994475300375089	338	0.00121029219309318	ok	0.00178118473700506
+high-confidence	0.001	represented_chain_links	day_35_minus_day_7	-0.370081865624011	0.0972031627480113	338	0.000166796902544725	ok	0.000289114631077523
+high-confidence	0.001	unique_handoff_pairs	day_21_minus_day_7	-242.121660179692	31.2565449900096	338	1.11405283389771e-13	ok	2.55576826600063e-13
+high-confidence	0.001	unique_handoff_pairs	day_35_minus_day_7	-159.709676833922	30.5399363894518	338	2.98511876962959e-07	ok	6.46775733419744e-07
+high-confidence	0.001	within_genome_chain_links	day_21_minus_day_7					constant_metric	
+high-confidence	0.001	within_genome_chain_links	day_35_minus_day_7					constant_metric	

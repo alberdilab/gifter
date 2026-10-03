@@ -1,0 +1,127 @@
+detection	frame_id	reference_frame	bounded	member_count	metric_id	unit	equivalence_margin	sampling_time	adjusted_mean	standard_error	confidence_low	confidence_high	model_status
+0.001	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	7	0.909090909090909	0	0.909090909090909	0.909090909090909	constant_metric
+0.001	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	21	0.909090909090909	0	0.909090909090909	0.909090909090909	constant_metric
+0.001	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	35	0.909090909090909	0	0.909090909090909	0.909090909090909	constant_metric
+0.001	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	7	20	0	20	20	constant_metric
+0.001	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	21	20	0	20	20	constant_metric
+0.001	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	35	20	0	20	20	constant_metric
+0.001	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	7	13.3139418393723	0.0940085699359878	13.1242248644764	13.5036588142683	ok
+0.001	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	21	10.8392331730721	0.0924820244351475	10.6525968917199	11.0258694544243	ok
+0.001	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	35	9.9954326208354	0.0878740149233738	9.81809567916535	10.1727695625055	ok
+0.001	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	7	3.87832446070628	0.15005047827134	3.57551033600773	4.18113858540483	ok
+0.001	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	21	3.0570160719993	0.147609515479341	2.75912800964854	3.35490413435005	ok
+0.001	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	35	3.03328850559617	0.14024357798419	2.75026550692848	3.31631150426385	ok
+0.001	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	7	0.0322399425634674	0.00128626130943132	0.0296441621498607	0.034835722977074	ok
+0.001	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	21	0.0222762594173421	0.00126533691091229	0.0197227061495292	0.024829812685155	ok
+0.001	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	35	0.0193777603714176	0.00120219469012576	0.0169516332640493	0.0218038874787858	ok
+0.001	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	7	0.861147380365485	0.00170184643538333	0.857712915213231	0.864581845517739	ok
+0.001	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	21	0.858849826026632	0.0016751461958897	0.855469244139161	0.862230407914103	ok
+0.001	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	35	0.870206802426279	0.0015940879105463	0.866989802781321	0.873423802071237	ok
+0.001	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	7	37.8904847389143	0.074881245252831	37.7393682679853	38.0416012098433	ok
+0.001	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	21	37.7893923482321	0.0737064347652889	37.6406467408523	37.9381379556119	ok
+0.001	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	35	38.2890993086839	0.0701398703228654	38.1475513197473	38.4306472976205	ok
+0.001	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	7	20.0362077909188	0.139014001324172	19.7556661784109	20.3167494034267	ok
+0.001	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	21	16.3698684438556	0.136778934279284	16.0938373792555	16.6458995084556	ok
+0.001	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	35	15.2549328844776	0.130020663914765	14.9925405616429	15.5173252073123	ok
+0.001	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	7	16.7395815074264	0.0972762723544817	16.5432700420694	16.9358929727833	ok
+0.001	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	21	16.3053455855138	0.0956938198223662	16.1122276386575	16.4984635323702	ok
+0.001	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	35	16.4021250886364	0.0909185538917691	16.2186440185807	16.5856061586921	ok
+0.001	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	7	3.3682037069248	0.0219790824094871	3.32384812286948	3.41255929098013	ok
+0.001	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	21	2.82369708226084	0.021621535249059	2.78006305758787	2.86733110693381	ok
+0.001	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	35	2.73282679046476	0.0205425880224266	2.69137016944816	2.77428341148136	ok
+0.001	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	7	22.8491474162576	0.212205282158748	22.4208998190916	23.2773950134236	ok
+0.001	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	21	21.2900211348461	0.208753209208357	20.868740102938	21.7113021667541	ok
+0.001	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	35	21.5061525164677	0.198336109172516	21.1058940435384	21.9064109893969	ok
+0.001	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	7	4.82158952123351	0.0324490816306307	4.75610462332147	4.88707441914555	ok
+0.001	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	21	3.97890857832767	0.0319212125977257	3.91448896325242	4.04332819340292	ok
+0.001	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	35	3.79065714534871	0.0303282959358581	3.72945216624289	3.85186212445453	ok
+0.001	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	7	2.30019868326513	0.0311423152127761	2.23735094675082	2.36304641977944	ok
+0.001	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	21	2.08119677480654	0.0306714869569198	2.01929920818055	2.14309434143253	ok
+0.001	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	35	2.0736258576992	0.0292342384626612	2.01462877596187	2.13262293943653	ok
+0.001	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	7	0.577743848472633	0.00626074005675002	0.565109163518003	0.590378533427263	ok
+0.001	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	21	0.43105842111369	0.00616312008434442	0.418620741239201	0.443496100988178	ok
+0.001	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	35	0.404860489960065	0.00586647405484545	0.393021466009922	0.416699513910207	ok
+0.001	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	7	0.85609374705605	0.00471095692241034	0.846586651088168	0.865600843023933	ok
+0.001	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	21	0.851978496805182	0.00463459843061118	0.842625498512455	0.86133149509791	ok
+0.001	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	35	0.882459968038874	0.00440403035348308	0.873572274963853	0.891347661113895	ok
+0.001	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	7	12.8414062090534	0.0706643559071845	12.6987997653557	12.9840126527512	ok
+0.001	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	21	12.7796774557107	0.0695189785804723	12.6393824770388	12.9199724343825	ok
+0.001	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	35	13.2368995226068	0.066060457531409	13.1035841219829	13.3702149232308	ok
+0.001	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	7	2.57029769624477	0.0209546201888276	2.52800956065218	2.61258583183735	ok
+0.001	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	21	1.98745598467773	0.0206168299641553	1.94584953735695	2.02906243199851	ok
+0.001	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	35	1.86080081554282	0.0195958930191181	1.82125470239055	1.90034692869509	ok
+0.001	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	7	2.02094588231226	0.0383639341481325	1.94352432875978	2.09836743586474	ok
+0.001	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	21	2.3331664718335	0.0377940445853386	2.25689500198032	2.40943794168668	ok
+0.001	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	35	2.43844116428335	0.0360502300286213	2.3656888546802	2.51119347388651	ok
+0.001	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	7	1.20919909897931	0.00572757156161487	1.19764039160923	1.22075780634938	ok
+0.001	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	21	1.07454919953807	0.00563439765576082	1.06317852472258	1.08591987435357	ok
+0.001	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	35	1.0606228058592	0.00535323271199908	1.04981954487219	1.07142606684621	ok
+0.001	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	7	7.78280507947646	0.0747504370096501	7.63195259026961	7.93365756868332	ok
+0.001	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	21	7.28819867009945	0.0735907752685808	7.13968647303371	7.4367108671652	ok
+0.001	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	35	7.14113113564732	0.0700640868323884	6.99973608398619	7.28252618730844	ok
+0.001	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	7	2.17737202230876	0.0111397345792459	2.15489112778013	2.19985291683739	ok
+0.001	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	21	1.89755648700139	0.0109585177220407	1.87544130289653	1.91967167110626	ok
+0.001	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	35	1.75056691536434	0.0104116711823224	1.72955531225553	1.77157851847314	ok
+0.001	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	7	6.82264978880769	0.0633385580059675	6.69482740381295	6.95047217380244	ok
+0.001	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	21	6.55066434798401	0.0623081909997346	6.42492132779173	6.67640736817629	ok
+0.001	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	35	6.66609298560904	0.0591989182975255	6.54662473176616	6.78556123945192	ok
+0.001	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	7	1.03307040975238	0.00927558529100685	1.01435152079367	1.05178929871109	ok
+0.001	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	21	0.81198114950296	0.00912469367860792	0.793566772146339	0.830395526859582	ok
+0.001	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	35	0.787656130609135	0.00866935769856466	0.770160658462473	0.805151602755796	ok
+0.001	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	7	10.4214135028763	0.0608367538026376	10.2986399631683	10.5441870425843	ok
+0.001	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	21	9.82528808658868	0.0598470851656929	9.70451177904878	9.94606439412858	ok
+0.001	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	35	9.83286609824499	0.0568606253370023	9.71811671064157	9.94761548584841	ok
+0.001	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	7	2.72871512633563	0.0202697932076547	2.68780902754335	2.76962122512791	ok
+0.001	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	21	2.21792470861716	0.0199408697375823	2.17768240426146	2.25816701297286	ok
+0.001	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	35	2.05817423519781	0.0189478675208948	2.01993589044647	2.09641257994916	ok
+0.001	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	7	1	0	1	1	constant_metric
+0.001	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	21	1	0	1	1	constant_metric
+0.001	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	35	1	0	1	1	constant_metric
+0.001	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	7	4	0	4	4	constant_metric
+0.001	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	21	4	0	4	4	constant_metric
+0.001	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	35	4	0	4	4	constant_metric
+0.001	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	7	3.28747800931369	0.0198808538686685	3.24735682188492	3.32759919674245	ok
+0.001	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	21	2.8189609712913	0.0195737332486582	2.77945957836634	2.85846236421627	ok
+0.001	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	35	2.70991027874886	0.0186391398042957	2.67229497175353	2.74752558574418	ok
+0.001	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	7	2.81656043203166	0.0959315290799422	2.62296276847203	3.01015809559129	ok
+0.001	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	21	2.34389715892212	0.0943709523027714	2.15344886680234	2.53434545104189	ok
+0.001	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	35	2.28606132347002	0.089661699443349	2.10511668837979	2.46700595856024	ok
+0.001	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	7	0.0334960682078799	0.00104279463828972	0.0313916234285502	0.0356005129872096	ok
+0.001	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	21	0.0202060615026313	0.00102583086085336	0.0181358510121566	0.0222762719931059	ok
+0.001	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	35	0.0171830412066156	0.000974640353305631	0.015216137342781	0.0191499450704502	ok
+0.001	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	7	11.7435596818293	0.110920012661374	11.5197140338009	11.9674053298576	ok
+0.001	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	21	11.2330104744219	0.109115609067312	11.0128062602713	11.4532146885726	ok
+0.001	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	35	11.1994742792077	0.103670575596723	10.9902585874753	11.4086899709401	ok
+0.001	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	7	2.17585875608712	0.0136567569566337	2.1482983047531	2.20341920742114	ok
+0.001	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	21	1.85469823663709	0.0134345941479163	1.82758612800238	1.88181034527179	ok
+0.001	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	35	1.80129200795909	0.0127641876316178	1.77553283444838	1.8270511814698	ok
+0.001	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	7	4.7760313125749	0.0767899005005992	4.62106301941339	4.9309996057364	ok
+0.001	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	21	4.49439089629036	0.0755407122865123	4.34194356700707	4.64683822557364	ok
+0.001	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	35	4.44307804994301	0.0717711168043626	4.29823807232928	4.58791802755674	ok
+0.001	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	7	0.0893741518967466	0.00266817989610963	0.0839895468685798	0.0947587569249135	ok
+0.001	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	21	0.0924155149741625	0.00262477498376109	0.0871185046054187	0.0977125253429063	ok
+0.001	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	35	0.123795162502086	0.00249379475238802	0.118762480941707	0.128827844062465	ok
+0.001	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	7	8.30110599405395	0.097083044817855	8.10518447765314	8.49702751045477	ok
+0.001	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	21	8.2169236022192	0.0956141649220504	8.02396640545974	8.40988079897865	ok
+0.001	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	35	8.16774879489188	0.0911307469803759	7.9838395018466	8.35165808793715	ok
+0.001	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	7	2.57317849913543	0.0210745280189976	2.53064837974476	2.61570861852611	ok
+0.001	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	21	1.97869170818842	0.0207316958019396	1.93685345222213	2.02052996415471	ok
+0.001	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	35	1.74882280947336	0.0196971529175647	1.7090723455728	1.78857327337391	ok
+0.001	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	7	2.04849891137376	0.0130070132120186	2.02224969600227	2.07474812674525	ok
+0.001	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	21	2.00815139715199	0.0128038666671542	1.98231214810568	2.0339906461983	ok
+0.001	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	35	2.00791239025527	0.0121867061265399	1.98331862160368	2.03250615890687	ok
+0.001	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	7	0.887099064829158	0.00470583039704845	0.877602314608307	0.896595815050008	ok
+0.001	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	21	0.77742319745112	0.00463105105208461	0.76807735805809	0.78676903684415	ok
+0.001	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	35	0.70791267861815	0.00440449603399264	0.699024045761813	0.716801311474487	ok
+0.001	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	7	2.75079515576796	0.107442887933676	2.53396662953103	2.96762368200488	ok
+0.001	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	21	2.2640437125528	0.105695048849941	2.05074246839023	2.47734495671537	ok
+0.001	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	35	2.20809630902738	0.100420706489875	2.00543911867606	2.41075349937869	ok
+0.001	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	7	0.0232913028404224	0.000912707009494073	0.0214493855245283	0.0251332201563166	ok
+0.001	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	21	0.0156997628302419	0.000897859446972044	0.0138878091086049	0.0175117165518788	ok
+0.001	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	35	0.013464555675018	0.000853054905998628	0.0117430211777227	0.0151860901723134	ok
+0.001	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	7	18.8409285368352	0.0584011238766535	18.7230702973156	18.9587867763547	ok
+0.001	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	21	18.6200480580021	0.0574551688644464	18.5040988329844	18.7359972830198	ok
+0.001	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	35	18.6521975387752	0.0545984719868398	18.5420133614567	18.7623817160937	ok
+0.001	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	7	6.13578838132984	0.0495721963122858	6.03574763898349	6.23582912367619	ok
+0.001	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	21	4.63176505205388	0.0487695145670177	4.53334418705084	4.73018591705691	ok
+0.001	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	35	4.22231579513992	0.0463453505059377	4.12878709127318	4.31584449900666	ok

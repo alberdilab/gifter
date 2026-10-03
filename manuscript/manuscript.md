@@ -796,6 +796,51 @@ affects, an entity map, and a searchable browser over every table. It is the
 review surface for curation and the reference that accompanies a database
 release. *[Candidate for a supplementary file and a figure.]*
 
+### R6.1. A phylogenetically broad bacterial overview
+
+*[Status: the GTDB panel and metadata are locked; Drakkar annotation and Figure
+S4 are pending. No GIFT-distribution result is claimed yet.]*
+
+To show how encoded GIFT repertoires vary across bacterial phylogeny, we
+selected species representatives from the main GTDB R11-RS232 bac120 tree.
+Eligibility required an NCBI assembly-level designation of `Complete
+Genome` and `full` genome representation in the pinned GTDB metadata, producing
+an initial pool of 12,094 candidates across 72 phyla, 182 classes and 552
+orders. We further required assignment to at least one reviewed origin group
+from the raw isolation-source field. This retained 4,116 eligible genomes
+across 49 phyla, 120 classes and 321 orders. One phylogenetic medoid per
+eligible order guarantees broad coverage. The 85 food/fermentation candidates
+define a common balance target for every origin group with at least that many
+eligible genomes, while smaller groups are retained exhaustively. Further
+genomes advance the least-represented group, avoid increasing an already
+complete group where possible, and maximise marginal rooted Faith phylogenetic
+diversity. The resulting 697-genome panel contains 321 order medoids and 376
+balance-aware additions. It retains all 49 eligible phyla, 120 classes and 321
+orders and 164.564 of the eligible tree's 312.792 branch-length units (52.6%).
+Selection was completed before annotation and used no marker, GIFT call or
+phenotype.
+
+Every selected accession is an explicit R232 tree tip and retains its raw
+GTDB/NCBI provenance. BioSample, BioProject and the isolation source required
+for origin classification are present for all 697 genomes; country is populated
+for 610 and latitude–longitude for 245. Every selected genome has at least one
+nonexclusive origin tag. Food/fermentation, animal-associated,
+plant-associated and the other sufficiently large groups each contribute 85
+genomes; aquatic origin contributes 87 because of nonexclusive overlap. The
+smaller fungal, air/built-environment and algal groups are represented
+exhaustively by 6, 49 and 51 genomes. Animal and plant associations are
+separate rather than pooled into a generic host category. Genome category,
+isolate, dates, submitter, strain, taxon and WGS identifiers are also retained
+when supplied. The cross-references permit later enrichment from BioSample
+without inferring origin from a genome name or changing the selection.
+
+The pending Drakkar run will provide gene-resolved evidence for evaluation
+against the current gifter database. Figure S4 will place every current GIFT
+beside the pruned bac120 tree and report repertoire size separately. A coloured
+cell will mean support for a complete encoded implementation, not expression,
+activity, phenotype, ancestral state or ecological importance; an unsupported
+cell will not establish biological absence.
+
 <!--
 R7-R10 ARE RESULTS. Nothing below may be written as prose before a committed
 script under `manuscript/analysis/` has produced it. Priority order is
@@ -1380,16 +1425,170 @@ supplement.
 
 ### R10. Ecological case study
 
-*[Status: NOT STARTED. **Blocked on dataset choice.** This is what makes the
-paper a Microbiome/mSystems contribution rather than a software note.]*
+*[Status: complete from `21-r10-chicken.R`,
+`22-r10-handoff-bimodality.R`, `24-r10-reference-frame-time.R` and their
+generated outputs; backed by Figure 7 and Figures S3 and S5--S8.]*
 
-**Design.** Apply gifter to a genome-resolved metagenomic
-dataset and show what the trait abstraction adds — for example, separating
-public-goods polysaccharide degraders from selfish foragers and cross-feeders
-using `resource_strategy`, and identifying candidate auxotrophies through the
-derived profile, and reading the community handoff topology of R5 over a real
-assemblage. *[Choose the dataset; a host-associated system with paired metadata
-would show the trait framing best.]*
+We applied gifter to the 822 bacterial MAGs and 388 caecal metagenomes from two
+chicken trials reported by Marcos et al. The MAGs were reannotated with
+Drakkar's gifter projection rather than translated from the study's original
+functional summaries. The resulting 11,219,684 gene--marker rows covered all
+822 MAGs. Against database 2026.30.1 they supported 23,220 genome--GIFT pairs
+in 821 MAGs, representing 133 of the catalogue's 156 GIFTs. Most calls were
+metabolic (22,485); the remainder were defense (638), regulatory (64) or
+structural (33). Evidence confidence was curated for 21,353 calls,
+high-confidence for 435 and ambiguous for 1,432.
+
+The database-derived resource profile separated capabilities that a flat
+functional total would merge. Of the metabolic calls, 20,682 were classified
+as private, 845 as extracellular public-good production and ten as uptake;
+another 948 could not be assigned a resource strategy from their current
+boundaries. The 845 public-good calls occurred in 639 MAGs, whereas the ten
+uptake calls occurred in six. This imbalance describes the current catalogue
+and evidence, not consumption in the caecum. Its dependence on marker
+specificity was visible when ambiguous calls were excluded: at the primary
+detection threshold, median community metabolic richness decreased from 111
+to 105 GIFTs and plant-fibre richness from 12 to 11, while the median number
+of public-good GIFTs per detected MAG decreased from 1.10 to 0.38 even though
+median community public-good richness remained two.
+
+The bounded anabolic frames made candidate encoded gaps equally explicit. Of
+518 MAGs at least 90% complete, the median supported fraction was 0.64 for the
+amino-acid frame, 0.13 for the cofactor frame, 0.45 for the combined
+biomass-essential frame and 1.00 for the nucleotide frame. No MAG supported
+every current amino-acid, cofactor or combined-frame GIFT, whereas 282/518
+supported all four nucleotide GIFTs. Three catalogue members had no support in
+these high-completeness MAGs: cysteine biosynthesis from homocysteine, aerobic
+5,6-dimethylbenzimidazole biosynthesis and transsulfuration methionine
+biosynthesis. These are reviewable gaps in encoded support, not auxotrophy
+calls: catalogue coverage, marker specificity and annotation failure remain
+alternatives to biological loss.
+
+Community richness and per-genome repertoire told different temporal stories
+(Figure 7). At the operational threshold of relative abundance greater than
+0.001, the median number of detected MAGs rose from 133.5 at day 7 to 151 at
+day 21 and 162 at day 35. Median community metabolic richness nevertheless
+remained 111, 110 and 111 GIFTs, while the mean number encoded per detected MAG
+fell from 38.26 to 30.53 and 29.08. In mixed models controlling trial,
+treatment, breed and sex, with pen as a random intercept, the adjusted
+differences from day 7 were -6.77 GIFTs at day 21 and -8.83 at day 35 (both
+BH-adjusted *q* < 10^-55). Both contrasts remained negative at every tested
+detection threshold from nonzero abundance through 0.001 (largest *q* =
+0.028). The bounded biomass-essential repertoire showed the same separation:
+community coverage stayed at a median 0.864, whereas mean per-MAG richness
+fell by adjusted values of 3.67 and 4.78 GIFTs; both directions remained
+supported throughout the detection sensitivity analysis (largest *q* =
+0.041). Thus the community retained a broad capability union while its
+detected members individually encoded narrower portions of that union.
+
+The same separation became sharper when the unit of comparison was every
+database-defined reference frame rather than individual GIFTs (Figure S5).
+We read all 19 presets and required stability to be demonstrated, not inferred
+from a nonsignificant test: both later-age contrasts had to be equivalent
+within one GIFT for count metrics, or five percentage points for bounded
+coverage, at all four detection thresholds. Community richness met that
+criterion in 15 frames and was exactly invariant in amino-acid and nucleotide
+autonomy. Aromatic catabolism and carbon acquisition were the only
+detection-sensitive unions; no frame showed a threshold-robust community-union
+change outside the one-GIFT margin. All four bounded frames likewise retained
+coverage within five percentage points.
+
+Redistribution among genomes was concentrated in three frames. At the
+operational detection threshold, mean per-MAG richness fell beyond the
+one-GIFT margin at both later ages for amino-acid autonomy (adjusted
+differences -2.47 and -3.32 GIFTs), the combined biomass-essential frame
+(-3.67 and -4.78), and vitamin biosynthesis (-1.50 and -1.91). All six
+larger-than-margin contrasts remained supported when ambiguous marker evidence
+was withheld, and their negative direction persisted across detection
+thresholds, although the magnitude attenuated as the threshold was relaxed.
+Carbon acquisition at day 35 was age-associated (-1.03), but its 95% interval
+(-1.12 to -0.94) crossed the one-GIFT boundary and therefore left the magnitude
+uncertain. The other 15 frames stayed within one GIFT at both ages. These are
+changes in the distribution of encoded repertoires among detected MAGs, not
+changes in expression, activity or flux; the frame memberships retain the
+individual GIFTs behind every aggregate.
+
+The corresponding adjusted values at days 7, 21 and 35 are shown directly in
+Figure S6. These population-standardised means reproduce the two fitted
+contrasts exactly. Lines connect age-level model estimates for visualisation;
+they are not longitudinal trajectories of individual birds.
+
+We then resolved the three frames that declined beyond the margin at both
+later ages into their member GIFT carrier fractions (Figure S7). In every
+sample, those fractions sum exactly to the frame's mean per-MAG richness. The
+largest descriptive declines were distributed across several capabilities
+rather than one GIFT: examples included proline, aromatic-amino-acid and
+arginine biosynthesis in the amino-acid frame, and NAD, cobinamide and thiamine
+capabilities in the vitamin-containing frames. Because this view was selected
+to explain the aggregate, no individual GIFT was hypothesis-tested. Overlap
+was retained explicitly: all 22 amino-acid GIFTs and 12 of the 20 vitamin GIFTs
+also belong to the 44-member biomass-essential frame.
+
+Weighting each call by the relative abundance of its carrier MAG preserved the
+principal result (Figure S8). We summed the per-GIFT abundance coverage within
+each frame after abundance was closed over the detected community. All six
+focal age associations remained negative, BH-supported, directionally stable
+across detection thresholds and supported when ambiguous marker evidence was
+withheld. Amino-acid autonomy changed by -2.61 and -3.40 abundance-weighted
+GIFTs at days 21 and 35, and biomass-essential anabolism by -3.51 and -4.49.
+Vitamin biosynthesis changed by -1.10 and -1.42: the day-35 contrast remained
+beyond the one-GIFT margin, whereas the day-21 interval (-1.28 to -0.92)
+crossed it and left that contrast's magnitude uncertain. Thus abundance
+weighting retained the temporal direction in all three frames and five of the
+six larger-than-margin conclusions, but slightly weakened the early vitamin
+result. Carrier abundance remains a distribution of encoded capability, not a
+measure of activity, expression or flux.
+
+The two modes visible within each age group were not two unexplained community
+states (Figure S3). The largest gap in metabolic richness separated 78 samples
+with 88--97 GIFTs from 310 with 108--119. Detection of one 99.97%-complete,
+4.78-Mb *Escherichia coli* MAG (`cmag_510`) matched that split exactly
+(phi = 1): it was above 0.001 in every upper-mode sample and below it in every
+lower-mode sample. The MAG supported 90 metabolic and 11 plant-fibre GIFTs and,
+when detected, was the sole detected provider of a median 19 and three of them,
+respectively. Removing it computationally reduced median metabolic richness to
+92 in both modes. Moreover, `cmag_510` exceeded 10^-5 in all samples and
+10^-4 in 384/388; all samples consequently carried 12 plant-fibre GIFTs at the
+first two thresholds, whereas the 0.001 reading split them into 310 samples
+with 12 and 78 with 8--10. The bimodality is therefore the thresholded
+contribution of one broad-repertoire MAG whose abundance spans the operational
+cutoff, not evidence of two age-specific functional regimes. Its underlying
+relative abundance nevertheless shifted with age: medians were 0.00456,
+0.00292 and 0.00286, and adjusted day-21 and day-35 abundance ratios relative
+to day 7 were 0.675 and 0.541 (*q* = 0.016 and 0.00024). Consequently, the
+fraction falling below 0.001 rose from 10/122 samples at day 7 to 31/126 and
+37/140. A continuous age-associated abundance shift was thus discretised into
+the two richness bands by the operational threshold.
+
+The declared extracellular anchors also bounded the cross-feeding question.
+The entire exact catalogue graph contained only three links capable of crossing
+between organisms: arabinoxylan debranching to arabinose uptake through
+ARABINOSE_EX, arabinoxylan debranching to xylan degradation through XYLAN, and
+xylan degradation to xylose uptake through XYLOSE_EX. At the primary threshold,
+median potential-handoff density declined from 0.294 at day 7 to 0.213 at day
+21 and 0.205 at day 35; the fractions of detected MAGs encoding a provider end
+declined from 0.911 to 0.828 and 0.819, and the recipient fractions from 0.338
+to 0.265 and 0.256. Adjusted density differences from day 7 were -0.080 and
+-0.086 (both *q* < 10^-45). Every detection threshold gave a negative age
+estimate, and subtracting the mean of 499 random catalogue communities matched
+for detected-MAG count left the primary estimates effectively unchanged. The
+separate abundance axis agreed for the XYLAN link: median provider abundance
+coverage declined from 0.891 to 0.853 and 0.851, while recipient coverage
+declined from 0.337 to 0.270 and 0.242.
+
+Of the 1,164 exact extracellular sample--link statuses at the primary threshold,
+1,008 were completed within at least one MAG, only two were completed solely
+by distributing their ends across detected MAGs, and 154 were not represented.
+Those two cases were the XYLOSE_EX link in one day-7 and one day-21 sample.
+With ambiguous evidence withheld, the absolute topology changed substantially
+(median density 0.043, 0.022 and 0.021; median distributed links two at every
+age), because within-genome ambiguous matches were no longer accepted; the age
+direction still did not reverse. Thus neither presence, abundance coverage,
+the detected-count-matched null nor the high-confidence reading supported an
+increase in encoded handoff potential with age. The analysis is also bounded by
+only three currently curated exact extracellular links. Its edges are potential
+compatibilities, not observations of exchange, cooperation, expression or
+activity.
 
 *[Reproducibility of curation — inter-curator agreement on boundary choice, or
 more modestly the curation protocol and the review record the biological
@@ -1784,8 +1983,99 @@ recommended annotation upstream; parallel/batch usage over many genomes.]*
 
 ### M6. Datasets and analysis
 
-*[Status: blocked on R7-R10. Genome sets, tool versions and parameters, and the
-analysis scripts under `manuscript/analysis/`.]*
+*[Status: R7, R9 and R10 scripted; the GTDB phylogenetic panel is locked but
+awaits annotation; R8 remains pending. Genome sets, tool versions and
+parameters, and the analysis scripts are under
+`manuscript/analysis/`.]*
+
+**GTDB phylogenetic overview.** We pinned the GTDB R11-RS232 bacterial bac120
+reference tree and metadata by SHA-256. Candidates were GTDB species
+representatives present in the main tree with NCBI assembly level `Complete
+Genome` and genome representation `full`. Eligibility additionally required at
+least one reviewed origin-group assignment from the raw isolation-source field.
+We chose one within-order phylogenetic medoid for each eligible order, breaking
+ties by accession. The 85 eligible food/fermentation genomes define the common
+target for every origin group with at least 85 candidates; smaller groups are
+retained exhaustively. Each addition advances a least-represented group, avoids
+increasing an already complete group where possible, then maximises marginal
+rooted Faith phylogenetic diversity. The procedure stops when every target is
+met, so panel size is an outcome rather than an input. Because the selection
+sees neither annotations nor GIFT calls, the display cannot preferentially
+retain genomes carrying a particular capability.
+The final manifest keeps the source tree accession plus GTDB taxonomy,
+BioSample, BioProject and all origin-related fields distributed in R232. Rules
+over the raw isolation-source field provide nonexclusive food/fermentation,
+animal-associated and plant-associated tags; animal and plant associations are
+not collapsed into a generic host class.
+
+The genomes will be annotated in Drakkar's `gifter` mode under the same
+gene-resolved evidence contract used for R10. The generated annotation
+manifest and projection will be checksum-verified before each genome is
+evaluated independently. Panel prevalence will use 697 as its explicit
+denominator and will describe this phylogenetically enriched selection, not a
+frequency-weighted census of GTDB, bacterial organisms or communities.
+
+**R10 chicken caecal case study.** We used the analysis archive accompanying
+Marcos et al. (Zenodo 10.5281/zenodo.18457570, release 1.1.0; source commit
+`20e6ec3a873b7b14d9f194ec2cbcd602a3948e1d`). The archive contained 825
+abundance rows; an exact inner join to its bacterial taxonomy table retained
+the 822 published bacterial MAGs and excluded three archive-only rows. All 822
+assemblies were checksum-verified before annotation.
+
+We ran Drakkar 2.6.6 from the pre-existing shared conda environment without
+installing or updating the software. The gifter annotation projection used
+Kofam 2026-07-02, dbCAN-HMMdb V15, Pfam 38.2, NCBIfam 20.0 and TIGRFAM 15.0.
+Kofam hits used native model cutoffs, NCBIfam and TIGRFAM hits used native
+trusted cutoffs without fallback, and the recorded general filters were an
+E-value of 10^-10, 50% identity, 0.5 query coverage and 0.5 target coverage.
+The generated annotation manifest pins database-file checksums and the final
+four-column projection by SHA-256. The projected table comprised 11,219,684
+rows over exactly 822 genome identifiers and was evaluated genome by genome
+with `evaluate_gifts_community()`.
+
+We reconstructed relative abundance by dividing each MAG count by its assembly
+length and closing each sample to one. The archived files do not retain the
+per-sample 30% genome-breadth matrix used in the source study. We therefore
+analysed four explicit operational detection thresholds (relative abundance
+greater than 0, 10^-5, 10^-4 or 10^-3), used 10^-3 for Figure 7, and do not
+claim that threshold reproduces the original breadth filter. A MAG below 90%
+estimated completeness had unsupported calls changed to indeterminate for
+denominator calculations only; supported calls were never promoted, removed
+or changed. Analyses were repeated with a high-confidence evidence floor as a
+marker-specificity sensitivity.
+
+Community and per-genome summaries used declared frames for all metabolic,
+carbohydrate-degradation, plant-fibre, fermentation-product, short-chain-fatty-
+acid, biomass-essential, amino-acid, nucleotide, cofactor, extracellular-
+public-good and nutrient-uptake GIFTs. For each frame and metric we fitted a
+linear mixed model on the original metric scale with sampling time, trial,
+treatment, breed and sex as fixed effects and pen as a random intercept. Day
+21 and day 35 were contrasted with day 7 and false-discovery rates were
+controlled across reported contrasts by the Benjamini--Hochberg procedure.
+Metrics with no numerical variation were labelled constant and were not
+tested.
+
+The primary plant-fibre network and the follow-up catalogue-wide screen both
+required exact anchor identity and an explicitly extracellular shared anchor.
+The latter recovered three graph links. For each detection threshold we kept
+unique ordered-pair density, GIFT-resolved edge count, anchor richness,
+within-genome and solely distributed chain status, and provider and recipient
+genome fractions as separate quantities. Provider and recipient abundance
+coverage were likewise reported separately from encoded presence. We repeated
+the primary reading after withholding ambiguous evidence. A null distribution
+of 499 uniformly sampled catalogue communities for every observed
+detected-genome count tested whether topology followed community size alone;
+age models were fitted to the observed-minus-null mean on the same terms as the
+other contrasts. None of these quantities is an exchange, interaction or
+activity measurement.
+
+To investigate richness bimodality, we split primary-threshold samples at the
+largest unoccupied gap in metabolic richness and screened all 822 MAGs for
+agreement between detection and mode. We then removed the best-matching MAG
+from each detected community without changing any genome call, counted the
+GIFTs for which it had been the sole detected provider, and repeated the
+richness comparison over all four detection thresholds. This diagnostic tests
+the operational threshold, not whether the MAG was biologically absent.
 
 ## Availability and reproducibility
 
@@ -1811,10 +2101,12 @@ analysis scripts under `manuscript/analysis/`.]*
 | 4 | Frames and honest denominators: bounded vs. unbounded, assessability under MAG incompleteness | R4 | **Drawn**; `20-figures-core.R` |
 | 5 | Community: capability distribution, redundancy, potential handoff topology | R5 | **Drawn**; `20-figures-core.R` |
 | 6 | Incompleteness: call retention against gene content beside the marker-fraction score (a), the share of lost calls that are exactly one reaction short (b), and the assessability policy against a naive denominator on three bounded frames (c) | R7 | **Drawn**; `08-figure-incompleteness.R` |
-| 7 | Case-study results | R10 | Blocked on dataset |
+| 7 | Chicken caecal case study: community richness, per-MAG repertoire, plant-fibre richness and exact potential-handoff density | R10 | **Drawn**; `21-r10-chicken.R` |
 | 8 | Phenotype agreement: recall per target with test-set size and taxonomic spread (a), the anabolic half on defined media (b), every disagreement classified by gifter's own trace (c), the reference measured against itself (d), the coverage panel naming what has no reference at all (e), and the same genomes annotated three ways (f) | R9 | **Drawn**; `06-figure-phenotype.R` |
 | S1 | Data lifecycle: TSV sources, validation, compilation, runtime, and the version tracks | M2, M3 | Not started |
 | S2 | The interactive database atlas | R6 | Exists; needs packaging |
+| S3 | Richness-mode diagnostic against the abundance of the single matching high-repertoire MAG | R10 | **Drawn**; `22-r10-handoff-bimodality.R` |
+| S4 | Current encoded GIFT calls beside a 697-tip, origin-balanced and order-covered GTDB R232 bacterial tree | R6.1 | Panel locked; Drakkar annotation pending; `23-gtdb-phylogeny.R` |
 
 **Figure 1. One Boolean hierarchy resolves four capability types and retains
 the evidence path.** (a) The OR/AND operators are identical across metabolic,
@@ -1853,6 +2145,92 @@ redundancy separately from community richness (four) and singleton fraction
 (0.5). (c) The declared extracellular boundaries yield three exact potential
 handoffs: A–B through XYLAN and B–C/B–D through XYLOSE_EX. Cytoplasmic
 XYLOSE_IN remains within a genome.
+
+**Figure 7. Community capability richness remains broad while the encoded
+repertoire per detected MAG narrows across chicken caecal maturation.** The
+four panels show community metabolic GIFT richness, mean metabolic GIFT
+richness per detected MAG, community plant-fibre GIFT richness and exact
+potential-handoff density for 388 samples from trials CA and CB at days 7, 21
+and 35. MAGs are detected at the operational threshold of relative abundance
+greater than 0.001; the source archive lacks the study's original per-sample
+breadth matrix. Genome completeness changes absence denominators only. Points
+are samples and boxes show their distributions. Handoff density is a projection
+through curated extracellular anchors, not evidence of exchange, interaction
+or activity.
+
+**Figure S3. One high-repertoire MAG explains the two R10 richness modes.**
+Community metabolic and plant-fibre GIFT richness are plotted against the
+relative abundance of *Escherichia coli* MAG `cmag_510`; points are samples and
+colours denote age. The dashed line is the operational detection threshold of
+0.001. `cmag_510` supports 90 metabolic and 11 plant-fibre GIFTs, and its
+thresholded detection separates all 78 lower-mode from all 310 upper-mode
+samples. This is a sensitivity of a binary community-union metric to the
+declared detection threshold, not evidence that the organism, its encoded
+capabilities or their activity is truly absent below the line.
+
+**Figure S4. Encoded GIFT repertoires across a broad bacterial phylogeny.**
+Rows follow 697 complete-assembly species representatives selected from the
+GTDB R11-RS232 bac120 tree after requiring assignment to at least one reviewed
+origin group, with coverage of every eligible order and balanced origin counts.
+Every sufficiently large group targets 85 genomes and smaller groups are
+included exhaustively; columns are the current GIFT catalogue, grouped by type.
+Calls are coloured by evidence confidence and repertoire size is shown
+separately. The panel is
+phylogenetically enriched rather than frequency weighted. Cells describe
+encoded capability, not expression, activity, phenotype or ancestral state,
+and unsupported cells are not proof of biological absence. *[Pending Drakkar
+annotation and rendering.]*
+
+**Figure S5. Curated capability frames separate temporal change from
+stability.** Rows are all 19 database-defined reference frames; columns are the
+adjusted day-21 and day-35 differences from day 7 in community richness, mean
+per-MAG richness and, for the four bounded frames, community coverage. Green
+requires equivalence within one GIFT for count metrics or five percentage
+points for bounded coverage at every tested detection threshold. Orange marks a
+classification that changes with the detection threshold; purple marks a time
+association whose interval crosses the stability margin; and vermilion marks a
+decrease outside the margin at the operational threshold whose direction is
+robust across thresholds. Printed values are adjusted differences. Frames
+group unchanged genome-level GIFT calls and are not composite GIFTs. Effects
+describe encoded capability distribution, not expression, activity or flux.
+
+**Figure S6. Adjusted capability-frame values across three sampling days.**
+Points are population-standardised means from the same mixed models used for
+Figure S5 at the operational detection threshold (>0.001); labels give the
+adjusted value and error bars its 95% confidence interval. Panels show (A)
+community richness, (B) mean per-MAG richness, and (C) community coverage for
+the four bounded frames. The scale is fixed across reference frames within each
+metric, and bounded coverage is shown from 0 to 100%. Lines connect age-level
+estimates for visualisation and do not represent repeated measurements of one
+bird. Values describe encoded capability distribution, not expression,
+activity or flux.
+
+**Figure S7. Frame-level change resolves to named genome-inferred
+capabilities.** (A) Adjusted mean per-MAG richness at days 7, 21 and 35 for the
+three reference frames classified as decreasing beyond one GIFT at both later
+ages. (B) Adjusted carrier prevalence among detected MAGs for the six member
+GIFTs with the largest descriptive day-35 minus day-7 decline in each frame.
+Labels give adjusted values and error bars are 95% confidence intervals. The
+GIFT ranking is explanatory and was not subjected to individual hypothesis
+tests; complete trajectories for every member are retained in the source
+table. Frame overlap is intentional, so the same GIFT may appear in more than
+one column. Member-GIFT carrier fractions sum exactly to mean per-MAG frame
+richness in every sample. Finer route, system and marker evidence defines each
+genome-level call but does not vary across samples, so it is not presented as a
+temporal measurement.
+
+**Figure S8. Abundance weighting preserves the principal frame-level
+declines.** (A) Adjusted trajectories for the three focal reference frames when
+detected MAGs receive equal weight or are weighted by their relative abundance.
+Abundance is closed within each sample's detected set, and the weighted frame
+metric is the sum of its member GIFTs' abundance coverage. Labels give adjusted
+means and error bars are 95% confidence intervals. (B) Equal-weight changes in
+carrier prevalence and abundance-weighted changes in carrier share from day 7
+to day 35 for the GIFTs displayed in Figure S7. Five of six focal frame
+contrasts remain beyond the one-GIFT margin; the abundance-weighted vitamin
+biosynthesis contrast at day 21 remains negative but its interval crosses the
+margin. Carrier abundance describes encoded capability distribution, not
+activity, expression or flux.
 
 ## References
 
@@ -1897,8 +2275,17 @@ reconstruction of genome-scale metabolic models for microbial species and
 communities. *Nucleic Acids Research* 46:7542–7553.
 <https://doi.org/10.1093/nar/gky537>
 
+Marcos S et al. 2026. Functional gut microbiota dynamics of generalist and
+specialist bacteria in association with chicken growth. *ISME Communications*
+6:ycag091. <https://doi.org/10.1093/ismeco/ycag091>
+
 Madin JS et al. 2020. A synthesis of bacterial and archaeal phenotypic trait
 data. *Scientific Data* 7:170. <https://doi.org/10.1038/s41597-020-0497-4>
+
+Parks DH et al. 2022. GTDB: an ongoing census of bacterial and archaeal
+diversity through a phylogenetically consistent, rank-normalized and complete
+genome-based taxonomy. *Nucleic Acids Research* 50:D785–D794.
+<https://doi.org/10.1093/nar/gkab776>
 
 Ruiz-Perez CA, Conrad RE, Konstantinidis KT. 2021. MicrobeAnnotator: a
 user-friendly, comprehensive functional annotation pipeline for microbial
@@ -1943,10 +2330,11 @@ before the text can be finalised.
 | R4. Quantitative traits | Frame API stable | **Complete**; worked example + Figure 4 |
 | R5. Community | Community API stable | **Complete**; worked example + Figure 5 |
 | R6. Reference database | Counts regenerated at submission | Complete, counts to refresh |
+| R6.1. Phylogenetic overview | Drakkar annotation of the locked GTDB R232 panel | Panel and metadata locked; Figure S4 pending |
 | R7. Incompleteness | Nothing outstanding | **Complete**; prose and Figure 6 from `02-incompleteness.R` |
 | R8. Tool comparison | Common genome subset + pinned KEGG-module/DRAM runs; METABOLIC excluded | Not started |
 | R9. Phenotype agreement | Nothing outstanding | **Complete**; prose, Figure 8 and the annotation route all from committed scripts |
-| R10. Case study | **Dataset undecided** | Not started |
+| R10. Case study | Nothing outstanding | **Complete**; prose and Figures 7/S3/S5--S8 from `21-r10-chicken.R`, `22-r10-handoff-bimodality.R` and `24-r10-reference-frame-time.R` |
 | Discussion | R7-R10 | Skeleton |
 | Conclusions | Discussion | Not started |
 | M1. Curation protocol | Nothing; `inst/doc/` proposals are the raw material | **Complete** |
@@ -1954,10 +2342,15 @@ before the text can be finalised.
 | M3. Versioning and provenance | — | Complete |
 | M4. Evaluation algorithm | Assertions made in R2 must be specified | **Complete** |
 | M5. Implementation | Public API frozen for 1.0.0 | Written, revisit at freeze |
-| M6. Datasets and analysis | R7-R10 | Blocked |
+| M6. Datasets and analysis | R8 and GTDB panel annotation | R10 complete; GTDB design written; R8 comparison methods pending |
 | Availability | Release tag, Zenodo DOI | Pending release |
 | Abstract | Everything | Draft, rewrite last |
 | Figures 1-5 | Nothing — derivable today | **Complete**; `20-figures-core.R` |
+| Figure S4 | Drakkar annotation of the locked 697-genome panel | Panel locked; rendering pending |
+| Figure S5 | Nothing — derived from the audited R10 cache | **Complete**; `24-r10-reference-frame-time.R` |
+| Figure S6 | Nothing — derived from the audited R10 cache | **Complete**; `24-r10-reference-frame-time.R` |
+| Figure S7 | Nothing — derived from the audited R10 cache | **Complete**; `24-r10-reference-frame-time.R` |
+| Figure S8 | Nothing — derived from the audited R10 cache | **Complete**; `24-r10-reference-frame-time.R` |
 
 **Open decisions**
 
@@ -1965,7 +2358,9 @@ before the text can be finalised.
    adopted, FAPROTAX refused, in `inst/doc/proposal-phenotype-validation.md`.
    The curated phenotype-to-GIFT crosswalk and the committed analysis scripts
    now exercise the decision.
-2. **Case-study dataset for R10** — determines whether the ecological argument lands.
+2. ~~Case-study dataset for R10~~ — **decided**: the 822-MAG, 388-sample
+   chicken caecal dataset of Marcos et al., reannotated with Drakkar 2.6.6 and
+   analysed by `21-r10-chicken.R`.
 3. ~~Reference genome set for R7~~ — **decided**: the 11,908-genome KEGG
    prokaryote set of `01-marker-matrix.R`, sampled stratified for R7. R8 still
    needs a common subset and pinned KEGG-module/DRAM runs; METABOLIC is

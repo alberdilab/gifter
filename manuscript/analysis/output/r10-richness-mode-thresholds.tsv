@@ -1,0 +1,13 @@
+detection	reference_frame	driver_detected	samples	minimum	median	maximum
+0	All metabolic GIFTs	TRUE	388	119	123	123
+0	Plant fibre utilisation	TRUE	388	12	12	12
+1e-05	All metabolic GIFTs	TRUE	388	113	122	123
+1e-05	Plant fibre utilisation	TRUE	388	12	12	12
+1e-04	All metabolic GIFTs	FALSE	4	99	100	100
+1e-04	All metabolic GIFTs	TRUE	384	111	114	121
+1e-04	Plant fibre utilisation	FALSE	4	10	10	10
+1e-04	Plant fibre utilisation	TRUE	384	12	12	12
+0.001	All metabolic GIFTs	FALSE	78	88	92	97
+0.001	All metabolic GIFTs	TRUE	310	108	111	119
+0.001	Plant fibre utilisation	FALSE	78	8	9	10
+0.001	Plant fibre utilisation	TRUE	310	12	12	12

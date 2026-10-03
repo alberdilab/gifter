@@ -76,6 +76,12 @@ write_tsv <- function(x, path) {
   )
 }
 
+write_xz_tsv <- function(x, path) {
+  connection <- xzfile(path, open = "wt", compression = 9)
+  on.exit(close(connection), add = TRUE)
+  write_tsv(x, connection)
+}
+
 sha256 <- function(path) {
   command <- if (nzchar(Sys.which("shasum"))) "shasum" else "sha256sum"
   args <- if (identical(command, "shasum")) c("-a", "256", path) else path
@@ -171,6 +177,7 @@ if (!identical(completed_genomes, 822L) ||
 annotation_sha <- sha256(annotation_path)
 database_sha <- sha256("inst/extdata/gifter.sqlite")
 analysis_sha <- sha256("manuscript/analysis/21-r10-chicken.R")
+analysis_cache_version <- "r10-2026-10-03-v1"
 cache_key <- paste(annotation_sha, database_sha, sep = "-")
 community_cache <- file.path(cache_dir, paste0("community-", cache_key, ".rds"))
 
@@ -219,7 +226,10 @@ profile_match <- match(supported_calls$gift_id, profile$gift_id)
 for (column in profile_columns) {
   supported_calls[[column]] <- profile[[column]][profile_match]
 }
-write_tsv(supported_calls, file.path(output_dir, "r10-supported-gift-calls.tsv"))
+write_xz_tsv(
+  supported_calls,
+  file.path(output_dir, "r10-supported-gift-calls.tsv.xz")
+)
 
 marker_counts <- as.data.frame(
   xtabs(~ genome_id + namespace, annotations), stringsAsFactors = FALSE
@@ -267,6 +277,35 @@ frames <- list(
   reference_frame(preset = "nutrient_uptake")
 )
 
+high_quality_genomes <- names(quality)[quality >= 90]
+bounded_anabolism <- frames[[6L]]
+bounded_state <- community$matrix[
+  bounded_anabolism$gift_id, high_quality_genomes, drop = FALSE
+]
+gift_catalogue <- as.data.frame(list_gifts())
+bounded_anabolism_gaps <- data.frame(
+  gift_id = rownames(bounded_state),
+  supported_genomes = rowSums(bounded_state),
+  unsupported_genomes = ncol(bounded_state) - rowSums(bounded_state),
+  assessable_genomes = ncol(bounded_state),
+  support_fraction = rowSums(bounded_state) / ncol(bounded_state),
+  stringsAsFactors = FALSE
+)
+bounded_anabolism_gaps$gift_name <- gift_catalogue$name[
+  match(bounded_anabolism_gaps$gift_id, gift_catalogue$gift_id)
+]
+bounded_anabolism_gaps <- bounded_anabolism_gaps[c(
+  "gift_id", "gift_name", "supported_genomes", "unsupported_genomes",
+  "assessable_genomes", "support_fraction"
+)]
+bounded_anabolism_gaps <- bounded_anabolism_gaps[order(
+  bounded_anabolism_gaps$supported_genomes, bounded_anabolism_gaps$gift_id
+), ]
+write_tsv(
+  bounded_anabolism_gaps,
+  file.path(output_dir, "r10-bounded-anabolism-gaps.tsv")
+)
+
 detection_thresholds <- c(0, 1e-5, 1e-4, 1e-3)
 primary_detection <- 1e-3
 detection_audit <- do.call(rbind, lapply(detection_thresholds, function(threshold) {
@@ -282,7 +321,7 @@ detection_audit <- do.call(rbind, lapply(detection_thresholds, function(threshol
 write_tsv(detection_audit, file.path(output_dir, "r10-detection-sensitivity.tsv"))
 
 cat("Computing sample traits across detection thresholds...\n")
-analysis_cache_key <- paste(cache_key, analysis_sha, sep = "-")
+analysis_cache_key <- paste(cache_key, analysis_cache_version, sep = "-")
 trait_cache <- file.path(
   cache_dir, paste0("dataset-traits-", analysis_cache_key, ".rds")
 )
@@ -305,6 +344,66 @@ if (file.exists(trait_cache)) {
 }
 names(trait_reads) <- format(detection_thresholds, scientific = TRUE)
 
+strict_trait_cache <- file.path(
+  cache_dir, paste0("dataset-traits-high-confidence-", analysis_cache_key, ".rds")
+)
+if (file.exists(strict_trait_cache)) {
+  strict_traits <- readRDS(strict_trait_cache)
+} else {
+  strict_traits <- suppressWarnings(dataset_traits(
+    dataset,
+    frames = frames,
+    quality = quality,
+    policy = "completeness",
+    threshold = 90,
+    min_confidence = "high-confidence",
+    detection = primary_detection,
+    pairwise = FALSE,
+    progress = FALSE
+  ))
+  saveRDS(strict_traits, strict_trait_cache, compress = "xz")
+}
+
+confidence_metrics <- rbind(
+  transform(
+    as.data.frame(trait_reads[[which(detection_thresholds == primary_detection)]]$metrics),
+    confidence_floor = "all accepted"
+  ),
+  transform(
+    as.data.frame(strict_traits$metrics),
+    confidence_floor = "high-confidence"
+  )
+)
+confidence_metrics <- confidence_metrics[
+  confidence_metrics$target_type == "community", , drop = FALSE
+]
+confidence_groups <- interaction(
+  confidence_metrics[c("confidence_floor", "reference_frame", "metric_id")],
+  drop = TRUE,
+  lex.order = TRUE
+)
+confidence_sensitivity <- do.call(
+  rbind,
+  lapply(split(seq_len(nrow(confidence_metrics)), confidence_groups), function(index) {
+    values <- confidence_metrics$value[index]
+    data.frame(
+      confidence_floor = confidence_metrics$confidence_floor[index[[1L]]],
+      reference_frame = confidence_metrics$reference_frame[index[[1L]]],
+      metric_id = confidence_metrics$metric_id[index[[1L]]],
+      samples = sum(!is.na(values)),
+      median = stats::median(values, na.rm = TRUE),
+      q25 = as.numeric(stats::quantile(values, 0.25, na.rm = TRUE)),
+      q75 = as.numeric(stats::quantile(values, 0.75, na.rm = TRUE)),
+      stringsAsFactors = FALSE
+    )
+  })
+)
+rownames(confidence_sensitivity) <- NULL
+write_tsv(
+  confidence_sensitivity,
+  file.path(output_dir, "r10-confidence-sensitivity.tsv")
+)
+
 sample_metrics <- do.call(rbind, Map(function(reading, threshold) {
   rows <- as.data.frame(reading$metrics)
   rows <- rows[rows$target_type == "community", ]
@@ -322,7 +421,10 @@ sample_metric_export <- sample_metrics[c(
   "value", "unit", "numerator", "denominator", "assessable",
   "reference_frame", "database_version"
 )]
-write_tsv(sample_metric_export, file.path(output_dir, "r10-sample-traits.tsv"))
+write_xz_tsv(
+  sample_metric_export,
+  file.path(output_dir, "r10-sample-traits.tsv.xz")
+)
 
 catalogue_metrics <- as.data.frame(trait_reads[[1L]]$catalogue_metrics)
 catalogue_metrics <- catalogue_metrics[
@@ -346,7 +448,10 @@ catalogue_metric_export <- catalogue_metrics[c(
   "contamination_score", "mag_length", "phylum", "class", "order",
   "family", "genus", "species"
 )]
-write_tsv(catalogue_metric_export, file.path(output_dir, "r10-genome-traits.tsv"))
+write_xz_tsv(
+  catalogue_metric_export,
+  file.path(output_dir, "r10-genome-traits.tsv.xz")
+)
 
 # The bounded autonomy frames need per-genome denominators, which are not part
 # of dataset_traits()' sample-invariant catalogue table. Read those frames, plus
@@ -399,17 +504,17 @@ genome_profile_metrics <- merge(
   taxonomy[c("genome", "phylum", "class", "order", "family", "genus", "species")],
   by.x = "target_id", by.y = "genome", sort = FALSE
 )
-write_tsv(
+write_xz_tsv(
   genome_profile_metrics,
-  file.path(output_dir, "r10-genome-resource-autonomy-profiles.tsv")
+  file.path(output_dir, "r10-genome-resource-autonomy-profiles.tsv.xz")
 )
 genome_profile_trace <- do.call(
   rbind,
   lapply(genome_profiles, function(reading) as.data.frame(reading$trace))
 )
-write_tsv(
+write_xz_tsv(
   genome_profile_trace,
-  file.path(output_dir, "r10-genome-resource-autonomy-trace.tsv")
+  file.path(output_dir, "r10-genome-resource-autonomy-trace.tsv.xz")
 )
 
 summarise_groups <- function(table, keys) {
@@ -447,6 +552,16 @@ model_metrics <- sample_metrics[
   ),
 ]
 fit_contrasts <- function(table) {
+  observed <- table$value[is.finite(table$value)]
+  tolerance <- sqrt(.Machine$double.eps) * max(1, abs(observed))
+  if (length(observed) < 2L || diff(range(observed)) <= max(tolerance)) {
+    return(data.frame(
+      contrast = c("day_21_minus_day_7", "day_35_minus_day_7"),
+      estimate = NA_real_, standard_error = NA_real_, degrees_freedom = NA_real_,
+      p_value = NA_real_, model_status = "constant_metric",
+      stringsAsFactors = FALSE
+    ))
+  }
   table$sampling_time <- factor(table$sampling_time, levels = c(7, 21, 35))
   table$trial <- factor(table$trial)
   table$treatment <- factor(table$treatment)
@@ -545,16 +660,23 @@ input_audit <- data.frame(
   item = c(
     "published_bacterial_mags", "samples", "drakkar_marker_rows",
     "drakkar_marker_genomes", "supported_genome_gift_calls",
+    "supported_call_genomes", "represented_gifts", "catalogue_gifts",
+    "high_quality_genomes_at_90_percent",
     "annotation_sha256", "annotation_manifest_sha256",
     "annotation_qc_sha256", "gifter_sqlite_sha256",
-    "analysis_script_sha256", "primary_detection",
+    "analysis_script_sha256", "analysis_cache_version", "primary_detection",
+    "confidence_sensitivity_floor",
     "completeness_assessability_threshold_percent"
   ),
   value = c(
     nrow(mag_manifest), nrow(metadata), nrow(annotations),
     length(unique(annotations$genome_id)), nrow(supported_calls),
+    length(unique(supported_calls$genome_id)),
+    length(unique(supported_calls$gift_id)), nrow(gift_catalogue),
+    length(high_quality_genomes),
     annotation_sha, sha256(annotation_manifest_path), sha256(annotation_qc_path),
-    database_sha, analysis_sha, primary_detection, 90
+    database_sha, analysis_sha, analysis_cache_version, primary_detection,
+    "high-confidence", 90
   ),
   stringsAsFactors = FALSE
 )
@@ -585,8 +707,8 @@ plot_metrics <- rbind(
     ], panel = "Community plant-fibre GIFT richness"
   ),
   transform(
-    network_metrics[network_metrics$metric_id == "distributed_chain_links", ],
-    panel = "Exact potential distributed chain links"
+    network_metrics[network_metrics$metric_id == "interaction_density", ],
+    panel = "Exact potential handoff density"
   )
 )
 plot_metrics$sampling_time <- factor(
@@ -597,7 +719,7 @@ plot_metrics$panel <- factor(plot_metrics$panel, levels = c(
   "Community metabolic GIFT richness",
   "Mean encoded repertoire per detected MAG",
   "Community plant-fibre GIFT richness",
-  "Exact potential distributed chain links"
+  "Exact potential handoff density"
 ))
 
 figure <- ggplot(plot_metrics, aes(sampling_time, value, colour = trial)) +

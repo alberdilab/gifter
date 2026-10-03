@@ -60,6 +60,20 @@ The five annotation resources are the versions recorded by Drakkar's generated
 `annotation_manifest.yaml`; the local analysis treats that generated manifest,
 not this prose, as authoritative provenance.
 
+## Completed run
+
+The acquisition sentinel is dated 2026-10-02T07:17:58Z. Drakkar completed all
+5,758 workflow steps, and the validated transfer completed at
+2026-10-03T02:26:34Z with exactly 822 genomes and 11,219,684 projected marker
+rows. The fetched `gifter_input.tsv.xz` is 29,811,972 bytes with SHA-256
+`1bc6f6a882223d1f86c417f5d0f9c8937fc70b370affc0c5399bc3e81fcfbd86`.
+
+`annotation-manifest.yaml`, `transfer-manifest.tsv` and `transfer.complete` in
+this directory are the small generated provenance records copied from that run.
+The 28 MB projected marker table and 689 KB per-MAG/source QC table are fetched
+under `manuscript/analysis/.cache/r10-chicken/drakkar/`, where
+`21-r10-chicken.R` verifies them against the transfer manifest before use.
+
 ## Detection caveat
 
 The archived abundance object does not retain the per-sample genome breadth
@@ -86,3 +100,33 @@ sensitivity choice necessitated by the missing breadth matrix, not a substitute
 claimed to reproduce the paper's 30% breadth filter. Genome completeness below
 90% can only make an unsupported call indeterminate. It never creates a
 positive call.
+
+`22-r10-handoff-bimodality.R` is the local follow-up. It consumes the exact
+cached calls produced above, writes the all-exact-extracellular handoff
+sensitivities and detected-count-matched null, and diagnoses the richness modes
+without changing a call. Figure S3 links those modes to the abundance of the
+data-selected driver MAG. All handoff language remains encoded potential only;
+the script cannot observe exchange, cooperation or activity.
+
+`24-r10-reference-frame-time.R` is the coarse temporal follow-up. It resolves
+all 19 named frames from the audited database, checks its reconstructed values
+against the cached public-API readings, and models community richness, mean
+per-MAG richness and bounded coverage separately. A stable label requires
+equivalence within one GIFT for count metrics or five percentage points for
+bounded coverage at every detection threshold; complementary minimum-effect
+tests distinguish a directional result outside those margins from an estimate
+whose magnitude remains uncertain. Figure S5 shows adjusted effects, while
+Figure S6 shows the population-standardised adjusted values at all three days
+on shared within-metric scales. Its connecting lines join age-level model
+estimates and are not individual-bird trajectories. Figure S7 decomposes each
+clear frame-level decrease into member-GIFT carrier prevalence, with the six
+largest descriptive declines displayed and every member retained in the source
+table. The script verifies the GIFT fractions sum to the frame metric per
+sample and performs no per-GIFT hypothesis tests. Figure S8 repeats the frame
+models after weighting GIFTs by the relative abundance of their carrier MAGs,
+closed within each detected community, and contrasts equal-weight carrier
+fractions with abundance-weighted carrier shares for the displayed GIFTs. None
+of the figures turns a frame into a composite GIFT or a change in carrier
+distribution into expression, activity or flux. The script accepts
+`R10_DB_PATH` for an archived SQLite artifact and refuses it unless its checksum
+matches the R10 audit.

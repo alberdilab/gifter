@@ -1,0 +1,4 @@
+from_gift	shared_anchor	shared_molecule	to_gift	edge_quality
+arabinoxylan_debranching	ARABINOSE_EX	ARABINOSE	arabinose_uptake_abc	exact
+arabinoxylan_debranching	XYLAN	XYLAN	xylan_degradation	exact
+xylan_degradation	XYLOSE_EX	XYLOSE	xylose_uptake_abc	exact

@@ -1,0 +1,9 @@
+selection_order	habitat_class	habitat_label	mfd_sampletype	mfd_areatype	mfd_hab1	target_samples
+1	agriculture_fields_soil	Agricultural field soil	Soil	Agriculture	Fields	45
+2	natural_grassland_soil	Natural grassland soil	Soil	Natural	Grassland formations	45
+3	natural_forests_soil	Natural forest soil	Soil	Natural	Forests	45
+4	urban_greenspaces_soil	Urban greenspace soil	Soil	Urban	Greenspaces	45
+5	natural_bog_fen_soil	Natural bog/fen soil	Soil	Natural	Bogs, mires and fens	45
+6	natural_freshwater_sediment	Natural freshwater sediment	Sediment	Natural	Freshwater	45
+7	natural_saltwater_sediment	Natural saltwater sediment	Sediment	Natural	Saltwater	45
+8	urban_wastewater_water	Urban wastewater water	Water	Urban	Wastewater	45

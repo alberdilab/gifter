@@ -35,6 +35,10 @@ begun asking gifter to claim something it does not claim.
 | `19-phenotype-validation-coverage.R` | Checksum-pinned audit of which GIFTs have usable, frame-only, related, refused or no current public phenotype/genome evidence; no new score | R9 validation scope |
 | `20-figures-core.R` | Figures 1–5 plus the purine, frame and four-genome community trace tables; all values are derived through the public API | R1–R5, M4 |
 | `21-r10-chicken.R` | Figure 7 and the 822-MAG × 388-sample chicken caecal case study: Drakkar marker audit, completeness-aware traits, detection sensitivity, age contrasts and exact extracellular-anchor-compatible topology | R10 |
+| `22-r10-handoff-bimodality.R` | R10 follow-up: every exact extracellular handoff, provider/recipient presence and abundance axes, confidence and detection sensitivity, detected-count-matched null, and the `cmag_510` richness-mode diagnostic with Figure S3 | R10 |
+| `23-gtdb-phylogeny.R` | A locked 697-genome, origin-balanced panel from the GTDB R232 bac120 tree, current GIFT calls after Drakkar annotation, and Figure S4 | R6.1 |
+| `24-r10-reference-frame-time.R` | R10 follow-up across all 19 database-defined reference frames: temporal change, equivalence-based stability, detection and confidence sensitivity, the classification heatmap (Figure S5), adjusted three-day trajectories (Figure S6), frame-to-GIFT decomposition (Figure S7), and carrier-abundance sensitivity (Figure S8) | R10 |
+| `25-r10-mfd.R` | Environmental complement to R10: a locked, spatially distributed 360-sample Microflora Danica panel, one deposited representative per 95% ANI cluster, habitat-descriptive reference-frame readings and detection/confidence sensitivity | R10b |
 
 The curated inputs live with the other consulted evidence, in
 `data-raw/reference/`: `phenotype-crosswalk.tsv` maps an observation to
@@ -208,6 +212,139 @@ grows between runs, so a recall figure is only comparable with another measured
 on the same sweep; scoring all three routes inside one run is what makes the
 delta between them mean something.
 
+## R10 chicken caecal case study
+
+`21-r10-chicken.R` evaluates the exact 822 bacterial MAGs in the public Marcos
+et al. chicken caecal catalogue across 388 samples. Remote acquisition,
+annotation and transfer scripts live under `r10-chicken/`; their README pins the
+Zenodo snapshot, Git commit, MAG identities, Mjolnir layout and Drakkar
+workflow. The remote run uses the existing shared Drakkar 2.6.6 conda
+environment. It does not install or update Drakkar.
+
+The fetched `gifter_input.tsv.xz`, generated annotation manifest and QC table
+live in the ignored `.cache/r10-chicken/drakkar/` directory. The script verifies
+their sizes and SHA-256 hashes before evaluation, checks that marker evidence
+covers exactly the 822 manifest genomes, and records those hashes in
+`output/r10-input-audit.tsv`. Heavy community, dataset-trait and exact-network
+objects remain cached locally; the reviewable summaries and GIFT-level traces
+are written to `output/`.
+
+The archive lacks the original per-sample 30% breadth matrix. Consequently the
+script repeats community metrics at relative-abundance detection thresholds of
+0, 10^-5, 10^-4 and 10^-3, and labels 10^-3 as an operational threshold rather
+than an equivalent replacement. Completeness below 90% moves unsupported calls
+to indeterminate only. A separate high-confidence-floor sensitivity tests the
+dependence on ambiguous family evidence. Exact plant-fibre network edges cross
+genomes only through declared extracellular anchors and are potential
+compatibilities, never observations of exchange or activity.
+
+`22-r10-handoff-bimodality.R` reads those checksum-pinned cached calls without
+re-evaluating a genome. It enumerates every exact graph link whose shared
+anchor is explicitly extracellular, keeps provider and recipient presence and
+abundance coverage as separate axes, repeats topology across the four detection
+thresholds and the high-confidence floor, and compares each primary sample to
+499 random catalogue communities with the same detected-MAG count. Its null
+controls the number of opportunities to form a pair; it does not turn a
+compatibility into an interaction.
+
+The same script defines the two primary-threshold richness modes by the largest
+empty gap, screens all 822 MAGs for detection-mode agreement, and removes the
+best-matching MAG computationally to count its unique contribution. This
+identified `cmag_510` rather than assuming an organism in advance. Figure S3
+shows why the operational 0.001 threshold converts its continuous abundance
+into a discrete community-richness split.
+
+`24-r10-reference-frame-time.R` reads the same audited calls across every
+curated reference-frame preset rather than selecting individual GIFTs after
+seeing their effects. It reconstructs only community richness, mean per-genome
+richness and bounded coverage from the cached call and detection matrices, and
+asserts exact equality with `dataset_traits()` for every frame the primary
+analysis already read. Temporal models retain the R10 fixed effects and pen
+random intercept. A count is called stable only when equivalence within one
+GIFT is supported at both later ages and all four detection thresholds;
+bounded coverage analogously uses five percentage points. Directional results
+outside those margins use complementary minimum-effect tests, so an estimate
+whose interval crosses a margin is reported as magnitude-uncertain. Figure S5
+keeps the community union, per-genome distribution and bounded denominator as
+separate panels. Figure S6 plots population-standardised adjusted means for all
+three sampling days on metric-specific shared scales; its lines connect model
+estimates and are not individual-bird trajectories. Figure S7 selects frames
+classified as decreasing beyond the margin at both later ages, verifies that
+their member-GIFT carrier fractions sum to the frame metric in every sample,
+and shows the six largest descriptive GIFT-level declines per frame. It does
+not perform per-GIFT hypothesis tests. Figure S8 repeats the frame models after
+summing member-GIFT `abundance_coverage`, with abundance closed within each
+sample's detected MAGs, and compares equal-weight carrier-prevalence changes
+with abundance-weighted carrier-share changes for the displayed GIFTs.
+Reference frames remain analytical groupings of unchanged calls, not new
+composite GIFTs. The script refuses a database whose checksum differs from the
+R10 audit; if the working database has advanced, `R10_DB_PATH` can point to the
+archived, hash-matching SQLite artifact.
+
+## R10b Microflora Danica environmental complement
+
+`25-r10-mfd.R --prepare` locks an environmental panel independently of marker
+annotations and calls. It joins the atlas's 19,253-MAG quality table to all
+5,518 deposited representatives of its 95% ANI `secondary_cluster` values, and
+selects 45 samples from each of eight exact habitat classes. Samples must have
+a published abundance profile, reliable coordinates and a distinct 10-km grid
+cell within their class. A deterministic geographic maximin rule gives 360
+spatially distributed samples spanning field, grassland, forest, greenspace,
+bog/fen, freshwater-sediment, saltwater-sediment and wastewater communities.
+The manifests and every selection decision are committed under `r10-mfd/`.
+
+The case-specific remote workflow acquires the checksum-pinned Zenodo
+archives, extracts only those 5,518 representatives and annotates them with the
+existing shared Drakkar 2.6.6 environment on Mjolnir. The full Drakkar
+projection remains in scratch. A lossless projection against the exact copied
+gifter marker catalogue, its full-input checksum, the compiled SQLite artifact,
+quality/cluster metadata and selected abundance table form the verified local
+transfer. This keeps calls reproducible against one database release without
+loading tens of millions of irrelevant annotation rows into R.
+
+The final analysis collapses the published non-dereplicated Sylph MAG profiles
+by `secondary_cluster` before joining the one representative. It reads carbon
+acquisition, aromatic catabolism, nitrogen acquisition, sulfur acquisition,
+chemical detoxification and bounded biomass-essential anabolism across
+positive, 0.01% and 0.1% detection thresholds. Habitat summaries are
+descriptive; no significance test, differential-abundance analysis or
+ordination is run. Genome completeness changes only the reading of negative
+calls, and cluster abundance does not establish that every strain carries a
+representative's accessory capability. The supporting archive is named for the
+atlas nitrifier analysis, but no nitrification claim is made because the
+current catalogue has no such reference frame.
+
+## GTDB-wide phylogenetic overview
+
+`23-gtdb-phylogeny.R --prepare` pins the official GTDB R11-RS232 bac120 tree,
+metadata, taxonomy, metadata schema and checksum manifest. Eligible genomes
+must be species representatives present as tips in that main tree and must be
+labelled `Complete Genome` and `full` in the NCBI-derived GTDB fields. Of the
+12,094 genomes meeting those assembly criteria, eligibility further requires
+at least one reviewed origin-group assignment from the raw isolation-source
+field. The resulting 4,116 genomes span 49 phyla, 120 classes and 321 orders.
+Selection takes one phylogenetic medoid per eligible order, retains all 85
+candidates assigned to the food/fermentation origin group, and uses that count
+as the common target for every origin group with enough eligible genomes.
+Smaller groups are retained exhaustively. Balance is advanced before marginal
+rooted Faith phylogenetic diversity, with accession as the final tie-break. The
+resulting 697-genome panel retains every eligible phylum, class and order.
+Annotation or GIFT values never enter selection.
+
+The committed panel manifest retains the GTDB tree-tip accession, BioSample,
+BioProject, isolation source, genome category, geography, dates, submitter,
+strain and taxon identifiers, including blank raw fields. Every selected
+genome has BioSample and BioProject accessions, so richer origin attributes can
+later be joined without guessing from names or altering the panel. The local
+cache contains only pinned GTDB sources and, once the run is authorised and
+complete, the checksum-verified Drakkar projection. The case-specific README
+documents the Mjolnir workflow and the limits of the eventual overview.
+Reviewable, nonexclusive origin rules produce separate animal-associated and
+plant-associated fields rather than a combined host field; the corresponding
+summary table reports 85 food/fermentation, 85 animal-associated and 85
+plant-associated genomes in the selected panel. Fungal, air/built-environment
+and algal origins are included exhaustively because fewer than 85 are eligible.
+
 ## output/
 
 Committed derived tables. `kegg-genome-set.tsv` is the reference genome set —
@@ -225,8 +362,46 @@ route to its two supplied gene identifiers;
 assessability contrasts; and the two community files record the metric values
 and three exact extracellular edges of the four-genome arabinoxylan fixture.
 These are controlled illustrations assembled from accepted database markers,
-not annotations of named organisms or substitutes for the undecided R10 case
+not annotations of named organisms or substitutes for the empirical R10 case
 study.
+
+The `r10-*` outputs are the durable evidence for R10 and Figure 7.
+`r10-input-audit.tsv` pins the dataset, annotation and database identities;
+`r10-drakkar-marker-counts.tsv` records retained markers by genome and
+namespace; `r10-detection-sensitivity.tsv` and
+`r10-confidence-sensitivity.tsv` expose the two predeclared sensitivity axes;
+`r10-age-summary.tsv` and `r10-age-contrasts.tsv` contain the descriptive and
+adjusted temporal results; `r10-bounded-anabolism-gaps.tsv` retains every
+bounded-frame GIFT over the high-completeness MAGs; and the network and chain
+tables retain the exact plant-fibre topology summaries. Large row-level tables
+are stored as `.tsv.xz`: supported calls, sample traits, genome traits, and the
+per-genome resource/autonomy metrics and GIFT-level trace.
+
+The follow-up tables use the `r10-handoff-*`, `r10-richness-mode-*` and
+`r10-followup-audit.tsv` prefixes. Compact summaries and adjusted contrasts are
+plain TSVs. The sample-level compatibility, anchor, chain-status and null
+tables are compressed as `.tsv.xz`. `r10-handoff-graph.tsv` is the complete
+three-link claim boundary for this analysis; no unlisted extracellular edge is
+inferred. `r10-richness-mode-driver.tsv` records the data-selected driver and
+`r10-richness-mode-gifts.tsv` retains every GIFT it supports and how often it
+was the sole detected provider.
+
+The coarse temporal follow-up uses the `r10-frame-time-*` prefix.
+`r10-frame-membership.tsv` is the trace from every frame to its database-derived
+GIFT members; the compressed sample table retains each value used by the
+models; `r10-frame-time-adjusted-means.tsv` contains the three fitted values and
+confidence intervals plotted in Figure S6;
+`r10-frame-time-gift-adjusted-means.tsv` retains trajectories for every GIFT in
+the clearly changing frames; `r10-frame-time-gift-detail.tsv` records the
+descriptive Figure S7 selection; the `r10-frame-time-abundance-weighted-*`
+tables contain the weighted sample values, models and classifications;
+`r10-frame-time-gift-abundance-weighted-adjusted-means.tsv` and
+`r10-frame-time-gift-weighting-sensitivity.tsv` retain the GIFT-level Figure S8
+comparison; and the remaining summary, contrast, confidence-sensitivity and
+classification tables distinguish a directional association,
+equivalence-supported stability, detection sensitivity, magnitude uncertainty
+and absence of a detected association. The audit pins both cached readings,
+the margins and the multiple-testing correction.
 
 `madin-agreement.tsv` carries the same columns as `phenotype-agreement.tsv`
 plus the representative-draw range, so the two can be read side by side without

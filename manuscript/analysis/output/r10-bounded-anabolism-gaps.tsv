@@ -1,0 +1,45 @@
+gift_id	gift_name	supported_genomes	unsupported_genomes	assessable_genomes	support_fraction
+cysteine_biosynthesis_homocysteine	Serine and homocysteine to cysteine	0	518	518	0
+dmb_biosynthesis_aerobic	FMNH2 to 5,6-dimethylbenzimidazole	0	518	518	0
+methionine_biosynthesis_transsulfuration	Homoserine and cysteine to methionine	0	518	518	0
+nitrate_assimilation	Nitrate to ammonium	1	517	518	0.00193050193050193
+nitrogen_fixation	Dinitrogen to ammonium	1	517	518	0.00193050193050193
+plp_biosynthesis_dxp	Erythrose 4-phosphate and DXP to pyridoxal 5-phosphate	2	516	518	0.00386100386100386
+menaquinone_biosynthesis	Chorismate to menaquinone	8	510	518	0.0154440154440154
+siroheme_to_heme_b	Siroheme to heme b	9	509	518	0.0173745173745174
+paba_biosynthesis	Chorismate to 4-aminobenzoate	10	508	518	0.0193050193050193
+siroheme_biosynthesis	Uroporphyrinogen III to siroheme	12	506	518	0.0231660231660232
+heme_b_biosynthesis	Uroporphyrinogen III to heme b	18	500	518	0.0347490347490347
+biotin_biosynthesis	Pimeloyl-CoA to biotin	36	482	518	0.0694980694980695
+serine_biosynthesis	3-phosphoglycerate to serine	40	478	518	0.0772200772200772
+plp_biosynthesis_r5p	Ribose 5-phosphate and glyceraldehyde 3-phosphate to pyridoxal 5-phosphate	43	475	518	0.083011583011583
+cobamide_nucleotide_loop_assembly	Adenosylcobinamide phosphate and dimethylbenzimidazole to cobalamin	74	444	518	0.142857142857143
+pantothenate_biosynthesis	2-oxoisovalerate and L-aspartate to pantothenate	97	421	518	0.187258687258687
+tryptophan_biosynthesis	Chorismate and L-glutamine to L-tryptophan	114	404	518	0.22007722007722
+folate_biosynthesis	GTP and 4-aminobenzoate to tetrahydrofolate	138	380	518	0.266409266409266
+threonine_biosynthesis	Homoserine to threonine	163	355	518	0.314671814671815
+riboflavin_biosynthesis	GTP and D-ribulose 5-phosphate to riboflavin	165	353	518	0.318532818532819
+alanine_biosynthesis	Pyruvate to L-alanine	175	343	518	0.337837837837838
+histidine_biosynthesis	PRPP and L-glutamine to L-histidine	181	337	518	0.349420849420849
+tyrosine_biosynthesis	Chorismate to L-tyrosine	248	270	518	0.478764478764479
+leucine_biosynthesis	3-methyl-2-oxobutanoate to L-leucine	305	213	518	0.588803088803089
+methionine_biosynthesis_sulfhydrylation	Homoserine and sulfide to methionine	309	209	518	0.596525096525097
+thiamine_phosphate_biosynthesis	Thiamine pyrimidine and thiazole to thiamine phosphate	311	207	518	0.6003861003861
+pyrimidine_core_biosynthesis	Glutamine and PRPP to UMP	317	201	518	0.611969111969112
+aspartate_biosynthesis	Oxaloacetate to L-aspartate	318	200	518	0.613899613899614
+isoleucine_biosynthesis	2-oxobutanoate to L-isoleucine	322	196	518	0.621621621621622
+proline_biosynthesis	L-glutamate to L-proline	333	185	518	0.642857142857143
+arginine_biosynthesis	L-ornithine to L-arginine	344	174	518	0.664092664092664
+nad_biosynthesis_namn	Nicotinate D-ribonucleotide to NAD	365	153	518	0.704633204633205
+dap_biosynthesis	L-aspartate 4-semialdehyde to meso-diaminopimelate	368	150	518	0.71042471042471
+cysteine_biosynthesis_sulfide	Serine and sulfide to cysteine	371	147	518	0.716216216216216
+phenylalanine_biosynthesis	Chorismate to L-phenylalanine	372	146	518	0.718146718146718
+guanylate_biosynthesis	IMP to GMP	400	118	518	0.772200772200772
+asparagine_biosynthesis	L-aspartate to L-asparagine	401	117	518	0.774131274131274
+valine_biosynthesis	3-methyl-2-oxobutanoate to L-valine	403	115	518	0.777992277992278
+lysine_biosynthesis_dap	meso-diaminopimelate to L-lysine	423	95	518	0.816602316602317
+ammonium_assimilation	Ammonium and 2-oxoglutarate to glutamate	425	93	518	0.82046332046332
+adenylate_biosynthesis	IMP to AMP	444	74	518	0.857142857142857
+glutamine_biosynthesis	L-glutamate and ammonium to L-glutamine	460	58	518	0.888030888030888
+glycine_biosynthesis	Serine to glycine	460	58	518	0.888030888030888
+cytidylate_biosynthesis	UTP to CTP	466	52	518	0.8996138996139

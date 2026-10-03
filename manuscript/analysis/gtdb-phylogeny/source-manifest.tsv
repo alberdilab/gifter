@@ -1,0 +1,6 @@
+file	source_url	sha256	role
+bac120_r232.tree	https://data.gtdb.aau.ecogenomic.org/releases/release232/232.0/bac120_r232.tree	9034e52f25ed0caead4e2153def93ee80ba0f513a0a2f65030127839a26fe02d	GTDB bacterial reference tree
+bac120_metadata_r232.tsv.gz	https://data.gtdb.aau.ecogenomic.org/releases/release232/232.0/bac120_metadata_r232.tsv.gz	1650d3164666e5839c20ee15d82511909a5bbd5269035a7b564b9048dd777893	GTDB bacterial metadata
+bac120_taxonomy_r232.tsv.gz	https://data.gtdb.aau.ecogenomic.org/releases/release232/232.0/bac120_taxonomy_r232.tsv.gz	d565d92730db443cd394a4b685ea682fe3691a3a1da3713804bbef2025d2cc71	GTDB bacterial taxonomy
+MD5SUM.txt	https://data.gtdb.aau.ecogenomic.org/releases/release232/232.0/MD5SUM.txt	cc2a92314cc87a62d4cb73b7addbec4e9bd54f6f1fe97a9b557d2924ccc1e3e1	GTDB published checksum manifest
+metadata_field_desc.tsv	https://data.gtdb.aau.ecogenomic.org/releases/release232/232.0/auxillary_files/metadata_field_desc.tsv	ddd59f444d6e51279944e4e5f1d62af2c8ac1196439863fa6fcdd394ddb5d684	GTDB metadata schema

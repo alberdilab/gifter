@@ -28,6 +28,7 @@ read -r genomes rows < <(
   xzcat "$gifter_input" \
     | awk -F '\t' '
         NR == 1 {
+          sub(/\r$/, "", $4)
           if ($1 != "genome_id" || $2 != "gene_id" || $3 != "namespace" || $4 != "accession") exit 2
           next
         }

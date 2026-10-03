@@ -1,0 +1,5 @@
+detection	minimum_detected_genomes	median_detected_genomes	maximum_detected_genomes
+0	213	812	822
+1e-05	213	711	787
+1e-04	213	490.5	618
+0.001	76	149	247

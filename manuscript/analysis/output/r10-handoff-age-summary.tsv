@@ -1,0 +1,151 @@
+confidence_floor	detection	sampling_time	metric_id	samples	median	q25	q75
+all accepted	0	7	distributed_chain_links	122	0	0	0
+all accepted	0	7	distributed_link_fraction	122	0	0	0
+all accepted	0	7	gift_resolved_handoff_edges	122	128952	122009	133340
+all accepted	0	7	handoff_anchor_richness	122	3	3	3
+all accepted	0	7	interaction_density	122	0.198877767386996	0.196197795566931	0.200611728786282
+all accepted	0	7	provider_genome_fraction	122	0.779886216332997	0.778091213233513	0.7822728133414
+all accepted	0	7	recipient_genome_fraction	122	0.260122699386503	0.256155697232078	0.26160451175216
+all accepted	0	7	represented_chain_links	122	3	3	3
+all accepted	0	7	unique_handoff_pairs	122	127332	120425	131694
+all accepted	0	7	within_genome_chain_links	122	3	3	3
+all accepted	0	21	distributed_chain_links	126	0	0	0
+all accepted	0	21	distributed_link_fraction	126	0	0	0
+all accepted	0	21	gift_resolved_handoff_edges	126	128234	124287.75	133553
+all accepted	0	21	handoff_anchor_richness	126	3	3	3
+all accepted	0	21	interaction_density	126	0.196825374529533	0.194459900893846	0.198762806196231
+all accepted	0	21	provider_genome_fraction	126	0.778054862842893	0.777210327557983	0.779171894604768
+all accepted	0	21	recipient_genome_fraction	126	0.257943324315006	0.25492431550699	0.260122699386503
+all accepted	0	21	represented_chain_links	126	3	3	3
+all accepted	0	21	unique_handoff_pairs	126	126617	122691.25	131905
+all accepted	0	21	within_genome_chain_links	126	3	3	3
+all accepted	0	35	distributed_chain_links	140	0	0	0
+all accepted	0	35	distributed_link_fraction	140	0	0	0
+all accepted	0	35	gift_resolved_handoff_edges	140	134501	132290	135920
+all accepted	0	35	handoff_anchor_richness	140	3	3	3
+all accepted	0	35	interaction_density	140	0.198970434133176	0.197826645970792	0.199526151804482
+all accepted	0	35	provider_genome_fraction	140	0.777917189460477	0.777367773677737	0.778457772337821
+all accepted	0	35	recipient_genome_fraction	140	0.260709914320685	0.259202495449439	0.261557177615572
+all accepted	0	35	represented_chain_links	140	3	3	3
+all accepted	0	35	unique_handoff_pairs	140	132848	130650	134261.5
+all accepted	0	35	within_genome_chain_links	140	3	3	3
+all accepted	1e-05	7	distributed_chain_links	122	0	0	0
+all accepted	1e-05	7	distributed_link_fraction	122	0	0	0
+all accepted	1e-05	7	gift_resolved_handoff_edges	122	83989	75034.25	93979
+all accepted	1e-05	7	handoff_anchor_richness	122	3	3	3
+all accepted	1e-05	7	interaction_density	122	0.219937334325913	0.202373097769526	0.236005657350564
+all accepted	1e-05	7	provider_genome_fraction	122	0.812496867539799	0.794761863918738	0.831202264048009
+all accepted	1e-05	7	recipient_genome_fraction	122	0.275827326978222	0.260968533038582	0.289647191146237
+all accepted	1e-05	7	represented_chain_links	122	3	3	3
+all accepted	1e-05	7	unique_handoff_pairs	122	82683	73817.75	92599
+all accepted	1e-05	7	within_genome_chain_links	122	3	3	3
+all accepted	1e-05	21	distributed_chain_links	126	0	0	0
+all accepted	1e-05	21	distributed_link_fraction	126	0	0	0
+all accepted	1e-05	21	gift_resolved_handoff_edges	126	98815	93218	102470.75
+all accepted	1e-05	21	handoff_anchor_richness	126	3	3	3
+all accepted	1e-05	21	interaction_density	126	0.197555430322491	0.192793640470101	0.20257743170552
+all accepted	1e-05	21	provider_genome_fraction	126	0.787024488293183	0.782564026373035	0.793945944805914
+all accepted	1e-05	21	recipient_genome_fraction	126	0.254886547301694	0.25115815372463	0.260677197739771
+all accepted	1e-05	21	represented_chain_links	126	3	3	3
+all accepted	1e-05	21	unique_handoff_pairs	126	97391	91925.5	101292
+all accepted	1e-05	21	within_genome_chain_links	126	3	3	3
+all accepted	1e-05	35	distributed_chain_links	140	0	0	0
+all accepted	1e-05	35	distributed_link_fraction	140	0	0	0
+all accepted	1e-05	35	gift_resolved_handoff_edges	140	110591.5	103401	114323.25
+all accepted	1e-05	35	handoff_anchor_richness	140	3	3	3
+all accepted	1e-05	35	interaction_density	140	0.197263410217281	0.192505281896915	0.201371625738967
+all accepted	1e-05	35	provider_genome_fraction	140	0.782692926725964	0.779184907233688	0.786950732356858
+all accepted	1e-05	35	recipient_genome_fraction	140	0.25673898511974	0.251978158827474	0.261143931736275
+all accepted	1e-05	35	represented_chain_links	140	3	3	3
+all accepted	1e-05	35	unique_handoff_pairs	140	109087.5	101940.5	113368.5
+all accepted	1e-05	35	within_genome_chain_links	140	3	3	3
+all accepted	1e-04	7	distributed_chain_links	122	0	0	0
+all accepted	1e-04	7	distributed_link_fraction	122	0	0	0
+all accepted	1e-04	7	gift_resolved_handoff_edges	122	37074.5	31923.5	44835.25
+all accepted	1e-04	7	handoff_anchor_richness	122	3	3	3
+all accepted	1e-04	7	interaction_density	122	0.260952951167209	0.235001425681497	0.281674927446798
+all accepted	1e-04	7	provider_genome_fraction	122	0.86603598060329	0.837396751740139	0.888888888888889
+all accepted	1e-04	7	recipient_genome_fraction	122	0.309194169929766	0.28810401891253	0.326208088975772
+all accepted	1e-04	7	represented_chain_links	122	3	3	3
+all accepted	1e-04	7	unique_handoff_pairs	122	36533.5	31352.25	44169
+all accepted	1e-04	7	within_genome_chain_links	122	3	3	3
+all accepted	1e-04	21	distributed_chain_links	126	0	0	0
+all accepted	1e-04	21	distributed_link_fraction	126	0	0	0
+all accepted	1e-04	21	gift_resolved_handoff_edges	126	50386	44543	54860.5
+all accepted	1e-04	21	handoff_anchor_richness	126	3	3	3
+all accepted	1e-04	21	interaction_density	126	0.209250271496795	0.194581666367828	0.226462493588986
+all accepted	1e-04	21	provider_genome_fraction	126	0.808607297502514	0.798589895581597	0.824601063829787
+all accepted	1e-04	21	recipient_genome_fraction	126	0.263987684646186	0.248402449132376	0.281122343451057
+all accepted	1e-04	21	represented_chain_links	126	3	3	3
+all accepted	1e-04	21	unique_handoff_pairs	126	49880	43947.25	54246.75
+all accepted	1e-04	21	within_genome_chain_links	126	3	3	3
+all accepted	1e-04	35	distributed_chain_links	140	0	0	0
+all accepted	1e-04	35	distributed_link_fraction	140	0	0	0
+all accepted	1e-04	35	gift_resolved_handoff_edges	140	59057.5	52862	63843.75
+all accepted	1e-04	35	handoff_anchor_richness	140	3	3	3
+all accepted	1e-04	35	interaction_density	140	0.199412874896364	0.189094432131679	0.2109923381641
+all accepted	1e-04	35	provider_genome_fraction	140	0.79997079203932	0.78753510422205	0.812927555241651
+all accepted	1e-04	35	recipient_genome_fraction	140	0.254846781586739	0.243858329752184	0.266120218579235
+all accepted	1e-04	35	represented_chain_links	140	3	3	3
+all accepted	1e-04	35	unique_handoff_pairs	140	58605	52194	63243.75
+all accepted	1e-04	35	within_genome_chain_links	140	3	3	3
+all accepted	0.001	7	distributed_chain_links	122	0	0	0
+all accepted	0.001	7	distributed_link_fraction	122	0	0	0
+all accepted	0.001	7	gift_resolved_handoff_edges	122	5263	4391.25	6245.75
+all accepted	0.001	7	handoff_anchor_richness	122	3	3	3
+all accepted	0.001	7	interaction_density	122	0.29399170627155	0.270004632776576	0.320304364775475
+all accepted	0.001	7	provider_genome_fraction	122	0.910840108401084	0.891297283244508	0.922216369080626
+all accepted	0.001	7	recipient_genome_fraction	122	0.337829303500541	0.314105163557718	0.35952776240546
+all accepted	0.001	7	represented_chain_links	122	3	3	3
+all accepted	0.001	7	unique_handoff_pairs	122	5111	4253.25	6071.5
+all accepted	0.001	7	within_genome_chain_links	122	3	3	3
+all accepted	0.001	21	distributed_chain_links	126	0	0	0
+all accepted	0.001	21	distributed_link_fraction	126	0	0	0
+all accepted	0.001	21	gift_resolved_handoff_edges	126	4712.5	3724.25	5736.5
+all accepted	0.001	21	handoff_anchor_richness	126	3	3	3
+all accepted	0.001	21	interaction_density	126	0.212650945947239	0.185422111462072	0.242958863890575
+all accepted	0.001	21	provider_genome_fraction	126	0.828396300497339	0.800301204819277	0.860846879389926
+all accepted	0.001	21	recipient_genome_fraction	126	0.2646110056926	0.233982900288696	0.287303321678322
+all accepted	0.001	21	represented_chain_links	126	3	3	3
+all accepted	0.001	21	unique_handoff_pairs	126	4647	3584.5	5650.75
+all accepted	0.001	21	within_genome_chain_links	126	3	3	3
+all accepted	0.001	35	distributed_chain_links	140	0	0	0
+all accepted	0.001	35	distributed_link_fraction	140	0	0	0
+all accepted	0.001	35	gift_resolved_handoff_edges	140	5822.5	4513.75	6778.5
+all accepted	0.001	35	handoff_anchor_richness	140	3	1	3
+all accepted	0.001	35	interaction_density	140	0.205300671460086	0.186689912043875	0.231974833354432
+all accepted	0.001	35	provider_genome_fraction	140	0.818760949195732	0.796457795004307	0.841727482235452
+all accepted	0.001	35	recipient_genome_fraction	140	0.255758748021804	0.237829597890574	0.282878214072155
+all accepted	0.001	35	represented_chain_links	140	3	1	3
+all accepted	0.001	35	unique_handoff_pairs	140	5714	4371.5	6606.5
+all accepted	0.001	35	within_genome_chain_links	140	3	1	3
+high-confidence	0.001	7	distributed_chain_links	122	2	2	2
+high-confidence	0.001	7	distributed_link_fraction	122	0.666666666666667	0.666666666666667	0.666666666666667
+high-confidence	0.001	7	gift_resolved_handoff_edges	122	742.5	616.25	900.5
+high-confidence	0.001	7	handoff_anchor_richness	122	3	3	3
+high-confidence	0.001	7	interaction_density	122	0.0428420955430661	0.0363499113499113	0.0489418641515416
+high-confidence	0.001	7	provider_genome_fraction	122	0.412096774193548	0.384615384615385	0.437274909963986
+high-confidence	0.001	7	recipient_genome_fraction	122	0.108306794055202	0.09559222116818	0.119079797861088
+high-confidence	0.001	7	represented_chain_links	122	3	3	3
+high-confidence	0.001	7	unique_handoff_pairs	122	731	605.25	886
+high-confidence	0.001	7	within_genome_chain_links	122	1	1	1
+high-confidence	0.001	21	distributed_chain_links	126	2	2	2
+high-confidence	0.001	21	distributed_link_fraction	126	0.666666666666667	0.666666666666667	0.666666666666667
+high-confidence	0.001	21	gift_resolved_handoff_edges	126	484	365.25	630.75
+high-confidence	0.001	21	handoff_anchor_richness	126	3	3	3
+high-confidence	0.001	21	interaction_density	126	0.0223513334794423	0.0165950639503882	0.0283123929773765
+high-confidence	0.001	21	provider_genome_fraction	126	0.287269110542768	0.248106060606061	0.328733847540819
+high-confidence	0.001	21	recipient_genome_fraction	126	0.0803075396825397	0.0705882352941176	0.0913248337028825
+high-confidence	0.001	21	represented_chain_links	126	3	3	3
+high-confidence	0.001	21	unique_handoff_pairs	126	478	357	623
+high-confidence	0.001	21	within_genome_chain_links	126	1	1	1
+high-confidence	0.001	35	distributed_chain_links	140	2	0	2
+high-confidence	0.001	35	distributed_link_fraction	140	0.666666666666667	0	0.666666666666667
+high-confidence	0.001	35	gift_resolved_handoff_edges	140	595	417.25	722.75
+high-confidence	0.001	35	handoff_anchor_richness	140	3	1	3
+high-confidence	0.001	35	interaction_density	140	0.0209120401999231	0.017384023697056	0.0255602583342949
+high-confidence	0.001	35	provider_genome_fraction	140	0.263992484199738	0.23862828713575	0.297340061580568
+high-confidence	0.001	35	recipient_genome_fraction	140	0.0811655405405405	0.072140522875817	0.0899851747815231
+high-confidence	0.001	35	represented_chain_links	140	3	1	3
+high-confidence	0.001	35	unique_handoff_pairs	140	585.5	408.75	717
+high-confidence	0.001	35	within_genome_chain_links	140	1	1	1

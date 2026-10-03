@@ -1,0 +1,24 @@
+item	value
+Nature article DOI	10.1038/s41586-025-09794-2
+Zenodo record DOI	10.5281/zenodo.17162544
+published MAGs	19253
+secondary clusters	5518
+deposited representatives	5518
+selected samples	360
+selected habitat classes	8
+selection independent of annotation	TRUE
+habitat:agriculture_fields_soil	45 samples; 88 eligible distinct reliable 10-km cells
+habitat:natural_grassland_soil	45 samples; 238 eligible distinct reliable 10-km cells
+habitat:natural_forests_soil	45 samples; 212 eligible distinct reliable 10-km cells
+habitat:urban_greenspaces_soil	45 samples; 268 eligible distinct reliable 10-km cells
+habitat:natural_bog_fen_soil	45 samples; 145 eligible distinct reliable 10-km cells
+habitat:natural_freshwater_sediment	45 samples; 245 eligible distinct reliable 10-km cells
+habitat:natural_saltwater_sediment	45 samples; 47 eligible distinct reliable 10-km cells
+habitat:urban_wastewater_water	45 samples; 75 eligible distinct reliable 10-km cells
+source:MFD.ilm_mag.tar.gz	MFD.ilm_mag.tar.gz:md5:a98d7a134236dccace45186792f14639
+source:Nitrifiers.tar.gz	Nitrifiers.tar.gz:md5:9b65d9984cb41a929613758919ed2fcf
+source:mfd-sr-mags_meta.tsv	mfd-sr-mags_meta.tsv:sha256:ce22dbda048e4a745ab5fd4c1862c5094f5036bb727453d88f7beab37550dc58
+archive aliases sha256	5c50d3adf5dd8704f51fe9eb82e6b6a07e2c430bd3e6492f0a61e031af49bf4d
+representative manifest sha256	ea526c47cabf67643e95edbd635a60c7701b4654c529f69f6c1cee61b369b70d
+selected samples sha256	2d7b684cf915e76e0c35e24900a2bfeb6bdb6c869e04342ec651cba2948b2776
+habitat design sha256	27bc333c0253dd00fc5e83d588be89a65e1098103d69d9f77c6fbf269bcefe96

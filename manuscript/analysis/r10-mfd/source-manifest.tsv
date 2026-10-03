@@ -1,0 +1,4 @@
+file	source_url	bytes	checksum_algorithm	checksum	role	local_prepare
+MFD.ilm_mag.tar.gz	https://zenodo.org/api/records/17162544/files/MFD.ilm_mag.tar.gz/content	19842326855	md5	a98d7a134236dccace45186792f14639	Microflora Danica non-dereplicated MAG archive	FALSE
+Nitrifiers.tar.gz	https://zenodo.org/api/records/17162544/files/Nitrifiers.tar.gz/content	227609509	md5	9b65d9984cb41a929613758919ed2fcf	Microflora Danica abundance, MAG-quality and sample-metadata bundle	TRUE
+mfd-sr-mags_meta.tsv	https://raw.githubusercontent.com/cmc-aau/mfd_sr_mags/957591d4104462ec6e52ab58d85a69798057e582/analysis/datasets/mfd-sr-mags_meta.tsv	218857	sha256	ce22dbda048e4a745ab5fd4c1862c5094f5036bb727453d88f7beab37550dc58	Deposited 95-percent-ANI species representative manifest	TRUE

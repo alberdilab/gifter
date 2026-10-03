@@ -1,0 +1,1009 @@
+detection	sampling_time	trial	frame_id	reference_frame	bounded	member_count	metric_id	unit	equivalence_margin	n	mean	sd	median	q25	q75
+0	7	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	68	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0	7	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	68	20	0	20	20	20
+0	7	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	68	9.37196487517635	0.40932973215082	9.31051368791492	9.28228054931873	9.33478869593863
+0	7	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	68	8	0	8	8	8
+0	7	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	68	0.015537053527109	0.00445416548659883	0.0148883374689826	0.014760147601476	0.0151371852191524
+0	7	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	68	0.928141711229946	0.00930074494368318	0.931818181818182	0.931818181818182	0.931818181818182
+0	7	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	68	40.8382352941176	0.40923277752206	41	41	41
+0	7	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	68	14.4014278219675	0.615552714456558	14.3233163359785	14.2595654126144	14.3663580246914
+0	7	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	68	17	0	17	17	17
+0	7	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	68	2.69639715029879	0.0988978949418894	2.69179180802797	2.66645649432535	2.70219084191362
+0	7	CA	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	68	26.9852941176471	0.121267812518167	27	27	27
+0	7	CA	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	68	3.7050562585211	0.149616570823613	3.69315976493098	3.6647582697201	3.70445542679694
+0	7	CA	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	68	3	0	3	3	3
+0	7	CA	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	68	0.391899567812993	0.0253692896598293	0.389026235166222	0.387422115308778	0.390531930269102
+0	7	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	68	0.932352941176471	0.00808452083454443	0.933333333333333	0.933333333333333	0.933333333333333
+0	7	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	68	13.9852941176471	0.121267812518167	14	14	14
+0	7	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	68	1.8345333850675	0.0986444218219204	1.83469549002876	1.8055253513753	1.84301105809286
+0	7	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	68	2.98529411764706	0.121267812518167	3	3	3
+0	7	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	68	1.02988568049242	0.0245428730035498	1.02738047663745	1.02318808462992	1.03098854317526
+0	7	CA	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	68	9	0	9	9	9
+0	7	CA	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	68	1.6745489811271	0.0449466554645276	1.66480818367197	1.65581842299634	1.67799814179531
+0	7	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	68	7	0	7	7	7
+0	7	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	68	0.815894918322675	0.0338145481774055	0.814724480578139	0.807512229210342	0.819399819876685
+0	7	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	68	13.8529411764706	0.35679777634476	14	14	14
+0	7	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	68	1.93216300492568	0.0938904425576549	1.9182156133829	1.91388382546543	1.92262816357908
+0	7	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	68	1	0	1	1	1
+0	7	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	68	4	0	4	4	4
+0	7	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	68	2.54815072345743	0.0847555903247468	2.53558416139717	2.52624164188434	2.54482627755317
+0	7	CA	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	68	3	0	3	3	3
+0	7	CA	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	68	0.0127979542533512	0.00248252047076283	0.0124069478908189	0.01230012300123	0.0126143210159604
+0	7	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	68	12	0	12	12	12
+0	7	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	68	1.73413249899019	0.0659543051338053	1.73154352422645	1.71428537438435	1.73773434564999
+0	7	CA	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	68	5	0	5	5	5
+0	7	CA	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	68	0.110968870543308	0.00824288428444136	0.111387687579772	0.109376085195046	0.112408547152667
+0	7	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	68	9	0	9	9	9
+0	7	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	68	1.59063534758861	0.0947742499064979	1.57654320987654	1.5715631730079	1.58240549128176
+0	7	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	68	3	0	3	3	3
+0	7	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	68	0.655364945592495	0.0200817157320379	0.651684552617428	0.647692475278682	0.657116726460065
+0	7	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	68	3.98529411764706	0.121267812518167	4	4	4
+0	7	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	68	0.0125625384421945	0.00197754285779372	0.012383905676813	0.0122661794779261	0.0125786163522013
+0	7	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	68	19	0	19	19	19
+0	7	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	68	4.24880411093125	0.217771454754535	4.23058069381599	4.19327449786975	4.24447850273034
+0	7	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	54	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0	7	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	54	20	0	20	20	20
+0	7	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	54	9.42366583470179	0.286801521333168	9.33650915740284	9.30333712261328	9.40144499570729
+0	7	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	54	8	0	8	8	8
+0	7	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	54	0.0154423051335465	0.00141522615942501	0.0151133501259446	0.0147783251231527	0.015554134933379
+0	7	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	54	0.926767676767677	0.00953735123934378	0.931818181818182	0.931818181818182	0.931818181818182
+0	7	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	54	40.7777777777778	0.419643454531127	41	41	41
+0	7	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	54	14.4759687421903	0.4393304634985	14.345395681279	14.3032810099221	14.4597776070417
+0	7	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	54	17	0	17	17	17
+0	7	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	54	2.70901874639906	0.0761935968668903	2.6961334961335	2.67941010979287	2.71504050910452
+0	7	CB	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	54	26.962962962963	0.190625877092986	27	27	27
+0	7	CB	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	54	3.72435091356389	0.108692074679558	3.69828610380758	3.68318444598358	3.72712558046303
+0	7	CB	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	54	3	0	3	3	3
+0	7	CB	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	54	0.39154085709741	0.0156416149365828	0.387921366899335	0.386356818215909	0.390532475295612
+0	7	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	54	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+0	7	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	54	14	0	14	14	14
+0	7	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	54	1.83648021217391	0.0721551079537726	1.83700955913825	1.79790874524715	1.84793242152113
+0	7	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	54	2.96296296296296	0.190625877092986	3	3	3
+0	7	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	54	1.03341319305588	0.0156014554171933	1.02928624820944	1.02694430469096	1.03608020579053
+0	7	CB	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	54	9	0	9	9	9
+0	7	CB	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	54	1.68659842821994	0.0399636038390698	1.67506245687501	1.65800856893327	1.70230195356881
+0	7	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	54	7	0	7	7	7
+0	7	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	54	0.820829908203021	0.02947919978112	0.817204998175147	0.811132453512642	0.822543623702471
+0	7	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	54	13.7777777777778	0.419643454531127	14	14	14
+0	7	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	54	1.94395100652356	0.0663851660139742	1.92175085647642	1.91676866585067	1.936540459943
+0	7	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	54	1	0	1	1	1
+0	7	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	54	4	0	4	4	4
+0	7	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	54	2.56495249674242	0.0679261969373727	2.54396100493121	2.53678629942193	2.56142837138809
+0	7	CB	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	54	3	0	3	3	3
+0	7	CB	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	54	0.012830794716353	0.000942002952360897	0.0125944584382872	0.0123152709359606	0.0129617791111491
+0	7	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	54	12	0	12	12	12
+0	7	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	54	1.7402838887426	0.0472176865511715	1.73460507077117	1.72090653482535	1.74115133392713
+0	7	CB	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	54	5	0	5	5	5
+0	7	CB	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	54	0.109845370871867	0.0079870054857407	0.112004075410414	0.105296829497189	0.112898278250544
+0	7	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	54	9	0	9	9	9
+0	7	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	54	1.60195762523803	0.0605445738308366	1.58529170486899	1.57358455882353	1.60037326460199
+0	7	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	54	3	0	3	3	3
+0	7	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	54	0.65976944398688	0.0176061651095813	0.654110625579328	0.647800628607694	0.663755919524628
+0	7	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	54	3.96296296296296	0.190625877092986	4	4	4
+0	7	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	54	0.0126181096946671	0.000749212576683715	0.0125078222778473	0.0122586611331649	0.0127714544164828
+0	7	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	54	19	0	19	19	19
+0	7	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	54	4.26044218814758	0.148077394757361	4.23576410764108	4.19804988001541	4.25375508694044
+0	21	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	67	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0	21	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	67	20	0	20	20	20
+0	21	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	67	9.31942861657321	0.226599675165848	9.29361179361179	9.28254110840438	9.30337941628264
+0	21	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	67	8	0	8	8	8
+0	21	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	67	0.0150098078048746	0.00137346047856745	0.0147783251231527	0.01468788249694	0.0150093867334168
+0	21	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	67	0.929782903663501	0.00653850555570986	0.931818181818182	0.931818181818182	0.931818181818182
+0	21	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	67	40.910447761194	0.287694244451234	41	41	41
+0	21	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	67	14.3306969665821	0.329561825839585	14.3022113022113	14.2615461346633	14.3174622106068
+0	21	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	67	17	0	17	17	17
+0	21	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	67	2.68739084179325	0.0477418060725243	2.68665850673195	2.6743745273408	2.69268594916432
+0	21	CA	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	67	26.9850746268657	0.122169444356305	27	27	27
+0	21	CA	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	67	3.69111551786942	0.0742663015064017	3.68734793187348	3.67460840332963	3.69329268292683
+0	21	CA	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	67	3	0	3	3	3
+0	21	CA	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	67	0.38968364502394	0.00874633813488013	0.388278388278388	0.387460691823899	0.38996855345912
+0	21	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	67	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+0	21	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	67	14	0	14	14	14
+0	21	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	67	1.83003883545964	0.040036049629695	1.83292383292383	1.80973184764538	1.84210502660722
+0	21	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	67	2.98507462686567	0.122169444356305	3	3	3
+0	21	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	67	1.026197978088	0.0144299002387803	1.02493765586035	1.02163021431104	1.02798517858138
+0	21	CA	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	67	9	0	9	9	9
+0	21	CA	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	67	1.66225518268338	0.0279027438539888	1.65721331689272	1.6501219490217	1.6672880453952
+0	21	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	67	7	0	7	7	7
+0	21	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	67	0.813474390164692	0.0156030809924924	0.813641900121803	0.80875	0.815628815628816
+0	21	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	67	13.910447761194	0.287694244451234	14	14	14
+0	21	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	67	1.92297362433575	0.0481225880362095	1.91676866585067	1.91376250572353	1.91995061750864
+0	21	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	67	1	0	1	1	1
+0	21	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	67	4	0	4	4	4
+0	21	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	67	2.53658997300554	0.0520426371261894	2.5320987654321	2.525	2.53593179049939
+0	21	CA	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	67	3	0	3	3	3
+0	21	CA	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	67	0.0124758671682736	0.000883531114731516	0.0123152709359606	0.0122399020807834	0.0125078222778473
+0	21	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	67	12	0	12	12	12
+0	21	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	67	1.72841391903198	0.0318533035451131	1.729088639201	1.71935246026066	1.73199012459057
+0	21	CA	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	67	5	0	5	5	5
+0	21	CA	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	67	0.111240551099463	0.00208239743605646	0.111383108935129	0.110289561921423	0.112275781851842
+0	21	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	67	9	0	9	9	9
+0	21	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	67	1.577974692751	0.0500710541593502	1.5719512195122	1.56948437843381	1.57345624817091
+0	21	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	67	3	0	3	3	3
+0	21	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	67	0.650133874497933	0.0142693977049213	0.647713226205192	0.645220806331709	0.651468545656008
+0	21	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	67	3.98507462686567	0.122169444356305	4	4	4
+0	21	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	67	0.0121180900116064	0.000485854185279519	0.0122699386503067	0.0121728590437749	0.0124455555349033
+0	21	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	67	19	0	19	19	19
+0	21	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	67	4.23071764534365	0.0977305187183817	4.22704714640199	4.2052397260274	4.23536725382067
+0	21	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	59	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0	21	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	59	20	0	20	20	20
+0	21	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	59	9.29665688526367	0.0226406671706713	9.29536921151439	9.28368584820198	9.30871249561585
+0	21	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	59	8	0	8	8	8
+0	21	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	59	0.0150728408771819	0.000650162808365398	0.0150375939849624	0.0147510811717454	0.0151610925947209
+0	21	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	59	0.928736517719569	0.00784760982893171	0.931818181818182	0.931818181818182	0.931818181818182
+0	21	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	59	40.864406779661	0.345294832472996	41	41	41
+0	21	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	59	14.2813458662432	0.0488110662003556	14.2794486215539	14.2495283018868	14.3156612994266
+0	21	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	59	17	0	17	17	17
+0	21	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	59	2.67819537937068	0.0176706445349789	2.68005018820577	2.66498081841432	2.69066529676286
+0	21	CB	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	59	26.9830508474576	0.130188910980824	27	27	27
+0	21	CB	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	59	3.67795398087311	0.01878065041208	3.678391959799	3.66389244558259	3.69146341463415
+0	21	CB	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	59	3	0	3	3	3
+0	21	CB	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	59	0.387530726706678	0.00300617048002246	0.38780487804878	0.386053039702233	0.389611591666386
+0	21	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	59	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+0	21	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	59	14	0	14	14	14
+0	21	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	59	1.8116837371352	0.0256437416584879	1.80928481806775	1.79496855345912	1.83916507137366
+0	21	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	59	3	0	3	3	3
+0	21	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	59	1.02444787120655	0.00392268658988179	1.02383939774153	1.0219260762739	1.02789671517467
+0	21	CB	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	59	9	0	9	9	9
+0	21	CB	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	59	1.66773618382926	0.0173176699421132	1.66708385481852	1.65479115479115	1.67361138788674
+0	21	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	59	7	0	7	7	7
+0	21	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	59	0.809891669884005	0.00753060865677677	0.811794228356336	0.804785894206549	0.815382646027807
+0	21	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	59	13.864406779661	0.345294832472996	14	14	14
+0	21	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	59	1.9173411651977	0.0061109133557614	1.91676866585067	1.91374259236197	1.91898948556912
+0	21	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	59	1	0	1	1	1
+0	21	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	59	4	0	4	4	4
+0	21	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	59	2.53022950652762	0.00911350156715431	2.53172588832487	2.52504680894871	2.53641860124764
+0	21	CB	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	59	3	0	3	3	3
+0	21	CB	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	59	0.0125607007309849	0.000541802340304498	0.012531328320802	0.0122925676431211	0.0126342438289341
+0	21	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	59	12	0	12	12	12
+0	21	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	59	1.72164772936839	0.0117143537044289	1.7218045112782	1.71355772366605	1.73154352422645
+0	21	CB	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	59	5	0	5	5	5
+0	21	CB	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	59	0.108882916748892	0.0038714401837589	0.109159347553325	0.10685107929585	0.112400774992462
+0	21	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	59	9	0	9	9	9
+0	21	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	59	1.57710299317306	0.0111018532487515	1.57571964956195	1.57205243849079	1.57884868421053
+0	21	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	59	3	0	3	3	3
+0	21	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	59	0.651954477156035	0.00770125030543052	0.651133501259446	0.648034621450509	0.654911670978559
+0	21	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	59	3.98305084745763	0.130188910980824	4	4	4
+0	21	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	59	0.0122773107028506	0.000509145191706311	0.012453300124533	0.0122100122100122	0.0125786163522013
+0	21	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	59	19	0	19	19	19
+0	21	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	59	4.20547348441226	0.0282808346959788	4.20025031289111	4.18664372396881	4.23507952050323
+0	35	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	69	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0	35	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	69	20	0	20	20	20
+0	35	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	69	9.31191321933739	0.156634501224632	9.29268292682927	9.28501827040195	9.30232558139535
+0	35	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	69	8	0	8	8	8
+0	35	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	69	0.0149182400118496	0.00142695603232189	0.01468788249694	0.0146341463414634	0.0148514851485149
+0	35	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	69	0.931488801054018	0.00273604211558566	0.931818181818182	0.931818181818182	0.931818181818182
+0	35	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	69	40.9855072463768	0.120385853085769	41	41	41
+0	35	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	69	14.330404648959	0.225043762333531	14.3102189781022	14.2952029520295	14.3211233211233
+0	35	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	69	17	0	17	17	17
+0	35	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	69	2.68876584761182	0.0256178500547192	2.68711656441718	2.68170731707317	2.6919315403423
+0	35	CA	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	69	26.9855072463768	0.120385853085769	27	27	27
+0	35	CA	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	69	3.69121074114472	0.0438253506929333	3.68780487804878	3.68092909535452	3.69146341463415
+0	35	CA	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	69	3	0	3	3	3
+0	35	CA	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	69	0.388524581446611	0.00466405193922336	0.38780487804878	0.387332521315469	0.388753056234719
+0	35	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	69	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+0	35	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	69	14	0	14	14	14
+0	35	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	69	1.83716060373817	0.024629784307495	1.84009840098401	1.82533825338253	1.84398034398034
+0	35	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	69	2.98550724637681	0.120385853085769	3	3	3
+0	35	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	69	1.0265151078912	0.00700398662796977	1.02679658952497	1.02450980392157	1.0280487804878
+0	35	CA	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	69	9	0	9	9	9
+0	35	CA	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	69	1.65753301029871	0.0292758018500013	1.65158924205379	1.64756097560976	1.66089108910891
+0	35	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	69	7	0	7	7	7
+0	35	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	69	0.81430417170159	0.00668902047340667	0.813641900121803	0.812652068126521	0.816625916870416
+0	35	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	69	13.9855072463768	0.120385853085769	14	14	14
+0	35	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	69	1.91908274765482	0.0335518175635304	1.91463414634146	1.91240875912409	1.91758917589176
+0	35	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	69	1	0	1	1	1
+0	35	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	69	4	0	4	4	4
+0	35	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	69	2.53782099388786	0.0373995286531865	2.53545232273839	2.53020961775586	2.53667481662592
+0	35	CA	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	69	3	0	3	3	3
+0	35	CA	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	69	0.0123677394481201	0.000660646093398665	0.0122399020807834	0.0121951219512195	0.0123762376237624
+0	35	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	69	12	0	12	12	12
+0	35	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	69	1.72942356707764	0.0165886582577102	1.72992700729927	1.72515337423313	1.73185731857319
+0	35	CA	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	69	5	0	5	5	5
+0	35	CA	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	69	0.111515709068913	0.00187428101179595	0.112058465286236	0.110975609756098	0.112469437652812
+0	35	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	69	9	0	9	9	9
+0	35	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	69	1.57592070766656	0.0409182194510909	1.5700365408039	1.56812652068127	1.57340025094103
+0	35	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	69	3	0	3	3	3
+0	35	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	69	0.647895867570073	0.0115904266186858	0.645476772616137	0.64390243902439	0.649446494464945
+0	35	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	69	3.98550724637681	0.120385853085769	4	4	4
+0	35	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	69	0.0121784238867205	0.000397212601433403	0.0122249388753056	0.0121802679658952	0.0123456790123457
+0	35	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	69	19	0	19	19	19
+0	35	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	69	4.23520018584907	0.0622850814368114	4.2326431181486	4.22042341220423	4.23739237392374
+0	35	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	71	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0	35	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	71	20	0	20	20	20
+0	35	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	71	9.31595557615	0.197030252918498	9.2920245398773	9.28832116788321	9.29871690385138
+0	35	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	71	8	0	8	8	8
+0	35	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	71	0.0149771713062822	0.00254025417646084	0.0146520146520147	0.0146163215590743	0.0147058823529412
+0	35	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	71	0.930537772087068	0.00527760066945011	0.931818181818182	0.931818181818182	0.931818181818182
+0	35	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	71	40.943661971831	0.232214429455805	41	41	41
+0	35	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	71	14.348490640153	0.316094215653948	14.3113553113553	14.3036051204891	14.3208575915111
+0	35	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	71	17	0	17	17	17
+0	35	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	71	2.69612576489604	0.0488746392561802	2.690036900369	2.6865492500689	2.69405282104181
+0	35	CB	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	71	26.9859154929577	0.118678165819385	27	27	27
+0	35	CB	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	71	3.70045101924544	0.0738087937340654	3.69146341463415	3.68776653597328	3.69570591494333
+0	35	CB	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	71	3	0	3	3	3
+0	35	CB	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	71	0.389347010043081	0.0159340228325881	0.387332521315469	0.386861313868613	0.388278388278388
+0	35	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	71	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+0	35	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	71	14	0	14	14	14
+0	35	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	71	1.84832716040411	0.061260837913822	1.84371184371184	1.84036666497081	1.84445799433605
+0	35	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	71	2.98591549295775	0.118678165819385	3	3	3
+0	35	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	71	1.02936534728604	0.012761818539314	1.02798053527981	1.02689486552567	1.02923264311815
+0	35	CB	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	71	9	0	9	9	9
+0	35	CB	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	71	1.65036365072989	0.00969432279048339	1.64756097560976	1.64555420219245	1.65193365168946
+0	35	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	71	7	0	7	7	7
+0	35	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	71	0.816322991455901	0.0136572147657401	0.814634146341463	0.812805251667172	0.816625916870416
+0	35	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	71	13.943661971831	0.232214429455805	14	14	14
+0	35	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	71	1.92042522673102	0.0467796066818154	1.91452991452991	1.91240875912409	1.9171279337946
+0	35	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	71	1	0	1	1	1
+0	35	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	71	4	0	4	4	4
+0	35	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	71	2.5402260570484	0.0444026142385531	2.53545232273839	2.53374233128834	2.53649635036496
+0	35	CB	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	71	3	0	3	3	3
+0	35	CB	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	71	0.012334743501791	0.000886750343475072	0.0122100122100122	0.0121802679658952	0.0122549019607843
+0	35	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	71	12	0	12	12	12
+0	35	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	71	1.73539803216703	0.0344854046144413	1.73194614443084	1.72992700729927	1.73382173382173
+0	35	CB	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	71	5	0	5	5	5
+0	35	CB	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	71	0.113274426585391	0.00932230820258077	0.11219512195122	0.111922141119221	0.112607099143207
+0	35	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	71	9	0	9	9	9
+0	35	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	71	1.5750703738595	0.035880268541108	1.5703794369645	1.56812652068127	1.5729996029507
+0	35	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	71	3	0	3	3	3
+0	35	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	71	0.64551498883425	0.00822603339900764	0.64390243902439	0.643118148599269	0.645794895448955
+0	35	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	71	3.98591549295775	0.118678165819385	4	4	4
+0	35	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	71	0.0121773210018397	0.00103422490855543	0.0121951219512195	0.0121654501216545	0.0122399020807834
+0	35	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	71	19	0	19	19	19
+0	35	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	71	4.24782497529692	0.114450800841894	4.23479318734793	4.23284437041832	4.23751522533496
+1e-05	7	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	68	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	7	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	68	20	0	20	20	20
+1e-05	7	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	68	10.026080943067	0.78772174606137	9.74900584360917	9.44859835137176	10.4572407326057
+1e-05	7	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	68	7.88235294117647	0.680855733830396	8	8	8
+1e-05	7	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	68	0.0190447945115605	0.00495574501461782	0.0183627593312415	0.0171062270318971	0.0201861094227526
+1e-05	7	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	68	0.909090909090909	0.00680120001891567	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	7	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	68	40	0.29925280083229	40	40	40
+1e-05	7	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	68	15.2524884188989	1.17651191869853	14.8345760853935	14.3899835271969	15.8669443459251
+1e-05	7	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	68	17	0	17	17	17
+1e-05	7	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	68	2.79431496869119	0.179108818342667	2.75217220144532	2.65877650418839	2.88853558432766
+1e-05	7	CA	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	68	26.5147058823529	0.657735760099856	27	26	27
+1e-05	7	CA	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	68	3.88415663915432	0.273467483233324	3.80251696132323	3.68500438655278	4.02260751381887
+1e-05	7	CA	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	68	3	0	3	3	3
+1e-05	7	CA	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	68	0.404236386728306	0.0393621882332686	0.391796588429081	0.377804189570643	0.421607064552609
+1e-05	7	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	68	0.932352941176471	0.00808452083454443	0.933333333333333	0.933333333333333	0.933333333333333
+1e-05	7	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	68	13.9852941176471	0.121267812518167	14	14	14
+1e-05	7	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	68	1.84913666904261	0.167746944817384	1.80498207059015	1.73589597083828	1.90729845597625
+1e-05	7	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	68	2.75	0.436232171512701	3	2.75	3
+1e-05	7	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	68	1.06469976047136	0.04201406710636	1.05838650467616	1.03302425292053	1.08528193244856
+1e-05	7	CA	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	68	8.97058823529412	0.170213933457599	9	9	9
+1e-05	7	CA	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	68	1.83449278067879	0.0793611747305646	1.82384910412731	1.77192001672068	1.9047203342271
+1e-05	7	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	68	7	0	7	7	7
+1e-05	7	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	68	0.843775502562923	0.0710205259552936	0.826137351492321	0.794036746650584	0.88053613053613
+1e-05	7	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	68	12.9852941176471	0.404919268121714	13	13	13
+1e-05	7	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	68	2.08373279438131	0.172260284133035	2.0204563462586	1.95919236408399	2.1688270615818
+1e-05	7	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	68	1	0	1	1	1
+1e-05	7	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	68	4	0	4	4	4
+1e-05	7	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	68	2.69027780156725	0.17319891386928	2.63523185957007	2.55799605824323	2.79195305244852
+1e-05	7	CA	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	68	3	0	3	3	3
+1e-05	7	CA	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	68	0.0158409232897854	0.00290593345098126	0.0153022994427013	0.0142551891932476	0.0168217578522938
+1e-05	7	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	68	12	0	12	12	12
+1e-05	7	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	68	1.79297651913417	0.111472716338521	1.76789976724608	1.71128709736371	1.84485068215903
+1e-05	7	CA	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	68	5	0	5	5	5
+1e-05	7	CA	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	68	0.0946077291678534	0.015861171032337	0.0932022184110297	0.085197623030636	0.102364174010269
+1e-05	7	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	68	9	0	9	9	9
+1e-05	7	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	68	1.76345287871951	0.163367172414121	1.70518518518519	1.65115214945081	1.84040144628797
+1e-05	7	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	68	2.97058823529412	0.170213933457599	3	3	3
+1e-05	7	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	68	0.715620935471061	0.0323122851194982	0.714513672551056	0.690319355254889	0.739928394566018
+1e-05	7	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	68	3.57352941176471	0.498240979596121	4	3	4
+1e-05	7	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	68	0.0130231294218814	0.00305321914576754	0.0125654588037157	0.0118494152046784	0.0145285606203896
+1e-05	7	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	68	19	0	19	19	19
+1e-05	7	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	68	4.42432411081224	0.375135555121998	4.30361244446093	4.16429230201672	4.56883462182289
+1e-05	7	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	54	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	7	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	54	20	0	20	20	20
+1e-05	7	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	54	10.6322457789425	0.70523350257765	10.6520636226519	10.1130856219709	11.1741429305535
+1e-05	7	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	54	7.92592592592593	0.544331053951817	8	8	8
+1e-05	7	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	54	0.0206665367193066	0.00272779240445922	0.0207613078187157	0.0189128481581312	0.0228028657801892
+1e-05	7	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	54	0.908670033670034	0.00309279007927169	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	7	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	54	39.9814814814815	0.136082763487954	40	40	40
+1e-05	7	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	54	16.1657443587352	1.04472212964159	16.2082975441708	15.4424864077201	17.0100954950325
+1e-05	7	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	54	17	0	17	17	17
+1e-05	7	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	54	2.93285073230576	0.156519530454619	2.93658100266155	2.81812643906419	3.03541136556404
+1e-05	7	CB	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	54	26.6666666666667	0.582771517414359	27	26	27
+1e-05	7	CB	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	54	4.10231110307649	0.24147942884371	4.09943251912164	3.93309108527132	4.28991927028727
+1e-05	7	CB	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	54	3	0	3	3	3
+1e-05	7	CB	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	54	0.430682869838385	0.0342021483590253	0.431167436866919	0.402848626067972	0.461590803402905
+1e-05	7	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	54	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+1e-05	7	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	54	14	0	14	14	14
+1e-05	7	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	54	1.97115843998642	0.146138527534603	1.97579387334299	1.86224709784411	2.07479576804607
+1e-05	7	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	54	2.48148148148148	0.504348664241606	2	2	3
+1e-05	7	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	54	1.09661381238532	0.0362645327766882	1.09536349217042	1.06554190299871	1.11798022409714
+1e-05	7	CB	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	54	8.98148148148148	0.136082763487954	9	9	9
+1e-05	7	CB	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	54	1.8978268450811	0.0660620624235865	1.91408584362457	1.83106113950143	1.9498679245868
+1e-05	7	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	54	7	0	7	7	7
+1e-05	7	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	54	0.897962698047538	0.0644773073152433	0.907336129615922	0.846459293394777	0.944366254807299
+1e-05	7	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	54	12.962962962963	0.272165526975909	13	13	13
+1e-05	7	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	54	2.22159555850072	0.154373398561535	2.22795745920746	2.10421109316101	2.33456145817105
+1e-05	7	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	54	1	0	1	1	1
+1e-05	7	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	54	4	0	4	4	4
+1e-05	7	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	54	2.83172913895125	0.151814724755227	2.83199643493761	2.71838907014682	2.94997204165793
+1e-05	7	CB	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	54	3	0	3	3	3
+1e-05	7	CB	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	54	0.0172773514204483	0.00189979375822614	0.0173010898489298	0.0157607067984426	0.018895678155711
+1e-05	7	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	54	12	0	12	12	12
+1e-05	7	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	54	1.87698820273216	0.096677821801362	1.87743018734535	1.7945782913403	1.93293702575999
+1e-05	7	CB	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	54	5	0	5	5	5
+1e-05	7	CB	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	54	0.0989341590891443	0.0150575639653909	0.0961903577498653	0.0897639018328673	0.109311444809718
+1e-05	7	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	54	9	0	9	9	9
+1e-05	7	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	54	1.88341510604955	0.145560279362393	1.88043154761905	1.76453957996769	2.00410609524631
+1e-05	7	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	54	2.98148148148148	0.136082763487954	3	3	3
+1e-05	7	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	54	0.743612366707059	0.0241077266661895	0.751297566222939	0.721800747029881	0.761247360727627
+1e-05	7	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	54	3.7037037037037	0.46091089588801	4	3	4
+1e-05	7	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	54	0.0143824485187525	0.00227507995599901	0.0143416632387221	0.0130068937550689	0.0160929913110146
+1e-05	7	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	54	19	0	19	19	19
+1e-05	7	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	54	4.71111717108081	0.327536184591416	4.71974980161509	4.45842761557178	4.96379212419538
+1e-05	21	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	67	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	21	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	67	20	0	20	20	20
+1e-05	21	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	67	9.33407918339827	0.293640192352214	9.25714285714286	9.20560223105198	9.34868904827919
+1e-05	21	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	67	7.16417910447761	1.63852312404849	8	8	8
+1e-05	21	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	67	0.0148598226257291	0.00427138747285305	0.0165745856353591	0.0158311345646438	0.016889522790753
+1e-05	21	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	67	0.905020352781547	0.00963048603035938	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	21	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	67	39.8208955223881	0.423741385335813	40	40	40
+1e-05	21	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	67	14.2432030718251	0.451076172393517	14.1340782122905	14.0143526873613	14.2778109608924
+1e-05	21	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	67	17	0	17	17	17
+1e-05	21	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	67	2.64998323852618	0.0752582400739517	2.63955119214586	2.60810497519358	2.67094024898792
+1e-05	21	CA	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	67	26.2388059701493	0.986108854996857	27	26	27
+1e-05	21	CA	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	67	3.6536195910414	0.109916201496209	3.6417704011065	3.5929924712501	3.67228132387707
+1e-05	21	CA	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	67	3	0	3	3	3
+1e-05	21	CA	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	67	0.382981209331293	0.0154398366115514	0.37940379403794	0.374061131301836	0.388023112074114
+1e-05	21	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	67	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+1e-05	21	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	67	14	0	14	14	14
+1e-05	21	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	67	1.73954644721682	0.0710698422019473	1.72379603399433	1.7020344702238	1.75317733098261
+1e-05	21	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	67	2.97014925373134	0.171459797720291	3	3	3
+1e-05	21	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	67	1.03085383285165	0.0180026186553265	1.02808988764045	1.02108601004043	1.0333826570634
+1e-05	21	CA	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	67	8.7910447761194	0.409630781012121	9	9	9
+1e-05	21	CA	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	67	1.73442428119065	0.0356950930636083	1.72893258426966	1.7130376344086	1.74850906162253
+1e-05	21	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	67	7	0	7	7	7
+1e-05	21	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	67	0.788290137573518	0.0300689659524513	0.782738095238095	0.768161525974026	0.798596884504468
+1e-05	21	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	67	12.6119402985075	0.815665258892118	13	13	13
+1e-05	21	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	67	1.93148568051485	0.0629404480276635	1.91831357048748	1.90199527208085	1.93615356742868
+1e-05	21	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	67	1	0	1	1	1
+1e-05	21	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	67	4	0	4	4	4
+1e-05	21	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	67	2.52795651833544	0.0716404525710597	2.51336146272855	2.49205436427272	2.53990406842349
+1e-05	21	CA	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	67	3	0	3	3	3
+1e-05	21	CA	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	67	0.0131759563256276	0.0019482581816435	0.0138121546961326	0.0131926121372032	0.0140746023256275
+1e-05	21	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	67	12	0	12	12	12
+1e-05	21	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	67	1.70632689804642	0.0468348811886422	1.7006993006993	1.68023875892675	1.71488769863581
+1e-05	21	CA	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	67	5	0	5	5	5
+1e-05	21	CA	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	67	0.0960499885608764	0.0104786230971477	0.0950354609929078	0.0891986495883886	0.104430553917522
+1e-05	21	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	67	9	0	9	9	9
+1e-05	21	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	67	1.62163832855705	0.0582682351525615	1.60500695410292	1.5965538103283	1.62110505883415
+1e-05	21	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	67	2.7910447761194	0.409630781012121	3	3	3
+1e-05	21	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	67	0.675563787068758	0.0168018591488231	0.670454545454545	0.665297596959372	0.681108319966103
+1e-05	21	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	67	3.65671641791045	0.478388671890373	4	3	4
+1e-05	21	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	67	0.0102854448814378	0.00275014083404947	0.0111265646731572	0.00842105677860598	0.0124913796092603
+1e-05	21	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	67	19	0	19	19	19
+1e-05	21	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	67	4.14815335988202	0.148788147292495	4.12209302325581	4.07167568698401	4.17145467836257
+1e-05	21	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	59	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	21	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	59	20	0	20	20	20
+1e-05	21	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	59	9.49735406111012	0.308915298957614	9.39137134052388	9.28892440306226	9.5921382924033
+1e-05	21	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	59	7.52542372881356	1.30457989278872	8	8	8
+1e-05	21	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	59	0.0165357110114825	0.00356064037103784	0.0174927113702624	0.0169133276386102	0.0180451127819549
+1e-05	21	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	59	0.906394453004623	0.00741238575448133	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	21	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	59	39.8813559322034	0.326144973197179	40	40	40
+1e-05	21	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	59	14.466180817655	0.467482323512919	14.3007518796992	14.1446205881	14.5998182602967
+1e-05	21	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	59	17	0	17	17	17
+1e-05	21	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	59	2.67932761789508	0.0753941826292158	2.66315789473684	2.62801004000314	2.71211165099598
+1e-05	21	CB	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	59	26.5254237288136	0.837811850398772	27	26	27
+1e-05	21	CB	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	59	3.70626624288577	0.109997435420737	3.67647058823529	3.63753527848192	3.74034463174799
+1e-05	21	CB	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	59	3	0	3	3	3
+1e-05	21	CB	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	59	0.380541866239585	0.016046686612198	0.375907111756168	0.368384195783577	0.39074776685687
+1e-05	21	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	59	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+1e-05	21	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	59	14	0	14	14	14
+1e-05	21	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	59	1.74289981239159	0.0657402226862707	1.71964017991004	1.69483005207294	1.79265903104797
+1e-05	21	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	59	3	0	3	3	3
+1e-05	21	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	59	1.04061825515822	0.017727587325592	1.03790087463557	1.02920677387773	1.05124348807696
+1e-05	21	CB	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	59	8.88135593220339	0.326144973197179	9	9	9
+1e-05	21	CB	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	59	1.78940978282929	0.0536568311145377	1.78229317851959	1.74911291984756	1.82183579132732
+1e-05	21	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	59	7	0	7	7	7
+1e-05	21	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	59	0.795851550924016	0.0303639933768596	0.789230769230769	0.77538543328017	0.808521353746978
+1e-05	21	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	59	12.7627118644068	0.652289946394358	13	13	13
+1e-05	21	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	59	1.96821370075405	0.0639256641669457	1.94660894660895	1.92706766288905	1.98438192781768
+1e-05	21	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	59	1	0	1	1	1
+1e-05	21	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	59	4	0	4	4	4
+1e-05	21	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	59	2.57762476853526	0.0807593240581085	2.55187969924812	2.52563016650763	2.60410755884612
+1e-05	21	CB	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	59	3	0	3	3	3
+1e-05	21	CB	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	59	0.0142681085553448	0.00171336040701433	0.0145772594752187	0.0140944396988419	0.0150375939849624
+1e-05	21	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	59	12	0	12	12	12
+1e-05	21	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	59	1.72352674408745	0.0454966686791693	1.71186440677966	1.68997441071837	1.74989541191346
+1e-05	21	CB	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	59	5	0	5	5	5
+1e-05	21	CB	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	59	0.0903955272792505	0.00994566585408528	0.0892351274787535	0.0838799267898187	0.0980564976500908
+1e-05	21	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	59	9	0	9	9	9
+1e-05	21	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	59	1.65809686183366	0.0618847530989612	1.6481178396072	1.61390809739114	1.66937234647875
+1e-05	21	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	59	2.88135593220339	0.326144973197179	3	3	3
+1e-05	21	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	59	0.699625564655805	0.0208572820294336	0.6966618287373	0.683311622521349	0.711278195488722
+1e-05	21	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	59	3.76271186440678	0.429072096298892	4	4	4
+1e-05	21	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	59	0.0112949668146782	0.00246159885908606	0.0115440115440115	0.00979022894073831	0.0132061699846267
+1e-05	21	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	59	19	0	19	19	19
+1e-05	21	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	59	4.18501398511831	0.13844819935654	4.14157973174367	4.09591441839894	4.24195951394869
+1e-05	35	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	69	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	35	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	69	20	0	20	20	20
+1e-05	35	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	69	9.24293982881761	0.198458610574565	9.20632737276479	9.14769647696477	9.26377952755906
+1e-05	35	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	69	7.18840579710145	1.62041536358865	8	8	8
+1e-05	35	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	69	0.0145648698643258	0.00412620681474527	0.016304347826087	0.0158102766798419	0.0165061898211829
+1e-05	35	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	69	0.907114624505929	0.0127729856309524	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	35	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	69	39.9130434782609	0.562011367761904	40	40	40
+1e-05	35	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	69	14.1112274748806	0.310378625592064	14.0542328042328	13.9539295392954	14.1448275862069
+1e-05	35	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	69	17	0	17	17	17
+1e-05	35	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	69	2.62536085390465	0.0523715928671094	2.61898211829436	2.59641873278237	2.6505376344086
+1e-05	35	CA	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	69	26.536231884058	0.850254462688318	27	27	27
+1e-05	35	CA	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	69	3.61796464259426	0.0728332571206736	3.60689655172414	3.58038147138965	3.63962765957447
+1e-05	35	CA	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	69	3	0	3	3	3
+1e-05	35	CA	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	69	0.377183519923854	0.0100036426290318	0.37687074829932	0.370771312584574	0.381648936170213
+1e-05	35	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	69	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+1e-05	35	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	69	14	0	14	14	14
+1e-05	35	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	69	1.7241707017408	0.057097396027042	1.71389270976616	1.69283746556474	1.74048913043478
+1e-05	35	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	69	2.98550724637681	0.120385853085769	3	3	3
+1e-05	35	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	69	1.02314796006709	0.0114925948407899	1.02165087956698	1.01492537313433	1.0278940027894
+1e-05	35	CA	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	69	8.79710144927536	0.405103840897163	9	9	9
+1e-05	35	CA	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	69	1.71912255319643	0.0309300711064222	1.71506105834464	1.70295698924731	1.72890733056708
+1e-05	35	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	69	7	0	7	7	7
+1e-05	35	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	69	0.781137025566197	0.0211332759684859	0.777622377622378	0.768392370572207	0.790945406125166
+1e-05	35	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	69	12.7101449275362	0.92516213643184	13	13	13
+1e-05	35	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	69	1.90820774799352	0.0416093161903306	1.90326975476839	1.88843537414966	1.91469816272966
+1e-05	35	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	69	1	0	1	1	1
+1e-05	35	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	69	4	0	4	4	4
+1e-05	35	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	69	2.50846567539842	0.0509123691747749	2.4965034965035	2.48369565217391	2.51474530831099
+1e-05	35	CA	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	69	3	0	3	3	3
+1e-05	35	CA	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	69	0.0128601493081146	0.00176394778133446	0.0135869565217391	0.0131752305665349	0.0137551581843191
+1e-05	35	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	69	12	0	12	12	12
+1e-05	35	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	69	1.68983766576124	0.0316036130055479	1.68521031207598	1.67217630853994	1.7
+1e-05	35	CA	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	69	5	0	5	5	5
+1e-05	35	CA	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	69	0.0962858637147006	0.00814882348776349	0.096336499321574	0.0907840440165062	0.104084321475626
+1e-05	35	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	69	9	0	9	9	9
+1e-05	35	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	69	1.59554120476395	0.0438268354185571	1.58741258741259	1.57959183673469	1.59673024523161
+1e-05	35	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	69	2.79710144927536	0.405103840897163	3	3	3
+1e-05	35	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	69	0.670436733092822	0.0121003293497785	0.668478260869565	0.66304347826087	0.673553719008264
+1e-05	35	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	69	3.94202898550725	0.235400657891435	4	4	4
+1e-05	35	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	69	0.0100088863599381	0.00255277135409786	0.00969529085872576	0.00932090545938748	0.0122448979591837
+1e-05	35	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	69	19	0	19	19	19
+1e-05	35	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	69	4.10665638301855	0.104098371471714	4.09090909090909	4.05394190871369	4.12941176470588
+1e-05	35	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	71	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	35	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	71	20	0	20	20	20
+1e-05	35	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	71	9.35728765798217	0.257168289705008	9.29326287978864	9.23949893780675	9.35122898354281
+1e-05	35	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	71	6.70422535211268	1.8852386449707	8	4	8
+1e-05	35	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	71	0.0133083920793013	0.00523419044147003	0.0158311345646438	0.00669795068729139	0.0160535188883878
+1e-05	35	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	71	0.902048655569782	0.0112602762299996	0.909090909090909	0.886363636363636	0.909090909090909
+1e-05	35	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	71	39.6901408450704	0.495452154119984	40	39	40
+1e-05	35	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	71	14.3445575552766	0.413042435415362	14.2372654155496	14.1655450100661	14.36138253791
+1e-05	35	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	71	17	0	17	17	17
+1e-05	35	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	71	2.69752141672454	0.0713748300566355	2.69100391134289	2.65348134250573	2.71896941820411
+1e-05	35	CB	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	71	26.2957746478873	0.962056817407121	27	25	27
+1e-05	35	CB	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	71	3.70070362434816	0.102293915650052	3.68233799237611	3.64285826764765	3.72194577899794
+1e-05	35	CB	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	71	3	0	3	3	3
+1e-05	35	CB	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	71	0.384454697859756	0.0186275081432724	0.381526104417671	0.377136292572534	0.384564034096744
+1e-05	35	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	71	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+1e-05	35	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	71	14	0	14	14	14
+1e-05	35	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	71	1.79709848553151	0.0794974844313912	1.77979274611399	1.7627870010597	1.80719217225037
+1e-05	35	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	71	2.98591549295775	0.118678165819385	3	3	3
+1e-05	35	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	71	1.03883832905361	0.0175217597527282	1.0334672021419	1.02913907284768	1.03952576031107
+1e-05	35	CB	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	71	8.67605633802817	0.471309661242674	9	8	9
+1e-05	35	CB	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	71	1.69454628386976	0.0229859982636941	1.69078947368421	1.68083801291462	1.70246500185138
+1e-05	35	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	71	7	0	7	7	7
+1e-05	35	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	71	0.810065257082382	0.0245401457097759	0.807894736842105	0.793610547667343	0.819445594710616
+1e-05	35	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	71	12.3661971830986	0.959753489477054	13	11	13
+1e-05	35	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	71	1.92702773891988	0.059268669333695	1.91397849462366	1.90335275707641	1.92970822281167
+1e-05	35	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	71	1	0	1	1	1
+1e-05	35	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	71	4	0	4	4	4
+1e-05	35	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	71	2.54444105017832	0.0610557213234431	2.52803129074316	2.5176442317188	2.54812256920613
+1e-05	35	CB	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	71	3	0	3	3	3
+1e-05	35	CB	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	71	0.0121624005204641	0.00216491652749539	0.0131926121372032	0.00937713096220795	0.0133779324069898
+1e-05	35	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	71	12	0	12	12	12
+1e-05	35	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	71	1.73620424811787	0.0480123217814323	1.73026315789474	1.7093293035246	1.74967397495516
+1e-05	35	CB	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	71	5	0	5	5	5
+1e-05	35	CB	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	71	0.106804082825689	0.0116057693147456	0.105121293800539	0.101642563153721	0.109089787640095
+1e-05	35	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	71	9	0	9	9	9
+1e-05	35	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	71	1.60031096295711	0.0466352748278571	1.59072847682119	1.57958063608218	1.60316396730874
+1e-05	35	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	71	2.67605633802817	0.471309661242674	3	2	3
+1e-05	35	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	71	0.663506694686977	0.0110566141015863	0.660927152317881	0.656646473372697	0.667778463415326
+1e-05	35	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	71	3.94366197183099	0.232214429455805	4	4	4
+1e-05	35	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	71	0.00893979363770196	0.00290888915431387	0.00927152317880795	0.00539459085866026	0.0117725261526142
+1e-05	35	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	71	19	0	19	19	19
+1e-05	35	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	71	4.21571614155558	0.145265020347732	4.18134715025907	4.15710177762286	4.22023427471117
+1e-04	7	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	68	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-04	7	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	68	20	0	20	20	20
+1e-04	7	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	68	11.4602986174549	1.12286849131062	11.4699074074074	10.4847102526664	12.4322503096088
+1e-04	7	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	68	5.47058823529412	1.94299805451769	4	4	8
+1e-04	7	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	68	0.0196592630396678	0.0110591911473821	0.0133874806446063	0.0116550116550117	0.03072998507551
+1e-04	7	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	68	0.884692513368984	0.0126120098518519	0.886363636363636	0.886363636363636	0.886363636363636
+1e-04	7	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	68	38.9264705882353	0.554928433481486	39	39	39
+1e-04	7	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	68	17.2802041418574	1.65903398872097	17.2756353427896	15.8312351988034	18.7383299484456
+1e-04	7	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	68	17	0	17	17	17
+1e-04	7	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	68	3.02747751734433	0.242601143909532	3.03386982570806	2.83614903261175	3.21306726587226
+1e-04	7	CA	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	68	24.6911764705882	1.02589390131316	24	24	26
+1e-04	7	CA	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	68	4.27720794776093	0.380523048083613	4.28306481481481	3.95744505199134	4.62664172825053
+1e-04	7	CA	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	68	2.97058823529412	0.170213933457599	3	3	3
+1e-04	7	CA	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	68	0.464617275817528	0.0609341536490182	0.456386113401562	0.416010743172962	0.518358083046558
+1e-04	7	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	68	0.903921568627451	0.0333479628417547	0.933333333333333	0.866666666666667	0.933333333333333
+1e-04	7	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	68	13.5588235294118	0.500219442626321	14	13	14
+1e-04	7	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	68	2.11066991779312	0.247102090926837	2.09237501971298	1.91263769416424	2.31417352281227
+1e-04	7	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	68	2.41176470588235	0.495812136956775	2	2	3
+1e-04	7	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	68	1.13416298916143	0.0567181224389965	1.13849815288434	1.08446689358476	1.17660759956156
+1e-04	7	CA	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	68	8.36764705882353	0.485749513629422	8	8	9
+1e-04	7	CA	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	68	2.00272574563211	0.0890199026882138	2.01724430312666	1.94878719687504	2.06965894465894
+1e-04	7	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	68	7	0	7	7	7
+1e-04	7	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	68	0.918140090392219	0.101023055273434	0.919137254901961	0.841113187887381	1.01186958160573
+1e-04	7	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	68	11.6911764705882	1.02589390131316	11	11	13
+1e-04	7	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	68	2.38993441266458	0.253480896531295	2.38983067936627	2.16947020370933	2.58782722513089
+1e-04	7	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	68	1	0	1	1	1
+1e-04	7	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	68	4	0	4	4	4
+1e-04	7	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	68	2.93949195671508	0.218379621752465	2.97123799298051	2.75712191034772	3.14448896335689
+1e-04	7	CA	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	68	3	0	3	3	3
+1e-04	7	CA	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	68	0.019834677990694	0.00582987230388708	0.0179264709740038	0.0152505446623094	0.0240915568222301
+1e-04	7	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	68	12	0	12	12	12
+1e-04	7	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	68	1.9535671835244	0.15395354056327	1.96588007592958	1.82832545952775	2.07227055194384
+1e-04	7	CA	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	68	5	0	5	5	5
+1e-04	7	CA	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	68	0.088166045714765	0.0183940606443472	0.0847258225324028	0.077265764161026	0.096245100061894
+1e-04	7	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	68	8.97058823529412	0.170213933457599	9	9	9
+1e-04	7	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	68	2.12038403184334	0.240452062895184	2.12629393803992	1.91898864409926	2.30984555984556
+1e-04	7	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	68	2.36764705882353	0.485749513629423	2	2	3
+1e-04	7	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	68	0.7912953397582	0.0382022436171261	0.799736147757256	0.768607730448501	0.818805970149254
+1e-04	7	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	68	3	0	3	3	3
+1e-04	7	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	68	0.0128178777813288	0.00657380017055815	0.0104094479094479	0.00729617856643845	0.0184545144222564
+1e-04	7	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	68	19	0	19	19	19
+1e-04	7	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	68	5.11382712346018	0.568353791076747	5.06570080862534	4.63481461286805	5.58223411737126
+1e-04	7	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	54	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-04	7	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	54	20	0	20	20	20
+1e-04	7	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	54	12.2885257707182	0.911718354892726	12.734139999409	11.7261413043478	12.942044044665
+1e-04	7	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	54	5.11111111111111	1.80843585774346	4	4	8
+1e-04	7	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	54	0.0198997416803567	0.0101526866896508	0.0150376279894352	0.0133512064343164	0.0270134778165552
+1e-04	7	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	54	0.875841750841751	0.0137594239730304	0.863636363636364	0.863636363636364	0.886363636363636
+1e-04	7	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	54	38.537037037037	0.605414654813338	38	38	39
+1e-04	7	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	54	18.5046456159737	1.33140566040653	19.1765889814202	17.7394526397516	19.4445970695971
+1e-04	7	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	54	17	0	17	17	17
+1e-04	7	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	54	3.19209038161886	0.177814318301255	3.24402401410002	3.09405540720961	3.32533276819854
+1e-04	7	CB	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	54	24.5555555555556	0.90421792887173	24	24	26
+1e-04	7	CB	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	54	4.55330015477083	0.286053629447071	4.66910425372335	4.40126086956522	4.76002875136911
+1e-04	7	CB	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	54	2.98148148148148	0.136082763487954	3	3	3
+1e-04	7	CB	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	54	0.511329920102694	0.0467316644499376	0.519938837920489	0.484085412052687	0.54458280790248
+1e-04	7	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	54	0.883950617283951	0.0294895360333259	0.866666666666667	0.866666666666667	0.916666666666667
+1e-04	7	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	54	13.2592592592593	0.442343040499889	13	13	13.75
+1e-04	7	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	54	2.29715773452907	0.188727629177041	2.37568664169788	2.20969360398315	2.42361286520165
+1e-04	7	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	54	2.12962962962963	0.339049520304525	2	2	2
+1e-04	7	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	54	1.16687352050035	0.044861803723287	1.17059905079342	1.13161786637502	1.20020645645646
+1e-04	7	CB	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	54	8.27777777777778	0.452108964435865	8	8	9
+1e-04	7	CB	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	54	2.05608056210781	0.0698734246481792	2.06417725380596	2.01897401433692	2.11036874640598
+1e-04	7	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	54	7	0	7	7	7
+1e-04	7	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	54	0.994468879406541	0.0811220702900498	1.01232738807529	0.953690065014222	1.0482218262116
+1e-04	7	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	54	11.5555555555556	0.90421792887173	11	11	13
+1e-04	7	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	54	2.58489207348075	0.2042328166885	2.68067792697472	2.45739130434783	2.73136520737327
+1e-04	7	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	54	1	0	1	1	1
+1e-04	7	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	54	4	0	4	4	4
+1e-04	7	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	54	3.09472040335579	0.176299311904291	3.13669506867972	3.01417223910841	3.22270150891104
+1e-04	7	CB	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	54	3	0	3	3	3
+1e-04	7	CB	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	54	0.0212830679724941	0.0049532513701069	0.0197222222222222	0.0180064532372194	0.0231444746238594
+1e-04	7	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	54	12	0	12	12	12
+1e-04	7	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	54	2.04474451353092	0.113265551477288	2.05414851956227	1.97274989841528	2.13427034657321
+1e-04	7	CB	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	54	5	0	5	5	5
+1e-04	7	CB	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	54	0.0884770838309945	0.0167450776573914	0.0867867867867868	0.076284388465363	0.0976060117026227
+1e-04	7	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	54	8.83333333333333	0.37617739693164	9	9	9
+1e-04	7	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	54	2.28765954510798	0.19548627573728	2.36476942251766	2.14983233117484	2.42836538461538
+1e-04	7	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	54	2.27777777777778	0.452108964435865	2	2	3
+1e-04	7	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	54	0.82124844877992	0.0263801087560807	0.830408456486043	0.810227690047742	0.839070344671969
+1e-04	7	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	54	3	0	3	3	3
+1e-04	7	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	54	0.0111515676012066	0.00486727929389872	0.00902257679366113	0.00801072386058981	0.0156183833603188
+1e-04	7	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	54	19	0	19	19	19
+1e-04	7	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	54	5.572447413635	0.446020146610578	5.7491935483871	5.34560595024653	5.89397658610272
+1e-04	21	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	67	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-04	21	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	67	20	0	20	20	20
+1e-04	21	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	67	9.79232330385915	0.688535029586674	9.51417769376181	9.31862410048748	10.1316958260742
+1e-04	21	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	67	4.65671641791045	1.49293527032924	4	4	4
+1e-04	21	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	67	0.0119123896997558	0.00590894862052148	0.0100200400801603	0.00854798423737095	0.0109170305676856
+1e-04	21	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	67	0.883310719131615	0.0111168254901814	0.886363636363636	0.886363636363636	0.886363636363636
+1e-04	21	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	67	38.865671641791	0.489140321567981	39	39	39
+1e-04	21	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	67	14.8186789845838	1.03352001802618	14.3906581740977	14.13082203268	15.2580852943342
+1e-04	21	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	67	17	0	17	17	17
+1e-04	21	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	67	2.65726769349789	0.15591781040134	2.62124248496994	2.53938200906705	2.73755769795178
+1e-04	21	CA	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	67	24.1194029850746	0.929685317560691	24	24	24
+1e-04	21	CA	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	67	3.69955402489969	0.240641733507573	3.63369963369963	3.53189825080069	3.81568228105906
+1e-04	21	CA	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	67	3	0	3	3	3
+1e-04	21	CA	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	67	0.386060255024934	0.0358698322994488	0.375984251968504	0.365626804311681	0.387613463519945
+1e-04	21	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	67	0.913432835820896	0.0307371289164233	0.933333333333333	0.866666666666667	0.933333333333333
+1e-04	21	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	67	13.7014925373134	0.46105693374635	14	13	14
+1e-04	21	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	67	1.76921702064577	0.144482795932291	1.72393822393822	1.68174282574368	1.79674712781383
+1e-04	21	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	67	2.85074626865672	0.359027784156703	3	3	3
+1e-04	21	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	67	1.0540902940842	0.0351376169499737	1.04382470119522	1.02980666437152	1.0737864564313
+1e-04	21	CA	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	67	8.16417910447761	0.373233817582309	8	8	8
+1e-04	21	CA	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	67	1.81649116850304	0.0715973917235513	1.80651731160896	1.7627753776707	1.85620514346396
+1e-04	21	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	67	7	0	7	7	7
+1e-04	21	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	67	0.769193486730997	0.0636456601211165	0.751968503937008	0.72691472701209	0.79694938695178
+1e-04	21	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	67	11.1194029850746	0.929685317560691	11	11	11
+1e-04	21	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	67	2.01704196193134	0.151662514724869	1.96590909090909	1.91444517422098	2.0687454502327
+1e-04	21	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	67	1	0	1	1	1
+1e-04	21	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	67	4	0	4	4	4
+1e-04	21	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	67	2.59550534816689	0.15369050516505	2.53663003663004	2.49204421424461	2.67540630955594
+1e-04	21	CA	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	67	3	0	3	3	3
+1e-04	21	CA	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	67	0.0135091743564854	0.00362813535294827	0.0128913443830571	0.0116854154182248	0.0149903931252379
+1e-04	21	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	67	12	0	12	12	12
+1e-04	21	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	67	1.73022287101002	0.0975130666857552	1.7051282051282	1.65598841506385	1.77849991515357
+1e-04	21	CA	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	67	5	0	5	5	5
+1e-04	21	CA	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	67	0.0816571752596898	0.0109172657682903	0.0789980732177264	0.0752105709732828	0.0846040750789528
+1e-04	21	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	67	8.98507462686567	0.122169444356305	9	9	9
+1e-04	21	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	67	1.75295131625313	0.139749991921327	1.70833333333333	1.65704786583875	1.81801748746514
+1e-04	21	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	67	2.16417910447761	0.373233817582309	2	2	2
+1e-04	21	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	67	0.713185709816535	0.0295503818890312	0.706563706563707	0.691937837120877	0.731027885125407
+1e-04	21	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	67	3	0	3	3	3
+1e-04	21	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	67	0.00719981609555305	0.0026745653068162	0.00610997963340122	0.00574712643678161	0.00668420007939659
+1e-04	21	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	67	19	0	19	19	19
+1e-04	21	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	67	4.2712252020366	0.344223425716231	4.16498993963783	4.04201955758623	4.39323894355426
+1e-04	21	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	59	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-04	21	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	59	20	0	20	20	20
+1e-04	21	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	59	10.2131062077924	0.762373563947907	10.0082135523614	9.59078663793104	10.7754862508384
+1e-04	21	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	59	4.67796610169492	1.51362408176537	4	4	4
+1e-04	21	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	59	0.0131874636726013	0.00699853168063293	0.0104602510460251	0.00958780703044565	0.0118347338935574
+1e-04	21	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	59	0.883281972265023	0.0142855072758782	0.886363636363636	0.863636363636364	0.886363636363636
+1e-04	21	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	59	38.864406779661	0.628562320138641	39	38	39
+1e-04	21	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	59	15.4470340228012	1.13517191222053	15.0985626283368	14.5418060842338	16.34875443135
+1e-04	21	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	59	17	0	17	17	17
+1e-04	21	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	59	2.77201703264296	0.166754940667024	2.74807692307692	2.65457621703265	2.89324404972638
+1e-04	21	CB	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	59	24.2542372881356	0.84268086852131	24	24	24
+1e-04	21	CB	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	59	3.87501125708763	0.258844057812472	3.80952380952381	3.70392216172615	4.05345657249035
+1e-04	21	CB	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	59	2.89830508474576	0.304841126187198	3	3	3
+1e-04	21	CB	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	59	0.401121729525021	0.0406442393009765	0.388090349075975	0.371698397170592	0.430125405100747
+1e-04	21	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	59	0.912994350282486	0.0309597125139751	0.933333333333333	0.866666666666667	0.933333333333333
+1e-04	21	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	59	13.6949152542373	0.464395687709626	14	13	14
+1e-04	21	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	59	1.8486238572235	0.155081589825698	1.79671457905544	1.72051080550098	1.96793058211762
+1e-04	21	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	59	2.76271186440678	0.429072096298892	3	3	3
+1e-04	21	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	59	1.07886906901651	0.0365126680917121	1.075	1.05409356725146	1.10160864345738
+1e-04	21	CB	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	59	8.16949152542373	0.378406020441342	8	8	8
+1e-04	21	CB	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	59	1.91254118154761	0.0818219265426835	1.90373280943026	1.84734414453834	1.96643322934269
+1e-04	21	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	59	7	0	7	7	7
+1e-04	21	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	59	0.813646091679728	0.0691207865089023	0.802238805970149	0.761775251460716	0.860809621589909
+1e-04	21	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	59	11.2542372881356	0.84268086852131	11	11	11
+1e-04	21	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	59	2.11989346681783	0.164273061685214	2.07218683651805	1.98634335404483	2.23182270510123
+1e-04	21	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	59	1	0	1	1	1
+1e-04	21	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	59	4	0	4	4	4
+1e-04	21	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	59	2.70259788383064	0.168702740521489	2.65660377358491	2.57162820345188	2.82418157594214
+1e-04	21	CB	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	59	3	0	3	3	3
+1e-04	21	CB	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	59	0.0157069268139552	0.00381460112595605	0.0146443514644351	0.013487525987526	0.0165686274509804
+1e-04	21	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	59	12	0	12	12	12
+1e-04	21	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	59	1.79410378033552	0.102514645277196	1.77605321507761	1.72182788736136	1.85875370469649
+1e-04	21	CB	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	59	5	0	5	5	5
+1e-04	21	CB	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	59	0.0821023997459464	0.0117767722948764	0.0804123711340206	0.0720332671300894	0.0921325051759834
+1e-04	21	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	59	8.96610169491525	0.182520824972938	9	9	9
+1e-04	21	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	59	1.84130240217411	0.157948930475246	1.80321285140562	1.71038048446069	1.95895597974289
+1e-04	21	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	59	2.16949152542373	0.378406020441342	2	2	2
+1e-04	21	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	59	0.755289315010543	0.0316143593110474	0.7524557956778	0.732995637581125	0.775500068260671
+1e-04	21	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	59	3	0	3	3	3
+1e-04	21	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	59	0.00797461298125498	0.00395937216684332	0.00639658848614072	0.00601204819277108	0.00710084033613445
+1e-04	21	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	59	19	0	19	19	19
+1e-04	21	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	59	4.49611350426575	0.363906225508113	4.40936863543788	4.21227933689932	4.73351313555089
+1e-04	35	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	69	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-04	35	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	69	20	0	20	20	20
+1e-04	35	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	69	9.40112513285523	0.446098253237599	9.29928315412186	9.15073529411765	9.55080213903743
+1e-04	35	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	69	4.30434782608696	1.20421255484148	4	4	4
+1e-04	35	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	69	0.00998414511400579	0.00456143279728749	0.00889679715302491	0.00835073068893528	0.00934579439252336
+1e-04	35	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	69	0.890316205533597	0.00951270941540259	0.886363636363636	0.886363636363636	0.886363636363636
+1e-04	35	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	69	39.1739130434783	0.418559214277714	39	39	39
+1e-04	35	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	69	14.2461685179145	0.679020707308852	14.0726643598616	13.8921232876712	14.4926931106472
+1e-04	35	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	69	16.9710144927536	0.240771706171538	17	17	17
+1e-04	35	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	69	2.57824327018147	0.117426323242808	2.5668449197861	2.50568181818182	2.6411214953271
+1e-04	35	CA	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	69	23.8695652173913	0.922162475767452	24	23	24
+1e-04	35	CA	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	69	3.57156461088391	0.167982659123166	3.55511022044088	3.45547945205479	3.63992869875223
+1e-04	35	CA	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	69	2.95652173913043	0.20542514084466	3	3	3
+1e-04	35	CA	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	69	0.361640649086243	0.0252913129043056	0.359430604982206	0.346026490066225	0.371376811594203
+1e-04	35	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	69	0.932367149758454	0.00802572353905128	0.933333333333333	0.933333333333333	0.933333333333333
+1e-04	35	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	69	13.9855072463768	0.120385853085769	14	14	14
+1e-04	35	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	69	1.67546274631402	0.106739174022317	1.65162454873646	1.61870503597122	1.72159090909091
+1e-04	35	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	69	2.94202898550725	0.235400657891435	3	3	3
+1e-04	35	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	69	1.03378822450369	0.0260013002762439	1.02828618968386	1.014440433213	1.05169340463458
+1e-04	35	CA	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	69	8.08695652173913	0.283835621172797	8	8	8
+1e-04	35	CA	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	69	1.78412074518552	0.0491159396160116	1.78401360544218	1.74955595026643	1.80213903743316
+1e-04	35	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	69	6.98550724637681	0.120385853085769	7	7	7
+1e-04	35	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	69	0.739406502979075	0.0499461862162482	0.734864300626305	0.703971119133574	0.761140819964349
+1e-04	35	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	69	11	0.822478320829974	11	11	11
+1e-04	35	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	69	1.9271290279077	0.0961959886904374	1.91891891891892	1.87033747779751	1.96654275092937
+1e-04	35	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	69	1	0	1	1	1
+1e-04	35	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	69	4	0	4	4	4
+1e-04	35	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	69	2.53535443283475	0.103567315175162	2.50729927007299	2.47448979591837	2.57194244604317
+1e-04	35	CA	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	69	2.98550724637681	0.120385853085769	3	3	3
+1e-04	35	CA	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	69	0.011800717702704	0.00279888104896265	0.0117252931323283	0.0102040816326531	0.0125223613595707
+1e-04	35	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	69	11.9710144927536	0.240771706171538	12	12	12
+1e-04	35	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	69	1.6787482408348	0.0687027983370006	1.6643598615917	1.63265306122449	1.71186440677966
+1e-04	35	CA	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	69	4.97101449275362	0.240771706171538	5	5	5
+1e-04	35	CA	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	69	0.0821787821855092	0.0112262081896949	0.0796812749003984	0.0753968253968254	0.087719298245614
+1e-04	35	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	69	8.92753623188406	0.312430725484497	9	9	9
+1e-04	35	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	69	1.65849142375501	0.0927024666092925	1.63768115942029	1.61213235294118	1.69107142857143
+1e-04	35	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	69	2.08695652173913	0.283835621172797	2	2	2
+1e-04	35	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	69	0.704056063809999	0.019634403353046	0.702380952380952	0.691335740072202	0.712686567164179
+1e-04	35	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	69	2.97101449275362	0.382369335342678	3	3	3
+1e-04	35	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	69	0.00604242978422542	0.00204538660409806	0.00545454545454545	0.00528169014084507	0.00595238095238095
+1e-04	35	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	69	18.9855072463768	0.120385853085769	19	19	19
+1e-04	35	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	69	4.05199257196515	0.235886366830842	3.99337748344371	3.92972972972973	4.14438502673797
+1e-04	35	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	71	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-04	35	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	71	20	0	20	20	20
+1e-04	35	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	71	9.62746324967017	0.591303568199862	9.51831501831502	9.32091391337037	9.74284515050403
+1e-04	35	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	71	4.53521126760563	1.71406772591228	4	4	4
+1e-04	35	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	71	0.0106894927906112	0.00609004113475897	0.00878734622144113	0.00769977545409407	0.00993127988259985
+1e-04	35	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	71	0.889244558258643	0.0101126896279402	0.886363636363636	0.886363636363636	0.886363636363636
+1e-04	35	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	71	39.1267605633803	0.44495834362937	39	39	39
+1e-04	35	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	71	14.6731402945744	0.904812838437888	14.4891122278057	14.2048471694701	14.8324614465479
+1e-04	35	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	71	16.9154929577465	0.405197619272354	17	17	17
+1e-04	35	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	71	2.68584379408869	0.149659088616385	2.666015625	2.59832978315338	2.74263355691927
+1e-04	35	CB	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	71	23.8591549295775	1.33412116228397	24	23	24
+1e-04	35	CB	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	71	3.70697050341224	0.21393232982832	3.67712177121771	3.58796353459275	3.77070868578502
+1e-04	35	CB	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	71	2.69014084507042	0.465726752990103	3	2	3
+1e-04	35	CB	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	71	0.389248052867279	0.0339021395040877	0.381918819188192	0.370372680492749	0.395048548624879
+1e-04	35	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	71	0.930516431924883	0.0135065873090785	0.933333333333333	0.933333333333333	0.933333333333333
+1e-04	35	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	71	13.9577464788732	0.202598809636177	14	14	14
+1e-04	35	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	71	1.79718395468365	0.144408120380866	1.76752767527675	1.71906788796624	1.82220000617589
+1e-04	35	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	71	2.94366197183099	0.232214429455805	3	3	3
+1e-04	35	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	71	1.05902340101274	0.0325557060223266	1.05805243445693	1.03899361508057	1.07258067719983
+1e-04	35	CB	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	71	8.16901408450704	0.377431753261728	8	8	8
+1e-04	35	CB	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	71	1.74413891648788	0.0586724039463464	1.73809523809524	1.70871540685667	1.77349693347764
+1e-04	35	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	71	6.95774647887324	0.202598809636177	7	7	7
+1e-04	35	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	71	0.789941908264102	0.0642114812659078	0.783171521035599	0.754303546482808	0.815190166975881
+1e-04	35	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	71	10.9859154929577	1.02110525197635	11	10	11
+1e-04	35	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	71	1.98003888676709	0.12795114306935	1.95042735042735	1.91487489911219	2.01280719554224
+1e-04	35	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	71	1	0	1	1	1
+1e-04	35	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	71	4	0	4	4	4
+1e-04	35	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	71	2.5926003484996	0.133166211744744	2.57114228456914	2.53173241852487	2.62596512105629
+1e-04	35	CB	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	71	2.95774647887324	0.202598809636177	3	3	3
+1e-04	35	CB	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	71	0.0122801206123131	0.00302271276920748	0.0120274914089347	0.0105448154657293	0.0135880077369439
+1e-04	35	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	71	11.9154929577465	0.405197619272354	12	12	12
+1e-04	35	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	71	1.7400610575348	0.0888877969485884	1.72841726618705	1.68346871843129	1.7720057050555
+1e-04	35	CB	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	71	4.91549295774648	0.405197619272354	5	5	5
+1e-04	35	CB	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	71	0.104554531593204	0.0158579538781762	0.102564102564103	0.0970580052858534	0.109345663444024
+1e-04	35	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	71	8.91549295774648	0.405197619272354	9	9	9
+1e-04	35	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	71	1.68469542039741	0.118574545762573	1.66300366300366	1.62396018135226	1.7169349294437
+1e-04	35	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	71	2.16901408450704	0.377431753261727	2	2	2
+1e-04	35	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	71	0.694274195473634	0.0249030388746426	0.693989071038251	0.679116804933559	0.707312415535578
+1e-04	35	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	71	2.88732394366197	0.62219188070764	3	3	3
+1e-04	35	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	71	0.00652967652499113	0.00287876473711168	0.00571428571428571	0.00545456348616028	0.00643087555486118
+1e-04	35	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	71	18.9577464788732	0.202598809636177	19	19	19
+1e-04	35	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	71	4.22712551292742	0.321145748892482	4.18090452261307	4.06823899371069	4.28227254262164
+0.001	7	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	68	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0.001	7	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	68	20	0	20	20	20
+0.001	7	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	68	13.0667390728801	1.03371277810657	13.3217647058824	12.6274746723673	13.7663650075415
+0.001	7	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	68	4	1.54533481857251	4	4	4
+0.001	7	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	68	0.033274325069907	0.0195850958212958	0.0308884913536076	0.0275862068965517	0.0343366778149387
+0.001	7	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	68	0.863302139037433	0.01271942422451	0.863636363636364	0.863636363636364	0.863636363636364
+0.001	7	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	68	37.9852941176471	0.55965466587844	38	38	38
+0.001	7	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	68	19.6588033678888	1.50348321351767	20.0237838632244	19.102992843201	20.781175059952
+0.001	7	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	68	16.75	0.903971337545875	17	17	17
+0.001	7	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	68	3.32032993149286	0.241649497007141	3.34456467150619	3.19745222929936	3.48974619832941
+0.001	7	CA	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	68	22.8382352941176	1.9820861474843	23	22.75	24
+0.001	7	CA	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	68	4.74215672673184	0.3568673844821	4.82184258694326	4.59623417983291	5
+0.001	7	CA	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	68	2.36764705882353	0.485749513629423	2	2	3
+0.001	7	CA	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	68	0.563132724188102	0.076385963047158	0.563013397759719	0.52171974522293	0.603492239467849
+0.001	7	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	68	0.86078431372549	0.032035001830936	0.866666666666667	0.866666666666667	0.866666666666667
+0.001	7	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	68	12.9117647058824	0.480525027464038	13	13	13
+0.001	7	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	68	2.50501962599195	0.245846661869664	2.55318181818182	2.37405303030303	2.65386514317957
+0.001	7	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	68	2.02941176470588	0.170213933457599	2	2	2
+0.001	7	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	68	1.19811534657129	0.0655242453956887	1.20347786811201	1.16744477736743	1.23954836740922
+0.001	7	CA	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	68	7.73529411764706	0.588893398325833	8	7	8
+0.001	7	CA	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	68	2.15007113383461	0.107355791437917	2.15268065268065	2.11036585365854	2.2092803030303
+0.001	7	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	68	6.8235294117647	0.645100396457867	7	7	7
+0.001	7	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	68	1.01170996475926	0.102555898320589	1.03479313213826	0.931164383561644	1.07283813747228
+0.001	7	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	68	10.5	0.889406980026244	10	10	11
+0.001	7	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	68	2.67441804825592	0.221051488814248	2.71409593739433	2.57982112227395	2.80107811947685
+0.001	7	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	68	1	0	1	1	1
+0.001	7	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	68	4	0	4	4	4
+0.001	7	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	68	3.23502090069886	0.192758315874987	3.2800393225792	3.14462908864518	3.37182675537756
+0.001	7	CA	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	68	2.82352941176471	0.667836258209117	3	3	3
+0.001	7	CA	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	68	0.0330591390153797	0.0143059476397861	0.0321331784746419	0.0273506662939148	0.0379632310364794
+0.001	7	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	68	11.7647058823529	0.848486748835805	12	12	12
+0.001	7	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	68	2.14676911103068	0.158561077930555	2.15621212121212	2.07680058794709	2.25805535628886
+0.001	7	CA	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	68	4.80882352941176	0.652374604893343	5	5	5
+0.001	7	CA	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	68	0.0905308126941505	0.0254611816386216	0.0919059897454136	0.076657824933687	0.100059618441971
+0.001	7	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	68	8.51470588235294	0.762804078028833	9	8	9
+0.001	7	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	68	2.51480409971514	0.243941950273461	2.54909790002958	2.36449399656947	2.68542281879195
+0.001	7	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	68	2.07352941176471	0.262944093177546	2	2	2
+0.001	7	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	68	0.872828989754301	0.0444071892220401	0.876293995859213	0.849339257233994	0.903448275862069
+0.001	7	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	68	2.77941176470588	0.788832279532639	3	3	3
+0.001	7	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	68	0.0246303586001874	0.0144042886225962	0.0219783168741949	0.0201342281879195	0.025
+0.001	7	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	68	18.8823529411765	0.441483650741244	19	19	19
+0.001	7	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	68	5.95659716672324	0.584712704477463	6.04313543599258	5.6566760577552	6.3316091954023
+0.001	7	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	54	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0.001	7	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	54	20	0	20	20	20
+0.001	7	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	54	13.6053770544729	0.689624453827668	13.7764097512928	13.3210548414185	14.0567765567766
+0.001	7	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	54	3.74074074074074	1.21601243143449	4	4	4
+0.001	7	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	54	0.0309835768892086	0.0117939344239963	0.0323891948596905	0.0292507513954487	0.0351693622215441
+0.001	7	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	54	0.858585858585859	0.0195789665769419	0.863636363636364	0.863636363636364	0.863636363636364
+0.001	7	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	54	37.7777777777778	0.861474529385444	38	38	38
+0.001	7	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	54	20.4732212814986	1.0051166588138	20.7387197358767	20.1871512316104	21.1627266320712
+0.001	7	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	54	16.7222222222222	0.877747259507158	17	17	17
+0.001	7	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	54	3.42170093398108	0.192868435365724	3.43613805549289	3.33705357142857	3.53955306574735
+0.001	7	CB	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	54	22.8703703703704	1.66026022393509	23	23	24
+0.001	7	CB	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	54	4.91133039832819	0.253720746815597	4.96634969151525	4.81655996987385	5.04506543075245
+0.001	7	CB	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	54	2.22222222222222	0.419643454531127	2	2	2
+0.001	7	CB	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	54	0.593498161539664	0.055021124920177	0.608073209072535	0.56984007996002	0.62817324462244
+0.001	7	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	54	0.850617283950617	0.0563534595214088	0.866666666666667	0.866666666666667	0.866666666666667
+0.001	7	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	54	12.7592592592593	0.845301892821131	13	13	13
+0.001	7	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	54	2.64407123202303	0.167256496591623	2.69883720930233	2.59904049917589	2.73249579478553
+0.001	7	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	54	2.01851851851852	0.136082763487954	2	2	2
+0.001	7	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	54	1.22223443984797	0.0525148098627476	1.22428319919517	1.19385629989587	1.25737817433082
+0.001	7	CB	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	54	7.85185185185185	0.528701057145429	8	8	8
+0.001	7	CB	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	54	2.2121122493469	0.101689742216536	2.21078659831184	2.17022577343039	2.25695970695971
+0.001	7	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	54	6.81481481481481	0.585164839671439	7	7	7
+0.001	7	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	54	1.05643296842277	0.0784745916945652	1.0734219667026	1.00215517241379	1.10462903225806
+0.001	7	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	54	10.3333333333333	0.700404195972474	10	10	11
+0.001	7	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	54	2.79082244262943	0.148651013284567	2.82534843205575	2.72118103504965	2.87820512820513
+0.001	7	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	54	1	0	1	1	1
+0.001	7	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	54	4	0	4	4	4
+0.001	7	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	54	3.3456437453018	0.137876125970657	3.37804071919619	3.29610505773296	3.42651282051282
+0.001	7	CB	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	54	2.81481481481481	0.585164839671439	3	3	3
+0.001	7	CB	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	54	0.0340240090109431	0.00956460570529509	0.0355562579013906	0.0286749482401656	0.04
+0.001	7	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	54	11.7222222222222	0.877747259507158	12	12	12
+0.001	7	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	54	2.20909383147876	0.127389503444988	2.20988258317025	2.16827941176471	2.29415287456446
+0.001	7	CB	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	54	4.74074074074074	0.781512447182595	5	5	5
+0.001	7	CB	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	54	0.0863651085532156	0.0258156439078183	0.083974848680731	0.0727688172043011	0.0946721567159523
+0.001	7	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	54	8.05555555555556	1.03553225156204	8	8	9
+0.001	7	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	54	2.64247392254042	0.172579931454596	2.66992781155015	2.59276375652507	2.76589285714286
+0.001	7	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	54	2.01851851851852	0.136082763487954	2	2	2
+0.001	7	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	54	0.904109826328448	0.0322653757879681	0.908770806658131	0.890147628818969	0.923278607511531
+0.001	7	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	54	2.72222222222222	0.877747259507158	3	3	3
+0.001	7	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	54	0.0216650981918574	0.00776295745992773	0.0229888432178509	0.0211642193587054	0.0256410256410256
+0.001	7	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	54	18.7962962962963	0.683487991906488	19	19	19
+0.001	7	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	54	6.34612908452483	0.423178531772721	6.45550336008351	6.22101606600087	6.59023076923077
+0.001	21	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	67	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0.001	21	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	67	20	0	20	20	20
+0.001	21	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	67	10.5674677706037	1.06725841454399	10.4458598726115	9.78151798641274	11.2436429512516
+0.001	21	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	67	2.76119402985075	1.85120396727337	4	0	4
+0.001	21	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	67	0.0201178421552024	0.0140672903972065	0.0254777070063694	0	0.0311326468806784
+0.001	21	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	67	0.8578697421981	0.0174002485933273	0.863636363636364	0.840909090909091	0.863636363636364
+0.001	21	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	67	37.7462686567164	0.765610938106405	38	37	38
+0.001	21	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	67	15.9500261534856	1.56955561929623	15.7062937062937	14.8423872875092	16.9068671271841
+0.001	21	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	67	16.0149253731343	1.50244787448968	17	14	17
+0.001	21	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	67	2.76489323962748	0.24942219122621	2.76258992805755	2.58921451355662	2.93565436241611
+0.001	21	CA	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	67	20.6417910447761	2.9731194338266	22	17	23
+0.001	21	CA	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	67	3.87473410784994	0.37579750509004	3.85806451612903	3.5951004124081	4.13661398467433
+0.001	21	CA	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	67	2.07462686567164	0.264771647515186	2	2	2
+0.001	21	CA	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	67	0.418438916626891	0.0650453416572468	0.40506329113924	0.372285987565758	0.462124095926913
+0.001	21	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	67	0.849751243781095	0.0510407292070936	0.866666666666667	0.8	0.866666666666667
+0.001	21	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	67	12.7462686567164	0.765610938106404	13	12	13
+0.001	21	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	67	1.92175182165291	0.215179293525482	1.89041095890411	1.7930626318769	2.04168009453217
+0.001	21	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	67	2.43283582089552	0.499207875478589	2	2	3
+0.001	21	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	67	1.05770706004148	0.0657205757477028	1.04861111111111	1.01796628029505	1.10080776496645
+0.001	21	CA	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	67	7.11940298507463	0.844274622485345	7	6	8
+0.001	21	CA	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	67	1.83212376578998	0.137212866355963	1.82738095238095	1.74034494140947	1.89343546328025
+0.001	21	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	67	6.32835820895522	1.05008022350809	7	5	7
+0.001	21	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	67	0.790181814546154	0.107266587247645	0.777777777777778	0.7319403714565	0.857572684246112
+0.001	21	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	67	9.73134328358209	0.538856520854896	10	9	10
+0.001	21	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	67	2.14597225682781	0.231655061000803	2.12587412587413	1.9873417721519	2.29117982331148
+0.001	21	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	67	1	0	1	1	1
+0.001	21	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	67	4	0	4	4	4
+0.001	21	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	67	2.75026327406558	0.234487179899132	2.71974522292994	2.58326074332172	2.92385057471264
+0.001	21	CA	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	67	2.13432835820895	1.31305245098287	3	1	3
+0.001	21	CA	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	67	0.0166483820127025	0.01055502802826	0.0205479452054795	0.00695714973519499	0.024390243902439
+0.001	21	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	67	10.9850746268657	1.53240291910048	12	9	12
+0.001	21	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	67	1.82072467399863	0.147624929677508	1.80916030534351	1.71951029926156	1.90871686212674
+0.001	21	CA	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	67	4.34328358208955	0.962198221970261	5	3	5
+0.001	21	CA	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	67	0.0898700799631979	0.0231805233136142	0.089041095890411	0.0760732323232323	0.103777320240735
+0.001	21	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	67	8.17910447761194	1.07203252345406	9	7	9
+0.001	21	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	67	1.91320641302091	0.226554135817087	1.88815789473684	1.74399053829434	2.06319808525188
+0.001	21	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	67	2	0	2	2	2
+0.001	21	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	67	0.746616045976891	0.0598566063559086	0.743421052631579	0.712811302681992	0.781128958760538
+0.001	21	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	67	2.05970149253731	1.40216928272658	3	0	3
+0.001	21	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	67	0.0142018418546322	0.0101145658401708	0.01875	0	0.0212037962037962
+0.001	21	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	67	18.5970149253731	0.652726252252749	19	18	19
+0.001	21	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	67	4.44290651845005	0.537493916314844	4.28823529411765	4.13446105428796	4.80339220227755
+0.001	21	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	59	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0.001	21	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	59	20	0	20	20	20
+0.001	21	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	59	11.1436666929961	1.32547734724144	11.2155172413793	10.2238731856379	12.105490663183
+0.001	21	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	59	3.38983050847458	1.62964930808105	4	4	4
+0.001	21	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	59	0.0247104446612591	0.0143652957522768	0.025974025974026	0.0243163340724316	0.0297182725426124
+0.001	21	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	59	0.859784283513097	0.0211660232680063	0.863636363636364	0.863636363636364	0.863636363636364
+0.001	21	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	59	37.8305084745763	0.931305023792279	38	38	38
+0.001	21	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	59	16.8383783147437	1.96636173725983	16.9827586206897	15.5776165011459	18.288961038961
+0.001	21	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	59	16.6271186440678	0.848899999893286	17	17	17
+0.001	21	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	59	2.88842041917461	0.289033438630745	2.86507936507937	2.69935897435897	3.16036495150419
+0.001	21	CB	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	59	22.0169491525424	2.05519967503562	23	22	23
+0.001	21	CB	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	59	4.09458117313515	0.43772123090099	4.05343511450382	3.83417366946779	4.45252288694912
+0.001	21	CB	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	59	2.08474576271186	0.280893622840437	2	2	2
+0.001	21	CB	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	59	0.445291131239812	0.079007639790315	0.435714285714286	0.395442979412445	0.485920925747348
+0.001	21	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	59	0.854237288135593	0.0612445337570983	0.866666666666667	0.866666666666667	0.866666666666667
+0.001	21	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	59	12.8135593220339	0.918668006356475	13	13	13
+0.001	21	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	59	2.06092529252757	0.291578791414718	2.06666666666667	1.81552560395486	2.23388952819333
+0.001	21	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	59	2.22033898305085	0.418033021718648	2	2	2
+0.001	21	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	59	1.09380795508159	0.075846348586779	1.09285714285714	1.04116091815888	1.16235509456986
+0.001	21	CB	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	59	7.47457627118644	0.858144192597785	8	7	8
+0.001	21	CB	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	59	1.97225527903972	0.128354401072457	1.97452229299363	1.90879382055853	2.07123396764188
+0.001	21	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	59	6.79661016949153	0.483509477029724	7	7	7
+0.001	21	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	59	0.835525974674693	0.125194793839031	0.836734693877551	0.73624537534312	0.938311688311688
+0.001	21	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	59	9.93220338983051	0.552873583469726	10	10	10
+0.001	21	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	59	2.2983982437516	0.286045643366455	2.31851851851852	2.08957219251337	2.49834437086093
+0.001	21	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	59	1	0	1	1	1
+0.001	21	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	59	4	0	4	4	4
+0.001	21	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	59	2.89472192804151	0.273002775777327	2.91379310344828	2.73661044837515	3.11250440847996
+0.001	21	CB	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	59	2.57627118644068	0.98616970335264	3	3	3
+0.001	21	CB	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	59	0.0242475422540286	0.0126407543154156	0.0245398773006135	0.0197376964030645	0.0295239132803138
+0.001	21	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	59	11.5084745762712	1.10442497686122	12	12	12
+0.001	21	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	59	1.89240024958887	0.181093690780204	1.85207100591716	1.78698451959572	2.04286150091519
+0.001	21	CB	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	59	4.66101694915254	0.756812040882685	5	5	5
+0.001	21	CB	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	59	0.0949847151244285	0.0185844155310471	0.0952380952380952	0.0819555670369413	0.107528263103803
+0.001	21	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	59	8.25423728813559	1.21191242910823	9	8	9
+0.001	21	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	59	2.05228037704583	0.304594373009363	2.05645161290323	1.85284302400205	2.26867043213197
+0.001	21	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	59	2.01694915254237	0.130188910980824	2	2	2
+0.001	21	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	59	0.812471052598181	0.058740431792874	0.812121212121212	0.775490196078431	0.855238095238095
+0.001	21	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	59	2.49152542372881	1.13521806132403	3	3	3
+0.001	21	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	59	0.0173880873751006	0.00895921751370179	0.0194805194805195	0.0176992690567351	0.0214285714285714
+0.001	21	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	59	18.6440677966102	0.804356925928962	19	19	19
+0.001	21	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	59	4.84548780502033	0.710174317914371	4.84967320261438	4.25293434282738	5.34904652309716
+0.001	35	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	69	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0.001	35	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	69	20	0	20	20	20
+0.001	35	CA	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	69	9.89621467868417	0.912126511297913	9.89655172413793	9.20320855614973	10.5802469135802
+0.001	35	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	69	3.39130434782609	1.51674371894246	4	4	4
+0.001	35	CA	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	69	0.0208726258203079	0.00976611982577853	0.0230414746543779	0.0195121951219512	0.0266666666666667
+0.001	35	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	69	0.874176548089592	0.0181063398844217	0.863636363636364	0.863636363636364	0.886363636363636
+0.001	35	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	69	38.463768115942	0.796678954914557	38	38	39
+0.001	35	CA	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	69	15.0324321138348	1.37137354570542	14.9772727272727	13.9463414634146	16.0617283950617
+0.001	35	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	69	16.5652173913043	0.931132467823065	17	17	17
+0.001	35	CA	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	69	2.6761385755408	0.201542617018306	2.66666666666667	2.52571428571429	2.80769230769231
+0.001	35	CA	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	69	22.0144927536232	2.1038672628057	23	22	23
+0.001	35	CA	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	69	3.72080358930584	0.308223053877922	3.72413793103448	3.50526315789474	3.92746113989637
+0.001	35	CA	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	69	2.14492753623188	0.35460675480613	2	2	2
+0.001	35	CA	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	69	0.382192840078075	0.0640227018919016	0.382857142857143	0.329411764705882	0.412162162162162
+0.001	35	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	69	0.890821256038647	0.0442379402609331	0.866666666666667	0.866666666666667	0.933333333333333
+0.001	35	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	69	13.3623188405797	0.663569103913997	13	13	14
+0.001	35	CA	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	69	1.78945838254415	0.211829357925355	1.77619047619048	1.64432989690722	1.91666666666667
+0.001	35	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	69	2.50724637681159	0.503610155185335	3	2	3
+0.001	35	CA	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	69	1.05245714517865	0.0538160318073508	1.05208333333333	1.01595744680851	1.09
+0.001	35	CA	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	69	7.26086956521739	0.933875131989463	7	7	8
+0.001	35	CA	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	69	1.78926375403067	0.10756164912932	1.80487804878049	1.73154362416107	1.86666666666667
+0.001	35	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	69	6.7536231884058	0.553220440624692	7	7	7
+0.001	35	CA	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	69	0.749690140308866	0.0850432904616443	0.73758865248227	0.7	0.805369127516778
+0.001	35	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	69	10.0144927536232	0.652883955619635	10	10	10
+0.001	35	CA	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	69	2.01706086629202	0.210043448502162	2.02112676056338	1.84491978609626	2.17857142857143
+0.001	35	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	69	1	0	1	1	1
+0.001	35	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	69	4	0	4	4	4
+0.001	35	CA	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	69	2.66957131315439	0.204071145077622	2.68275862068965	2.50641025641026	2.81560283687943
+0.001	35	CA	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	69	2.49275362318841	1.07953133085064	3	3	3
+0.001	35	CA	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	69	0.0182381856349618	0.00931992103352957	0.0202020202020202	0.0157894736842105	0.0239234449760766
+0.001	35	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	69	11.4347826086957	1.18170192406552	12	12	12
+0.001	35	CA	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	69	1.77885687963023	0.122744827600314	1.78531073446328	1.67942583732057	1.86624203821656
+0.001	35	CA	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	69	4.60869565217391	0.78996260716322	5	5	5
+0.001	35	CA	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	69	0.0963343873425365	0.0232415009998724	0.0923913043478261	0.0824175824175824	0.10738255033557
+0.001	35	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	69	8.42028985507246	0.864424274597385	9	8	9
+0.001	35	CA	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	69	1.74128787253707	0.190668295102519	1.73404255319149	1.58421052631579	1.88271604938272
+0.001	35	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	69	2.01449275362319	0.120385853085769	2	2	2
+0.001	35	CA	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	69	0.720130533869025	0.0404315328710236	0.724137931034483	0.694063926940639	0.748251748251748
+0.001	35	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	69	2.43478260869565	1.18170192406552	3	3	3
+0.001	35	CA	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	69	0.0142886271281509	0.00738849542888601	0.0160427807486631	0.0143540669856459	0.0189873417721519
+0.001	35	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	69	18.7971014492754	0.439910089240422	19	19	19
+0.001	35	CA	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	69	4.1170371694307	0.468760092670746	4.09047619047619	3.78531073446328	4.4
+0.001	35	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_coverage	proportion	0.05	71	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0.001	35	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	community_richness	count	1	71	20	0	20	20	20
+0.001	35	CB	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	mean_genome_richness	count	1	71	10.109968307825	1.15783816058414	10.1785714285714	9.39709347996858	10.806638474076
+0.001	35	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	community_richness	count	1	71	2.67605633802817	1.87292474021114	4	0	4
+0.001	35	CB	aromatic_catabolism	Aromatic catabolism	FALSE	12	mean_genome_richness	count	1	71	0.0179039159612464	0.0129411190613301	0.0240963855421687	0	0.0274917335852622
+0.001	35	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_coverage	proportion	0.05	71	0.866197183098592	0.021233124341073	0.863636363636364	0.863636363636364	0.886363636363636
+0.001	35	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	community_richness	count	1	71	38.112676056338	0.934257471007215	38	38	39
+0.001	35	CB	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	mean_genome_richness	count	1	71	15.5027080386236	1.69337479738533	15.5348837209302	14.4921383647799	16.5082154971147
+0.001	35	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	community_richness	count	1	71	16.2535211267606	1.07860107625115	17	15	17
+0.001	35	CB	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	mean_genome_richness	count	1	71	2.79478783069262	0.276567710928753	2.79503105590062	2.65004401636373	2.95127521888085
+0.001	35	CB	carbon_acquisition	Carbon acquisition	FALSE	36	community_richness	count	1	71	21.0140845070423	2.61584707802534	23	18	23
+0.001	35	CB	carbon_acquisition	Carbon acquisition	FALSE	36	mean_genome_richness	count	1	71	3.86854903851557	0.403260849959557	3.85869565217391	3.65605867346939	4.17644543277455
+0.001	35	CB	chemical_detoxification	Chemical detoxification	FALSE	3	community_richness	count	1	71	2	0	2	2	2
+0.001	35	CB	chemical_detoxification	Chemical detoxification	FALSE	3	mean_genome_richness	count	1	71	0.428344750426172	0.0693296581736079	0.420731707317073	0.381231442412877	0.482363565534582
+0.001	35	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_coverage	proportion	0.05	71	0.874178403755869	0.062283831400481	0.866666666666667	0.866666666666667	0.933333333333333
+0.001	35	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	community_richness	count	1	71	13.112676056338	0.934257471007214	13	13	14
+0.001	35	CB	cofactor_autonomy	Cofactor autonomy	TRUE	15	mean_genome_richness	count	1	71	1.93710711263086	0.249689828462494	1.90374331550802	1.76522674611056	2.09772747890774
+0.001	35	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	community_richness	count	1	71	2.36619718309859	0.485193234545881	2	2	3
+0.001	35	CB	extracellular_public_goods	Extracellular processing outputs	FALSE	3	mean_genome_richness	count	1	71	1.06914920180819	0.0682938848586299	1.06766917293233	1.03367537313433	1.10462429934858
+0.001	35	CB	fermentation_products	Fermentation products	FALSE	11	community_richness	count	1	71	7.01408450704225	0.978233944360651	7	7	8
+0.001	35	CB	fermentation_products	Fermentation products	FALSE	11	mean_genome_richness	count	1	71	1.71235803903445	0.117132445323815	1.71241830065359	1.63378653348132	1.80872319688109
+0.001	35	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	community_richness	count	1	71	6.59154929577465	0.622838314004809	7	6	7
+0.001	35	CB	host_glycan_foraging	Host glycan foraging	FALSE	7	mean_genome_richness	count	1	71	0.828247625994133	0.1122728980355	0.82	0.75775462962963	0.894517759115862
+0.001	35	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	community_richness	count	1	71	9.64788732394366	0.563118651523962	10	9	10
+0.001	35	CB	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	mean_genome_richness	count	1	71	2.10378432472492	0.238524048617841	2.11278195488722	1.9530081300813	2.27638485593031
+0.001	35	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_coverage	proportion	0.05	71	1	0	1	1	1
+0.001	35	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	community_richness	count	1	71	4	0	4	4	4
+0.001	35	CB	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	mean_genome_richness	count	1	71	2.75397109848848	0.231846699378701	2.75816993464052	2.63096405228758	2.87716400158583
+0.001	35	CB	nutrient_uptake	Nutrient uptake	FALSE	3	community_richness	count	1	71	2.08450704225352	1.31742691717323	3	1	3
+0.001	35	CB	nutrient_uptake	Nutrient uptake	FALSE	3	mean_genome_richness	count	1	71	0.0161733873679911	0.0110290545372113	0.02	0.00595998297147722	0.0238808098089535
+0.001	35	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	community_richness	count	1	71	10.9718309859155	1.45378158101961	12	9	12
+0.001	35	CB	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	mean_genome_richness	count	1	71	1.82640800196703	0.166971003161762	1.82183908045977	1.74623344370861	1.92358498819001
+0.001	35	CB	released_bioactive_products	Released bioactive products	FALSE	5	community_richness	count	1	71	4.28169014084507	1.00261228215596	5	3	5
+0.001	35	CB	released_bioactive_products	Released bioactive products	FALSE	5	mean_genome_richness	count	1	71	0.151930236151516	0.0369594700734285	0.144654088050314	0.124657325616814	0.172185430463576
+0.001	35	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	community_richness	count	1	71	7.90140845070423	1.19707893972268	8	7	9
+0.001	35	CB	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	mean_genome_richness	count	1	71	1.75999464327748	0.24866230797244	1.75187969924812	1.61631497683994	1.91283783783784
+0.001	35	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	community_richness	count	1	71	2	0	2	2	2
+0.001	35	CB	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	mean_genome_richness	count	1	71	0.696454797202188	0.0488176475058878	0.697142857142857	0.669154228855721	0.726257263073532
+0.001	35	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	community_richness	count	1	71	1.98591549295775	1.42921514671993	3	0	3
+0.001	35	CB	sulfur_acquisition	Sulfur acquisition	FALSE	4	mean_genome_richness	count	1	71	0.0126286104098507	0.00930085770708498	0.0173410404624277	0	0.0194879149618256
+0.001	35	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	community_richness	count	1	71	18.5070422535211	0.753529588699925	19	18	19
+0.001	35	CB	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	mean_genome_richness	count	1	71	4.33645561632142	0.57489403495139	4.2741935483871	3.96183040555194	4.7403933854146

@@ -15,7 +15,7 @@ while ! ssh "${ssh_options[@]}" "$ssh_host" "test -s '$transfer_task/transfer.co
       prodigal=\$(find '$annotation_task/output/annotating/prodigal' -maxdepth 1 -type f -name '*.faa' | wc -l)
     fi
     kegg=\$(find '$annotation_task/output/annotating/kegg' -maxdepth 1 -type f -name '*.tsv' 2>/dev/null | wc -l)
-    cazy=\$(find '$annotation_task/output/annotating/cazy' -maxdepth 1 -type f -name '*.tblout' 2>/dev/null | wc -l)
+    cazy=\$(find '$annotation_task/output/annotating/cazy' -mindepth 2 -maxdepth 2 -type f -name 'dbCAN_hmm_results.tsv' 2>/dev/null | wc -l)
     pfam=\$(find '$annotation_task/output/annotating/pfam' -maxdepth 1 -type f -name '*.tsv' 2>/dev/null | wc -l)
     ncbifam=\$(find '$annotation_task/output/annotating/ncbifam' -maxdepth 1 -type f -name '*.tblout' 2>/dev/null | wc -l)
     tigrfam=\$(find '$annotation_task/output/annotating/tigrfam' -maxdepth 1 -type f -name '*.tblout' 2>/dev/null | wc -l)

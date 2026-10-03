@@ -1,0 +1,5 @@
+genome_id	expected_archive_basename	actual_archive_basename	evidence
+LIB-MJ048-B3_04.7	MFD00229_ilm_asm_bin7.fa	unknown_ilm_asm_bin7.fa	Only expected archive member absent with bin number 7; paired to the only unknown member with bin number 7 in the complete 19,253-MAG archive index
+LIB-MJ051-F4_02.1	MFD00236_ilm_asm_bin1.fa	unknown_ilm_asm_bin1.fa	Only expected archive member absent with bin number 1; paired to the only unknown member with bin number 1 in the complete 19,253-MAG archive index
+LIB-MJ301-A11_01_v_LIB-MJ408-F4_04.3	MFD10089_ilm_asm_bin3.fa	unknown_ilm_asm_bin3.fa	Only expected archive member absent with bin number 3; paired to the only unknown member with bin number 3 in the complete 19,253-MAG archive index
+LIB-MJ301-E3_01.6	MFD10088_ilm_asm_bin6.fa	unknown_ilm_asm_bin6.fa	Only expected archive member absent with bin number 6; paired to the only unknown member with bin number 6 in the complete 19,253-MAG archive index

@@ -1,0 +1,19 @@
+gift_id	gift_name	day_21_minus_day_7_unweighted	day_35_minus_day_7_unweighted	detail_rank	frame_id	reference_frame	day_21_minus_day_7_abundance_weighted	day_35_minus_day_7_abundance_weighted
+proline_biosynthesis	L-glutamate to L-proline	-0.172290100733865	-0.242380451764224	1	amino_acid_autonomy	Amino-acid autonomy	-0.143320847994696	-0.239324265094603
+tyrosine_biosynthesis	Chorismate to L-tyrosine	-0.168018111631603	-0.228844974187168	2	amino_acid_autonomy	Amino-acid autonomy	-0.26348272875027	-0.28077223608908
+phenylalanine_biosynthesis	Chorismate to L-phenylalanine	-0.171678916238281	-0.226460543080543	3	amino_acid_autonomy	Amino-acid autonomy	-0.163121786365101	-0.218083814594338
+arginine_biosynthesis	L-ornithine to L-arginine	-0.154113028795976	-0.215059548266382	4	amino_acid_autonomy	Amino-acid autonomy	-0.170859659267547	-0.267693517325931
+leucine_biosynthesis	3-methyl-2-oxobutanoate to L-leucine	-0.150786939944176	-0.199219006066489	5	amino_acid_autonomy	Amino-acid autonomy	-0.190359170566655	-0.23254121287003
+aspartate_biosynthesis	Oxaloacetate to L-aspartate	-0.136239564237568	-0.197181463020228	6	amino_acid_autonomy	Amino-acid autonomy	-0.175162747707742	-0.274871038564962
+nad_biosynthesis_namn	Nicotinate D-ribonucleotide to NAD	-0.174484591240562	-0.246956170519444	1	biomass_essential_anabolism	biomass-essential anabolic GIFTs	-0.199495379417049	-0.232766901335082
+proline_biosynthesis	L-glutamate to L-proline	-0.172290100733865	-0.242380451764224	2	biomass_essential_anabolism	biomass-essential anabolic GIFTs	-0.143320847994696	-0.239324265094603
+thiamine_phosphate_biosynthesis	Thiamine pyrimidine and thiazole to thiamine phosphate	-0.178241342399314	-0.240925908857475	3	biomass_essential_anabolism	biomass-essential anabolic GIFTs	-0.169879033521002	-0.207422947546877
+tyrosine_biosynthesis	Chorismate to L-tyrosine	-0.168018111631603	-0.228844974187168	4	biomass_essential_anabolism	biomass-essential anabolic GIFTs	-0.26348272875027	-0.28077223608908
+phenylalanine_biosynthesis	Chorismate to L-phenylalanine	-0.171678916238281	-0.226460543080543	5	biomass_essential_anabolism	biomass-essential anabolic GIFTs	-0.163121786365101	-0.218083814594338
+arginine_biosynthesis	L-ornithine to L-arginine	-0.154113028795976	-0.215059548266382	6	biomass_essential_anabolism	biomass-essential anabolic GIFTs	-0.170859659267547	-0.267693517325931
+cobinamide_biosynthesis	Cobyrinate a,c-diamide to adenosylcobinamide phosphate	-0.167559021015453	-0.247063900972421	1	vitamin_biosynthesis	Vitamin biosynthesis	-0.170787121465177	-0.263175904317781
+nad_biosynthesis_namn	Nicotinate D-ribonucleotide to NAD	-0.174484591240562	-0.246956170519444	2	vitamin_biosynthesis	Vitamin biosynthesis	-0.199495379417049	-0.232766901335082
+thiamine_precursor_salvage	Thiamine precursor salvage to the activated moieties	-0.160412003816961	-0.241000630325531	3	vitamin_biosynthesis	Vitamin biosynthesis	-0.237127023584322	-0.34129406363796
+thiamine_phosphate_biosynthesis	Thiamine pyrimidine and thiazole to thiamine phosphate	-0.178241342399314	-0.240925908857475	4	vitamin_biosynthesis	Vitamin biosynthesis	-0.169879033521002	-0.207422947546877
+namn_salvage_nicotinate	Nicotinate to nicotinate D-ribonucleotide	-0.141678383035106	-0.2170615373542	5	vitamin_biosynthesis	Vitamin biosynthesis	-0.199804359029267	-0.272902848021246
+hmp_phosphate_biosynthesis	AIR to the thiamine pyrimidine	-0.112605950077954	-0.15765201830201	6	vitamin_biosynthesis	Vitamin biosynthesis	-0.0664033965958841	-0.136074612719471

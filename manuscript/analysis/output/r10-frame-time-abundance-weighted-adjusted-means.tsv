@@ -1,0 +1,58 @@
+detection	frame_id	reference_frame	bounded	member_count	metric_id	unit	equivalence_margin	sampling_time	adjusted_mean	standard_error	confidence_low	confidence_high	model_status
+0.001	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	abundance_weighted_genome_richness	count	1	7	13.5228354398808	0.120101623310531	13.280460551399	13.7652103283626	ok
+0.001	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	abundance_weighted_genome_richness	count	1	21	10.913481789615	0.118188127366394	10.6749684922865	11.1519950869435	ok
+0.001	amino_acid_autonomy	Amino-acid autonomy	TRUE	22	abundance_weighted_genome_richness	count	1	35	10.123789118752	0.112393393903528	9.89697006699761	10.3506081705064	ok
+0.001	aromatic_catabolism	Aromatic catabolism	FALSE	12	abundance_weighted_genome_richness	count	1	7	0.0358918936048797	0.00518489801542505	0.0254283457889707	0.0463554414207886	ok
+0.001	aromatic_catabolism	Aromatic catabolism	FALSE	12	abundance_weighted_genome_richness	count	1	21	0.0354177679147248	0.00510055211166889	0.0251244370238939	0.0457110988055558	ok
+0.001	aromatic_catabolism	Aromatic catabolism	FALSE	12	abundance_weighted_genome_richness	count	1	35	0.0244277084887016	0.00484602686591957	0.0146480303392227	0.0342073866381805	ok
+0.001	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	abundance_weighted_genome_richness	count	1	7	20.3106363109617	0.178122848606743	19.9511698493346	20.6701027725889	ok
+0.001	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	abundance_weighted_genome_richness	count	1	21	16.7960689816911	0.175403666777126	16.442090051161	17.1500479122213	ok
+0.001	biomass_essential_anabolism	biomass-essential anabolic GIFTs	TRUE	44	abundance_weighted_genome_richness	count	1	35	15.8253528697614	0.167114519234693	15.4881021162185	16.1626036233042	ok
+0.001	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	abundance_weighted_genome_richness	count	1	7	3.66553883228175	0.0471153310814895	3.57045624470397	3.76062141985954	ok
+0.001	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	abundance_weighted_genome_richness	count	1	21	3.0996329982348	0.0464165584088785	3.00596059100204	3.19330540546756	ok
+0.001	carbohydrate_degradation	Carbohydrate degradation	FALSE	18	abundance_weighted_genome_richness	count	1	35	3.20399180701933	0.0442779212770285	3.11463534425132	3.29334826978734	ok
+0.001	carbon_acquisition	Carbon acquisition	FALSE	36	abundance_weighted_genome_richness	count	1	7	5.17174752466829	0.060268401207248	5.05012096693382	5.29337408240276	ok
+0.001	carbon_acquisition	Carbon acquisition	FALSE	36	abundance_weighted_genome_richness	count	1	21	4.27106898103135	0.0593609148609133	4.15127380488798	4.39086415717472	ok
+0.001	carbon_acquisition	Carbon acquisition	FALSE	36	abundance_weighted_genome_richness	count	1	35	4.30343439761101	0.0565891634316625	4.18923284231177	4.41763595291025	ok
+0.001	chemical_detoxification	Chemical detoxification	FALSE	3	abundance_weighted_genome_richness	count	1	7	0.610814914928305	0.0129454765465579	0.584689885575431	0.636939944281178	ok
+0.001	chemical_detoxification	Chemical detoxification	FALSE	3	abundance_weighted_genome_richness	count	1	21	0.507690908248187	0.0127517262431469	0.481956882837543	0.533424933658832	ok
+0.001	chemical_detoxification	Chemical detoxification	FALSE	3	abundance_weighted_genome_richness	count	1	35	0.488729843937261	0.0121594615336418	0.464191057100094	0.513268630774428	ok
+0.001	cofactor_autonomy	Cofactor autonomy	TRUE	15	abundance_weighted_genome_richness	count	1	7	2.55936973860537	0.0338456491684619	2.49106645329849	2.62767302391226	ok
+0.001	cofactor_autonomy	Cofactor autonomy	TRUE	15	abundance_weighted_genome_richness	count	1	21	2.26062831835998	0.0333721810300913	2.19328053044001	2.32797610627996	ok
+0.001	cofactor_autonomy	Cofactor autonomy	TRUE	15	abundance_weighted_genome_richness	count	1	35	2.14348270532035	0.0319128772116902	2.07907991173515	2.20788549890556	ok
+0.001	extracellular_public_goods	Extracellular processing outputs	FALSE	3	abundance_weighted_genome_richness	count	1	7	1.22660017347475	0.00981049322072274	1.20680179661038	1.24639855033911	ok
+0.001	extracellular_public_goods	Extracellular processing outputs	FALSE	3	abundance_weighted_genome_richness	count	1	21	1.11265022979424	0.00966242326240697	1.09315067020349	1.13214978938499	ok
+0.001	extracellular_public_goods	Extracellular processing outputs	FALSE	3	abundance_weighted_genome_richness	count	1	35	1.10645747422187	0.00921031865890709	1.0878702986592	1.12504464978453	ok
+0.001	fermentation_products	Fermentation products	FALSE	11	abundance_weighted_genome_richness	count	1	7	2.16694589381143	0.0200312430249359	2.12652120877809	2.20737057884476	ok
+0.001	fermentation_products	Fermentation products	FALSE	11	abundance_weighted_genome_richness	count	1	21	1.6700930247758	0.0197163189387502	1.63030388227858	1.70988216727303	ok
+0.001	fermentation_products	Fermentation products	FALSE	11	abundance_weighted_genome_richness	count	1	35	1.4307600568337	0.0187605659418407	1.39289970197196	1.46862041169545	ok
+0.001	host_glycan_foraging	Host glycan foraging	FALSE	7	abundance_weighted_genome_richness	count	1	7	1.12381880860862	0.020498695594989	1.08245076609673	1.16518685112051	ok
+0.001	host_glycan_foraging	Host glycan foraging	FALSE	7	abundance_weighted_genome_richness	count	1	21	0.894937779816488	0.0201947482428241	0.85418312789462	0.935692431738356	ok
+0.001	host_glycan_foraging	Host glycan foraging	FALSE	7	abundance_weighted_genome_richness	count	1	35	0.981650645317349	0.0192644698845229	0.942773371128896	1.0205279195058	ok
+0.001	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	abundance_weighted_genome_richness	count	1	7	2.87136069745262	0.0286079437757187	2.81362752956358	2.92909386534165	ok
+0.001	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	abundance_weighted_genome_richness	count	1	21	2.23310618856262	0.0281707516579559	2.17625531008706	2.28995706703818	ok
+0.001	nitrogen_acquisition	Nitrogen acquisition	FALSE	20	abundance_weighted_genome_richness	count	1	35	2.1752655296556	0.0268382233390362	2.12110380219894	2.22942725711227	ok
+0.001	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	abundance_weighted_genome_richness	count	1	7	3.35546885799598	0.0266787950932113	3.30162886976513	3.40930884622683	ok
+0.001	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	abundance_weighted_genome_richness	count	1	21	2.85319792070875	0.0263087348504978	2.80010474428266	2.90629109713484	ok
+0.001	nucleotide_autonomy	Nucleotide autonomy	TRUE	4	abundance_weighted_genome_richness	count	1	35	2.80938990833101	0.0251671032649589	2.75860063771906	2.86017917894297	ok
+0.001	nutrient_uptake	Nutrient uptake	FALSE	3	abundance_weighted_genome_richness	count	1	7	0.0316932222174902	0.00369862400668474	0.0242290967839947	0.0391573476509858	ok
+0.001	nutrient_uptake	Nutrient uptake	FALSE	3	abundance_weighted_genome_richness	count	1	21	0.0272779484748063	0.0036384562302828	0.0199352465299668	0.0346206504196458	ok
+0.001	nutrient_uptake	Nutrient uptake	FALSE	3	abundance_weighted_genome_richness	count	1	35	0.0197961230081431	0.00345689177494773	0.0128198329684975	0.0267724130477886	ok
+0.001	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	abundance_weighted_genome_richness	count	1	7	2.38788576917705	0.0299352968025619	2.32747389443136	2.44829764392274	ok
+0.001	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	abundance_weighted_genome_richness	count	1	21	2.08319219765226	0.029468627798916	2.0237220990841	2.14266229622042	ok
+0.001	plant_fibre_utilisation	Plant fibre utilisation	FALSE	13	abundance_weighted_genome_richness	count	1	35	2.09997269032471	0.0280504772948864	2.04336453534058	2.15658084530885	ok
+0.001	released_bioactive_products	Released bioactive products	FALSE	5	abundance_weighted_genome_richness	count	1	7	0.0895389508682362	0.0120062490663161	0.0653093593080226	0.11376854242845	ok
+0.001	released_bioactive_products	Released bioactive products	FALSE	5	abundance_weighted_genome_richness	count	1	21	0.164966987037125	0.011837187934445	0.141078574653798	0.188855399420452	ok
+0.001	released_bioactive_products	Released bioactive products	FALSE	5	abundance_weighted_genome_richness	count	1	35	0.31216658613087	0.0113164932778201	0.289328978106833	0.335004194154907	ok
+0.001	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	abundance_weighted_genome_richness	count	1	7	2.63389929370694	0.0281242927907025	2.57714217302131	2.69065641439256	ok
+0.001	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	abundance_weighted_genome_richness	count	1	21	1.93794053761517	0.0276667777405023	1.88210671968111	1.99377435554922	ok
+0.001	shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	FALSE	10	abundance_weighted_genome_richness	count	1	35	1.67988501833503	0.0262861637978222	1.62683739213736	1.73293264453271	ok
+0.001	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	abundance_weighted_genome_richness	count	1	7	0.89532184606969	0.0101974624747617	0.874742533634196	0.915901158505185	ok
+0.001	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	abundance_weighted_genome_richness	count	1	21	0.671186243216771	0.0100347799039403	0.650935237500819	0.691437248932724	ok
+0.001	short_chain_fatty_acids	Short-chain fatty acids	FALSE	4	abundance_weighted_genome_richness	count	1	35	0.564641177087796	0.00954222716765494	0.545384183036614	0.583898171138977	ok
+0.001	sulfur_acquisition	Sulfur acquisition	FALSE	4	abundance_weighted_genome_richness	count	1	7	0.0249573053835094	0.00360155789194855	0.0176890673001267	0.0322255434668922	ok
+0.001	sulfur_acquisition	Sulfur acquisition	FALSE	4	abundance_weighted_genome_richness	count	1	21	0.0249887191031836	0.00354296914935468	0.0178387178892207	0.0321387203171466	ok
+0.001	sulfur_acquisition	Sulfur acquisition	FALSE	4	abundance_weighted_genome_richness	count	1	35	0.0175960816673955	0.00336616964346479	0.0108028763013363	0.0243892870334547	ok
+0.001	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	abundance_weighted_genome_richness	count	1	7	6.0656816729214	0.0690317359143	5.92636998975895	6.20499335608384	ok
+0.001	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	abundance_weighted_genome_richness	count	1	21	4.96695823042112	0.0680538706327603	4.82961995929118	5.10429650155107	ok
+0.001	vitamin_biosynthesis	Vitamin biosynthesis	FALSE	20	abundance_weighted_genome_richness	count	1	35	4.64926886173188	0.0650441557151456	4.51800444120787	4.78053328225589	ok

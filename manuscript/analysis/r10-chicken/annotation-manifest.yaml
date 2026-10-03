@@ -1,0 +1,152 @@
+schema_version: drakkar-annotation-manifest-v1
+generated_at: '2026-10-03T00:43:20.043572+00:00'
+drakkar_version: 2.6.6
+enabled_sources:
+- cazy
+- kegg
+- ncbifam
+- pfam
+- tigrfam
+thresholds:
+  annotation_evalue: 1e-10
+  annotation_identity_percent: '50.0'
+  annotation_query_coverage: '0.5'
+  annotation_target_coverage: '0.5'
+  kofam_acceptance: native_model_cutoffs
+  ncbifam_acceptance: native_trusted_cutoffs_no_fallback
+  tigrfam_acceptance: native_trusted_cutoffs_no_fallback
+configured_tools:
+  hmmer: hmmer/3.3.2
+environments:
+  functional:
+    path: /projects/alberdilab/data/environments/conda/drakkar/lib/python3.12/site-packages/drakkar/workflow/envs/annotating_function.yaml
+    exists: true
+    dependencies:
+    - python=3.12
+    - biopython=1.81
+    - antismash=8.0.4
+    - hmmer=3.4
+    - pip
+    - pip:
+      - mdmparis-defense-finder
+  dbcan:
+    path: /projects/alberdilab/data/environments/conda/drakkar/lib/python3.12/site-packages/drakkar/workflow/envs/annotating_function_dbcan.yaml
+    exists: true
+    dependencies:
+    - python=3.12
+    - dbcan=5.2.5
+    - pyhmmer=0.11.4
+databases:
+  kegg:
+    configured_path: /maps/projects/alberdilab/data/databases/drakkar/kofams/2026-07-02
+    exists: true
+    installation_manifest: /maps/projects/alberdilab/data/databases/drakkar/kofams/2026-07-02/database_versions.yaml
+    requested_version: '2026-07-02'
+    source_version: kofam archive 2026-07-02
+    retrieved_at: '2026-08-27T04:57:54.606067+00:00'
+    sources:
+    - https://www.genome.jp/ftp/db/kofam/archives/2026-07-02/profiles.tar.gz
+    - https://www.kegg.jp/kegg-bin/download_htext?htext=ko00001.keg&format=json&filedir=
+    - https://www.genome.jp/ftp/db/kofam/archives/2026-07-02/ko_list.gz
+    files:
+    - path: /maps/projects/alberdilab/data/databases/drakkar/kofams/2026-07-02/kofams
+      sha256: 83794c44d1b048d3dd890d6dd916dcb17b923f38abea746635f0d16627028d2c
+      size_bytes: 7648509826
+    - path: /maps/projects/alberdilab/data/databases/drakkar/kofams/2026-07-02/kofams.json
+      sha256: 5e6fc4596e6c970d96b1b7b10df6f630b49f9c2068fdd77b7f2986b07f8439a7
+      size_bytes: 5636012
+  cazy:
+    configured_path: /maps/projects/alberdilab/data/databases/drakkar/cazy/V15
+    exists: true
+    installation_manifest: /maps/projects/alberdilab/data/databases/drakkar/cazy/V15/database_versions.yaml
+    requested_version: V15
+    source_version: dbCAN-HMMdb-V15
+    retrieved_at: '2026-08-27T12:09:38.761583+00:00'
+    sources:
+    - https://pro.unl.edu/dbCAN2/download_file.php?file=Databases/V15/dbCAN-HMMdb-V15.txt
+    files:
+    - path: /maps/projects/alberdilab/data/databases/drakkar/cazy/V15/cazy
+      sha256: 530055eef06d005bdd462d18ff861319fc20ded981cbc5553d94ed5128cbcf44
+      size_bytes: 118854953
+  pfam:
+    configured_path: /maps/projects/alberdilab/data/databases/drakkar/pfam/Pfam38.2
+    exists: true
+    installation_manifest: /maps/projects/alberdilab/data/databases/drakkar/pfam/Pfam38.2/database_versions.yaml
+    requested_version: Pfam38.2
+    source_version: Pfam release Pfam38.2
+    retrieved_at: '2026-08-27T03:08:44.947581+00:00'
+    sources:
+    - https://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam38.2/Pfam-A.hmm.gz
+    - https://ecdm.loria.fr/data/EC-Pfam_calculated_associations_Extended.csv
+    files:
+    - path: /maps/projects/alberdilab/data/databases/drakkar/pfam/Pfam38.2/pfam
+      sha256: 4b0da6399b97d2b23329de82190b2e5705bde1dea4cb2d028a52712d5966739e
+      size_bytes: 2246909846
+    - path: /maps/projects/alberdilab/data/databases/drakkar/pfam/Pfam38.2/pfam_ec.tsv
+      sha256: 3904865c4a40089c26ca96b59948126f7fab978f5c23cdfc789574245c412680
+      size_bytes: 831962
+  ncbifam:
+    configured_path: /maps/projects/alberdilab/data/databases/drakkar/ncbifam/20.0
+    exists: true
+    installation_manifest: /maps/projects/alberdilab/data/databases/drakkar/ncbifam/20.0/database_versions.yaml
+    requested_version: '20.0'
+    source_version: NCBIfam/PGAP HMM release 20.0
+    retrieved_at: '2026-10-02T04:43:09.860950+00:00'
+    sources:
+    - https://ftp.ncbi.nlm.nih.gov/hmm/20.0/hmm_PGAP.LIB
+    - https://ftp.ncbi.nlm.nih.gov/hmm/20.0/hmm_PGAP.tsv
+    - https://ftp.ncbi.nlm.nih.gov/hmm/20.0/RELEASE_NOTES.txt
+    files:
+    - path: /maps/projects/alberdilab/data/databases/drakkar/ncbifam/20.0/hmm_PGAP.LIB
+      filename: hmm_PGAP.LIB
+      sha256: 1d9981a9caf09f63fe6d3c71f70257ae4988d51d9dd09f638a37622e00b63542
+      size_bytes: 2857249079
+      role: profile_library
+      source_url: https://ftp.ncbi.nlm.nih.gov/hmm/20.0/hmm_PGAP.LIB
+    - path: /maps/projects/alberdilab/data/databases/drakkar/ncbifam/20.0/hmm_PGAP.tsv
+      filename: hmm_PGAP.tsv
+      sha256: 972f910ac7c54c6373e286c0d96dee71f643f9abd576a019bcb05ec7f5834b7b
+      size_bytes: 17903751
+      role: profile_metadata
+      source_url: https://ftp.ncbi.nlm.nih.gov/hmm/20.0/hmm_PGAP.tsv
+    - path: /maps/projects/alberdilab/data/databases/drakkar/ncbifam/20.0/RELEASE_NOTES.txt
+      filename: RELEASE_NOTES.txt
+      sha256: 0259e3c75f95636b8b5a4c97a5be23649459e28d854adb1ada8c8cabd2c542fa
+      size_bytes: 712
+      role: release_metadata
+      source_url: https://ftp.ncbi.nlm.nih.gov/hmm/20.0/RELEASE_NOTES.txt
+  tigrfam:
+    configured_path: /maps/projects/alberdilab/data/databases/drakkar/tigrfam/15.0
+    exists: true
+    installation_manifest: /maps/projects/alberdilab/data/databases/drakkar/tigrfam/15.0/database_versions.yaml
+    requested_version: '15.0'
+    source_version: legacy TIGRFAM release 15.0
+    retrieved_at: '2026-10-02T06:24:36.295056+00:00'
+    sources:
+    - https://ftp.ncbi.nlm.nih.gov/hmm/TIGRFAMs/release_15.0/TIGRFAMs_15.0_HMM.LIB.gz
+    - https://ftp.ncbi.nlm.nih.gov/hmm/TIGRFAMs/release_15.0/RELEASE_NOTE_15.0
+    files:
+    - path: /maps/projects/alberdilab/data/databases/drakkar/tigrfam/15.0/tigrfams
+      filename: tigrfams
+      sha256: 16272303601dd17dd4484e20834b52ac4a398cfede626735eb22f05b183187b1
+      size_bytes: 667080430
+      role: profile_library
+      source_url: https://ftp.ncbi.nlm.nih.gov/hmm/TIGRFAMs/release_15.0/TIGRFAMs_15.0_HMM.LIB.gz
+    - path: /maps/projects/alberdilab/data/databases/drakkar/tigrfam/15.0/RELEASE_NOTE_15.0
+      filename: RELEASE_NOTE_15.0
+      sha256: 0e43937660f521c8a22789ca0135f980793f4a8d142cf69833bbd483cea447ac
+      size_bytes: 13648
+      role: release_metadata
+      source_url: https://ftp.ncbi.nlm.nih.gov/hmm/TIGRFAMs/release_15.0/RELEASE_NOTE_15.0
+tables:
+  gene_annotations:
+    path: /projects/alberdilab/scratch/jpl786/projects/gifter-r10-chicken/tasks/02-drakkar-annotation/output/annotating/gene_annotations.tsv.xz
+    exists: true
+    size_bytes: 359095336
+    sha256: f3a674ec11fd76326046752ad2df9760447fad11627b7b2a5d597b9a15cff27a
+  gifter_input:
+    path: /projects/alberdilab/scratch/jpl786/projects/gifter-r10-chicken/tasks/02-drakkar-annotation/output/annotating/gifter_input.tsv.xz
+    exists: true
+    size_bytes: 29811972
+    sha256: 1bc6f6a882223d1f86c417f5d0f9c8937fc70b370affc0c5399bc3e81fcfbd86
+qc_table: /projects/alberdilab/scratch/jpl786/projects/gifter-r10-chicken/tasks/02-drakkar-annotation/output/annotating/annotation_qc.tsv
