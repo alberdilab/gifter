@@ -1,0 +1,387 @@
+---
+title: "Glossary"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Glossary}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+This glossary covers both the concepts returned by gifter and the technical
+language used to curate and compile its reference database. Resource-specific
+terms describe how gifter interprets them; they are not replacements for the
+resources' own documentation.
+
+The short form of the evidence hierarchy is:
+
+```text
+Frame --resolves by metadata--> GIFT
+
+metabolic GIFT
+  -> route -> reaction -> enzyme system -> component -> marker
+
+structural, regulatory or defense GIFT
+  -> architecture, circuit or mechanism
+  -> function -> system -> component -> marker
+```
+
+A frame begins the analytical browsing path, but it is not a biological parent
+of a GIFT and stores no fixed list of GIFT identifiers.
+
+## GIFT and analysis concepts
+
+### Anchor
+
+A curated input or output molecule defining the boundary of a metabolic GIFT.
+Only declared anchors connect GIFTs. An internal reaction participant is not an
+anchor merely because it occurs in the chemistry.
+
+### Architecture
+
+One complete curated implementation of a structural GIFT. Architectures are
+alternatives under OR logic; every required function within one architecture is
+combined under AND logic.
+
+### Assessability
+
+Whether a genome is complete enough for its lack of support for a GIFT to be
+informative. Assessability may change a denominator or make an absence
+indeterminate. It can never turn an unsupported GIFT into a supported one.
+
+### Bounded frame
+
+A frame whose curation deliberately intends to enumerate a biologically closed
+set. Only a bounded frame licenses a coverage fraction over all its members. An
+open and growing catalogue is not bounded.
+
+### Circuit
+
+One complete curated implementation of a regulatory GIFT.
+
+### Compartment
+
+The `extracellular` or `cytoplasmic` qualifier on a declared anchor. It makes
+transport and possible cross-genome compatibility explicit without introducing
+compartment-aware stoichiometry or inferring protein localization.
+
+### Complete
+
+The Boolean state reached when at least one entire curated implementation of a
+GIFT is supported. Completeness means encoded capability under the model, not
+expression, activity, flux or phenotype.
+
+### Component
+
+One required protein role within an enzyme or machinery system. Every required
+component of a system is combined under AND logic; any accepted marker may
+support a component under OR logic.
+
+### Defense mechanism
+
+One complete curated implementation of a defense GIFT.
+
+### Facet
+
+A curated classification used to describe or select GIFTs, anchors or related
+entities. A facet does not decide the completeness model; `gift_type` does.
+
+### Frame (reference frame)
+
+The comparison set and denominator within which a quantitative trait is read.
+A named frame stores metadata filters and interpretation limits, then resolves
+its current GIFT members against a database release. It never stores a list of
+`gift_id` values.
+
+### Function
+
+In a structural, regulatory or defense model, one required biological role
+within an architecture, circuit or mechanism. It is the machinery analogue of
+a metabolic reaction and is implemented by any one complete system.
+
+### GIFT
+
+A genome-inferred functional trait: a biologically meaningful capability whose
+genomic support is evaluated through an explicit, curated and traceable
+completeness model.
+
+### GIFT type
+
+One of `metabolic`, `structural`, `regulatory` or `defense`. It selects the
+completeness model and determines which source tables may attach to a GIFT. It
+is part of the core ontology, not a facet.
+
+### Internal intermediate
+
+A reaction participant inside a metabolic route that is not a declared anchor.
+Shared internal intermediates do not connect GIFTs.
+
+### Marker
+
+A namespaced genomic observation used as evidence for a component. Marker
+identity is the pair `namespace + accession`; a marker is never itself a GIFT,
+reaction or function.
+
+### Mechanism
+
+See **defense mechanism**.
+
+### Mode
+
+The direction or role of a metabolic GIFT, such as `anabolic`, `catabolic`,
+`transport` or `interconversion`. Non-metabolic GIFTs do not have a mode.
+
+### Reaction
+
+A biochemical transformation, identified by its stable `reaction_id` and by a
+Rhea master wherever Rhea covers the chemistry. Its contextual direction is
+stored on route membership rather than by changing reaction identity.
+
+### Route
+
+A curated minimal set of required reactions connecting a metabolic GIFT's
+declared input and output anchors. Routes are alternatives under OR logic; all
+required reactions within a route are combined under AND logic.
+
+### Supported
+
+Backed by the observed markers at the relevant level of the completeness
+hierarchy. Support propagates only through the declared OR/AND rules. It is not
+evidence of expression or activity.
+
+### System
+
+One complete protein implementation of a reaction or machinery function. A
+system may be a single protein or several jointly required components.
+
+### Traceability
+
+The ability to explain a GIFT call through its selected implementation,
+reactions or functions, systems, components, observed markers and supplied gene
+identifiers.
+
+## Marker and profile terminology
+
+### Accession
+
+A stable identifier assigned by an external resource, such as `K00764`,
+`PF01752` or `NF040708.3`. In gifter it is interpreted together with its
+namespace. Similar-looking strings from different namespaces are not
+interchangeable.
+
+### Bit score
+
+A log-odds score describing how strongly a sequence matches a profile HMM.
+Scores are meaningful only with the relevant model, thresholds and coverage;
+gifter does not treat a high score alone as proof that a marker is suitable for
+a biological claim.
+
+### Domain
+
+A conserved region of a protein that may occur in proteins with different
+overall functions. A domain-level match often supports structural homology but
+not the specific activity of a complete protein. In NCBIfam, the `domain`
+family type does not carry the one-function assertion required for automatic
+admission by grade.
+
+### Equivalog
+
+An NCBIfam family type asserting that the proteins recognized by the profile
+share one specific function. gifter admits `equivalog` as an eligible grade,
+but still checks the biological annotation, reaction direction, taxonomic
+scope and specificity before accepting the profile as marker evidence.
+
+### Equivalog domain
+
+An NCBIfam profile covering a function-specific domain rather than necessarily
+the full protein. It carries NCBIfam's one-function assertion and is an eligible
+grade in gifter, but the curator must still verify that the domain is sufficient
+evidence for the component being claimed.
+
+### Gathering threshold
+
+The model-specific score cutoff curated for accepting members of a profile HMM
+family. It should be used with the profile release it belongs to; it is not a
+universal score cutoff shared across models.
+
+### Homolog
+
+A sequence related to another sequence by common ancestry. Homology alone does
+not establish that two proteins perform the same function.
+
+### Ortholog
+
+Homologous genes related through speciation rather than duplication. Orthology
+can support functional inference, but an orthology group may still be broader
+than a reaction, substrate or machinery role curated by gifter.
+
+### PfamAutoEq
+
+An automated NCBIfam family type derived from a Pfam model. gifter does not
+treat it as an admitted equivalog grade; the label does not supply the curated
+one-function guarantee required for `NCBIFAM` marker admission.
+
+### Profile HMM
+
+A profile hidden Markov model representing position-specific patterns learned
+from a multiple sequence alignment. Searches produce scores and alignments
+against which model-specific thresholds and coverage requirements are applied.
+
+### Sequence coverage
+
+The fraction of the profile or target sequence included in an alignment. It
+helps distinguish a complete family match from a short local match but does not
+by itself establish functional specificity.
+
+### Subfamily
+
+A subset within a broader protein family. The word alone does not guarantee one
+specific biochemical function. In NCBIfam, `subfamily` is a distinct family
+type and is not one of the two equivalog grades gifter admits.
+
+### Versioned accession
+
+An accession whose suffix identifies a particular build of its model, such as
+`NF040708.3`. For NCBIfam markers the suffix is part of identity because model
+alignments and cutoffs can change between versions.
+
+## External identifiers and resources
+
+### CAZy and dbCAN
+
+CAZy classifies carbohydrate-active enzymes into families and, where available,
+subfamilies. dbCAN provides sequence models and annotation tools for those
+classes. A broad CAZy family can contain several characterized activities, so
+family membership is not automatically evidence for one substrate-specific
+GIFT.
+
+### ChEBI identifier
+
+An identifier for a chemical entity. gifter uses ChEBI identifiers for declared
+anchors where possible; it does not use them to turn every internal metabolite
+into an anchor.
+
+### EC number
+
+An Enzyme Commission classification of catalysed activity. An EC number may be
+incomplete or may group chemistry more broadly than one curated Rhea reaction,
+so it is evidence and cross-reference material rather than a substitute for
+reaction curation.
+
+### KEGG Orthology (KO)
+
+A KEGG functional orthology group identified by a `K` accession. KOs are a
+major marker namespace in gifter, but each KO is checked against the specificity
+of the component and reaction it is proposed to support.
+
+### Namespace
+
+The identifier system in which an accession has meaning, such as `KO`, `EC`,
+`PFAM`, `TIGRFAM`, `NCBIFAM` or `CAZY`. Marker identity is always the namespace
+and accession together.
+
+### NCBIfam
+
+NCBI's collection of protein family profile HMMs used by tools including PGAP
+and exposed through other annotation systems. gifter pins a named release,
+requires versioned accessions, and admits only the `equivalog` and
+`equivalog_domain` grades after biological review.
+
+### Pfam
+
+A database of protein families and domains represented by profile HMMs. A Pfam
+match can be strong evidence of family or domain membership without necessarily
+identifying the precise activity required by a GIFT.
+
+### Rhea master
+
+Rhea's stable master identifier for a biochemical reaction independent of the
+direction in which a particular route uses it. gifter stores route orientation
+separately as `forward` or `reverse`.
+
+### TIGRFAM
+
+A historical protein-family namespace whose `TIGR` accessions are still used by
+some annotation resources. In gifter an unversioned `TIGRFAM` accession and a
+versioned `NCBIFAM` model derived from a TIGRFAM lineage are distinct markers.
+
+## Curation and database-generation terms
+
+### Candidate
+
+A capability, route, architecture or marker under investigation. A candidate
+is not part of the ontology and cannot produce a call until it has passed
+curation, validation and release.
+
+### Confidence
+
+A curated description of the strength or ambiguity of accepted evidence.
+Confidence summarizes evidence quality; it does not replace the Boolean
+completeness result or promote an unsupported GIFT.
+
+### Database source
+
+The human-reviewable TSV files from which the runtime SQLite database is
+compiled. They are the biological source of truth; SQLite is a generated
+artifact.
+
+### Deferral
+
+A decision that a candidate is worth revisiting but is presently blocked. A
+deferral records the blocker and the evidence or resource change that would
+retrigger investigation.
+
+### Diagnostic proxy
+
+A provisional marker set used to measure prevalence, disagreement or likely
+failure modes during curation. A proxy is not a GIFT definition and is never
+silently promoted into one.
+
+### Evidence type
+
+The kind of relationship supporting a component-to-marker assertion, such as
+orthology or sequence-family evidence. It records what the marker represents;
+it is distinct from evidence confidence.
+
+### Marker specificity
+
+How narrowly a marker identifies the component or chemistry being claimed. The
+specificity of a GIFT may never exceed the specificity of the evidence that
+supports it.
+
+### Marker-specificity screen
+
+A reproducible comparison used to identify over-broad accessions, coverage
+gaps, conflicts between resources or profiles worth manual review. A screen
+creates evidence for curation; it does not automatically admit its candidates.
+
+### Provenance
+
+The recorded origin of a biological fact or curation decision: resource,
+release, retrieval date, literature or gifter-specific interpretation. Imported
+facts are kept distinct from gifter's choices of boundaries, implementations
+and claim scope.
+
+### Refusal
+
+A recorded decision not to curate a candidate because the evidence cannot
+support the proposed claim or the claim violates the ontology. A refusal is a
+durable curation result rather than an undocumented gap.
+
+### Retrigger
+
+A concrete change that justifies reopening a deferred or refused assessment,
+such as a new specific marker, characterized chemistry or a resource release
+that resolves the recorded blocker. Repeating the same request is not a
+retrigger.
+
+### SQLite artifact
+
+The compiled, read-only runtime representation of the curated source tables. It
+is regenerated after source changes and is never edited manually.
+
+For the end-to-end process that connects these terms, see
+[How a GIFT is built](curating-a-gift.html).

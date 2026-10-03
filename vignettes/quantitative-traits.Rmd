@@ -75,7 +75,7 @@ carbohydrate
 
 ### Choose a preset from your research question
 
-The searchable [Reference frames atlas](https://alberdilab.github.io/gifter/atlas/#frames)
+The searchable [Frames view in the Atlas](https://alberdilab.github.io/gifter/atlas/#frames)
 is the quickest chooser: search for a substrate, process or metric, then narrow
 the cards to genome, community, network or bounded-coverage analyses. The full
 registry is reproduced below so that the choice remains visible in this

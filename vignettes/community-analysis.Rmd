@@ -339,7 +339,7 @@ absence.
 sum(mixed$matrix[, "C"] %in% TRUE)
 ```
 
-## Putting the three tutorials together
+## Putting the first three workflows together
 
 ```text
 annotation table

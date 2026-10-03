@@ -4,19 +4,57 @@ template:
   bootstrap: 5
 
 articles:
-- title: Tutorials
+- title: Get started
   navbar: ~
   contents:
   - evaluating-a-genome
+- title: Workflows
+  navbar: ~
+  contents:
   - quantitative-traits
   - community-analysis
   - multi-sample-datasets
+- title: Curation
+  navbar: ~
+  contents:
+  - curating-a-gift
+- title: Concepts
+  navbar: ~
+  contents:
+  - glossary
 
 navbar:
   structure:
-    left: [reference, articles, atlas]
+    left: [get_started, workflows, atlas, curation, glossary, reference]
     right: [search, github]
   components:
+    get_started:
+      text: Get started
+      href: articles/evaluating-a-genome.html
+    workflows:
+      text: Workflows
+      menu:
+      - text: From calls to quantitative traits
+        href: articles/quantitative-traits.html
+      - text: A genome-resolved community
+        href: articles/community-analysis.html
+      - text: Many samples over one catalogue
+        href: articles/multi-sample-datasets.html
     atlas:
-      text: GIFT atlas
+      text: Atlas
       href: atlas/
+    curation:
+      text: Curation
+      menu:
+      - text: How a GIFT is built
+        href: articles/curating-a-gift.html
+      - text: Marker selection and specificity
+        href: articles/curating-a-gift.html#choose-marker-evidence
+      - text: Provenance and releases
+        href: articles/curating-a-gift.html#record-provenance-build-and-close-the-attempt
+    glossary:
+      text: Glossary
+      href: articles/glossary.html
+    reference:
+      text: API
+      href: reference/index.html

@@ -6,7 +6,7 @@ Timestamps are UTC.
 **Biological database changes are not recorded here.** They live in the
 database itself, as `inst/extdata/database-source/database_changes.tsv` and
 `change_gifts.tsv`, linked to the GIFTs they affect. Read them with
-`database_changelog()`, or open the Changelog view of the HTML atlas. That
+`database_changelog()`, or open the Changes view of the HTML atlas. That
 separation is deliberate: a biological decision is versioned with the content
 it describes and travels with the compiled database, while a code decision is
 versioned with the package.
@@ -14,6 +14,28 @@ versioned with the package.
 ---
 
 ## Unreleased
+
+### 2026-10-03T06:32Z — Documentation starts from analytical tasks and curated concepts
+
+**What changed.** The package website navigation now presents Get started,
+Workflows, Atlas, Curation, Glossary and API instead of the pkgdown-default
+Reference and Articles labels. Two user-facing guides explain how a GIFT moves
+from a candidate claim through completeness, marker-specificity review,
+provenance and compilation, and define both analysis concepts and technical
+database-generation terms including NCBIfam equivalogs, profile HMMs and
+gathering thresholds. The atlas opens on Frames, shortens the navigation label
+from Reference frames, and groups its network overview, data model and raw table
+browser under Advanced without changing its visual theme.
+
+**Why.** The former navigation exposed documentation formats rather than the
+questions readers bring to gifter, and the compilation instructions were easier
+to find than the biological curation procedure that must precede them.
+
+**Effect.** Published URLs for existing workflows, the atlas and API reference
+remain stable. Frames lead the analytical browsing path but continue to resolve
+GIFTs dynamically from curated metadata; they do not store GIFT membership or
+change completeness logic. No package API, biological content, schema or
+database artifact changed.
 
 ### 2026-10-02T19:44Z — A chemistry-specific LTA structure becomes callable
 

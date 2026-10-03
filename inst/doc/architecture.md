@@ -2024,6 +2024,11 @@ If not, reconsider the design.
 
 ## Glossary
 
+The package-facing [Glossary](../../vignettes/glossary.Rmd) expands this core
+ontology with the marker, profile-HMM, external-resource and database-generation
+terms a curator encounters. The definitions below retain the shortest statement
+of the architectural contract.
+
 - **Anchor:** A curated input or output molecule defining a GIFT boundary. Only
   anchors connect GIFTs.
 - **Component:** One required protein role within an enzyme system. Any accepted
@@ -2034,6 +2039,20 @@ If not, reconsider the design.
   GIFT claims. Architectures are alternatives under OR.
 - **Circuit:** One complete curated implementation of a regulatory GIFT.
 - **Defense mechanism:** One complete curated implementation of a defense GIFT.
+- **Diagnostic proxy:** A provisional marker set used to measure prevalence or
+  failure modes during curation. It is not a GIFT definition and cannot make a
+  call.
+- **Equivalog:** An NCBIfam family grade asserting that recognized proteins
+  share one specific function. It makes a profile eligible for review, not
+  automatically acceptable as marker evidence.
+- **Equivalog domain:** The corresponding one-function NCBIfam grade for a
+  function-specific domain. The curator still checks that the domain is
+  sufficient evidence for the component.
+- **Frame (reference frame):** A metadata-defined comparison set and
+  denominator for derived traits. It resolves its current GIFT members against
+  a database release and never stores a list of `gift_id` values.
+- **Gathering threshold:** The model-specific cutoff curated for accepting
+  profile-HMM family members; it belongs to the profile version and release.
 - **GIFT:** A biologically meaningful capability whose genomic support is
   evaluated through an explicit, curated and traceable completeness model. Its
   `gift_type` names that model.
@@ -2049,10 +2068,18 @@ If not, reconsider the design.
   declared anchor and cannot connect GIFTs.
 - **Marker:** A namespaced genomic observation or annotation accession used as
   evidence for a component.
+- **Marker specificity:** How narrowly a marker identifies the component or
+  chemistry being claimed. A GIFT may never be more specific than its evidence.
+- **Profile HMM:** A position-specific probabilistic model learned from a
+  multiple sequence alignment and used to score homologous sequences.
+- **Provenance:** The recorded source, release and curation interpretation behind
+  an imported fact or gifter decision.
 - **Reaction:** A biochemical transformation identified preferentially by a
   Rhea master ID. Its direction within a capability is stored on route
   membership.
 - **Route:** A curated minimal set of required reactions that connects a GIFT's
   declared boundaries. Routes are alternatives under OR logic.
+- **Versioned accession:** An identifier whose suffix names a particular model
+  build, such as `NF040708.3`; for NCBIfam the suffix is part of marker identity.
 - **Traceability:** The ability to explain a GIFT result through route, reaction,
   enzyme system, component, marker, and supplied gene evidence.

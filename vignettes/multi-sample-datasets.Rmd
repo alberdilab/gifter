@@ -252,7 +252,7 @@ head(frame[frame$metric_id == "community_richness",
            c("sample_id", "group", "value", "assessable")])
 ```
 
-## Putting the four tutorials together
+## Putting the four workflows together
 
 ```text
 annotation table

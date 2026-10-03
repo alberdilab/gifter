@@ -1,0 +1,217 @@
+---
+title: "How a GIFT is built"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{How a GIFT is built}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+A GIFT is not imported from a pathway database or assembled from a convenient
+gene list. It is a biological capability with a stated boundary and an explicit
+completeness model. Building one is therefore a curation process first and a
+database-compilation process second.
+
+```text
+candidate capability
+  -> prior-attempt search
+  -> precise claim and GIFT type
+  -> boundaries or machinery architecture
+  -> routes/reactions or functions/systems
+  -> jointly required components
+  -> sufficiently specific marker evidence
+  -> composition and redundancy review
+  -> provenance, validation and tests
+  -> implemented, deferred or refused outcome
+```
+
+The detailed normative contract lives in the
+[development and architecture guide](https://github.com/alberdilab/gifter/blob/main/inst/doc/architecture.md#curating-a-new-or-changed-gift).
+This article explains how to read that process and why every stage exists.
+Technical terms are defined in the [glossary](glossary.html).
+
+## Begin with the question, not the markers
+
+The first curation statement is one sentence describing what a positive call
+means. It should name an encoded capability that is useful to compare among
+genomes without claiming expression, activity, physiological state or
+phenotype.
+
+Before new evidence is collected, the curator searches the append-only
+catalogue-expansion history for the candidate, its aliases and the wider request
+that produced it. A previous refusal is reopened only when its evidence or
+recorded retrigger has changed. A new bounded investigation is then registered
+as `in_progress`, even if it may ultimately add nothing. This makes unsuccessful
+searches and honest refusals as discoverable as additions.
+
+## Choose the completeness model
+
+Every GIFT declares one `gift_type`. The type decides what must be complete and
+which source tables may describe the capability.
+
+| Type | A positive call requires at least one complete... | Principal boundary |
+|---|---|---|
+| `metabolic` | route | declared input and output anchors |
+| `structural` | architecture | machinery needed to build a defined structure |
+| `regulatory` | circuit | machinery needed to sense a signal and execute a response |
+| `defense` | mechanism | machinery needed to execute a defined defense mechanism |
+
+A type is not a display category. A structure is not forced into the metabolic
+model by inventing a boundary molecule, and a metabolic transformation is not
+represented as a generic machinery checklist.
+
+## Define the claim and its boundaries
+
+For a metabolic GIFT, the input and output anchors identify where the capability
+begins and ends. Good boundaries are meaningful environmental or host
+compounds, precursors, stable products or branchpoints. Internal reaction
+participants are not automatically anchors, and only shared declared anchors
+connect GIFTs.
+
+For structural, regulatory and defense GIFTs, the analogous decision is the
+scope of the machine: which alternative complete implementations exist and
+which functions every implementation requires. The claim should be narrow
+enough that the genomic evidence can support it, but large enough to represent
+a biologically meaningful capability rather than an arbitrary protein or
+single reaction.
+
+At this stage the curator also checks whether the proposal duplicates an
+existing GIFT, bundles independently meaningful capabilities, or is already
+represented by a chain of composable metabolic GIFTs.
+
+## Materialize every valid implementation
+
+The Boolean layers are deliberately explicit. For a metabolic GIFT:
+
+```text
+GIFT = ANY complete route
+route = ALL required reactions
+reaction = ANY complete enzyme system
+system = ALL required components
+component = ANY accepted marker
+```
+
+Routes are minimal complete biochemical paths between the declared anchors.
+Each reaction is identified by its Rhea master where possible, while the
+reaction's `forward` or `reverse` use in the route is recorded separately.
+Alternative routes, non-homologous enzyme replacements, monomeric and
+multisubunit enzymes, and protein fusions are represented in their proper
+layers instead of being compressed into a Boolean expression.
+
+Structural, regulatory and defense GIFTs use the same Boolean shape under
+biologically appropriate names:
+
+```text
+GIFT = ANY complete architecture, circuit or mechanism
+implementation = ALL required functions
+function = ANY complete system
+system = ALL required components
+component = ANY accepted marker
+```
+
+Accessory functions may be recorded, but they do not silently become required.
+For an incomplete call, this structure is what lets gifter report the closest
+implementation and the missing reactions or functions.
+
+## Choose marker evidence
+
+Markers support components; they never support a reaction, route or GIFT
+directly. Marker identity is the pair `namespace + accession`, such as a KEGG
+Orthology accession or a versioned NCBIfam profile.
+
+The governing test is specificity: the biological claim must not be more
+specific than the marker evidence. A broad enzyme family cannot establish a
+substrate-specific reaction, a generic chemoreceptor cannot identify an
+effector, and a profile shared by homologous machines cannot distinguish those
+machines. The rest of a route may provide context for a genuinely broad shared
+reaction, but it cannot repair a marker that does not identify its own curated
+component.
+
+NCBIfam illustrates why source terminology matters. Only profiles graded
+`equivalog` or `equivalog_domain` carry the one-function assertion gifter admits
+by grade. `subfamily`, `domain`, `PfamAutoEq` and other grades do not receive
+that interpretation. Even an equivalog is read biologically before admission:
+grade and EC agreement screen candidates, but neither replaces curation.
+Version suffixes and the pinned resource release remain part of the evidence.
+
+For every accepted marker, the source rows record its evidence type,
+confidence, provenance and any ambiguity that affects interpretation. A marker
+that cannot support the claim is refused rather than stretched to fit it.
+
+## Check composition and traceability
+
+The proposed GIFT is inspected against the existing catalogue. Metabolic
+composition may occur only through declared anchors; a shared internal
+metabolite does not create an edge. Machinery GIFTs remain independent even
+when they genuinely share a component.
+
+The complete evidence path must remain recoverable:
+
+```text
+observed marker
+  -> component
+  -> system
+  -> reaction or function
+  -> route, architecture, circuit or mechanism
+  -> GIFT
+```
+
+When a caller supplies gene identifiers, the trace continues to those genes.
+If any level cannot be explained, the definition is not ready to compile.
+
+## Record provenance, build and close the attempt
+
+The reviewable source of truth is the collection of TSV files under
+[`inst/extdata/database-source`](https://github.com/alberdilab/gifter/tree/main/inst/extdata/database-source).
+SQLite is generated from those files and is never edited by hand.
+
+For a metabolic GIFT, source records are normally added in dependency order:
+
+1. GIFT metadata and any new anchors;
+2. anchor roles and related external pathway links;
+3. reactions and reaction cross-references;
+4. routes and ordered route reactions;
+5. enzyme systems and required components;
+6. reusable markers and component-to-marker evidence;
+7. provenance, biological change history and release metadata.
+
+The machinery models use the corresponding architecture, circuit or mechanism
+tables and their typed function, system, component and marker tables.
+
+Validation checks identifiers, foreign keys, type-specific rules, Boolean-layer
+completeness, marker admission rules and release metadata before SQLite is
+compiled:
+
+```sh
+Rscript data-raw/build_database.R
+Rscript -e 'testthat::test_local(".")'
+```
+
+Tests then exercise biological behaviour: alternatives under OR, jointly
+required elements under AND, incomplete calls, specificity failures,
+composition, and evidence tracing. The resulting definition is inspected with
+the public accessors and in the [Atlas](../atlas/).
+
+Finally, the investigation is closed with one of three explicit outcomes:
+
+- **implemented:** exact new or changed `gift_id` values and their database
+  change record;
+- **deferred:** a standing blocker and the evidence that would retrigger work;
+- **refused:** the claim cannot be supported without exceeding the evidence or
+  violating the ontology.
+
+A refusal is a curation result, not missing data. Recording it prevents a later
+curator from unknowingly repeating the same investigation or admitting the same
+over-broad evidence under a different name.
+
+## What database compilation does—and does not do
+
+Compilation validates and transforms reviewed source tables into the packaged
+SQLite database. It does not discover biological boundaries, infer missing
+routes, upgrade uncertain markers or decide that a candidate is a GIFT. Those
+are curation decisions and must already be explicit, sourced and testable before
+the compiler runs.

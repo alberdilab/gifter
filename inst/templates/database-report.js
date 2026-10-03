@@ -5,18 +5,19 @@
   var views = Array.prototype.slice.call(document.querySelectorAll("[data-view]"));
   var search = document.getElementById("global-search");
   var status = document.getElementById("search-status");
+  var viewMenus = Array.prototype.slice.call(document.querySelectorAll("[data-view-menu]"));
   var statusTimer;
 
   function currentView() {
     var active = document.querySelector("[data-view].active");
-    return active ? active.getAttribute("data-view") : "overview";
+    return active ? active.getAttribute("data-view") : "frames";
   }
 
   function activateView(name, updateHash) {
     var exists = views.some(function (view) {
       return view.getAttribute("data-view") === name;
     });
-    if (!exists) name = "overview";
+    if (!exists) name = "frames";
 
     views.forEach(function (view) {
       view.classList.toggle("active", view.getAttribute("data-view") === name);
@@ -25,6 +26,12 @@
       var active = button.getAttribute("data-view-button") === name;
       button.classList.toggle("active", active);
       button.setAttribute("aria-current", active ? "page" : "false");
+    });
+    viewMenus.forEach(function (menu) {
+      var active = Boolean(menu.querySelector('[data-view-button="' + name + '"]'));
+      var summary = menu.querySelector("summary");
+      summary.classList.toggle("active", active);
+      summary.setAttribute("aria-current", active ? "page" : "false");
     });
     if (updateHash && window.history && window.history.replaceState) {
       window.history.replaceState(null, "", "#" + name);
@@ -589,7 +596,7 @@
     } else if (section === "frames") {
       var frameCount = filterFrames(query);
       message = frameCount +
-        (frameCount === 1 ? " matching reference frame" : " matching reference frames");
+        (frameCount === 1 ? " matching frame" : " matching frames");
     } else if (section === "changelog") {
       var changeCount = filterChangelog(query);
       message = changeCount + (changeCount === 1 ? " matching change" : " matching changes");
@@ -615,6 +622,8 @@
   buttons.forEach(function (button) {
     button.addEventListener("click", function () {
       activateView(button.getAttribute("data-view-button"), true);
+      var menu = button.closest("[data-view-menu]");
+      if (menu) menu.removeAttribute("open");
     });
   });
 
@@ -1084,7 +1093,7 @@
   });
 
   window.addEventListener("hashchange", function () {
-    activateView(window.location.hash.replace(/^#/, "") || "overview", false);
+    activateView(window.location.hash.replace(/^#/, "") || "frames", false);
   });
 
   // Browsers apply their native anchor scroll after inline scripts run. The
@@ -1097,5 +1106,5 @@
   // A reloaded page can restore a previously chosen grouping in the select.
   sortGifts();
   layoutGifts();
-  activateView(window.location.hash.replace(/^#/, "") || "overview", false);
+  activateView(window.location.hash.replace(/^#/, "") || "frames", false);
 }());

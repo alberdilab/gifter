@@ -130,10 +130,10 @@ remotes::install_github("alberdilab/gifter", build_vignettes = TRUE)
 library(gifter)
 ```
 
-## Tutorials
+## Workflows
 
-Four vignettes walk through a complete analysis. Start at the first if gifter
-is new to you.
+Four workflow guides walk through a complete analysis. Start at the first if
+gifter is new to you.
 
 ```r
 vignette("evaluating-a-genome", package = "gifter")   # annotations -> calls -> evidence
@@ -149,6 +149,12 @@ browseVignettes("gifter")
 | [2. From calls to quantitative traits](https://alberdilab.github.io/gifter/articles/quantitative-traits.html) | reference frames, richness and breadth, when gifter refuses to give you a fraction, MAG completeness and honest denominators |
 | [3. A genome-resolved community](https://alberdilab.github.io/gifter/articles/community-analysis.html) | provider counts and redundancy, presence versus abundance, potential resource handoffs, and why a cytoplasmic molecule never crosses between genomes |
 | [4. Many samples over one catalogue](https://alberdilab.github.io/gifter/articles/multi-sample-datasets.html) | one fixed catalogue across samples, detection thresholds, per-sample traits and networks, and traceable exports |
+
+To understand how those capabilities enter the database, read
+[How a GIFT is built](https://alberdilab.github.io/gifter/articles/curating-a-gift.html).
+The [Glossary](https://alberdilab.github.io/gifter/articles/glossary.html) defines
+both analysis concepts and technical curation terms such as equivalog, profile
+HMM and gathering threshold.
 
 ## Evaluate a genome
 
@@ -356,6 +362,11 @@ anchors; internal compounds such as GAR, AIR, AICAR, dihydroorotate, and
 orotidine 5'-phosphate are intentionally absent from the anchor vocabulary.
 
 ## Curating and rebuilding
+
+The biological procedure is described in
+[How a GIFT is built](https://alberdilab.github.io/gifter/articles/curating-a-gift.html),
+from the initial claim and completeness model through marker-specificity review,
+provenance, validation and an implemented, deferred or refused outcome.
 
 The reviewable source of truth is
 [`inst/extdata/database-source`](https://github.com/alberdilab/gifter/tree/main/inst/extdata/database-source). The SQLite file

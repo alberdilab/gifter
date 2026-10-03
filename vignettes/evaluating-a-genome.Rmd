@@ -11,7 +11,7 @@ vignette: >
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
 
-This is the first of three tutorials and covers the whole of one analysis: from
+This is the first workflow guide and covers the whole of one analysis: from
 an annotation table to a set of calls, and from a call back down to the genes
 that produced it.
 

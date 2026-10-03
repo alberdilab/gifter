@@ -289,33 +289,43 @@ test_that("database HTML atlas is self-contained and reflects compiled rows", {
   expect_match(html, 'aria-label="Site sections"', fixed = TRUE)
   expect_match(
     html,
-    'href="https://alberdilab.github.io/gifter/reference/index.html">Reference</a>',
+    'href="https://alberdilab.github.io/gifter/articles/evaluating-a-genome.html">Get started</a>',
     fixed = TRUE
   )
   expect_match(
     html,
-    '<details class="site-menu"><summary class="site-nav-link">Articles</summary>',
+    '<details class="site-menu"><summary class="site-nav-link">Workflows</summary>',
     fixed = TRUE
   )
-  tutorial_positions <- vapply(
+  workflow_positions <- vapply(
     c(
-      "1. Evaluating a genome",
-      "2. From calls to quantitative traits",
-      "3. A genome-resolved community"
+      "From calls to quantitative traits",
+      "A genome-resolved community",
+      "Many samples over one catalogue"
     ),
     function(title) regexpr(title, html, fixed = TRUE)[[1]],
     integer(1)
   )
-  expect_true(all(tutorial_positions > 0L))
-  expect_true(all(diff(tutorial_positions) > 0L))
-  expect_match(html, 'aria-current="page">GIFT atlas</a>', fixed = TRUE)
+  expect_true(all(workflow_positions > 0L))
+  expect_true(all(diff(workflow_positions) > 0L))
+  expect_match(html, 'href="#frames" aria-current="page">Atlas</a>', fixed = TRUE)
+  expect_match(html, '>How a GIFT is built</a>', fixed = TRUE)
+  expect_match(html, '>Glossary</a>', fixed = TRUE)
+  expect_match(
+    html,
+    'href="https://alberdilab.github.io/gifter/reference/index.html">API</a>',
+    fixed = TRUE
+  )
   expect_match(html, 'aria-label="Atlas sections"', fixed = TRUE)
   expect_match(
     html,
-    '<button class="nav-button" data-view-button="frames">Reference frames</button>',
+    '<button class="nav-button active" data-view-button="frames">Frames</button>',
     fixed = TRUE
   )
-  expect_match(html, "Choose a reference frame", fixed = TRUE)
+  expect_match(html, '<section class="view active" id="frames"', fixed = TRUE)
+  expect_match(html, "Choose a frame", fixed = TRUE)
+  expect_match(html, 'data-view-menu><summary class="nav-button">Advanced</summary>', fixed = TRUE)
+  expect_match(html, 'data-view-button="schema">Data model</button>', fixed = TRUE)
   frame_cards <- regmatches(
     html,
     gregexpr('<article class="frame-card[^>]* data-frame-card', html)
@@ -333,7 +343,7 @@ test_that("database HTML atlas is self-contained and reflects compiled rows", {
   expect_match(html, "Count complete curated carbohydrate-degradation capabilities.", fixed = TRUE)
   expect_match(html, "bounded &middot; coverage valid", fixed = TRUE)
   expect_match(html, "function filterFrames", fixed = TRUE)
-  expect_match(html, "GIFT explorer", fixed = TRUE)
+  expect_match(html, "Explore GIFTs", fixed = TRUE)
   expect_match(html, "purine_core_biosynthesis", fixed = TRUE)
   expect_match(html, "reference_frame", fixed = TRUE)
   expect_match(html, "carbohydrate_degradation", fixed = TRUE)
@@ -672,7 +682,7 @@ test_that("the atlas publishes the changelog linked to GIFT traits", {
 
   expect_match(html, 'data-view="changelog"', fixed = TRUE)
   expect_match(html, "changelog-table", fixed = TRUE)
-  expect_match(html, "Database changelog", fixed = TRUE)
+  expect_match(html, "Database changes", fixed = TRUE)
   expect_match(html, "history-section", fixed = TRUE)
 
   changes <- database_changelog()
