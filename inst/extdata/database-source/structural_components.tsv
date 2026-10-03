@@ -59,3 +59,53 @@ COMP_WTA_LCP	SYS_WTA_LCP	LCP-family WTA attachment ligase	Transfers polyprenyl-l
 COMP_LTA_YPFP	SYS_LTA_YPFP	YpfP/UgtP-family diglucosyldiacylglycerol synthase	Processive glycosyltransferase that makes the glycolipid anchor named by the GIFT.
 COMP_LTA_LTAA	SYS_LTA_LTAA	LtaA glycolipid flippase	LTA-biosynthesis MFS flippase for the diglucosyldiacylglycerol anchor.
 COMP_LTA_LTAS	SYS_LTA_LTAS	LtaS poly(glycerol-phosphate) synthase	Polymerase that transfers glycerol-phosphate units from phosphatidylglycerol to the extracellular LTA chain.
+COMP_T6SS_TSSL	SYS_T6SS_TSSLM	TssL	Inner-membrane anchor of the membrane complex.
+COMP_T6SS_TSSM	SYS_T6SS_TSSLM	TssM	Envelope-spanning core of the membrane complex.
+COMP_T6SS_TSSJ	SYS_T6SS_TSSJ	TssJ	Outer-membrane lipoprotein.
+COMP_T6SS_TSSE	SYS_T6SS_BASEPLATE	TssE	Baseplate wedge protein related to phage gp25.
+COMP_T6SS_TSSF	SYS_T6SS_BASEPLATE	TssF	Baseplate wedge protein.
+COMP_T6SS_TSSG	SYS_T6SS_BASEPLATE	TssG	Baseplate wedge protein.
+COMP_T6SS_TSSK	SYS_T6SS_BASEPLATE	TssK	Connects the baseplate to the membrane complex.
+COMP_T6SS_VGRG	SYS_T6SS_VGRG	VgrG (TssI)	Spike protein.
+COMP_T6SS_HCP	SYS_T6SS_HCP	Hcp (TssD)	Tube protein.
+COMP_T6SS_TSSB	SYS_T6SS_SHEATH	TssB	Small sheath subunit.
+COMP_T6SS_TSSC	SYS_T6SS_SHEATH	TssC	Large sheath subunit.
+COMP_T6SS_TSSA	SYS_T6SS_TSSA	TssA	Tube and sheath polymerisation coordinator.
+COMP_T6SS_CLPV	SYS_T6SS_CLPV	ClpV (TssH)	Sheath-disassembly ATPase.
+COMP_T3SS_SCTR	SYS_T3SS_SCTRSTUV	SctR	Export-apparatus protein; FliP homologue.
+COMP_T3SS_SCTS	SYS_T3SS_SCTRSTUV	SctS	Export-apparatus protein; FliQ homologue.
+COMP_T3SS_SCTT	SYS_T3SS_SCTRSTUV	SctT	Export-apparatus protein; FliR homologue.
+COMP_T3SS_SCTU	SYS_T3SS_SCTRSTUV	SctU	Export-apparatus switch protein; FlhB homologue.
+COMP_T3SS_SCTV	SYS_T3SS_SCTRSTUV	SctV	Export-gate protein; FlhA homologue.
+COMP_T3SS_SCTN	SYS_T3SS_SCTN	SctN	Export ATPase; FliI homologue.
+COMP_T3SS_SCTD	SYS_T3SS_SCTDJ	SctD	Outer of the two inner-membrane rings.
+COMP_T3SS_SCTJ	SYS_T3SS_SCTDJ	SctJ	Inner-membrane ring lipoprotein.
+COMP_T3SS_SCTC	SYS_T3SS_SCTC	SctC	Outer-membrane secretin.
+COMP_T3SS_SCTQ	SYS_T3SS_SCTQ	SctQ	Sorting-platform protein.
+COMP_T3SS_SCTI	SYS_T3SS_SCTI	SctI	Inner rod protein.
+COMP_T3SS_SCTF	SYS_T3SS_NEEDLE	SctF	Needle filament subunit.
+COMP_T3SS_HRP_PILIN	SYS_T3SS_HRP_PILUS	Hrp pilin	Major subunit of the Hrp pilus.
+COMP_ARCHAELLUM_ARCHAELLIN	SYS_ARCHAELLUM_ARCHAELLIN	archaellin (ArlB)	The polymerised filament subunit.
+COMP_ARCHAELLUM_FLAK_PIBD	SYS_ARCHAELLUM_FLAK_PIBD	FlaK/PibD class III signal peptidase (ArlK)	Archaeal prearchaellin peptidase.
+COMP_ARCHAELLUM_PILD	SYS_ARCHAELLUM_PILD	PilD-type prepilin peptidase	Bacterial class III signal peptidase.
+COMP_ARCHAELLUM_FLAF	SYS_ARCHAELLUM_STATOR_FLAFG	FlaF stator protein (ArlF)	Membrane-anchored stator protein.
+COMP_ARCHAELLUM_FLAG	SYS_ARCHAELLUM_STATOR_FLAFG	FlaG stator protein (ArlG)	Membrane-anchored stator protein; a paralogue of FlaF.
+COMP_ARCHAELLUM_FLAH	SYS_ARCHAELLUM_MOTOR_FLAHI	FlaH KaiC-like regulator (ArlH)	Regulates FlaI and is essential for assembly.
+COMP_ARCHAELLUM_FLAI	SYS_ARCHAELLUM_MOTOR_FLAHI	FlaI motor ATPase (ArlI)	Powers assembly and rotation.
+COMP_ARCHAELLUM_FLAJ	SYS_ARCHAELLUM_PLATFORM_FLAJ	FlaJ membrane platform (ArlJ)	Polytopic membrane platform.
+COMP_ARCHAELLUM_FLAC	SYS_ARCHAELLUM_SWITCH_FLACDE	FlaC switch protein (ArlC)	Switch complex subunit.
+COMP_ARCHAELLUM_FLAD	SYS_ARCHAELLUM_SWITCH_FLACDE	FlaD switch protein (ArlD)	Switch complex subunit.
+COMP_ARCHAELLUM_FLAE	SYS_ARCHAELLUM_SWITCH_FLACDE	FlaE switch protein (ArlE)	Switch complex subunit.
+COMP_ARCHAELLUM_FLAX	SYS_ARCHAELLUM_FLAX	FlaX ring protein (ArlX)	Crenarchaeal motor scaffold.
+COMP_T2SS_GSPD	SYS_T2SS_GSPD	GspD secretin	Outer-membrane channel through which folded substrate passes.
+COMP_T2SS_GSPC	SYS_T2SS_GSPCFLM	GspC	Links the inner-membrane platform to the secretin.
+COMP_T2SS_GSPF	SYS_T2SS_GSPCFLM	GspF	Polytopic inner-membrane platform protein.
+COMP_T2SS_GSPL	SYS_T2SS_GSPCFLM	GspL	Binds the ATPase to the platform.
+COMP_T2SS_GSPM	SYS_T2SS_GSPCFLM	GspM	Stabilises the platform with GspL.
+COMP_T2SS_GSPE	SYS_T2SS_GSPE	GspE	Secretion ATPase.
+COMP_T2SS_GSPG	SYS_T2SS_GSPGHIJK	GspG major pseudopilin	The subunit polymerised into the pseudopilus.
+COMP_T2SS_GSPH	SYS_T2SS_GSPGHIJK	GspH minor pseudopilin	Tip-complex pseudopilin.
+COMP_T2SS_GSPI	SYS_T2SS_GSPGHIJK	GspI minor pseudopilin	Tip-complex pseudopilin.
+COMP_T2SS_GSPJ	SYS_T2SS_GSPGHIJK	GspJ minor pseudopilin	Tip-complex pseudopilin.
+COMP_T2SS_GSPK	SYS_T2SS_GSPGHIJK	GspK minor pseudopilin	Tip-complex pseudopilin.
+COMP_T2SS_PEPTIDASE	SYS_T2SS_PEPTIDASE	class III prepilin peptidase	Cleaves and N-methylates pseudopilin leaders. Shared with the type IVa pilus.

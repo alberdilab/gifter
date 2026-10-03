@@ -1,0 +1,31 @@
+candidate	proxy_set	functions	complete	complete_archaea	complete_bacteria	one_short	missing_function_when_one_short	any_function	top_phyla_complete	frame	frame_bacteria	frame_archaea
+archaellum	core	6	258	256	2	29	archaellin=1;FlaF=21;FlaG=3;FlaH=3;FlaJ=1	452	Methanobacteriota=215;Thermoproteota=28;Nitrososphaerota=11;Chloroflexota=2;Thermoplasmatota=2	11908	10143	470
+archaellum	core_plus_peptidase	7	253	253	0	26	archaellin=1;FlaF=14;FlaG=2;FlaH=3;FlaJ=1;FlaK=5	454	Methanobacteriota=214;Thermoproteota=28;Nitrososphaerota=11	11908	10143	470
+archaellum	euryarchaeal	7	167	167	0	104	archaellin=1;FlaF=9;FlaG=1;FlaH=2;FlaCDE=91	453	Methanobacteriota=165;Thermoplasmatota=2	11908	10143	470
+tad_pilus	diderm_core	8	1631	0	1631	316	Flp=67;CpaA_TadV=89;CpaB_RcpC=3;CpaC_RcpA=79;CpaE_TadZ=49;CpaF_TadA=13;TadB=9;TadC=7	4409	Alphaproteobacteria=753;other Gammaproteobacteria=364;Betaproteobacteria=312;Planctomycetota=69;Enterobacteria=53	11908	10143	470
+tad_pilus	without_pilin_peptidase	6	1803	0	1803	769	CpaB_RcpC=8;CpaC_RcpA=572;CpaE_TadZ=155;CpaF_TadA=15;TadB=10;TadC=9	4357	Alphaproteobacteria=771;other Gammaproteobacteria=412;Betaproteobacteria=333;Enterobacteria=96;Planctomycetota=69	11908	10143	470
+tad_pilus	secretin_free	6	1719	0	1719	918	Flp=81;CpaA_TadV=597;CpaE_TadZ=202;CpaF_TadA=17;TadB=13;TadC=8	4384	Alphaproteobacteria=763;other Gammaproteobacteria=365;Betaproteobacteria=316;Planctomycetota=70;Enterobacteria=53	11908	10143	470
+type_ii_secretion	core	11	1571	0	1571	504	GspC=335;GspD=12;GspE=5;GspF=5;GspG=4;GspH=13;GspI=7;GspJ=10;GspK=9;GspL=11;GspM=93	3322	other Gammaproteobacteria=706;Betaproteobacteria=385;Enterobacteria=258;Alphaproteobacteria=147;Thermodesulfobacteriota=47	11908	10143	470
+type_ii_secretion	core_plus_peptidase	12	1536	0	1536	473	GspC=274;GspD=10;GspE=5;GspF=5;GspG=4;GspH=12;GspI=7;GspJ=10;GspK=8;GspL=11;GspM=92;peptidase=35	4891	other Gammaproteobacteria=702;Betaproteobacteria=378;Enterobacteria=252;Alphaproteobacteria=130;Thermodesulfobacteriota=46	11908	10143	470
+type_ii_secretion	specific_only	3	1653	0	1653	651	GspC=392;GspL=26;GspM=233	2446	other Gammaproteobacteria=732;Betaproteobacteria=401;Enterobacteria=277;Alphaproteobacteria=157;Thermodesulfobacteriota=49	11908	10143	470
+type_iva_pilus_reference	proxy	9	1406	0	1406	426	pilin=31;PilB=109;PilC=13;PilD=15;PilM=13;PilN=7;PilO=3;PilP=198;PilQ=37	4812	other Gammaproteobacteria=945;Betaproteobacteria=340;Thermodesulfobacteriota=45;Myxococcota=34;other Pseudomonadota=14	11908	10143	470
+gas_vesicle	kegg_visible	1	605	59	546	0	=	605	Actinomycetota=331;Cyanobacteriota=80;Bacilli=56;Methanobacteriota=56;Alphaproteobacteria=22	11908	10143	470
+gas_vesicle	with_GvpC	2	11	11	0	594	GvpC=594	605	Methanobacteriota=11	11908	10143	470
+bam_complex	BamA_only	1	7287	0	6073	0	=	7287	other Gammaproteobacteria=1502;Alphaproteobacteria=1211;Betaproteobacteria=694;Bacteroidota=688;Enterobacteria=675	11908	10143	470
+bam_complex	essential_pair	2	5262	0	5262	2114	BamA=89;BamD=2025	7376	other Gammaproteobacteria=1488;Alphaproteobacteria=1199;Betaproteobacteria=690;Enterobacteria=669;Bacteroidota=656	11908	10143	470
+bam_complex	five_subunit	5	2101	0	2101	657	BamA=16;BamB=128;BamC=468;BamD=3;BamE=42	7534	other Gammaproteobacteria=897;Enterobacteria=618;Betaproteobacteria=579;other Pseudomonadota=5;Alphaproteobacteria=1	11908	10143	470
+curli	core	5	252	0	252	285	CsgA=271;CsgB=2;CsgE=6;CsgF=3;CsgG=3	887	Enterobacteria=250;other Gammaproteobacteria=2	11908	10143	470
+curli	secretion_only	3	591	0	591	209	CsgE=189;CsgF=6;CsgG=14	836	other Gammaproteobacteria=276;Enterobacteria=264;Betaproteobacteria=26;Bacteroidota=21;Bacilli=1	11908	10143	470
+chaperone_usher	class	3	1133	0	1133	671	usher=10;chaperone=11;major_subunit=650	2014	Enterobacteria=561;other Gammaproteobacteria=351;Betaproteobacteria=219;Alphaproteobacteria=1;Bacilli=1	11908	10143	470
+chaperone_usher	usher_chaperone	2	1783	0	1783	225	usher=158;chaperone=67	2008	Enterobacteria=598;other Gammaproteobacteria=590;Betaproteobacteria=333;Alphaproteobacteria=170;Cyanobacteriota=34	11908	10143	470
+chaperone_usher	type1_fim	6	179	0	179	71	FimC=1;FimF=11;FimG=51;FimH=8	1940	Enterobacteria=179	11908	10143	470
+chaperone_usher	pap	7	11	0	11	0	=	541	Enterobacteria=11	11908	10143	470
+type_iv_secretion	virb_d4	11	91	0	91	268	VirB2=7;VirB5=2;VirB7=224;VirD4=35	1237	Alphaproteobacteria=83;other Gammaproteobacteria=7;Betaproteobacteria=1	11908	10143	470
+type_iv_secretion	virb_without_small	8	602	0	602	223	VirB3=75;VirB4=5;VirB6=8;VirB8=2;VirB9=1;VirB10=3;VirB11=4;VirD4=125	1222	Alphaproteobacteria=423;other Gammaproteobacteria=111;Betaproteobacteria=58;Enterobacteria=9;Nitrospirota=1	11908	10143	470
+type_iv_secretion	trb_p_type	9	643	0	643	71	TrbB=9;TrbC=7;TrbD=8;TrbE=7;TrbF=4;TrbG=4;TrbI=6;TrbJ=18;TrbL=8	1054	Alphaproteobacteria=390;Betaproteobacteria=98;other Gammaproteobacteria=94;Enterobacteria=22;Thermodesulfobacteriota=10	11908	10143	470
+type_iv_secretion	f_type	14	75	0	75	187	TraA=89;TraK=2;TraB=1;TraV=3;TraG=3;TraN=2;TraD=87	1039	other Gammaproteobacteria=39;Enterobacteria=22;Betaproteobacteria=14	11908	10143	470
+type_iv_secretion	dot_icm	9	33	0	33	50	DotA=46;IcmG=4	221	other Gammaproteobacteria=33	11908	10143	470
+microcompartment	shell_any	2	518	0	518	441	hexamer=3;pentamer=438	959	Enterobacteria=238;Cyanobacteriota=171;Bacilli=66;other Gammaproteobacteria=19;Fusobacteriota=7	11908	10143	470
+microcompartment	pdu_shell	3	243	0	243	143	PduA_J=1;PduB=3;PduN=139	419	Enterobacteria=157;Bacilli=64;other Gammaproteobacteria=8;Fusobacteriota=7;Clostridia=6	11908	10143	470
+microcompartment	eut_shell	3	206	0	206	271	EutM=9;EutL=4;EutN=258	629	Enterobacteria=193;other Gammaproteobacteria=10;Betaproteobacteria=2;Thermodesulfobacteriota=1	11908	10143	470
+microcompartment	beta_carboxysome_shell	5	160	0	160	9	CcmO=5;CcmM=1;CcmN=3	182	Cyanobacteriota=160	11908	10143	470

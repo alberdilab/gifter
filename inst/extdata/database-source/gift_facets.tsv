@@ -381,3 +381,7 @@ siroheme_to_heme_b	physiological_role	biosynthesis	Converts one tetrapyrrole cof
 lpt_lipopolysaccharide_export_apparatus	structural_class	secretion_machine	A dedicated trans-envelope machine that moves lipopolysaccharide from the inner membrane to the outer leaflet of the outer membrane.
 ribitol_phosphate_wall_teichoic_acid	structural_class	envelope_structure	A covalently peptidoglycan-attached poly(ribitol-phosphate) cell-envelope polymer built through either of two complete curated architectures.
 diglucosyl_diacylglycerol_anchored_lipoteichoic_acid	structural_class	envelope_structure	A membrane-anchored poly(glycerol-phosphate) LTA structure whose diglucosyldiacylglycerol anchor and polymer are both resolved by the required architecture.
+type_vi_secretion_apparatus	structural_class	secretion_machine	A contractile machine that propels an Hcp tube and VgrG spike out of the cell.
+type_iii_secretion_injectisome	structural_class	secretion_machine	A trans-envelope machine that exports proteins through a needle or Hrp pilus.
+archaellum	structural_class	cell_surface_appendage	A rotary filament assembled by a type IV filament machine, unrelated to the bacterial flagellum.
+type_ii_secretion_system	structural_class	secretion_machine	A trans-envelope machine that exports folded proteins from the periplasm across the outer membrane.

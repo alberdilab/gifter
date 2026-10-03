@@ -1,0 +1,2 @@
+prokaryotic_frame_genomes	required_gsp_roles	genomes_with_no_gsp_role	genomes_one_short	genomes_two_short	t2ss_core_complete	t2ss_complete_with_peptidase	peptidase_cost_in_genomes	t4ap_complete	complete_both	t2ss_without_t4ap	t4ap_without_t2ss	peptidase_gspo_genomes	peptidase_pild_genomes	peptidase_both_genomes	t2ss_complete_resting_on_pild_only	one_short_missing_role
+11908	11	8586	504	211	1571	1536	35	1507	833	703	674	331	4102	51	1319	GspC=335;GspM=93;GspH=13;GspD=12;GspL=11;GspJ=10;GspK=9;GspI=7;GspE=5;GspF=5;GspG=4

@@ -1,0 +1,13 @@
+org	strain	expect_t2ss	gsp_roles_by_ko	gsp_roles_by_ko_or_ncbifam	peptidase_marker	complete_by_ko	complete_by_ko_or_ncbifam	missing_roles	note
+vch	Vibrio cholerae O1 El Tor N16961	yes	10	10	TRUE	FALSE	FALSE	GspD	Eps system secreting cholera toxin
+pae	Pseudomonas aeruginosa PAO1	yes	11	11	TRUE	TRUE	TRUE		Xcp system
+eco	Escherichia coli K-12 MG1655	yes	11	11	TRUE	TRUE	TRUE		cryptic but complete gsp cluster in K-12
+xcc	Xanthomonas campestris pv. campestris ATCC 33913	yes	11	11	TRUE	TRUE	TRUE		Xps and Xcs systems
+lpn	Legionella pneumophila subsp. pneumophila Philadelphia 1	yes	10	10	TRUE	FALSE	FALSE	GspC	Lsp system
+aha	Aeromonas hydrophila subsp. hydrophila ATCC 7966	yes	11	11	TRUE	TRUE	TRUE		Aeromonas Exe system
+dze	Dickeya chrysanthemi	yes	11	11	TRUE	TRUE	TRUE		Dickeya Out system secreting plant cell wall enzymes
+ecs	Escherichia coli O157:H7 Sakai	unverified	11	11	TRUE	TRUE	TRUE		Enterobacterial gsp cluster
+kox	Klebsiella michiganensis KCTC 1686	unverified	11	11	TRUE	TRUE	TRUE		Klebsiella michiganensis, a Klebsiella oxytoca relative
+bsu	Bacillus subtilis subsp. subtilis 168	no	0	0	FALSE	FALSE	FALSE	GspC;GspD;GspE;GspF;GspG;GspH;GspI;GspJ;GspK;GspL;GspM	monoderm; no type II secretion system
+cje	Campylobacter jejuni subsp. jejuni NCTC 11168 = ATCC 700819	no	2	2	TRUE	FALSE	FALSE	GspC;GspF;GspG;GspH;GspI;GspJ;GspK;GspL;GspM	no type II secretion system
+hpy	Helicobacter pylori 26695	no	0	0	FALSE	FALSE	FALSE	GspC;GspD;GspE;GspF;GspG;GspH;GspI;GspJ;GspK;GspL;GspM	no type II secretion system

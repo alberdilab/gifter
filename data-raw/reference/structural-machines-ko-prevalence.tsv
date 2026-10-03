@@ -1,0 +1,131 @@
+candidate	ko	definition	genomes	archaea	bacteria	frame	frame_bacteria	frame_archaea
+archaellum	K07324	flaA; archaeal flagellin FlaA	9	9	0	11908	10143	470
+archaellum	K07325	flaB, flgA; archaeal flagellin FlaB	291	289	2	11908	10143	470
+archaellum	K07327	flaD; archaeal flagellar protein FlaD	83	83	0	11908	10143	470
+archaellum	K07328	flaE; archaeal flagellar protein FlaE	22	22	0	11908	10143	470
+archaellum	K07329	flaF; archaeal flagellar protein FlaF	269	266	3	11908	10143	470
+archaellum	K07330	flaG; archaeal flagellar protein FlaG	285	283	2	11908	10143	470
+archaellum	K07331	flaH; archaeal flagellar protein FlaH	290	288	2	11908	10143	470
+archaellum	K07332	flaI; archaeal flagellar protein FlaI	450	448	2	11908	10143	470
+archaellum	K07333	flaJ; archaeal flagellar protein FlaJ	441	438	3	11908	10143	470
+archaellum	K07822	flaC; archaeal flagellar protein FlaC	61	60	1	11908	10143	470
+archaellum	K07991	flaK; archaeal preflagellin peptidase FlaK [EC:3.4.23.52]	422	422	0	11908	10143	470
+archaellum	K23986	flaCE; archaeal flagellar protein FlaCE	102	102	0	11908	10143	470
+tad_pilus	K02278	cpaA, tadV; prepilin peptidase CpaA [EC:3.4.23.43]	2121	0	2121	11908	10143	470
+tad_pilus	K02279	cpaB, rcpC; pilus assembly protein CpaB	2641	0	2641	11908	10143	470
+tad_pilus	K02280	cpaC, rcpA; pilus assembly protein CpaC	2075	0	2075	11908	10143	470
+tad_pilus	K02282	cpaE, tadZ; pilus assembly protein CpaE	2551	0	2551	11908	10143	470
+tad_pilus	K02283	cpaF, tadA; pilus assembly protein CpaF [EC:7.4.2.8]	4233	0	4233	11908	10143	470
+tad_pilus	K02651	flp, pilA; pilus assembly protein Flp/PilA	3186	0	3186	11908	10143	470
+tad_pilus	K12510	tadB; tight adherence protein B	4111	0	4111	11908	10143	470
+tad_pilus	K12511	tadC; tight adherence protein C	4072	0	4072	11908	10143	470
+type_ii_secretion	K02452	gspC; general secretion pathway protein C	1982	0	1982	11908	10143	470
+type_ii_secretion	K02453	gspD; general secretion pathway protein D	2911	0	2911	11908	10143	470
+type_ii_secretion	K02454	gspE; general secretion pathway protein E [EC:7.4.2.8]	3114	0	3114	11908	10143	470
+type_ii_secretion	K02455	gspF; general secretion pathway protein F	2936	0	2936	11908	10143	470
+type_ii_secretion	K02456	gspG; general secretion pathway protein G	2839	0	2839	11908	10143	470
+type_ii_secretion	K02457	gspH; general secretion pathway protein H	2276	0	2276	11908	10143	470
+type_ii_secretion	K02458	gspI; general secretion pathway protein I	2437	0	2437	11908	10143	470
+type_ii_secretion	K02459	gspJ; general secretion pathway protein J	2366	0	2366	11908	10143	470
+type_ii_secretion	K02460	gspK; general secretion pathway protein K	2379	0	2379	11908	10143	470
+type_ii_secretion	K02461	gspL; general secretion pathway protein L	2336	0	2336	11908	10143	470
+type_ii_secretion	K02462	gspM; general secretion pathway protein M	2085	0	2085	11908	10143	470
+type_ii_secretion	K02464	gspO; general secretion pathway protein O [EC:3.4.23.43 2.1.1.-]	331	0	331	11908	10143	470
+type_ii_secretion	K02654	pilD, pppA; leader peptidase (prepilin peptidase) / N-methyltransferase [EC:3.4.23.43 2.1.1.-]	4102	0	4102	11908	10143	470
+type_iva_pilus_reference	K02650	pilA; type IV pilus assembly protein PilA	3046	0	3046	11908	10143	470
+type_iva_pilus_reference	K02652	pilB; type IV pilus assembly protein PilB	3429	0	3429	11908	10143	470
+type_iva_pilus_reference	K02653	pilC; type IV pilus assembly protein PilC	3605	0	3605	11908	10143	470
+type_iva_pilus_reference	K02654	pilD, pppA; leader peptidase (prepilin peptidase) / N-methyltransferase [EC:3.4.23.43 2.1.1.-]	4102	0	4102	11908	10143	470
+type_iva_pilus_reference	K02655	pilE; type IV pilus assembly protein PilE	1815	0	1815	11908	10143	470
+type_iva_pilus_reference	K02662	pilM; type IV pilus assembly protein PilM	2858	0	2858	11908	10143	470
+type_iva_pilus_reference	K02663	pilN; type IV pilus assembly protein PilN	2631	0	2631	11908	10143	470
+type_iva_pilus_reference	K02664	pilO; type IV pilus assembly protein PilO	2312	0	2312	11908	10143	470
+type_iva_pilus_reference	K02665	pilP; type IV pilus assembly protein PilP	1725	0	1725	11908	10143	470
+type_iva_pilus_reference	K02666	pilQ; type IV pilus assembly protein PilQ	2364	0	2364	11908	10143	470
+gas_vesicle	K23262	gvpA; gas vesicle structural protein	605	59	546	11908	10143	470
+gas_vesicle	K23263	gvpC; gas vesicle minor protein	11	11	0	11908	10143	470
+bam_complex	K05807	bamD; outer membrane protein assembly factor BamD	5351	0	5351	11908	10143	470
+bam_complex	K06186	bamE, smpA; outer membrane protein assembly factor BamE	2833	0	2833	11908	10143	470
+bam_complex	K07277	SAM50, TOB55, bamA; outer membrane protein insertion porin family	7287	0	6073	11908	10143	470
+bam_complex	K07287	bamC; outer membrane protein assembly factor BamC	2301	0	2301	11908	10143	470
+bam_complex	K17713	bamB; outer membrane protein assembly factor BamB	3327	58	3269	11908	10143	470
+curli	K04334	csgA; major curlin subunit	291	0	291	11908	10143	470
+curli	K04335	csgB; minor curlin subunit	644	0	644	11908	10143	470
+curli	K04337	csgE; curli production assembly/transport component CsgE	613	0	613	11908	10143	470
+curli	K04338	csgF; curli production assembly/transport component CsgF	801	0	801	11908	10143	470
+curli	K06214	csgG; curli production assembly/transport component CsgG	813	0	813	11908	10143	470
+chaperone_usher	K07345	fimA; major type 1 subunit fimbrin (pilin)	1154	0	1154	11908	10143	470
+chaperone_usher	K07346	fimC; fimbrial chaperone protein	1706	0	1706	11908	10143	470
+chaperone_usher	K07347	fimD, fimC, mrkC, htrE, cssD; outer membrane usher protein	1765	0	1765	11908	10143	470
+chaperone_usher	K07348	fimF; minor fimbrial subunit	245	0	245	11908	10143	470
+chaperone_usher	K07349	fimG; minor fimbrial subunit	314	0	314	11908	10143	470
+chaperone_usher	K07350	fimH; minor fimbrial subunit	244	0	244	11908	10143	470
+chaperone_usher	K07352	sfmA; type 1 fimbrial protein	235	0	235	11908	10143	470
+chaperone_usher	K07353	sfmC; fimbrial chaperone protein	240	0	240	11908	10143	470
+chaperone_usher	K07354	sfmD; outer membrane usher protein	224	0	224	11908	10143	470
+chaperone_usher	K12517	papA; major pilin subunit PapA	20	0	20	11908	10143	470
+chaperone_usher	K12518	papC; outer membrane usher protein PapC	513	0	513	11908	10143	470
+chaperone_usher	K12519	papD; chaperone protein PapD	467	0	467	11908	10143	470
+chaperone_usher	K12520	papE; minor pilin subunit PapE	11	0	11	11908	10143	470
+chaperone_usher	K12521	papF; minor pilin subunit PapF	18	0	18	11908	10143	470
+chaperone_usher	K12522	papG; adhesin PapG	11	0	11	11908	10143	470
+chaperone_usher	K12523	papK; minor pilin subunit PapK	16	0	16	11908	10143	470
+chaperone_usher	K15540	ecpD; chaperone protein EcpD	945	0	945	11908	10143	470
+chaperone_usher	K21966	ecpC, matD; Mat/Ecp fimbriae outer membrane usher protein	435	0	435	11908	10143	470
+type_iv_secretion	K03195	virB10, lvhB10; type IV secretion system protein VirB10	1012	0	1012	11908	10143	470
+type_iv_secretion	K03196	virB11, lvhB11; type IV secretion system protein VirB11 [EC:7.4.2.8]	1080	0	1080	11908	10143	470
+type_iv_secretion	K03197	virB2, lvhB2; type IV secretion system protein VirB2	771	0	771	11908	10143	470
+type_iv_secretion	K03198	virB3, lvhB3; type IV secretion system protein VirB3	849	0	849	11908	10143	470
+type_iv_secretion	K03199	virB4, lvhB4; type IV secretion system protein VirB4 [EC:7.4.2.8]	1023	0	1023	11908	10143	470
+type_iv_secretion	K03200	virB5, lvhB5; type IV secretion system protein VirB5	713	0	713	11908	10143	470
+type_iv_secretion	K03201	virB6, lvhB6; type IV secretion system protein VirB6	1063	0	1063	11908	10143	470
+type_iv_secretion	K03202	virB7, lvhB7; type IV secretion system protein VirB7	151	0	151	11908	10143	470
+type_iv_secretion	K03203	virB8, lvhB8; type IV secretion system protein VirB8	972	0	972	11908	10143	470
+type_iv_secretion	K03204	virB9, lvhB9; type IV secretion system protein VirB9	1030	0	1030	11908	10143	470
+type_iv_secretion	K03205	virD4, lvhD4; type IV secretion system protein VirD4 [EC:7.4.2.8]	775	0	775	11908	10143	470
+type_iv_secretion	K07344	trbL; type IV secretion system protein TrbL	903	0	903	11908	10143	470
+type_iv_secretion	K12056	traG; conjugal transfer mating pair stabilization protein TraG	547	0	547	11908	10143	470
+type_iv_secretion	K12057	traF; conjugal transfer pilus assembly protein TraF	555	0	555	11908	10143	470
+type_iv_secretion	K12058	traN; conjugal transfer mating pair stabilization protein TraN	520	0	520	11908	10143	470
+type_iv_secretion	K12060	traU; conjugal transfer pilus assembly protein TraU	542	0	542	11908	10143	470
+type_iv_secretion	K12061	traW; conjugal transfer pilus assembly protein TraW	540	0	540	11908	10143	470
+type_iv_secretion	K12063	traC; conjugal transfer ATP-binding protein TraC	537	0	537	11908	10143	470
+type_iv_secretion	K12064	traV; conjugal transfer pilus assembly protein TraV	479	0	479	11908	10143	470
+type_iv_secretion	K12065	traB; conjugal transfer pilus assembly protein TraB	541	0	541	11908	10143	470
+type_iv_secretion	K12066	traK; conjugal transfer pilus assembly protein TraK	503	0	503	11908	10143	470
+type_iv_secretion	K12067	traE; conjugal transfer pilus assembly protein TraE	551	0	551	11908	10143	470
+type_iv_secretion	K12068	traL; conjugal transfer pilus assembly protein TraL	524	0	524	11908	10143	470
+type_iv_secretion	K12069	traA; conjugal transfer pilus assembly protein TraA	234	0	234	11908	10143	470
+type_iv_secretion	K12071	traD; conjugal transfer pilus assembly protein TraD	664	0	664	11908	10143	470
+type_iv_secretion	K12072	traH; conjugative transfer pilus assembly protein TraH	560	0	560	11908	10143	470
+type_iv_secretion	K12202	dotA; defect in organelle trafficking protein DotA	38	0	38	11908	10143	470
+type_iv_secretion	K12203	dotB, traJ; defect in organelle trafficking protein DotB [EC:7.2.4.8]	200	0	200	11908	10143	470
+type_iv_secretion	K12204	dotC, traI; defect in organelle trafficking protein DotC	206	0	206	11908	10143	470
+type_iv_secretion	K12205	dotD, traH; defect in organelle trafficking protein DotD	179	0	179	11908	10143	470
+type_iv_secretion	K12206	icmB, dotO; intracellular multiplication protein IcmB [EC:7.2.4.8]	197	0	197	11908	10143	470
+type_iv_secretion	K12209	icmE, dotG; intracellular multiplication protein IcmE	168	0	168	11908	10143	470
+type_iv_secretion	K12211	icmG, dotF; intracellular multiplication protein IcmG	89	0	89	11908	10143	470
+type_iv_secretion	K12213	icmK, traN, dotH; intracellular multiplication protein IcmK	191	0	191	11908	10143	470
+type_iv_secretion	K12217	icmO, trbC, dotL; intracellular multiplication protein IcmO [EC:7.2.4.8]	191	0	191	11908	10143	470
+type_iv_secretion	K20266	trbJ; type IV secretion system protein TrbJ	920	0	920	11908	10143	470
+type_iv_secretion	K20527	trbB; type IV secretion system protein TrbB [EC:7.4.2.8]	775	0	775	11908	10143	470
+type_iv_secretion	K20528	trbC; type IV secretion system protein TrbC	764	0	764	11908	10143	470
+type_iv_secretion	K20529	trbD; type IV secretion system protein TrbD	809	0	809	11908	10143	470
+type_iv_secretion	K20530	trbE; type IV secretion system protein TrbE [EC:7.4.2.8]	807	0	807	11908	10143	470
+type_iv_secretion	K20531	trbF; type IV secretion system protein TrbF	830	0	830	11908	10143	470
+type_iv_secretion	K20532	trbG; type IV secretion system protein TrbG	841	0	841	11908	10143	470
+type_iv_secretion	K20533	trbI; type IV secretion system protein TrbI	834	0	834	11908	10143	470
+microcompartment	K04025	eutK; ethanolamine utilization protein EutK	227	0	227	11908	10143	470
+microcompartment	K04026	eutL; ethanolamine utilization protein EutL	498	0	498	11908	10143	470
+microcompartment	K04027	eutM; ethanolamine utilization protein EutM	594	0	594	11908	10143	470
+microcompartment	K04028	eutN; ethanolamine utilization protein EutN	220	0	220	11908	10143	470
+microcompartment	K08696	ccmK; carbon dioxide concentrating mechanism protein CcmK	175	0	175	11908	10143	470
+microcompartment	K08697	ccmL; carbon dioxide concentrating mechanism protein CcmL	178	0	178	11908	10143	470
+microcompartment	K08698	ccmM; carbon dioxide concentrating mechanism protein CcmM	169	0	169	11908	10143	470
+microcompartment	K08699	ccmN; carbon dioxide concentrating mechanism protein CcmN	166	0	166	11908	10143	470
+microcompartment	K08700	ccmO; carbon dioxide concentrating mechanism protein CcmO	164	0	164	11908	10143	470
+microcompartment	K27260	pduA; bacterial microcompartment shell protein	387	0	387	11908	10143	470
+microcompartment	K27263	pduB; bacterial microcompartment shell protein	397	0	397	11908	10143	470
+microcompartment	K27266	pduJ; bacterial microcompartment shell protein	285	0	285	11908	10143	470
+microcompartment	K27267	pduK; bacterial microcompartment shell protein	326	0	326	11908	10143	470
+microcompartment	K27269	pduN; bacterial microcompartment shell vertex protein	250	0	250	11908	10143	470

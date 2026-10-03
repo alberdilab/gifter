@@ -1393,3 +1393,114 @@ KO	K01005	TagT/TagU/TagV polyisoprenyl-teichoic acid--peptidoglycan transferase	
 NCBIFAM	NF010134.0	diglucosyldiacylglycerol synthase	NCBIfam equivalog-grade processive glycolipid glycosyltransferase profile restricted to Staphylococcaceae in its seed scope; 1035 RefSeq protein hits in release hmm_PGAP/20.0.
 NCBIFAM	NF047396.1	lipoteichoic acid biosynthesis MFS flippase LtaA	NCBIfam equivalog-grade LtaA profile restricted to Staphylococcaceae in its seed scope; 1045 RefSeq protein hits in release hmm_PGAP/20.0.
 NCBIFAM	NF053595.1	lipoteichoic acid synthase LtaS	NCBIfam equivalog-grade LtaS profile restricted to Caryophanales in its seed scope; 5195 RefSeq protein hits in release hmm_PGAP/20.0.
+KO	K11892	type VI secretion system protein ImpK	KEGG orthology marker.
+NCBIFAM	NF005444.0	DotU family type VI secretion system protein	NCBIfam equivalog-grade profile. DotU family type VI secretion system protein; 3843 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K11891	type VI secretion system protein ImpL	KEGG orthology marker.
+NCBIFAM	TIGR03348.1	tssM type VI secretion system membrane subunit TssM	NCBIfam equivalog-grade profile. Type VI secretion system membrane subunit TssM; 40259 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K11906	type VI secretion system protein VasD	KEGG orthology marker.
+NCBIFAM	TIGR03352.1	tssJ type VI secretion system lipoprotein TssJ	NCBIfam equivalog-grade profile. Type VI secretion system lipoprotein TssJ; 21904 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K11897	type VI secretion system protein ImpF	KEGG orthology marker.
+KO	K11905	type VI secretion system protein	KEGG orthology marker.
+KO	K11919	type VI secretion system lysozyme-related protein	KEGG orthology marker.
+NCBIFAM	TIGR03357.1	tssE type VI secretion system baseplate subunit TssE	NCBIfam equivalog-grade profile. Type VI secretion system baseplate subunit TssE; 20269 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K11896	type VI secretion system protein ImpG	KEGG orthology marker.
+NCBIFAM	TIGR03359.1	tssF type VI secretion system baseplate subunit TssF	NCBIfam equivalog-grade profile. Type VI secretion system baseplate subunit TssF; 43714 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K11895	type VI secretion system protein ImpH	KEGG orthology marker.
+NCBIFAM	TIGR03347.1	tssG type VI secretion system baseplate subunit TssG	NCBIfam equivalog-grade profile. Type VI secretion system baseplate subunit TssG; 34908 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K11893	type VI secretion system protein ImpJ	KEGG orthology marker.
+NCBIFAM	TIGR03353.2	tssK type VI secretion system baseplate subunit TssK	NCBIfam equivalog-grade profile. Type VI secretion system baseplate subunit TssK; 33692 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K11904	type VI secretion system secreted protein VgrG	KEGG orthology marker.
+KO	K11903	type VI secretion system secreted protein Hcp	KEGG orthology marker.
+KO	K11901	type VI secretion system protein ImpB	KEGG orthology marker.
+NCBIFAM	TIGR03358.1	tssB type VI secretion system contractile sheath small subunit	NCBIfam equivalog-grade profile. Type VI secretion system contractile sheath small subunit; 19285 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K11900	type VI secretion system protein ImpC	KEGG orthology marker.
+NCBIFAM	TIGR03355.1	tssC type VI secretion system contractile sheath large subunit	NCBIfam equivalog-grade profile. Type VI secretion system contractile sheath large subunit; 29271 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K11902	type VI secretion system protein ImpA	KEGG orthology marker.
+KO	K11910	type VI secretion system protein VasJ	KEGG orthology marker.
+NCBIFAM	TIGR03362.1	tssA type VI secretion system protein TssA	NCBIfam equivalog-grade profile. Type VI secretion system protein TssA; 17997 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	TIGR03363.1	tssA type VI secretion system protein TssA	NCBIfam equivalog-grade profile. Type VI secretion system protein TssA; 16453 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K11907	type VI secretion system protein VasG	KEGG orthology marker.
+NCBIFAM	TIGR03345.1	tssH type VI secretion system ATPase TssH	NCBIfam equivalog-grade profile. Type VI secretion system ATPase TssH; 46985 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K03226	type III secretion protein R	KEGG orthology marker.
+KO	K22507	type III secretion system export apparatus protein	KEGG orthology marker.
+NCBIFAM	TIGR01102.1	sctR type III secretion system export apparatus subunit SctR	NCBIfam equivalog-grade profile. Type III secretion system export apparatus subunit SctR; 6534 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K03227	type III secretion protein S	KEGG orthology marker.
+KO	K22508	type III secretion system export apparatus protein	KEGG orthology marker.
+NCBIFAM	TIGR01403.1	sctS type III secretion system export apparatus subunit SctS	NCBIfam equivalog-grade profile. Type III secretion system export apparatus subunit SctS; 3989 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K03228	type III secretion protein T	KEGG orthology marker.
+KO	K22509	type III secretion system export apparatus protein	KEGG orthology marker.
+NCBIFAM	TIGR01401.1	sctT type III secretion system export apparatus subunit SctT	NCBIfam equivalog-grade profile. Type III secretion system export apparatus subunit SctT; 9335 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K03229	type III secretion protein U	KEGG orthology marker.
+KO	K22510	type III secretion system export apparatus switch protein	KEGG orthology marker.
+NCBIFAM	TIGR01404.2	sctU type III secretion system export apparatus subunit SctU	NCBIfam equivalog-grade profile. Type III secretion system export apparatus subunit SctU; 6828 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K03230	type III secretion protein V	KEGG orthology marker.
+NCBIFAM	TIGR01399.1	sctV type III secretion system export apparatus subunit SctV	NCBIfam equivalog-grade profile. Type III secretion system export apparatus subunit SctV; 9928 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K03224	ATP synthase in type III secretion protein N	KEGG orthology marker.
+KO	K22506	type III secretion system ATPase	KEGG orthology marker.
+NCBIFAM	TIGR02546.1	sctN type III secretion system ATPase SctN	NCBIfam equivalog-grade profile. Type III secretion system ATPase SctN; 5266 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K03220	type III secretion protein D	KEGG orthology marker.
+KO	K22488	type III secretion system protein	KEGG orthology marker.
+NCBIFAM	TIGR02500.1	sctD type III secretion system inner membrane ring subunit SctD	NCBIfam equivalog-grade profile. Type III secretion system inner membrane ring subunit SctD; 4702 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	TIGR02554.1	PrgH/EprH family type III secretion apparatus protein	NCBIfam equivalog-grade profile. PrgH/EprH family type III secretion apparatus protein; 1967 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K03222	type III secretion protein J	KEGG orthology marker.
+KO	K22505	type III secretion system inner membrane ring protein	KEGG orthology marker.
+NCBIFAM	TIGR02544.1	sctJ type III secretion system inner membrane ring lipoprotein SctJ	NCBIfam equivalog-grade profile. Type III secretion system inner membrane ring lipoprotein SctJ; 9558 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K03219	type III secretion protein C	KEGG orthology marker.
+KO	K22504	type III secretion system outer membrane ring protein	KEGG orthology marker.
+NCBIFAM	TIGR02516.1	sctC type III secretion system outer membrane ring subunit SctC	NCBIfam equivalog-grade profile. Type III secretion system outer membrane ring subunit SctC; 10609 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K03225	type III secretion protein Q	KEGG orthology marker.
+NCBIFAM	TIGR02551.1	sctQ type III secretion system cytoplasmic ring protein SctQ	NCBIfam equivalog-grade profile. Type III secretion system cytoplasmic ring protein SctQ; 9309 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K04053	type III secretion protein I	KEGG orthology marker.
+KO	K22487	type III secretion system protein	KEGG orthology marker.
+KO	K23661	type III secretion system protein	KEGG orthology marker.
+KO	K18374	type III secretion inner rod protein HrpB2	KEGG orthology marker.
+NCBIFAM	NF038054.1	sctI type III secretion system inner rod subunit SctI	NCBIfam equivalog-grade profile. Type III secretion system inner rod subunit SctI; 1182 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K03221	type III secretion protein F	KEGG orthology marker.
+NCBIFAM	TIGR02105.1	sctF type III secretion system needle filament subunit SctF	NCBIfam equivalog-grade profile. Type III secretion system needle filament subunit SctF; 1403 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	NF011854.0	type III secretion system needle complex protein	NCBIfam equivalog-grade profile. Type III secretion system needle complex protein; 414 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K18375	type III secretion hrp pilus HrpE	KEGG orthology marker.
+NCBIFAM	NF053530.1	type III secretion system major pilin HrpA	NCBIfam equivalog_domain-grade profile. Type III secretion system major pilin HrpA; 432 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K07324	archaeal flagellin FlaA	KEGG orthology marker.
+KO	K07325	archaeal flagellin FlaB	KEGG orthology marker.
+KO	K07329	archaeal flagellar protein FlaF	KEGG orthology marker.
+KO	K07330	archaeal flagellar protein FlaG	KEGG orthology marker.
+KO	K07331	archaeal flagellar protein FlaH	KEGG orthology marker.
+KO	K07332	archaeal flagellar protein FlaI	KEGG orthology marker.
+KO	K07333	archaeal flagellar protein FlaJ	KEGG orthology marker.
+KO	K07991	archaeal preflagellin peptidase FlaK [EC:3.4.23.52]	KEGG orthology marker.
+KO	K07822	archaeal flagellar protein FlaC	KEGG orthology marker.
+KO	K07327	archaeal flagellar protein FlaD	KEGG orthology marker.
+KO	K07328	archaeal flagellar protein FlaE	KEGG orthology marker.
+KO	K23986	archaeal flagellar protein FlaCE	KEGG orthology marker.
+NCBIFAM	NF040695.1	preflagellin peptidase FlaK	NCBIfam equivalog-grade profile. preflagellin peptidase FlaK; 35 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	NF052590.1	archaellum stator protein ArlF	NCBIfam equivalog-grade profile. archaellum stator protein ArlF; 554 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	NF052591.1	archaellum stator protein ArlG	NCBIfam equivalog-grade profile. archaellum stator protein ArlG; 711 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	NF052589.1	archaellum protein ArlH	NCBIfam equivalog-grade profile. archaellum protein ArlH; 787 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	NF058587.1	archaellum flagellar ATPase motor FlaI	NCBIfam equivalog-grade profile. archaellum flagellar ATPase motor FlaI; 982 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	NF004703.2	archaellar assembly protein ArlJ/FlaJ	NCBIfam equivalog-grade profile. archaellar assembly protein ArlJ/FlaJ; 205 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	NF004704.2	archaellar assembly protein ArlJ/FlaJ	NCBIfam equivalog-grade profile. archaellar assembly protein ArlJ/FlaJ; 741 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	NF004705.1	archaellar assembly protein ArlJ/FlaJ	NCBIfam equivalog-grade profile. archaellar assembly protein ArlJ/FlaJ; 84 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	NF058591.1	archaellum flagellar motor scaffold protein FlaX	NCBIfam equivalog-grade profile. archaellum flagellar motor scaffold protein FlaX; 25 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K02453	general secretion pathway protein D	KEGG orthology marker.
+NCBIFAM	TIGR02517.1	gspD type II secretion system secretin GspD	NCBIfam equivalog-grade profile. Type II secretion system secretin GspD; 33545 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K02452	general secretion pathway protein C	KEGG orthology marker.
+NCBIFAM	TIGR01713.1	gspC type II secretion system protein GspC	NCBIfam equivalog-grade profile. Type II secretion system protein GspC; 9033 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K02455	general secretion pathway protein F	KEGG orthology marker.
+NCBIFAM	TIGR02120.1	gspF type II secretion system inner membrane protein GspF	NCBIfam equivalog-grade profile. Type II secretion system inner membrane protein GspF; 21091 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K02461	general secretion pathway protein L	KEGG orthology marker.
+NCBIFAM	TIGR01709.2	gspL type II secretion system protein GspL	NCBIfam equivalog-grade profile. Type II secretion system protein GspL; 29376 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K02462	general secretion pathway protein M	KEGG orthology marker.
+NCBIFAM	NF040576.1	gspM type II secretion system protein GspM	NCBIfam equivalog-grade profile. Type II secretion system protein GspM; 4720 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K02454	general secretion pathway protein E	KEGG orthology marker.
+NCBIFAM	TIGR02533.1	gspE type II secretion system ATPase GspE	NCBIfam equivalog-grade profile. Type II secretion system ATPase GspE; 22823 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K02456	general secretion pathway protein G	KEGG orthology marker.
+NCBIFAM	TIGR01710.1	gspG type II secretion system major pseudopilin GspG	NCBIfam equivalog-grade profile. Type II secretion system major pseudopilin GspG; 22392 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K02457	general secretion pathway protein H	KEGG orthology marker.
+NCBIFAM	TIGR01708.2	gspH type II secretion system minor pseudopilin GspH	NCBIfam equivalog-grade profile. Type II secretion system minor pseudopilin GspH; 10806 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K02458	general secretion pathway protein I	KEGG orthology marker.
+NCBIFAM	TIGR01707.1	gspI type II secretion system minor pseudopilin GspI	NCBIfam equivalog-grade profile. Type II secretion system minor pseudopilin GspI; 16423 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K02459	general secretion pathway protein J	KEGG orthology marker.
+NCBIFAM	TIGR01711.1	gspJ type II secretion system minor pseudopilin GspJ	NCBIfam equivalog-grade profile. Type II secretion system minor pseudopilin GspJ; 13422 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K02460	general secretion pathway protein K	KEGG orthology marker.
+NCBIFAM	NF037980.1	gspK type II secretion system minor pseudopilin GspK	NCBIfam equivalog-grade profile. Type II secretion system minor pseudopilin GspK; 23881 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+KO	K02464	general secretion pathway protein O	KEGG orthology marker.

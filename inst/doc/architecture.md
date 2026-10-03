@@ -119,6 +119,7 @@ because the behaviours have names people already use:
 | `type_iva_pilus` | twitching motility, natural competence, or adhesion to anything |
 | `lpt_lipopolysaccharide_export_apparatus` | that lipopolysaccharide is synthesized, expressed or transported in the sampled condition, or that the cell has any particular permeability or viability phenotype |
 | `ribitol_phosphate_wall_teichoic_acid` | that the polymer is expressed, decorated or assembled, or that the cell has any particular resistance, virulence or envelope phenotype |
+| `archaellum` | that the cell swims or performs taxis, that archaella are expressed or assembled, or that they rotate in either direction |
 | a regulatory GIFT | that the circuit is active, or that its regulon responds |
 | a defense GIFT | that an attacker is actually resisted |
 
@@ -219,7 +220,7 @@ Every type carries curated content:
 | Type | Curated GIFTs |
 |---|---|
 | `metabolic` | 126, from purine biosynthesis and central metabolism to nutrient acquisition and polysaccharide saccharification |
-| `structural` | `flagellar_apparatus`, `type_iva_pilus`, `lpt_lipopolysaccharide_export_apparatus`, `ribitol_phosphate_wall_teichoic_acid` |
+| `structural` | `flagellar_apparatus`, `type_iva_pilus`, `lpt_lipopolysaccharide_export_apparatus`, `ribitol_phosphate_wall_teichoic_acid`, `archaellum` |
 | `regulatory` | `chemotaxis_signal_transduction`, `aspartate_chemoreception`, `phosphate_starvation_response` |
 | `defense` | `type_i_restriction_modification`, `type_i_e_crispr_cas_machinery`, `mercury_detoxification` |
 
@@ -345,6 +346,44 @@ adaptation functions are the same rows in `chemotaxis_signal_transduction` and
 This is the machinery counterpart of not copying an atomic GIFT's reactions into
 a larger trait: a definition that exists twice will eventually disagree with
 itself.
+
+### Shared components, and the ambiguity that is not a marker defect
+
+One accession accepted on two components is three different situations, and only
+one of them is a defect.
+
+| Situation | Curated example | Decision |
+|---|---|---|
+| **Fused protein.** One gene product performs two roles of one machine. | `K13820` FliR/FlhB in the flagellar export gate; `K23986` FlaC/FlaE in the archaellum; `K07091` and `K11720` on a fused Lpt permease | Accept. The one gene satisfies both components and the trace names it under each. |
+| **Shared component.** One protein genuinely serves two machines. | `K02654` PilD, the class III prepilin peptidase, which processes type IVa pilins and the archaellins of archaellum-encoding bacteria | Accept on both GIFTs. |
+| **Ambiguous marker.** One accession covers two different proteins, only one of which does the job. | `K11918`, whose proteins do not pass the TssJ equivalog; `K09809`, which also covers the W23 TagF homologue that is not a wall-teichoic-acid polymerase | Refuse. This is invariant 16. |
+
+What separates them is **where the ambiguity lives**. In the first two it is in
+the biology: the protein really does both jobs, so no genome is called positive
+for something it does not encode. In the third it is in the annotation: the
+accession cannot say which protein it matched, so accepting it would license a
+claim the evidence does not support — and would silently damage every other
+trait the accession also matches.
+
+A shared component carries a consequence for the claim. Because the protein
+serves both machines, the function it supports contributes **no specificity to
+either GIFT**: each must be distinguished by the required functions the other
+does not have. That is an invariant, not a style note, and a test enforces it —
+two structural GIFTs that share a component accession must each require at least
+one function the other does not. `type_iva_pilus` and `archaellum` share the
+peptidase and differ in every other required function, so the rule holds with
+room to spare.
+
+Sharing is expressed by accepting the accession on each GIFT's own component
+row, not by a table that records the overlap. The duplication is in the
+component row, where it costs nothing: each GIFT still states its own required
+inventory, and `trace_gift()` already shows the one gene supporting both. A
+composition table for structural GIFTs would instead assert a relationship —
+"these two machines overlap" — that no evaluation needs and no query has asked
+for. Structural GIFTs therefore do not compose. This is deliberate and is the
+settled answer to a question the first structural release left open: metabolic
+GIFTs compose because anchors are a *public biological interface*, whereas a
+shared subunit is an implementation detail of two independent machines.
 
 ### Structural GIFTs have no anchors
 

@@ -1400,3 +1400,113 @@ not resolve the primase-dependent Listeria design. The Listeria LtaP/LtaS
 architecture ([PMID 19682249](https://pubmed.ncbi.nlm.nih.gov/19682249/)),
 Bacillus paralogues, other LTA types and decoration machinery remain outside
 the GIFT and are recorded in `inst/doc/proposal-structural-gifts.md`.
+
+## Type VI secretion and the type III secretion injectisome, release 2026.31.1
+
+Two secretion machines enter as structural GIFTs after the deferral recorded in
+`inst/doc/proposal-next-gift-release.md` was re-argued rather than inherited.
+The refusal had bundled two claims: that the components form one machine, which
+co-localisation would evidence and gifter cannot see, and that an accession
+identifies a component of this machine rather than of its homologue, which is
+marker evidence. Only the second is required by the completeness contract, so
+the curated architectures accept system-specific accessions only.
+
+Thirty-eight KEGG orthologies were retrieved from KEGG REST on 2026-10-03 and 29
+NCBIfam `hmm_PGAP/20.0` profiles were checked at their curated gathering
+thresholds; every admitted profile is `equivalog` or `equivalog_domain` grade.
+Specificity against the flagellar homologue was measured rather than assumed.
+In the 11,908-prokaryote reference frame, 4,399 genomes complete the flagellar
+export apparatus while supporting no injectisome role, and the three
+flagellated controls that encode neither secretion system — *Escherichia coli*
+K-12, *Bacillus subtilis* 168 and *Campylobacter jejuni* — support no role of
+either architecture. 1,701 genomes complete the type VI architecture and 344 the
+injectisome.
+
+Where KEGG names an orthology for the system rather than the role, the proteins
+it assigns were searched against the role equivalog before the accession was
+accepted: `K11910`, `K11902`, `K11905`, `K11919`, `K11897` and `K11906` pass on
+73-100% of a systematic sample of up to 100 frame proteins and are accepted;
+`K11918` passes on none of 100 and is refused as TssJ evidence. `K11892` TssL
+and `K11891` TssM also contain *Legionella* IcmH/DotU and IcmF, and are retained
+only as required components inside the complete architecture.
+
+Two biologically required roles are deliberately not required by a curated
+architecture, because no accepted marker reaches genomes that demonstrably build
+the machine. TssJ is accessory: *Agrobacterium fabrum* and *Acinetobacter
+baumannii* carry no marker for it in either namespace while their apparatus is
+active ([PMID 23365692](https://pubmed.ncbi.nlm.nih.gov/23365692/)). The SctL
+stator is excluded: `TIGR02499.1` is Pseudomonadati-scoped, `NF011850.0` is
+Salmonella OrgB and `NF005392.0` is an HrpE/YscL family profile, none of which
+reaches the Inv-Mxi-Spa and Esc families of *Shigella flexneri* and
+enteropathogenic *Escherichia coli*.
+
+Required-component evidence follows the primary literature: contractile sheath
+mechanism ([PMID 22367545](https://pubmed.ncbi.nlm.nih.gov/22367545/)),
+ClpV-dependent sheath remodelling as crucial for secretion
+([PMID 19131969](https://pubmed.ncbi.nlm.nih.gov/19131969/)), TssA priming and
+coordination ([PMID 26909579](https://pubmed.ncbi.nlm.nih.gov/26909579/)),
+injectisome assembly and composition
+([PMID 24484471](https://pubmed.ncbi.nlm.nih.gov/24484471/)), the in situ
+Salmonella machine and its sorting platform
+([PMID 28283062](https://pubmed.ncbi.nlm.nih.gov/28283062/)) and the shared
+flagellar ancestry that makes specificity the whole question
+([PMID 23028376](https://pubmed.ncbi.nlm.nih.gov/23028376/)).
+
+The Francisella-type and Bacteroidota-type type VI apparatuses, the chlamydial,
+rhizobial and *Myxococcus* injectisomes and the Ralstonia-type HrpY pilus are
+explicit under-calls with deferral-register rows. KEGG retains no secretion
+module, so each GIFT cross-references only pathway map03070 as `subset_of`.
+Aggregate screen results are retained in
+`data-raw/reference/secretion-system-prevalence.tsv`,
+`secretion-system-roles.tsv`, `secretion-system-marker-audit.tsv` and
+`secretion-system-controls.tsv`.
+
+## Type II secretion system, release 2026.33.1
+
+The Gsp apparatus was the one candidate from the 2026-10-03 machine screen
+blocked on an architectural question rather than on evidence. Its class III
+prepilin peptidase is not a homologue of the type IVa pilus peptidase but the
+same enzyme, and KEGG files most of them under PilD (`K02654`) rather than GspO
+(`K02464`) -- 331 frame genomes carry GspO against 4,102 carrying PilD, with 51
+carrying both. The accession is therefore accepted as a **shared component** on
+this GIFT, on `type_iva_pilus` and on `archaellum`, and the function it supports
+contributes no specificity to any of them. The rule is stated in
+`inst/doc/architecture.md` and closes open question 1 of
+`inst/doc/proposal-structural-gifts.md`.
+
+Thirteen KEGG orthologies were retrieved from KEGG REST on 2026-10-03 and eleven
+NCBIfam `hmm_PGAP/20.0` profiles checked at their curated gathering thresholds;
+all eleven are `equivalog` grade. The architecture follows the four
+subassemblies plus maturation described by
+[PMID 22466878](https://pubmed.ncbi.nlm.nih.gov/22466878/): GspD secretin,
+GspC/F/L/M inner-membrane platform, GspE ATPase, GspG/H/I/J/K pseudopilus and
+the peptidase. One enzyme processing both pilins and pseudopilins is established
+by [PMID 1309616](https://pubmed.ncbi.nlm.nih.gov/1309616/); minor pseudopilin
+priming of pseudopilus elongation by
+[PMID 22157749](https://pubmed.ncbi.nlm.nih.gov/22157749/); platform
+interactions by [PMID 10735856](https://pubmed.ncbi.nlm.nih.gov/10735856/).
+
+In the 11,908-prokaryote frame, 1,536 genomes complete the architecture across
+319 genera. Requiring the shared peptidase costs 35 genomes, which is the rule
+appearing as a number: a role both machines satisfy with the same protein does
+almost no discriminating work. The other four functions do it -- 703 genomes
+complete this apparatus without completing the type IVa pilus and 674 complete
+the pilus without it, with 833 completing both. 1,319 of the 1,536 reach the
+peptidase through PilD alone.
+
+GspC is retained as required although it is the weakest marker in the inventory,
+missing in 335 of the 504 genomes exactly one function short. Those misses span
+108 genera with no genus above 9.3%, so they are scattered sequence divergence
+rather than the clade-systematic hole that led §7 to exclude the injectisome
+SctL stator; `required = 0` is reserved for machines that work without a part.
+*Legionella pneumophila* Philadelphia 1 is under-called for this reason.
+
+*Vibrio cholerae* N16961 is also called incomplete, and correctly: `VC_2733`
+sits where *epsD* belongs between `epsC` (`VC_2734`) and `epsE` (`VC_2732`),
+carries an authentic frameshift by KEGG's own annotation and has no KO, and a
+whole-proteome search with the GspD equivalog finds only the type IV pilus
+secretin and MshL far below threshold. The genome does not encode an intact
+secretin. Aggregate results are retained in
+`data-raw/reference/t2ss-prevalence.tsv`, `t2ss-roles.tsv` and
+`t2ss-controls.tsv`.
+

@@ -1,0 +1,17 @@
+accession	role	use	family_type	product_name	gene_symbol	taxonomic_range_name	taxonomic_rank_name	n_refseq_protein_hits	pmids	source
+NF058587.1	FlaI	candidate	equivalog	archaellum flagellar ATPase motor FlaI	flaI	cellular organisms	cellular root	982	22081969,23416110,26508112	hmm_PGAP/20.0
+NF004703.2	FlaJ	candidate	equivalog	archaellar assembly protein ArlJ/FlaJ	arlJ	Methanobacteriota	phylum	205		hmm_PGAP/20.0
+NF004704.2	FlaJ	candidate	equivalog	archaellar assembly protein ArlJ/FlaJ	arlJ	Methanobacteriati	kingdom	741	11717274,12410843	hmm_PGAP/20.0
+NF004705.1	FlaJ	candidate	equivalog	archaellar assembly protein ArlJ/FlaJ	arlJ	Thermoproteati	kingdom	84		hmm_PGAP/20.0
+NF052589.1	FlaH	candidate	equivalog	archaellum protein ArlH	arlH	Archaea	domain	787	34219289	hmm_PGAP/20.0
+NF052590.1	FlaF	candidate	equivalog	archaellum stator protein ArlF	arlF	Methanobacteriota	phylum	554	34912317	hmm_PGAP/20.0
+NF052591.1	FlaG	candidate	equivalog	archaellum stator protein ArlG	arlG	Methanobacteriota	phylum	711	34912317	hmm_PGAP/20.0
+NF040695.1	FlaK/PibD	candidate	equivalog	preflagellin peptidase FlaK	flaK	Methanococcales	order	35	11934494,21765428	hmm_PGAP/20.0
+NF058591.1	FlaX	candidate	equivalog	archaellum flagellar motor scaffold protein FlaX	flaX	Sulfolobaceae	family	25	22081969,23129770,29605923	hmm_PGAP/20.0
+NF053826.1	pilin peptidase EppA	contrast	equivalog	prepilin peptidase EppA	eppA	Methanococcales	order	48	17114255,25569238	hmm_PGAP/20.0
+NF046075.1	pilus platform UpsF	contrast	equivalog	membrane pilin protein UpsF	upsF	Thermoproteati	kingdom	46	24106028	hmm_PGAP/20.0
+NF053672.1	bindosome ATPase BasE	contrast	exception	bindosome assembly system ATPase subunit	basE	Sulfolobaceae	family	21	17462024,21234771	hmm_PGAP/20.0
+NF053673.1	bindosome platform BasF	contrast	exception	bindosome assembly system membrane anchoring protein BasF	basF	Sulfolobaceae	family	16	17462024,21234771	hmm_PGAP/20.0
+TIGR02537.2	archaellin/type IV pilin N-terminus	contrast	domain	archaellin/type IV pilin N-terminal domain-containing protein		cellular organisms	cellular root	8227	12813086,15723834,23794623	hmm_PGAP/20.0
+PF01917.22	archaellin (Pfam)	contrast	Pfam family	Archaeal-type flagellin						InterPro Pfam
+PF13144.12	bacterial FlgA P-ring chaperone (Pfam)	contrast	Pfam family	Chaperone for flagella basal body P-ring formation	flgA					InterPro Pfam

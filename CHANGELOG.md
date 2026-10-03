@@ -15,6 +15,35 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-10-03T07:10Z — The shared-component rule, and a screen that measures what it predicts
+
+**What changed.** `inst/doc/architecture.md` now states what one accession
+accepted on two components means, as a three-way distinction: a fused protein
+performing two roles of one machine, a shared protein serving two machines, or an
+accession that cannot say which protein it matched. The first two are accepted
+and the third is invariant 16. The rule carries a testable consequence — two
+structural GIFTs sharing a component accession must each require a function the
+other does not — and `test-structural.R` enforces it, together with a registry
+assertion so that a new cross-GIFT accession cannot appear unexamined.
+`data-raw/t2ss_prevalence.R` is the accompanying screen.
+
+**Why.** The type II secretion system was blocked on this and nothing else. Its
+peptidase is not a homologue of the type IVa pilus peptidase but the same enzyme,
+so curating the apparatus required deciding what sharing means. Settling it as a
+rule rather than per candidate also closed open question 1 of the structural
+proposal, which had been waiting since the first structural release for a second
+overlapping structural GIFT to exist. Three now do.
+
+**Effect.** No public API changed. Structural GIFTs deliberately do not compose:
+sharing is expressed by accepting the accession on each GIFT's own component row,
+because a composition table would assert an overlap no evaluation reads, whereas
+an anchor is a public biological interface. The screen measures the rule's
+prediction and confirms it — requiring the shared peptidase costs 35 genomes out
+of 1,571, while the other four functions separate the two machines by several
+hundred genomes each way. The biological outcome, `type_ii_secretion_system` in
+database 2026.33.1, is recorded in `database_changes.tsv` and
+`inst/doc/proposal-structural-gifts.md` section 8.
+
 ### 2026-10-03T06:32Z — Documentation starts from analytical tasks and curated concepts
 
 **What changed.** The package website navigation now presents Get started,
@@ -36,6 +65,209 @@ remain stable. Frames lead the analytical browsing path but continue to resolve
 GIFTs dynamically from curated metadata; they do not store GIFT membership or
 change completeness logic. No package API, biological content, schema or
 database artifact changed.
+
+### 2026-10-03T06:29Z — An environmental community complement is locked independently of calls
+
+**What changed.** `25-r10-mfd.R` and `manuscript/analysis/r10-mfd/` add a
+checksum-pinned Microflora Danica workflow. It maps the deposited
+species-representative set one-to-one onto all 5,518 published 95% ANI
+secondary clusters and locks 360 abundance-profiled samples before annotation:
+45 spatially distributed, reliable-coordinate samples from each of eight exact
+field, grassland, forest, greenspace, bog/fen, freshwater-sediment,
+saltwater-sediment and wastewater classes. A staged Mjolnir workflow acquires
+the 19.8 GB MAG archive, uses the existing Drakkar 2.6.6 environment and returns
+a catalogue-filtered marker projection together with its full-input checksum,
+the exact database artifact and all cluster, sample and source provenance. The
+complete archive index exposes four files labelled `unknown_ilm_asm_binN.fa`
+in place of four expected barcoded names. An explicit one-to-one crosswalk
+records all four distinct matching bin numbers, including the three selected
+representatives, and acquisition verifies every extracted FASTA against its
+published genome length before annotation.
+
+**Why.** The completed chicken analysis is host-associated and temporally
+structured. A second example needs to exercise many samples across genuinely
+different environmental communities without treating overlapping MAGs as
+independent providers or selecting samples after seeing GIFT calls.
+
+**Effect.** The planned reading is descriptive across six database-defined
+reference frames and three detection thresholds. Published non-dereplicated
+MAG abundances are summed by species cluster before they are attached to the
+one representative. Detection, abundance, habitat and genome completeness
+cannot change a call; cluster abundance does not establish accessory-trait
+identity across strains, and no result is interpreted as activity, flux,
+nitrification or ecological effect. No package API, evaluation behaviour,
+biological source, compiled database or schema changed.
+
+### 2026-10-03T05:48Z — An exact KO/NCBIfam screen resolves what the archaellum orthologies collect
+
+**What changed.** `data-raw/archaellum_ncbifam_prevalence.R` fetches every
+protein KEGG assigns to an archaellum orthology in the stored frame (5,093
+sequences) and searches each one with the archaellum NCBIfam equivalogs and
+with contrast profiles for the homologous archaeal pilus and bindosome
+machinery and two Pfam families. It then evaluates the curated `archaellum`
+hierarchy exactly as the source TSVs define it over the frame's KO assignments,
+and runs five named reference genomes through `evaluate_gifts()`, stopping if
+the two evaluators disagree. Seven aggregate tables are written to
+`data-raw/reference/archaellum-*.tsv`.
+
+**Why.** The screen that recommended the archaellum could not say what the 192
+archaea carrying FlaI or FlaJ without an archaellum core encode, and assumed
+archaeal type IV pili. Whether K07332 and K07333 may stay inside the
+conjunction, and at what confidence, turns on that answer, so it had to be
+measured protein by protein rather than read from KO definitions.
+
+**Effect.** No package code or public API changed. Prevalence is reported
+against the KEGG-hierarchy archaeal and bacterial denominators, never the
+frame's genus-filtered `prokaryote` flag. Contrast profiles only identify
+proteins and are never admitted as evidence. The biological outcome is the
+`archaellum` GIFT in database 2026.32.1, recorded as
+`DBC-20261003-ARCHAELLUM`.
+
+### 2026-10-03T06:05Z — A reproducible marker-specificity screen for homologous secretion machines
+
+**What changed.** `data-raw/secretion_system_prevalence.R` screens the type III
+and type VI secretion candidates over the stored KEGG frame and writes four
+aggregate tables to `data-raw/reference/`. It does three things no earlier
+screen did. It measures marker specificity against a homologue directly, by
+counting genomes that complete the flagellar export apparatus while supporting
+no injectisome role and by searching whole control proteomes. It tests a KEGG
+accession before accepting it, searching the proteins KEGG assigns to it against
+the role's NCBIfam equivalog, so a system-named orthology is admitted on
+evidence rather than on its name. And it carries named reference strains with
+what each is established to encode, marking as `unverified` any strain whose
+expectation was not checked.
+
+**Why.** The standing refusal of both systems was that an unordered marker set
+cannot establish system identity without gene-cluster context. That is two
+claims, and only one of them — marker specificity — is required by the
+completeness contract. Testing it needed a script, because the argument turns on
+counts and profile searches rather than on reading definitions.
+
+**Effect.** No package code or public API changed; the screen is curation
+evidence, reproducible online and then re-runnable from the pinned cache with
+`--offline`. The biological outcome, two structural GIFTs in database 2026.31.1,
+is recorded in `database_changes.tsv` and
+`inst/doc/proposal-structural-gifts.md` section 7. New tests in
+`test-structural.R` assert the accessory TssJ function, the alternative TssA and
+TssE orthologies, the refused `K11918`, the needle-or-Hrp-pilus alternative and,
+in both directions, that flagellar and injectisome evidence do not substitute
+for one another.
+
+### 2026-10-03T05:01Z — R10 temporal results are resolved at curated frame scale
+
+**What changed.** A checksum-pinned follow-up now reads all 19 named reference
+frames from the database over the existing R10 calls. It models community
+richness, mean per-MAG richness and bounded coverage separately, repeats the
+reading across four detection thresholds and with ambiguous evidence withheld,
+and uses equivalence tests to distinguish supported stability from a merely
+nonsignificant contrast. Figure S5 and its source tables retain every frame's
+database-derived GIFT membership. Figure S6 adds population-standardised
+adjusted values and 95% confidence intervals across days 7, 21 and 35; an
+internal assertion requires its two differences from day 7 to reproduce the
+heatmap contrasts exactly. Figure S7 then selects the frames classified as
+decreasing beyond the margin at both later ages, verifies that member-GIFT
+carrier fractions sum exactly to the frame metric per sample, and presents the
+six largest descriptive GIFT-level declines per frame while retaining every
+member trajectory in its source tables. It adds no per-GIFT hypothesis tests.
+Figure S8 repeats the frame analysis after summing per-GIFT abundance coverage,
+with abundance closed over detected MAGs. All six focal associations retain a
+negative direction and five remain beyond the one-GIFT margin; vitamin
+biosynthesis at day 21 becomes magnitude-uncertain. Its source tables also
+compare equal-weight carrier fractions with abundance-weighted carrier shares
+for every detailed GIFT.
+
+**Effect.** Fifteen frame-level community unions are stable within one GIFT and
+two are invariant; aromatic catabolism and carbon acquisition remain
+detection-sensitive. All bounded-frame community coverages stay within five
+percentage points. Mean per-MAG repertoires decline beyond one GIFT for
+amino-acid autonomy, combined biomass-essential anabolism and vitamin
+biosynthesis at both later ages at the operational threshold; all six retain
+their direction across detection thresholds and their larger-than-margin result
+when ambiguous evidence is withheld, while their magnitude attenuates under
+more permissive detection. Carbon acquisition at day 35 is age-associated but
+its interval crosses the one-GIFT boundary, so its magnitude is uncertain.
+Frames aggregate unchanged calls and do not become composite GIFTs; the result
+is encoded capability distribution, not expression, activity or flux. No
+package API, evaluation behaviour, biological source, compiled database or
+schema changed.
+
+### 2026-10-03T05:56Z — A GTDB-wide phylogenetic panel is locked before annotation
+
+**What changed.** A checksum-pinned manuscript analysis now selects 697
+bacterial species representatives from the official GTDB R11-RS232 bac120
+tree. Eligibility requires NCBI `Complete Genome` assembly level and `full`
+representation plus assignment to at least one reviewed origin group from the
+raw isolation-source field. This retains 4,116 of the 12,094 genomes meeting
+the assembly criteria. One phylogenetic medoid per each of 321 eligible orders
+guarantees taxonomic breadth. The complete 85-genome food/fermentation group
+defines the common target for every sufficiently large origin group, smaller
+groups are retained exhaustively, and marginal rooted Faith phylogenetic
+diversity decides among balance-compatible additions. Panel size is therefore
+an outcome rather than a preset input. The committed manifest retains every
+source tree accession, all GTDB ranks, BioSample and BioProject accessions,
+available origin fields and assembly-quality metadata. Reviewable rules retain
+the raw isolation-source text while assigning nonexclusive origin groups,
+including separate animal- and plant-associated fields. Mjolnir acquisition,
+Drakkar annotation, transfer verification and Figure S4 scripts are prepared,
+and the run has been submitted. Genome acquisition records NCBI or ENA as the
+source for every accession; the ENA assembly-FASTA endpoint is used only when a
+pinned R232 GCA accession is absent from the current NCBI GenBank assembly
+summary, with every downloaded FASTA checksum retained.
+
+**Effect.** The future overview is fixed independently of annotations and GIFT
+calls and preserves the identifiers needed for later origin-metadata
+enrichment. The selected panel contains only classified origins, spans all 49
+eligible phyla, 120 classes and 321 orders, and retains 52.6% of the
+origin-classified eligible tree's rooted Faith diversity. All sufficiently
+large groups contain 85 selected genomes except aquatic origin at 87 because of
+unavoidable multi-label overlap; fungal, air/built-environment and algal groups
+are exhaustive at 6, 49 and 51. It will describe encoded capabilities in a
+deliberately phylogenetically and origin-balanced panel, not activity,
+phenotype, ancestral state or population prevalence. No package API, evaluation
+behaviour, biological source, compiled database or schema changed.
+
+### 2026-10-03T03:49Z — R10 handoff claims are bounded and its richness modes resolved
+
+**What changed.** A checksum-pinned follow-up now enumerates all three exact
+extracellular handoff links in database 2026.30.1, separates provider and
+recipient presence from their abundance coverage, repeats topology across four
+detection thresholds and a high-confidence floor, and compares primary samples
+with 499 random catalogue communities matched for detected-MAG count. A second
+diagnostic defines the observed richness modes by their largest gap, screens
+all 822 MAGs without a prespecified taxon, removes the selected driver in
+silico, and renders Figure S3.
+
+**Effect.** No reading supports increasing encoded handoff potential with age;
+normalized compatibility instead declines, and the catalogue currently bounds
+that statement to three extracellular links. Detection of *Escherichia coli*
+MAG `cmag_510` at the operational 0.001 threshold exactly separates the 78
+lower-richness from 310 upper-richness samples. The split disappears at lower
+thresholds of zero and 10^-5, and contracts to four lower samples at 10^-4; it
+is not described as two biological community states. These are
+encoded compatibility and threshold-sensitivity results, not evidence of
+exchange, cooperation, expression or activity. No package API, evaluation
+behaviour, biological source, compiled database or schema changed.
+
+### 2026-10-03T03:13Z — The R10 chicken case study is reproducible
+
+**What changed.** The exact 822 bacterial MAGs from 388 chicken caecal samples
+were checksum-verified, reannotated with Drakkar 2.6.6's gifter projection and
+evaluated against database 2026.30.1. A committed analysis now produces the
+input audit, marker counts, supported calls, bounded-frame gaps, detection and
+confidence sensitivities, adjusted age contrasts, exact plant-fibre topology
+summaries and Figure 7. The Mjolnir run uses a dedicated project/task layout
+under `/projects/alberdilab/scratch/jpl786/` and the existing shared Drakkar
+conda environment; it performs no Drakkar installation.
+
+**Effect.** R10 now distinguishes stable community capability richness from a
+declining mean encoded repertoire per detected MAG, while retaining the GIFTs,
+genomes and anchors responsible for each result. The missing original breadth
+matrix is explicit: 0.001 relative abundance is an operational figure
+threshold backed by sensitivity analyses, not a reproduction of the source
+study's detection rule. Completeness changes absence denominators only, and
+network edges remain potential extracellular-anchor compatibilities rather
+than observed interactions. No package API, evaluation behaviour, biological
+source, compiled database or schema changed.
 
 ### 2026-10-02T19:44Z — A chemistry-specific LTA structure becomes callable
 

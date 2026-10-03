@@ -35,6 +35,66 @@ cross-linking alternatives. The underlying KEGG assignments and NCBI protein
 packages remain uncommitted because only aggregate diagnostic results are
 redistributable here.
 
+## structural-machines-*.tsv
+
+`structural_machines_prevalence.R` in the parent directory regenerates three
+tables for the 2026-10-03 initial assessment of nine candidate structural
+machines (archaellum, Tad pilus, type II secretion, gas vesicles, BAM, curli,
+chaperone-usher pili, type IV secretion, microcompartments).
+`structural-machines-ko-prevalence.tsv` counts genomes per KO;
+`structural-machines-proxy-prevalence.tsv` counts genomes completing each proxy
+function set, those exactly one function short, and which function they miss;
+`structural-machines-homology-overlap.tsv` compares homologous KOs and proxy
+sets across machines. Every set is a KO diagnostic and none is a curated
+architecture. Domain and phylum come from the KEGG organism hierarchy
+`br08601`, because the frame's `prokaryote` flag still admits 1,290 eukaryotes;
+the bacterial and archaeal denominators are written beside the frame size.
+
+## archaellum-*.tsv
+
+`archaellum_ncbifam_prevalence.R` in the parent directory regenerates seven
+tables for the 2026-10-03 archaellum curation (attempt
+`GEA-20261003-ARCHAELLUM`). `archaellum-ncbifam-profiles.tsv` lists the
+candidate equivalogs and the contrast profiles with their grade and taxonomic
+range. `archaellum-ko-ncbifam-agreement.tsv` counts KO-assigned proteins and
+genomes by orthology, genome class and best-scoring candidate and contrast
+profile. `archaellum-role-agreement.tsv` counts, per role, the genomes in which
+at least one KO-assigned protein passes that role's equivalog. The remaining
+four evaluate the curated hierarchy as the source TSVs define it:
+`archaellum-prevalence.tsv` (complete genomes over 470 archaea and 10,143
+bacteria), `archaellum-one-short.tsv` (missing function by lineage),
+`archaellum-accessory.tsv` (accessory support among complete genomes) and
+`archaellum-controls.tsv` (five named reference genomes evaluated by
+`evaluate_gifts()`). Contrast profiles identify proteins only and are never
+gifter evidence.
+
+## t2ss-*.tsv
+
+`t2ss_prevalence.R` in the parent directory regenerates the three tables behind
+the 2026-10-03 type II secretion curation. `t2ss-roles.tsv` lists each Gsp role
+with its KO, its equivalog and the frame genomes carrying it, plus the shared
+peptidase row. `t2ss-prevalence.tsv` is a single row of counts built to answer
+three questions: whether the Gsp inventory identifies a machine distinct from the
+type IVa pilus, whether the shared peptidase does any discriminating work, and
+which function near-complete genomes lack. `t2ss-controls.tsv` holds twelve named
+strains with what each is established to encode beside the marker result;
+`unverified` marks a strain whose expectation was not checked.
+
+Two numbers carry the curation decision. Requiring the shared peptidase costs 35
+genomes out of 1,571, so a role both machines satisfy with the same protein does
+almost no discriminating work -- while 703 genomes complete this apparatus
+without the pilus and 674 the pilus without it, so the other four functions do.
+And 1,319 of the 1,536 complete architectures reach the peptidase through PilD
+rather than GspO, which is why refusing the shared accession was not an option.
+Downloaded KO links, HMMs and NCBI protein packages stay in the ignored cache.
+
+Reproduce online once, then verify from the pinned cache:
+
+```sh
+Rscript data-raw/t2ss_prevalence.R
+Rscript data-raw/t2ss_prevalence.R --offline
+```
+
 ## wta-ncbifam-prevalence.tsv and wta-tagf-marker-audit.tsv
 
 `wta_ncbifam_prevalence.R` in the parent directory regenerates both tables for
@@ -59,6 +119,40 @@ Reproduce online once, then verify from the pinned cache:
 ```sh
 Rscript data-raw/wta_ncbifam_prevalence.R
 Rscript data-raw/wta_ncbifam_prevalence.R --offline
+```
+
+## secretion-system-*.tsv
+
+`secretion_system_prevalence.R` in the parent directory regenerates the four
+tables behind the 2026-10-03 type III and type VI secretion assessment.
+
+`secretion-system-roles.tsv` is the role inventory: every component role of both
+architectures with the KEGG orthologies and NCBIfam equivalogs accepted for it
+and the number of frame genomes carrying each. `secretion-system-prevalence.tsv`
+counts complete and near-complete architectures over the stored
+11,908-prokaryote frame, names the role that near-misses lack, and reports the
+overlap with a complete flagellar export apparatus — the homologue the
+injectisome has to be distinguished from. `secretion-system-marker-audit.tsv`
+records the accessions tested against a role equivalog before acceptance,
+including the one refused for failing it. `secretion-system-controls.tsv` holds
+17 named reference strains with what each is established to carry beside what
+the markers call; the expectation column is compared with the marker result and
+never used to produce it, and strains whose expectation was not checked are
+marked `unverified`.
+
+The decisive numbers are the specificity ones. 4,399 frame genomes complete the
+flagellar export apparatus while supporting no injectisome role, and the three
+flagellated controls encoding neither secretion system support no role of either
+architecture, so the shared ancestry of the two export apparatuses does not
+reach the accepted accessions. Per-genome KEGG assignments, downloaded HMMs,
+protein sequences and NCBI protein packages remain in the ignored cache because
+they are not redistributable here.
+
+Reproduce online once, then verify from the pinned cache:
+
+```sh
+Rscript data-raw/secretion_system_prevalence.R
+Rscript data-raw/secretion_system_prevalence.R --offline
 ```
 
 ## fam-substrate-mapping.tsv

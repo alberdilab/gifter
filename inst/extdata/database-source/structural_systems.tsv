@@ -31,3 +31,32 @@ SYS_WTA_LCP	SF_WTA_PEPTIDOGLYCAN_ATTACHMENT	LCP-family attachment ligase	At leas
 SYS_LTA_YPFP	SF_LTA_GLC2DAG_ANCHOR_SYNTHESIS	YpfP/UgtP diglucosyldiacylglycerol synthase	The processive glycolipid glycosyltransferase supplies the named disaccharide anchor; a generic glycolipid-synthesis KO is not accepted as a shortcut.
 SYS_LTA_LTAA	SF_LTA_GLC2DAG_TRANSLOCATION	LtaA glycolipid flippase	The LTA-specific MFS flippase presents the diglucosyldiacylglycerol anchor at the outer leaflet of the cytoplasmic membrane.
 SYS_LTA_LTAS	SF_LTA_POLYGLYCEROL_PHOSPHATE_POLYMERIZATION	LtaS polymerase	The LtaS-family enzyme polymerizes the glycerol-phosphate chain; K19005 is not accepted because it does not resolve the required architecture.
+SYS_T6SS_TSSLM	SF_T6SS_MEMBRANE_COMPLEX	TssL/TssM membrane complex	TssL and TssM are jointly required. Their KEGG orthologies also contain the IcmH/DotU and IcmF proteins of the Legionella type IVB system, so neither is evidence of a type VI apparatus outside the complete architecture.
+SYS_T6SS_TSSJ	SF_T6SS_MEMBRANE_LIPOPROTEIN	TssJ lipoprotein	Single outer-membrane lipoprotein.
+SYS_T6SS_BASEPLATE	SF_T6SS_BASEPLATE	TssE/TssF/TssG/TssK baseplate	All four baseplate proteins are jointly required.
+SYS_T6SS_VGRG	SF_T6SS_SPIKE	VgrG spike	The VgrG spike protein.
+SYS_T6SS_HCP	SF_T6SS_INNER_TUBE	Hcp tube	The Hcp tube protein.
+SYS_T6SS_SHEATH	SF_T6SS_SHEATH	TssB/TssC sheath	The small and large sheath subunits are jointly required.
+SYS_T6SS_TSSA	SF_T6SS_ASSEMBLY_COORDINATION	TssA coordinator	Single protein.
+SYS_T6SS_CLPV	SF_T6SS_SHEATH_RECYCLING	ClpV (TssH) ATPase	Single AAA+ ATPase.
+SYS_T3SS_SCTRSTUV	SF_T3SS_EXPORT_APPARATUS	SctR/S/T/U/V export apparatus	The five jointly required export-apparatus proteins. They are homologues of flagellar FliP/Q/R, FlhB and FlhA, and only injectisome-specific accessions are accepted for them.
+SYS_T3SS_SCTN	SF_T3SS_EXPORT_ATPASE	SctN ATPase	The injectisome ATPase. The flagellar FliI accession is not accepted.
+SYS_T3SS_SCTDJ	SF_T3SS_INNER_MEMBRANE_RINGS	SctD/SctJ rings	Both ring proteins are jointly required.
+SYS_T3SS_SCTC	SF_T3SS_SECRETIN	SctC secretin	Single secretin. The type II secretion and type IV pilus secretins are not accepted.
+SYS_T3SS_SCTQ	SF_T3SS_SORTING_PLATFORM	SctQ platform protein	Single protein.
+SYS_T3SS_SCTI	SF_T3SS_INNER_ROD	SctI inner rod	Single protein.
+SYS_T3SS_NEEDLE	SF_T3SS_EXTRACELLULAR_FILAMENT	SctF needle	The needle filament subunit of animal-associated injectisomes.
+SYS_T3SS_HRP_PILUS	SF_T3SS_EXTRACELLULAR_FILAMENT	Hrp pilus	The Hrp pilin of plant-associated injectisomes; a non-homologous alternative to the needle subunit. Only the Xanthomonas HrpE and Pseudomonas HrpA pilins have an accepted marker, so a Ralstonia-type HrpY pilus is an under-call.
+SYS_ARCHAELLUM_ARCHAELLIN	SF_ARCHAELLUM_FILAMENT	archaellin	One archaellin protein; genomes with several archaellin genes need only one.
+SYS_ARCHAELLUM_FLAK_PIBD	SF_ARCHAELLUM_SIGNAL_PEPTIDASE	archaeal FlaK/PibD peptidase	The archaeal class III signal peptidase: FlaK in Methanococcales, the broad-specificity PibD elsewhere.
+SYS_ARCHAELLUM_PILD	SF_ARCHAELLUM_SIGNAL_PEPTIDASE	bacterial-type PilD peptidase	The bacterial prepilin peptidase of archaellum-encoding Chloroflexota, reported as the processing enzyme outside the SAR202 clade (PMID 40962902). Accepted at putative confidence because processing of archaellin by PilD is inferred, not demonstrated.
+SYS_ARCHAELLUM_STATOR_FLAFG	SF_ARCHAELLUM_STATOR	FlaF/FlaG stator	Both stator proteins are jointly required.
+SYS_ARCHAELLUM_MOTOR_FLAHI	SF_ARCHAELLUM_MOTOR	FlaI/FlaH motor	The ATPase and its regulator are jointly required.
+SYS_ARCHAELLUM_PLATFORM_FLAJ	SF_ARCHAELLUM_PLATFORM	FlaJ platform	Single-protein platform.
+SYS_ARCHAELLUM_SWITCH_FLACDE	SF_ARCHAELLUM_SWITCH_COMPLEX	FlaC/FlaD/FlaE switch complex	The three switch proteins, jointly required. The haloarchaeal FlaCE fusion supports both FlaC and FlaE.
+SYS_ARCHAELLUM_FLAX	SF_ARCHAELLUM_FLAX_RING	FlaX ring	Single-protein ring.
+SYS_T2SS_GSPD	SF_T2SS_OUTER_MEMBRANE_SECRETIN	GspD secretin	Single outer-membrane secretin. The type III secretion and type IV pilus secretins have their own accessions and are not accepted here.
+SYS_T2SS_GSPCFLM	SF_T2SS_INNER_MEMBRANE_PLATFORM	GspC/F/L/M inner-membrane platform	All four platform proteins are jointly required.
+SYS_T2SS_GSPE	SF_T2SS_SECRETION_ATPASE	GspE ATPase	Single cytoplasmic ATPase. The type IVa pilus PilB and PilF ATPases are not accepted for it.
+SYS_T2SS_GSPGHIJK	SF_T2SS_PSEUDOPILUS	GspG/H/I/J/K pseudopilus	The major and four minor pseudopilins are jointly required.
+SYS_T2SS_PEPTIDASE	SF_T2SS_PREPILIN_PEPTIDASE	class III prepilin peptidase	One bifunctional peptidase/N-methyltransferase. GspO and PilD are the same enzyme under two KEGG names rather than alternative implementations, so both accessions are accepted on one component.

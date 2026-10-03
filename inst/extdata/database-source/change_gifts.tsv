@@ -363,3 +363,7 @@ DBC-20260827-PHOSPHOSERINE-TRANSAMINASE-ARCHAEAL	serine_biosynthesis
 DBC-20261002-LPT-APPARATUS	lpt_lipopolysaccharide_export_apparatus
 DBC-20261002-RIBITOL-WTA	ribitol_phosphate_wall_teichoic_acid
 DBC-20261002-GLC2DAG-LTA	diglucosyl_diacylglycerol_anchored_lipoteichoic_acid
+DBC-20261003-SECRETION-SYSTEMS	type_vi_secretion_apparatus
+DBC-20261003-SECRETION-SYSTEMS	type_iii_secretion_injectisome
+DBC-20261003-ARCHAELLUM	archaellum
+DBC-20261003-T2SS	type_ii_secretion_system

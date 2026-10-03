@@ -321,6 +321,43 @@ lta_glc2dag_annotations <- function() {
   )
 }
 
+t6ss_required_markers <- function() {
+  c(
+    TssL = "K11892", TssM = "K11891", TssE = "K11897", TssF = "K11896",
+    TssG = "K11895", TssK = "K11893", VgrG = "K11904", Hcp = "K11903",
+    TssB = "K11901", TssC = "K11900", TssA = "K11902", ClpV = "K11907"
+  )
+}
+
+t6ss_annotations <- function(markers = t6ss_required_markers()) {
+  data.frame(
+    gene_id = paste0("gene_", names(markers)), namespace = "KO",
+    accession = unname(markers), stringsAsFactors = FALSE
+  )
+}
+
+injectisome_required_markers <- function() {
+  c(
+    SctR = "K03226", SctS = "K03227", SctT = "K03228", SctU = "K03229",
+    SctV = "K03230", SctN = "K03224", SctD = "K03220", SctJ = "K03222",
+    SctC = "K03219", SctQ = "K03225", SctI = "K04053", SctF = "K03221"
+  )
+}
+
+injectisome_annotations <- function(markers = injectisome_required_markers()) {
+  data.frame(
+    gene_id = paste0("gene_", names(markers)), namespace = "KO",
+    accession = unname(markers), stringsAsFactors = FALSE
+  )
+}
+
+flagellar_export_markers <- function() {
+  c(
+    FlhA = "K02400", FlhB = "K02401", FliF = "K02409", FliI = "K02412",
+    FliP = "K02419", FliQ = "K02420", FliR = "K02421"
+  )
+}
+
 test_that("the diderm and monoderm flagellar architectures share their machinery", {
   machinery <- get_gift_machinery("flagellar_apparatus")
   by_architecture <- split(unique(machinery[c("architecture_id", "function_id")]),
@@ -854,6 +891,320 @@ test_that("the narrow LTA trace retains each observed marker and is deterministi
   expect_equal(trace, trace_gift(reverse_result, gift_id))
 })
 
+test_that("the type VI apparatus completes without its accessory lipoprotein", {
+  annotations <- t6ss_annotations()
+  result <- evaluate_gifts(annotations)
+  gift <- result$structural$gifts[
+    result$structural$gifts$gift_id == "type_vi_secretion_apparatus",
+  ]
+  machinery <- get_gift_machinery("type_vi_secretion_apparatus")
+
+  expect_true(gift$complete)
+  expect_equal(gift$best_architecture, "ARCH_T6SS_I")
+  expect_equal(gift$minimum_missing_functions, 0L)
+  expect_equal(length(unique(machinery$architecture_id)), 1L)
+  expect_equal(length(unique(machinery$function_id)), 8L)
+  expect_equal(length(unique(machinery$component_id)), 13L)
+  expect_equal(
+    unique(machinery$function_id[!machinery$required]),
+    "SF_T6SS_MEMBRANE_LIPOPROTEIN"
+  )
+  expect_false("SF_T6SS_MEMBRANE_LIPOPROTEIN" %in% gift$supporting_functions[[1]])
+})
+
+test_that("every required type VI function is jointly needed", {
+  annotations <- t6ss_annotations()
+  for (marker in names(t6ss_required_markers())) {
+    markers <- t6ss_required_markers()[names(t6ss_required_markers()) != marker]
+    result <- evaluate_gifts(t6ss_annotations(markers))
+    gift <- result$structural$gifts[
+      result$structural$gifts$gift_id == "type_vi_secretion_apparatus",
+    ]
+    expect_false(gift$complete, info = marker)
+    expect_equal(gift$minimum_missing_functions, 1L, info = marker)
+  }
+})
+
+test_that("alternative TssA and TssE orthologies satisfy the same functions", {
+  # Vibrio cholerae TssA and TssE are assigned to KEGG orthologies named only
+  # for the system, not the role. They are accepted because the proteins they
+  # hold pass the role equivalog, so the apparatus must complete through them.
+  markers <- t6ss_required_markers()
+  markers[["TssA"]] <- "K11910"
+  markers[["TssE"]] <- "K11905"
+  result <- evaluate_gifts(t6ss_annotations(markers))
+
+  expect_true(result$gifts$complete[
+    result$gifts$gift_id == "type_vi_secretion_apparatus"
+  ])
+  trace <- trace_gift(result, "type_vi_secretion_apparatus")
+  expect_setequal(
+    trace$component_id[trace$accession %in% c("K11910", "K11905")],
+    c("COMP_T6SS_TSSA", "COMP_T6SS_TSSE")
+  )
+})
+
+test_that("a type VI marker refused by its role equivalog supports nothing", {
+  # K11918 is a type VI accession, but none of its sampled proteins passes the
+  # TssJ equivalog, so it is not evidence of the lipoprotein role.
+  result <- evaluate_gifts(data.frame(
+    gene_id = "gene_lip3", namespace = "KO", accession = "K11918",
+    stringsAsFactors = FALSE
+  ))
+  components <- result$structural$components
+
+  expect_false(any(components$supported[
+    components$component_id == "COMP_T6SS_TSSJ"
+  ]))
+  expect_false("K11918" %in% get_gift_machinery("type_vi_secretion_apparatus")$accession)
+})
+
+test_that("the injectisome requires every role of its single architecture", {
+  annotations <- injectisome_annotations()
+  result <- evaluate_gifts(annotations)
+  gift <- result$structural$gifts[
+    result$structural$gifts$gift_id == "type_iii_secretion_injectisome",
+  ]
+  machinery <- get_gift_machinery("type_iii_secretion_injectisome")
+
+  expect_true(gift$complete)
+  expect_equal(gift$best_architecture, "ARCH_T3SS_INJECTISOME")
+  expect_equal(length(unique(machinery$function_id)), 7L)
+  expect_equal(length(unique(machinery$system_id)), 8L)
+  expect_true(all(machinery$required))
+
+  for (marker in names(injectisome_required_markers())) {
+    markers <- injectisome_required_markers()[
+      names(injectisome_required_markers()) != marker
+    ]
+    incomplete <- evaluate_gifts(injectisome_annotations(markers))
+    call <- incomplete$structural$gifts[
+      incomplete$structural$gifts$gift_id == "type_iii_secretion_injectisome",
+    ]
+    expect_false(call$complete, info = marker)
+    expect_equal(call$minimum_missing_functions, 1L, info = marker)
+  }
+})
+
+test_that("a needle and an Hrp pilus are alternative injectisome filaments", {
+  markers <- injectisome_required_markers()
+  markers[["SctF"]] <- "K18375"
+  hrp <- evaluate_gifts(injectisome_annotations(markers))
+  systems <- hrp$structural$systems
+
+  expect_true(hrp$gifts$complete[
+    hrp$gifts$gift_id == "type_iii_secretion_injectisome"
+  ])
+  expect_true(systems$supported[systems$system_id == "SYS_T3SS_HRP_PILUS"])
+  expect_false(systems$supported[systems$system_id == "SYS_T3SS_NEEDLE"])
+})
+
+test_that("flagellar export evidence does not support the injectisome", {
+  # The two machines are homologous, so the whole claim rests on the accepted
+  # accessions being specific. A flagellated genome encoding neither secretion
+  # system must support no injectisome component, and the injectisome must not
+  # borrow a flagellar accession.
+  flagellar <- flagellar_export_markers()
+  result <- evaluate_gifts(data.frame(
+    gene_id = paste0("gene_", names(flagellar)), namespace = "KO",
+    accession = unname(flagellar), stringsAsFactors = FALSE
+  ))
+  components <- result$structural$components
+  machinery <- get_gift_machinery("type_iii_secretion_injectisome")
+
+  expect_false(result$gifts$complete[
+    result$gifts$gift_id == "type_iii_secretion_injectisome"
+  ])
+  expect_false(any(components$supported[
+    grepl("^COMP_T3SS", components$component_id)
+  ]))
+  expect_false(any(flagellar %in% machinery$accession))
+
+  # And the converse: injectisome evidence does not build a flagellum.
+  injectisome <- evaluate_gifts(injectisome_annotations())
+  expect_false(injectisome$gifts$complete[
+    injectisome$gifts$gift_id == "flagellar_apparatus"
+  ])
+  expect_false(any(
+    injectisome_required_markers() %in%
+      get_gift_machinery("flagellar_apparatus")$accession
+  ))
+})
+
+test_that("both secretion machines trace to their markers and are deterministic", {
+  for (gift_id in c("type_vi_secretion_apparatus", "type_iii_secretion_injectisome")) {
+    annotations <- if (gift_id == "type_vi_secretion_apparatus") {
+      t6ss_annotations()
+    } else {
+      injectisome_annotations()
+    }
+    forward <- evaluate_gifts(annotations)
+    reverse <- evaluate_gifts(annotations[nrow(annotations):1L, ])
+    trace <- trace_gift(forward, gift_id)
+
+    supported <- trace[trace$component_supported, ]
+
+    # Every observed gene is retained. An unsupported accessory role stays
+    # visible in the trace of a complete call instead of disappearing from it.
+    expect_setequal(supported$gene_id, annotations$gene_id)
+    expect_setequal(supported$accession, annotations$accession)
+    expect_true(all(is.na(trace$gene_id[!trace$component_supported])))
+    expect_true(all(trace$architecture_complete), info = gift_id)
+    expect_equal(trace, trace_gift(reverse, gift_id), info = gift_id)
+  }
+})
+
+t2ss_gsp_markers <- function() {
+  c(
+    GspC = "K02452", GspD = "K02453", GspE = "K02454", GspF = "K02455",
+    GspG = "K02456", GspH = "K02457", GspI = "K02458", GspJ = "K02459",
+    GspK = "K02460", GspL = "K02461", GspM = "K02462"
+  )
+}
+
+t2ss_annotations <- function(markers = c(t2ss_gsp_markers(), GspO = "K02464")) {
+  data.frame(
+    gene_id = paste0("gene_", names(markers)), namespace = "KO",
+    accession = unname(markers), stringsAsFactors = FALSE
+  )
+}
+
+test_that("the type II apparatus requires all five of its subassemblies", {
+  result <- evaluate_gifts(t2ss_annotations())
+  gift <- result$structural$gifts[
+    result$structural$gifts$gift_id == "type_ii_secretion_system",
+  ]
+  machinery <- get_gift_machinery("type_ii_secretion_system")
+
+  expect_true(gift$complete)
+  expect_equal(gift$best_architecture, "ARCH_T2SS_CANONICAL")
+  expect_equal(length(unique(machinery$function_id)), 5L)
+  expect_equal(length(unique(machinery$system_id)), 5L)
+  expect_equal(length(unique(machinery$component_id)), 12L)
+  expect_true(all(machinery$required))
+
+  # Every Gsp role is jointly required, including the weakly marked GspC.
+  for (marker in names(t2ss_gsp_markers())) {
+    markers <- c(t2ss_gsp_markers()[names(t2ss_gsp_markers()) != marker], GspO = "K02464")
+    incomplete <- evaluate_gifts(t2ss_annotations(markers))
+    call <- incomplete$structural$gifts[
+      incomplete$structural$gifts$gift_id == "type_ii_secretion_system",
+    ]
+    expect_false(call$complete, info = marker)
+  }
+
+  # And the whole Gsp inventory without a peptidase is still one function short.
+  no_peptidase <- evaluate_gifts(t2ss_annotations(t2ss_gsp_markers()))
+  call <- no_peptidase$structural$gifts[
+    no_peptidase$structural$gifts$gift_id == "type_ii_secretion_system",
+  ]
+  expect_false(call$complete)
+  expect_equal(
+    call$missing_functions_best_architecture[[1]], "SF_T2SS_PREPILIN_PEPTIDASE"
+  )
+})
+
+test_that("GspO and PilD are one shared peptidase, not two implementations", {
+  # The same enzyme processes type IVa pilins and type II pseudopilins, and
+  # KEGG files most of them under PilD. Both accessions must complete the
+  # apparatus, and reaching the role through PilD must not call the pilus.
+  gspo <- evaluate_gifts(t2ss_annotations())
+  pild <- evaluate_gifts(t2ss_annotations(c(t2ss_gsp_markers(), PilD = "K02654")))
+
+  expect_true(gspo$gifts$complete[gspo$gifts$gift_id == "type_ii_secretion_system"])
+  expect_true(pild$gifts$complete[pild$gifts$gift_id == "type_ii_secretion_system"])
+  expect_false(pild$gifts$complete[pild$gifts$gift_id == "type_iva_pilus"])
+
+  # One component, two accepted accessions: not two alternative systems.
+  machinery <- get_gift_machinery("type_ii_secretion_system")
+  peptidase <- machinery[machinery$function_id == "SF_T2SS_PREPILIN_PEPTIDASE", ]
+  expect_equal(length(unique(peptidase$system_id)), 1L)
+  expect_equal(length(unique(peptidase$component_id)), 1L)
+  expect_setequal(peptidase$accession, c("K02464", "K02654"))
+})
+
+test_that("a complete type IVa pilus does not imply a type II secretion system", {
+  # The two machines share the peptidase and nothing else that is required.
+  pilus <- evaluate_gifts(ko_annotations(type_iva_pilus_markers()))
+  expect_true(pilus$gifts$complete[pilus$gifts$gift_id == "type_iva_pilus"])
+  expect_false(pilus$gifts$complete[pilus$gifts$gift_id == "type_ii_secretion_system"])
+
+  t2ss <- evaluate_gifts(t2ss_annotations(c(t2ss_gsp_markers(), PilD = "K02654")))
+  expect_false(t2ss$gifts$complete[t2ss$gifts$gift_id == "type_iva_pilus"])
+
+  # Neither apparatus accepts the other's discriminating accessions.
+  gsp <- get_gift_machinery("type_ii_secretion_system")$accession
+  pil <- get_gift_machinery("type_iva_pilus")$accession
+  expect_equal(intersect(gsp, pil), "K02654")
+})
+
+test_that("a shared component carries no specificity between two GIFTs", {
+  # One accession on two components is three situations and only one is a
+  # defect: a fused protein serving two roles of one machine, a shared protein
+  # serving two machines, or an accession that cannot say which protein it
+  # matched. The first two are accepted; the third is invariant 16 and refused.
+  # Where a component really is shared, the function it supports distinguishes
+  # neither GIFT, so each must require a function the other does not.
+  db <- gifter_db_connect()
+  on.exit(gifter_db_disconnect(db), add = TRUE)
+  shared <- DBI::dbGetQuery(db, "
+    select mk.accession, g.gift_id, f.function_id
+    from structural_component_marker scm
+    join structural_component c on c.component_pk = scm.component_pk
+    join marker mk on mk.marker_pk = scm.marker_pk
+    join structural_system s on s.system_pk = c.system_pk
+    join structural_function f on f.function_pk = s.function_pk
+    join architecture_function af on af.function_pk = f.function_pk
+    join gift_architecture ga on ga.architecture_pk = af.architecture_pk
+    join gift g on g.gift_pk = ga.gift_pk
+    where af.required = 1
+  ")
+
+  by_accession <- split(shared, shared$accession)
+  crossing <- Filter(
+    function(rows) length(unique(rows$gift_id)) > 1L, by_accession
+  )
+  # A new cross-GIFT accession must not appear silently: it is either a shared
+  # component, which this rule governs, or an over-broad marker to refuse.
+  expect_setequal(names(crossing), "K02654")
+
+  required_functions <- function(gift_id) {
+    unique(shared$function_id[shared$gift_id == gift_id])
+  }
+  for (rows in crossing) {
+    gifts <- unique(rows$gift_id)
+    for (pair in utils::combn(gifts, 2L, simplify = FALSE)) {
+      own <- setdiff(required_functions(pair[[1]]), required_functions(pair[[2]]))
+      other <- setdiff(required_functions(pair[[2]]), required_functions(pair[[1]]))
+      expect_gt(length(own), 0L)
+      expect_gt(length(other), 0L)
+    }
+  }
+})
+
+test_that("a shared peptidase does not make one machine evidence of another", {
+  # K02654 is accepted by both the type IVa pilus and the archaellum. A genome
+  # carrying it and nothing else must complete neither, and a genome completing
+  # one must not thereby complete the other.
+  peptidase_only <- evaluate_gifts(data.frame(
+    gene_id = "gene_PilD", namespace = "KO", accession = "K02654",
+    stringsAsFactors = FALSE
+  ))
+  calls <- peptidase_only$gifts
+  expect_false(any(calls$complete[
+    calls$gift_id %in% c("type_iva_pilus", "archaellum")
+  ]))
+
+  pilus <- evaluate_gifts(ko_annotations(type_iva_pilus_markers()))
+  expect_true(pilus$gifts$complete[pilus$gifts$gift_id == "type_iva_pilus"])
+  expect_false(pilus$gifts$complete[pilus$gifts$gift_id == "archaellum"])
+
+  # The one gene is traceable under each GIFT that accepts it.
+  shared <- evaluate_gifts(ko_annotations(type_iva_pilus_markers()))
+  trace <- trace_gift(shared, "type_iva_pilus")
+  expect_true("K02654" %in% trace$accession)
+})
+
 test_that("the structural claim stops at the encoded machinery", {
   # A structural GIFT says what a genome encodes. It does not say that the
   # structure is expressed, that the cell moves, that it takes up DNA, or that
@@ -865,4 +1216,281 @@ test_that("the structural claim stops at the encoded machinery", {
   for (gift_id in list_gifts(type = "structural")$gift_id) {
     expect_match(get_gift(gift_id)$description, "does not|it does not")
   }
+})
+
+# ---------------------------------------------------------------------------
+# Archaellum
+# ---------------------------------------------------------------------------
+
+archaellum_ko_markers <- function() {
+  c(
+    ArlB = "K07325", ArlK = "K07991", ArlF = "K07329", ArlG = "K07330",
+    ArlH = "K07331", ArlI = "K07332", ArlJ = "K07333"
+  )
+}
+
+archaellum_annotations <- function(markers = archaellum_ko_markers(), namespace = "KO") {
+  data.frame(
+    gene_id = paste0("gene_", names(markers)), namespace = namespace,
+    accession = unname(markers), stringsAsFactors = FALSE
+  )
+}
+
+archaellum_call <- function(result) {
+  result$structural$gifts[result$structural$gifts$gift_id == "archaellum", ]
+}
+
+# KO accession sets of named reference genomes, restricted to the accessions
+# that the archaellum, flagellar_apparatus or type_iva_pilus accept. Verified
+# against KEGG REST `link/ko/<org>` on 2026-10-03; gene identifiers are
+# synthetic because per-genome KEGG assignments are not redistributed.
+archaellum_control_kos <- list(
+  mmp = c("K07325", "K07327", "K07328", "K07329", "K07330", "K07331", "K07332",
+          "K07333", "K07822", "K07991"),
+  sai = c("K07325", "K07329", "K07330", "K07331", "K07332", "K07333", "K07991"),
+  hvo = c("K07325", "K07329", "K07330", "K07331", "K07332", "K07333", "K07991",
+          "K23986"),
+  eco = c("K02387", "K02388", "K02390", "K02391", "K02392", "K02393", "K02394",
+          "K02396", "K02397", "K02400", "K02401", "K02406", "K02407", "K02408",
+          "K02409", "K02410", "K02411", "K02412", "K02416", "K02417", "K02419",
+          "K02420", "K02421", "K02556", "K02557", "K02654", "K02669"),
+  bsu = c("K02387", "K02388", "K02390", "K02391", "K02392", "K02396", "K02397",
+          "K02400", "K02401", "K02406", "K02407", "K02408", "K02409", "K02410",
+          "K02411", "K02412", "K02416", "K02417", "K02419", "K02420", "K02421",
+          "K02556", "K02557")
+)
+
+control_annotations <- function(org) {
+  kos <- archaellum_control_kos[[org]]
+  data.frame(
+    gene_id = paste0(org, "_", kos), namespace = "KO", accession = kos,
+    stringsAsFactors = FALSE
+  )
+}
+
+test_that("the archaellum core completes and every required function is jointly needed", {
+  result <- evaluate_gifts(archaellum_annotations())
+  gift <- archaellum_call(result)
+  expect_true(gift$complete)
+  expect_equal(gift$best_architecture, "ARCH_ARCHAELLUM_CORE")
+  expect_setequal(gift$supporting_functions[[1]], c(
+    "SF_ARCHAELLUM_FILAMENT", "SF_ARCHAELLUM_SIGNAL_PEPTIDASE",
+    "SF_ARCHAELLUM_STATOR", "SF_ARCHAELLUM_MOTOR", "SF_ARCHAELLUM_PLATFORM"
+  ))
+
+  expected_missing <- c(
+    ArlB = "SF_ARCHAELLUM_FILAMENT", ArlK = "SF_ARCHAELLUM_SIGNAL_PEPTIDASE",
+    ArlF = "SF_ARCHAELLUM_STATOR", ArlG = "SF_ARCHAELLUM_STATOR",
+    ArlH = "SF_ARCHAELLUM_MOTOR", ArlI = "SF_ARCHAELLUM_MOTOR",
+    ArlJ = "SF_ARCHAELLUM_PLATFORM"
+  )
+  for (role in names(expected_missing)) {
+    markers <- archaellum_ko_markers()[names(archaellum_ko_markers()) != role]
+    gift <- archaellum_call(evaluate_gifts(archaellum_annotations(markers)))
+    expect_false(gift$complete, info = role)
+    expect_equal(gift$missing_functions_best_architecture[[1]], expected_missing[[role]], info = role)
+  }
+})
+
+test_that("a missing stator or motor subunit is reported at the component", {
+  markers <- archaellum_ko_markers()[names(archaellum_ko_markers()) != "ArlF"]
+  systems <- evaluate_gifts(archaellum_annotations(markers))$structural$systems
+  expect_equal(
+    systems$missing_components[systems$system_id == "SYS_ARCHAELLUM_STATOR_FLAFG"][[1]],
+    "COMP_ARCHAELLUM_FLAF"
+  )
+  markers <- archaellum_ko_markers()[names(archaellum_ko_markers()) != "ArlH"]
+  systems <- evaluate_gifts(archaellum_annotations(markers))$structural$systems
+  expect_equal(
+    systems$missing_components[systems$system_id == "SYS_ARCHAELLUM_MOTOR_FLAHI"][[1]],
+    "COMP_ARCHAELLUM_FLAH"
+  )
+})
+
+test_that("FlaI and FlaJ with pilus machinery never fire the archaellum", {
+  # K07332 and K07333 also collect the ATPases and platforms of archaeal type IV
+  # pili and the bindosome, and PibD processes pilins too. A pilus locus
+  # therefore supports at most the motor-less, specificity-free part of the
+  # machine. The UpsF and bindosome profiles are not archaellum evidence at all.
+  pilus <- rbind(
+    archaellum_annotations(c(ArlI = "K07332", ArlJ = "K07333", ArlK = "K07991")),
+    data.frame(
+      gene_id = c("gene_UpsF", "gene_BasE", "gene_BasF", "gene_pilin"),
+      namespace = "NCBIFAM",
+      accession = c("NF046075.1", "NF053672.1", "NF053673.1", "TIGR02537.2"),
+      stringsAsFactors = FALSE
+    )
+  )
+  result <- evaluate_gifts(pilus)
+  gift <- archaellum_call(result)
+  expect_false(gift$complete)
+  expect_setequal(gift$missing_functions_best_architecture[[1]], c(
+    "SF_ARCHAELLUM_FILAMENT", "SF_ARCHAELLUM_STATOR", "SF_ARCHAELLUM_MOTOR"
+  ))
+  mapped <- map_markers(pilus)
+  expect_false(any(mapped$matched[mapped$namespace == "NCBIFAM"]))
+
+  # Even the archaellum-specific equivalogs for the ATPase and platform do not
+  # fire the GIFT without archaellin, FlaF, FlaG and FlaH.
+  motor_only <- archaellum_annotations(
+    c(ArlI = "NF058587.1", ArlJ = "NF004704.2", ArlK = "NF040695.1"), namespace = "NCBIFAM"
+  )
+  expect_false(archaellum_call(evaluate_gifts(motor_only))$complete)
+})
+
+test_that("the FlaI and FlaJ orthologies carry their doubt to the call", {
+  ko_only <- archaellum_call(evaluate_gifts(archaellum_annotations()))
+  expect_equal(ko_only$evidence_confidence, "putative")
+
+  # NCBIfam equivalogs separate FlaI and FlaJ from their pilus homologues, so a
+  # genome whose ATPase and platform pass them reads as high-confidence.
+  resolved <- rbind(
+    archaellum_annotations(archaellum_ko_markers()[c("ArlB", "ArlK", "ArlF", "ArlG", "ArlH")]),
+    archaellum_annotations(c(ArlI = "NF058587.1", ArlJ = "NF004705.1"), namespace = "NCBIFAM")
+  )
+  gift <- archaellum_call(evaluate_gifts(resolved))
+  expect_true(gift$complete)
+  expect_equal(gift$evidence_confidence, "high-confidence")
+})
+
+test_that("the archaellin orthologies do not include bacterial FlgA", {
+  # K07325 is defined as flaB, flgA, but the flgA there is the haloarchaeal
+  # archaellin name. Bacterial FlgA is K02386 and is not archaellin evidence.
+  flga <- archaellum_annotations(c(archaellum_ko_markers()[-1], FlgA = "K02386"))
+  gift <- archaellum_call(evaluate_gifts(flga))
+  expect_false(gift$complete)
+  expect_equal(gift$missing_functions_best_architecture[[1]], "SF_ARCHAELLUM_FILAMENT")
+  expect_true(archaellum_call(evaluate_gifts(archaellum_annotations(
+    c(archaellum_ko_markers()[-1], ArlA = "K07324")
+  )))$complete)
+})
+
+test_that("lineage-restricted accessory functions do not change the archaellum call", {
+  core <- evaluate_gifts(archaellum_annotations())
+  with_accessories <- evaluate_gifts(rbind(
+    archaellum_annotations(c(
+      archaellum_ko_markers(), FlaC = "K07822", FlaD = "K07327", FlaE = "K07328"
+    )),
+    archaellum_annotations(c(FlaX = "NF058591.1"), namespace = "NCBIFAM")
+  ))
+  a <- archaellum_call(core)
+  b <- archaellum_call(with_accessories)
+  expect_true(a$complete)
+  expect_true(b$complete)
+  expect_equal(a$evidence_confidence, b$evidence_confidence)
+  expect_equal(a$supporting_functions[[1]], b$supporting_functions[[1]])
+
+  functions <- with_accessories$structural$functions
+  expect_true(all(functions$supported[functions$function_id %in% c(
+    "SF_ARCHAELLUM_SWITCH_COMPLEX", "SF_ARCHAELLUM_FLAX_RING"
+  )]))
+
+  # The haloarchaeal FlaCE fusion supports FlaC and FlaE but not FlaD, so the
+  # switch complex stays visibly incomplete without changing the call.
+  halo <- evaluate_gifts(archaellum_annotations(c(archaellum_ko_markers(), FlaCE = "K23986")))
+  systems <- halo$structural$systems
+  expect_equal(
+    systems$missing_components[systems$system_id == "SYS_ARCHAELLUM_SWITCH_FLACDE"][[1]],
+    "COMP_ARCHAELLUM_FLAD"
+  )
+  expect_true(archaellum_call(halo)$complete)
+})
+
+test_that("the archaellum and the bacterial flagellum and type IVa pilus do not cross", {
+  archaeal <- evaluate_gifts(archaellum_annotations(c(
+    archaellum_ko_markers(), FlaC = "K07822", FlaD = "K07327", FlaE = "K07328"
+  )))
+  functions <- archaeal$structural$functions
+  expect_false(any(functions$supported[grepl("^SF_(FLAGELLAR|T4AP)_", functions$function_id)]))
+  expect_false(any(archaeal$gifts$complete[
+    archaeal$gifts$gift_id %in% c("flagellar_apparatus", "type_iva_pilus")
+  ]))
+
+  bacterial <- evaluate_gifts(ko_annotations(c(
+    flagellar_core_markers(), "K02393", "K02394", type_iva_pilus_markers(), "K02669"
+  )))
+  expect_true(all(bacterial$gifts$complete[
+    bacterial$gifts$gift_id %in% c("flagellar_apparatus", "type_iva_pilus")
+  ]))
+  gift <- archaellum_call(bacterial)
+  expect_false(gift$complete)
+  # The only overlap is the shared class III signal peptidase: K02654 is the
+  # PilD of the type IVa pilus and the bacterial-type archaellin peptidase of
+  # archaellum-encoding Chloroflexota. It carries no machine specificity.
+  functions <- bacterial$structural$functions
+  archaellum_functions <- functions[grepl("^SF_ARCHAELLUM_", functions$function_id), ]
+  expect_equal(
+    archaellum_functions$function_id[archaellum_functions$supported],
+    "SF_ARCHAELLUM_SIGNAL_PEPTIDASE"
+  )
+})
+
+test_that("a bacterial PilD peptidase supports the archaellum only at putative confidence", {
+  markers <- c(archaellum_ko_markers()[names(archaellum_ko_markers()) != "ArlK"], PilD = "K02654")
+  result <- evaluate_gifts(archaellum_annotations(markers))
+  gift <- archaellum_call(result)
+  functions <- result$structural$functions
+  expect_true(gift$complete)
+  expect_equal(gift$evidence_confidence, "putative")
+  expect_equal(
+    functions$best_system[functions$function_id == "SF_ARCHAELLUM_SIGNAL_PEPTIDASE"],
+    "SYS_ARCHAELLUM_PILD"
+  )
+})
+
+test_that("the archaellum evaluates beside a metabolic GIFT without changing either", {
+  annotations <- rbind(
+    ko_annotations(direct_purine_markers()),
+    archaellum_annotations()
+  )
+  result <- evaluate_gifts(annotations)
+  complete <- result$gifts[result$gifts$complete, ]
+  expect_true(all(c("purine_core_biosynthesis", "archaellum") %in% complete$gift_id))
+  expect_equal(complete$gift_type[complete$gift_id == "archaellum"], "structural")
+  alone <- evaluate_gifts(ko_annotations(direct_purine_markers()))
+  expect_equal(
+    result$gifts$complete[result$gifts$gift_type == "metabolic"],
+    alone$gifts$complete[alone$gifts$gift_type == "metabolic"]
+  )
+})
+
+test_that("the archaellum trace reaches every observed marker and gene", {
+  annotations <- archaellum_annotations()
+  trace <- trace_gift(evaluate_gifts(annotations), "archaellum")
+  supported <- trace[trace$component_supported, ]
+  expect_equal(unique(trace$architecture_id), "ARCH_ARCHAELLUM_CORE")
+  expect_setequal(supported$gene_id, annotations$gene_id)
+  expect_setequal(supported$accession, annotations$accession)
+  expect_setequal(supported$component_id, c(
+    "COMP_ARCHAELLUM_ARCHAELLIN", "COMP_ARCHAELLUM_FLAK_PIBD", "COMP_ARCHAELLUM_FLAF",
+    "COMP_ARCHAELLUM_FLAG", "COMP_ARCHAELLUM_FLAH", "COMP_ARCHAELLUM_FLAI",
+    "COMP_ARCHAELLUM_FLAJ"
+  ))
+})
+
+test_that("archaellated reference archaea complete and flagellated bacteria do not", {
+  # Methanococcus maripaludis S2 (PMID 17887963), Sulfolobus acidocaldarius
+  # DSM 639 (PMID 22081969) and Haloferax volcanii DS2 assemble archaella;
+  # Escherichia coli K-12 and Bacillus subtilis 168 build bacterial flagella.
+  for (org in c("mmp", "sai", "hvo")) {
+    gift <- archaellum_call(evaluate_gifts(control_annotations(org)))
+    expect_true(gift$complete, info = org)
+    expect_equal(gift$evidence_confidence, "putative", info = org)
+  }
+  mmp <- evaluate_gifts(control_annotations("mmp"))$structural$functions
+  expect_true(mmp$supported[mmp$function_id == "SF_ARCHAELLUM_SWITCH_COMPLEX"])
+
+  for (org in c("eco", "bsu")) {
+    result <- evaluate_gifts(control_annotations(org))
+    expect_false(archaellum_call(result)$complete, info = org)
+    expect_true(result$gifts$complete[result$gifts$gift_id == "flagellar_apparatus"], info = org)
+  }
+})
+
+test_that("the archaellum decision is recorded with its evidence", {
+  changes <- database_changelog("archaellum")
+  expect_true("DBC-20261003-ARCHAELLUM" %in% changes$change_id)
+  expect_match(changes$evidence[changes$change_id == "DBC-20261003-ARCHAELLUM"], "PMID 17887963", fixed = TRUE)
+  expect_equal(get_gift("archaellum")$gift_type, "structural")
+  expect_true(is.na(get_gift("archaellum")$mode) || !nzchar(get_gift("archaellum")$mode))
 })

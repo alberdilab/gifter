@@ -5,12 +5,12 @@ test_that("canonical source tables validate", {
   expect_true(report$valid)
   expect_length(report$errors, 0L)
   expect_equal(
-    unname(report$rows[c("gifts", "anchors", "reactions")]), c(156L, 156L, 440L)
+    unname(report$rows[c("gifts", "anchors", "reactions")]), c(160L, 156L, 440L)
   )
   # Every typed model now ships curated content.
   expect_equal(
     unname(report$rows[c("gift_architectures", "gift_circuits", "gift_mechanisms")]),
-    c(7L, 4L, 5L)
+    c(11L, 4L, 5L)
   )
 })
 
@@ -82,7 +82,7 @@ test_that("database accessors return stable definitions", {
       "alanine_biosynthesis", "allantoin_degradation",
       "ammonium_assimilation", "anthranilate_degradation_catechol",
       "arabinose_degradation", "arabinose_uptake_abc",
-      "arabinoxylan_debranching", "arginine_biosynthesis",
+      "arabinoxylan_debranching", "archaellum", "arginine_biosynthesis",
       "arginine_deiminase_pathway", "asparagine_biosynthesis",
       "aspartate_biosynthesis", "aspartate_chemoreception",
       "aspartate_semialdehyde_biosynthesis", "assimilatory_sulfate_reduction",
@@ -155,7 +155,9 @@ test_that("database accessors return stable definitions", {
       "thiazole_phosphate_biosynthesis", "threonine_biosynthesis",
       "threonine_deamination", "tryptophan_biosynthesis",
       "tryptophan_degradation_indole", "type_i_e_crispr_cas_machinery",
-      "type_i_restriction_modification", "type_iva_pilus",
+      "type_i_restriction_modification", "type_ii_secretion_system",
+      "type_iii_secretion_injectisome", "type_iva_pilus",
+      "type_vi_secretion_apparatus",
       "tyrosine_biosynthesis", "urate_degradation", "urea_hydrolysis",
       "valine_biosynthesis", "xylan_degradation",
       "xylose_degradation_isomerase", "xylose_uptake_abc"
@@ -219,7 +221,7 @@ test_that("database accessors return stable definitions", {
 test_that("database and schema versions are independent", {
   version <- gifter_db_version()
   expect_equal(version$package_version, "0.7.3")
-  expect_equal(version$gifter_db_version, "2026.30.1")
+  expect_equal(version$gifter_db_version, "2026.33.1")
   expect_equal(version$schema_version, 7L)
   expect_equal(version$rhea_release, "141")
 })

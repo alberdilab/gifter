@@ -93,6 +93,9 @@ test_that("pathway links are filterable and KEGG context is complete or named", 
   # uptake is another: map00430 carries the taurine chemistry but not the
   # translocation, and linking a transport GIFT to a chemistry map would assert
   # a containment that is false.
+  # The archaellum is the same gap in the structural model: KEGG has no
+  # archaellum pathway or module, only a BRITE protein list (ko02035) that
+  # also holds every bacterial motility protein and fixes no boundary.
   # The Lpt apparatus likewise has component orthology records but no external
   # pathway record whose boundary is the complete trans-envelope machine. The
   # narrow LTA structure is evidenced through NCBIfam components and has no
@@ -108,6 +111,7 @@ test_that("pathway links are filterable and KEGG context is complete or named", 
   expect_equal(
     unname(gift_ids[linked == 0L]),
     c(
+      "archaellum",
       "carnitine_degradation_trimethylamine", "carnitine_to_betaine",
       "citrate_fermentation", "collagen_cleavage",
       "diglucosyl_diacylglycerol_anchored_lipoteichoic_acid",

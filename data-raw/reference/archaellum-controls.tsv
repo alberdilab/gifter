@@ -1,0 +1,6 @@
+org	strain	literature_expectation	archaellum_complete	archaellum_confidence	archaellum_missing_functions	supported_accessory	flagellar_apparatus_complete	type_iva_pilus_complete	agrees_with_frame_evaluator
+mmp	Methanococcus maripaludis S2	archaellated	TRUE	putative		SF_ARCHAELLUM_SWITCH_COMPLEX	FALSE	FALSE	TRUE
+sai	Sulfolobus acidocaldarius DSM 639	archaellated	TRUE	putative			FALSE	FALSE	TRUE
+hvo	Haloferax volcanii DS2	archaellated	TRUE	putative			FALSE	FALSE	TRUE
+eco	Escherichia coli K-12 MG1655	flagellated bacterium	FALSE		SF_ARCHAELLUM_FILAMENT;SF_ARCHAELLUM_STATOR;SF_ARCHAELLUM_MOTOR;SF_ARCHAELLUM_PLATFORM		TRUE	FALSE	TRUE
+bsu	Bacillus subtilis 168	flagellated bacterium	FALSE		SF_ARCHAELLUM_FILAMENT;SF_ARCHAELLUM_SIGNAL_PEPTIDASE;SF_ARCHAELLUM_STATOR;SF_ARCHAELLUM_MOTOR;SF_ARCHAELLUM_PLATFORM		TRUE	FALSE	TRUE
