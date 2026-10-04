@@ -8,7 +8,9 @@ build_gifter_database(
   source_dir,
   output,
   overwrite = FALSE,
-  source_commit = NULL
+  source_commit = NULL,
+  reference_dir = NULL,
+  marker_links = NULL
 )
 }
 \arguments{
@@ -19,6 +21,9 @@ build_gifter_database(
 \item{overwrite}{Whether an existing output may be replaced.}
 
 \item{source_commit}{Optional source commit to store in release metadata.}
+
+\item{reference_dir, marker_links}{Passed to [validate_gifter_sources()] to
+verify the sources against a pinned reference snapshot before compiling.}
 }
 \value{
 The normalized output path, invisibly.

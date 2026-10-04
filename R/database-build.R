@@ -1,4 +1,4 @@
-.gifter_schema_version <- 8L
+.gifter_schema_version <- 9L
 
 # The kinds of biologically meaningful capability gifter can state. This is not a
 # facet: it selects the completeness model that produces a call, decides which
@@ -240,22 +240,27 @@
   ),
   reference_frame_filters = c("frame_id", "filter_key", "value"),
   reference_frame_metrics = c("frame_id", "scope", "metric_id", "rationale"),
-  anchors = c("anchor_id", "molecule", "compartment", "name", "chebi_id", "description"),
+  anchors = c(
+    "anchor_id", "molecule", "compartment", "name", "chebi_id", "description",
+    "chebi_name"
+  ),
   gift_anchors = c("gift_id", "anchor_id", "role", "ordinal"),
   gift_xrefs = c("gift_id", "namespace", "accession", "name", "relation", "notes"),
   gift_evidence = c("gift_id", "evidence_kind", "location", "description"),
-  reactions = c("reaction_id", "rhea_master", "name", "description"),
-  reaction_xrefs = c("reaction_id", "namespace", "accession"),
+  reactions = c("reaction_id", "rhea_master", "name", "description", "equation"),
+  reaction_xrefs = c("reaction_id", "namespace", "accession", "notes"),
   gift_routes = c(
     "route_id", "gift_id", "name", "description", "status", "oxygen_requirement"
   ),
   route_reactions = c("route_id", "reaction_id", "orientation", "step_order", "required"),
+  route_chemistry_exceptions = c("route_id", "kind", "subject", "rationale"),
+  gift_reviews = c("gift_id", "version", "reviewer", "reviewed_at", "notes"),
   enzyme_systems = c("system_id", "reaction_id", "name", "description"),
   enzyme_components = c("component_id", "system_id", "name", "description"),
   markers = c("namespace", "accession", "name", "description"),
   component_markers = c(
     "component_id", "namespace", "accession", "evidence_type",
-    "confidence", "source", "notes"
+    "confidence", "source", "notes", "basis", "reference"
   ),
   gift_architectures = c("architecture_id", "gift_id", "name", "description", "status"),
   architecture_functions = c("architecture_id", "function_id", "ordinal", "required"),
@@ -264,7 +269,7 @@
   structural_components = c("component_id", "system_id", "name", "description"),
   structural_component_markers = c(
     "component_id", "namespace", "accession", "evidence_type",
-    "confidence", "source", "notes"
+    "confidence", "source", "notes", "basis", "reference"
   ),
   gift_circuits = c("circuit_id", "gift_id", "name", "description", "status"),
   circuit_functions = c("circuit_id", "function_id", "ordinal", "required"),
@@ -273,7 +278,7 @@
   regulatory_components = c("component_id", "system_id", "name", "description"),
   regulatory_component_markers = c(
     "component_id", "namespace", "accession", "evidence_type",
-    "confidence", "source", "notes"
+    "confidence", "source", "notes", "basis", "reference"
   ),
   gift_mechanisms = c("mechanism_id", "gift_id", "name", "description", "status"),
   mechanism_functions = c("mechanism_id", "function_id", "ordinal", "required"),
@@ -282,7 +287,7 @@
   defense_components = c("component_id", "system_id", "name", "description"),
   defense_component_markers = c(
     "component_id", "namespace", "accession", "evidence_type",
-    "confidence", "source", "notes"
+    "confidence", "source", "notes", "basis", "reference"
   ),
   database_changes = c(
     "change_id", "released", "changed_at", "layer", "category", "call_effect",
@@ -381,11 +386,24 @@
 #' directions, malformed anchor boundaries, graph cycles, or inconsistent
 #' release metadata are reported as build errors.
 #'
+#' Structural validation cannot tell a real accession from a plausible one. When
+#' `reference_dir` names a pinned reference snapshot, the tables are also
+#' compared with Rhea, ChEBI and KEGG: every external accession must exist, a
+#' Rhea identifier must be a master, imported equations and names must match,
+#' and each declared anchor must take part in the chemistry of its routes.
+#'
 #' @param source_dir Directory containing the gifter TSV source tables.
 #' @param stop_on_error If `TRUE`, stop when structural errors are found.
+#' @param reference_dir Optional directory holding the pinned reference
+#'   snapshot written by `data-raw/reference_snapshot.R`. `NULL` runs the
+#'   structural checks only.
+#' @param marker_links Optional paths to marker link extracts, used to recompute
+#'   the basis of marker assignments. A namespace with no extract is reported
+#'   as not recomputed.
 #' @return A list with `valid`, `errors`, `warnings`, and table row counts.
 #' @export
-validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
+validate_gifter_sources <- function(source_dir, stop_on_error = TRUE,
+                                    reference_dir = NULL, marker_links = NULL) {
   tables <- .read_gifter_sources(source_dir)
   errors <- character()
   warnings <- character()
@@ -1388,6 +1406,18 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
   }
 
   errors <- c(errors, .validate_gift_evidence(tables$gift_evidence))
+  errors <- c(errors, .validate_evidence_contract(tables))
+
+  # External facts are checked last and only against a pinned snapshot, and
+  # only once the tables are coherent enough to be joined.
+  if (!is.null(reference_dir) && !length(errors)) {
+    external <- .verify_external_references(
+      tables, .read_reference_snapshot(reference_dir),
+      .read_marker_links(as.character(marker_links))
+    )
+    errors <- c(errors, external$errors)
+    warnings <- c(warnings, external$warnings)
+  }
 
   changes <- tables$database_changes
   if (length(.duplicate_keys(tables$change_gifts, c("change_id", "gift_id")))) {
@@ -1589,8 +1619,9 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
   }
 
   relevant <- c(
-    "R/database-build.R", "data-raw/build_database.R",
-    "inst/schema/gifter.sql", "inst/extdata/database-source"
+    "R/database-build.R", "R/reference-verification.R", "data-raw/build_database.R",
+    "inst/schema/gifter.sql", "inst/extdata/database-source",
+    "inst/extdata/reference-snapshot"
   )
   status <- git(c("-C", root, "status", "--porcelain", "--", relevant))
   if (!is.null(attr(status, "status"))) {
@@ -1622,10 +1653,15 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
 #' @param output Path for the compiled SQLite database.
 #' @param overwrite Whether an existing output may be replaced.
 #' @param source_commit Optional source commit to store in release metadata.
+#' @param reference_dir,marker_links Passed to [validate_gifter_sources()] to
+#'   verify the sources against a pinned reference snapshot before compiling.
 #' @return The normalized output path, invisibly.
 #' @export
-build_gifter_database <- function(source_dir, output, overwrite = FALSE, source_commit = NULL) {
-  validate_gifter_sources(source_dir, stop_on_error = TRUE)
+build_gifter_database <- function(source_dir, output, overwrite = FALSE, source_commit = NULL,
+                                  reference_dir = NULL, marker_links = NULL) {
+  validate_gifter_sources(
+    source_dir, stop_on_error = TRUE, reference_dir = reference_dir, marker_links = marker_links
+  )
   if (!is.null(source_commit) &&
       (length(source_commit) != 1L || is.na(source_commit) ||
        !grepl("^([0-9a-fA-F]{40}|[0-9a-fA-F]{64})$", source_commit))) {
@@ -1742,10 +1778,25 @@ build_gifter_database <- function(source_dir, output, overwrite = FALSE, source_
     append = TRUE, row.names = FALSE
   )
 
+  reviews <- tables$gift_reviews
+  DBI::dbWriteTable(
+    connection, "gift_review",
+    data.frame(
+      gift_pk = unname(gift_pk[reviews$gift_id]),
+      version = as.integer(reviews$version),
+      reviewer = reviews$reviewer,
+      reviewed_at = reviews$reviewed_at,
+      notes = reviews$notes,
+      stringsAsFactors = FALSE
+    ),
+    append = TRUE, row.names = FALSE
+  )
+
   reaction_xrefs <- data.frame(
     reaction_pk = unname(reaction_pk[tables$reaction_xrefs$reaction_id]),
     namespace = tables$reaction_xrefs$namespace,
-    accession = tables$reaction_xrefs$accession
+    accession = tables$reaction_xrefs$accession,
+    notes = tables$reaction_xrefs$notes
   )
   DBI::dbWriteTable(connection, "reaction_xref", reaction_xrefs, append = TRUE, row.names = FALSE)
 
@@ -1767,6 +1818,19 @@ build_gifter_database <- function(source_dir, output, overwrite = FALSE, source_
     required = as.integer(tables$route_reactions$required)
   )
   DBI::dbWriteTable(connection, "route_reaction", route_reactions, append = TRUE, row.names = FALSE)
+
+  exceptions <- tables$route_chemistry_exceptions
+  DBI::dbWriteTable(
+    connection, "route_chemistry_exception",
+    data.frame(
+      route_pk = unname(route_pk[exceptions$route_id]),
+      kind = exceptions$kind,
+      subject = exceptions$subject,
+      rationale = exceptions$rationale,
+      stringsAsFactors = FALSE
+    ),
+    append = TRUE, row.names = FALSE
+  )
 
   systems <- tables$enzyme_systems[c("system_id", "name", "description")]
   systems$reaction_pk <- unname(reaction_pk[tables$enzyme_systems$reaction_id])
@@ -1797,7 +1861,9 @@ build_gifter_database <- function(source_dir, output, overwrite = FALSE, source_
     evidence_type = tables$component_markers$evidence_type,
     confidence = tables$component_markers$confidence,
     source = tables$component_markers$source,
-    notes = tables$component_markers$notes
+    notes = tables$component_markers$notes,
+    basis = tables$component_markers$basis,
+    reference = tables$component_markers$reference
   )
   DBI::dbWriteTable(connection, "component_marker", component_markers, append = TRUE, row.names = FALSE)
 
@@ -1851,6 +1917,8 @@ build_gifter_database <- function(source_dir, output, overwrite = FALSE, source_
         confidence = evidence$confidence,
         source = evidence$source,
         notes = evidence$notes,
+        basis = evidence$basis,
+        reference = evidence$reference,
         stringsAsFactors = FALSE
       ),
       append = TRUE, row.names = FALSE

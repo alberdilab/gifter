@@ -14,7 +14,7 @@
 # than one schema during a migration. Schema 8 adds GIFT curation evidence and
 # the source repository; a schema 7 database still opens and simply reports no
 # evidence, so custom databases built by 0.7.x keep working.
-.gifter_supported_schema_versions <- c(7L, 8L)
+.gifter_supported_schema_versions <- c(7L, 8L, 9L)
 
 # Schema 8 additions are optional on read. Each returns what a schema 7
 # database lacks as absent rather than failing the query.

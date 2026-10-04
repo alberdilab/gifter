@@ -41,6 +41,60 @@ reading of the size deviation on isolates only, on genomes of high CheckM2
 quality, and with completeness and metagenome origin in the expectation; it
 writes `gtdb-size-expectation-sensitivity.tsv` and adds a panel to Figure S10.
 A new analysis, `29-gtdb-near-misses-and-gift-signal.R`, counts unsupported
+### 2026-10-04T17:39Z — Marker basis is derived for NCBIfam and CAZy, and NCBIfam grades are checked
+
+**What changed.** `.derive_marker_basis()` now covers NCBIfam profiles and CAZy
+markers on enzyme components as well as KOs, comparing the EC numbers the pinned
+NCBIfam release or dbCAN gives a marker with those of its reaction. The
+`kegg_links` argument of `validate_gifter_sources()` and
+`build_gifter_database()`, added earlier today and never released, is now
+`marker_links` and takes several extracts. The reference snapshot gains
+`marker-accessions.tsv`, and the reference check refuses an NCBIfam or CAZy
+accession absent from the pinned release and an NCBIfam grade that differs from
+the one the release gives. `data-raw/verify_database.R` passes the committed
+`data-raw/reference/marker-links.tsv`, so CI recomputes these two namespaces.
+
+**Why.** Only KO assignments had a derivation, which left 911 of 1,714 marker
+assignments unassessed, and the NCBIfam admission rule read a grade the curator
+typed into `notes`.
+
+**Effect.** 307 assignments remain unassessed, all of them machinery markers or
+Pfam, EC and legacy TIGRFAM rows. All 145 declared NCBIfam grades match the
+release. Ten assignments are newly `unsupported`; the database changelog for
+2026.39.1 records them. No GIFT call changes.
+
+### 2026-10-04T16:32Z — Curated facts are verified against a pinned reference snapshot
+
+**What changed.** `validate_gifter_sources()` and `build_gifter_database()`
+take `reference_dir` and `marker_links`. With a reference directory the source
+tables are compared with a pinned extract of Rhea, ChEBI and KEGG held in
+`inst/extdata/reference-snapshot`, in the new `R/reference-verification.R`.
+`data-raw/reference_snapshot.R` writes that extract and, with `--sync`, fills
+the imported and derived source columns. `data-raw/build_database.R` and
+`data-raw/verify_database.R` always pass the snapshot. The schema is version 9
+and the package opens versions 7, 8 and 9. Independently of any snapshot, the
+validator now refuses a `confidence`, `evidence_type` or `basis` outside its
+vocabulary, a malformed `reference`, and an `unsupported` marker assignment
+recorded above `putative`.
+
+**Why.** Validation was relational only: 49 checks that the tables agreed with
+each other and none that an accession existed or that a Rhea identifier was a
+master. An audit of the shipped tables against the live resources found no
+invented identifier, and did find three non-master Rhea identifiers, seven KEGG
+reaction cross-references naming a different or partial reaction, four route
+steps oriented against their route, and thirty marker assignments recorded as
+curated that KEGG does not support. Every one had compiled cleanly. The
+content corrections are recorded in the database changelog for 2026.38.1.
+
+**Effect.** A wrong external fact now fails the build with the record that
+contradicts it. No GIFT call changes. `evidence_confidence` falls to `putative`
+where one of the thirty unsupported assignments is the best evidence for a
+component. No public accessor reads the new columns or tables yet. Three limits
+remain and are stated in the architecture guide: the basis derivation covers
+only KO markers on enzyme components; the KEGG links it reads are not
+redistributed, so CI checks that a basis is recorded but cannot recompute it;
+and `gift_reviews.tsv`, the human sign-off, is empty.
+
 GIFTs whose closest implementation lacks exactly one of at least two
 requirements, ranks the requirements most often missing alone by lineage, and
 computes Fritz and Purvis's D for each GIFT. It writes six tables and Figures

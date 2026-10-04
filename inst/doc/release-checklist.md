@@ -34,7 +34,7 @@ release tasks. CI status does not change upstream licensing review.
 2. In a clean worktree, set `GIFTER_SOURCE_COMMIT` to that full hash and run
    `Rscript data-raw/build_database.R`. The script refuses dirty relevant inputs
    or any difference between those inputs and the named commit.
-3. Run `Rscript data-raw/verify_database.R` and confirm the 41-table comparison,
+3. Run `Rscript data-raw/verify_database.R` and confirm the 44-table comparison,
    integrity check, and foreign-key check.
 4. Commit only the reproducibly generated SQLite artifact if it changed. This
    later artifact commit avoids asking the database to name a commit containing

@@ -87,7 +87,7 @@ test_that("custom database compatibility fails early and specifically", {
   # The compiler writes the newest schema; the reader also accepts the one
   # before it, which schema 8 extends without changing.
   expect_identical(max(.gifter_supported_schema_versions), .gifter_schema_version)
-  expect_identical(.gifter_supported_schema_versions, c(7L, 8L))
+  expect_identical(.gifter_supported_schema_versions, c(7L, 8L, 9L))
   expect_silent({
     connection <- gifter_db_connect()
     DBI::dbDisconnect(connection)

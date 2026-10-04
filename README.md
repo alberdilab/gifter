@@ -379,13 +379,22 @@ The reviewable source of truth is
 is a compiled artifact, never the hand-curated source.
 
 ```r
-validate_gifter_sources("inst/extdata/database-source")
+validate_gifter_sources(
+  "inst/extdata/database-source",
+  reference_dir = "inst/extdata/reference-snapshot"
+)
 build_gifter_database(
   "inst/extdata/database-source",
   "inst/extdata/gifter.sqlite",
-  overwrite = TRUE
+  overwrite = TRUE,
+  reference_dir = "inst/extdata/reference-snapshot"
 )
 ```
+
+`reference_dir` names a pinned extract of Rhea, ChEBI and KEGG. With it the
+sources are checked against those resources as well as against each other, so
+an accession that does not exist, a Rhea identifier that is not a master, or an
+anchor its route never reaches fails the build.
 
 Development rebuilds retain the source table's explicit `unreleased` marker.
 For a final release artifact, set `GIFTER_SOURCE_COMMIT` to the full commit that

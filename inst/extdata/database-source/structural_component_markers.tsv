@@ -1,189 +1,189 @@
-component_id	namespace	accession	evidence_type	confidence	source	notes
-COMP_SF_FLHA	KO	K02400	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLHB	KO	K02401	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLHB	KO	K13820	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	Fused FliR-FlhB protein; the same accession also supports COMP_SF_FLIR, which is what a fused protein means.
-COMP_SF_FLIP	KO	K02419	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLIQ	KO	K02420	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLIR	KO	K02421	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLIR	KO	K13820	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	Fused FliR-FlhB protein; the same accession also supports COMP_SF_FLHB.
-COMP_SF_FLII	KO	K02412	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLIH	KO	K02411	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLIF	KO	K02409	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLIE	KO	K02408	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLGB	KO	K02387	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLGC	KO	K02388	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLGF	KO	K02391	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLGG	KO	K02392	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLIG	KO	K02410	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLIM	KO	K02416	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLIN	KO	K02417	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLGE	KO	K02390	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLGK	KO	K02396	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLGL	KO	K02397	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLIC	KO	K02406	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLID	KO	K02407	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_MOTA	KO	K02556	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	KEGG assigns Vibrio cholerae PomA (VC_0892) to this orthologue alongside Escherichia coli MotA, so it evidences a stator but not its coupling ion.
-COMP_SF_MOTB	KO	K02557	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	KEGG assigns Vibrio cholerae PomB (VC_0893) to this orthologue alongside Escherichia coli MotB.
-COMP_SF_FLGH	KO	K02393	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_SF_FLGI	KO	K02394	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_T4AP_PILD	KO	K02654	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_T4AP_PILIN	KO	K02650	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_T4AP_PILIN	KO	K02655	orthology	ambiguous	KEGG orthology, verified against KEGG REST 2026-08-18	PilE is the major pilin in Neisseria but a minor pilin in Pseudomonas, so this accession does not by itself establish that the protein is the major subunit. Accepted as an alternative marker at reduced confidence so that Neisseria-type systems are not called absent, and the weaker term is reported on any call that rests on it.
-COMP_T4AP_PILB	KO	K02652	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_T4AP_PILF	KO	K02656	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_T4AP_PILC	KO	K02653	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_T4AP_PILM	KO	K02662	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_T4AP_PILN	KO	K02663	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_T4AP_PILO	KO	K02664	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_T4AP_PILP	KO	K02665	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_T4AP_PILQ	KO	K02666	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_T4AP_PILT	KO	K02669	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
-COMP_LPTA	KO	K09774	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	LptA-specific orthology; the broader LptA/LptD_N profiles are not admitted.
-COMP_LPTB	KO	K06861	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	LptB-specific orthology, not a generic ABC ATPase marker.
-COMP_LPTC	KO	K11719	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	LptC-specific orthology. LptC remains required because bypass depends on residue-level LptF suppressors that this marker cannot resolve.
-COMP_LPTD	KO	K04744	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	LptD-specific orthology; historical aliases Imp and OstA do not widen the accepted function.
-COMP_LPTE	KO	K03643	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	LptE-specific orthology; required only in the canonical architecture represented here.
-COMP_LPTF	KO	K07091	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	Component-specific LptF orthology; a combined LptF/LptG family is not admitted.
-COMP_LPTG	KO	K11720	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	Component-specific LptG orthology; a combined LptF/LptG family is not admitted.
-COMP_LPTA	NCBIFAM	TIGR03002.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. LptA-specific periplasmic bridge profile.
-COMP_LPTA	NCBIFAM	NF008143.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Enterobacterales LptA profile.
-COMP_LPTB	NCBIFAM	TIGR04406.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. LptB-specific ATPase profile.
-COMP_LPTB	NCBIFAM	NF008144.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Gammaproteobacterial LptB profile.
-COMP_LPTC	NCBIFAM	TIGR04409.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. LptC-specific connector profile.
-COMP_LPTC	NCBIFAM	NF008142.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Enterobacterales LptC profile.
-COMP_LPTF	NCBIFAM	TIGR04407.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. LptF-specific permease profile, separated from LptG by NCBIfam.
-COMP_LPTG	NCBIFAM	TIGR04408.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. LptG-specific permease profile, separated from LptF by NCBIfam.
-COMP_LPTD	NCBIFAM	NF002997.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Gammaproteobacterial LptD profile.
-COMP_LPTD	NCBIFAM	NF003358.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Alternative Gammaproteobacterial LptD profile.
-COMP_LPTE	NCBIFAM	NF008062.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Enterobacterales LptE profile; the broader Pfam-equivalent profile is not admitted.
-COMP_WTA_MNAA	KO	K01791	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	Activity-level UDP-GlcNAc 2-epimerase marker; it is not WTA-specific and is accepted only as one required role in the complete architecture.
-COMP_WTA_TAGO	KO	K02851	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	Shared TagO/WecA/Rfe activity marker; it never establishes WTA alone.
-COMP_WTA_TAGA	KO	K05946	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TagA/TarA linkage-unit mannosaminyltransferase orthology.
-COMP_WTA_TAGB	KO	K21285	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TagB/TarB linkage-unit glycerol-phosphate primase orthology.
-COMP_WTA_TAGD	KO	K00980	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TagD glycerol-3-phosphate cytidylyltransferase orthology.
-COMP_WTA_TARI	KO	K21030	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TarI CDP-ribitol synthase orthology.
-COMP_WTA_TARJ	KO	K05352	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TarJ ribitol-5-phosphate dehydrogenase orthology.
-COMP_WTA_STAPH_TARF	NCBIFAM	NF041712.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-02	family_type=equivalog. Staphylococcus aureus TarF profile; K21591 and broad TagF-family profiles are not admitted as alternatives.
-COMP_WTA_STAPH_TARL	NCBIFAM	NF041713.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-02	family_type=equivalog. Staphylococcus TarL profile; K18704 alone is not admitted for this lineage-resolved role.
-COMP_WTA_W23_TARK	KO	K21592	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TarK ribitol-phosphate primase orthology; required together with TarL.
-COMP_WTA_W23_TARL	KO	K18704	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TarL ribitol-phosphate polymerase orthology; required together with TarK so it cannot identify the W23 design alone.
-COMP_WTA_TAGG	KO	K09692	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TagG WTA-export permease orthology.
-COMP_WTA_TAGH	KO	K09693	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TagH WTA-export ATPase orthology.
-COMP_WTA_LCP	KO	K01005	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TagT/TagU/TagV LCP-family teichoic-acid attachment orthology; accepted only inside the complete architecture.
-COMP_LTA_YPFP	NCBIFAM	NF010134.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-02	family_type=equivalog. Processive diglucosyldiacylglycerol synthase profile; K03429 is not admitted as an alternative.
-COMP_LTA_LTAA	NCBIFAM	NF047396.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-02	family_type=equivalog. LTA-biosynthesis MFS flippase profile for the diglucosyldiacylglycerol anchor.
-COMP_LTA_LTAS	NCBIFAM	NF053595.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-02	family_type=equivalog. LtaS poly(glycerol-phosphate) synthase profile; the broader K19005 orthology is deliberately not admitted.
-COMP_T6SS_TSSL	KO	K11892	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	The orthology also contains IcmH/DotU of the Legionella type IVB system; it is evidence only inside the complete architecture.
-COMP_T6SS_TSSL	NCBIFAM	NF005444.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. DotU family type VI secretion system protein; no hit in the flagellated, secretion-free control proteomes.
-COMP_T6SS_TSSM	KO	K11891	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	The orthology also contains IcmF of the Legionella type IVB system; it is evidence only inside the complete architecture.
-COMP_T6SS_TSSM	NCBIFAM	TIGR03348.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system membrane subunit TssM; no hit in the flagellated, secretion-free control proteomes.
-COMP_T6SS_TSSJ	KO	K11906	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	VasD orthology; 99 of 100 sampled frame proteins pass the TssJ equivalog TIGR03352.1. K11918 is not accepted: none of 100 sampled proteins pass it.
-COMP_T6SS_TSSJ	NCBIFAM	TIGR03352.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system lipoprotein TssJ; no hit in the flagellated, secretion-free control proteomes.
-COMP_T6SS_TSSE	KO	K11897	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	ImpF orthology; 89 of 100 sampled frame proteins pass the TssE equivalog TIGR03357.1.
-COMP_T6SS_TSSE	KO	K11905	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	KEGG names this orthology only as a type VI secretion system protein. Accepted for TssE because 96 of 100 sampled frame proteins pass the TssE equivalog TIGR03357.1; see data-raw/reference/secretion-system-marker-audit.tsv.
-COMP_T6SS_TSSE	KO	K11919	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	HsiF3-type orthology. Accepted for TssE because all 75 frame proteins pass the TssE equivalog TIGR03357.1.
-COMP_T6SS_TSSE	NCBIFAM	TIGR03357.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system baseplate subunit TssE; no hit in the flagellated, secretion-free control proteomes.
-COMP_T6SS_TSSF	KO	K11896	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Type VI-specific orthology.
-COMP_T6SS_TSSF	NCBIFAM	TIGR03359.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system baseplate subunit TssF; no hit in the flagellated, secretion-free control proteomes.
-COMP_T6SS_TSSG	KO	K11895	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Type VI-specific orthology.
-COMP_T6SS_TSSG	NCBIFAM	TIGR03347.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system baseplate subunit TssG; no hit in the flagellated, secretion-free control proteomes.
-COMP_T6SS_TSSK	KO	K11893	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Type VI-specific orthology.
-COMP_T6SS_TSSK	NCBIFAM	TIGR03353.2	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system baseplate subunit TssK; no hit in the flagellated, secretion-free control proteomes.
-COMP_T6SS_VGRG	KO	K11904	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	No admitted NCBIfam profile exists for VgrG: the TssI/VgrG profiles are subfamily_domain grade.
-COMP_T6SS_HCP	KO	K11903	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	No admitted NCBIfam profile exists for Hcp: the TssD profiles are subfamily or domain grade.
-COMP_T6SS_TSSB	KO	K11901	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Type VI-specific orthology.
-COMP_T6SS_TSSB	NCBIFAM	TIGR03358.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system contractile sheath small subunit; no hit in the flagellated, secretion-free control proteomes.
-COMP_T6SS_TSSC	KO	K11900	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Type VI-specific orthology.
-COMP_T6SS_TSSC	NCBIFAM	TIGR03355.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system contractile sheath large subunit; no hit in the flagellated, secretion-free control proteomes.
-COMP_T6SS_TSSA	KO	K11902	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	ImpA orthology; 73 of 100 sampled frame proteins pass a TssA equivalog.
-COMP_T6SS_TSSA	KO	K11910	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	VasJ orthology. Accepted for TssA because 95 of 100 sampled frame proteins pass a TssA equivalog; Vibrio cholerae TssA sits here and not under K11902.
-COMP_T6SS_TSSA	NCBIFAM	TIGR03362.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system protein TssA; no hit in the flagellated, secretion-free control proteomes.
-COMP_T6SS_TSSA	NCBIFAM	TIGR03363.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system protein TssA; no hit in the flagellated, secretion-free control proteomes.
-COMP_T6SS_CLPV	KO	K11907	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Type VI-specific orthology.
-COMP_T6SS_CLPV	NCBIFAM	TIGR03345.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system ATPase TssH; no hit in the flagellated, secretion-free control proteomes.
-COMP_T3SS_SCTR	KO	K03226	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.
-COMP_T3SS_SCTR	KO	K22507	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.
-COMP_T3SS_SCTR	NCBIFAM	TIGR01102.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system export apparatus subunit SctR; no hit in the flagellated, secretion-free control proteomes.
-COMP_T3SS_SCTS	KO	K03227	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.
-COMP_T3SS_SCTS	KO	K22508	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.
-COMP_T3SS_SCTS	NCBIFAM	TIGR01403.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system export apparatus subunit SctS; no hit in the flagellated, secretion-free control proteomes.
-COMP_T3SS_SCTT	KO	K03228	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.
-COMP_T3SS_SCTT	KO	K22509	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.
-COMP_T3SS_SCTT	NCBIFAM	TIGR01401.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system export apparatus subunit SctT; no hit in the flagellated, secretion-free control proteomes.
-COMP_T3SS_SCTU	KO	K03229	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.
-COMP_T3SS_SCTU	KO	K22510	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.
-COMP_T3SS_SCTU	NCBIFAM	TIGR01404.2	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system export apparatus subunit SctU; no hit in the flagellated, secretion-free control proteomes.
-COMP_T3SS_SCTV	KO	K03230	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.
-COMP_T3SS_SCTV	NCBIFAM	TIGR01399.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system export apparatus subunit SctV; no hit in the flagellated, secretion-free control proteomes.
-COMP_T3SS_SCTN	KO	K03224	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.
-COMP_T3SS_SCTN	KO	K22506	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.
-COMP_T3SS_SCTN	NCBIFAM	TIGR02546.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system ATPase SctN; no hit in the flagellated, secretion-free control proteomes.
-COMP_T3SS_SCTD	KO	K03220	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology.
-COMP_T3SS_SCTD	KO	K22488	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology.
-COMP_T3SS_SCTD	NCBIFAM	TIGR02500.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system inner membrane ring subunit SctD; no hit in the flagellated, secretion-free control proteomes.
-COMP_T3SS_SCTD	NCBIFAM	TIGR02554.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. PrgH/EprH family type III secretion apparatus protein; no hit in the flagellated, secretion-free control proteomes.
-COMP_T3SS_SCTJ	KO	K03222	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.
-COMP_T3SS_SCTJ	KO	K22505	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.
-COMP_T3SS_SCTJ	NCBIFAM	TIGR02544.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system inner membrane ring lipoprotein SctJ; no hit in the flagellated, secretion-free control proteomes.
-COMP_T3SS_SCTC	KO	K03219	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology.
-COMP_T3SS_SCTC	KO	K22504	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology.
-COMP_T3SS_SCTC	NCBIFAM	TIGR02516.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system outer membrane ring subunit SctC; no hit in the flagellated, secretion-free control proteomes.
-COMP_T3SS_SCTQ	KO	K03225	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.
-COMP_T3SS_SCTQ	NCBIFAM	TIGR02551.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system cytoplasmic ring protein SctQ; no hit in the flagellated, secretion-free control proteomes.
-COMP_T3SS_SCTI	KO	K04053	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology.
-COMP_T3SS_SCTI	KO	K22487	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	PrgJ inner rod of Inv-Mxi-Spa systems.
-COMP_T3SS_SCTI	KO	K23661	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	EscI inner rod of LEE systems.
-COMP_T3SS_SCTI	KO	K18374	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	HrpB2 inner rod of Hrp systems.
-COMP_T3SS_SCTI	NCBIFAM	NF038054.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system inner rod subunit SctI; no hit in the flagellated, secretion-free control proteomes.
-COMP_T3SS_SCTF	KO	K03221	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology.
-COMP_T3SS_SCTF	NCBIFAM	TIGR02105.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system needle filament subunit SctF; no hit in the flagellated, secretion-free control proteomes.
-COMP_T3SS_SCTF	NCBIFAM	NF011854.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system needle complex protein; no hit in the flagellated, secretion-free control proteomes.
-COMP_T3SS_HRP_PILIN	KO	K18375	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Xanthomonas-type HrpE pilin.
-COMP_T3SS_HRP_PILIN	NCBIFAM	NF053530.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog_domain. Type III secretion system major pilin HrpA; no hit in the flagellated, secretion-free control proteomes.
-COMP_ARCHAELLUM_ARCHAELLIN	KO	K07324	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	All 27 frame proteins match the archaeal-type flagellin family PF01917.
-COMP_ARCHAELLUM_ARCHAELLIN	KO	K07325	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Defined as flaB, flgA; flgA here is the historical haloarchaeal archaellin gene name, not bacterial FlgA (K02386). 752 of 758 frame proteins match PF01917 and none matches the FlgA P-ring chaperone family PF13144.
-COMP_ARCHAELLUM_FLAK_PIBD	KO	K07991	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Covers euryarchaeal FlaK (Methanococcus maripaludis MMP0555) and the broad-specificity PibD (Sulfolobus solfataricus SSO0131, Haloferax volcanii HVO_2993). In each of the 22 archaellum-encoding Methanococcales it also collects the pilin-specific peptidase EppA, which does not process archaellins (PMID 17114255); every one of those genomes also carries a protein passing the FlaK equivalog, so no frame call rests on EppA.
-COMP_ARCHAELLUM_FLAK_PIBD	NCBIFAM	NF040695.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Preflagellin peptidase FlaK, Methanococcales range; passes one K07991 protein in each of the 22 archaellum-encoding Methanococcales and none of the co-assigned EppA proteins.
-COMP_ARCHAELLUM_PILD	KO	K02654	orthology	putative	KEGG orthology, verified against KEGG REST 2026-10-03	Bacterial prepilin peptidase, assigned in no archaeon of the frame. Accepted only as the archaellin peptidase of archaellum-encoding bacteria, which carry no archaeal-type peptidase orthology; that it processes archaellin is the inference of PMID 40962902, not a measurement.
-COMP_ARCHAELLUM_FLAF	KO	K07329	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	
-COMP_ARCHAELLUM_FLAF	NCBIFAM	NF052590.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Archaellum stator protein ArlF; Methanobacteriota range, so it does not reach crenarchaeal or thaumarchaeal FlaF.
-COMP_ARCHAELLUM_FLAG	KO	K07330	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	
-COMP_ARCHAELLUM_FLAG	NCBIFAM	NF052591.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Archaellum stator protein ArlG; Methanobacteriota range, so it does not reach crenarchaeal or thaumarchaeal FlaG.
-COMP_ARCHAELLUM_FLAH	KO	K07331	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	
-COMP_ARCHAELLUM_FLAH	NCBIFAM	NF052589.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Archaellum protein ArlH, Archaea range.
-COMP_ARCHAELLUM_FLAI	KO	K07332	orthology	putative	KEGG orthology, verified against KEGG REST 2026-10-03	The orthology also collects archaeal type IV pilus and bindosome ATPases: of 885 K07332 proteins in archaellum-encoding archaea only 268 pass the FlaI equivalog, and 17 pass the bindosome BasE profile. Accepted only inside the conjunction, where 252 of 256 archaellum-encoding archaea carry a protein passing the equivalog, and at putative confidence because the accession alone cannot separate FlaI from its pilus homologues.
-COMP_ARCHAELLUM_FLAI	NCBIFAM	NF058587.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Archaellum ATPase FlaI; passes no K07332 protein that a bindosome or pilus contrast profile claims.
-COMP_ARCHAELLUM_FLAJ	KO	K07333	orthology	putative	KEGG orthology, verified against KEGG REST 2026-10-03	The orthology also collects archaeal type IV pilus and bindosome platforms, including UpsF and BasF: of 858 K07333 proteins in archaellum-encoding archaea only 267 pass an ArlJ equivalog. Accepted only inside the conjunction, where 253 of 256 archaellum-encoding archaea carry a protein passing an ArlJ equivalog, and at putative confidence for the same reason as K07332.
-COMP_ARCHAELLUM_FLAJ	NCBIFAM	NF004703.2	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Archaellar assembly protein ArlJ, Methanobacteriota range.
-COMP_ARCHAELLUM_FLAJ	NCBIFAM	NF004704.2	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Archaellar assembly protein ArlJ, Methanobacteriati range.
-COMP_ARCHAELLUM_FLAJ	NCBIFAM	NF004705.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Archaellar assembly protein ArlJ, Thermoproteati range.
-COMP_ARCHAELLUM_FLAC	KO	K07822	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	
-COMP_ARCHAELLUM_FLAC	KO	K23986	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Fused FlaCE protein; the same accession also supports COMP_ARCHAELLUM_FLAE, which is what a fused protein means.
-COMP_ARCHAELLUM_FLAD	KO	K07327	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	None of the 93 archaellum-encoding haloarchaea in the frame carries this orthology, so the accessory switch complex is reported incomplete in them.
-COMP_ARCHAELLUM_FLAE	KO	K07328	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	
-COMP_ARCHAELLUM_FLAE	KO	K23986	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Fused FlaCE protein; the same accession also supports COMP_ARCHAELLUM_FLAC.
-COMP_ARCHAELLUM_FLAX	NCBIFAM	NF058591.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Archaellum motor scaffold protein FlaX, Sulfolobaceae range, 25 RefSeq hits. No KEGG orthology exists, so the reference frame cannot measure it.
-COMP_T2SS_GSPD	KO	K02453	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	GspD-specific orthology. KEGG assigns no K02453 to Vibrio cholerae N16961, whose epsD region carries an authentic frameshift; the resulting incomplete call reports a disrupted secretin rather than a missing marker.
-COMP_T2SS_GSPD	NCBIFAM	TIGR02517.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system secretin GspD; no hit in the monoderm and Campylobacterota control proteomes.
-COMP_T2SS_GSPC	KO	K02452	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	GspC-specific orthology. It is the weakest marker in the inventory, absent from 335 of the 504 frame genomes one function short, across 108 genera. GspC is retained as required because it is biologically required and the misses are not clade-systematic.
-COMP_T2SS_GSPC	NCBIFAM	TIGR01713.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system protein GspC; no hit in the monoderm and Campylobacterota control proteomes.
-COMP_T2SS_GSPF	KO	K02455	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Gsp-specific orthology; the homologous type IVa pilus protein has its own accession, which is not accepted here.
-COMP_T2SS_GSPF	NCBIFAM	TIGR02120.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system inner membrane protein GspF; no hit in the monoderm and Campylobacterota control proteomes.
-COMP_T2SS_GSPL	KO	K02461	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Gsp-specific orthology; the homologous type IVa pilus protein has its own accession, which is not accepted here.
-COMP_T2SS_GSPL	NCBIFAM	TIGR01709.2	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system protein GspL; no hit in the monoderm and Campylobacterota control proteomes.
-COMP_T2SS_GSPM	KO	K02462	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Gsp-specific orthology; the homologous type IVa pilus protein has its own accession, which is not accepted here.
-COMP_T2SS_GSPM	NCBIFAM	NF040576.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system protein GspM; no hit in the monoderm and Campylobacterota control proteomes.
-COMP_T2SS_GSPE	KO	K02454	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Gsp-specific orthology; the homologous type IVa pilus protein has its own accession, which is not accepted here.
-COMP_T2SS_GSPE	NCBIFAM	TIGR02533.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system ATPase GspE; no hit in the monoderm and Campylobacterota control proteomes.
-COMP_T2SS_GSPG	KO	K02456	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Gsp-specific orthology; the homologous type IVa pilus protein has its own accession, which is not accepted here.
-COMP_T2SS_GSPG	NCBIFAM	TIGR01710.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system major pseudopilin GspG; no hit in the monoderm and Campylobacterota control proteomes.
-COMP_T2SS_GSPH	KO	K02457	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Gsp-specific orthology; the homologous type IVa pilus protein has its own accession, which is not accepted here.
-COMP_T2SS_GSPH	NCBIFAM	TIGR01708.2	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system minor pseudopilin GspH; no hit in the monoderm and Campylobacterota control proteomes.
-COMP_T2SS_GSPI	KO	K02458	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Gsp-specific orthology; the homologous type IVa pilus protein has its own accession, which is not accepted here.
-COMP_T2SS_GSPI	NCBIFAM	TIGR01707.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system minor pseudopilin GspI; no hit in the monoderm and Campylobacterota control proteomes.
-COMP_T2SS_GSPJ	KO	K02459	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Gsp-specific orthology; the homologous type IVa pilus protein has its own accession, which is not accepted here.
-COMP_T2SS_GSPJ	NCBIFAM	TIGR01711.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system minor pseudopilin GspJ; no hit in the monoderm and Campylobacterota control proteomes.
-COMP_T2SS_GSPK	KO	K02460	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Gsp-specific orthology; the homologous type IVa pilus protein has its own accession, which is not accepted here.
-COMP_T2SS_GSPK	NCBIFAM	NF037980.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system minor pseudopilin GspK; no hit in the monoderm and Campylobacterota control proteomes.
-COMP_T2SS_PEPTIDASE	KO	K02464	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	GspO orthology. GspO and PilD are the same class III peptidase under two KEGG names; GspO is assigned in 331 frame genomes against PilD in 4,102, with 51 carrying both.
-COMP_T2SS_PEPTIDASE	KO	K02654	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	PilD orthology, accepted here as the shared component that processes both type IVa pilins and type II pseudopilins (PMID 1309616). 1,319 of the 1,536 complete frame architectures reach this role through PilD alone. Its use by type_iva_pilus and archaellum is unchanged, and it contributes no specificity to any of them.
+component_id	namespace	accession	evidence_type	confidence	source	notes	basis	reference
+COMP_SF_FLHA	KO	K02400	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLHB	KO	K02401	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLHB	KO	K13820	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	Fused FliR-FlhB protein; the same accession also supports COMP_SF_FLIR, which is what a fused protein means.	not_assessed	
+COMP_SF_FLIP	KO	K02419	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLIQ	KO	K02420	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLIR	KO	K02421	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLIR	KO	K13820	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	Fused FliR-FlhB protein; the same accession also supports COMP_SF_FLHB.	not_assessed	
+COMP_SF_FLII	KO	K02412	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLIH	KO	K02411	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLIF	KO	K02409	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLIE	KO	K02408	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLGB	KO	K02387	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLGC	KO	K02388	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLGF	KO	K02391	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLGG	KO	K02392	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLIG	KO	K02410	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLIM	KO	K02416	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLIN	KO	K02417	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLGE	KO	K02390	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLGK	KO	K02396	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLGL	KO	K02397	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLIC	KO	K02406	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLID	KO	K02407	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_MOTA	KO	K02556	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	KEGG assigns Vibrio cholerae PomA (VC_0892) to this orthologue alongside Escherichia coli MotA, so it evidences a stator but not its coupling ion.	not_assessed	
+COMP_SF_MOTB	KO	K02557	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	KEGG assigns Vibrio cholerae PomB (VC_0893) to this orthologue alongside Escherichia coli MotB.	not_assessed	
+COMP_SF_FLGH	KO	K02393	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_SF_FLGI	KO	K02394	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_T4AP_PILD	KO	K02654	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_T4AP_PILIN	KO	K02650	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_T4AP_PILIN	KO	K02655	orthology	ambiguous	KEGG orthology, verified against KEGG REST 2026-08-18	PilE is the major pilin in Neisseria but a minor pilin in Pseudomonas, so this accession does not by itself establish that the protein is the major subunit. Accepted as an alternative marker at reduced confidence so that Neisseria-type systems are not called absent, and the weaker term is reported on any call that rests on it.	not_assessed	
+COMP_T4AP_PILB	KO	K02652	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_T4AP_PILF	KO	K02656	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_T4AP_PILC	KO	K02653	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_T4AP_PILM	KO	K02662	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_T4AP_PILN	KO	K02663	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_T4AP_PILO	KO	K02664	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_T4AP_PILP	KO	K02665	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_T4AP_PILQ	KO	K02666	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_T4AP_PILT	KO	K02669	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18		not_assessed	
+COMP_LPTA	KO	K09774	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	LptA-specific orthology; the broader LptA/LptD_N profiles are not admitted.	not_assessed	
+COMP_LPTB	KO	K06861	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	LptB-specific orthology, not a generic ABC ATPase marker.	not_assessed	
+COMP_LPTC	KO	K11719	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	LptC-specific orthology. LptC remains required because bypass depends on residue-level LptF suppressors that this marker cannot resolve.	not_assessed	
+COMP_LPTD	KO	K04744	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	LptD-specific orthology; historical aliases Imp and OstA do not widen the accepted function.	not_assessed	
+COMP_LPTE	KO	K03643	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	LptE-specific orthology; required only in the canonical architecture represented here.	not_assessed	
+COMP_LPTF	KO	K07091	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	Component-specific LptF orthology; a combined LptF/LptG family is not admitted.	not_assessed	
+COMP_LPTG	KO	K11720	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	Component-specific LptG orthology; a combined LptF/LptG family is not admitted.	not_assessed	
+COMP_LPTA	NCBIFAM	TIGR03002.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. LptA-specific periplasmic bridge profile.	not_assessed	
+COMP_LPTA	NCBIFAM	NF008143.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Enterobacterales LptA profile.	not_assessed	
+COMP_LPTB	NCBIFAM	TIGR04406.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. LptB-specific ATPase profile.	not_assessed	
+COMP_LPTB	NCBIFAM	NF008144.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Gammaproteobacterial LptB profile.	not_assessed	
+COMP_LPTC	NCBIFAM	TIGR04409.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. LptC-specific connector profile.	not_assessed	
+COMP_LPTC	NCBIFAM	NF008142.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Enterobacterales LptC profile.	not_assessed	
+COMP_LPTF	NCBIFAM	TIGR04407.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. LptF-specific permease profile, separated from LptG by NCBIfam.	not_assessed	
+COMP_LPTG	NCBIFAM	TIGR04408.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. LptG-specific permease profile, separated from LptF by NCBIfam.	not_assessed	
+COMP_LPTD	NCBIFAM	NF002997.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Gammaproteobacterial LptD profile.	not_assessed	
+COMP_LPTD	NCBIFAM	NF003358.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Alternative Gammaproteobacterial LptD profile.	not_assessed	
+COMP_LPTE	NCBIFAM	NF008062.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-08-23	family_type=equivalog. Enterobacterales LptE profile; the broader Pfam-equivalent profile is not admitted.	not_assessed	
+COMP_WTA_MNAA	KO	K01791	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	Activity-level UDP-GlcNAc 2-epimerase marker; it is not WTA-specific and is accepted only as one required role in the complete architecture.	not_assessed	
+COMP_WTA_TAGO	KO	K02851	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	Shared TagO/WecA/Rfe activity marker; it never establishes WTA alone.	not_assessed	
+COMP_WTA_TAGA	KO	K05946	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TagA/TarA linkage-unit mannosaminyltransferase orthology.	not_assessed	
+COMP_WTA_TAGB	KO	K21285	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TagB/TarB linkage-unit glycerol-phosphate primase orthology.	not_assessed	
+COMP_WTA_TAGD	KO	K00980	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TagD glycerol-3-phosphate cytidylyltransferase orthology.	not_assessed	
+COMP_WTA_TARI	KO	K21030	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TarI CDP-ribitol synthase orthology.	not_assessed	
+COMP_WTA_TARJ	KO	K05352	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TarJ ribitol-5-phosphate dehydrogenase orthology.	not_assessed	
+COMP_WTA_STAPH_TARF	NCBIFAM	NF041712.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-02	family_type=equivalog. Staphylococcus aureus TarF profile; K21591 and broad TagF-family profiles are not admitted as alternatives.	not_assessed	
+COMP_WTA_STAPH_TARL	NCBIFAM	NF041713.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-02	family_type=equivalog. Staphylococcus TarL profile; K18704 alone is not admitted for this lineage-resolved role.	not_assessed	
+COMP_WTA_W23_TARK	KO	K21592	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TarK ribitol-phosphate primase orthology; required together with TarL.	not_assessed	
+COMP_WTA_W23_TARL	KO	K18704	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TarL ribitol-phosphate polymerase orthology; required together with TarK so it cannot identify the W23 design alone.	not_assessed	
+COMP_WTA_TAGG	KO	K09692	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TagG WTA-export permease orthology.	not_assessed	
+COMP_WTA_TAGH	KO	K09693	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TagH WTA-export ATPase orthology.	not_assessed	
+COMP_WTA_LCP	KO	K01005	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-02	TagT/TagU/TagV LCP-family teichoic-acid attachment orthology; accepted only inside the complete architecture.	not_assessed	
+COMP_LTA_YPFP	NCBIFAM	NF010134.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-02	family_type=equivalog. Processive diglucosyldiacylglycerol synthase profile; K03429 is not admitted as an alternative.	not_assessed	
+COMP_LTA_LTAA	NCBIFAM	NF047396.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-02	family_type=equivalog. LTA-biosynthesis MFS flippase profile for the diglucosyldiacylglycerol anchor.	not_assessed	
+COMP_LTA_LTAS	NCBIFAM	NF053595.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-02	family_type=equivalog. LtaS poly(glycerol-phosphate) synthase profile; the broader K19005 orthology is deliberately not admitted.	not_assessed	
+COMP_T6SS_TSSL	KO	K11892	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	The orthology also contains IcmH/DotU of the Legionella type IVB system; it is evidence only inside the complete architecture.	not_assessed	
+COMP_T6SS_TSSL	NCBIFAM	NF005444.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. DotU family type VI secretion system protein; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T6SS_TSSM	KO	K11891	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	The orthology also contains IcmF of the Legionella type IVB system; it is evidence only inside the complete architecture.	not_assessed	
+COMP_T6SS_TSSM	NCBIFAM	TIGR03348.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system membrane subunit TssM; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T6SS_TSSJ	KO	K11906	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	VasD orthology; 99 of 100 sampled frame proteins pass the TssJ equivalog TIGR03352.1. K11918 is not accepted: none of 100 sampled proteins pass it.	not_assessed	
+COMP_T6SS_TSSJ	NCBIFAM	TIGR03352.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system lipoprotein TssJ; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T6SS_TSSE	KO	K11897	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	ImpF orthology; 89 of 100 sampled frame proteins pass the TssE equivalog TIGR03357.1.	not_assessed	
+COMP_T6SS_TSSE	KO	K11905	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	KEGG names this orthology only as a type VI secretion system protein. Accepted for TssE because 96 of 100 sampled frame proteins pass the TssE equivalog TIGR03357.1; see data-raw/reference/secretion-system-marker-audit.tsv.	not_assessed	
+COMP_T6SS_TSSE	KO	K11919	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	HsiF3-type orthology. Accepted for TssE because all 75 frame proteins pass the TssE equivalog TIGR03357.1.	not_assessed	
+COMP_T6SS_TSSE	NCBIFAM	TIGR03357.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system baseplate subunit TssE; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T6SS_TSSF	KO	K11896	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Type VI-specific orthology.	not_assessed	
+COMP_T6SS_TSSF	NCBIFAM	TIGR03359.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system baseplate subunit TssF; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T6SS_TSSG	KO	K11895	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Type VI-specific orthology.	not_assessed	
+COMP_T6SS_TSSG	NCBIFAM	TIGR03347.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system baseplate subunit TssG; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T6SS_TSSK	KO	K11893	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Type VI-specific orthology.	not_assessed	
+COMP_T6SS_TSSK	NCBIFAM	TIGR03353.2	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system baseplate subunit TssK; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T6SS_VGRG	KO	K11904	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	No admitted NCBIfam profile exists for VgrG: the TssI/VgrG profiles are subfamily_domain grade.	not_assessed	
+COMP_T6SS_HCP	KO	K11903	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	No admitted NCBIfam profile exists for Hcp: the TssD profiles are subfamily or domain grade.	not_assessed	
+COMP_T6SS_TSSB	KO	K11901	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Type VI-specific orthology.	not_assessed	
+COMP_T6SS_TSSB	NCBIFAM	TIGR03358.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system contractile sheath small subunit; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T6SS_TSSC	KO	K11900	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Type VI-specific orthology.	not_assessed	
+COMP_T6SS_TSSC	NCBIFAM	TIGR03355.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system contractile sheath large subunit; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T6SS_TSSA	KO	K11902	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	ImpA orthology; 73 of 100 sampled frame proteins pass a TssA equivalog.	not_assessed	
+COMP_T6SS_TSSA	KO	K11910	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	VasJ orthology. Accepted for TssA because 95 of 100 sampled frame proteins pass a TssA equivalog; Vibrio cholerae TssA sits here and not under K11902.	not_assessed	
+COMP_T6SS_TSSA	NCBIFAM	TIGR03362.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system protein TssA; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T6SS_TSSA	NCBIFAM	TIGR03363.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system protein TssA; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T6SS_CLPV	KO	K11907	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Type VI-specific orthology.	not_assessed	
+COMP_T6SS_CLPV	NCBIFAM	TIGR03345.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type VI secretion system ATPase TssH; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T3SS_SCTR	KO	K03226	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.	not_assessed	
+COMP_T3SS_SCTR	KO	K22507	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.	not_assessed	
+COMP_T3SS_SCTR	NCBIFAM	TIGR01102.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system export apparatus subunit SctR; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T3SS_SCTS	KO	K03227	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.	not_assessed	
+COMP_T3SS_SCTS	KO	K22508	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.	not_assessed	
+COMP_T3SS_SCTS	NCBIFAM	TIGR01403.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system export apparatus subunit SctS; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T3SS_SCTT	KO	K03228	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.	not_assessed	
+COMP_T3SS_SCTT	KO	K22509	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.	not_assessed	
+COMP_T3SS_SCTT	NCBIFAM	TIGR01401.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system export apparatus subunit SctT; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T3SS_SCTU	KO	K03229	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.	not_assessed	
+COMP_T3SS_SCTU	KO	K22510	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.	not_assessed	
+COMP_T3SS_SCTU	NCBIFAM	TIGR01404.2	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system export apparatus subunit SctU; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T3SS_SCTV	KO	K03230	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.	not_assessed	
+COMP_T3SS_SCTV	NCBIFAM	TIGR01399.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system export apparatus subunit SctV; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T3SS_SCTN	KO	K03224	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.	not_assessed	
+COMP_T3SS_SCTN	KO	K22506	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.	not_assessed	
+COMP_T3SS_SCTN	NCBIFAM	TIGR02546.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system ATPase SctN; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T3SS_SCTD	KO	K03220	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology.	not_assessed	
+COMP_T3SS_SCTD	KO	K22488	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology.	not_assessed	
+COMP_T3SS_SCTD	NCBIFAM	TIGR02500.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system inner membrane ring subunit SctD; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T3SS_SCTD	NCBIFAM	TIGR02554.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. PrgH/EprH family type III secretion apparatus protein; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T3SS_SCTJ	KO	K03222	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.	not_assessed	
+COMP_T3SS_SCTJ	KO	K22505	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.	not_assessed	
+COMP_T3SS_SCTJ	NCBIFAM	TIGR02544.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system inner membrane ring lipoprotein SctJ; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T3SS_SCTC	KO	K03219	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology.	not_assessed	
+COMP_T3SS_SCTC	KO	K22504	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology.	not_assessed	
+COMP_T3SS_SCTC	NCBIFAM	TIGR02516.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system outer membrane ring subunit SctC; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T3SS_SCTQ	KO	K03225	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology; the flagellar homologue has its own accession, which is not accepted here.	not_assessed	
+COMP_T3SS_SCTQ	NCBIFAM	TIGR02551.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system cytoplasmic ring protein SctQ; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T3SS_SCTI	KO	K04053	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology.	not_assessed	
+COMP_T3SS_SCTI	KO	K22487	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	PrgJ inner rod of Inv-Mxi-Spa systems.	not_assessed	
+COMP_T3SS_SCTI	KO	K23661	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	EscI inner rod of LEE systems.	not_assessed	
+COMP_T3SS_SCTI	KO	K18374	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	HrpB2 inner rod of Hrp systems.	not_assessed	
+COMP_T3SS_SCTI	NCBIFAM	NF038054.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system inner rod subunit SctI; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T3SS_SCTF	KO	K03221	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Injectisome-specific orthology.	not_assessed	
+COMP_T3SS_SCTF	NCBIFAM	TIGR02105.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system needle filament subunit SctF; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T3SS_SCTF	NCBIFAM	NF011854.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type III secretion system needle complex protein; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_T3SS_HRP_PILIN	KO	K18375	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Xanthomonas-type HrpE pilin.	not_assessed	
+COMP_T3SS_HRP_PILIN	NCBIFAM	NF053530.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog_domain. Type III secretion system major pilin HrpA; no hit in the flagellated, secretion-free control proteomes.	not_assessed	
+COMP_ARCHAELLUM_ARCHAELLIN	KO	K07324	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	All 27 frame proteins match the archaeal-type flagellin family PF01917.	not_assessed	
+COMP_ARCHAELLUM_ARCHAELLIN	KO	K07325	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Defined as flaB, flgA; flgA here is the historical haloarchaeal archaellin gene name, not bacterial FlgA (K02386). 752 of 758 frame proteins match PF01917 and none matches the FlgA P-ring chaperone family PF13144.	not_assessed	
+COMP_ARCHAELLUM_FLAK_PIBD	KO	K07991	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Covers euryarchaeal FlaK (Methanococcus maripaludis MMP0555) and the broad-specificity PibD (Sulfolobus solfataricus SSO0131, Haloferax volcanii HVO_2993). In each of the 22 archaellum-encoding Methanococcales it also collects the pilin-specific peptidase EppA, which does not process archaellins (PMID 17114255); every one of those genomes also carries a protein passing the FlaK equivalog, so no frame call rests on EppA.	reference	PMID:17114255
+COMP_ARCHAELLUM_FLAK_PIBD	NCBIFAM	NF040695.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Preflagellin peptidase FlaK, Methanococcales range; passes one K07991 protein in each of the 22 archaellum-encoding Methanococcales and none of the co-assigned EppA proteins.	not_assessed	
+COMP_ARCHAELLUM_PILD	KO	K02654	orthology	putative	KEGG orthology, verified against KEGG REST 2026-10-03	Bacterial prepilin peptidase, assigned in no archaeon of the frame. Accepted only as the archaellin peptidase of archaellum-encoding bacteria, which carry no archaeal-type peptidase orthology; that it processes archaellin is the inference of PMID 40962902, not a measurement.	reference	PMID:40962902
+COMP_ARCHAELLUM_FLAF	KO	K07329	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03		not_assessed	
+COMP_ARCHAELLUM_FLAF	NCBIFAM	NF052590.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Archaellum stator protein ArlF; Methanobacteriota range, so it does not reach crenarchaeal or thaumarchaeal FlaF.	not_assessed	
+COMP_ARCHAELLUM_FLAG	KO	K07330	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03		not_assessed	
+COMP_ARCHAELLUM_FLAG	NCBIFAM	NF052591.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Archaellum stator protein ArlG; Methanobacteriota range, so it does not reach crenarchaeal or thaumarchaeal FlaG.	not_assessed	
+COMP_ARCHAELLUM_FLAH	KO	K07331	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03		not_assessed	
+COMP_ARCHAELLUM_FLAH	NCBIFAM	NF052589.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Archaellum protein ArlH, Archaea range.	not_assessed	
+COMP_ARCHAELLUM_FLAI	KO	K07332	orthology	putative	KEGG orthology, verified against KEGG REST 2026-10-03	The orthology also collects archaeal type IV pilus and bindosome ATPases: of 885 K07332 proteins in archaellum-encoding archaea only 268 pass the FlaI equivalog, and 17 pass the bindosome BasE profile. Accepted only inside the conjunction, where 252 of 256 archaellum-encoding archaea carry a protein passing the equivalog, and at putative confidence because the accession alone cannot separate FlaI from its pilus homologues.	not_assessed	
+COMP_ARCHAELLUM_FLAI	NCBIFAM	NF058587.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Archaellum ATPase FlaI; passes no K07332 protein that a bindosome or pilus contrast profile claims.	not_assessed	
+COMP_ARCHAELLUM_FLAJ	KO	K07333	orthology	putative	KEGG orthology, verified against KEGG REST 2026-10-03	The orthology also collects archaeal type IV pilus and bindosome platforms, including UpsF and BasF: of 858 K07333 proteins in archaellum-encoding archaea only 267 pass an ArlJ equivalog. Accepted only inside the conjunction, where 253 of 256 archaellum-encoding archaea carry a protein passing an ArlJ equivalog, and at putative confidence for the same reason as K07332.	not_assessed	
+COMP_ARCHAELLUM_FLAJ	NCBIFAM	NF004703.2	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Archaellar assembly protein ArlJ, Methanobacteriota range.	not_assessed	
+COMP_ARCHAELLUM_FLAJ	NCBIFAM	NF004704.2	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Archaellar assembly protein ArlJ, Methanobacteriati range.	not_assessed	
+COMP_ARCHAELLUM_FLAJ	NCBIFAM	NF004705.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Archaellar assembly protein ArlJ, Thermoproteati range.	not_assessed	
+COMP_ARCHAELLUM_FLAC	KO	K07822	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03		not_assessed	
+COMP_ARCHAELLUM_FLAC	KO	K23986	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Fused FlaCE protein; the same accession also supports COMP_ARCHAELLUM_FLAE, which is what a fused protein means.	not_assessed	
+COMP_ARCHAELLUM_FLAD	KO	K07327	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	None of the 93 archaellum-encoding haloarchaea in the frame carries this orthology, so the accessory switch complex is reported incomplete in them.	not_assessed	
+COMP_ARCHAELLUM_FLAE	KO	K07328	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03		not_assessed	
+COMP_ARCHAELLUM_FLAE	KO	K23986	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Fused FlaCE protein; the same accession also supports COMP_ARCHAELLUM_FLAC.	not_assessed	
+COMP_ARCHAELLUM_FLAX	NCBIFAM	NF058591.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Archaellum motor scaffold protein FlaX, Sulfolobaceae range, 25 RefSeq hits. No KEGG orthology exists, so the reference frame cannot measure it.	not_assessed	
+COMP_T2SS_GSPD	KO	K02453	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	GspD-specific orthology. KEGG assigns no K02453 to Vibrio cholerae N16961, whose epsD region carries an authentic frameshift; the resulting incomplete call reports a disrupted secretin rather than a missing marker.	not_assessed	
+COMP_T2SS_GSPD	NCBIFAM	TIGR02517.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system secretin GspD; no hit in the monoderm and Campylobacterota control proteomes.	not_assessed	
+COMP_T2SS_GSPC	KO	K02452	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	GspC-specific orthology. It is the weakest marker in the inventory, absent from 335 of the 504 frame genomes one function short, across 108 genera. GspC is retained as required because it is biologically required and the misses are not clade-systematic.	not_assessed	
+COMP_T2SS_GSPC	NCBIFAM	TIGR01713.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system protein GspC; no hit in the monoderm and Campylobacterota control proteomes.	not_assessed	
+COMP_T2SS_GSPF	KO	K02455	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Gsp-specific orthology; the homologous type IVa pilus protein has its own accession, which is not accepted here.	not_assessed	
+COMP_T2SS_GSPF	NCBIFAM	TIGR02120.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system inner membrane protein GspF; no hit in the monoderm and Campylobacterota control proteomes.	not_assessed	
+COMP_T2SS_GSPL	KO	K02461	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Gsp-specific orthology; the homologous type IVa pilus protein has its own accession, which is not accepted here.	not_assessed	
+COMP_T2SS_GSPL	NCBIFAM	TIGR01709.2	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system protein GspL; no hit in the monoderm and Campylobacterota control proteomes.	not_assessed	
+COMP_T2SS_GSPM	KO	K02462	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Gsp-specific orthology; the homologous type IVa pilus protein has its own accession, which is not accepted here.	not_assessed	
+COMP_T2SS_GSPM	NCBIFAM	NF040576.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system protein GspM; no hit in the monoderm and Campylobacterota control proteomes.	not_assessed	
+COMP_T2SS_GSPE	KO	K02454	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Gsp-specific orthology; the homologous type IVa pilus protein has its own accession, which is not accepted here.	not_assessed	
+COMP_T2SS_GSPE	NCBIFAM	TIGR02533.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system ATPase GspE; no hit in the monoderm and Campylobacterota control proteomes.	not_assessed	
+COMP_T2SS_GSPG	KO	K02456	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Gsp-specific orthology; the homologous type IVa pilus protein has its own accession, which is not accepted here.	not_assessed	
+COMP_T2SS_GSPG	NCBIFAM	TIGR01710.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system major pseudopilin GspG; no hit in the monoderm and Campylobacterota control proteomes.	not_assessed	
+COMP_T2SS_GSPH	KO	K02457	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Gsp-specific orthology; the homologous type IVa pilus protein has its own accession, which is not accepted here.	not_assessed	
+COMP_T2SS_GSPH	NCBIFAM	TIGR01708.2	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system minor pseudopilin GspH; no hit in the monoderm and Campylobacterota control proteomes.	not_assessed	
+COMP_T2SS_GSPI	KO	K02458	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Gsp-specific orthology; the homologous type IVa pilus protein has its own accession, which is not accepted here.	not_assessed	
+COMP_T2SS_GSPI	NCBIFAM	TIGR01707.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system minor pseudopilin GspI; no hit in the monoderm and Campylobacterota control proteomes.	not_assessed	
+COMP_T2SS_GSPJ	KO	K02459	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Gsp-specific orthology; the homologous type IVa pilus protein has its own accession, which is not accepted here.	not_assessed	
+COMP_T2SS_GSPJ	NCBIFAM	TIGR01711.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system minor pseudopilin GspJ; no hit in the monoderm and Campylobacterota control proteomes.	not_assessed	
+COMP_T2SS_GSPK	KO	K02460	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	Gsp-specific orthology; the homologous type IVa pilus protein has its own accession, which is not accepted here.	not_assessed	
+COMP_T2SS_GSPK	NCBIFAM	NF037980.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-03	family_type=equivalog. Type II secretion system minor pseudopilin GspK; no hit in the monoderm and Campylobacterota control proteomes.	not_assessed	
+COMP_T2SS_PEPTIDASE	KO	K02464	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	GspO orthology. GspO and PilD are the same class III peptidase under two KEGG names; GspO is assigned in 331 frame genomes against PilD in 4,102, with 51 carrying both.	not_assessed	
+COMP_T2SS_PEPTIDASE	KO	K02654	orthology	curated	KEGG orthology, verified against KEGG REST 2026-10-03	PilD orthology, accepted here as the shared component that processes both type IVa pilins and type II pseudopilins (PMID 1309616). 1,319 of the 1,536 complete frame architectures reach this role through PilD alone. Its use by type_iva_pilus and archaellum is unchanged, and it contributes no specificity to any of them.	reference	PMID:1309616

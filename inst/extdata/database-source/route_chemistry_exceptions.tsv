@@ -1,0 +1,26 @@
+route_id	kind	subject	rationale
+XYL_ISOMERASE	anchor_form	XYLOSE_IN	Rhea writes xylose isomerase, RHEA:22816, on alpha-D-xylose (CHEBI:28518), the alpha anomer of the anchor's D-xylopyranose (CHEBI:53455).
+XYL_ISOMERASE	form_change	RHEA:10964	RHEA:22816 yields alpha-D-xylulofuranose (CHEBI:188998) and RHEA:10964 is written on D-xylulose (CHEBI:17140), of which it is the alpha-furanose form.
+ARA_ISOMERASE	anchor_form	ARABINOSE_IN	Rhea writes L-arabinose isomerase, RHEA:14821, on beta-L-arabinopyranose (CHEBI:40886), the beta anomer of the anchor's L-arabinopyranose (CHEBI:17535).
+GLCNAC_KINASE	form_change	RHEA:12172	RHEA:22936 yields D-glucosamine 6-phosphate (CHEBI:58725) and RHEA:12172 is written on its alpha anomer (CHEBI:75989).
+GLCNAC_PTS	form_change	RHEA:12172	RHEA:22936 yields D-glucosamine 6-phosphate (CHEBI:58725) and RHEA:12172 is written on its alpha anomer (CHEBI:75989).
+NEUAC_LYASE	form_change	RHEA:12172	RHEA:22936 yields D-glucosamine 6-phosphate (CHEBI:58725) and RHEA:12172 is written on its alpha anomer (CHEBI:75989).
+GLCUA_ISOMERASE	form_change	RHEA:15729	RHEA:13049 yields D-fructofuranuronate (CHEBI:59863) and RHEA:15729 is written on keto-D-fructuronate (CHEBI:59881), its open-chain form.
+PROPIONATE_PDU	anchor_form	PROPANEDIOL	Rhea writes propanediol dehydratase, RHEA:14569, on propane-1,2-diol without stereochemistry (CHEBI:16997); the anchor is its (S)-enantiomer (CHEBI:29002).
+FOLATE_THF	omitted_step	RHEA:10540	RHEA:25302 yields 7,8-dihydroneopterin 3'-phosphate (CHEBI:58762) and RHEA:10540 consumes 7,8-dihydroneopterin (CHEBI:17001). The dephosphorylation between them is not a route step: its only markers are alkaline phosphatase orthologues, refused as evidence of a folate step in inst/doc/proposal-vitamin-biosynthesis.md.
+THZ_THIH	omitted_step	THZ_P	RHEA:26297 yields the 2-carboxy dihydrothiazole phosphate (CHEBI:62899), not the anchor's 4-methyl-5-(2-phosphooxyethyl)thiazole phosphate (CHEBI:58296). The conversion between them is not a route step.
+THZ_THIO	omitted_step	THZ_P	RHEA:26297 yields the 2-carboxy dihydrothiazole phosphate (CHEBI:62899), not the anchor's 4-methyl-5-(2-phosphooxyethyl)thiazole phosphate (CHEBI:58296). The conversion between them is not a route step.
+SALVAGE_HMP_HET	parallel_branch	RHEA:24212	The route phosphorylates two separate inputs. RHEA:23096 and RHEA:19893 act on the pyrimidine and RHEA:24212 on the thiazole, so the two branches share no compound.
+PLP_R5P	anchor_form	RIBOSE_5P	Rhea writes RHEA:31507 on aldehydo-D-ribose 5-phosphate (CHEBI:58273), the open-chain form of the anchor's D-ribose 5-phosphate (CHEBI:78679).
+CORRIN_ANAEROBIC	omitted_step	RHEA:17997	RHEA:15893 yields cobalt-sirohydrochlorin (CHEBI:60049) and RHEA:17997 is written on cobalt-precorrin-2 (CHEBI:60053), which differs from it in oxidation state. No route step joins the two.
+CORRIN_ANAEROBIC	omitted_step	RHEA:36155	RHEA:17997 yields cobalt-precorrin-3 (CHEBI:60060) and RHEA:36155 is written on cobalt(II)-factor III (CHEBI:73299), which differs from it in oxidation state. No route step joins the two.
+MK_CLASSIC	anchor_form	MENAQUINONE	RHEA:42640 yields menaquinol (CHEBI:18151), the reduced member of the redox couple that the anchor names by its oxidised form, menaquinone (CHEBI:16374).
+MK_FUTALOSINE	anchor_form	MENAQUINONE	RHEA:42640 yields menaquinol (CHEBI:18151), the reduced member of the redox couple that the anchor names by its oxidised form, menaquinone (CHEBI:16374).
+MK_FUTALOSINE	omitted_step	RHEA:26478	RHEA:33087 yields 1,4-dihydroxy-6-naphthoate (CHEBI:64254) and RHEA:26478 consumes 1,4-dihydroxy-2-naphthoate (CHEBI:11173), a different compound. No route step converts one into the other.
+CARNITINE_CDH	anchor_form	CARNITINE	Rhea writes carnitine dehydrogenase, RHEA:19265, on carnitine without stereochemistry (CHEBI:17126); the anchor is its (R)-enantiomer (CHEBI:16347).
+OXOPENTENOATE_LOWER	anchor_form	OXOPENTENOATE	Rhea writes (2Z)-2-hydroxypenta-2,4-dienoate (CHEBI:67152), the enol tautomer of the anchor's 2-oxopent-4-enoate (CHEBI:11641).
+DHPP_EXTRADIOL	anchor_form	OXOPENTENOATE	Rhea writes (2Z)-2-hydroxypenta-2,4-dienoate (CHEBI:67152), the enol tautomer of the anchor's 2-oxopent-4-enoate (CHEBI:11641).
+PAA_COA_EPOXIDASE	form_change	RHEA:76647	RHEA:34799 is written on 2,3-didehydroadipoyl-CoA without double-bond geometry (CHEBI:71044) and RHEA:76647 on its (E)-isomer (CHEBI:195329).
+DAP_DEHYDROGENASE	spontaneous_step	RHEA:13561	RHEA:35331 yields (S)-2,3,4,5-tetrahydrodipicolinate (CHEBI:16845) and RHEA:13561 is written on (S)-2-amino-6-oxopimelate (CHEBI:58556), its open-chain hydrate. The ring opening is non-enzymatic.
+PRO_CANONICAL	spontaneous_step	RHEA:14109	RHEA:19541 yields L-glutamate 5-semialdehyde (CHEBI:58066), which cyclises non-enzymatically to (S)-1-pyrroline-5-carboxylate (CHEBI:17388), the substrate of RHEA:14109.
+BETAINE_CMO	spontaneous_step	RHEA:15305	RHEA:17769 yields betaine aldehyde hydrate (CHEBI:15870) and RHEA:15305 is written on betaine aldehyde (CHEBI:15710). The two interconvert by non-enzymatic hydration.

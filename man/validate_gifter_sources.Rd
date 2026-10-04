@@ -4,12 +4,25 @@
 \alias{validate_gifter_sources}
 \title{Validate human-readable gifter database sources}
 \usage{
-validate_gifter_sources(source_dir, stop_on_error = TRUE)
+validate_gifter_sources(
+  source_dir,
+  stop_on_error = TRUE,
+  reference_dir = NULL,
+  marker_links = NULL
+)
 }
 \arguments{
 \item{source_dir}{Directory containing the gifter TSV source tables.}
 
 \item{stop_on_error}{If `TRUE`, stop when structural errors are found.}
+
+\item{reference_dir}{Optional directory holding the pinned reference
+snapshot written by `data-raw/reference_snapshot.R`. `NULL` runs the
+structural checks only.}
+
+\item{marker_links}{Optional paths to marker link extracts, used to recompute
+the basis of marker assignments. A namespace with no extract is reported
+as not recomputed.}
 }
 \value{
 A list with `valid`, `errors`, `warnings`, and table row counts.
@@ -19,4 +32,11 @@ Performs structural validation before a SQLite database is compiled. Any
 duplicate identifiers, broken references, missing hierarchy levels, invalid
 directions, malformed anchor boundaries, graph cycles, or inconsistent
 release metadata are reported as build errors.
+}
+\details{
+Structural validation cannot tell a real accession from a plausible one. When
+`reference_dir` names a pinned reference snapshot, the tables are also
+compared with Rhea, ChEBI and KEGG: every external accession must exist, a
+Rhea identifier must be a master, imported equations and names must match,
+and each declared anchor must take part in the chemistry of its routes.
 }

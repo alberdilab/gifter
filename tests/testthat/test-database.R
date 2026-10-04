@@ -223,10 +223,10 @@ test_that("database accessors return stable definitions", {
 test_that("database and schema versions are independent", {
   version <- gifter_db_version()
   expect_equal(version$package_version, "0.7.3")
-  expect_equal(version$gifter_db_version, "2026.37.1")
-  expect_equal(version$schema_version, 8L)
+  expect_equal(version$gifter_db_version, "2026.39.1")
+  expect_equal(version$schema_version, 9L)
   expect_equal(version$source_repository, "https://github.com/alberdilab/gifter")
-  expect_equal(version$rhea_release, "141")
+  expect_equal(version$rhea_release, "142")
 })
 
 test_that("release source commits are explicit, exact, and reproducible", {

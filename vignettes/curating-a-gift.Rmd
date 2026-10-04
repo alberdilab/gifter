@@ -222,6 +222,14 @@ Below 50% EC agreement a CAZy cluster is not admitted at all: a cluster in which
 assignment, not weak evidence for it.
 
 Confidence reaches the call. `evaluate_gifts()` reports `evidence_confidence`,
+A grade is bounded by what the assignment rests on. Each row carries a `basis`
+that is derived, not typed: for a KO on an enzyme component, whether KEGG links
+the orthologue to the reaction, assigns it an EC number the reaction carries, or
+places it in a module the GIFT cross-references. A row with none of these is
+`unsupported` unless its `reference` cites a publication or a result table, and
+an `unsupported` row is recorded as `putative` at most. Markers in the other
+namespaces and GIFT types have no derivation yet and read `not_assessed`.
+
 the weakest grade among the markers supporting the best route, so a GIFT resting
 on an ambiguous family never reads like one resting on curated orthology. A
 marker that cannot support the claim is refused rather than stretched to fit it.
@@ -458,17 +466,28 @@ For a metabolic GIFT, source records are normally added in dependency order:
 6. reusable markers and component-to-marker evidence;
 7. curation evidence: the proposal that defines the GIFT and any analysis
    script and result table behind it, in `gift_evidence.tsv`;
-8. provenance, biological change history and release metadata.
+8. route chemistry exceptions: any place where the route's Rhea reactions do
+   not literally reach the declared anchors or chain from step to step, with the
+   two ChEBI entities named;
+9. provenance, biological change history and release metadata.
 
 The machinery models use the corresponding architecture, circuit or mechanism
 tables and their typed function, system, component and marker tables.
 
-Validation checks identifiers, foreign keys, type-specific rules, Boolean-layer
-completeness, marker admission rules and release metadata before SQLite is
-compiled:
+Reaction equations, ChEBI names and every `basis` are left empty by the curator.
+A script extends the pinned extract of Rhea, ChEBI and KEGG to the new
+accessions, which is where an accession that does not exist upstream is caught,
+and fills those columns from it.
+
+Validation then checks identifiers, foreign keys, type-specific rules,
+Boolean-layer completeness, marker admission rules and release metadata, and
+compares the tables with the pinned extract: every accession exists, every Rhea
+identifier is a master, and every anchor is consumed or produced by its route on
+the side each step's orientation selects.
 
 ```sh
 Rscript data-raw/build_database.R
+Rscript data-raw/reference_snapshot.R --sync
 Rscript -e 'testthat::test_local(".")'
 ```
 

@@ -59,7 +59,10 @@ version identifies curated biological content. The schema version identifies
 the relational contract. None is inferred from either of the others, and a
 change to one does not automatically require a change to all three.
 
-Package 0.7.x supports schemas 7 and 8. Schema 8 adds per-GIFT curation
+Package 0.7.x supports schemas 7, 8 and 9. Schema 9 adds the columns and
+tables used to verify curated content against external resources; they are
+provenance, no public accessor reads them yet, and schema 7 and 8 databases
+open normally. Schema 8 adds per-GIFT curation
 evidence and the source repository; a schema 7 database opens normally,
 `get_gift_evidence()` returns no rows for it, `gifter_db_version()` reports its
 `source_repository` as `NA`, and the atlas states that it records no evidence.

@@ -8,7 +8,12 @@ devtools::load_all(quiet = TRUE)
 source_dir <- file.path("inst", "extdata", "database-source")
 packaged_path <- file.path("inst", "extdata", "gifter.sqlite")
 
-validation <- validate_gifter_sources(source_dir)
+# The pinned reference snapshot is part of the check: without it a plausible but
+# wrong accession would reproduce just as faithfully as a correct one.
+validation <- validate_gifter_sources(
+  source_dir, reference_dir = file.path("inst", "extdata", "reference-snapshot"),
+  marker_links = file.path("data-raw", "reference", "marker-links.tsv")
+)
 stopifnot(validation$valid, !length(validation$errors))
 
 packaged <- gifter_db_connect(packaged_path)

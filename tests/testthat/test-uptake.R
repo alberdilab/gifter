@@ -38,7 +38,10 @@ test_that("an ABC importer needs all three of its subunits", {
   complete <- evaluate_gifts(ko_annotations(c("K10543", "K10544", "K10545")))
   gift <- complete$gifts[complete$gifts$gift_id == "xylose_uptake_abc", ]
   expect_true(gift$complete)
-  expect_equal(gift$evidence_confidence, "curated")
+  # The binding protein and the permease are transporter subunits that KEGG
+  # attaches to no reaction, EC number or module, so nothing checkable supports
+  # their assignment and the call is only as strong as they are.
+  expect_equal(gift$evidence_confidence, "putative")
 
   # A binding protein and a permease without the ATPase transport nothing.
   partial <- evaluate_gifts(ko_annotations(c("K10543", "K10544")))

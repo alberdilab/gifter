@@ -225,13 +225,37 @@ alone. Revisit that only once all three carry curated content.
     gifter runs no test, differential-abundance analysis, ordination or effect
     size between groups of samples, and interprets no metadata column.
 
+25. A fact that an external resource states is imported or derived from a
+    pinned copy of that resource, never typed. `reactions.equation`,
+    `anchors.chebi_name` and the `basis` of a marker assignment are written by
+    `data-raw/reference_snapshot.R`; an agent leaves them empty and runs the
+    script. An accession recalled from memory is a candidate until the snapshot
+    script has found it upstream. Never edit `inst/extdata/reference-snapshot`
+    by hand, and never make a check pass by editing the snapshot.
+26. Confidence follows evidence and is not a judgement. A marker assignment
+    whose `basis` is `unsupported` is recorded as `putative` at most. Raise it
+    by recording a `PMID:`, a `DOI:` or a `data-raw` result table in
+    `reference`, never by rewording `source` or `notes` and never by citing a
+    curation document, which is the reasoning for the assignment and not
+    evidence of it. Do not write "verified" in a source field: verification is
+    what the build does.
+27. An agent that curates or changes a GIFT never writes that GIFT's row in
+    `gift_reviews.tsv`. The table records review by a named person. Say in the
+    handoff that the GIFT is unreviewed.
+28. A route that does not literally reach its anchors or chain in Rhea gets a
+    row in `route_chemistry_exceptions.tsv` naming both ChEBI entities and how
+    they differ. State what the records show. If the two entities are different
+    compounds and no step joins them, say that and flag it; do not describe a
+    gap as a form difference to make the check pass.
+
 See [Core concepts](inst/doc/architecture.md#core-concepts-and-scope),
 [GIFT types](inst/doc/architecture.md#gift-types),
 [The machinery model](inst/doc/architecture.md#the-machinery-model),
 [Evaluation logic](inst/doc/architecture.md#evaluation-logic), and
 [Boundaries and composition](inst/doc/architecture.md#gift-boundaries-anchors-and-composition),
-[Quantitative traits](inst/doc/architecture.md#quantitative-traits), and
-[Many samples over one catalogue](inst/doc/architecture.md#many-samples-over-one-catalogue)
+[Quantitative traits](inst/doc/architecture.md#quantitative-traits),
+[Many samples over one catalogue](inst/doc/architecture.md#many-samples-over-one-catalogue), and
+[External verification](inst/doc/architecture.md#external-verification)
 for examples and rationale.
 
 ## Work in the correct files
@@ -254,6 +278,8 @@ for examples and rationale.
 | Multi-sample datasets, detection, per-sample traits | `R/dataset.R`, `R/dataset-traits.R`, `R/dataset-export.R`, `R/dataset-network.R` | `proposal-multi-sample-datasets.md`, the equality of a sample's traits with `community_traits()`, dataset tests |
 | GIFT graph or database reports | `R/database-visualization.R` | declared-anchor behavior, composition tests |
 | Biological source provenance | `inst/extdata/database-source/SOURCES.md`, `database_release.tsv` | affected TSV records |
+| External verification, imported or derived columns | `data-raw/reference_snapshot.R`, `R/reference-verification.R`, `inst/extdata/reference-snapshot/` | `route_chemistry_exceptions.tsv`, `test-reference-verification.R`, `licensing-review.md` before shipping any new upstream content |
+| Review sign-off | `gift_reviews.tsv` | written by the reviewer, never by the curating agent |
 | Where a GIFT was curated: documents, analysis scripts, result tables | `gift_evidence.tsv` | the attempt log's sources, `data-raw/reference/README.md`, `test-gift-evidence.R` |
 | Architecture or curator guidance | `AGENTS.md`, `inst/doc/architecture.md`, `README.md` | behavior and links remain consistent |
 | User-facing tutorials | `vignettes/*.Rmd` | every chunk executes at `R CMD check`; illustrative marker sets are labelled as fixtures, never presented as annotation output from a named organism |
@@ -286,7 +312,7 @@ Before adding or redefining a GIFT, be able to answer:
 - Which alternative enzyme systems catalyse each reaction, and which components
   are jointly required?
 - Which namespaced markers support each component, with what provenance and
-  confidence?
+  confidence, and what does the derived `basis` say each assignment rests on?
 - Which existing GIFTs connect through the declared anchors, and would the new
   definition duplicate or supersede one?
 
@@ -383,7 +409,13 @@ Run the narrowest relevant checks during development, followed by the full test
 suite for changes to code, schema, or biological content.
 
 ```sh
-# Validate TSV sources and rebuild the packaged SQLite artifact
+# After adding or changing any external accession, reaction, anchor or marker:
+# extend the pinned snapshot and fill the imported and derived columns. Needs
+# network access the first time; --offline reuses the cache.
+Rscript data-raw/reference_snapshot.R --sync
+
+# Validate TSV sources against each other and against the pinned snapshot, and
+# rebuild the packaged SQLite artifact
 Rscript data-raw/build_database.R
 
 # Run package tests
@@ -412,6 +444,9 @@ Before handing off a change, verify that:
 - no biological definition was duplicated or hard-coded;
 - alternatives and complexes use the correct Boolean layer;
 - provenance and version implications were handled;
+- the build passed against the reference snapshot, no imported or derived value
+  was typed, every `unsupported` assignment is `putative` at most, and no review
+  row was written by the agent that made the change;
 - every changed behavior is traceable and tested;
 - the SQLite artifact, when affected, was generated from validated TSV sources;
 - documentation explains why a biological or architectural decision changed;

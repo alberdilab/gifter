@@ -51,6 +51,9 @@ CREATE TABLE anchor (
   name TEXT NOT NULL,
   chebi_id TEXT,
   description TEXT,
+  -- The ChEBI name of `chebi_id`, imported from the pinned snapshot. `name` is
+  -- gifter's own label for the boundary; this is what ChEBI calls the entity.
+  chebi_name TEXT,
   UNIQUE (molecule, compartment)
 );
 
@@ -183,13 +186,20 @@ CREATE TABLE reaction (
   reaction_id TEXT NOT NULL UNIQUE,
   rhea_master TEXT UNIQUE,
   name TEXT NOT NULL,
-  description TEXT
+  description TEXT,
+  -- The Rhea master equation, imported from the pinned snapshot and empty for
+  -- a reaction without a Rhea master. `description` is curator commentary.
+  equation TEXT
 );
 
+-- `notes` is required by the reference check for a cross-reference that Rhea
+-- does not itself record for the reaction, so that a curated extension is
+-- distinguishable from a mistyped accession.
 CREATE TABLE reaction_xref (
   reaction_pk INTEGER NOT NULL REFERENCES reaction(reaction_pk),
   namespace TEXT NOT NULL,
   accession TEXT NOT NULL,
+  notes TEXT,
   PRIMARY KEY (reaction_pk, namespace, accession)
 );
 
@@ -221,6 +231,20 @@ CREATE TABLE route_reaction (
   UNIQUE (route_pk, step_order)
 );
 
+-- Where a route's Rhea chemistry does not literally reach its declared anchors
+-- or chain from step to step, and why. The reference check requires a row for
+-- every such place and refuses a row that excuses nothing.
+CREATE TABLE route_chemistry_exception (
+  route_pk INTEGER NOT NULL REFERENCES gift_route(route_pk),
+  kind TEXT NOT NULL CHECK (kind IN (
+    'anchor_form', 'form_change', 'spontaneous_step', 'omitted_step',
+    'parallel_branch'
+  )),
+  subject TEXT NOT NULL,
+  rationale TEXT NOT NULL,
+  PRIMARY KEY (route_pk, subject)
+);
+
 CREATE TABLE enzyme_system (
   system_pk INTEGER PRIMARY KEY,
   reaction_pk INTEGER NOT NULL REFERENCES reaction(reaction_pk),
@@ -249,10 +273,19 @@ CREATE TABLE marker (
 CREATE TABLE component_marker (
   component_pk INTEGER NOT NULL REFERENCES enzyme_component(component_pk),
   marker_pk INTEGER NOT NULL REFERENCES marker(marker_pk),
-  evidence_type TEXT NOT NULL,
-  confidence TEXT NOT NULL,
+  evidence_type TEXT NOT NULL CHECK (evidence_type IN (
+    'orthology', 'sequence_family', 'sequence_subfamily', 'activity'
+  )),
+  confidence TEXT NOT NULL CHECK (confidence IN (
+    'insufficient evidence', 'ambiguous', 'putative', 'high-confidence', 'curated'
+  )),
   source TEXT NOT NULL,
   notes TEXT,
+  basis TEXT CHECK (basis IS NULL OR basis IN (
+    'kegg_reaction_link', 'ec_match', 'kegg_module_member',
+    'reference', 'unsupported', 'not_assessed'
+  )),
+  reference TEXT,
   PRIMARY KEY (component_pk, marker_pk)
 );
 
@@ -305,10 +338,19 @@ CREATE TABLE structural_component (
 CREATE TABLE structural_component_marker (
   component_pk INTEGER NOT NULL REFERENCES structural_component(component_pk),
   marker_pk INTEGER NOT NULL REFERENCES marker(marker_pk),
-  evidence_type TEXT NOT NULL,
-  confidence TEXT NOT NULL,
+  evidence_type TEXT NOT NULL CHECK (evidence_type IN (
+    'orthology', 'sequence_family', 'sequence_subfamily', 'activity'
+  )),
+  confidence TEXT NOT NULL CHECK (confidence IN (
+    'insufficient evidence', 'ambiguous', 'putative', 'high-confidence', 'curated'
+  )),
   source TEXT NOT NULL,
   notes TEXT,
+  basis TEXT CHECK (basis IS NULL OR basis IN (
+    'kegg_reaction_link', 'ec_match', 'kegg_module_member',
+    'reference', 'unsupported', 'not_assessed'
+  )),
+  reference TEXT,
   PRIMARY KEY (component_pk, marker_pk)
 );
 
@@ -367,10 +409,19 @@ CREATE TABLE regulatory_component (
 CREATE TABLE regulatory_component_marker (
   component_pk INTEGER NOT NULL REFERENCES regulatory_component(component_pk),
   marker_pk INTEGER NOT NULL REFERENCES marker(marker_pk),
-  evidence_type TEXT NOT NULL,
-  confidence TEXT NOT NULL,
+  evidence_type TEXT NOT NULL CHECK (evidence_type IN (
+    'orthology', 'sequence_family', 'sequence_subfamily', 'activity'
+  )),
+  confidence TEXT NOT NULL CHECK (confidence IN (
+    'insufficient evidence', 'ambiguous', 'putative', 'high-confidence', 'curated'
+  )),
   source TEXT NOT NULL,
   notes TEXT,
+  basis TEXT CHECK (basis IS NULL OR basis IN (
+    'kegg_reaction_link', 'ec_match', 'kegg_module_member',
+    'reference', 'unsupported', 'not_assessed'
+  )),
+  reference TEXT,
   PRIMARY KEY (component_pk, marker_pk)
 );
 
@@ -427,10 +478,19 @@ CREATE TABLE defense_component (
 CREATE TABLE defense_component_marker (
   component_pk INTEGER NOT NULL REFERENCES defense_component(component_pk),
   marker_pk INTEGER NOT NULL REFERENCES marker(marker_pk),
-  evidence_type TEXT NOT NULL,
-  confidence TEXT NOT NULL,
+  evidence_type TEXT NOT NULL CHECK (evidence_type IN (
+    'orthology', 'sequence_family', 'sequence_subfamily', 'activity'
+  )),
+  confidence TEXT NOT NULL CHECK (confidence IN (
+    'insufficient evidence', 'ambiguous', 'putative', 'high-confidence', 'curated'
+  )),
   source TEXT NOT NULL,
   notes TEXT,
+  basis TEXT CHECK (basis IS NULL OR basis IN (
+    'kegg_reaction_link', 'ec_match', 'kegg_module_member',
+    'reference', 'unsupported', 'not_assessed'
+  )),
+  reference TEXT,
   PRIMARY KEY (component_pk, marker_pk)
 );
 
@@ -454,6 +514,18 @@ CREATE TABLE mechanism_function (
   required INTEGER NOT NULL DEFAULT 1 CHECK (required IN (0, 1)),
   PRIMARY KEY (mechanism_pk, function_pk),
   UNIQUE (mechanism_pk, ordinal)
+);
+
+-- Human sign-off on a GIFT definition at a stated version. A row is written by
+-- the reviewer and never by the curating agent; a GIFT without a row for its
+-- current version has not been independently reviewed.
+CREATE TABLE gift_review (
+  gift_pk INTEGER NOT NULL REFERENCES gift(gift_pk),
+  version INTEGER NOT NULL CHECK (version > 0),
+  reviewer TEXT NOT NULL,
+  reviewed_at TEXT NOT NULL,
+  notes TEXT,
+  PRIMARY KEY (gift_pk, version, reviewer)
 );
 
 CREATE TABLE database_release (

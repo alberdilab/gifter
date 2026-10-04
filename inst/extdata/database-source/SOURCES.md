@@ -1,5 +1,57 @@
 # Reference database provenance
 
+## NCBIfam and CAZy marker basis (2026.39.1)
+
+The basis of NCBIfam and CAZy marker assignments is now derived. NCBIfam EC
+numbers and grades come from `hmm_PGAP.tsv` of release `hmm_PGAP/20.0`, fetched
+from the versioned directory <https://ftp.ncbi.nlm.nih.gov/hmm/20.0/>. CAZy
+family EC numbers come from `data-raw/reference/fam-substrate-mapping.tsv` and
+dbCAN subfamily EC numbers from `data-raw/reference/cazy-subfamily-ec.tsv`, both
+from dbCAN `db_v5-2-9_5-5-2026`; a subfamily contributes an EC number only when
+at least half of its annotated members carry it. The derived links are in
+`data-raw/reference/marker-links.tsv`. The packaged snapshot gains
+`marker-accessions.tsv`, which lists the cited NCBIfam and CAZy accessions as
+current and gives each NCBIfam profile's grade; it holds no EC number and no
+name. Both resources remain under the review recorded in
+`inst/doc/licensing-review.md`.
+
+## Pinned reference snapshot and external verification (2026.38.1)
+
+The upstream pins move to [Rhea release 142](https://www.rhea-db.org/) and
+[ChEBI release 254](https://www.ebi.ac.uk/chebi/), both retrieved 2026-10-04.
+`inst/extdata/reference-snapshot` holds the extract the validator checks the
+source tables against, written by `data-raw/reference_snapshot.R`;
+`MANIFEST.tsv` there records each download with its URL, retrieval date and
+SHA-256. Reaction equations in `reactions.equation` and ChEBI names in
+`anchors.chebi_name` are imported from that extract and are not curated text.
+
+From Rhea the extract takes the direction table, the master equations, the
+participants of each side through the Rhea SPARQL endpoint, the EC and KEGG
+reaction mappings, and the mapping of each ChEBI entity to the form Rhea writes
+at pH 7.3. From ChEBI it takes `compounds.tsv`. Both are CC BY 4.0.
+
+From KEGG the extract holds only `kegg-accessions.tsv`: the KO, reaction, module
+and pathway accessions gifter already cites, each marked as confirmed current on
+the retrieval date. It adds no KEGG definition or link to the package. KEGG's
+orthologue-to-reaction, orthologue-to-EC and orthologue-to-module links, from
+which the `basis` column of `component_markers.tsv` is derived, are kept in the
+ignored cache and are not redistributed, pending the review in
+`inst/doc/licensing-review.md`.
+
+The same release corrects what the first run of these checks found. Three
+reactions move from a bidirectional Rhea identifier to the master: RHEA:55540,
+RHEA:18133 and RHEA:13801. Sixteen anchors move to the ChEBI entity Rhea writes.
+Four route steps are re-oriented. Seven KEGG reaction cross-references are
+replaced by the reaction Rhea maps, five EC cross-references that neither Rhea
+nor KEGG supports are removed, and eighteen that KEGG assigns to an accepted
+orthologue are kept with that reason in `reaction_xrefs.notes`. Thirty KO
+assignments with no derivable support are recorded as `putative`. Each is an
+entry in `database_changes.tsv`.
+
+The exceptions in `route_chemistry_exceptions.tsv` are gifter's own reading of
+how two ChEBI entities relate. They state what the Rhea participants show and
+were not reviewed by a curator when written.
+
 ## Serine ammonia-lyase architectures (2026.37.1)
 
 [KEGG K01752](https://www.kegg.jp/entry/ko:K01752) assigns both

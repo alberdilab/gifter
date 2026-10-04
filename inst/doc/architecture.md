@@ -34,6 +34,7 @@ in source-table names and code wherever practical.
 | Trait specificity, over-broad marker, refusing a trait | [Genomic markers and evidence](#genomic-markers-and-evidence) |
 | TSV table or SQLite table | [Reference database schema](#reference-database-schema) |
 | Add or change a GIFT | [Curating a new or changed GIFT](#curating-a-new-or-changed-gift) |
+| Hallucinated accession, pinned snapshot, basis, review sign-off | [External verification](#external-verification) |
 | Validate, build, or edit SQLite | [Build and runtime workflow](#build-and-runtime-workflow) |
 | Package/database/schema version | [Versioning and releases](#versioning-and-releases) |
 | Linking a GIFT to a KEGG module or other pathway | [Linking to external pathways](#linking-to-external-pathways) |
@@ -1360,7 +1361,11 @@ orientation = forward
 
 Do not model forward and reverse directional Rhea IDs as unrelated reactions.
 Reaction identity belongs to the reaction; pathway direction belongs to the
-route/reaction relationship.
+route/reaction relationship. `forward` reads the master equation left to right
+and `reverse` right to left; the reference check holds each route to that
+reading, so an orientation that makes a route consume its own product fails.
+The master equation itself is stored in `reactions.equation`, imported from
+Rhea, while `description` is curator commentary.
 
 External cross-references such as KEGG reaction IDs or EC numbers belong in
 `reaction_xrefs.tsv`. They aid provenance and lookup but do not replace the
@@ -1440,10 +1445,11 @@ consequence that NCBIfam's antimicrobial-resistance profiles carry the
 `exception` grade and are therefore outside the rule.
 
 `component_markers.tsv` records the type, confidence, source, and notes for the
-mapping. Use defined qualitative confidence terms such as `curated`,
-`high-confidence`, `putative`, `ambiguous`, or `insufficient evidence` when
-appropriate. Do not invent numeric confidence scores unless their meaning and
-calibration are documented.
+mapping, together with the derived `basis` and any `reference` described under
+[External verification](#external-verification). Confidence is one of
+`curated`, `high-confidence`, `putative`, `ambiguous` or
+`insufficient evidence`, and the compiler refuses any other term. Do not invent
+numeric confidence scores unless their meaning and calibration are documented.
 
 Confidence reaches the call. `evaluate_gifts()` reports `evidence_confidence`
 per GIFT: the weakest term among the markers supporting the best route. A call
@@ -1607,6 +1613,116 @@ trait interpretation. Dataset-level sources and deliberate curation choices are
 documented in `inst/extdata/database-source/SOURCES.md`; row-level evidence is
 kept in the relevant source columns.
 
+### External verification
+
+The relational checks prove that the source tables agree with each other. They
+cannot prove that an accession exists, that a Rhea identifier is a master, or
+that a declared anchor takes part in its route. Those are statements about
+Rhea, ChEBI and KEGG, and a plausible but wrong value satisfies every relational
+check. This matters most when the curator is a language model, which produces
+plausible identifiers without effort, but it is how a transposed digit from a
+human curator fails too.
+
+`inst/extdata/reference-snapshot` holds a pinned extract of the records the
+source tables reference. `data-raw/reference_snapshot.R` writes it from the
+upstream downloads; it is never edited by hand. `validate_gifter_sources()`
+compares the tables with it whenever `reference_dir` is given, which
+`data-raw/build_database.R` and the reproducibility check in CI always do. The
+snapshot covers the accessions cited when it was written, so a new accession
+fails until the script has been run and has found it upstream.
+
+A fact in the source tables is one of three kinds, and the kind decides who may
+write it:
+
+| Kind | Examples | Written by |
+|---|---|---|
+| Imported | `reactions.equation`, `anchors.chebi_name` | the snapshot script, verbatim |
+| Derived | the `basis` of a marker assignment | the snapshot script, from KEGG and Rhea links |
+| Curated | boundaries, routes, orientation, accepted markers, relations | a curator, and checked against the snapshot where a check exists |
+
+An imported or derived value that is typed instead fails validation. The checks
+on curated values are:
+
+- every Rhea identifier is a master, and `reaction_id` equals it;
+- every ChEBI identifier is current and is the entity Rhea writes at pH 7.3;
+- every KO, KEGG reaction, module and pathway accession is current in KEGG;
+- an EC or KEGG reaction cross-reference on a Rhea-mastered reaction is one Rhea
+  records for that master, or carries a note saying why it is kept;
+- in a route written entirely in Rhea reactions, each input anchor is consumed
+  and each output anchor produced by some step, on the side of the master
+  equation that the step's `orientation` selects. An `interconversion` GIFT runs
+  either way and is satisfied by either side;
+- such a route is one chain: every step is linked to the first through a
+  compound one step produces and another consumes, ignoring the hub compounds
+  listed in `.gifter_hub_chebi`;
+- `database_release` names the Rhea and ChEBI releases the snapshot pins.
+
+Rhea does not always write a route the way a boundary is drawn. It writes some
+reactions on an anomer, a tautomer or a stereo-unspecified parent, some routes
+pass through a non-enzymatic step, and some leave a conversion out on purpose.
+Each such place is a row in `route_chemistry_exceptions.tsv` naming the route,
+the anchor or reaction concerned, the kind of difference and the two entities
+involved. The check requires a row wherever it would otherwise fail and refuses
+a row that excuses nothing, so the table cannot drift from the routes.
+
+**What a marker assignment rests on.** `source` records which resource a
+curator consulted; it is prose, and it cannot distinguish an assignment KEGG
+supports from one it does not. `basis` is the derived answer. For a KO, an
+NCBIfam profile or a CAZy marker on an enzyme component it is, in this order:
+
+| `basis` | Meaning |
+|---|---|
+| `kegg_reaction_link` | KEGG links the orthologue to a KEGG reaction that Rhea maps to the reaction's master, or that `reaction_xrefs` records |
+| `ec_match` | the marker's own resource gives it an EC number the reaction carries: KEGG for an orthologue, the pinned NCBIfam release for a profile, dbCAN for a CAZy family, and for a dbCAN subfamily an EC number carried by at least half of its annotated members |
+| `kegg_module_member` | KEGG places the orthologue in a module that a GIFT using the reaction cross-references |
+| `reference` | none of the above, and the row cites a `PMID:`, a `DOI:` or a result table or script under `data-raw/` |
+| `unsupported` | none of the above and nothing cited |
+| `not_assessed` | no derivation exists yet for the namespace or GIFT type |
+
+A `reference` is never a curation document. The proposal that argues for an
+assignment is the reasoning behind it, and citing it as the evidence would let
+the claim support itself.
+
+Confidence is bounded by basis: an `unsupported` row may not claim more than
+`putative`. Because `evaluate_gifts()` reports the weakest term among the
+markers supporting the best route, an assignment that rests on assertion alone
+is visible in every call that depends on it.
+
+An `ec_match` compares EC numbers exactly. A marker whose resource gives it a
+narrower EC number than the reaction records, such as a linkage-specific
+fucosidase against a reaction recorded under the general alpha-L-fucosidase
+number, is `unsupported` until a curator decides whether the reaction should
+carry the narrower number.
+
+An NCBIfam or CAZy accession must be current in the pinned release, and the
+grade an NCBIfam row declares in `notes` must be the grade that release gives
+the profile, so the admission rule no longer rests on a self-declared value.
+
+`not_assessed` is a statement about the check, not about the marker. Pfam, EC
+and the legacy unversioned TIGRFAM markers, and every marker of a structural,
+regulatory or defense GIFT, have no derivation yet: a machinery component has no
+reaction to compare an EC number with. Marker names in every namespace remain
+curator-written.
+
+**KEGG.** KEGG redistribution is under human review (see
+[`licensing-review.md`](licensing-review.md)), so the snapshot records only
+which KEGG accessions were confirmed current, which adds no KEGG content to the
+package. The KEGG links the basis derivation reads are written to the ignored
+cache `data-raw/reference/.cache/external/kegg-ko-links.tsv`. Where that file is
+present the build recomputes the basis of every KO assignment and refuses a
+typed one; where it is absent, as in CI, validation warns that KO was not
+recomputed. The NCBIfam and CAZy links are derived from the pinned NCBIfam
+release and the dbCAN tables already committed under `data-raw/reference`, and
+are committed beside them as `marker-links.tsv`, so CI recomputes those.
+
+**Review.** Verification catches a wrong fact that an external record
+contradicts. It does not catch a boundary badly chosen, a route that is
+chemically valid and biologically wrong, or a claim in a `notes` field. Those
+need a reader. `gift_reviews.tsv` records that a named person reviewed a GIFT at
+a stated `version`. An agent that curates a GIFT never writes its review row,
+and a GIFT with no row for its current version has not been independently
+reviewed.
+
 ## Curating a new or changed GIFT
 
 ### 0. Search the history and open the attempt
@@ -1668,7 +1784,11 @@ enumerate all jointly required protein components. Check specifically for:
 
 Map namespaced markers to components, not directly to reactions or GIFTs.
 Document evidence type, source, confidence, and ambiguity. A convenient marker
-is not necessarily a specific marker; avoid overclaiming.
+is not necessarily a specific marker; avoid overclaiming. Leave `basis` empty:
+the snapshot script derives it. If the derivation returns `unsupported`, either
+record the publication or result table that supports the assignment in
+`reference`, or accept `putative` confidence. Do not raise the confidence
+instead.
 
 ### 6. Check composition and redundancy
 
@@ -1690,7 +1810,14 @@ A practical order is:
 7. `gift_evidence.tsv`: the proposal or assessment that defines the GIFT,
    every analysis script run to decide it, and every result table those
    scripts wrote;
-8. `SOURCES.md` and `database_release.tsv`.
+8. `route_chemistry_exceptions.tsv`, for any place the reference check reports
+   that a route does not reach its anchors or chain in Rhea;
+9. `SOURCES.md` and `database_release.tsv`.
+
+Leave `reactions.equation`, `anchors.chebi_name` and every `basis` empty, then
+run `Rscript data-raw/reference_snapshot.R --sync`. It extends the snapshot to
+the new accessions, which is where an accession that does not exist upstream is
+caught, and fills the imported and derived columns.
 
 Reuse existing reactions, systems, components, and markers when they represent
 the same entity. Never duplicate them merely to make a new route self-contained.
@@ -1764,6 +1891,12 @@ Current error classes include:
 - a route without required reactions;
 - invalid anchor roles, ordinals, directions, step order, or required flags;
 - malformed Rhea master IDs;
+- a confidence, evidence type or basis outside its vocabulary, a malformed
+  `reference`, or an `unsupported` assignment claiming more than `putative`;
+- against the reference snapshot: an accession that is not current upstream, a
+  Rhea identifier that is not a master, an imported value that was typed, a
+  cross-reference Rhea does not record and no note explains, an anchor that its
+  route does not consume or produce, and a route that is not one chain;
 - a reaction without a system, a system without a component, or a component
   without a marker;
 - cycles in anchor-derived GIFT composition;
@@ -1808,6 +1941,14 @@ provenance and never enters a call. A location is a path inside the repository;
 the compiler checks its shape and that its file type matches its kind, and the
 package tests check that the file exists. The package still opens schema 7
 databases, which report no evidence.
+
+Schema version 9 added external verification. `reactions.equation` and
+`anchors.chebi_name` hold values imported from the pinned reference snapshot;
+the four marker-evidence tables gained `basis` and `reference`;
+`reaction_xrefs` gained `notes`; and two tables are new,
+`route_chemistry_exception` and `gift_review`. `confidence` and `evidence_type`
+became closed vocabularies. None of it enters a call. The package still opens
+schema 7 and 8 databases.
 
 A package release must not silently change biological definitions without
 database provenance. A schema change requires an explicit schema-version bump

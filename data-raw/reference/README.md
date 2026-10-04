@@ -473,3 +473,28 @@ Bare CAZy families (`GH28`, `CE8`) and official CAZy subfamilies (`GH5_4`) do
 not have this problem — those identifiers are CAZy's own and are stable across
 dbCAN releases. Where a family is monoactivity enough to stand alone, preferring
 it costs nothing and buys release independence.
+
+## The external reference cache and the packaged snapshot
+
+`data-raw/reference_snapshot.R` downloads Rhea, ChEBI and KEGG into
+`.cache/external/`, which is ignored, and writes two things. The pinned extract
+the validator reads goes to `inst/extdata/reference-snapshot/` and is shipped
+with the package: Rhea and ChEBI records in the detail the checks need, and for
+KEGG only the list of cited accessions confirmed current. It also writes
+`marker-links.tsv` in this directory: the EC numbers the pinned NCBIfam release
+gives each cited profile, and those dbCAN gives each cited CAZy family or
+subfamily, derived from `hmm_PGAP.tsv` and from `cazy-subfamily-ec.tsv` and
+`fam-substrate-mapping.tsv` above. A subfamily is listed with an EC number only
+where at least half of its annotated members carry it. `kegg-ko-links.tsv`,
+the orthologue-to-reaction, EC and module links from which marker `basis` is
+derived, stays in the cache because KEGG content is not redistributed. Run the
+script with `--sync` after changing any external accession, and with
+`--offline` to reuse the cache. Deleting a cached download makes the next run
+fetch it again, which is how the pin is moved to a newer release.
+
+`chebi-anchor-aliases.tsv` and `chebi-anchor-alias-candidates.tsv` were
+regenerated on 2026-10-04 after sixteen anchors moved to the ChEBI entity Rhea
+writes in database 2026.38.1. For thirteen of them the identifier used before is now a derived alias, so
+an external record keyed by it still finds the anchor. For `GTP`, `TMP` and
+`QUINOLINATE` it is not: ChEBI relates the old and new entities by more than
+one identity step or not at all, and the walk takes one step.

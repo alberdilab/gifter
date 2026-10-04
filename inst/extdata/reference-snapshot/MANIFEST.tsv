@@ -1,0 +1,20 @@
+resource	release	retrieved	file	url	sha256	licence
+Rhea	142	2026-10-04	rhea-release.properties	https://ftp.expasy.org/databases/rhea/rhea-release.properties	4259110467406048a19f7dd797bc3f0506736d1cf2a8327f67ec7b10043fc5d4	CC BY 4.0
+Rhea	142	2026-10-04	rhea-directions.tsv	https://ftp.expasy.org/databases/rhea/tsv/rhea-directions.tsv	deae1911da372c70ee8fc97992809c7923e63b288a8702fc4396edcb2633fb04	CC BY 4.0
+Rhea	142	2026-10-04	rhea2ec.tsv	https://ftp.expasy.org/databases/rhea/tsv/rhea2ec.tsv	33a62d491eb9f56b4e9e9a5ec2e0b27f5d92432d1afcd3afe101a4b36df331f8	CC BY 4.0
+Rhea	142	2026-10-04	rhea2kegg_reaction.tsv	https://ftp.expasy.org/databases/rhea/tsv/rhea2kegg_reaction.tsv	b3fa5a48631c7cae19e6258c058e7fc0fa6d2a241ebedc51844fdda325bd1d1b	CC BY 4.0
+Rhea	142	2026-10-04	chebi_pH7_3_mapping.tsv	https://ftp.expasy.org/databases/rhea/tsv/chebi_pH7_3_mapping.tsv	7076e992933d94e81b66e55d4977c4634b11ad5d9146052c0a25ebc72b5067b2	CC BY 4.0
+Rhea	142	2026-10-04	rhea-equations.tsv	https://www.rhea-db.org/rhea/?query=&columns=rhea-id,equation&format=tsv&limit=100000	4822335ff0008ce6748604e008e6ddc6a413fb3c1e596f61d1b0dfd0f922b00d	CC BY 4.0
+Rhea	142	2026-10-04	rhea-sides.tsv	https://sparql.rhea-db.org/sparql?query=PREFIX%20rh%3A%20%3Chttp%3A%2F%2Frdf.rhea-db.org%2F%3E%20SELECT%20%3Facc%20%3Fside%20%3Fchebi%20%3Funder%20WHERE%20%7B%20%3Fr%20rh%3Aaccession%20%3Facc%20%3B%20rh%3Astatus%20rh%3AApproved%20%3B%20rh%3Aside%20%3Fside%20.%20%3Fside%20rh%3Acontains%20%3Fp%20.%20%3Fp%20rh%3Acompound%20%3Fc%20.%20OPTIONAL%20%7B%20%3Fc%20rh%3Achebi%20%3Fchebi%20%7D%20OPTIONAL%20%7B%20%3Fc%20rh%3AunderlyingChebi%20%3Funder%20%7D%20%7D	f49c6921b6633de515979c3a0521b62d385e9a96efff95d29a77a3695d2fac37	CC BY 4.0
+ChEBI	254	2026-10-04	chebi-compounds.tsv.gz	https://ftp.ebi.ac.uk/pub/databases/chebi/flat_files/compounds.tsv.gz	c8e4b1878d7b90afb4d081321d6f059055fcb937e811c83d15932ff797e1336b	CC BY 4.0
+ChEBI	254	2026-10-04	chebi-archive.html	https://ftp.ebi.ac.uk/pub/databases/chebi/archive/	62e3a5170b1122613f915106665f1ac48271ecafdd352b5e5f5c22b16e608f43	CC BY 4.0
+KEGG	2026-10-04	2026-10-04	kegg-ko.tsv	https://rest.kegg.jp/list/ko	a8a1f303282f5a77115f01a561334bc19445fa19b300547e9db1f8d67bd5d3bc	KEGG copyright; not redistributed
+KEGG	2026-10-04	2026-10-04	kegg-reaction.tsv	https://rest.kegg.jp/list/reaction	3d4621a632380dba5d8602e483f4607fcbb73ebd65397c47306157b59c7446ff	KEGG copyright; not redistributed
+KEGG	2026-10-04	2026-10-04	kegg-module.tsv	https://rest.kegg.jp/list/module	27fcb9d94bde34ab6c25c41f8021106c465b0a45e3ada771511d3b3b7f05142f	KEGG copyright; not redistributed
+KEGG	2026-10-04	2026-10-04	kegg-pathway.tsv	https://rest.kegg.jp/list/pathway	46c36040530f1de249615192d7b054cefd366fac0d48243cf82bec22755cfe61	KEGG copyright; not redistributed
+KEGG	2026-10-04	2026-10-04	kegg-ko-reaction.tsv	https://rest.kegg.jp/link/reaction/ko	4c0ed757fffc5d3fda7751a4b69da6f9e3b65a5bfffad8f83573859f4424f8df	KEGG copyright; not redistributed
+KEGG	2026-10-04	2026-10-04	kegg-ko-enzyme.tsv	https://rest.kegg.jp/link/enzyme/ko	1206c43c97fa1ea2a01d3074158009b0538c4920b552e54e51f669118f8099f1	KEGG copyright; not redistributed
+KEGG	2026-10-04	2026-10-04	kegg-ko-module.tsv	https://rest.kegg.jp/link/module/ko	774d4072e6da661cdb815f89c56fe2199e21ac48e9900368bdaf5b9962d0450d	KEGG copyright; not redistributed
+NCBIfam	hmm_PGAP/20.0	2026-10-04	hmm_PGAP.tsv	https://ftp.ncbi.nlm.nih.gov/hmm/20.0/hmm_PGAP.tsv	972f910ac7c54c6373e286c0d96dee71f643f9abd576a019bcb05ec7f5834b7b	NCBI data policy; under review
+dbCAN	db_v5-2-9_5-5-2026	2026-08-18	data-raw/reference/cazy-subfamily-ec.tsv		b4ea76065a78ee2ed9b69f065925957fba24465180fbe9544e063be3a082d94a	dbCAN and CAZy terms; under review
+dbCAN	db_v5-2-9_5-5-2026	2026-08-18	data-raw/reference/fam-substrate-mapping.tsv		6d31a84cac27dec72a3d0f209b81291336bccb8572abc5acb995d71f54df03dc	dbCAN and CAZy terms; under review
