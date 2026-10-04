@@ -857,7 +857,8 @@
     detail_id <- paste0("gift-detail-", sprintf("%02d", index))
     marker_id <- paste0("arrow-gift-", sprintf("%02d", index))
     class_label <- if (nrow(facets)) {
-      single <- facets$value[facets$facet %in% c("substrate_class", "structural_class")]
+      class_facet <- .gifter_required_gift_facets[[gift$gift_type]]$single
+      single <- facets$value[facets$facet == class_facet]
       if (length(single)) single[[1]] else NA_character_
     } else {
       NA_character_

@@ -223,7 +223,7 @@ test_that("database accessors return stable definitions", {
 test_that("database and schema versions are independent", {
   version <- gifter_db_version()
   expect_equal(version$package_version, "0.7.3")
-  expect_equal(version$gifter_db_version, "2026.35.1")
+  expect_equal(version$gifter_db_version, "2026.35.2")
   expect_equal(version$schema_version, 8L)
   expect_equal(version$source_repository, "https://github.com/alberdilab/gifter")
   expect_equal(version$rhea_release, "141")
@@ -481,6 +481,31 @@ test_that("database HTML atlas is self-contained and reflects compiled rows", {
     sub('.*data-gift-id="([^"]+)"', "\\1", gift_pages),
     sub('.*data-gift-id="([^"]+)"', "\\1", gift_row_ids)
   )
+  # The same type-scoped class facet must label both the catalogue row and its
+  # detail page, including the regulatory and defense types.
+  classes <- c(
+    purine_core_biosynthesis = "nucleotide",
+    flagellar_apparatus = "cell_surface_appendage",
+    chemotaxis_signal_transduction = "chemosensory_pathway",
+    type_i_restriction_modification = "restriction_modification",
+    type_i_e_crispr_cas_machinery = "crispr_cas",
+    mercury_detoxification = "chemical_detoxification"
+  )
+  for (id in names(classes)) {
+    row <- regmatches(html, regexpr(
+      paste0('(?s)<tr class="gift-table-row"[^>]*data-gift-id="', id, '".*?</tr>'),
+      html, perl = TRUE
+    ))
+    detail <- regmatches(html, regexpr(
+      paste0('(?s)<article class="gift-detail gift-page"[^>]*data-gift-id="',
+             id, '".*?</header>'),
+      html, perl = TRUE
+    ))
+    expect_match(row, paste0('<span class="category-label">', classes[[id]], '</span>'),
+                 fixed = TRUE)
+    expect_match(detail, paste0('</span><span>', classes[[id]], '</span>'),
+                 fixed = TRUE)
+  }
   expect_match(html, "data-gift-group-select", fixed = TRUE)
   expect_match(html, 'data-gift-anchor-filter="input"', fixed = TRUE)
   expect_match(html, 'data-gift-anchor-filter="output"', fixed = TRUE)

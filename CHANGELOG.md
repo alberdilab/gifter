@@ -15,6 +15,17 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-10-04T03:51Z — Atlas shows the class of every GIFT type
+
+**What changed.** The GIFT table and detail header now read the required class
+facet for metabolic, structural, regulatory and defense GIFTs. Regulatory and
+defense classes appear where the atlas previously showed a dash.
+
+**Why.** Every GIFT already carries exactly one class facet for its type, but the
+report lookup only read `substrate_class` and `structural_class`.
+
+**Effect.** Presentation only. Class assignments and Boolean calls are unchanged.
+
 ### 2026-10-04T02:00Z — GTDB phylogeny heatmap is ready for the Drakkar transfer
 
 **What changed.** The locked 697-genome GTDB R11-RS232 analysis now validates

@@ -24,6 +24,11 @@ metabolite is a defense GIFT rather than a metabolic one, and a defense class
 may not be named for an outcome, for the same reason this document refuses
 "resists phage".
 
+The `crispr_cas` defense class names the mechanism family. Its definition does
+not imply that the curated type I-E machinery GIFT has a CRISPR array, guide RNA
+or interference capability. Those claims remain outside the marker evidence
+accepted below.
+
 A **defense GIFT** claims:
 
 > the genome encodes the capability to execute a defined cellular defense

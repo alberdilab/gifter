@@ -507,6 +507,10 @@ test_that("the CRISPR claim is about encoded machinery, not interference", {
   description <- get_gift("type_i_e_crispr_cas_machinery")$description
   expect_match(description, "CRISPR array", fixed = TRUE)
   expect_match(description, "does not mean the system can interfere", fixed = TRUE)
+  class <- get_facets("type_i_e_crispr_cas_machinery")
+  class <- class[class$facet == "defense_class", , drop = FALSE]
+  expect_equal(class$value, "crispr_cas")
+  expect_match(class$definition, "does not establish that a CRISPR array", fixed = TRUE)
 
   # The split Cas3 HD module is not accepted as evidence of the whole nuclease.
   machinery <- get_gift_machinery("type_i_e_crispr_cas_machinery")
@@ -521,6 +525,7 @@ test_that("the CRISPR claim is about encoded machinery, not interference", {
   # The limitation is recorded as a curation decision, not left implicit.
   changes <- database_changelog("type_i_e_crispr_cas_machinery")
   expect_true("DBC-20260818-CRISPR-ARRAY-LIMIT" %in% changes$change_id)
+  expect_true("DBC-20261004-CRISPR-CLASS-DEFINITION" %in% changes$change_id)
 })
 
 test_that("mercury detoxification is complete on merA alone", {

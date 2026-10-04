@@ -30,7 +30,7 @@ structural_class	secretion_machine	gift	A machine whose curated architecture exi
 regulatory_class	two_component_system	gift	A sensor histidine kinase paired with a cognate response regulator.
 regulatory_class	chemosensory_pathway	gift	A receptor-array signalling pathway with a coupled kinase, a diffusible response regulator and a receptor methylation adaptation cycle.
 defense_class	restriction_modification	gift	A system that distinguishes self from non-self DNA by modification and cleaves what is unmodified.
-defense_class	crispr_cas	gift	A system that recognises invading nucleic acid by sequence complementarity to stored spacers.
+defense_class	crispr_cas	gift	CRISPR-Cas machinery for sequence-guided nucleic-acid defense. Classification does not establish that a CRISPR array or functional guide RNA is present, or that interference can occur.
 substrate_class	short_chain_fatty_acid	gift	Aliphatic monocarboxylates of two to six carbons formed as fermentation end products. Formate is excluded by chain length and lactate by being a 2-hydroxy acid rather than a fatty acid.
 substrate_class	central_metabolite	gift	An intermediate of shared central carbon metabolism, such as pyruvate, acetyl-CoA or a deoxyhexose cleavage product, rather than an acquired nutrient class.
 physiological_role	fermentative_end_product	gift	Forms a fermentation end product as a terminal step of fermentation. The role names what the chemistry produces, not that the product is excreted, which gifter has no evidence layer for. Broadened from short-chain fatty acids when the organic acid layer added lactate, ethanol and acetoin.
