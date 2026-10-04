@@ -1,0 +1,823 @@
+genome_id	phylum	class	order	family	genus	species	mag_length	completeness	contamination	estimated_genome_size	outside_gtdb_size_range	supported	expected	deviation	expected_quality_adjusted	prevalence_day_7	prevalence_day_21	prevalence_day_35	prevalence_change
+cmag_593	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		2397751	71.88	2.82	3335769.338	FALSE	12	49.946	-37.946	14.681	0.139	0.373	0.164	0.025
+cmag_270	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1647449	62.86	0.67	2620822.463	FALSE	7	42.947	-35.947	8.177	0.189	0.071	0.057	-0.131
+cmag_804	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1939592	69.63	3.02	2785569.438	FALSE	9	44.898	-35.898	11.603	0.115	0.198	0.164	0.05
+cmag_792	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-793		1814048	65.84	2.24	2755236.938	FALSE	9	44.559	-35.559	9.763	0.074	0.357	0.4	0.326
+cmag_648	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1867522	69.68	1.83	2680140.643	FALSE	9	43.681	-34.681	11.224	0.057	0.254	0.421	0.364
+cmag_072	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1838640	66.65	1.85	2758649.662	FALSE	10	44.597	-34.597	10.121	0.049	0.095	0.029	-0.021
+cmag_360	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		2072233	75.55	2.01	2742863.005	FALSE	10	44.418	-34.418	14.7	0.172	0.254	0.193	0.021
+cmag_447	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Pelethomonas	Pelethomonas sp900549475	2037894	53.76	0	3790725.446	FALSE	19	53.112	-34.112	7.328	0.279	0.444	0.414	0.136
+cmag_158	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1907459	74.99	1.12	2543617.816	FALSE	8	41.934	-33.934	13.367	0.082	0.325	0.343	0.261
+cmag_556	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1632446	65.65	1.05	2486589.49	FALSE	8	41.141	-33.141	8.744	0	0.087	0.279	0.279
+cmag_356	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273		1574477	69.16	1.23	2276571.718	FALSE	5	37.843	-32.843	9.199	0.074	0.635	0.707	0.633
+cmag_812	Firmicutes_A	Clostridia	TANB77	CAG-508	Merdicola		1804568	76.67	2.24	2353682.014	FALSE	7	39.126	-32.126	13.203	0.098	0.198	0.164	0.066
+cmag_016	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1967248	79.43	1.63	2476706.534	FALSE	9	40.999	-31.999	15.666	0.074	0.19	0.35	0.276
+cmag_396	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1912329	77.34	0.78	2472626.067	FALSE	9	40.94	-31.94	14.333	0	0.016	0.086	0.086
+cmag_070	Firmicutes	Bacilli	RF39	UBA660	Faecisoma		1161183	53.86	0	2155928.333	FALSE	4	35.653	-31.653	4.361	0.033	0.183	0.179	0.146
+cmag_323	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273		1668609	71.86	3.24	2322027.554	FALSE	7	38.61	-31.61	10.587	0.09	0.389	0.279	0.188
+cmag_234	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1477023	60.96	1.4	2422937.992	FALSE	9	40.206	-31.206	6.92	0.041	0.175	0.157	0.116
+cmag_334	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273		1554345	69.51	3.24	2236145.878	FALSE	6	37.134	-31.134	9.133	0.041	0.563	0.45	0.409
+cmag_033	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1896296	76.89	3.04	2466245.285	FALSE	10	40.847	-30.847	14.026	0.025	0.048	0.114	0.09
+cmag_399	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269	CAG-269 sp904384205	2012951	77.05	2.5	2612525.633	FALSE	12	42.842	-30.842	14.963	0.049	0.325	0.3	0.251
+cmag_005	Firmicutes_A	Clostridia	Christensenellales	UBA1242	UMGS2069	UMGS2069 sp900557695	1072225	52.12	0	2057223.715	FALSE	4	33.691	-29.691	3.774	0	0	0.014	0.014
+cmag_404	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1632989	69.32	3.71	2355725.62	FALSE	10	39.159	-29.159	9.65	0.016	0.048	0.071	0.055
+cmag_093	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1742409	73.98	1.34	2355243.309	FALSE	10	39.151	-29.151	11.787	0.352	0.333	0.121	-0.231
+cmag_423	Bacteroidota	Bacteroidia	Bacteroidales	Coprobacteraceae	Coprobacter	Coprobacter secundus	2374476	60.01	1.76	3956800.533	FALSE	25	54.12	-29.12	9.875	0.025	0	0.029	0.004
+cmag_183	Firmicutes_A	Clostridia	TANB77	CAG-508			1776604	77.9	2.26	2280621.309	FALSE	9	37.912	-28.912	13.404	0.082	0.183	0.043	-0.039
+cmag_547	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273		1785816	80.8	1.17	2210168.317	FALSE	8	36.666	-28.666	14.574	0.082	0.246	0.257	0.175
+cmag_376	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273		1506817	75.21	1.23	2003479.59	FALSE	4	32.558	-28.558	10.064	0.246	0.349	0.164	-0.082
+cmag_380	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-793		1697654	77.12	3.24	2201314.834	FALSE	8	36.503	-28.503	12.416	0.016	0.246	0.264	0.248
+cmag_275	Firmicutes	Bacilli	Erysipelotrichales	Erysipelotrichaceae	Holdemania	Holdemania sp904395815	1251081	52.78	0.19	2370369.458	FALSE	11	39.392	-28.392	4.693	0.008	0.024	0.093	0.085
+cmag_296	Firmicutes_A	Clostridia	TANB77	CAG-508	Merdicola	Merdicola sp001915925	1838838	79.69	1.79	2307489.02	FALSE	10	38.368	-28.368	14.652	0.27	0.437	0.271	0.001
+cmag_340	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273		1709442	78.01	0.78	2191311.37	FALSE	8	36.319	-28.319	12.819	0.115	0.198	0.25	0.135
+cmag_165	Firmicutes_A	Clostridia	TANB77	CAG-465	CAG-465		1597001	76.67	1.4	2082954.219	FALSE	6	34.218	-28.218	11.323	0.18	0.444	0.4	0.22
+cmag_134	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	CAJFPI01		2160056	69.83	0	3093306.602	FALSE	20	47.94	-27.94	12.753	0.008	0	0.071	0.063
+cmag_544	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269	CAG-269 sp904384245	1688918	78.04	2.3	2164169.657	FALSE	8	35.81	-27.81	12.632	0.148	0.294	0.286	0.138
+cmag_552	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-793		1293532	61.31	1.68	2109822.215	FALSE	7	34.756	-27.756	5.897	0	0.079	0.064	0.064
+cmag_119	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1751572	76.11	2.68	2301369.071	FALSE	11	38.265	-27.265	12.561	0.041	0.238	0.221	0.18
+cmag_205	Firmicutes_A	Clostridia	Oscillospirales	CAG-272	QALR01		1347797	59.41	0	2268636.593	FALSE	11	37.705	-26.705	5.972	0	0	0	0
+cmag_278	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Choladousia	Choladousia intestinavium	2392374	59.39	1.75	4028243.812	FALSE	28	54.533	-26.533	9.715	0.033	0.071	0.029	-0.004
+cmag_341	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia		2214018	60	0	3690030	FALSE	26	52.466	-26.466	9.458	0.049	0.008	0.021	-0.028
+cmag_191	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1413303	67.5	2.35	2093782.222	FALSE	8	34.436	-26.436	7.665	0.008	0.071	0.157	0.149
+cmag_414	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1527168	71.21	2.63	2144597.669	FALSE	9	35.436	-26.436	9.311	0.008	0.024	0.007	-0.001
+cmag_022	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273		1340437	72.17	1.7	1857332.687	FALSE	3	29.259	-26.259	7.851	0.066	0.5	0.636	0.57
+cmag_666	Firmicutes_A	Clostridia	TANB77	CAG-465			1340211	67.53	3.5	1984615.726	FALSE	6	32.15	-26.15	7.101	0	0.056	0.057	0.057
+cmag_455	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Sutterella	Sutterella sp905213905	2700461	96.27	0.16	2805090.89	FALSE	19	45.112	-26.112	33.9	0	0	0	0
+cmag_304	Firmicutes_A	Clostridia	Oscillospirales	Butyricicoccaceae	Agathobaculum	Agathobaculum merdavium	2359589	64.91	0	3635170.236	FALSE	26	52.102	-26.102	11.572	0.09	0.111	0.064	-0.026
+cmag_061	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1261859	63.75	2.12	1979386.667	FALSE	6	32.036	-26.036	5.986	0.008	0.008	0.036	0.028
+cmag_242	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-793		1510752	74.6	1.57	2025136.729	FALSE	7	33.02	-26.02	9.956	0.008	0.143	0.129	0.12
+cmag_589	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	An92	An92 sp019115265	2280796	63.39	1.72	3598037.545	FALSE	26	51.85	-25.85	10.772	0.016	0.04	0.043	0.026
+cmag_201	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Heritagella		1327788	50.86	0	2610672.434	FALSE	17	42.818	-25.818	4.793	0	0.008	0	0
+cmag_154	Firmicutes	Bacilli	Lactobacillales	Lactobacillaceae	Lactobacillus	Lactobacillus pullistercoris	1225183	56.72	0	2160054.654	FALSE	10	35.732	-25.732	4.968	0.107	0.04	0.029	-0.078
+cmag_213	Firmicutes_A	Clostridia	TANB77	CAG-465	CAG-465		1311711	71.74	4.2	1828423.474	FALSE	3	28.571	-25.571	7.511	0.041	0.135	0.121	0.08
+cmag_810	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-245		1450934	74.32	1.12	1952279.333	FALSE	6	31.438	-25.438	9.319	0.008	0.056	0.171	0.163
+cmag_768	Verrucomicrobiota	Lentisphaeria	Victivallales	Victivallaceae	Victivallis	Victivallis vadensis	3373299	70.23	3.04	4803216.574	FALSE	33	58.258	-25.258	16.791	0.008	0	0.014	0.006
+cmag_574	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1414678	69.51	0.67	2035215.077	FALSE	8	33.233	-25.233	8.038	0	0.024	0.021	0.021
+cmag_468	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1492899	73.51	1.17	2030878.792	FALSE	8	33.142	-25.142	9.537	0.016	0.175	0.5	0.484
+cmag_292	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269	CAG-269 sp904419495	2088091	86.4	0	2416771.991	FALSE	15	40.112	-25.112	20.314	0.205	0.19	0.107	-0.098
+cmag_524	Firmicutes_A	Clostridia	Christensenellales	CAG-74	Limiplasma	Limiplasma pullistercoris	3086640	88.51	0.27	3487334.764	FALSE	26	51.075	-25.075	29.359	0	0	0.007	0.007
+cmag_273	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	UBA3402		1930852	68.99	1.27	2798741.847	FALSE	20	45.043	-25.043	11.337	0	0	0.007	0.007
+cmag_210	Firmicutes_A	Clostridia	TANB77	CAG-508			1396776	70.85	3.02	1971455.187	FALSE	7	31.862	-24.862	8.132	0	0.008	0.079	0.079
+cmag_600	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273		1296869	65.83	2.56	1970027.343	FALSE	7	31.831	-24.831	6.516	0.131	0.381	0.25	0.119
+cmag_217	Firmicutes	Bacilli	RF39	UBA660	Onthousia		1009281	56.14	0	1797793.017	FALSE	3	27.831	-24.831	3.649	0.025	0.048	0.029	0.004
+cmag_387	Firmicutes_A	Clostridia	TANB77	CAG-508			1727870	78.01	2.24	2214933.983	FALSE	12	36.752	-24.752	12.994	0	0.016	0.064	0.064
+cmag_019	Firmicutes_A	Clostridia	Christensenellales	CAG-314	Fimimonas	Fimimonas gallinarum	1844094	93.95	0	1962846.195	FALSE	7	31.672	-24.672	21.362	0.877	0.579	0.564	-0.313
+cmag_226	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	UMGS1591	UMGS1591 sp905198295	1633888	59.17	0.81	2761345.276	FALSE	20	44.628	-24.628	7.315	0	0.008	0.007	0.007
+cmag_390	Firmicutes_A	Clostridia	TANB77	CAG-508	Scatovivens		1524031	70.89	4.04	2149853.294	FALSE	11	35.537	-24.537	9.213	0.008	0.008	0.1	0.092
+cmag_527	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273	CAG-273 sp017886645	1366261	69.84	0.7	1956272.91	FALSE	7	31.527	-24.527	7.69	0.057	0.198	0.379	0.321
+cmag_443	Firmicutes_A	Clostridia	TANB77	CAG-508	UMGS1864		1460140	76.55	0.35	1907433.05	FALSE	6	30.425	-24.425	9.905	0	0	0	0
+cmag_156	Firmicutes_A	Clostridia	Christensenellales	UBA1750	Spyradocola	Spyradocola merdavium	1858366	63.48	0.81	2927482.672	FALSE	22	46.385	-24.385	9.295	0.025	0.095	0	-0.025
+cmag_796	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1999907	86.69	0.17	2306963.894	FALSE	14	38.359	-24.359	19.543	0.066	0.111	0.071	0.006
+cmag_099	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Merdisoma	Merdisoma merdipullorum	2450407	72.46	1.32	3381737.51	FALSE	26	50.298	-24.298	15.181	0.041	0.087	0.05	0.009
+cmag_152	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Heritagella		1896979	67.59	0	2806597.13	FALSE	21	45.129	-24.129	10.703	0.025	0.04	0.014	-0.01
+cmag_689	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		1371321	79.46	0	1725800.403	FALSE	2	26.049	-24.049	9.546	0	0.024	0.086	0.086
+cmag_204	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Scatomorpha	Scatomorpha stercoravium	1546798	60.62	0.67	2551629.825	FALSE	18	42.043	-24.043	7.213	0	0	0	0
+cmag_664	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1868059	83.95	1.75	2225204.288	FALSE	13	36.938	-23.938	16.751	0.066	0.111	0.171	0.106
+cmag_595	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273		1304140	69.48	2.37	1877000.576	FALSE	6	29.721	-23.721	7.096	0.074	0.23	0.071	-0.002
+cmag_718	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Scatomorpha	Scatomorpha merdavium	1684826	66.74	0.34	2524462.092	FALSE	18	41.672	-23.672	9.317	0	0	0.121	0.121
+cmag_588	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1875100	82.79	2.35	2264887.064	FALSE	14	37.64	-23.64	16.309	0.008	0.032	0.036	0.028
+cmag_313	Firmicutes_A	Clostridia	TANB77	CAG-508	Scatovivens	Scatovivens faecipullorum	1812927	82.37	1.34	2200955.445	FALSE	13	36.497	-23.497	15.48	0.033	0.016	0.114	0.081
+cmag_618	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273	CAG-273 sp900752335	1552916	77.67	1.7	1999376.851	FALSE	9	32.47	-23.47	11.153	0.041	0.175	0.629	0.588
+cmag_377	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273		1543262	77.23	0.22	1998267.513	FALSE	9	32.446	-23.446	10.936	0.5	0.794	0.664	0.164
+cmag_555	Firmicutes	Bacilli	RF39	UBA660	Onthousia		1721405	94.94	3.37	1813150.411	FALSE	5	28.203	-23.203	19.809	0.025	0.063	0.043	0.018
+cmag_212	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Dysosmobacter		2019014	69.54	3.36	2903385.102	FALSE	23	46.143	-23.143	11.978	0.402	0.183	0.193	-0.209
+cmag_726	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273		1431311	75.75	2.24	1889519.472	FALSE	7	30.012	-23.012	9.429	0.033	0.119	0.214	0.181
+cmag_744	Firmicutes_A	Clostridia	TANB77	CAG-465	RGIG5622		1397987	69.44	0.7	2013230.127	FALSE	10	32.767	-22.767	7.888	0.008	0.19	0.314	0.306
+cmag_129	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia_A		2256077	74.23	0.9	3039306.21	FALSE	25	47.452	-22.452	15.141	0.057	0.008	0	-0.057
+cmag_608	Firmicutes_A	Clostridia	Oscillospirales	CAG-382	UMGS882	UMGS882 sp003343885	1743451	71.66	0	2432948.646	FALSE	18	40.356	-22.356	11.07	0	0	0.014	0.014
+cmag_054	Firmicutes_A	Clostridia	TANB77	CAG-508	UMGS1781		1394335	75.04	0.89	1858122.335	FALSE	7	29.278	-22.278	8.904	0.033	0.365	0.586	0.553
+cmag_233	Firmicutes_A	Clostridia	Lachnospirales	Anaerotignaceae	Metalachnospira		1192380	53.32	0.34	2236271.568	FALSE	15	37.136	-22.136	4.47	0.008	0.008	0.007	-0.001
+cmag_366	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273		1280196	67.59	0.39	1894061.252	FALSE	8	30.117	-22.117	6.624	0.025	0.032	0.357	0.333
+cmag_413	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1603129	79.06	0.67	2027737.162	FALSE	11	33.075	-22.075	12.077	0.057	0.159	0.093	0.035
+cmag_760	Firmicutes_A	Clostridia	TANB77	CAG-508			1557901	78.71	0.51	1979292.339	FALSE	10	32.034	-22.034	11.49	0.016	0.167	0.357	0.341
+cmag_121	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Avimicrobium	Avimicrobium caecorum	2057199	92.62	0	2221117.469	FALSE	15	36.864	-21.864	23.709	0.377	0.413	0.236	-0.141
+cmag_673	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	CAJFUH01		2053260	66.6	1.34	3082972.973	FALSE	26	47.848	-21.848	11.085	0.172	0	0.007	-0.165
+cmag_367	Firmicutes_A	Clostridia	TANB77	CAG-508	Scatovivens		1522655	75.77	2.68	2009575.03	FALSE	11	32.689	-21.689	10.355	0	0.016	0.164	0.164
+cmag_127	Firmicutes_A	Clostridia	Clostridiales	Clostridiaceae	Clostridium	Clostridium cuniculi	2387472	64.25	0.87	3715909.728	FALSE	31	52.635	-21.635	11.407	0.049	0.008	0	-0.049
+cmag_302	Firmicutes	Bacilli	RF39	UBA660	Onthousia		1247643	74.72	2.25	1669757.762	FALSE	3	24.627	-21.627	7.33	0.025	0.032	0.079	0.054
+cmag_735	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-793		929979	54.66	0	1701388.584	FALSE	4	25.433	-21.433	3.099	0.049	0.389	0.286	0.237
+cmag_516	Firmicutes_A	Clostridia	TANB77	CAG-508	WRFS01		1321764	74.32	0	1778476.857	FALSE	6	27.358	-21.358	8.031	0.008	0.103	0.421	0.413
+cmag_425	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		1219035	75.27	0.81	1619549.621	FALSE	2	23.335	-21.335	7.109	0.025	0.397	0.107	0.083
+cmag_434	Firmicutes_A	Clostridia	Christensenellales	CAG-74	Pullichristensenella	Pullichristensenella excrementipullorum	1580747	66.83	1.08	2365325.453	FALSE	18	39.312	-21.312	8.703	0.008	0.008	0.05	0.042
+cmag_272	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273		1249237	75.45	0	1655715.043	FALSE	3	24.267	-21.267	7.456	0.049	0.127	0.293	0.244
+cmag_687	Firmicutes_A	Clostridia	TANB77	CAG-508			1121861	64.69	0.67	1734210.852	FALSE	5	26.26	-21.26	5.027	0	0.032	0.371	0.371
+cmag_776	Firmicutes_A	Clostridia	TANB77	CAG-508	Merdicola		1191220	65.79	0	1810639.915	FALSE	7	28.143	-21.143	5.683	0.016	0.04	0.014	-0.002
+cmag_018	Firmicutes_A	Clostridia	TANB77	CAG-465	RGIG5622		1494211	75.39	1.63	1981975.063	FALSE	11	32.093	-21.093	9.983	0.016	0.159	0.371	0.355
+cmag_730	Firmicutes	Bacilli	RF39	UBA660	Ventrenecus		1604652	84.83	0	1891609.101	FALSE	9	30.06	-21.06	13.921	0.008	0.056	0.079	0.07
+cmag_770	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Acutalibacter	Acutalibacter stercorigallinarum	1623737	71.16	0.34	2281811.411	FALSE	17	37.933	-20.933	10.059	0.057	0.095	0.186	0.128
+cmag_757	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273		1412774	76.65	0.96	1843149.38	FALSE	8	28.923	-20.923	9.425	0	0.127	0.314	0.314
+cmag_529	Firmicutes_A	Clostridia	Christensenellales	CAG-74	Pullichristensenella		1564650	63.59	1.96	2460528.385	FALSE	20	40.764	-20.764	7.901	0	0	0.014	0.014
+cmag_044	Desulfobacterota_I	Desulfovibrionia	Desulfovibrionales	Desulfovibrionaceae	Desulfovibrio		2292797	72.07	0.65	3181347.301	FALSE	28	48.701	-20.701	14.312	0	0	0	0
+cmag_513	Firmicutes_A	Clostridia	TANB77	CAG-508	RGIG8482	RGIG8482 sp904381285	1630570	87.04	1.75	1873357.077	FALSE	9	29.636	-20.636	15.048	0.016	0.405	0.629	0.612
+cmag_109	Firmicutes	Bacilli	RF39	UBA660	RUG13868		1562192	93.82	1.12	1665094.863	FALSE	4	24.508	-20.508	16.513	0.008	0.159	0.157	0.149
+cmag_773	Firmicutes_A	Clostridia	Christensenellales	HGM11417	HGM11417		1530086	69.86	0.71	2190217.578	FALSE	16	36.299	-20.299	9.029	0	0	0	0
+cmag_459	Proteobacteria	Alphaproteobacteria	RF32	CAG-239	CAG-267	CAG-267 sp001917135	1811249	95.6	0	1894611.925	FALSE	10	30.13	-20.13	21.706	0	0.008	0.029	0.029
+cmag_375	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Gemmiger		1483614	58.13	0	2552234.646	FALSE	22	42.051	-20.051	6.465	0	0.008	0	0
+cmag_482	Proteobacteria	Alphaproteobacteria	RF32	CAG-977	CAG-977		2184402	80.72	0.29	2706147.175	FALSE	24	43.991	-19.991	17.99	0	0	0	0
+cmag_077	Bacteroidota	Bacteroidia	Bacteroidales	Marinifilaceae	Butyricimonas	Butyricimonas paravirosa	5172901	97.85	0	5286562.085	FALSE	40	59.944	-19.944	48.708	0	0	0.007	0.007
+cmag_365	Firmicutes_A	Clostridia	TANB77	CAG-465	RGIG5622		1518545	77.02	2.1	1971624.253	FALSE	12	31.866	-19.866	10.627	0.008	0.056	0.436	0.428
+cmag_230	Firmicutes	Bacilli	RF39	UBA660	Faecimonas		1499228	85.27	0	1758212.736	FALSE	7	26.858	-19.858	12.633	0.074	0.246	0.436	0.362
+cmag_144	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		1344703	82.02	0	1639481.834	FALSE	4	23.85	-19.85	9.754	0.041	0.198	0.129	0.088
+cmag_518	Firmicutes	Bacilli	RF39	UBA660	Ventrenecus	Ventrenecus avicola	1489466	84.83	1.69	1755824.59	FALSE	7	26.799	-19.799	12.372	0.049	0.159	0.314	0.265
+cmag_015	Firmicutes_A	Clostridia	Christensenellales	UBA1242	RGIG1681		1340353	80.31	1.61	1668973.976	FALSE	5	24.607	-19.607	9.347	0	0.008	0.093	0.093
+cmag_251	Desulfobacterota_I	Desulfovibrionia	Desulfovibrionales	Desulfovibrionaceae	Bilophila		2031779	85.32	0.68	2381363.104	FALSE	20	39.565	-19.565	19.144	0	0	0	0
+cmag_279	Firmicutes_A	Clostridia	Christensenellales	CAG-74	Limiplasma	Limiplasma merdipullorum	2585601	91.06	0.27	2839447.617	FALSE	26	45.482	-19.482	28.181	0	0.048	0.521	0.521
+cmag_028	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	Alistipes	Alistipes excrementavium	2921935	99.52	0.48	2936027.934	FALSE	27	46.469	-19.469	39.319	0.434	0.96	0.993	0.558
+cmag_103	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		761552	51.92	0	1466779.661	FALSE	0	19.358	-19.358	2.068	0.008	0.063	0.036	0.028
+cmag_163	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		953397	63.47	0.22	1502122.262	FALSE	1	20.277	-19.277	3.65	0	0.032	0.15	0.15
+cmag_132	Firmicutes_A	Clostridia	TANB77	CAG-465	RGIG5622		1219034	72.39	1.4	1683981.213	FALSE	6	24.99	-18.99	6.716	0	0.032	0.157	0.157
+cmag_489	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Sutterella	Sutterella merdavium	2406759	97.38	1.25	2471512.631	FALSE	22	40.924	-18.924	31.773	0	0	0	0
+cmag_745	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Anaerofilum	Anaerofilum excrementigallinarum	2524002	73.16	2.72	3449975.396	FALSE	32	50.805	-18.805	15.839	0.008	0.103	0.093	0.085
+cmag_348	Firmicutes	Bacilli	RF39	UBA660	Faecenecus	Faecenecus gallistercoris	1668997	97.33	0.24	1714781.671	FALSE	7	25.771	-18.771	19.997	0.189	0.738	0.836	0.647
+cmag_505	Proteobacteria	Alphaproteobacteria	RF32	CAG-239	Scatacola_A	Scatacola_A faecigallinarum	1915443	97.85	0	1957529.893	FALSE	13	31.555	-18.555	24.825	0.008	0	0	-0.008
+cmag_171	Firmicutes_A	Clostridia	TANB77	CAG-508			1370201	74.99	2.01	1827178.29	FALSE	10	28.541	-18.541	8.647	0.098	0.127	0.043	-0.056
+cmag_758	Firmicutes_A	Clostridia	Oscillospirales	Butyricicoccaceae	Butyricicoccus	Butyricicoccus sp017886875	1314891	59.71	0.96	2202128.622	FALSE	18	36.518	-18.518	5.823	0	0.095	0.093	0.093
+cmag_751	Actinobacteriota	Coriobacteriia	Coriobacteriales	Eggerthellaceae	Rubneribacter	Rubneribacter badeniensis	3041985	89.45	0	3400765.791	FALSE	32	50.441	-18.441	29.964	0.303	0.079	0.029	-0.275
+cmag_638	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Prevotella	Prevotella lascolaii	2443261	80.54	0.84	3033599.454	FALSE	29	47.4	-18.4	19.596	0	0	0	0
+cmag_393	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Bacteroides	Bacteroides eggerthii	2904563	60.69	0	4785900.478	FALSE	40	58.189	-18.189	11.222	0.008	0	0	-0.008
+cmag_358	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273		1220498	72.22	1.42	1689972.307	FALSE	7	25.143	-18.143	6.708	0.008	0.286	0.214	0.206
+cmag_294	Firmicutes_A	Clostridia	Christensenellales	UBA1242			1205750	80.8	0.83	1492264.851	FALSE	2	20.021	-18.021	7.786	0.008	0.056	0.286	0.278
+cmag_762	Firmicutes	Bacilli	RF39	UBA660	Onthocola_B		1597746	92.7	1.85	1723566.343	FALSE	8	25.993	-17.993	16.69	0.066	0.468	0.536	0.47
+cmag_584	Firmicutes	Bacilli	Erysipelotrichales	Coprobacillaceae	Fimiplasma	Fimiplasma intestinipullorum	2624615	97.34	2.27	2696337.58	FALSE	26	43.875	-17.875	34.187	0.033	0.016	0.029	-0.004
+cmag_610	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	Alistipes_A	Alistipes_A merdigallinarum	1660816	67.46	0.51	2461927.068	FALSE	23	40.785	-17.785	9.358	0	0.008	0.057	0.057
+cmag_199	Firmicutes	Bacilli	RF39	UBA660	Onthousia		1396184	81.46	2.25	1713950.405	FALSE	8	25.75	-17.75	10.285	0.033	0.032	0.071	0.039
+cmag_623	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Choladousia	Choladousia intestinigallinarum	2814146	88.65	1.9	3174445.572	FALSE	31	48.643	-17.643	27.835	0.041	0.016	0	-0.041
+cmag_602	Firmicutes_A	Clostridia	Oscillospirales	Butyricicoccaceae	Pseudobutyricicoccus	Pseudobutyricicoccus lothianensis	2362593	93.96	0	2514466.794	FALSE	24	41.534	-17.534	28.398	0.246	0.151	0.029	-0.217
+cmag_269	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Bariatricus	Bariatricus faecipullorum	2034292	69.18	2.7	2940578.202	FALSE	29	46.514	-17.514	11.92	0	0.024	0.036	0.036
+cmag_534	Firmicutes	Bacilli	RF39	UBA660	HGM10818		1481487	89.33	3.37	1658442.852	FALSE	7	24.337	-17.337	13.598	0.016	0.095	0.186	0.169
+cmag_319	Firmicutes	Bacilli	RF39	UBA660	HGM10818		1011560	62.67	1.33	1614105.633	FALSE	6	23.194	-17.194	4.036	0.008	0.198	0.164	0.156
+cmag_208	Firmicutes_A	Clostridia	Oscillospirales	Butyricicoccaceae	Ventrousia	Ventrousia excrementavium	2189674	90.61	1.57	2416591.988	FALSE	23	40.109	-17.109	24.011	0	0.016	0	0
+cmag_691	Firmicutes_A	Clostridia	Christensenellales	CAG-74	Onthenecus		2747035	91.63	0.37	2997964.64	FALSE	30	47.067	-17.067	29.966	0	0	0.043	0.043
+cmag_631	Firmicutes	Bacilli	RF39	UBA660	Onthousia		1542868	93.82	1.12	1644497.975	FALSE	7	23.979	-16.979	16.17	0.033	0.048	0.121	0.089
+cmag_206	Proteobacteria	Alphaproteobacteria	RF32	CAG-239			1888410	97.8	1.1	1930889.571	FALSE	14	30.958	-16.958	24.317	0	0	0	0
+cmag_261	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1180055	71.94	0.7	1640332.221	FALSE	7	23.872	-16.872	6.282	0.057	0.365	0.25	0.193
+cmag_805	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Fournierella	Fournierella massiliensis	2958823	92.52	0.93	3198036.1	FALSE	32	48.841	-16.841	32.338	0.197	0.143	0.093	-0.104
+cmag_063	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Lachnoclostridium_B	Lachnoclostridium_B phocaeense	2007191	63.09	0	3181472.5	FALSE	32	48.702	-16.702	9.761	0.025	0	0.021	-0.003
+cmag_512	Firmicutes	Bacilli	RF39	UBA660	Onthousia		1496360	93.82	2.25	1594926.455	FALSE	6	22.696	-16.696	15.344	0.033	0.111	0.171	0.139
+cmag_765	Firmicutes	Bacilli	RF39	UBA660			1513702	92.7	0	1632903.991	FALSE	7	23.68	-16.68	15.251	0.016	0.135	0.179	0.162
+cmag_580	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		995667	69.4	0.67	1434678.674	FALSE	2	18.528	-16.528	4.356	0.008	0.175	0.05	0.042
+cmag_203	Firmicutes_A	Clostridia	Christensenellales	CAG-74	Onthenecus	Onthenecus intestinigallinarum	1866472	80.64	0.87	2314573.413	FALSE	22	38.486	-16.486	15.299	0	0	0	0
+cmag_002	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Negativibacillus	Negativibacillus faecipullorum	2460385	97.99	0.67	2510853.148	FALSE	25	41.483	-16.483	32.966	0.959	0.984	0.943	-0.016
+cmag_357	Firmicutes	Bacilli	RF39	UBA660	Onthocola_B	Onthocola_B stercoravium	1542296	92.7	1.28	1663749.73	FALSE	8	24.473	-16.473	15.743	0.066	0.437	0.579	0.513
+cmag_147	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia	Blautia avicola	2856925	84.11	0.64	3396653.192	FALSE	34	50.41	-16.41	24.4	0.164	0.048	0.036	-0.128
+cmag_330	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia	Borkfalkia excrementipullorum	2512031	85.75	0.25	2929482.216	FALSE	30	46.404	-16.404	23.499	0.451	0.183	0.021	-0.429
+cmag_753	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-452		1145390	70.63	2.36	1621676.341	FALSE	7	23.39	-16.39	5.806	0	0.008	0.043	0.043
+cmag_176	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Dysosmobacter	Dysosmobacter avistercoris	2102792	74.3	2.01	2830137.281	FALSE	29	45.382	-16.382	14.336	0.934	0.929	0.85	-0.084
+cmag_347	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Dysosmobacter	Dysosmobacter excrementavium	1922889	76.97	2.68	2498231.779	FALSE	25	41.306	-16.306	14.264	0.393	0.286	0.221	-0.172
+cmag_478	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	UBA3818	UBA3818 sp904397845	1540865	73.89	2.01	2085349.844	FALSE	18	34.266	-16.266	10.064	0	0	0.007	0.007
+cmag_671	Firmicutes	Bacilli	RF39	UBA660	Onthousia		1235827	76.5	2.25	1615460.131	FALSE	7	23.229	-16.229	7.469	0.016	0.056	0.086	0.069
+cmag_299	Firmicutes	Bacilli	Erysipelotrichales	Erysipelotrichaceae	Massilicoli	Massilicoli timonensis	1942186	100	0	1942186	FALSE	15	31.213	-16.213	26.694	0.049	0.278	0.479	0.429
+cmag_289	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Faecousia	Faecousia excrementipullorum	2417500	99.78	0.67	2422830.226	FALSE	24	40.204	-16.204	34.06	1	1	0.986	-0.014
+cmag_609	Bacteroidota	Bacteroidia	Bacteroidales	UBA932	Coprenecus	Coprenecus pullicola	2492021	97.38	0	2559068.597	FALSE	26	42.143	-16.143	32.782	0.008	0.008	0.029	0.02
+cmag_579	Firmicutes	Bacilli	RF39	UBA660	Caccenecus		1283985	85.96	0	1493700.558	FALSE	4	20.058	-16.058	9.763	0.016	0.063	0.15	0.134
+cmag_378	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		1131316	79.91	0	1415737.705	FALSE	2	18.041	-16.041	6.771	0.033	0.389	0.314	0.281
+cmag_820	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-269		1045942	65.07	2.63	1607410.481	FALSE	7	23.02	-16.02	4.459	0.057	0.135	0.071	0.014
+cmag_435	Firmicutes	Bacilli	RF39	UBA660	Onthocola_B	Onthocola_B sp900546715	1373720	89.85	1.12	1528903.728	FALSE	5	20.976	-15.976	12.042	0.008	0.143	0.164	0.156
+cmag_151	Firmicutes_A	Clostridia	TANB77	CAG-508			1158747	75.89	0.6	1526877.059	FALSE	5	20.923	-15.923	6.551	0.041	0.341	0.243	0.202
+cmag_078	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Avoscillospira_A		2577134	89.57	2.01	2877228.983	FALSE	30	45.876	-15.876	26.891	0	0	0.014	0.014
+cmag_615	Desulfobacterota_I	Desulfovibrionia	Desulfovibrionales	Desulfovibrionaceae	Nitratidesulfovibrio	Nitratidesulfovibrio vulgaris	3267434	90.84	3.7	3596911.052	FALSE	36	51.843	-15.843	32.591	0	0	0.043	0.043
+cmag_200	Firmicutes_A	Clostridia	Christensenellales	CAG-138	UMGS946	UMGS946 sp900544965	2045138	96.77	0.81	2113400.847	FALSE	19	34.827	-15.827	26.27	0	0	0	0
+cmag_766	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	CAJFPI01	CAJFPI01 sp904419145	2077380	77.27	1.34	2688469.005	FALSE	28	43.781	-15.781	15.511	0.811	0.937	0.871	0.06
+cmag_549	Firmicutes	Bacilli	RF39	UBA660	Coprosoma		1408244	92.7	2.81	1519141.316	FALSE	5	20.721	-15.721	13.431	0.049	0.175	0.293	0.244
+cmag_424	Bacteroidota	Bacteroidia	Bacteroidales	Marinifilaceae	Butyricimonas	Butyricimonas faecavium	3863742	99.46	0	3884719.485	FALSE	38	53.691	-15.691	45.818	0	0	0	0
+cmag_815	Proteobacteria	Alphaproteobacteria	RF32	CAG-239	Scatocola	Scatocola faecipullorum	1733827	96.77	0	1791698.874	FALSE	12	27.682	-15.682	20.939	0.016	0	0.557	0.541
+cmag_407	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Scatomorpha	Scatomorpha pullicola	2312027	86.31	0.74	2678747.538	FALSE	28	43.664	-15.664	22.335	0.033	0.262	0.207	0.174
+cmag_030	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Faecousia	Faecousia gallistercoris	2338698	95.38	0.67	2451979.451	FALSE	25	40.639	-15.639	29.266	0.213	0.492	0.671	0.458
+cmag_287	Firmicutes	Bacilli	RF39	UBA660	Onthousia		1148233	72.27	0	1588810.018	FALSE	7	22.537	-15.537	6.013	0.016	0.079	0.107	0.091
+cmag_406	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Enterenecus	Enterenecus sp905210385	2155826	80.85	1.45	2666451.453	FALSE	28	43.515	-15.515	17.847	0.139	0.421	0.479	0.339
+cmag_159	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Enterocloster		2746489	62.46	0	4397196.606	FALSE	41	56.473	-15.473	11.625	0.033	0.183	0.071	0.039
+cmag_808	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		1264282	91.01	0	1389168.223	FALSE	2	17.362	-15.362	10.592	0.016	0.04	0.243	0.226
+cmag_736	Desulfobacterota_I	Desulfovibrionia	Desulfovibrionales	Desulfovibrionaceae	Bilophila	Bilophila faecipullorum	3459874	98.22	0.33	3522575.85	FALSE	36	51.326	-15.326	41.88	0	0.04	0.271	0.271
+cmag_401	Firmicutes	Bacilli	RF39	UBA660	Faecimonas	Faecimonas intestinavium	1574985	95.22	2.41	1654048.519	FALSE	9	24.224	-15.224	17.3	0.148	0.294	0.243	0.095
+cmag_239	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Pseudoscilispira	Pseudoscilispira faecavium	1252916	57.35	0	2184683.522	FALSE	21	36.196	-15.196	5.189	0.016	0.008	0.007	-0.009
+cmag_056	Firmicutes	Bacilli	RF39	UBA660	UMGS2016		1327815	88.76	4.49	1495961.018	FALSE	5	20.117	-15.117	11.045	0.016	0.214	0.093	0.076
+cmag_327	Firmicutes	Bacilli	Lactobacillales	Lactobacillaceae	Lactobacillus		1432499	73.92	0	1937904.491	FALSE	16	31.116	-15.116	9.057	0.795	0.595	0.586	-0.209
+cmag_695	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Limivicinus	Limivicinus faecipullorum	2561796	94.57	0	2708888.654	FALSE	29	44.023	-15.023	30.99	0	0	0.036	0.036
+cmag_654	Firmicutes	Bacilli	RF39	UBA660	Ventrenecus		1287801	82.13	3.37	1568003.166	FALSE	7	21.996	-14.996	9.045	0.008	0.214	0.307	0.299
+cmag_260	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Pelethomonas	Pelethomonas sp017887695	2502581	89.8	1.34	2786838.53	FALSE	30	44.912	-14.912	26.463	0.689	0.865	0.914	0.226
+cmag_575	Firmicutes	Bacilli	RF39	UBA660	Onthousia	Onthousia faecavium	971568	67.03	1.33	1449452.484	FALSE	4	18.909	-14.909	3.996	0.025	0.063	0.079	0.054
+cmag_026	Firmicutes	Bacilli	Lactobacillales	Enterococcaceae	Enterococcus_D	Enterococcus_D gallinarum	2543944	80.13	0.17	3174770.997	FALSE	34	48.646	-14.646	19.917	0.025	0.016	0.007	-0.017
+cmag_042	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Faecousia	Faecousia faecavium	2285192	74.94	0	3049362.156	FALSE	33	47.545	-14.545	15.634	0	0.016	0.043	0.043
+cmag_008	Bacteroidota	Bacteroidia	Bacteroidales	UBA932	Coprenecus	Coprenecus stercorigallinarum	2086823	90.36	0	2309454.405	FALSE	24	38.401	-14.401	22.663	0	0	0	0
+cmag_169	Firmicutes	Bacilli	RF39	UBA660	Ventrenecus		1395435	92.7	0	1505323.625	FALSE	6	20.361	-14.361	13.211	0.057	0.286	0.207	0.15
+cmag_216	Desulfobacterota_I	Desulfovibrionia	Desulfovibrionales	Desulfovibrionaceae	Mailhella	Mailhella merdigallinarum	3216777	98.82	0	3255188.221	FALSE	35	49.31	-14.31	40.926	0	0.135	0.371	0.371
+cmag_276	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccopulliclostridium		1225073	91.01	0	1346086.144	FALSE	2	16.277	-14.277	9.977	0.041	0.238	0.386	0.345
+cmag_069	Firmicutes	Bacilli	RF39	UBA660	Caccenecus	Caccenecus sp900758895	1292349	93.26	1.12	1385748.445	FALSE	3	17.275	-14.275	11.61	0.033	0.294	0.35	0.317
+cmag_194	Firmicutes_A	Clostridia	Oscillospirales	CAG-382	Woodwardibium	Woodwardibium gallinarum	2077066	90.23	0.81	2301968.303	FALSE	24	38.275	-14.275	22.466	0.016	0.23	0.343	0.326
+cmag_124	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		1096507	84	0	1305365.476	FALSE	1	15.271	-14.271	6.926	0	0.016	0.029	0.029
+cmag_257	Desulfobacterota_I	Desulfovibrionia	Desulfovibrionales	Desulfovibrionaceae	Bilophila	Bilophila sp900550745	3727507	97.78	1.18	3812136.429	FALSE	39	53.246	-14.246	42.932	0	0	0	0
+cmag_716	Firmicutes	Bacilli	RF39	UBA660	Caccenecus		1190121	86.08	3.37	1382575.511	FALSE	3	17.195	-14.195	8.479	0.016	0.302	0.436	0.419
+cmag_531	Proteobacteria	Alphaproteobacteria	RF32	UBA3637			1502965	97.8	1.1	1536774.029	FALSE	7	21.181	-14.181	16.959	0	0	0	0
+cmag_149	Firmicutes	Bacilli	RF39	UBA660	Onthousia	Onthousia faecigallinarum	1314054	92.7	1.69	1417533.981	FALSE	4	18.087	-14.087	11.827	0.016	0.111	0.221	0.205
+cmag_389	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273		1133234	75.88	4.76	1493455.456	FALSE	6	20.052	-14.052	6.28	0	0	0.014	0.014
+cmag_195	Firmicutes_A	Clostridia	Oscillospirales	BX7	Galloscillospira_B	Galloscillospira_B excrementipullorum	1157511	64.08	0.34	1806352.996	FALSE	14	28.039	-14.039	5.247	0	0	0.007	0.007
+cmag_458	Proteobacteria	Alphaproteobacteria	RF32	CAG-239	Scatacola_A		1686567	97.75	0	1725388.235	FALSE	12	26.038	-14.038	20.538	0	0	0.007	0.007
+cmag_634	Firmicutes	Bacilli	RF39	UBA660	Ventrenecus		1383498	88.2	1.69	1568591.837	FALSE	8	22.011	-14.011	11.755	0.066	0.183	0.357	0.292
+cmag_787	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens	Caccovivens sp904397185	1135220	82.58	1.12	1374691.209	FALSE	3	16.995	-13.995	7.195	0.033	0.413	0.243	0.21
+cmag_474	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Onthoplasma		1257298	91.57	1.12	1373045.757	FALSE	3	16.954	-13.954	10.613	0.016	0.063	0.257	0.241
+cmag_500	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Gemmiger	Gemmiger stercoravium	1930957	75.89	0	2544415.602	FALSE	28	41.945	-13.945	13.888	0.164	0.254	0.207	0.043
+cmag_763	Firmicutes	Bacilli	RFN20	CAG-631	Caccosoma	Caccosoma faecigallinarum	1586519	98.88	0	1604489.28	FALSE	9	22.944	-13.944	19.089	0.049	0.476	0.571	0.522
+cmag_483	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Scatomorpha	Scatomorpha sp900759385	2677779	92.95	1.03	2880881.119	FALSE	32	45.914	-13.914	30.593	0.066	0.238	0.186	0.12
+cmag_698	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Scatosoma	Scatosoma sp904419075	3369006	97.58	0	3452557.901	FALSE	37	50.823	-13.823	40.531	0.492	0.087	0	-0.492
+cmag_052	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		1066110	80.34	0	1326997.76	FALSE	2	15.803	-13.803	6.085	0	0.024	0.021	0.021
+cmag_178	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Gemmiger	Gemmiger faecavium	2409017	83.95	0.68	2869585.468	FALSE	32	45.797	-13.797	21.533	0.066	0.032	0	-0.066
+cmag_454	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	Tidjanibacter	Tidjanibacter inops_A	2151221	99.52	0	2161596.664	FALSE	22	35.761	-13.761	29.956	0.008	0	0.093	0.085
+cmag_280	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		764697	59.56	0.86	1283910.343	FALSE	1	14.751	-13.751	2.242	0	0.008	0	0
+cmag_811	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		716988	55.89	0.81	1282855.609	FALSE	1	14.726	-13.726	1.895	0	0.008	0.029	0.029
+cmag_727	Firmicutes_A	Clostridia	Oscillospirales	Butyricicoccaceae	SIG471	SIG471 sp905199135	2106110	95.3	0	2209979.014	FALSE	23	36.662	-13.662	26.166	0	0	0.014	0.014
+cmag_769	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Scatomorpha	Scatomorpha intestinigallinarum	2567334	92.95	0	2762059.172	FALSE	31	44.636	-13.636	29.624	0.008	0.095	0.679	0.67
+cmag_040	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Heritagella		1526972	64.09	1.06	2382543.298	FALSE	26	39.584	-13.584	7.787	0	0	0.021	0.021
+cmag_139	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae	Scatenecus	Scatenecus sp900554095	1931803	85.47	0	2260211.77	FALSE	24	37.559	-13.559	18.164	0.025	0.024	0.371	0.347
+cmag_821	Firmicutes	Bacilli	RF39	UBA660	Pelethosoma	Pelethosoma merdigallinarum	1307604	93.82	0	1393736.943	FALSE	4	17.478	-13.478	12.019	0.131	0.183	0.207	0.076
+cmag_190	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Scatomorpha	Scatomorpha gallistercoris	2480385	90.34	1.34	2745611.025	FALSE	31	44.449	-13.449	26.695	0.008	0.008	0.014	0.006
+cmag_106	Firmicutes	Bacilli	RF39	UBA660	Onthousia	Onthousia faecipullorum	1283572	89.7	3.53	1430960.981	FALSE	5	18.432	-13.432	10.587	0.033	0.063	0.143	0.11
+cmag_318	Firmicutes	Bacilli	RF39	UBA660	Onthousia		1214690	82.67	0	1469323.818	FALSE	6	19.424	-13.424	8.205	0.049	0.095	0.179	0.129
+cmag_485	Firmicutes	Bacilli	RF39	UBA660	Onthousia		720853	53.35	0	1351177.132	FALSE	3	16.404	-13.404	1.874	0.049	0.04	0.1	0.051
+cmag_645	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		880942	69.56	0	1266449.109	FALSE	1	14.333	-13.333	3.429	0	0.063	0.043	0.043
+cmag_741	Firmicutes	Bacilli	RF39	UBA660	HGM10766		969263	71.91	0	1347883.465	FALSE	3	16.321	-13.321	4.311	0	0.016	0.021	0.021
+cmag_818	Firmicutes	Bacilli	RF39	UBA660	Ventrenecus		1138415	87.08	0	1307320.854	FALSE	2	15.319	-13.319	7.952	0	0.127	0.107	0.107
+cmag_137	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Merdiplasma	Merdiplasma excrementigallinarum	2412031	83.01	0.84	2905711.36	FALSE	33	46.167	-13.167	20.944	0.123	0.079	0.036	-0.087
+cmag_417	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Aphodousia	Aphodousia sp900544345	1918010	92.22	2.03	2079819.996	FALSE	21	34.154	-13.154	21.537	0	0	0.007	0.007
+cmag_624	Firmicutes	Bacilli	Lactobacillales	Lactobacillaceae	Lactobacillus	Lactobacillus johnsonii	1796329	99.22	0	1810450.514	FALSE	15	28.138	-13.138	23.444	0.885	0.77	0.543	-0.342
+cmag_141	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens	Caccovivens sp900557645	1017832	80.9	0	1258135.97	FALSE	1	14.136	-13.136	5.62	0.123	0.254	0.064	-0.059
+cmag_087	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Flavonifractor	Flavonifractor plautii	2851536	88.47	1.34	3223167.175	FALSE	36	49.049	-13.049	27.922	0.574	0.032	0.014	-0.559
+cmag_734	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Avoscillospira	Avoscillospira stercorigallinarum	2187361	93.26	1.34	2345443.92	FALSE	26	38.993	-12.993	25.813	0.016	0.032	0.314	0.298
+cmag_685	Verrucomicrobiota	Lentisphaeria	Victivallales	Victivallaceae	Victivallis		4130733	91.89	2.07	4495301.992	FALSE	44	56.936	-12.936	37.684	0	0	0	0
+cmag_591	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Fournierella	Fournierella merdavium	2115243	78.42	0.17	2697325.937	FALSE	31	43.887	-12.887	16.318	0	0.095	0.236	0.236
+cmag_353	Firmicutes	Bacilli	RF39	UBA660	Coprosoma	Coprosoma intestinipullorum	1342457	92.7	1.12	1448173.679	FALSE	6	18.876	-12.876	12.307	0.123	0.397	0.786	0.663
+cmag_761	Firmicutes	Bacilli	RF39	UBA660	Onthocola_B	Onthocola_B stercorigallinarum	1341653	92.7	1.12	1447306.365	FALSE	6	18.854	-12.854	12.293	0.008	0.056	0.264	0.256
+cmag_113	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae			1798163	78.98	0.85	2276732.084	FALSE	25	37.845	-12.845	13.999	0	0	0	0
+cmag_657	Firmicutes	Bacilli	RF39	UBA660	Onthousia		1025235	77.26	2.97	1326993.269	FALSE	3	15.802	-12.802	5.308	0.008	0.135	0.107	0.099
+cmag_614	Firmicutes_A	Clostridia	Oscillospirales	UBA644	UBA644	UBA644 sp014872655	1438032	71.38	0.67	2014614.738	FALSE	20	32.797	-12.797	8.594	0	0	0.014	0.014
+cmag_688	Firmicutes_A	Clostridia	Oscillospirales	CAG-272	UMGS1865		2861865	96.4	0.69	2968739.627	FALSE	34	46.788	-12.788	35.468	0	0.024	0.114	0.114
+cmag_774	Firmicutes_A	Clostridia	Oscillospirales	CAG-272	Flemingibacterium	Flemingibacterium merdigallinarum	3586075	95.95	2.01	3737441.376	FALSE	40	52.774	-12.774	39.93	0	0.111	0.371	0.371
+cmag_681	Firmicutes_A	Clostridia	Oscillospirales	CAG-272	SIG673		1689043	76.42	2.03	2210210.678	FALSE	24	36.666	-12.666	12.113	0	0	0.007	0.007
+cmag_779	Firmicutes	Bacilli	RF39	UBA660	Onthocola_B		1137638	77.24	0	1472861.212	FALSE	7	19.516	-12.516	6.494	0.033	0.214	0.479	0.446
+cmag_495	Firmicutes	Bacilli	RF39	UBA660	Onthousia		1413993	93.58	0	1510999.145	FALSE	8	20.509	-12.509	13.804	0.008	0.056	0.121	0.113
+cmag_441	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	HGM13222		2584013	90.98	0.02	2840198.945	FALSE	33	45.489	-12.489	28.101	0	0.048	0.014	0.014
+cmag_740	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Angelakisella	Angelakisella massiliensis	2793843	95.31	0	2931322.002	FALSE	34	46.423	-12.423	33.797	0.016	0.198	0.179	0.162
+cmag_817	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Faeciplasma	Faeciplasma pullistercoris	1192861	68.58	3.13	1739371.537	FALSE	14	26.389	-12.389	6.006	0	0.016	0.043	0.043
+cmag_690	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Aphodousia	Aphodousia faecipullorum	1692961	86.85	0	1949293.034	FALSE	19	31.371	-12.371	15.837	0.008	0	0.007	-0.001
+cmag_316	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		930665	71.14	0	1308216.193	FALSE	3	15.341	-12.341	3.926	0	0.143	0.164	0.164
+cmag_290	Firmicutes	Bacilli	RF39	UBA660			1394243	92.7	2.25	1504037.756	FALSE	8	20.327	-12.327	13.191	0	0.19	0.386	0.386
+cmag_075	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Avoscillospira	Avoscillospira avicola	2639991	93.62	1.36	2819900.662	FALSE	33	45.273	-12.273	30.869	0.008	0.063	0.25	0.242
+cmag_771	Firmicutes_A	Clostridia	Christensenellales	CAG-74	Alectryocaccomicrobium	Alectryocaccomicrobium faecavium	2801486	89.65	0.81	3124914.668	FALSE	36	48.218	-12.218	28.612	0.008	0.079	0.264	0.256
+cmag_237	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Faecivivens	Faecivivens stercoravium	2597117	95.3	0	2725201.469	FALSE	32	44.214	-12.214	31.994	0.254	0.317	0.221	-0.033
+cmag_164	Firmicutes	Bacilli	RF39	UBA660	Onthocola_B		1337731	91.57	2.25	1460883.477	FALSE	7	19.205	-12.205	11.92	0.025	0.135	0.221	0.197
+cmag_782	Firmicutes	Bacilli	Lactobacillales	Lactobacillaceae	Lactobacillus	Lactobacillus crispatus	1935444	99.68	0	1941657.303	FALSE	19	31.201	-12.201	26.358	0.926	0.714	0.7	-0.226
+cmag_421	Desulfobacterota_I	Desulfovibrionia	Desulfovibrionales	Desulfovibrionaceae	Mailhella	Mailhella excrementigallinarum	3530376	96.73	0.59	3649721.906	FALSE	40	52.199	-12.199	40.531	0	0	0	0
+cmag_490	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Pseudoflavonifractor	Pseudoflavonifractor sp904419835	2676813	92.05	2.01	2907998.914	FALSE	34	46.19	-12.19	29.784	0.705	0.611	0.229	-0.476
+cmag_196	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	RUG14156	Galligastranaerophilus		1304820	67.24	0	1940541.344	FALSE	19	31.176	-12.176	6.775	0	0	0.014	0.014
+cmag_506	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae	Scatousia		2148972	88.89	0	2417563.28	FALSE	28	40.124	-12.124	22.446	0.008	0.008	0.007	-0.001
+cmag_613	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		1027737	81.78	0	1256709.464	FALSE	2	14.102	-12.102	5.831	0.041	0.167	0.129	0.088
+cmag_620	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		768539	59.24	0	1297331.195	FALSE	3	15.076	-12.076	2.257	0	0	0.121	0.121
+cmag_263	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		1097302	90.85	0	1207817.281	FALSE	1	12.97	-11.97	8.052	0	0.071	0.171	0.171
+cmag_157	Firmicutes	Bacilli	RF39	UBA660	Caccenecus		1098013	80.02	0	1372173.207	FALSE	5	16.932	-11.932	6.404	0.016	0.214	0.35	0.334
+cmag_254	Verrucomicrobiota	Lentisphaeria	Victivallales	Victivallaceae	Victivallis	Victivallis lenta	4255732	90.2	3.38	4718106.43	FALSE	46	57.913	-11.913	36.17	0	0	0.021	0.021
+cmag_619	Firmicutes_A	Clostridia	TANB77	CAG-508	CAG-273		975824	65.61	0.7	1487309.861	FALSE	8	19.892	-11.892	3.942	0	0	0.014	0.014
+cmag_398	Firmicutes	Bacilli	RF39	UBA660	Ventrenecus		1204580	87.91	1.85	1370242.293	FALSE	5	16.883	-11.883	9.025	0.016	0.087	0.086	0.069
+cmag_663	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Faecousia	Faecousia excrementigallinarum	2196914	96.42	0	2278483.717	FALSE	26	37.875	-11.875	28.255	0.074	0.325	0.243	0.169
+cmag_646	Firmicutes	Bacilli	RF39	UBA660	Coprosoma		1284626	93.82	1.69	1369245.363	FALSE	5	16.858	-11.858	11.626	0	0	0	0
+cmag_662	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		1054148	87.72	0	1201719.106	FALSE	1	12.833	-11.833	6.951	0.025	0.095	0.179	0.154
+cmag_781	Firmicutes	Bacilli	RF39	UBA660	Aphodocola	Aphodocola excrementigallinarum	1218424	91.85	2.36	1326536.745	FALSE	4	15.791	-11.791	10.061	0.008	0.056	0.007	-0.001
+cmag_305	Firmicutes_A	Clostridia	Christensenellales	UBA1242	UBA6345		1130911	85.39	0	1324406.839	FALSE	4	15.739	-11.739	7.572	0.025	0.214	0.35	0.325
+cmag_143	Firmicutes_A	Clostridia	Peptostreptococcales	Anaerovoracaceae	Fimisoma	Fimisoma avicola	2065821	95.66	0.47	2159545.264	FALSE	24	35.722	-11.722	25.829	0.025	0.135	0.129	0.104
+cmag_249	Firmicutes	Bacilli	RF39	UBA660	Onthousia		1173751	88.76	0	1322387.337	FALSE	4	15.689	-11.689	8.747	0.016	0.032	0.093	0.076
+cmag_617	Firmicutes_A	Clostridia	TANB77	CAG-508			1500938	96.49	4.69	1555537.361	FALSE	10	21.671	-11.671	16.412	0.082	0.167	0.093	0.011
+cmag_073	Verrucomicrobiota	Lentisphaeria	Victivallales	UBA1829	UBA1829	UBA1829 sp002338895	4066237	91.86	2.43	4426558.894	FALSE	45	56.614	-11.614	37.406	0.008	0	0	-0.008
+cmag_572	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Intestinimonas	Intestinimonas merdavium	2113016	79.09	0.8	2671660.134	FALSE	32	43.578	-11.578	16.631	0.049	0.373	0.429	0.379
+cmag_661	Firmicutes	Bacilli	RF39	UBA660	Caccenecus	Caccenecus avistercoris	1205261	88.76	2.25	1357887.562	FALSE	5	16.572	-11.572	9.203	0.115	0.595	0.75	0.635
+cmag_385	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia	Borkfalkia faecigallinarum	942783	52.83	0	1784559.909	FALSE	16	27.507	-11.507	3.104	0	0	0.021	0.021
+cmag_539	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	RUG14156	RUG14156		1979491	90.03	0.85	2198701.544	FALSE	25	36.455	-11.455	21.141	0.016	0.056	0.386	0.369
+cmag_246	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia		1810560	74.39	0.02	2433875.521	FALSE	29	40.37	-11.37	12.443	0	0	0	0
+cmag_303	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Onthoplasma		1120665	91.46	0	1225306.145	FALSE	2	13.37	-11.37	8.499	0	0.008	0.121	0.121
+cmag_111	Firmicutes_A	Clostridia	Christensenellales	CAG-138	Pelethousia	Pelethousia gallinarum	2208250	90.86	0	2430387.409	FALSE	29	40.318	-11.318	24.387	0	0	0.179	0.179
+cmag_472	Firmicutes	Bacilli	Erysipelotrichales	Coprobacillaceae	Erysipelatoclostridium	Erysipelatoclostridium ramosum	3435000	93.68	1.89	3666737.831	FALSE	41	52.312	-11.312	36.502	0.033	0.008	0	-0.033
+cmag_635	Bacteroidota	Bacteroidia	Bacteroidales	UBA932	Merdivivens	Merdivivens pullicola	1945855	97.86	0	1988406.908	FALSE	21	32.233	-11.233	25.36	0	0	0	0
+cmag_475	Firmicutes	Bacilli	RF39	UBA660	Scybalousia	Scybalousia sp900543675	1337055	91.57	0	1460145.244	FALSE	8	19.186	-11.186	11.909	0.057	0.333	0.407	0.35
+cmag_090	Firmicutes	Bacilli	RF39	UBA660	Faecisoma		1234602	89.33	2.25	1382068.734	FALSE	6	17.182	-11.182	9.757	0.025	0.103	0.157	0.133
+cmag_453	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Flavonifractor	Flavonifractor avistercoris	2673266	88.84	0.17	3009079.244	FALSE	36	47.172	-11.172	27.026	0.934	0.992	0.957	0.023
+cmag_088	Firmicutes_A	Clostridia	Peptostreptococcales	Peptostreptococcaceae	JAGHEK01	JAGHEK01 sp017889265	1347516	85.63	0.7	1573649.422	FALSE	11	22.143	-11.143	10.591	0.041	0.127	0.029	-0.012
+cmag_197	Deferribacterota	Deferribacteres	Deferribacterales	Mucispirillaceae	Mucispirillum		2521794	95.69	3.45	2635378.827	FALSE	32	43.131	-11.131	31.583	0	0	0	0
+cmag_225	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Duodenibacillus		2013858	85.58	0.75	2353187.661	FALSE	28	39.118	-11.118	19.099	0	0	0	0
+cmag_487	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Aphodousia	Aphodousia sp002329575	1830967	96.77	1.25	1892081.224	FALSE	19	30.071	-11.071	22.695	0	0	0	0
+cmag_150	Firmicutes	Bacilli	RF39	UBA660	Onthousia		1231256	92.13	3.37	1336433.301	FALSE	5	16.036	-11.036	10.328	0	0.063	0.057	0.057
+cmag_384	Firmicutes	Bacilli	RF39	UBA660	Ventrenecus	Ventrenecus stercoripullorum	1199736	89.78	0.56	1336306.527	FALSE	5	16.033	-11.033	9.329	0.057	0.254	0.357	0.3
+cmag_756	Firmicutes	Bacilli	RF39	UBA660	Faecimonas	Faecimonas sp017886705	1281384	90.67	1.33	1413239.219	FALSE	7	17.977	-10.977	10.782	0.139	0.325	0.45	0.311
+cmag_328	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Scatomorpha	Scatomorpha stercorigallinarum	1840231	82.66	0.89	2226265.425	FALSE	26	36.957	-10.957	15.89	0.016	0.048	0.143	0.126
+cmag_285	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Scatomorpha	Scatomorpha intestinavium	2332756	94.3	0.67	2473760.339	FALSE	30	40.956	-10.956	28.331	0.033	0.341	0.3	0.267
+cmag_032	Firmicutes_A	Clostridia	Clostridiales	Clostridiaceae	Dwaynesavagella	Dwaynesavagella gallinarum	1290818	73.28	0	1761487.445	FALSE	16	26.939	-10.939	7.551	0.098	0.095	0	-0.098
+cmag_412	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	UBA737		2795255	96.98	0.67	2882300.474	FALSE	35	45.929	-10.929	35.479	0.016	0.135	0.443	0.426
+cmag_405	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Negativibacillus	Negativibacillus massiliensis	2490705	97.99	2.01	2541795.081	FALSE	31	41.91	-10.91	33.326	0	0.063	0.057	0.057
+cmag_497	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens	Caccovivens sp905207515	1049414	90.62	1.12	1158037.961	FALSE	1	11.869	-10.869	7.357	0	0.04	0.2	0.2
+cmag_659	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccopulliclostridium	Caccopulliclostridium gallistercoris	1148209	92.13	0	1246292.196	FALSE	3	13.857	-10.857	9.039	0.025	0.294	0.421	0.397
+cmag_284	Firmicutes	Bacilli	RF39	UBA660	UMGS1572	UMGS1572 sp900553045	1107451	92.13	0.24	1202052.534	FALSE	2	12.84	-10.84	8.437	0.016	0.238	0.207	0.191
+cmag_317	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		997233	82.98	0	1201775.127	FALSE	2	12.834	-10.834	5.637	0.033	0.397	0.286	0.253
+cmag_243	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	Alistipes	Alistipes excrementipullorum	2249423	99.01	0.48	2271914.958	FALSE	27	37.762	-10.762	31.05	0	0	0.007	0.007
+cmag_051	Firmicutes	Bacilli	Lactobacillales	Lactobacillaceae	Limosilactobacillus		1334376	71.11	0.73	1876495.57	FALSE	19	29.709	-10.709	7.619	0.008	0	0.007	-0.001
+cmag_561	Firmicutes	Bacilli	RF39	UBA660	Onthocola_B		1279722	91.57	0	1397534.127	FALSE	7	17.575	-10.575	10.973	0	0.056	0.157	0.157
+cmag_532	Patescibacteria	Saccharimonadia	Saccharimonadales	Nanosyncoccaceae	Nanosyncoccus		735042	57.76	0	1272579.64	FALSE	4	14.479	-10.479	2.03	0.877	0.19	0.064	-0.813
+cmag_351	Firmicutes_A	Clostridia	Christensenellales	CAG-74	Egerieenecus	Egerieenecus merdigallinarum	2927887	99.85	0.81	2932285.428	FALSE	36	46.432	-10.432	39.739	0.008	0.04	0.157	0.149
+cmag_807	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens	Caccovivens faecavium	842657	74.08	1.69	1137495.95	FALSE	1	11.431	-10.431	3.404	0.033	0.143	0.114	0.081
+cmag_649	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens	Caccovivens sp905195085	1108789	90.43	0	1226129.603	FALSE	3	13.389	-10.389	8.136	0.041	0.286	0.15	0.109
+cmag_014	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Onthoplasma		936316	82.47	0	1135341.336	FALSE	1	11.386	-10.386	4.94	0	0.008	0.071	0.071
+cmag_436	Firmicutes_A	Clostridia	Christensenellales	CAG-552	UMGS1795	UMGS1795 sp900553555	1787766	89.6	0	1995274.554	FALSE	22	32.382	-10.382	18.331	0.082	0.714	0.943	0.861
+cmag_633	Firmicutes	Bacilli	RF39	UBA660	Faecisoma		1154616	88.2	1.8	1309088.435	FALSE	5	15.362	-10.362	8.372	0	0.032	0.107	0.107
+cmag_362	Firmicutes	Bacilli	RF39	UBA660	Faecenecus		1049915	82.89	0	1266636.506	FALSE	4	14.338	-10.338	6.219	0	0.063	0.129	0.129
+cmag_692	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Onthoplasma		1091112	89.21	2.25	1223082.614	FALSE	3	13.319	-10.319	7.676	0	0.032	0.064	0.064
+cmag_651	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	Alistipes	Alistipes excrementigallinarum	2486375	99.52	0.48	2498367.162	FALSE	31	41.308	-10.308	34.701	0.016	0.008	0.179	0.162
+cmag_446	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Faecivivens		2575524	94.3	1.01	2731202.545	FALSE	34	44.284	-10.284	30.883	0	0	0.043	0.043
+cmag_675	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Fusicatenibacter	Fusicatenibacter sp017887445	3692788	92.93	1.58	3973730.765	FALSE	44	54.219	-10.219	37.011	0.148	0.04	0	-0.148
+cmag_048	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Acutalibacter	Acutalibacter sp904374805	2871243	98.66	0	2910240.219	FALSE	36	46.212	-10.212	37.922	0.77	0.73	0.529	-0.242
+cmag_464	Firmicutes	Bacilli	Lactobacillales	Lactobacillaceae	Lactobacillus	Lactobacillus gallinarum	1965030	98.94	0	1986082.474	FALSE	22	32.182	-10.182	26.401	0.418	0.373	0.536	0.118
+cmag_363	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae	SIG32		1609023	82.91	0	1940686.286	FALSE	21	31.179	-10.179	13.342	0	0	0.107	0.107
+cmag_189	Firmicutes	Bacilli	RF39	UBA660			1124766	89.33	1.69	1259113.4	FALSE	4	14.159	-10.159	8.16	0	0.016	0.136	0.136
+cmag_819	Firmicutes	Bacilli	RF39	UBA660	Aphodocola		1206074	92.98	1.12	1297132.717	FALSE	5	15.071	-10.071	10.122	0.033	0.032	0.007	-0.026
+cmag_643	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae			2053929	89.74	1.71	2288755.293	FALSE	28	38.051	-10.051	21.892	0	0	0	0
+cmag_652	Firmicutes	Bacilli	RF39	UBA660	HGM10818		1243086	90.45	0.16	1374334.992	FALSE	7	16.986	-9.986	10.131	0.016	0.127	0.3	0.284
+cmag_451	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia	Borkfalkia excrementigallinarum	2928401	94.76	0.03	3090334.529	FALSE	38	47.914	-9.914	34.334	0.369	0.317	0.293	-0.076
+cmag_469	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Eisenbergiella	Eisenbergiella merdavium	4607492	97.7	0.77	4715959.058	FALSE	48	57.904	-9.904	46.78	0.533	0.206	0.2	-0.333
+cmag_708	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Gemmiger	Gemmiger stercorigallinarum	2740779	95.24	0.34	2877760.395	FALSE	36	45.882	-9.882	33.27	0.336	0.579	0.371	0.035
+cmag_582	Firmicutes	Bacilli	RF39	UBA660	Caccenecus		679398	54.55	0	1245459.212	FALSE	4	13.838	-9.838	1.68	0	0	0.064	0.064
+cmag_712	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Fournierella	Fournierella sp002161595	2821368	98.33	0.23	2869285.061	FALSE	36	45.794	-9.794	37.113	0.246	0.198	0.136	-0.11
+cmag_331	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae	Scatenecus		1987863	89.74	0.85	2215135.948	FALSE	27	36.756	-9.756	21.083	0.008	0	0.014	0.006
+cmag_642	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia		1253362	66.73	2.02	1878258.654	FALSE	20	29.75	-9.75	6.292	0	0	0	0
+cmag_215	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Onthoplasma		1062611	88.76	1.12	1197173.276	FALSE	3	12.73	-9.73	7.223	0	0.048	0.129	0.129
+cmag_660	Firmicutes_A	Clostridia	TANB77	CAG-508	Merdicola	Merdicola faecigallinarum	1153021	80	0.81	1441276.25	FALSE	9	18.698	-9.698	7.036	0.18	0.333	0.086	-0.095
+cmag_521	Firmicutes	Bacilli	RF39	UBA660	Onthocola_B		1273396	93.82	1.12	1357275.634	FALSE	7	16.557	-9.557	11.435	0	0	0.1	0.1
+cmag_344	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae			2976721	94.09	0.21	3163695.398	FALSE	39	48.552	-9.552	34.018	0.041	0.167	0.043	0.002
+cmag_086	Firmicutes_A	Clostridia	Lachnospirales	CAG-274	JAHALF01		2293678	93.77	0	2446068.039	FALSE	31	40.552	-9.552	27.466	0.041	0.008	0.007	-0.034
+cmag_370	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Merdivicinus	Merdivicinus intestinavium	2537235	86.39	1.34	2936954.509	FALSE	37	46.478	-9.478	24.144	0.172	0.198	0.021	-0.151
+cmag_636	Bacteroidota	Bacteroidia	Bacteroidales	UBA932	Cryptobacteroides	Cryptobacteroides faecavium	2617319	98.33	0.48	2661770.568	FALSE	34	43.458	-9.458	35.072	0	0	0.007	0.007
+cmag_371	Firmicutes	Bacilli	Erysipelotrichales	Erysipelotrichaceae	Merdibacter	Merdibacter merdigallinarum	1896656	97.17	0	1951894.618	FALSE	22	31.429	-9.429	24.079	0.27	0.167	0.207	-0.063
+cmag_339	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia	Borkfalkia sp904373255	2599179	94.76	0.08	2742907.345	FALSE	35	44.418	-9.418	31.522	0.844	0.603	0.421	-0.423
+cmag_400	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter excrementavium	1950364	84.47	1.75	2308942.82	FALSE	29	38.392	-9.392	17.871	0	0.008	0.007	0.007
+cmag_428	Firmicutes	Bacilli	RF39	UBA660	Coprosoma	Coprosoma sp000432855	1140036	89.89	1.12	1268256.758	FALSE	5	14.376	-9.376	8.479	0.008	0.016	0	-0.008
+cmag_670	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Onthoplasma	Onthoplasma faecipullorum	875831	77.34	3.42	1132442.462	FALSE	2	11.325	-9.325	3.908	0	0.008	0.021	0.021
+cmag_118	Firmicutes_A	Clostridia	Oscillospirales	UBA644			1455981	66.45	0.68	2191092.551	FALSE	27	36.315	-9.315	7.786	0	0	0	0
+cmag_162	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia_A	Blautia_A faecavium	3916745	98.28	1.13	3985292.023	FALSE	45	54.286	-9.286	44.572	0.098	0.032	0.007	-0.091
+cmag_732	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Clostridium_Q		3254125	96.33	0.63	3378101.318	FALSE	41	50.27	-9.27	38.336	0.23	0.016	0.079	-0.151
+cmag_085	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Onthoplasma		1061020	90.34	0	1174474.209	FALSE	3	12.226	-9.226	7.464	0	0.008	0.107	0.107
+cmag_057	Firmicutes	Bacilli	ML615J-28	CAG-313	CAG-313	CAG-313 sp900539265	1958999	98.67	0.11	1985404.885	FALSE	23	32.167	-9.167	26.116	0.025	0.103	0.557	0.533
+cmag_714	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Ruthenibacterium	Ruthenibacterium merdipullorum	2352956	97.28	0.68	2418745.888	FALSE	31	40.142	-9.142	31.017	0.197	0.349	0.043	-0.154
+cmag_264	Firmicutes	Bacilli	RF39	UBA660	Onthocola_B		983368	73.6	0	1336097.826	FALSE	7	16.028	-9.028	4.57	0.016	0.214	0.364	0.348
+cmag_481	Verrucomicrobiota	Lentisphaeria	Victivallales	Victivallaceae	Victivallis	Victivallis sp900551245	4163799	92.57	2.03	4498000.432	FALSE	48	56.949	-8.949	38.607	0	0	0	0
+cmag_250	Firmicutes_A	Clostridia	Christensenellales	CAG-138	UBA1685		2428404	98.39	0	2468141.071	FALSE	32	40.875	-8.875	32.936	0	0.016	0.236	0.236
+cmag_011	Firmicutes	Bacilli	RF39	UBA660	Onthousia		1162954	93.26	1.12	1247001.93	FALSE	5	13.874	-8.874	9.503	0.033	0.103	0.171	0.139
+cmag_722	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Fournierella	Fournierella merdipullorum	2283472	92.59	0.34	2466218.814	FALSE	32	40.847	-8.847	26.459	0.025	0.087	0.186	0.161
+cmag_611	Firmicutes_A	Clostridia	Oscillospirales	UBA644	Geddesella	Geddesella stercoravicola	2017535	88.7	0.34	2274560.316	FALSE	29	37.808	-8.808	20.854	0	0.063	0.093	0.093
+cmag_540	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Aphodousia	Aphodousia faecalis	1842217	98.02	1.88	1879429.708	FALSE	21	29.777	-8.777	23.615	0	0	0	0
+cmag_247	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Gemmiger	Gemmiger excrementavium	2407524	92.41	0.68	2605263.5	FALSE	34	42.749	-8.749	27.641	0.057	0.063	0.036	-0.022
+cmag_629	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Ventrisoma	Ventrisoma faecale	3094328	97.13	0	3185759.292	FALSE	40	48.738	-8.738	38.095	0.107	0.349	0.25	0.143
+cmag_522	Firmicutes	Bacilli	RF39	UBA660			976294	84.92	1.12	1149663.212	FALSE	3	11.689	-8.689	5.642	0	0	0	0
+cmag_281	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia	Borkfalkia avistercoris	2821673	95.56	0.05	2952776.266	FALSE	38	46.633	-8.633	34.28	0.861	0.714	0.686	-0.175
+cmag_655	Firmicutes	Bacilli	RF39	UBA660	Coprosoma		964008	78.09	1.69	1234483.289	FALSE	5	13.582	-8.582	4.778	0.008	0.143	0.121	0.113
+cmag_694	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae	Avigastranaerophilus		1972630	94.02	1.99	2098096.15	FALSE	26	34.522	-8.522	23.389	0	0	0.029	0.029
+cmag_369	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Scatosoma	Scatosoma pullistercoris	2301458	96.77	0	2378276.325	FALSE	31	39.517	-8.517	29.932	0.049	0.135	0.486	0.437
+cmag_397	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Scatosoma	Scatosoma pullicola	2343549	95.97	0.81	2441959.987	FALSE	32	40.491	-8.491	29.806	0.033	0.111	0.079	0.046
+cmag_350	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		816127	78.65	0	1037669.421	FALSE	1	9.456	-8.456	3.519	0	0.016	0.029	0.029
+cmag_780	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	Alistipes	Alistipes putredinis	2073538	99.01	0.96	2094271.286	FALSE	26	34.446	-8.446	28.308	0	0.159	0.329	0.329
+cmag_312	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae	Stercorousia	Stercorousia faecigallinarum	2073293	89.74	0	2310333.185	FALSE	30	38.415	-8.415	22.121	0.156	0.389	0.536	0.38
+cmag_403	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Anaerotruncus	Anaerotruncus colihominis	2630508	95.97	0	2740969.053	FALSE	36	44.396	-8.396	32.942	0.705	0.452	0.221	-0.483
+cmag_333	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae	Scatousia		2017682	89.74	0.85	2248364.163	FALSE	29	37.351	-8.351	21.453	0.008	0	0.007	-0.001
+cmag_449	Firmicutes	Bacilli	RF39	UBA660	CAG-302	CAG-302 sp017887885	1076881	91.29	1.12	1179626.465	FALSE	4	12.34	-8.34	7.847	0.016	0.056	0.243	0.226
+cmag_307	Firmicutes	Bacilli	RF39	UBA660	Faecisoma	Faecisoma sp017887425	1316916	94.94	1.69	1387103.434	FALSE	9	17.31	-8.31	12.493	0.066	0.294	0.514	0.449
+cmag_494	Firmicutes	Bacilli	Lactobacillales	Enterococcaceae	Enterococcus_B	Enterococcus_B hirae	2719454	99.63	0.37	2729553.347	FALSE	36	44.265	-8.265	37.469	0.139	0.016	0.021	-0.118
+cmag_104	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	Alistipes	Alistipes finegoldii	3658840	100	0	3658840	FALSE	44	52.26	-8.26	45.336	0.09	0.079	0.564	0.474
+cmag_514	Verrucomicrobiota	Lentisphaeria	Victivallales	Victivallaceae	Victivallis	Victivallis sp900768515	2743970	87.84	1.01	3123827.413	FALSE	40	48.209	-8.209	26.695	0	0	0.021	0.021
+cmag_491	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	Tidjanibacter	Tidjanibacter faecipullorum	1755175	99.04	0	1772188.005	FALSE	19	27.203	-8.203	22.541	0.033	0.024	0.014	-0.019
+cmag_717	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae	Spyradomonas	Spyradomonas excrementavium	2189579	90.38	0.85	2422636.645	FALSE	32	40.201	-8.201	23.856	0	0	0.086	0.086
+cmag_789	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Lachnoclostridium_A	Lachnoclostridium_A sp002160755	3401436	97.58	0	3485792.171	FALSE	43	51.064	-8.064	40.742	0.525	0.405	0.343	-0.182
+cmag_218	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Eisenbergiella	Eisenbergiella pullicola	2739728	94.83	0.77	2889094.169	FALSE	38	45.998	-7.998	32.867	0.09	0.151	0.157	0.067
+cmag_311	Firmicutes	Bacilli	RF39	UBA660	Faecisoma	Faecisoma merdavium	1225725	94.94	1.12	1291052.244	FALSE	7	14.923	-7.923	10.914	0.016	0.143	0.386	0.369
+cmag_388	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Onthoplasma		743494	73.93	1.1	1005672.934	FALSE	1	8.881	-7.881	2.688	0	0	0.021	0.021
+cmag_122	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Fimimorpha	Fimimorpha excrementavium	2745716	85.73	3.48	3202748.163	FALSE	41	48.88	-7.88	25.021	0.041	0.008	0	-0.041
+cmag_715	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Merdisoma		3096194	96.76	1.32	3199869.781	FALSE	41	48.856	-7.856	37.702	0.033	0	0.05	0.017
+cmag_068	Firmicutes	Bacilli	RF39	UBA660	Ventrenecus		1014261	76.35	1.12	1328436.149	FALSE	8	15.838	-7.838	5.108	0.025	0.016	0.029	0.004
+cmag_743	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia	Borkfalkia sp003343765	2763677	96.37	0.03	2867777.317	FALSE	38	45.779	-7.779	34.581	0.016	0.016	0.093	0.076
+cmag_220	Desulfobacterota_I	Desulfovibrionia	Desulfovibrionales	Desulfovibrionaceae	Mailhella	Mailhella merdavium	2946889	99.41	0.79	2964378.835	FALSE	39	46.746	-7.746	39.42	0	0	0	0
+cmag_300	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Pelethomonas	Pelethomonas intestinigallinarum	3013371	98.11	0	3071420.854	FALSE	40	47.745	-7.745	38.544	1	1	1	0
+cmag_607	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter surreyensis	3084477	93.2	1.32	3309524.678	FALSE	42	49.742	-7.742	33.863	0.5	0.151	0.157	-0.343
+cmag_374	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Avimonas		2509339	96.43	2.91	2602238.93	FALSE	35	42.71	-7.71	32.115	0	0.016	0	0
+cmag_394	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Aphodousia		1755280	98.02	0	1790736.584	FALSE	20	27.659	-7.659	21.992	0.008	0	0.014	0.006
+cmag_526	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae	Avigastranaerophilus		1874082	91.17	1.71	2055590.655	FALSE	26	33.657	-7.657	20.338	0	0	0.014	0.014
+cmag_126	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Limivivens	Limivivens merdigallinarum	3647951	98.12	1.71	3717846.514	FALSE	45	52.647	-7.647	42.903	0.082	0	0	-0.082
+cmag_308	Firmicutes_A	Clostridia	Lachnospirales	Anaerotignaceae	Coprocola	Coprocola sp017888185	2977857	97.32	0	3059861.282	FALSE	40	47.64	-7.64	37.395	0.098	0.103	0.136	0.037
+cmag_107	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Onthoplasma	Onthoplasma faecigallinarum	893702	85.39	0	1046612.015	FALSE	2	9.622	-7.622	4.835	0.008	0.056	0.179	0.17
+cmag_525	Deferribacterota	Deferribacteres	Deferribacterales	Mucispirillaceae	Mucispirillum		2549008	98.23	3.45	2594938.41	FALSE	35	42.615	-7.615	34.221	0.016	0.008	0.007	-0.009
+cmag_355	Firmicutes	Bacilli	Erysipelotrichales	Coprobacillaceae	Massiliomicrobiota	Massiliomicrobiota sp002160865	2227859	98.5	0.13	2261785.787	FALSE	30	37.586	-7.586	30.32	0.508	0.159	0.221	-0.287
+cmag_650	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Onthoplasma		996252	90.9	0	1095986.799	FALSE	3	10.578	-7.578	6.718	0.008	0.19	0.336	0.328
+cmag_596	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	Alistipes	Alistipes communis	2676694	94.22	1.2	2840897.899	FALSE	38	45.497	-7.497	31.742	0	0	0	0
+cmag_630	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		730752	74.38	0	982457.65	FALSE	1	8.483	-7.483	2.632	0.008	0.087	0.029	0.02
+cmag_680	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae	Scatenecus	Scatenecus faecavium	1709888	89.53	1.62	1909849.213	FALSE	23	30.48	-7.48	17.172	0	0	0	0
+cmag_198	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Acetatifactor		2782896	98.28	1.72	2831599.512	FALSE	38	45.398	-7.398	36.699	0	0.024	0.136	0.136
+cmag_747	Proteobacteria	Alphaproteobacteria	Rs-D84	Rs-D84	Enterousia	Enterousia intestinigallinarum	1010205	89.01	0	1134934.277	FALSE	4	11.377	-7.377	6.598	0.008	0	0.114	0.106
+cmag_448	Firmicutes	Bacilli	Acholeplasmatales	Anaeroplasmataceae	Pelethenecus	Pelethenecus faecipullorum	1691574	97.33	0.11	1737978.013	FALSE	19	26.354	-7.354	20.427	0.295	0.397	0.336	0.041
+cmag_566	Firmicutes	Bacilli	Lactobacillales	Lactobacillaceae	Limosilactobacillus	Limosilactobacillus vaginalis	1882129	98.91	0	1902870.286	FALSE	23	30.32	-7.32	24.884	0.418	0.071	0.2	-0.218
+cmag_719	Bacteroidota	Bacteroidia	Bacteroidales	Marinifilaceae	Odoribacter	Odoribacter splanchnicus	4146320	99.46	0	4168831.691	FALSE	48	55.309	-7.309	47.259	0.008	0	0.436	0.428
+cmag_031	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Egerieicola		1465548	70.35	0.67	2083223.881	FALSE	27	34.223	-7.223	8.62	0.008	0.016	0.029	0.02
+cmag_402	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae	Limenecus		2071361	88.03	0.85	2353017.153	FALSE	32	39.115	-7.115	21.08	0	0	0.021	0.021
+cmag_440	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae	Scatousia	Scatousia sp000431315	2164652	92	1.71	2352882.609	FALSE	32	39.113	-7.113	24.661	0	0	0	0
+cmag_702	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Pseudoruminococcus_B	Pseudoruminococcus_B merdavium	2184066	95.3	0	2291779.643	FALSE	31	38.103	-7.103	27.243	0.434	0.032	0.007	-0.427
+cmag_012	Firmicutes_A	Clostridia	Lachnospirales	CAG-274	JAHALF01		2170691	94.85	0	2288551.397	FALSE	31	38.048	-7.048	26.736	0.057	0.246	0.086	0.028
+cmag_463	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Flavonifractor	Flavonifractor avicola	3108215	96.56	0.22	3218946.769	FALSE	42	49.014	-7.014	37.571	1	1	1	0
+cmag_775	Firmicutes_A	Clostridia	Lachnospirales	CAG-274	JAHALF01		2010464	94.85	0	2119624.671	FALSE	28	34.95	-6.95	24.471	0.074	0.032	0.007	-0.067
+cmag_007	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Avoscillospira	Avoscillospira stercoripullorum	2339337	97.32	0	2403757.707	FALSE	33	39.913	-6.913	30.876	0.107	0.532	0.771	0.665
+cmag_450	Firmicutes	Bacilli	RF39	UBA660	Aphodocola		1153749	92.42	3.37	1248375.893	FALSE	7	13.906	-6.906	9.183	0	0.032	0	0
+cmag_533	Firmicutes_A	Clostridia	Christensenellales	CAG-314	UMGS929	UMGS929 sp900546875	1495905	77.62	0	1927215.924	FALSE	24	30.875	-6.875	10.538	0	0	0.029	0.029
+cmag_729	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Anaerotruncus		2504317	98.66	0	2538330.63	FALSE	35	41.862	-6.862	34.109	0	0.032	0.036	0.036
+cmag_755	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae	Limenecus	Limenecus avicola	2097189	89.74	0.85	2336961.221	FALSE	32	38.855	-6.855	22.4	0	0	0.229	0.229
+cmag_537	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter avicola	3222013	97.09	1	3318583.788	FALSE	43	49.813	-6.813	38.973	1	0.873	0.864	-0.136
+cmag_496	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Lachnoclostridium_A	Lachnoclostridium_A stercoravium	3063655	96.2	0	3184672.557	FALSE	42	48.729	-6.729	36.853	0.123	0.548	0.271	0.148
+cmag_098	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Limivivens	Limivivens intestinipullorum	3714290	95.57	0.79	3886460.186	FALSE	47	53.702	-6.702	40.172	0.115	0.063	0.007	-0.108
+cmag_493	Firmicutes	Bacilli	Lactobacillales	Lactobacillaceae	Limosilactobacillus	Limosilactobacillus oris	1920449	97.79	0	1963850.087	FALSE	25	31.695	-6.695	24.875	0.025	0.103	0.064	0.04
+cmag_550	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Gallimonas		1936432	83.22	0.25	2326882.961	FALSE	32	38.69	-6.69	17.127	0.033	0.095	0.057	0.024
+cmag_192	Firmicutes	Bacilli	RF39	UBA660	Pelethosoma		959547	83.87	1.12	1144088.47	FALSE	5	11.57	-6.57	5.335	0.025	0.048	0.093	0.068
+cmag_114	Bacteroidota	Bacteroidia	Bacteroidales	UBA932	Cryptobacteroides	Cryptobacteroides faecigallinarum	2211363	97.86	0.24	2259721.03	FALSE	31	37.55	-6.55	29.571	0	0	0	0
+cmag_306	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Galloscillospira_A	Galloscillospira_A stercoripullorum	1678259	70.68	0.45	2374446.802	FALSE	33	39.457	-6.457	10.328	0.033	0.262	0.321	0.289
+cmag_219	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter		4139268	98.73	0.64	4192512.914	FALSE	49	55.435	-6.435	46.25	0.869	0.278	0.043	-0.826
+cmag_050	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter intestinigallinarum	3814795	95.39	1.95	3999156.096	FALSE	48	54.366	-6.366	40.466	1	0.865	0.764	-0.236
+cmag_188	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Onthoplasma		883108	91.46	0	965567.461	FALSE	2	8.203	-6.203	5.499	0	0.04	0.1	0.1
+cmag_055	Firmicutes_A	Clostridia	Christensenellales	UBA1242	Caccovivens		893043	92.58	2.25	964617.628	FALSE	2	8.188	-6.188	5.77	0.016	0.103	0.093	0.076
+cmag_345	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Eisenbergiella	Eisenbergiella merdigallinarum	3327247	98.85	0.19	3365955.488	FALSE	44	50.178	-6.178	41.753	0.369	0.151	0.1	-0.269
+cmag_431	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia	Borkfalkia avicola	2479053	93.95	0.05	2638693.986	FALSE	37	43.172	-6.172	29.628	0.869	0.873	0.843	-0.026
+cmag_034	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Intestinimonas	Intestinimonas pullistercoris	2583726	92.03	0.45	2807482.343	FALSE	39	45.138	-6.138	28.982	0.828	0.302	0.129	-0.699
+cmag_798	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Gemmiger	Gemmiger excrementigallinarum	2701398	96.26	0	2806355.703	FALSE	39	45.126	-6.126	33.899	0.418	0.286	0.179	-0.239
+cmag_131	Firmicutes	Bacilli	RF39	UBA660	HGM10818		884959	78.81	0	1122901.916	FALSE	5	11.126	-6.126	4.107	0	0.071	0.264	0.264
+cmag_004	Firmicutes	Bacilli	RF39	UBA660	Faecisoma		1203356	92.7	3.93	1298118.662	FALSE	9	15.095	-6.095	10.015	0.008	0.032	0.221	0.213
+cmag_383	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia		2072116	88.22	1.37	2348805.26	FALSE	33	39.047	-6.047	21.2	0	0.071	0.043	0.043
+cmag_548	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae	Stercorousia	Stercorousia sp000437435	1961911	88.03	1.28	2228684.539	FALSE	31	37.001	-6.001	19.825	0	0	0.007	0.007
+cmag_053	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	RUG14156	Galligastranaerophilus		1918965	92.62	1.85	2071868.927	FALSE	28	33.992	-5.992	21.776	0	0.008	0.107	0.107
+cmag_684	Synergistota	Synergistia	Synergistales	Synergistaceae	Caccocola	Caccocola faecigallinarum	2619079	100	0	2619079	FALSE	37	42.925	-5.925	36.752	0	0	0.007	0.007
+cmag_586	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	CAJFVJ01	Adamsella	Adamsella avium	2296320	92.99	0.85	2469426.82	FALSE	35	40.894	-5.894	26.903	0.328	0.762	0.871	0.544
+cmag_669	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Fusicatenibacter	Fusicatenibacter merdavium	2747366	82.61	3.48	3325706.331	FALSE	44	49.868	-5.868	22.694	0.008	0.024	0.029	0.02
+cmag_146	Firmicutes	Bacilli	Lactobacillales	Lactobacillaceae	Limosilactobacillus	Limosilactobacillus intestinipullorum	1792039	97.42	0.54	1839498.05	FALSE	23	28.836	-5.836	22.354	0.016	0.016	0.014	-0.002
+cmag_043	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Lawsonibacter		2103959	85.35	0	2465095.489	FALSE	35	40.831	-5.831	19.872	0	0.016	0.086	0.086
+cmag_029	Firmicutes_A	Clostridia	Christensenellales	UBA1242	UMGS687		871613	92.7	0	940251.348	FALSE	2	7.8	-5.8	5.559	0	0.087	0.086	0.086
+cmag_656	Firmicutes	Bacilli	RF39	UBA660	MGBC162581		735181	73.5	2.25	1000246.259	FALSE	3	8.787	-5.787	2.611	0	0.024	0.014	0.014
+cmag_606	Firmicutes	Bacilli	Lactobacillales	Lactobacillaceae	Ligilactobacillus	Ligilactobacillus aviarius	1513706	99.48	1.05	1521618.416	FALSE	15	20.786	-5.786	17.858	0.09	0.246	0.329	0.238
+cmag_632	Bacteroidota	Bacteroidia	Bacteroidales	Tannerellaceae	Parabacteroides	Parabacteroides distasonis	4908453	99.42	0	4937088.111	FALSE	53	58.77	-5.77	50.207	0.754	0.262	0.507	-0.247
+cmag_622	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Gemmiger	Gemmiger avistercoris	2474706	95.07	0	2603035.658	FALSE	37	42.72	-5.72	30.541	0.27	0.262	0.107	-0.163
+cmag_136	Firmicutes	Bacilli	Lactobacillales	Lactobacillaceae	Ligilactobacillus	Ligilactobacillus salivarius	1998794	99.48	0	2009242.059	FALSE	27	32.682	-5.682	27.364	0.328	0.381	0.379	0.051
+cmag_752	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter intestinavium	3124496	91.03	2.24	3432380.534	FALSE	45	50.675	-5.675	31.956	0.385	0.032	0.014	-0.371
+cmag_335	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Faecalibacterium	Faecalibacterium sp002160895	2696597	94.39	0.68	2856867.253	FALSE	40	45.665	-5.665	32.075	0.803	0.937	0.879	0.075
+cmag_267	Firmicutes	Bacilli	Lactobacillales	Lactobacillaceae	Ligilactobacillus	Ligilactobacillus agilis	1925508	98.17	0.52	1961401.65	FALSE	26	31.641	-5.641	25.203	0.033	0.008	0.05	0.017
+cmag_822	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Gallacutalibacter_A	Gallacutalibacter_A stercoravium	2615720	88.58	0.34	2952946.489	FALSE	41	46.635	-5.635	26.395	0.033	0	0	-0.033
+cmag_232	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	UMGS1591	UMGS1591 sp900553255	2121306	88.93	1.34	2385366.018	FALSE	34	39.628	-5.628	22.171	0	0.008	0.057	0.057
+cmag_426	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Eisenbergiella	Eisenbergiella sp904392525	4813485	98.28	1.68	4897725.885	FALSE	53	58.623	-5.623	48.281	0.992	0.905	0.764	-0.228
+cmag_110	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	Alistipes	Alistipes faecigallinarum	2437745	99.52	0.48	2449502.613	FALSE	35	40.602	-5.602	34.085	0.033	0.008	0.25	0.217
+cmag_003	Firmicutes_A	Clostridia	TANB77	CAG-508	UMGS1781		702326	64.02	0	1097041.55	FALSE	5	10.599	-5.599	2.015	0.008	0.008	0.157	0.149
+cmag_010	Firmicutes_A	Clostridia	Lachnospirales	Anaerotignaceae	Coprocola	Coprocola pullicola	3083266	97.32	0	3168173.037	FALSE	43	48.59	-5.59	38.221	0.893	0.476	0.114	-0.779
+cmag_105	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Acetatifactor	Acetatifactor stercoripullorum	2804514	91.85	1.72	3053363.092	FALSE	42	47.581	-5.581	30.598	0.025	0.127	0.093	0.068
+cmag_047	Firmicutes_A	Clostridia	Christensenellales	DTU072	Stercoripulliclostridium_A	Stercoripulliclostridium_A merdigallinarum	1858305	92.72	0.81	2004211.605	FALSE	27	32.574	-5.574	20.925	0	0	0.007	0.007
+cmag_668	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Eubacterium_I		2734795	92.82	0.57	2946342.383	FALSE	41	46.571	-5.571	30.946	0.008	0.024	0.043	0.035
+cmag_597	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Bacteroides	Bacteroides faecis	6051788	92.66	2.69	6531176.344	FALSE	57	62.569	-5.569	42.907	0	0	0	0
+cmag_409	Firmicutes	Bacilli	Erysipelotrichales	Coprobacillaceae	Massiliomicrobiota	Massiliomicrobiota merdigallinarum	2669510	100	0.13	2669510	FALSE	38	43.552	-5.552	37.317	0.861	0.524	0.514	-0.346
+cmag_329	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Merdivicinus	Merdivicinus intestinigallinarum	2904326	98.66	0	2943772.552	FALSE	41	46.545	-5.545	38.219	0.492	0.127	0.021	-0.47
+cmag_268	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Lachnoclostridium_A	Lachnoclostridium_A stercoripullorum	2622647	95.27	0.16	2752857.143	FALSE	39	44.532	-5.532	32.214	0.057	0.286	0.343	0.285
+cmag_616	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia		1390195	76.16	0.25	1825361.082	FALSE	23	28.498	-5.498	9.084	0.016	0.111	0.064	0.048
+cmag_298	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Merdisoma	Merdisoma faecalis	3524480	99.37	0.32	3546824.997	FALSE	46	51.497	-5.497	43.702	0.869	0.944	0.871	0.003
+cmag_036	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Lachnoclostridium_A	Lachnoclostridium_A avicola	3064017	97.36	0	3147100.452	FALSE	43	48.41	-5.41	38.118	0.754	0.452	0.236	-0.518
+cmag_181	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Acutalibacter	Acutalibacter ornithocaccae	2808351	99.33	0	2827293.869	FALSE	40	45.352	-5.352	38.048	0.943	0.984	0.957	0.015
+cmag_567	Firmicutes_A	Clostridia	Lachnospirales	Anaerotignaceae	Anaerotignum	Anaerotignum merdipullorum	2415136	96.64	0	2499105.96	FALSE	36	41.318	-5.318	31.23	0.549	0.286	0.086	-0.463
+cmag_309	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Flavonifractor		2598906	92.17	0.94	2819687.534	FALSE	40	45.27	-5.27	29.233	0.197	0.27	0.243	0.046
+cmag_699	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter caccavium	2264579	75	0.44	3019438.667	FALSE	42	47.269	-5.269	15.555	0.287	0.167	0.157	-0.13
+cmag_013	Firmicutes	Bacilli	RF39	UBA660	Aphodocola		929681	86.12	0.56	1079518.114	FALSE	5	10.252	-5.252	5.286	0	0.008	0.093	0.093
+cmag_392	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	Alistipes	Alistipes avicola	1848010	99.52	0	1856923.232	FALSE	24	29.249	-5.249	24.615	0.016	0	0.007	-0.009
+cmag_520	Firmicutes	Bacilli	RF39	UBA660	Caccenecus		518909	53.64	0	967391.872	FALSE	3	8.233	-5.233	0.997	0	0.032	0.057	0.057
+cmag_277	Desulfobacterota_I	Desulfovibrionia	Desulfovibrionales	Desulfovibrionaceae	Mailhella	Mailhella sp900555975	2246882	92.68	1.58	2424343.979	FALSE	35	40.227	-5.227	26.109	0	0	0	0
+cmag_135	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	RUG14156	Galligastranaerophilus_A	Galligastranaerophilus_A gallistercoris	1920022	92.31	1.14	2079971.834	FALSE	29	34.157	-5.157	21.617	0.008	0	0.107	0.099
+cmag_271	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Phocaeicola	Phocaeicola barnesiae	3589084	98.51	0.56	3643370.216	FALSE	47	52.157	-5.157	43.037	0.09	0.032	0.079	-0.012
+cmag_790	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Flavonifractor	Flavonifractor intestinigallinarum	2761722	95.08	0	2904629.785	FALSE	41	46.156	-5.156	33.298	0.984	0.992	0.986	0.002
+cmag_515	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia	Borkfalkia sp904374385	1973265	88.22	0	2236754.704	FALSE	32	37.145	-5.145	20.062	0	0.056	0.043	0.043
+cmag_701	Firmicutes_A	Clostridia	Christensenellales	CAG-74	Faecaligallichristensenella	Faecaligallichristensenella faecipullorum	2930645	94.19	0	3111418.41	FALSE	43	48.1	-5.1	33.779	0.016	0.008	0	-0.016
+cmag_703	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Anaerofilum	Anaerofilum faecale	2389041	96.26	0.23	2481862.664	FALSE	36	41.073	-5.073	30.596	0.066	0.214	0.1	0.034
+cmag_786	Firmicutes_A	Clostridia	Lachnospirales	CAG-274	JAHALF01		1888390	90.98	0	2075610.024	FALSE	29	34.068	-5.068	20.44	0.123	0.04	0	-0.123
+cmag_767	Firmicutes_A	Clostridia	Christensenellales	UBA1242	UBA5893		946815	93.26	2.25	1015242.333	FALSE	4	9.05	-5.05	6.493	0	0.016	0.157	0.157
+cmag_488	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Clostridium_Q	Clostridium_Q saccharolyticum_A	2893282	100	0	2893282	FALSE	41	46.041	-5.041	39.586	0.893	0.19	0.014	-0.879
+cmag_265	Firmicutes_A	Clostridia	Peptostreptococcales	Peptostreptococcaceae	Romboutsia	Romboutsia sp904418825	820157	61.38	0	1336195.829	FALSE	11	16.03	-5.03	2.638	0	0	0	0
+cmag_653	Firmicutes	Bacilli	RF39	UBA660	Fimihabitans	Fimihabitans intestinipullorum	1222287	94.38	2.25	1295069.93	FALSE	10	15.021	-5.021	10.718	0.049	0.397	0.471	0.422
+cmag_038	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Lawsonibacter	Lawsonibacter sp900545895	2395574	93.96	0	2549567.901	FALSE	37	42.015	-5.015	28.76	1	1	1	0
+cmag_046	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae			1902679	89.74	0.85	2120212.837	FALSE	30	34.961	-4.961	19.982	0	0	0	0
+cmag_731	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Lachnoclostridium_A		2585659	98.73	0.63	2618919.275	FALSE	38	42.923	-4.923	35.115	0.27	0.032	0.036	-0.235
+cmag_558	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Bacteroides	Bacteroides fragilis_A	4914304	98.88	0.17	4969967.638	FALSE	54	58.891	-4.891	49.451	0.09	0.238	0.121	0.031
+cmag_221	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	DSM-108975	DSM-108975 sp014982715	3109691	97.31	0.96	3195654.095	FALSE	44	48.821	-4.821	38.409	0	0	0.15	0.15
+cmag_557	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae	Avigastranaerophilus		1924390	91.17	0.85	2110771.087	FALSE	30	34.775	-4.775	21.045	0	0	0.021	0.021
+cmag_725	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Dysosmobacter		2276175	89.92	0.67	2531333.407	FALSE	37	41.767	-4.767	24.457	0.139	0.484	0.236	0.096
+cmag_571	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Choladocola		3537725	98.73	0	3583232.047	FALSE	47	51.749	-4.749	42.993	0.09	0.143	0.264	0.174
+cmag_174	Firmicutes	Bacilli	Lactobacillales	Lactobacillaceae	Limosilactobacillus		1250174	80.22	1.45	1558431.813	FALSE	17	21.746	-4.746	8.231	0.475	0.111	0.15	-0.325
+cmag_373	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Avoscillospira_A	Avoscillospira_A avistercoris	2531639	97.33	0.67	2601088.051	FALSE	38	42.695	-4.695	33.183	0.107	0.405	0.336	0.229
+cmag_784	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Gemmiger	Gemmiger avicola	2793913	97.96	0	2852095.753	FALSE	41	45.615	-4.615	36.471	0.934	0.889	0.829	-0.106
+cmag_711	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Evtepia	Evtepia excrementipullorum	2166571	91.39	0.67	2370687.165	FALSE	35	39.397	-4.397	24.272	0.172	0.071	0.007	-0.165
+cmag_324	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter merdavium	3458225	94.02	0.58	3678180.174	FALSE	48	52.388	-4.388	37.008	0.254	0.254	0.193	-0.061
+cmag_180	Firmicutes	Bacilli	Erysipelotrichales	Erysipelotrichaceae	Merdibacter	Merdibacter merdavium	2521746	97.88	0.94	2576364.937	FALSE	38	42.372	-4.372	33.583	0.066	0.024	0.05	-0.016
+cmag_177	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Gemmiger		2964963	97.96	0	3026707.84	FALSE	43	47.336	-4.336	37.981	0.934	0.611	0.371	-0.563
+cmag_576	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Intestinimonas	Intestinimonas stercoravium	2134707	90.26	1.01	2365064.259	FALSE	35	39.308	-4.308	23.16	0.697	0.476	0.114	-0.582
+cmag_749	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Intestinimonas	Intestinimonas timonensis	2242559	92.42	0.89	2426486.691	FALSE	36	40.259	-4.259	25.871	0.311	0.563	0.614	0.303
+cmag_665	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Sellimonas	Sellimonas sp002159995	2333786	96.27	0.97	2424208.996	FALSE	36	40.225	-4.225	29.932	0.016	0	0.029	0.012
+cmag_049	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Gallimonas	Gallimonas intestinalis	2174705	94.76	0.03	2294960.954	FALSE	34	38.157	-4.157	26.724	0.238	0.183	0.114	-0.123
+cmag_080	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Lachnoclostridium_A	Lachnoclostridium_A stercorigallinarum	3006718	100	0	3006718	FALSE	43	47.15	-4.15	40.609	0.721	0.175	0.014	-0.707
+cmag_445	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Phocaeicola	Phocaeicola excrementipullorum	3351159	96.05	0	3488973.451	FALSE	47	51.087	-4.087	38.65	0.016	0	0.014	-0.002
+cmag_538	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Faecalibacterium	Faecalibacterium intestinipullorum	2622722	99.69	0.79	2630877.721	FALSE	39	43.074	-4.074	36.481	1	1	0.986	-0.014
+cmag_570	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Eisenbergiella	Eisenbergiella intestinigallinarum	4234880	98.28	0.72	4308994.709	FALSE	52	56.037	-4.037	46.086	1	0.992	0.943	-0.057
+cmag_361	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter faecavium	3258601	97.47	2.46	3343183.544	FALSE	46	50.003	-4.003	39.661	0.861	0.119	0.029	-0.832
+cmag_594	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	UMGS1370		3479634	96.28	1.03	3614077.69	FALSE	48	51.959	-3.959	39.702	0	0	0	0
+cmag_742	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Merdisoma	Merdisoma sp002160825	3116589	93.43	0.95	3335747.619	FALSE	46	49.946	-3.946	34.309	0.459	0.611	0.214	-0.245
+cmag_479	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Gallimonas	Gallimonas intestinigallinarum	2429415	90.12	0.03	2695755.659	FALSE	40	43.868	-3.868	26.07	0.352	0.421	0.614	0.262
+cmag_672	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Merdivicinus	Merdivicinus faecavium	2609919	93.79	1.34	2782726.303	FALSE	41	44.867	-3.867	30.75	0.115	0.183	0.114	0
+cmag_467	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	RUG14156	Galligastranaerophilus_A		1906818	92.31	1.14	2065667.858	FALSE	30	33.865	-3.865	21.425	0	0	0.014	0.014
+cmag_408	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Heteroscilispira	Heteroscilispira lomanii	1577228	85.73	0	1839762.044	FALSE	25	28.842	-3.842	13.853	0.025	0.127	0.057	0.033
+cmag_452	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Merdivicinus	Merdivicinus excrementipullorum	3038737	98.66	0	3080009.122	FALSE	44	47.822	-3.822	39.363	0.639	0.69	0.286	-0.354
+cmag_783	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Caccousia	Caccousia stercoris	2415737	89.75	0.67	2691628.969	FALSE	40	43.819	-3.819	25.666	0.016	0.175	0.15	0.134
+cmag_509	Firmicutes	Bacilli	Lactobacillales	Lactobacillaceae	Limosilactobacillus	Limosilactobacillus excrementigallinarum	1635300	99.82	0.55	1638248.848	FALSE	20	23.818	-3.818	20.527	0.033	0	0.014	-0.019
+cmag_301	Firmicutes	Bacilli	RF39	UBA660	Faecisoma	Faecisoma sp900753645	829286	82.95	2.62	999742.013	FALSE	5	8.778	-3.778	3.993	0.008	0.056	0.271	0.263
+cmag_102	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Choladocola	Choladocola avistercoris	3276349	99.37	0.16	3297120.861	FALSE	46	49.644	-3.644	42.012	1	1	1	0
+cmag_179	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Pararuminococcus	Pararuminococcus gallinarum	2283608	93.29	2.35	2447859.363	FALSE	37	40.578	-3.578	26.985	0.172	0.056	0.014	-0.158
+cmag_502	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Copromonas	Copromonas sp900541255	3385948	99.21	0	3412909.989	FALSE	47	50.531	-3.531	42.591	0.197	0.333	0.3	0.103
+cmag_432	Actinobacteriota	Coriobacteriia	Coriobacteriales	Atopobiaceae	Thermophilibacter		2155347	93.04	0.81	2316581.04	FALSE	35	38.519	-3.519	25.259	0	0	0	0
+cmag_037	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia		2472354	95.56	0.05	2587226.873	FALSE	39	42.515	-3.515	30.941	0.262	0.063	0.05	-0.212
+cmag_266	Desulfobacterota_I	Desulfovibrionia	Desulfovibrionales	Desulfovibrionaceae	Desulfovibrio	Desulfovibrio sp900556755	2630024	98.7	0.72	2664664.64	FALSE	40	43.493	-3.493	35.573	0	0	0.007	0.007
+cmag_612	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Faecalibacterium	Faecalibacterium faecigallinarum	2875956	97.96	0.68	2935847.285	FALSE	43	46.467	-3.467	37.217	1	0.992	0.993	-0.007
+cmag_640	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter cottocaccae	4023360	91.56	0.58	4394233.29	FALSE	53	56.458	-3.458	36.896	0.049	0.016	0	-0.049
+cmag_823	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Copromonas	Copromonas avistercoris	2476611	98.73	0	2508468.551	FALSE	38	41.45	-3.45	33.841	0.426	0.857	0.929	0.502
+cmag_825	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter vanvlietii	2722905	83.37	0.58	3266048.938	FALSE	46	49.397	-3.397	23.109	0.246	0.056	0.021	-0.224
+cmag_797	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter		3093797	98.4	0.58	3144102.642	FALSE	45	48.384	-3.384	39.509	0.508	0.246	0.2	-0.308
+cmag_693	Firmicutes_A	Clostridia	Oscillospirales	CAG-382	Woodwardibium	Woodwardibium sp900754535	1707222	93.83	0	1819484.174	FALSE	25	28.356	-3.356	19.039	0	0	0	0
+cmag_336	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	CAJFVJ01	Adamsella		2129346	92.31	0.85	2306733.832	FALSE	35	38.355	-3.355	24.438	0.107	0.357	0.629	0.522
+cmag_041	Firmicutes_A	Clostridia	Christensenellales	DTU072	CAG-1782		1787062	93.95	0.03	1902141.565	FALSE	27	30.303	-3.303	20.435	0	0	0.179	0.179
+cmag_161	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	RGIG4074		1844765	92.74	0	1989179.426	FALSE	29	32.249	-3.249	20.728	0	0.024	0.007	0.007
+cmag_470	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Dysosmobacter	Dysosmobacter excrementigallinarum	2622128	93.16	1.68	2814650.064	FALSE	42	45.216	-3.216	30.3	0.91	0.937	0.857	-0.053
+cmag_193	Firmicutes_A	Clostridia	Oscillospirales	CAG-272	CAG-448		2395030	96.18	0	2490153.878	FALSE	38	41.191	-3.191	30.599	0	0.04	0.129	0.129
+cmag_228	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia	Blautia pullicola	3615934	99.15	0	3646932.93	FALSE	49	52.181	-3.181	43.996	0.385	0.127	0.179	-0.207
+cmag_349	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter excrementigallinarum_A	3364244	96.42	1.61	3489155.777	FALSE	48	51.088	-3.088	39.155	0.697	0.238	0.057	-0.64
+cmag_160	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Eubacterium_I		3345116	92.5	1.15	3616341.622	FALSE	49	51.975	-2.975	34.729	0.148	0.103	0.036	-0.112
+cmag_379	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Faecalibacterium	Faecalibacterium gallistercoris	3244311	97.28	0.11	3335023.643	FALSE	47	49.94	-2.94	39.344	1	1	1	0
+cmag_706	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Catenibacillus	Catenibacillus faecigallinarum	3440344	95.3	1.34	3610014.69	FALSE	49	51.932	-2.932	38.341	0.164	0	0.007	-0.157
+cmag_009	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	UBA1417	UBA1417 sp900552925	2438712	98.66	0.36	2471834.583	FALSE	38	40.929	-2.929	33.31	0.885	0.508	0.464	-0.421
+cmag_647	Firmicutes_A	Clostridia	UBA1381	UBA1381	HGM11525		2475600	88.84	0.69	2786582.62	FALSE	42	44.909	-2.909	25.497	0.025	0	0	-0.025
+cmag_683	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae	Avigastranaerophilus		1989682	94.02	1.42	2116232.716	FALSE	32	34.883	-2.883	23.641	0	0	0	0
+cmag_286	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Gallimonas		1882489	93.3	0.81	2017673.098	FALSE	30	32.862	-2.862	21.609	0.008	0.063	0.3	0.292
+cmag_546	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Faecivivens	Faecivivens stercoripullorum	2638403	97.99	0.67	2692522.706	FALSE	41	43.829	-2.829	34.963	0.09	0.278	0.25	0.16
+cmag_625	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter stercoripullorum	3443649	92.02	0.97	3742283.199	FALSE	50	52.805	-2.805	34.759	0.033	0.024	0.014	-0.019
+cmag_444	Firmicutes_A	Clostridia	Christensenellales	CAG-552	Protoclostridium	Protoclostridium sp900761765	1623273	86.32	1.37	1880529.425	FALSE	27	29.803	-2.803	14.687	0	0	0.014	0.014
+cmag_076	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter norwichensis	2764242	96.39	0.58	2867768.441	FALSE	43	45.779	-2.779	34.606	0.697	0.452	0.386	-0.311
+cmag_543	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Phocaeicola	Phocaeicola sp900066445	4319287	97.01	0.45	4452414.184	FALSE	54	56.736	-2.736	44.763	0.41	0.437	0.464	0.054
+cmag_182	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	UBA866	UBA866 sp904384225	2280601	97.99	0	2327381.365	FALSE	36	38.698	-2.698	30.653	0.344	0.357	0.193	-0.151
+cmag_437	Bacteroidota	Bacteroidia	Bacteroidales	Barnesiellaceae	Barnesiella_A	Barnesiella_A sp900538705	2502710	99.25	0	2521622.166	FALSE	39	41.633	-2.633	34.646	0.025	0	0.136	0.111
+cmag_592	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Copromonas	Copromonas faecavium	2603777	97.42	0.63	2672733.525	FALSE	41	43.591	-2.591	34.047	0.721	0.381	0.064	-0.657
+cmag_352	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Faecivivens	Faecivivens stercorigallinarum	2779708	97.69	0.67	2845437.609	FALSE	43	45.545	-2.545	36.06	0.008	0.008	0.05	0.042
+cmag_170	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	An181	An181 sp002160325	2411573	93.18	0.29	2588080.06	FALSE	40	42.526	-2.526	28.298	0.369	0.103	0.021	-0.347
+cmag_793	Firmicutes_A	Clostridia	Oscillospirales	Butyricicoccaceae	Agathobaculum	Agathobaculum merdipullorum	2484913	93.23	0.67	2665357.717	FALSE	41	43.502	-2.502	29.08	0.172	0.167	0.129	-0.044
+cmag_419	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Lachnoclostridium_B	Lachnoclostridium_B sp000765215	2874913	94.48	3.7	3042879.975	FALSE	45	47.485	-2.485	33.641	0.344	0.095	0.064	-0.28
+cmag_553	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae	Stercorousia		1734774	88.89	0.85	1951596.355	FALSE	29	31.423	-2.423	17.259	0	0	0.007	0.007
+cmag_677	Firmicutes	Bacilli	Erysipelotrichales	Coprobacillaceae	Erysipelatoclostridium	Erysipelatoclostridium merdavium	2928274	100	0	2928274	FALSE	44	46.392	-2.392	39.91	0.566	0.214	0.243	-0.323
+cmag_456	Firmicutes_A	Clostridia	Christensenellales	CAG-917	Limadaptatus	Limadaptatus stercoravium	1682169	90.47	0.22	1859366.641	FALSE	27	29.307	-2.307	17.151	0.033	0.357	0.321	0.289
+cmag_006	Firmicutes_A	Clostridia	Oscillospirales	Butyricicoccaceae	Agathobaculum	Agathobaculum intestinipullorum	2630480	99.33	0	2648223.095	FALSE	41	43.291	-2.291	36.206	0.107	0.032	0.079	-0.028
+cmag_259	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Caccomorpha	Caccomorpha excrementavium	3347190	99.11	0.67	3377247.503	FALSE	48	50.264	-2.264	42.203	0.008	0.024	0.243	0.235
+cmag_604	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia	Blautia stercorigallinarum	3446496	98.09	0.32	3513605.872	FALSE	49	51.263	-2.263	41.639	0.648	0.222	0.164	-0.483
+cmag_697	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	Gastranaerophilaceae	SIG32		1784590	89.74	1.42	1988622.688	FALSE	30	32.237	-2.237	18.351	0.008	0.016	0.007	-0.001
+cmag_391	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	Alistipes	Alistipes merdavium	2061977	94.42	0	2183834.993	FALSE	34	36.18	-2.18	24.942	0.033	0.016	0.271	0.239
+cmag_138	Firmicutes_A	Clostridia	UBA1381	UBA1381	Ornithomonoglobus	Ornithomonoglobus sp904420525	2443967	84.3	1.45	2899130.486	FALSE	44	46.1	-2.1	22.012	0.057	0.008	0.007	-0.05
+cmag_737	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia	Blautia merdavium	3560379	98.05	0	3631187.149	FALSE	50	52.075	-2.075	42.298	0.443	0.071	0.05	-0.393
+cmag_626	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia	Borkfalkia sp017886545	2105031	94.35	0.05	2231087.44	FALSE	35	37.044	-2.044	25.496	0.205	0.302	0.257	0.052
+cmag_116	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae			607776	54.47	0	1115799.523	FALSE	9	10.979	-1.979	1.348	0	0	0.036	0.036
+cmag_724	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	UMGS1264		2616070	93.71	0.67	2791665.777	FALSE	43	44.965	-1.965	30.735	0	0	0	0
+cmag_590	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Bacteroides	Bacteroides fragilis	5253199	99.26	0	5292362.482	FALSE	58	59.962	-1.962	50.965	0.951	0.984	0.993	0.042
+cmag_123	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Lachnoclostridium_B	Lachnoclostridium_B stercoravium	2778247	96.29	2.44	2885291.308	FALSE	44	45.959	-1.959	34.632	0.246	0.151	0.086	-0.16
+cmag_130	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter merdigallinarum	2847713	98.7	0.58	2885220.871	FALSE	44	45.958	-1.958	37.749	0.918	0.421	0.307	-0.611
+cmag_027	Firmicutes_A	Clostridia	Christensenellales	CAG-314	CAG-314	CAG-314 sp000437915	1429652	93.55	0	1528222.341	FALSE	19	20.958	-1.958	14.071	0.008	0.024	0.579	0.57
+cmag_535	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Phocaeicola	Phocaeicola merdavium	3439756	99.21	0.07	3467146.457	FALSE	49	50.93	-1.93	42.953	0.008	0	0.007	-0.001
+cmag_148	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Gallimonas	Gallimonas merdae	1875437	86.47	1.69	2168887.475	FALSE	34	35.899	-1.899	18.003	0.057	0.143	0.164	0.107
+cmag_739	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Gallimonas		2228019	92.74	0.05	2402435.842	FALSE	38	39.893	-1.893	25.932	0.508	0.627	0.521	0.013
+cmag_326	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Enterocloster	Enterocloster excrementipullorum	3482370	96.89	0	3594148.003	FALSE	50	51.824	-1.824	40.434	0.975	0.976	0.85	-0.125
+cmag_411	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Ruthenibacterium		2474169	91.92	0	2691654.7	FALSE	42	43.819	-1.819	27.899	0.057	0.31	0.414	0.357
+cmag_545	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter pullicola	2257182	89.17	0	2531324.436	FALSE	40	41.767	-1.767	23.748	0.213	0.198	0.229	0.015
+cmag_794	Firmicutes_A	Clostridia	Oscillospirales	Butyricicoccaceae	Butyricicoccus	Butyricicoccus avicola	2482013	98.32	1.01	2524423.312	FALSE	40	41.672	-1.672	33.527	0.221	0.563	0.657	0.436
+cmag_461	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Gallimonas	Gallimonas merdigallinarum	2101064	92.74	0.05	2265542.377	FALSE	36	37.652	-1.652	24.363	0.352	0.373	0.421	0.069
+cmag_750	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Caccovicinus	Caccovicinus sp017889125	4035077	100	0.37	4035077	FALSE	53	54.572	-1.572	47.435	0.172	0.135	0.029	-0.144
+cmag_128	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Ruminococcus_G		3261444	99.35	2.85	3282782.084	FALSE	48	49.531	-1.531	41.88	0.148	0.024	0.021	-0.126
+cmag_020	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Faecalibacterium	Faecalibacterium avium	2417439	93.45	0.14	2586879.615	FALSE	41	42.51	-1.51	28.578	0.402	0.857	0.786	0.384
+cmag_477	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter tabaqchaliae	2935244	92.98	0	3156855.238	FALSE	47	48.493	-1.493	32.619	0.172	0.032	0.05	-0.122
+cmag_083	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	RUG14156	Galligastranaerophilus	Galligastranaerophilus intestinavium	1772540	90.91	0.28	1949774.502	FALSE	30	31.382	-1.382	18.721	0.115	0.381	0.721	0.607
+cmag_560	Firmicutes_A	Clostridia	Lachnospirales	Anaerotignaceae	Anaerotignum	Anaerotignum lactatifermentans	2435962	97.32	0	2503043.568	FALSE	40	41.374	-1.374	32.073	0.336	0.778	0.793	0.457
+cmag_258	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Caccousia	Caccousia avistercoris	2648044	90.55	1.07	2924399.779	FALSE	45	46.354	-1.354	28.259	0.098	0.127	0.029	-0.07
+cmag_100	Firmicutes	Bacilli	Erysipelotrichales	Erysipelotrichaceae	Merdibacter	Merdibacter merdipullorum	2386282	98.11	0.94	2432251.554	FALSE	39	40.346	-1.346	32.156	0.221	0.286	0.4	0.179
+cmag_484	Verrucomicrobiota	Verrucomicrobiae	Opitutales	CAG-312	Merdousia	Merdousia gallistercoris	2689782	95.27	0.68	2823325.286	FALSE	44	45.31	-1.31	32.842	0	0	0	0
+cmag_791	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia	Blautia ornithocaccae	3357201	99.36	0	3378825.483	FALSE	49	50.276	-1.276	42.575	0.902	0.754	0.707	-0.194
+cmag_530	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Phocaeicola	Phocaeicola caecigallinarum_A	3550836	97.01	0.31	3660278.322	FALSE	51	52.269	-1.269	40.985	0.025	0	0.036	0.011
+cmag_528	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae			2058270	94.06	0.8	2188252.179	FALSE	35	36.262	-1.262	24.653	0	0.008	0.193	0.193
+cmag_079	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Dysosmobacter	Dysosmobacter pullicola	2346911	96.73	0.67	2426249.354	FALSE	39	40.256	-1.256	30.477	0.959	0.778	0.564	-0.395
+cmag_315	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia_A	Blautia_A faecipullorum	3685284	96.84	0	3805539.033	FALSE	52	53.205	-1.205	41.544	0.246	0.079	0.093	-0.153
+cmag_252	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Parasutterella	Parasutterella excrementihominis	2563437	100	0.11	2563437	FALSE	41	42.201	-1.201	36.103	0	0	0	0
+cmag_262	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Onthocola_A	Onthocola_A gallistercoris	2458578	93.13	1.48	2639942.017	FALSE	42	43.188	-1.188	28.736	0	0.016	0.093	0.093
+cmag_577	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia_A	Blautia_A excrementipullorum	3123330	96.46	0.95	3237953.556	FALSE	48	49.17	-1.17	37.572	0.189	0.095	0.029	-0.16
+cmag_748	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	Enterenecus	Enterenecus faecium	2402944	96.64	0	2486490.066	FALSE	40	41.139	-1.139	31.086	0.197	0.333	0.664	0.468
+cmag_517	Firmicutes_A	Clostridia	Christensenellales	CAG-917	Limadaptatus	Limadaptatus sp900754695	1622568	89.78	0	1807271.107	FALSE	27	28.061	-1.061	15.955	0	0	0	0
+cmag_813	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Coproplasma	Coproplasma stercoripullorum	2286947	94.76	0.03	2413409.667	FALSE	39	40.061	-1.061	28.149	0.18	0.23	0.471	0.291
+cmag_674	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Acutalibacter	Acutalibacter sp900755895	2523548	93.29	0	2705057.348	FALSE	43	43.978	-0.978	29.506	0.295	0.159	0.036	-0.259
+cmag_207	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Anaerobutyricum	Anaerobutyricum avicola	2700134	96.74	1.49	2791124.664	FALSE	44	44.959	-0.959	34.355	0.074	0.063	0.257	0.183
+cmag_704	Firmicutes_A	Clostridia	Lachnospirales	UBA1390	Faecimorpha	Faecimorpha stercoravium	2809149	97.43	1.57	2883248.486	FALSE	45	45.938	-0.938	36.065	0.09	0.119	0.05	-0.04
+cmag_427	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter sp900761655	3326986	92.21	0.29	3608053.356	FALSE	51	51.918	-0.918	34.323	0.525	0.246	0.107	-0.417
+cmag_581	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia	Borkfalkia sp904419945	1583540	88.09	0.03	1797638.779	FALSE	27	27.827	-0.827	14.746	0.172	0.365	0.4	0.228
+cmag_486	Bacteroidota	Bacteroidia	Bacteroidales	Muribaculaceae	Limisoma	Limisoma sp900544305	3032654	98.49	0.75	3079149.152	FALSE	47	47.814	-0.814	39.123	0	0	0	0
+cmag_418	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia	Blautia pullistercoris	3566790	99.36	0	3589764.493	FALSE	51	51.794	-0.794	43.957	0.902	0.413	0.386	-0.516
+cmag_480	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Onthovicinus	Onthovicinus excrementipullorum	2538112	97.32	0.67	2608006.576	FALSE	42	42.784	-0.784	33.245	0.549	0.071	0.014	-0.535
+cmag_564	Firmicutes_A	Clostridia	Oscillospirales	Butyricicoccaceae	Agathobaculum	Agathobaculum pullistercoris	2717587	97.99	0.67	2773330.952	FALSE	44	44.762	-0.762	35.768	0.918	0.516	0.364	-0.554
+cmag_222	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Coproplasma		1257642	73.37	0.03	1714109.309	FALSE	25	25.754	-0.754	7.234	0	0	0	0
+cmag_438	Firmicutes_A	Clostridia	Christensenellales	CAG-552	UBA10677	UBA10677 sp900543755	2154164	92.51	0	2328574.208	FALSE	38	38.718	-0.718	24.881	0.008	0.008	0.186	0.178
+cmag_542	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter sp904418845	2464105	88.99	1.38	2768968.423	FALSE	44	44.713	-0.713	25.515	0.189	0.111	0.214	0.026
+cmag_599	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Bacteroides	Bacteroides caccae	4535859	97.53	1.13	4650732.082	FALSE	57	57.629	-0.629	46.291	0	0	0	0
+cmag_094	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Anaerobutyricum	Anaerobutyricum stercoris	3023439	95.39	0.67	3169555.509	FALSE	48	48.601	-0.601	35.696	0.336	0.222	0.086	-0.25
+cmag_573	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia	Blautia merdigallinarum	3246738	98.69	0	3289834.836	FALSE	49	49.587	-0.587	40.993	0.697	0.341	0.164	-0.532
+cmag_583	Firmicutes	Bacilli	Erysipelotrichales	Coprobacillaceae	Erysipelatoclostridium	Erysipelatoclostridium spiroforme	2754515	100	0	2754515	FALSE	44	44.55	-0.55	38.222	0.779	0.548	0.4	-0.379
+cmag_001	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	RUG14156	Galligastranaerophilus_A	Galligastranaerophilus_A intestinigallinarum	1770350	90.48	0	1956620.248	FALSE	31	31.535	-0.535	18.487	0.008	0	0.236	0.228
+cmag_721	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Gemmiger	Gemmiger stercoripullorum	2328988	92.69	0.12	2512663.718	FALSE	41	41.509	-0.509	27.037	0.082	0.103	0.371	0.289
+cmag_785	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Faeciplasma	Faeciplasma gallinarum	1938199	94.63	0	2048186.622	FALSE	33	33.504	-0.504	23.234	0.025	0.413	0.543	0.518
+cmag_325	Firmicutes_A	Clostridia	Oscillospirales	Butyricicoccaceae	Butyricicoccus	Butyricicoccus sp900604335	2340593	90.94	0	2573777.216	FALSE	42	42.338	-0.338	25.841	0.68	0.508	0.264	-0.416
+cmag_523	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Gallimonas	Gallimonas caecicola	948784	57.21	0	1658423.353	FALSE	24	24.337	-0.337	3.319	0	0	0.007	0.007
+cmag_066	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter excrementipullorum	2410617	85.38	2.14	2823397.751	FALSE	45	45.31	-0.31	22.499	0.303	0.167	0.371	0.068
+cmag_746	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia	Blautia merdipullorum	3339842	98.73	0.64	3382803.606	FALSE	50	50.306	-0.306	41.697	0.279	0.04	0.1	-0.179
+cmag_175	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Caccovicinus	Caccovicinus merdipullorum	3983945	100	0.16	3983945	FALSE	54	54.279	-0.279	47.171	1	1	1	0
+cmag_628	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Enterocloster	Enterocloster excrementigallinarum	3589887	98.1	0	3659415.902	FALSE	52	52.264	-0.264	42.536	1	1	0.914	-0.086
+cmag_499	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Caccousia		2409576	96.64	0.06	2493352.649	FALSE	41	41.237	-0.237	31.164	0	0.167	0.25	0.25
+cmag_314	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Bacteroides	Bacteroides congonensis	6153813	97.93	0.11	6283889.513	FALSE	62	62.203	-0.203	50.691	0.057	0.286	0.479	0.421
+cmag_563	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Prevotella	Prevotella sp000433175	3071775	98.7	0.19	3112234.043	FALSE	48	48.107	-0.107	39.674	0.025	0	0.021	-0.003
+cmag_368	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	Alistipes	Alistipes cottocaccae	2996059	100	0.48	2996059	FALSE	47	47.049	-0.049	40.516	0.025	0.04	0.5	0.475
+cmag_359	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Gallimonas	Gallimonas sp017887095	2154090	94.35	0.03	2283084.261	FALSE	38	37.954	0.046	26.158	0.18	0.214	0.3	0.12
+cmag_023	Firmicutes_A	Clostridia	Oscillospirales	Butyricicoccaceae	Butyricicoccus	Butyricicoccus pullicaecorum	2662500	98.66	0	2698662.072	FALSE	44	43.902	0.098	35.88	0.369	0.127	0.164	-0.205
+cmag_024	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter faecigallinarum	2856486	96	0.58	2975506.25	FALSE	47	46.853	0.147	35.015	0.451	0.222	0.243	-0.208
+cmag_667	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Ruminococcus_G	Ruminococcus_G avistercoris	2148471	92.07	0	2333519.062	FALSE	39	38.799	0.201	24.513	0.27	0.532	0.586	0.315
+cmag_710	Firmicutes_A	Clostridia	Monoglobales	Monoglobaceae	Roslinia		3073722	96.42	0.67	3187846.92	FALSE	49	48.756	0.244	37.165	0.18	0.103	0	-0.18
+cmag_511	Bacteroidota	Bacteroidia	Bacteroidales	Barnesiellaceae	Barnesiella	Barnesiella intestinihominis	3169318	99.62	0	3181407.348	FALSE	49	48.702	0.298	41.504	0.016	0	0	-0.016
+cmag_227	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Merdimonas	Merdimonas faecis	2730123	95.5	1.75	2858767.539	FALSE	46	45.685	0.315	33.427	0.426	0.341	0.271	-0.155
+cmag_723	Firmicutes_A	Clostridia	Lachnospirales	Anaerotignaceae	Anaerotignum		2321226	97.32	0	2385147.965	FALSE	40	39.625	0.375	30.642	0.008	0.071	0.236	0.228
+cmag_678	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia	Borkfalkia stercoripullorum	1946046	94.76	0.08	2053657.661	FALSE	34	33.617	0.383	23.434	0.254	0.254	0.171	-0.083
+cmag_457	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	RUG14156	Galligastranaerophilus		1728130	92.31	0.57	1872094.031	FALSE	30	29.606	0.394	18.682	0	0.008	0.086	0.086
+cmag_282	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Gallimonas	Gallimonas faecium	1468763	82.12	1.26	1788556.99	FALSE	28	27.605	0.395	11.361	0.041	0.024	0.036	-0.005
+cmag_186	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia_A	Blautia_A intestinigallinarum	2707075	98.12	0.69	2758943.131	FALSE	45	44.601	0.399	35.795	0.566	0.254	0.086	-0.48
+cmag_211	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Ventrimonas	Ventrimonas merdavium	3207594	97.45	0.63	3291527.963	FALSE	50	49.6	0.4	39.28	0.098	0.143	0.05	-0.048
+cmag_255	Verrucomicrobiota	Lentisphaeria	Victivallales	Victivallaceae			2121095	93.89	2.03	2259127.703	FALSE	38	37.54	0.46	25.399	0	0	0	0
+cmag_562	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Prevotella	Prevotella stercoripullorum	3118135	98.89	0.68	3153134.796	FALSE	49	48.462	0.538	40.258	0	0	0.021	0.021
+cmag_442	Actinobacteriota	Coriobacteriia	Coriobacteriales	Coriobacteriaceae	Limicola	Limicola stercorigallinarum	2136201	99.6	0	2144780.12	FALSE	36	35.439	0.561	29.777	0	0	0	0
+cmag_283	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Gallimonas		1286680	69.28	0	1857217.09	FALSE	30	29.256	0.744	6.915	0	0	0.014	0.014
+cmag_092	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia	Borkfalkia excrementavium	1858556	91.32	0.59	2035212.44	FALSE	34	33.233	0.767	20.192	0	0.016	0.05	0.05
+cmag_295	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter		3075777	98.56	1.07	3120715.3	FALSE	49	48.181	0.819	39.548	0.475	0.175	0.079	-0.397
+cmag_764	Firmicutes	Bacilli	Lactobacillales	Enterococcaceae	Enterococcus_E	Enterococcus_E cecorum	2385197	98.51	0.33	2421273.982	FALSE	41	40.18	0.82	32.494	0.008	0.016	0.05	0.042
+cmag_676	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae			2628564	96.64	4.7	2719954.47	FALSE	45	44.153	0.847	33.557	0.033	0	0	-0.033
+cmag_504	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter stercoravium	2802305	96.55	2.14	2902439.151	FALSE	47	46.134	0.866	35.106	0.287	0.214	0.286	-0.001
+cmag_185	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Pullilachnospira	Pullilachnospira stercoravium	3196870	95.42	0	3350314.399	FALSE	51	50.058	0.942	36.946	0.574	0.175	0.079	-0.495
+cmag_603	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Anaerostipes	Anaerostipes excrementavium	2539837	96.64	1.34	2628142.591	FALSE	44	43.04	0.96	32.636	0.508	0.183	0.207	-0.301
+cmag_320	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Phocaeicola	Phocaeicola dorei	5636328	99.25	0.56	5678919.899	FALSE	62	61.006	0.994	51.83	1	0.968	0.886	-0.114
+cmag_501	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Duodenibacillus	Duodenibacillus intestinavium	2379011	98.75	0.62	2409125.063	FALSE	41	39.996	1.004	32.625	0	0	0.007	0.007
+cmag_065	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia	Blautia stercoripullorum	3408282	98.23	0	3469695.612	FALSE	52	50.948	1.052	41.559	0.23	0.071	0.107	-0.122
+cmag_777	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia_A	Blautia_A intestinavium	3311203	95.57	0.95	3464688.71	FALSE	52	50.912	1.088	37.857	0.566	0.31	0.179	-0.387
+cmag_095	Firmicutes_A	Clostridia	Lachnospirales	UBA1390			2433859	98.55	0.67	2469669.203	FALSE	42	40.897	1.103	33.149	0.033	0.016	0.064	0.031
+cmag_799	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Egerieicola	Egerieicola pullicola	1768488	91.72	0.34	1928137.811	FALSE	32	30.896	1.104	19.042	0.057	0.079	0.021	-0.036
+cmag_429	Actinobacteriota	Coriobacteriia	Coriobacteriales	Atopobiaceae	Thermophilibacter	Thermophilibacter excrementavium	1752047	90.89	0.4	1927656.508	FALSE	32	30.885	1.115	18.403	0	0	0	0
+cmag_125	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae			2158217	97.15	1.34	2221530.623	FALSE	38	36.872	1.128	28.254	0	0.016	0	0
+cmag_809	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter glycyrrhizinilyticus_A	3146400	94.63	2.05	3324949.805	FALSE	51	49.862	1.138	35.759	0.262	0.095	0.1	-0.162
+cmag_017	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Bacteroides	Bacteroides uniformis	4055754	99.26	0.12	4085990.328	FALSE	56	54.857	1.143	46.552	0	0	0.129	0.129
+cmag_202	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Fusicatenibacter	Fusicatenibacter intestinigallinarum	3008656	97.69	0.63	3079799.365	FALSE	49	47.82	1.18	38.045	0.189	0.214	0.136	-0.053
+cmag_627	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Fusicatenibacter	Fusicatenibacter sp900543115	2942562	99.11	0.95	2968985.975	FALSE	48	46.791	1.209	39.049	0.59	0.556	0.7	0.11
+cmag_569	Firmicutes_A	Clostridia	Oscillospirales	Butyricicoccaceae	Agathobaculum	Agathobaculum sp900557315	2717466	97.97	0.34	2773773.604	FALSE	46	44.767	1.233	35.747	0.992	0.881	0.657	-0.335
+cmag_536	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	RUG14156	Galligastranaerophilus_A		1678359	91.42	0	1835877.27	FALSE	30	28.75	1.25	17.492	0	0	0.086	0.086
+cmag_568	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter faecipullorum	3029203	98.64	1.17	3070968.167	FALSE	49	47.741	1.259	39.262	0.705	0.286	0.2	-0.505
+cmag_707	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Lachnoclostridium_B	Lachnoclostridium_B faecipullorum	2607387	94.28	2.63	2765578.065	FALSE	46	44.675	1.325	31.166	0.049	0.008	0	-0.049
+cmag_173	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Fimimorpha	Fimimorpha sp904420225	2713554	95.13	1.23	2852469.253	FALSE	47	45.619	1.381	32.923	0.139	0.024	0.014	-0.125
+cmag_089	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Ruthenibacterium	Ruthenibacterium merdavium	2417210	98.64	0.68	2450537.307	FALSE	42	40.618	1.382	33.021	0.549	0.587	0.214	-0.335
+cmag_244	Verrucomicrobiota	Verrucomicrobiae	Opitutales	CAG-312	Merdousia	Merdousia sp001917305	2547127	95.27	0.68	2673587.698	FALSE	45	43.602	1.398	31.469	0.008	0	0.007	-0.001
+cmag_231	Firmicutes	Bacilli	Lactobacillales	Lactobacillaceae	Limosilactobacillus	Limosilactobacillus reuteri_E	1451907	89.11	0	1629342.386	FALSE	25	23.588	1.412	13.067	0.492	0.151	0.164	-0.328
+cmag_322	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Acutalibacter	Acutalibacter sp904419785	2142491	94.88	0	2258106.029	FALSE	39	37.522	1.478	26.377	0.18	0.143	0.036	-0.145
+cmag_058	Firmicutes_A	Clostridia	Christensenellales	CAG-552	Protoclostridium		1577787	90.46	0.06	1744181.959	FALSE	28	26.509	1.491	15.508	0	0.071	0.136	0.136
+cmag_096	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Acutalibacter	Acutalibacter stercoravium	2127916	94.3	0	2256538.706	FALSE	39	37.495	1.505	25.773	0.746	0.373	0.214	-0.532
+cmag_248	Bacteroidota	Bacteroidia	Bacteroidales	Tannerellaceae	Parabacteroides	Parabacteroides merdae	4000266	99.57	0.38	4017541.428	FALSE	56	54.472	1.528	46.684	0.008	0	0	-0.008
+cmag_321	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia		1822435	91.45	0.83	1992821.214	FALSE	34	32.328	1.672	19.728	0.025	0.04	0.043	0.018
+cmag_021	Firmicutes	Bacilli	Lactobacillales	Enterococcaceae	Enterococcus_E		2627286	99.17	4.3	2649274.982	FALSE	45	43.304	1.696	36.011	0.008	0.008	0.057	0.049
+cmag_679	Firmicutes_A	Clostridia	Christensenellales	CAG-917	Limadaptatus	Limadaptatus stercoripullorum	1516490	89.41	0.46	1696107.818	FALSE	27	25.299	1.701	14.173	0	0	0	0
+cmag_184	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	JAGZMM01		2170804	89.37	0.67	2429007.497	FALSE	42	40.297	1.703	22.987	0.016	0	0	-0.016
+cmag_637	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Phocaeicola	Phocaeicola coprocola	3127062	92.48	0.19	3381338.668	FALSE	52	50.295	1.705	33.41	0	0	0	0
+cmag_354	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia	Borkfalkia faecipullorum	2068543	94.54	0	2188008.25	FALSE	38	36.258	1.742	25.115	0.033	0.341	0.514	0.481
+cmag_728	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	UBA1405	UBA1405 sp002305685	2580381	97.99	0	2633310.542	FALSE	45	43.105	1.895	34.341	0.016	0.056	0.293	0.276
+cmag_795	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Roseburia		3041424	98.01	0.6	3103177.227	FALSE	50	48.028	1.972	38.659	0.016	0.008	0.157	0.141
+cmag_439	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	Alistipes	Alistipes merdipullorum	2451899	96.15	0.48	2550076.963	FALSE	44	42.022	1.978	31.229	0	0	0	0
+cmag_382	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Parasutterella	Parasutterella gallistercoris	2285586	100	0	2285586	FALSE	40	37.997	2.003	32.413	0	0	0.414	0.414
+cmag_578	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia	Borkfalkia faecavium	1873960	94.76	0	1977585.479	FALSE	34	31.997	2.003	22.29	0.049	0.175	0.35	0.301
+cmag_801	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia_A	Blautia_A excrementigallinarum	2408507	97.29	0	2475595.642	FALSE	43	40.983	2.017	31.716	0.057	0.214	0.429	0.371
+cmag_415	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Bacteroides	Bacteroides togonis	3170969	94.93	0.63	3340323.396	FALSE	52	49.981	2.019	36.244	0	0	0	0
+cmag_120	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Sellimonas	Sellimonas avistercoris	2845556	95.32	1.27	2985266.471	FALSE	49	46.947	2.053	34.24	0.672	0.278	0.186	-0.486
+cmag_772	Firmicutes_A	Clostridia	UBA1212	UBA1255	Egerieisoma	Egerieisoma sp900543695	2249716	96.15	0.7	2339798.232	FALSE	41	38.901	2.099	28.761	0	0.016	0.164	0.164
+cmag_342	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Borkfalkia	Borkfalkia sp017886895	1867601	94.76	0.03	1970874.842	FALSE	34	31.85	2.15	22.187	0.041	0.071	0.364	0.323
+cmag_245	Firmicutes_C	Negativicutes	Acidaminococcales	Acidaminococcaceae	CAG-266	CAG-266 sp000436095	1909673	99.4	0.6	1921200.201	FALSE	33	30.739	2.261	25.701	0.016	0	0.021	0.005
+cmag_101	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter caccogallinarum	2824449	95.83	0.97	2947353.647	FALSE	49	46.581	2.419	34.574	0.328	0.246	0.25	-0.078
+cmag_224	Firmicutes_A	Clostridia	Lachnospirales	Anaerotignaceae	Metalachnospira	Metalachnospira gallinarum	2047633	95.28	0.89	2149069.06	FALSE	38	35.522	2.478	25.304	0.025	0.103	0.3	0.275
+cmag_605	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Scatomonas	Scatomonas merdigallinarum	2734231	99.37	1.27	2751565.865	FALSE	47	44.517	2.483	37.351	0.205	0.349	0.25	0.045
+cmag_788	Firmicutes_A	Clostridia	Oscillospirales	Oscillospiraceae	An92	An92 sp019114165	2331746	92.78	0.47	2513198.965	FALSE	44	41.516	2.484	27.136	0.238	0.365	0.35	0.112
+cmag_187	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae			3131297	99.52	0.48	3146399.719	FALSE	51	48.404	2.596	41.089	0.09	0.524	0.8	0.71
+cmag_235	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Anaerobutyricum	Anaerobutyricum faecale	2952552	97.32	0.67	3033859.433	FALSE	50	47.402	2.598	37.188	0.139	0.063	0.079	-0.061
+cmag_476	Firmicutes	Bacilli	CAJFEE01	CAJFEE01	Harrysmithimonas	Harrysmithimonas galli	2607692	98.28	0	2653329.263	FALSE	46	43.354	2.646	34.919	0.533	0.841	0.771	0.239
+cmag_658	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	RGIG4074	RGIG4074 sp017886575	1484757	85.67	0	1733111.941	FALSE	29	26.232	2.768	12.548	0.041	0.167	0.064	0.023
+cmag_364	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Caccousia	Caccousia avicola	3119853	100	0	3119853	FALSE	51	48.174	2.826	41.558	1	1	1	0
+cmag_601	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Sellimonas	Sellimonas intestinalis	2559633	94.25	1.88	2715790.981	FALSE	47	44.104	2.896	30.685	0.066	0.008	0	-0.066
+cmag_824	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Hungatella	Hungatella pullicola	3091792	99.37	0	3111393.781	FALSE	51	48.1	2.9	40.6	0.738	0.27	0.107	-0.631
+cmag_142	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Fimivivens	Fimivivens faecavium	1813008	97.99	0	1850196.959	FALSE	32	29.09	2.91	23.059	0.074	0.444	0.436	0.362
+cmag_117	Bacteroidota	Bacteroidia	Bacteroidales	Barnesiellaceae	Barnesiella	Barnesiella viscericola	2696881	99.43	0.19	2712341.346	FALSE	47	44.064	2.936	37.025	0.008	0.008	0.486	0.478
+cmag_641	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Heritagella	Heritagella intestinalis	2313821	98.66	0	2345247.314	FALSE	42	38.99	3.01	31.671	0.434	0.095	0.021	-0.413
+cmag_067	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	Alistipes_A	Alistipes_A ihumii	2509975	98.56	0	2546646.713	FALSE	45	41.975	3.025	34.082	0	0.024	0.393	0.393
+cmag_802	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia_A	Blautia_A avistercoris	2721774	97.47	0	2792422.284	FALSE	48	44.974	3.026	35.286	0.213	0.119	0.257	0.044
+cmag_420	Bacteroidota	Bacteroidia	Bacteroidales	Barnesiellaceae	Barnesiella	Barnesiella merdigallinarum	2975661	99.6	0	2987611.446	FALSE	50	46.969	3.031	39.885	0.016	0.008	0.007	-0.009
+cmag_035	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter gallistercoris	2912417	97.66	0.58	2982200.492	FALSE	50	46.917	3.083	37.215	0.451	0.159	0.1	-0.351
+cmag_778	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Anaerostipes	Anaerostipes avistercoris	2656870	98.66	2.01	2692955.605	FALSE	47	43.835	3.165	35.821	0.336	0.111	0.143	-0.193
+cmag_310	Firmicutes_A	Clostridia	Oscillospirales	Butyricicoccaceae	Butyricicoccus		2364289	98.66	0	2396400.77	FALSE	43	39.8	3.2	32.352	0	0.095	0.214	0.214
+cmag_696	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Gallimonas		1711254	93.15	0.05	1837095.008	FALSE	32	28.779	3.221	18.793	0.016	0	0	-0.016
+cmag_587	Firmicutes_A	Clostridia	Lachnospirales	Anaerotignaceae	Metalachnospira	Metalachnospira sp902406135	2361495	98.66	0.89	2393568.822	FALSE	43	39.756	3.244	32.315	0.221	0.603	0.386	0.164
+cmag_097	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Egerieimonas_A	Egerieimonas_A faecigallinarum	3149312	95.55	0	3295983.255	FALSE	53	49.635	3.365	36.764	0.352	0.063	0.014	-0.338
+cmag_759	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Scatavimonas	Scatavimonas merdipullorum	2067740	95.97	0	2154569.136	FALSE	39	35.627	3.373	26.069	0.025	0.04	0.071	0.047
+cmag_062	Cyanobacteria	Vampirovibrionia	Gastranaerophilales	RUG14156	Galligastranaerophilus	Galligastranaerophilus faecipullorum	1705530	93.16	0.57	1830753.542	FALSE	32	28.627	3.373	18.702	0.189	0.698	0.821	0.633
+cmag_598	Bacteroidota	Bacteroidia	Bacteroidales	Coprobacteraceae	Coprobacter	Coprobacter fastidiosus	3411287	99.62	0	3424299.337	FALSE	54	50.616	3.384	43.264	0.008	0	0	-0.008
+cmag_338	Firmicutes_A	Clostridia	Oscillospirales	Butyricicoccaceae	Agathobaculum	Agathobaculum stercoravium	2734330	99.33	0	2752773.583	FALSE	48	44.531	3.469	37.311	0.959	0.659	0.293	-0.666
+cmag_709	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Scybalocola	Scybalocola faecipullorum	2878773	97.99	0.67	2937823.247	FALSE	50	46.487	3.513	37.274	0.254	0.119	0.014	-0.24
+cmag_288	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Caproicibacterium		2148493	95.3	0.96	2254452.256	FALSE	41	37.458	3.542	26.759	0.016	0.008	0	-0.016
+cmag_297	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Coproplasma		2191313	94.76	0.03	2312487.336	FALSE	42	38.451	3.549	26.943	0.139	0.238	0.286	0.146
+cmag_337	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Mediterraneibacter	Mediterraneibacter stercorigallinarum	2721224	92.9	0.64	2929196.986	FALSE	50	46.402	3.598	30.909	0.336	0.246	0.257	-0.079
+cmag_433	Actinobacteriota	Coriobacteriia	Coriobacteriales	Coriobacteriaceae	Enorma	Enorma massiliensis	2288629	99.19	0.81	2307318.278	FALSE	42	38.365	3.635	31.767	0	0	0	0
+cmag_416	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Phocaeicola	Phocaeicola sp900540105	2962043	94.65	0	3129469.625	FALSE	52	48.258	3.742	34.477	0	0	0	0
+cmag_291	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	CAJFUH01	CAJFUH01 sp904420155	2568959	97.32	1.01	2639703.042	FALSE	47	43.185	3.815	33.581	0.246	0	0	-0.246
+cmag_471	Firmicutes_A	Clostridia	Christensenellales	UBA3700	Ornithoclostridium	Ornithoclostridium excrementipullorum	1894217	93.18	0	2032857.909	FALSE	37	33.183	3.817	21.721	0.189	0.31	0.293	0.104
+cmag_172	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Ruminococcus_D	Ruminococcus_D sp900752625	2290004	97.32	0	2353066.173	FALSE	43	39.116	3.884	30.23	0.016	0.048	0	-0.016
+cmag_644	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Coproplasma		2080796	95.56	0.03	2177475.931	FALSE	40	36.061	3.939	25.981	0.082	0.056	0.121	0.039
+cmag_733	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	Rikenella	Rikenella faecigallinarum	2286609	100	0	2286609	FALSE	42	38.015	3.985	32.428	0	0	0.121	0.121
+cmag_508	Firmicutes	Bacilli	Lactobacillales	Lactobacillaceae	Limosilactobacillus	Limosilactobacillus ingluviei	1916237	99.18	0	1932080.056	FALSE	35	30.985	4.015	25.68	0	0	0.014	0.014
+cmag_410	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Faecivivens		2731431	97.99	1.79	2787458.924	FALSE	49	44.919	4.081	35.904	0.754	0.294	0.364	-0.39
+cmag_082	Firmicutes_A	Clostridia	Oscillospirales	Butyricicoccaceae	Agathobaculum	Agathobaculum intestinigallinarum	2386047	99.33	0	2402141.347	FALSE	44	39.888	4.112	33.234	0.885	0.468	0.35	-0.535
+cmag_155	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	Rikenella	Rikenella massiliensis	2616151	100	0	2616151	FALSE	47	42.888	4.112	36.718	0	0	0	0
+cmag_238	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Anaerostipes	Anaerostipes butyraticus	2602489	96.98	1.34	2683531.656	FALSE	48	43.722	4.278	33.614	0.852	0.389	0.336	-0.517
+cmag_071	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	UMGS1370	UMGS1370 sp904395885	3032822	99.05	0	3061910.146	FALSE	52	47.659	4.341	39.753	0.803	0.619	0.507	-0.296
+cmag_705	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	AM51-8	AM51-8 sp900761925	2640522	95.54	0.58	2763786.896	FALSE	49	44.655	4.345	32.636	0.615	0.476	0.336	-0.279
+cmag_806	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Gallimonas	Gallimonas intestinavium	1906072	92.74	0	2055285.745	FALSE	38	33.651	4.349	21.653	0.066	0.294	0.493	0.427
+cmag_293	Firmicutes_A	Clostridia	Christensenellales	UBA3700	Alloclostridium	Alloclostridium intestinigallinarum	1635933	93.55	0.03	1748725.815	FALSE	31	26.622	4.378	17.693	0.238	0.73	0.857	0.619
+cmag_381	Firmicutes_A	Clostridia	Christensenellales	CAG-552	Protoclostridium	Protoclostridium gallicola	1783074	93.12	0.86	1914813.144	FALSE	35	30.593	4.407	19.952	0.057	0.111	0.2	0.143
+cmag_084	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Limousia	Limousia pullorum	2091165	97.32	0.22	2148751.541	FALSE	40	35.516	4.484	27.37	0.008	0.056	0.107	0.099
+cmag_039	Firmicutes_A	Clostridia	UBA1381	UBA1381	Ornithomonoglobus	Ornithomonoglobus merdipullorum	3349521	98.66	0	3395014.19	FALSE	55	50.398	4.602	41.68	0.336	0.087	0.014	-0.322
+cmag_386	Firmicutes_B	Dehalobacteriia	UBA4068	UBA5755	Avidehalobacter	Avidehalobacter gallistercoris	1519461	85.46	0.6	1777979.172	FALSE	32	27.346	4.654	12.97	0	0.087	0.307	0.307
+cmag_372	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Fimenecus	Fimenecus excrementavium	2059979	98.66	0	2087957.632	FALSE	39	34.319	4.681	27.831	0.156	0.556	0.871	0.716
+cmag_153	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Blautia_A	Blautia_A intestinipullorum	2805402	99.37	0.63	2823188.085	FALSE	50	45.308	4.692	38.062	0.393	0.278	0.171	-0.222
+cmag_145	Firmicutes_A	Clostridia	Christensenellales	CAG-552	Protoclostridium	Protoclostridium sp019113265	1822287	91.59	0.04	1989613.495	FALSE	37	32.259	4.741	19.796	0.057	0.397	0.486	0.428
+cmag_460	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Frisingicoccus	Frisingicoccus sp900753685	2451985	98.66	0	2485287.857	FALSE	46	41.122	4.878	33.475	0.32	0.056	0.071	-0.248
+cmag_682	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Faeciplasma	Faeciplasma avium	1706666	96.64	0	1766003.725	FALSE	32	27.051	4.949	20.371	0.025	0.135	0.493	0.468
+cmag_498	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Coproplasma	Coproplasma avistercoris	1766545	96.24	0.03	1835562.136	FALSE	34	28.742	5.258	21.26	0.066	0.262	0.236	0.17
+cmag_346	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Coproplasma	Coproplasma stercoravium	1912091	95.16	0	2009343.211	FALSE	38	32.684	5.316	23.136	0.328	0.667	0.343	0.015
+cmag_240	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Eubacterium_R	Eubacterium_R faecale	2150051	97.32	0	2209259.145	FALSE	42	36.649	5.351	28.26	0.221	0.246	0.064	-0.157
+cmag_816	Firmicutes_A	Clostridia	Oscillospirales	Butyricicoccaceae	Butyricicoccus	Butyricicoccus avistercoris	2244607	99.33	0	2259747.307	FALSE	43	37.551	5.449	31.243	0.057	0.214	0.157	0.1
+cmag_639	Bacteroidota	Bacteroidia	Bacteroidales	Tannerellaceae	Parabacteroides	Parabacteroides intestinipullorum	3393464	99.42	0.77	3413260.913	FALSE	56	50.534	5.466	42.898	0	0	0	0
+cmag_332	Campylobacterota	Campylobacteria	Campylobacterales	Helicobacteraceae	Helicobacter_D	Helicobacter_D pullorum	1822282	99.82	0	1825568.022	FALSE	34	28.503	5.497	24.298	0.057	0.008	0.05	-0.007
+cmag_700	Firmicutes_A	Clostridia	Lachnospirales	Anaerotignaceae	Neoanaerotignum_A	Neoanaerotignum_A tabaqchaliae	2328877	97.99	0	2376647.617	FALSE	45	39.491	5.509	31.306	0.639	0.27	0	-0.639
+cmag_112	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Fimimorpha	Fimimorpha faecalis	3131515	99.37	0.32	3151368.622	FALSE	54	48.447	5.553	40.917	0.475	0.524	0.729	0.253
+cmag_462	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Phocaeicola	Phocaeicola plebeius_A	3625938	98.88	0	3667008.495	FALSE	58	52.314	5.686	43.718	0.049	0.024	0.05	0.001
+cmag_800	Firmicutes	Bacilli	Lactobacillales	Streptococcaceae	Streptococcus	Streptococcus gallolyticus	1956324	91.58	1.12	2136191.308	FALSE	41	35.273	5.727	21.716	0	0.008	0.021	0.021
+cmag_140	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Gallimonas	Gallimonas sp900548845	1847796	95.16	0.07	1941778.058	FALSE	37	31.203	5.797	22.084	0.131	0.437	0.679	0.547
+cmag_503	Bacteroidota	Bacteroidia	Bacteroidales	Rikenellaceae	Avirikenella	Avirikenella pullistercoris	2115730	99.51	0.36	2126148.126	FALSE	41	35.077	5.923	29.375	0	0	0.014	0.014
+cmag_551	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Fimenecus	Fimenecus stercoravium	2051142	96.64	0	2122456.54	FALSE	41	35.005	5.995	26.275	0.008	0.04	0.043	0.035
+cmag_541	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Bacteroides	Bacteroides merdavium	3549947	98.05	0.37	3620547.68	FALSE	58	52.003	5.997	42.235	0.025	0.008	0.171	0.147
+cmag_422	Bacteroidota	Bacteroidia	Bacteroidales	Bacteroidaceae	Bacteroides	Bacteroides clarus	3491845	96.55	0	3616618.332	FALSE	58	51.977	6.023	40.09	0	0	0.029	0.029
+cmag_256	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Coproplasma	Coproplasma stercorigallinarum	1880247	95.16	0.03	1975879.571	FALSE	38	31.959	6.041	22.619	0.393	0.865	0.721	0.328
+cmag_115	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Fimousia	Fimousia stercorigallinarum	2527214	99.66	1.34	2535835.842	FALSE	48	41.828	6.172	35.336	0	0.008	0	0
+cmag_565	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Heritagella	Heritagella sp905215105	2290656	98.15	0.06	2333831.89	FALSE	45	38.804	6.196	30.923	0.5	0.27	0.164	-0.336
+cmag_081	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Anaeromassilibacillus	Anaeromassilibacillus stercoravium	2434020	99.33	0	2450437.934	FALSE	47	40.616	6.384	33.862	0.943	0.881	0.686	-0.257
+cmag_343	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Egerieicola		1701093	78.98	1.12	2153827.551	FALSE	42	35.613	6.387	13.064	0.049	0.048	0.007	-0.042
+cmag_064	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Caccovicinus	Caccovicinus excrementipullorum	3256068	99.04	0.63	3287629.241	FALSE	56	49.569	6.431	41.473	0.131	0.103	0.157	0.026
+cmag_229	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae	Lachnospira		2752334	100	0	2752334	FALSE	51	44.526	6.474	38.2	0.205	0.278	0.171	-0.033
+cmag_473	Bacteroidota	Bacteroidia	Bacteroidales	UBA11471	UBA11471	UBA11471 sp900542765	2410226	99.25	0	2428439.295	FALSE	47	40.288	6.712	33.481	0.016	0	0.014	-0.002
+cmag_074	Firmicutes_A	Clostridia	Christensenellales	UBA3700	Ornithoclostridium		1710847	94.18	0	1816571.459	FALSE	35	28.286	6.714	19.264	0.008	0.016	0.071	0.063
+cmag_686	Firmicutes_A	Clostridia	Christensenellales	CAG-917	Limadaptatus	Limadaptatus sp900554085	1426805	90.81	0.02	1571198.106	FALSE	29	22.079	6.921	13.172	0	0	0	0
+cmag_465	Bacteroidota	Bacteroidia	Flavobacteriales	UBA1820	Merdimorpha	Merdimorpha sp002314265	1871448	99.26	0	1885399.96	FALSE	37	29.916	7.084	24.901	0.008	0	0.014	0.006
+cmag_754	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Ruthenibacterium	Ruthenibacterium avium	2286729	98.24	0.68	2327696.458	FALSE	46	38.703	7.297	30.944	0.115	0.135	0.107	-0.008
+cmag_091	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Eubacterium_R	Eubacterium_R faecavium	2119030	95.97	0	2208012.921	FALSE	44	36.626	7.374	26.823	0.451	0.222	0.021	-0.429
+cmag_060	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Scatavimonas	Scatavimonas merdigallinarum	2020950	96.42	0	2095986.31	FALSE	42	34.48	7.52	25.656	0.074	0.246	0.236	0.162
+cmag_507	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Coproplasma	Coproplasma avicola	1762982	94.76	0	1860470.663	FALSE	37	29.333	7.667	20.44	0.172	0.286	0.279	0.106
+cmag_720	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Coproplasma	Coproplasma excrementipullorum	1842822	95.56	0.4	1928444.956	FALSE	39	30.903	8.097	22.223	0.008	0.032	0.293	0.285
+cmag_585	Firmicutes_A	Clostridia	Christensenellales	CAG-314	Heteroclostridium	Heteroclostridium caecigallinarum	1175406	94.76	0.4	1240403.124	FALSE	22	13.72	8.28	10.038	0.115	0.698	0.657	0.542
+cmag_559	Verrucomicrobiota	Verrucomicrobiae	Verrucomicrobiales	Akkermansiaceae	Akkermansia	Akkermansia muciniphila	2701272	97.96	0	2757525.521	FALSE	53	44.585	8.415	35.576	0.033	0.206	0.507	0.474
+cmag_223	Bacteroidota	Bacteroidia	Bacteroidales	CHK158-818	Gallibacteroides	Gallibacteroides avistercoris	2505264	99.6	0	2515325.301	FALSE	50	41.546	8.454	35.011	0.008	0	0.014	0.006
+cmag_059	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Heritagella	Heritagella gallinarum	2345581	98.96	0	2370231.407	FALSE	48	39.39	8.61	32.363	0.164	0.23	0.114	-0.05
+cmag_738	Firmicutes_A	Clostridia	Lachnospirales	Anaerotignaceae	Fimicola	Fimicola cottocaccae	3309905	98.66	0	3354860.126	FALSE	59	50.093	8.907	41.406	0.746	0.381	0.364	-0.382
+cmag_253	Firmicutes_C	Negativicutes	Veillonellales	Megasphaeraceae	Megasphaera	Megasphaera elsdenii	1607863	89.02	0.6	1806181.757	FALSE	37	28.035	8.965	15.445	0	0	0	0
+cmag_803	Firmicutes_A	Clostridia	Christensenellales	Borkfalkiaceae	Gallimonas	Gallimonas gallistercoris	1765397	95.56	0	1847422.562	FALSE	38	29.024	8.976	20.888	0.057	0.317	0.493	0.435
+cmag_621	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	Gallacutalibacter	Gallacutalibacter pullicola	2838389	98.41	0	2884248.552	FALSE	55	45.949	9.051	37.355	0.467	0.262	0.021	-0.446
+cmag_713	Firmicutes_A	Clostridia	Lachnospirales	CAG-274	Gallispira	Gallispira edinburgensis	2658051	98.66	0	2694152.645	FALSE	53	43.849	9.151	35.833	0.746	0.087	0.029	-0.717
+cmag_236	Firmicutes_A	Clostridia	Lachnospirales	Lachnospiraceae			1887488	94.05	1.39	2006898.458	FALSE	42	32.632	9.368	22.105	0.049	0.119	0.029	-0.021
+cmag_492	Actinobacteriota	Actinomycetia	Actinomycetales	Bifidobacteriaceae	Bifidobacterium	Bifidobacterium pullorum_B	2235416	99.09	0.08	2255945.1	FALSE	47	37.484	9.516	30.91	0.533	0.849	0.814	0.281
+cmag_133	Firmicutes	Bacilli	Lactobacillales	Streptococcaceae	Streptococcus	Streptococcus alactolyticus	1717928	99.25	0.75	1730909.824	FALSE	36	26.177	9.823	21.918	0.033	0.016	0.071	0.039
+cmag_045	Firmicutes_C	Negativicutes	Selenomonadales	Selenomonadaceae	Megamonas	Megamonas funiformis	2808370	100	2.85	2808370	FALSE	55	45.148	9.852	38.768	0.016	0	0.007	-0.009
+cmag_466	Firmicutes_A	Clostridia	Oscillospirales	Acutalibacteraceae	UBA7067		2175498	97.99	0.67	2220122.461	FALSE	47	36.846	10.154	29.146	0	0.04	0.007	0.007
+cmag_214	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	UBA866	UBA866 sp016901855	2003307	99.33	0	2016819.692	FALSE	43	32.844	10.156	27.339	0.033	0.119	0.157	0.124
+cmag_168	Firmicutes_A	Clostridia	UBA1381	UBA1381	UBA4716	UBA4716 sp905215805	2583479	98.66	0.17	2618567.809	FALSE	54	42.919	11.081	35.022	0.459	0.198	0.057	-0.402
+cmag_166	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	Egerieicola	Egerieicola faecale	2065432	97.76	0	2112757.774	FALSE	46	34.814	11.186	27.279	0.279	0.27	0.107	-0.172
+cmag_209	Firmicutes_A	Clostridia	Oscillospirales	Ruminococcaceae	QAMM01	QAMM01 sp900552945	2146476	97.32	0	2205585.697	FALSE	48	36.582	11.418	28.207	0.123	0.103	0.036	-0.087
+cmag_108	Firmicutes_A	Clostridia	Christensenellales	UBA3700	Caccalectryoclostridium	Caccalectryoclostridium excrementigallinarum	1392225	90.14	0	1544514.089	FALSE	33	21.383	11.617	12.417	0.074	0.159	0.636	0.562
+cmag_814	Firmicutes_A	Clostridia	Lachnospirales	Anaerotignaceae	Fimicola		2100106	98.66	0	2128629.637	FALSE	48	35.126	12.874	28.485	0.131	0.222	0.293	0.162
+cmag_241	Firmicutes_A	Clostridia	Lachnospirales	Anaerotignaceae	Neoanaerotignum_B	Neoanaerotignum_B galli	1916542	98.66	0	1942572.471	FALSE	46	31.221	14.779	25.354	0.148	0.159	0.043	-0.105
+cmag_519	Campylobacterota	Campylobacteria	Campylobacterales	Campylobacteraceae	Campylobacter_D	Campylobacter_D coli	1685240	99.44	0.11	1694730.491	FALSE	41	25.264	15.736	21.359	0.016	0.008	0.036	0.019
+cmag_395	Campylobacterota	Campylobacteria	Campylobacterales	Campylobacteraceae	Campylobacter_D	Campylobacter_D jejuni	1605230	99.56	0	1612324.227	FALSE	39	23.148	15.852	19.783	0.025	0.016	0	-0.025
+cmag_025	Proteobacteria	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Proteus	Proteus mirabilis	3832545	99.1	0.54	3867351.16	FALSE	78	53.586	24.414	45.181	0.066	0.008	0	-0.066
+cmag_167	Proteobacteria	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Klebsiella	Klebsiella pneumoniae	5135207	97.17	1.71	5284765.874	FALSE	102	59.939	42.061	47.642	0.049	0.008	0.007	-0.042
+cmag_510	Proteobacteria	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Escherichia	Escherichia coli	4775931	99.97	0.07	4777364.209	FALSE	101	58.154	42.846	50.556	0.918	0.754	0.736	-0.182

@@ -1,0 +1,22 @@
+item	value
+MAGs	822
+samples	388
+database version	2026.37.1
+gifter SQLite sha256	752ff2b0cdce56e33bb12d57ce875fb4ddb459a7fd86e88c356ac1714186a87e
+annotation sha256	1bc6f6a882223d1f86c417f5d0f9c8937fc70b370affc0c5399bc3e81fcfbd86
+GTDB genomes behind the expectation	696
+catalogue GIFTs	163
+supported genome-GIFT pairs	23657
+GIFTs shared with the audited R10 catalogue	156
+calls on shared GIFTs that differ from the audited R10 calls	130
+expectation	per reference frame, mgcv quasi-binomial GAM, logit link, s(log10 genome size, k = 6), REML, fitted to the GTDB panel
+primary genome size	MAG length divided by reported completeness
+MAGs at least 90% complete	518
+MAGs read at the GTDB size boundary	0
+GTDB size range (Mb)	0.22 to 13.229
+estimated MAG size range (Mb)	0.94 to 6.531
+primary detection	0.001
+age model	nlme::lme, value ~ sampling_time + trial + treatment + breed + sex, random intercept for pen, REML
+taxon partition	each MAG replaced by the unweighted mean of its taxon over the 822-MAG catalogue
+multiple testing	Benjamini-Hochberg within each contrast table
+analysis script sha256	4886295d639cc96b24038601ae6145c515594d6ca940007b582ac14342d314f5

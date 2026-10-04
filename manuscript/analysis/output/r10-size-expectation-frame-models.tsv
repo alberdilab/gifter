@@ -1,0 +1,22 @@
+frame_id	reference_frame	member_count	gtdb_deviance_explained	gtdb_mean_supported	mag_mean_supported	mag_mean_expected
+all_gifts	All GIFTs	163	0.6779	45.7601	28.7798	37.0254
+all_metabolic	All metabolic GIFTs	143	0.6653	42.227	27.1959	34.4722
+amino_acid_autonomy	Amino-acid autonomy	22	0.552	13.3649	9.2883	11.5923
+aromatic_catabolism	Aromatic catabolism	12	0.1749	0.2974	0.0146	0.1181
+biomass_essential_anabolism	Biomass-essential anabolic GIFTs	44	0.5871	22.3793	14.3102	19.5217
+carbohydrate_degradation	Carbohydrate degradation	18	0.3896	3.0891	2.6861	1.8098
+carbon_acquisition	Carbon acquisition	36	0.5373	4.8649	3.5292	3.0051
+chemical_detoxification	Chemical detoxification	5	0.4345	1.6379	1.0718	1.0505
+cofactor_autonomy	Cofactor autonomy	15	0.4307	4.7931	1.8443	3.9564
+extracellular_public_goods	Extracellular processing outputs	3	0.3057	1.0388	1.028	0.7332
+fermentation_products	Fermentation products	11	0.0941	1.046	1.6448	1.1442
+host_glycan_foraging	Host glycan foraging	7	0.2703	0.9856	0.8127	0.5848
+nitrogen_acquisition	Nitrogen acquisition	20	0.4795	3.3276	1.7543	2.4508
+nucleotide_autonomy	Nucleotide autonomy	4	0.3741	3.2026	2.5365	3.1448
+nutrient_uptake	Nutrient uptake	3	0.1646	0.1595	0.0122	0.0509
+plant_fibre_utilisation	Plant fibre utilisation	13	0.3442	2.1739	1.7299	1.2934
+released_bioactive_products	Released bioactive products	5	0.13	0.3807	0.1119	0.2601
+shikimate_derived_biosynthesis	Shikimate-derived biosynthesis	10	0.3244	2.7802	1.5681	2.1931
+short_chain_fatty_acids	Short-chain fatty acids	4	0.0524	0.4411	0.6423	0.4146
+sulfur_acquisition	Sulfur acquisition	4	0.2031	0.4152	0.0122	0.1745
+vitamin_biosynthesis	Vitamin biosynthesis	20	0.4922	7.4368	4.2348	6.1931

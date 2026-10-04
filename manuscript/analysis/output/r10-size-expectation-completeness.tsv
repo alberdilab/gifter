@@ -1,0 +1,4 @@
+mags	genomes	median_deviation	spearman_rho_deviation_completeness	p_value
+all MAGs	822	-7.4391	0.6347	7.131e-94
+at least 90% complete	518	-3.4628	0.2895	1.837e-11
+below 90% complete	304	-15.526	0.4882	1.291e-19

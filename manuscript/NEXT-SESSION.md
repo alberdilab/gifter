@@ -37,11 +37,22 @@ source of truth.
    The full to-do list for polishing GIFT definitions from these analyses is
    `inst/doc/assessment-gtdb-near-miss-leads.md` (attempt
    `GEA-20261004-GTDB-NEAR-MISS-SCREEN`).
-3. **Run R8, the controlled comparison of abstractions.** Choose the common
+3. **Decide how R10 reports the size reading.** `31-r10-size-expectation.R`
+   applies the GTDB size expectation to the chicken MAGs (Figure S19, tables
+   `r10-size-expectation-*`). Genome size reproduces about two thirds of the
+   fall in per-MAG repertoire (80% among MAGs at least 90% complete); the
+   anabolic frames fall about twice as far as size predicts; and the turnover
+   is between orders, not phyla. No prose is written yet. The analysis stands
+   on database 2026.37.1, R10 on 2026.30.1, so the contrasts differ slightly
+   (-7.13 and -9.32 against -6.77 and -8.83): either state both or re-run R10
+   on one database before quoting them together. The deviation rises with MAG
+   completeness (Spearman 0.63), so quote the high-completeness variant beside
+   the primary one.
+4. **Run R8, the controlled comparison of abstractions.** Choose the common
    genome subset and pin the KEGG-module and DRAM versions/parameters before
    writing results. Analyse disagreement causes; do not frame this as a
    benchmark with a winner.
-4. **Make submission decisions explicitly.** Select Microbiome or mSystems,
+5. **Make submission decisions explicitly.** Select Microbiome or mSystems,
    settle author contributions, and decide the software/database DOI policy.
    A DOI remains an external release action; do not invent one.
 

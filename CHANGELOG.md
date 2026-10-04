@@ -13,34 +13,34 @@ versioned with the package.
 
 ---
 
+### 2026-10-04T16:37Z — Chicken per-MAG repertoire is read against the GTDB size expectation
+
+**What changed.** A new manuscript analysis, `31-r10-size-expectation.R`, gives
+each of the 822 chicken caecal MAGs a size expectation fitted to the GTDB panel
+for every reference frame, and splits each sample's mean per-MAG richness
+exactly into the mean expected from the sizes of its detected MAGs and the mean
+deviation from it. The R10 age model is fitted to each part. A second partition
+replaces each MAG by the mean of its taxon, from phylum to genus. The MAGs are
+evaluated again against database 2026.37.1, the one the GTDB panel used; the
+audited R10 outputs are not rewritten. It writes eight tables and Figure S19.
+
+**Why.** Repertoire size follows genome size across GTDB, so the fall in
+per-MAG repertoire with age could be smaller genomes replacing larger ones and
+nothing else.
+
+**Effect.** Genome size reproduces about two thirds of the fall (63% at day 21
+and 66% at day 35), and 80% among MAGs at least 90% complete; the mean
+estimated genome size of detected MAGs falls by 0.40 Mb by day 35. A negative
+deviation remains in every variant at the three positive detection thresholds.
+Amino-acid, biomass-essential and vitamin frames fall about twice as far as
+size predicts, fermentation-product and short-chain-fatty-acid frames far more
+than it predicts, and cofactor autonomy as far as it predicts. Turnover between
+phyla or classes carries under a tenth of the fall and turnover between orders
+four fifths. The deviation rises with MAG completeness, so its size is an upper
+bound on a biological effect. No call, package API or database content changes.
+
 ## Unreleased
 
-### 2026-10-04T15:28Z — GTDB near misses are read by which step is missing
-
-**What changed.** A new manuscript analysis, `30-gtdb-near-miss-steps.R`,
-measures for each implementation how concentrated the missing requirement is
-over its near-miss genomes, and whether the requirements present are specific
-to the GIFT or shared with another GIFT through a reaction, function or marker.
-Requirement and marker sharing is read from the database source tables. It
-writes three tables and Figure S18.
-
-**Why.** The same step missing everywhere means a correct refusal when the
-steps present are shared with other GIFTs, and a curation candidate when they
-are specific to the GIFT. Counting near misses alone could not tell these apart.
-
-**Effect.** Of 11,736 near misses, 47% lack the same step while GIFT-specific
-steps are present, 29% lack a varying step, and 23% have only shared steps
-present. The first group is a ranked list of curation candidates. The sharing
-rule does not detect a marker that is biologically broad but accepted once. No
-call, package API or database content changes.
-
-### 2026-10-04T15:15Z — GTDB near misses, per-GIFT phylogenetic signal and a quality check
-
-**What changed.** `26-gtdb-repertoire-genome-size.R` now repeats the phylum
-reading of the size deviation on isolates only, on genomes of high CheckM2
-quality, and with completeness and metagenome origin in the expectation; it
-writes `gtdb-size-expectation-sensitivity.tsv` and adds a panel to Figure S10.
-A new analysis, `29-gtdb-near-misses-and-gift-signal.R`, counts unsupported
 ### 2026-10-04T17:39Z — Marker basis is derived for NCBIfam and CAZy, and NCBIfam grades are checked
 
 **What changed.** `.derive_marker_basis()` now covers NCBIfam profiles and CAZy
@@ -95,6 +95,32 @@ only KO markers on enzyme components; the KEGG links it reads are not
 redistributed, so CI checks that a basis is recorded but cannot recompute it;
 and `gift_reviews.tsv`, the human sign-off, is empty.
 
+### 2026-10-04T15:28Z — GTDB near misses are read by which step is missing
+
+**What changed.** A new manuscript analysis, `30-gtdb-near-miss-steps.R`,
+measures for each implementation how concentrated the missing requirement is
+over its near-miss genomes, and whether the requirements present are specific
+to the GIFT or shared with another GIFT through a reaction, function or marker.
+Requirement and marker sharing is read from the database source tables. It
+writes three tables and Figure S18.
+
+**Why.** The same step missing everywhere means a correct refusal when the
+steps present are shared with other GIFTs, and a curation candidate when they
+are specific to the GIFT. Counting near misses alone could not tell these apart.
+
+**Effect.** Of 11,736 near misses, 47% lack the same step while GIFT-specific
+steps are present, 29% lack a varying step, and 23% have only shared steps
+present. The first group is a ranked list of curation candidates. The sharing
+rule does not detect a marker that is biologically broad but accepted once. No
+call, package API or database content changes.
+
+### 2026-10-04T15:15Z — GTDB near misses, per-GIFT phylogenetic signal and a quality check
+
+**What changed.** `26-gtdb-repertoire-genome-size.R` now repeats the phylum
+reading of the size deviation on isolates only, on genomes of high CheckM2
+quality, and with completeness and metagenome origin in the expectation; it
+writes `gtdb-size-expectation-sensitivity.tsv` and adds a panel to Figure S10.
+A new analysis, `29-gtdb-near-misses-and-gift-signal.R`, counts unsupported
 GIFTs whose closest implementation lacks exactly one of at least two
 requirements, ranks the requirements most often missing alone by lineage, and
 computes Fritz and Purvis's D for each GIFT. It writes six tables and Figures

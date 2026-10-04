@@ -1,0 +1,9 @@
+response	mags	genomes	families	spearman_rho	spearman_p_value	slope_per_unit_prevalence_change	standard_error	p_value
+log10_estimated_genome_size	detected in at least one sample	757	72	-0.4393	4.627e-37	-0.0378	0.0117	0.001259
+log10_estimated_genome_size	detected and at least 90% complete	476	62	-0.4409	4.689e-24	-0.0437	0.0119	0.0002603
+supported	detected in at least one sample	757	72	-0.439	5.232e-37	-3.2795	1.0862	0.002629
+supported	detected and at least 90% complete	476	62	-0.4541	1.373e-25	-2.4157	1.0599	0.02317
+expected	detected in at least one sample	757	72	-0.4393	4.627e-37	-3.1246	0.9193	0.0007158
+expected	detected and at least 90% complete	476	62	-0.4409	4.689e-24	-3.5997	0.876	4.786e-05
+deviation	detected in at least one sample	757	72	-0.2305	1.379e-10	-0.2846	1.1813	0.8097
+deviation	detected and at least 90% complete	476	62	-0.1613	0.0004103	0.8647	1.0711	0.4199

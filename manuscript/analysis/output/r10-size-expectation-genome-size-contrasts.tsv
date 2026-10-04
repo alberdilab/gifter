@@ -1,0 +1,9 @@
+variant	detection	frame_id	part	contrast	estimate	standard_error	degrees_freedom	confidence_low	confidence_high	p_value	model_status	q_value
+primary	0	genome_size	mean_estimated_genome_size_mb	day_21_minus_day_7	-0.0103	0.0039	338	-0.0181	-0.0025	0.009589	ok	0.01067
+primary	0	genome_size	mean_estimated_genome_size_mb	day_35_minus_day_7	-0.0089	0.0039	338	-0.0165	-0.0014	0.02106	ok	0.02276
+primary	0	genome_size	mean_estimated_genome_size_mb	day_21_minus_day_7	-0.0989	0.0069	338	-0.1125	-0.0852	2.031e-36	ok	3.312e-36
+primary	0	genome_size	mean_estimated_genome_size_mb	day_35_minus_day_7	-0.1147	0.0068	338	-0.1281	-0.1014	6.304e-47	ok	1.305e-46
+primary	1e-04	genome_size	mean_estimated_genome_size_mb	day_21_minus_day_7	-0.206	0.0106	338	-0.2269	-0.185	1.162e-56	ok	3.297e-56
+primary	1e-04	genome_size	mean_estimated_genome_size_mb	day_35_minus_day_7	-0.269	0.0104	338	-0.2895	-0.2485	4.38e-82	ok	3.225e-81
+primary	0.001	genome_size	mean_estimated_genome_size_mb	day_21_minus_day_7	-0.2929	0.0144	338	-0.3212	-0.2647	8.268e-61	ok	3.088e-60
+primary	0.001	genome_size	mean_estimated_genome_size_mb	day_35_minus_day_7	-0.3994	0.014	338	-0.427	-0.3718	1.152e-91	ok	2.723e-90

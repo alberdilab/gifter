@@ -44,6 +44,7 @@ begun asking gifter to claim something it does not claim.
 | `28-gtdb-origin-and-annotations.R` | GTDB overview follow-up: origin tags and assembly annotations against genome size, repertoire, the size deviation, classes of GIFT (phylogenetic regressions) and individual GIFTs (unadjusted screen), and Figures S13 to S15 | R6.1 |
 | `29-gtdb-near-misses-and-gift-signal.R` | GTDB overview follow-up: unsupported GIFTs one requirement short, by lineage and by missing requirement, as ranked curation candidates; Fritz and Purvis's D for each GIFT; and Figures S16 and S17 | R6.1 |
 | `30-gtdb-near-miss-steps.R` | GTDB overview follow-up: for each implementation, whether its near misses lack the same requirement, and whether the requirements present are specific to the GIFT or shared with others (read from the database source); ranked curation candidates and Figure S18 | R6.1 |
+| `31-r10-size-expectation.R` | R10 follow-up joining the GTDB overview: a per-frame size expectation fitted to the GTDB panel is applied to the 822 chicken MAGs, each sample's mean per-MAG richness is split into a size-expected part and a deviation, the R10 age model is fitted to each, and the contrast is partitioned by taxonomic rank (Figure S19) | R10, R6.1 |
 
 The curated inputs live with the other consulted evidence, in
 `data-raw/reference/`: `phenotype-crosswalk.tsv` maps an observation to
@@ -286,6 +287,21 @@ composite GIFTs. The script refuses a database whose checksum differs from the
 R10 audit; if the working database has advanced, `R10_DB_PATH` can point to the
 archived, hash-matching SQLite artifact.
 
+`31-r10-size-expectation.R` asks how much of the fall in per-MAG repertoire the
+GTDB size relation predicts. It refits the quasi-binomial expectation of
+`26-gtdb-repertoire-genome-size.R` for every reference frame, applies it to
+each MAG at its length divided by reported completeness, and splits a sample's
+mean per-MAG richness exactly into the mean expectation and the mean deviation.
+Because the GTDB panel was evaluated against a later database than the audited
+R10 calls, the script evaluates the MAGs again against the database named in
+the GTDB audit and refuses any other; `R10_DB_PATH` can point to that archived
+artifact. It reuses the audited detection and abundance matrices, which do not
+depend on the database, and it rewrites no `21`, `22` or `24` output. Its
+observed contrasts therefore differ slightly from those in R10, which stand on
+database 2026.30.1. MAG incompleteness lowers the observed count but not the
+expectation, so the deviation is read beside the variant restricted to MAGs at
+least 90% complete, the raw-length variant and the quality-adjusted expectation.
+
 ## R10b Microflora Danica environmental complement
 
 `25-r10-mfd.R --prepare` locks an environmental panel independently of marker
@@ -409,6 +425,17 @@ classification tables distinguish a directional association,
 equivalence-supported stability, detection sensitivity, magnitude uncertainty
 and absence of a detected association. The audit pins both cached readings,
 the margins and the multiple-testing correction.
+
+The size follow-up uses the `r10-size-expectation-*` prefix. `-mags.tsv` holds
+each MAG's estimated size, supported count, expectation, deviation and
+prevalence by age; `-frame-models.tsv` records the GTDB fit behind each frame;
+`-age-contrasts.tsv` holds the observed, size-expected and deviation contrasts
+for every frame, detection threshold and sensitivity variant, with the share
+the expectation reproduces; `-genome-size-contrasts.tsv` is the age model of
+mean estimated genome size; `-taxon-partition.tsv` splits each contrast into
+turnover between and within taxa at five ranks; `-mag-associations.tsv` and
+`-completeness.tsv` are the MAG-level checks; and `-audit.tsv` pins the
+database, annotation and model.
 
 `madin-agreement.tsv` carries the same columns as `phenotype-agreement.tsv`
 plus the representative-draw range, so the two can be read side by side without
