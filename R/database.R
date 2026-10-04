@@ -11,9 +11,39 @@
 
 # Schema compatibility is a package-code decision, independent of both the
 # package version and biological database release. A package may support more
-# than one schema during a migration; 0.7.x and the intended 1.0 contract read
-# schema 7 only.
-.gifter_supported_schema_versions <- 7L
+# than one schema during a migration. Schema 8 adds GIFT curation evidence and
+# the source repository; a schema 7 database still opens and simply reports no
+# evidence, so custom databases built by 0.7.x keep working.
+.gifter_supported_schema_versions <- c(7L, 8L)
+
+# Schema 8 additions are optional on read. Each returns what a schema 7
+# database lacks as absent rather than failing the query.
+.gifter_has_gift_evidence <- function(connection) {
+  "gift_evidence" %in% DBI::dbListTables(connection)
+}
+
+.gifter_release_repository <- function(connection) {
+  if (!"source_repository" %in% DBI::dbListFields(connection, "database_release")) {
+    return(NA_character_)
+  }
+  DBI::dbGetQuery(
+    connection, "SELECT source_repository FROM database_release WHERE release_pk = 1"
+  )$source_repository[[1L]]
+}
+
+# A link to a file in the source repository. A released database names the
+# commit it was compiled from, so the link shows exactly that code; a
+# development build records `unreleased` and links the repository's default
+# branch instead. Repositories are addressed in the GitHub `blob` form.
+.gifter_source_url <- function(repository, commit, location) {
+  if (is.na(repository) || !nzchar(repository)) return(rep(NA_character_, length(location)))
+  ref <- if (!is.na(commit) && grepl("^([0-9a-fA-F]{40}|[0-9a-fA-F]{64})$", commit)) {
+    commit
+  } else {
+    "HEAD"
+  }
+  paste0(repository, "/blob/", ref, "/", location)
+}
 
 .assert_gifter_database_compatible <- function(connection) {
   if (!inherits(connection, "DBIConnection") || !DBI::dbIsValid(connection)) {
@@ -150,11 +180,13 @@ gifter_db_version <- function(db = NULL) {
         "FROM database_release WHERE release_pk = 1"
       )
     )
+    result$source_repository <- .gifter_release_repository(connection)
     result$package_version <- as.character(utils::packageVersion("gifter"))
     result[c(
       "package_version", "gifter_db_version",
       "schema_version", "build_date",
-      "rhea_release", "chebi_release", "kegg_release", "source_commit"
+      "rhea_release", "chebi_release", "kegg_release", "source_commit",
+      "source_repository"
     )]
   })
 }
@@ -274,6 +306,56 @@ get_gift_pathways <- function(gift_id, namespace = NULL, db = NULL) {
     }
     sql <- paste(sql, "ORDER BY gx.namespace, gx.accession")
     .as_tibble_query(connection, sql, params)
+  })
+}
+
+#' Get the curation evidence recorded for a GIFT
+#'
+#' Where a GIFT's definition was worked out: the curation documents that state
+#' and defend it, the analysis scripts run to decide it, and the result tables
+#' those scripts wrote. Each row links to the file in the source repository
+#' named by [gifter_db_version()], at the commit the database was compiled from
+#' when it records one.
+#'
+#' This is provenance, never evidence for a call: a GIFT is supported only by
+#' the markers observed in a genome. Every GIFT has at least one curation
+#' document; an analysis script is listed only where one was run, and most
+#' metabolic GIFTs were curated from Rhea, KEGG and CAZy without one. A
+#' database compiled for schema 7 records no evidence and returns no rows.
+#'
+#' @inheritParams get_gift
+#' @return A tibble with one row per evidence item: `gift_id`,
+#'   `evidence_kind` (`curation_document`, `analysis_script` or
+#'   `result_table`), `location` within the repository, `description`, and
+#'   `url`.
+#' @export
+get_gift_evidence <- function(gift_id, db = NULL) {
+  gift_id <- .normalize_gift_id(gift_id)
+  .with_gifter_db(db, function(connection) {
+    if (!.gifter_has_gift_evidence(connection)) {
+      return(tibble::tibble(
+        gift_id = character(), evidence_kind = character(), location = character(),
+        description = character(), url = character()
+      ))
+    }
+    evidence <- .as_tibble_query(
+      connection,
+      paste(
+        "SELECT g.gift_id, ge.evidence_kind, ge.location, ge.description",
+        "FROM gift g JOIN gift_evidence ge ON ge.gift_pk = g.gift_pk",
+        "WHERE g.gift_id = ?",
+        "ORDER BY CASE ge.evidence_kind WHEN 'curation_document' THEN 1",
+        "WHEN 'analysis_script' THEN 2 ELSE 3 END, ge.location"
+      ),
+      list(gift_id)
+    )
+    commit <- DBI::dbGetQuery(
+      connection, "SELECT source_commit FROM database_release WHERE release_pk = 1"
+    )$source_commit[[1L]]
+    evidence$url <- .gifter_source_url(
+      .gifter_release_repository(connection), commit, evidence$location
+    )
+    evidence
   })
 }
 

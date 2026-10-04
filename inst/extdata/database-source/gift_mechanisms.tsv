@@ -4,3 +4,5 @@ MECH_TYPE_I_E_CRISPR	type_i_e_crispr_cas_machinery	type I-E CRISPR-Cas protein m
 MECH_MER_HG	mercury_detoxification	mer operon mercury detoxification	Reduction of Hg(II) to Hg(0) by MerA, required, with metal delivery, mercury-responsive induction and organomercurial lysis accessory.	curated
 MECH_MG_GLYOXALASE	methylglyoxal_detoxification	glutathione-dependent glyoxalase mechanism	Glyoxalase I and glyoxalase II are both required to convert methylglyoxal to D-lactate and regenerate glutathione.	curated
 MECH_SUPEROXIDE_COMPLETE	superoxide_detoxification	complete superoxide-to-water detoxification	One superoxide-removal system and one hydrogen-peroxide-removal system are both required.	curated
+MECH_BETA_LACTAM_HYDROLYSIS	beta_lactam_detoxification	beta-lactamase hydrolysis	Hydrolysis of a beta-lactam ring by any one of the four Ambler enzyme classes.	curated
+MECH_CHLORAMPHENICOL_ACETYLATION	chloramphenicol_detoxification	chloramphenicol O-acetylation	O-acetylation of chloramphenicol using acetyl-CoA by either CAT type.	curated

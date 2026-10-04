@@ -2,9 +2,11 @@
 #
 # The Boolean contract is fixed first on synthetic fixtures, so that it does not
 # depend on any particular curated biology, and then exercised on the curated
-# chemotaxis, phosphate-response, restriction-modification and CRISPR-Cas
-# content. What remains deferred, and why, is recorded in
-# inst/doc/proposal-regulatory-gifts.md and inst/doc/proposal-defense-gifts.md.
+# chemotaxis, phosphate-response, antibiotic detoxification,
+# restriction-modification and CRISPR-Cas content. What remains deferred, and
+# why, is recorded in inst/doc/proposal-regulatory-gifts.md,
+# inst/doc/proposal-defense-gifts.md and
+# inst/doc/proposal-regulatory-defense-expansion.md.
 
 fixture_annotations <- function(markers) {
   data.frame(
@@ -627,6 +629,100 @@ test_that("merD and the unmatchable namespaces are not mer evidence", {
 
   changes <- database_changelog("mercury_detoxification")
   expect_true("DBC-20260819-MER-EVIDENCE-REFUSALS" %in% changes$change_id)
+})
+
+test_that("serine chemoreception requires a specific Tsr and the complete circuit", {
+  downstream <- chemotaxis_downstream_markers()
+  ko_only <- evaluate_gifts(ko_annotations(c("K05874", downstream)))
+  gift <- ko_only$regulatory$gifts
+  expect_true(gift$complete[gift$gift_id == "chemotaxis_signal_transduction"])
+  expect_false(gift$complete[gift$gift_id == "serine_chemoreception"])
+  expect_equal(
+    gift$missing_functions_best_circuit[gift$gift_id == "serine_chemoreception"][[1]],
+    "RF_SERINE_RECEPTION"
+  )
+  tar_only <- evaluate_gifts(ko_annotations(c("K05875", downstream)))
+  expect_false(tar_only$regulatory$gifts$complete[
+    tar_only$regulatory$gifts$gift_id == "serine_chemoreception"
+  ])
+
+  specific <- rbind(
+    ko_annotations(downstream),
+    data.frame(gene_id = "tsr_gene", namespace = "NCBIFAM",
+               accession = "NF011615.0", stringsAsFactors = FALSE)
+  )
+  complete <- evaluate_gifts(specific)
+  gift <- complete$regulatory$gifts
+  expect_true(gift$complete[gift$gift_id == "serine_chemoreception"])
+  expect_true(gift$complete[gift$gift_id == "chemotaxis_signal_transduction"])
+  expect_equal(gift$best_circuit[gift$gift_id == "serine_chemoreception"],
+               "CIRCUIT_SERINE_CHEMORECEPTION")
+  trace <- trace_gift(complete, "serine_chemoreception")
+  expect_true(any(trace$gene_id == "tsr_gene"))
+
+  no_adaptation <- specific[!specific$accession %in% c("K00575", "K03412"), ]
+  partial <- evaluate_gifts(no_adaptation)
+  gift <- partial$regulatory$gifts
+  expect_false(gift$complete[gift$gift_id == "serine_chemoreception"])
+  expect_equal(
+    gift$missing_functions_best_circuit[gift$gift_id == "serine_chemoreception"][[1]],
+    "RF_CHEMOTAXIS_ADAPTATION"
+  )
+})
+
+test_that("alternative antibiotic detoxification enzymes support only their mechanism", {
+  beta <- get_gift_machinery("beta_lactam_detoxification")
+  expect_equal(length(unique(beta$accession)), 66L)
+  expect_setequal(unique(beta$system_id), paste0("SYS_DF_BLA_CLASS_", c("A", "B", "C", "D")))
+  expect_equal(
+    vapply(c("A", "B", "C", "D"), function(cls)
+      length(unique(beta$accession[beta$system_id == paste0("SYS_DF_BLA_CLASS_", cls)])),
+      integer(1)),
+    c(A = 18L, B = 8L, C = 9L, D = 31L)
+  )
+
+  class_kos <- c(A = "K17836", B = "K17837", C = "K01467", D = "K17838")
+  for (cls in names(class_kos)) {
+    ko <- class_kos[[cls]]
+    result <- evaluate_gifts(ko_annotations(ko))
+    gift <- result$defense$gifts
+    expect_true(gift$complete[gift$gift_id == "beta_lactam_detoxification"],
+                info = cls)
+    expect_true(result$defense$systems$supported[
+      result$defense$systems$system_id == paste0("SYS_DF_BLA_CLASS_", cls)
+    ], info = cls)
+  }
+
+  ndm <- evaluate_gifts(ko_annotations("K18780"))
+  gift <- ndm$defense$gifts
+  expect_true(gift$complete[gift$gift_id == "beta_lactam_detoxification"])
+  expect_false(gift$complete[gift$gift_id == "chloramphenicol_detoxification"])
+  expect_true(any(trace_gift(ndm, "beta_lactam_detoxification")$accession == "K18780"))
+
+  for (ko in c("K19271", "K00638")) {
+    result <- evaluate_gifts(ko_annotations(ko))
+    gift <- result$defense$gifts
+    expect_true(gift$complete[gift$gift_id == "chloramphenicol_detoxification"], info = ko)
+    expect_false(gift$complete[gift$gift_id == "beta_lactam_detoxification"], info = ko)
+  }
+
+  broad <- evaluate_gifts(ko_annotations(c("K01069", "K00561", "K18138")))
+  gift <- broad$defense$gifts
+  expect_false(any(gift$complete[gift$gift_id %in% c(
+    "beta_lactam_detoxification", "chloramphenicol_detoxification"
+  )]))
+  challenges <- c(
+    beta_lactam_detoxification = "antimicrobial",
+    chloramphenicol_detoxification = "antimicrobial",
+    mercury_detoxification = "metal",
+    superoxide_detoxification = "oxidative",
+    methylglyoxal_detoxification = "electrophile"
+  )
+  for (gift_id in names(challenges)) {
+    facets <- get_facets(gift_id)
+    expect_equal(facets$value[facets$facet == "challenge_class"],
+                 unname(challenges[[gift_id]]), info = gift_id)
+  }
 })
 
 test_that("no curated GIFT claims a behaviour or an outcome", {

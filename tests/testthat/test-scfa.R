@@ -292,7 +292,10 @@ test_that("the atlas draws a reversible boundary as reversible", {
   cell <- regmatches(
     html,
     regexpr(
-      '<td class="gift-boundary-cell">(?:(?!</td>).)*ACETYL_COA(?:(?!</td>).)*</td>',
+      paste0(
+        'data-gift-id="acetate_interconversion"[^>]*>(?:(?!</tr>).)*?',
+        '\\K<td class="gift-boundary-cell">(?:(?!</td>).)*ACETYL_COA(?:(?!</td>).)*</td>'
+      ),
       html, perl = TRUE
     )
   )

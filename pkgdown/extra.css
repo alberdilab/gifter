@@ -267,10 +267,62 @@ a:hover { text-decoration-color: currentColor; }
 body > .container {
   width: min(1380px, 100%);
   max-width: none;
-  padding: 48px clamp(20px, 4vw, 64px) 80px;
+  padding: 20px clamp(20px, 4vw, 64px) 80px;
 }
 
+/* The home page has no breadcrumbs, so it keeps its own space above the title. */
+body > .container.template-home { padding-top: 48px; }
+
 main { min-width: 0; }
+
+/* Breadcrumbs: a rounded box 20px below the navbar and 20px above the page
+   title. One line: a long title is cut short, not wrapped. */
+.gifter-breadcrumbs {
+  display: flex;
+  margin: 0 0 20px;
+}
+
+.gifter-breadcrumbs ol {
+  display: flex;
+  min-width: 0;
+  max-width: 100%;
+  align-items: center;
+  margin: 0;
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: var(--surface);
+  box-shadow: 0 2px 8px rgba(23, 51, 48, .05);
+  font-size: 12px;
+  line-height: 18px;
+  list-style: none;
+  white-space: nowrap;
+}
+
+/* The page header's own top margin would otherwise win over the 20px. */
+.gifter-breadcrumbs + .page-header { margin-top: 0; }
+
+.gifter-breadcrumbs li { flex: 0 0 auto; }
+
+.gifter-breadcrumbs li + li::before {
+  margin: 0 8px;
+  color: var(--forest-2);
+  content: "\2192";
+}
+
+.gifter-breadcrumbs li:last-child {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--forest);
+  font-weight: 700;
+  text-overflow: ellipsis;
+}
+
+.gifter-breadcrumbs a { color: var(--muted); text-decoration: none; }
+.gifter-breadcrumbs a:hover,
+.gifter-breadcrumbs a:focus { color: var(--forest); text-decoration: underline; }
 
 .row > main,
 .row > aside { margin-top: 0; }
@@ -529,7 +581,7 @@ footer a { color: var(--forest-2); }
     background: #fff;
   }
 
-  .navbar { display: none; }
+  .navbar, .gifter-breadcrumbs { display: none; }
 
   body > .container {
     width: 100%;

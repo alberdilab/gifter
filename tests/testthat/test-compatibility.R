@@ -84,7 +84,10 @@ test_that("public result classes retain their stable core fields", {
 })
 
 test_that("custom database compatibility fails early and specifically", {
-  expect_identical(.gifter_supported_schema_versions, .gifter_schema_version)
+  # The compiler writes the newest schema; the reader also accepts the one
+  # before it, which schema 8 extends without changing.
+  expect_identical(max(.gifter_supported_schema_versions), .gifter_schema_version)
+  expect_identical(.gifter_supported_schema_versions, c(7L, 8L))
   expect_silent({
     connection <- gifter_db_connect()
     DBI::dbDisconnect(connection)
@@ -103,7 +106,7 @@ test_that("custom database compatibility fails early and specifically", {
   DBI::dbExecute(raw, "UPDATE database_release SET schema_version = 6 WHERE release_pk = 1")
   expect_error(
     list_gifts(db = raw),
-    "Unsupported gifter database schema version 6; this package supports 7"
+    "Unsupported gifter database schema version 6; this package supports 7, 8"
   )
   DBI::dbDisconnect(raw)
   expect_error(gifter_db_connect(incompatible), "matching gifter package")

@@ -1,0 +1,200 @@
+gift_id	evidence_kind	location	description
+acetate_interconversion	curation_document	inst/doc/proposal-scfa-biosynthesis.md	Curation proposal: short-chain fatty acid formation GIFTs
+acetoin_formation	curation_document	inst/doc/proposal-organic-acid-formation.md	Curation proposal: organic acid formation GIFTs
+acetyl_coa_to_isocitrate	curation_document	inst/doc/proposal-central-metabolic-cycles.md	Design proposal: circular central metabolism and higher-order metabolic topology
+adenylate_biosynthesis	curation_document	inst/extdata/database-source/SOURCES.md	Reference database provenance: the KEGG modules and Rhea reactions the initial nucleotide GIFTs were curated from, and the boundary choices against them
+alanine_biosynthesis	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+allantoin_degradation	curation_document	inst/doc/proposal-nitrogen-compound-catabolism.md	Curation proposal: nitrogen compound catabolism GIFTs
+ammonium_assimilation	curation_document	inst/doc/proposal-nitrogen-compound-catabolism.md	Curation proposal: nitrogen compound catabolism GIFTs
+anthranilate_degradation_catechol	curation_document	inst/doc/proposal-aromatic-degradation.md	Curation proposal: aromatic compound degradation and mercury detoxification GIFTs
+arabinose_degradation	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+arabinose_uptake_abc	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+arabinoxylan_debranching	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+archaellum	curation_document	inst/doc/deferral-register.md	Deferral register entry recording the earlier blocker and what lifted it
+archaellum	curation_document	inst/doc/proposal-structural-gifts.md	Structural GIFTs: curated content, refusals, and open questions
+archaellum	analysis_script	data-raw/archaellum_ncbifam_prevalence.R	Exact KO/NCBIfam screen for the archaellum structural GIFT
+archaellum	result_table	data-raw/reference/archaellum-accessory.tsv	Support for the lineage-restricted accessory functions among complete archaellum genomes
+archaellum	result_table	data-raw/reference/archaellum-controls.tsv	Named reference genomes evaluated with evaluate_gifts() against what each is established to encode
+archaellum	result_table	data-raw/reference/archaellum-ko-ncbifam-agreement.tsv	KO-assigned proteins and genomes by orthology and best-scoring archaellum or contrast profile
+archaellum	result_table	data-raw/reference/archaellum-ncbifam-profiles.tsv	Candidate NCBIfam equivalogs and contrast profiles, with grade and taxonomic range
+archaellum	result_table	data-raw/reference/archaellum-one-short.tsv	Genomes exactly one function short of a complete archaellum, by missing function and lineage
+archaellum	result_table	data-raw/reference/archaellum-prevalence.tsv	Complete archaellum architectures over the archaeal and bacterial genomes of the KEGG frame
+archaellum	result_table	data-raw/reference/archaellum-role-agreement.tsv	Genomes in which a KO-assigned protein passes each archaellum role equivalog
+arginine_biosynthesis	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+arginine_deiminase_pathway	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+asparagine_biosynthesis	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+aspartate_biosynthesis	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+aspartate_chemoreception	curation_document	inst/doc/proposal-regulatory-gifts.md	Regulatory GIFTs: curated content, refusals, and open questions
+aspartate_semialdehyde_biosynthesis	curation_document	inst/doc/proposal-amino-acid-biosynthesis.md	Curation proposal: serine, threonine, cysteine and methionine GIFTs
+assimilatory_sulfate_reduction	curation_document	inst/doc/proposal-next-gift-release.md	Curation proposal: next coherent GIFT release
+benzoate_degradation_catechol	curation_document	inst/doc/proposal-aromatic-degradation.md	Curation proposal: aromatic compound degradation and mercury detoxification GIFTs
+betaine_demethylation	curation_document	inst/doc/proposal-nitrogen-compound-catabolism.md	Curation proposal: nitrogen compound catabolism GIFTs
+biotin_biosynthesis	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+butyrate_formation	curation_document	inst/doc/proposal-scfa-biosynthesis.md	Curation proposal: short-chain fatty acid formation GIFTs
+carnitine_degradation_trimethylamine	curation_document	inst/doc/proposal-nitrogen-compound-catabolism.md	Curation proposal: nitrogen compound catabolism GIFTs
+carnitine_to_betaine	curation_document	inst/doc/proposal-nitrogen-compound-catabolism.md	Curation proposal: nitrogen compound catabolism GIFTs
+catechol_meta_cleavage	curation_document	inst/doc/proposal-aromatic-degradation.md	Curation proposal: aromatic compound degradation and mercury detoxification GIFTs
+catechol_ortho_cleavage	curation_document	inst/doc/proposal-aromatic-degradation.md	Curation proposal: aromatic compound degradation and mercury detoxification GIFTs
+chemotaxis_signal_transduction	curation_document	inst/doc/proposal-regulatory-gifts.md	Regulatory GIFTs: curated content, refusals, and open questions
+chitin_degradation	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+choline_to_betaine	curation_document	inst/doc/proposal-compatible-solutes-heme-enterobactin-detoxification.md	Proposal: compatible-solute and heme biosynthesis, enterobactin assembly
+chorismate_biosynthesis	curation_document	inst/doc/proposal-shikimate-aromatics.md	Curation proposal: shikimate-derived aromatic biosynthesis
+citrate_fermentation	curation_document	inst/doc/proposal-organic-acid-formation.md	Curation proposal: organic acid formation GIFTs
+cobamide_nucleotide_loop_assembly	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+cobinamide_biosynthesis	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+collagen_cleavage	curation_document	inst/doc/proposal-protein-degradation.md	Curation proposal: protein degradation GIFTs
+corrin_ring_biosynthesis	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+creatinine_degradation	curation_document	inst/doc/proposal-nitrogen-compound-catabolism.md	Curation proposal: nitrogen compound catabolism GIFTs
+cysteine_biosynthesis_homocysteine	curation_document	inst/doc/proposal-amino-acid-biosynthesis.md	Curation proposal: serine, threonine, cysteine and methionine GIFTs
+cysteine_biosynthesis_sulfide	curation_document	inst/doc/proposal-amino-acid-biosynthesis.md	Curation proposal: serine, threonine, cysteine and methionine GIFTs
+cysteine_degradation_sulfide	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+cytidylate_biosynthesis	curation_document	inst/extdata/database-source/SOURCES.md	Reference database provenance: the KEGG modules and Rhea reactions the initial nucleotide GIFTs were curated from, and the boundary choices against them
+dap_biosynthesis	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+diglucosyl_diacylglycerol_anchored_lipoteichoic_acid	curation_document	inst/doc/proposal-structural-gifts.md	Structural GIFTs: curated content, refusals, and open questions
+diglucosyl_diacylglycerol_anchored_lipoteichoic_acid	result_table	data-raw/reference/lta-peptidoglycan-marker-audit.tsv	Audit of the candidate lipoteichoic acid and peptidoglycan marker profiles
+diglucosyl_diacylglycerol_anchored_lipoteichoic_acid	result_table	data-raw/reference/lta-peptidoglycan-prevalence.tsv	Prevalence of the narrow lipoteichoic acid architecture and peptidoglycan proxy sets over the KEGG frame
+dihydroxybenzoate_biosynthesis	curation_document	inst/doc/proposal-compatible-solutes-heme-enterobactin-detoxification.md	Proposal: compatible-solute and heme biosynthesis, enterobactin assembly
+dihydroxyphenylpropanoate_degradation	curation_document	inst/doc/proposal-aromatic-degradation.md	Curation proposal: aromatic compound degradation and mercury detoxification GIFTs
+dmb_biosynthesis_aerobic	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+ectoine_biosynthesis	curation_document	inst/doc/proposal-compatible-solutes-heme-enterobactin-detoxification.md	Proposal: compatible-solute and heme biosynthesis, enterobactin assembly
+ectoine_degradation	curation_document	inst/doc/proposal-anchor-fates.md	Curation proposal: fates for anchors that had only one
+enterobactin_biosynthesis	curation_document	inst/doc/proposal-compatible-solutes-heme-enterobactin-detoxification.md	Proposal: compatible-solute and heme biosynthesis, enterobactin assembly
+ethanol_formation	curation_document	inst/doc/proposal-organic-acid-formation.md	Curation proposal: organic acid formation GIFTs
+flagellar_apparatus	curation_document	inst/doc/proposal-structural-gifts.md	Structural GIFTs: curated content, refusals, and open questions
+folate_biosynthesis	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+fucose_degradation_isomerase	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+fumarate_oxaloacetate_interconversion	curation_document	inst/doc/proposal-central-metabolic-cycles.md	Design proposal: circular central metabolism and higher-order metabolic topology
+galactose_degradation_leloir	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+galacturonate_degradation	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+glcnac_degradation	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+glucuronate_degradation	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+glutamate_decarboxylation_gaba	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+glutamine_biosynthesis	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+glycine_biosynthesis	curation_document	inst/doc/proposal-amino-acid-biosynthesis.md	Curation proposal: serine, threonine, cysteine and methionine GIFTs
+glycine_reduction_stickland	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+glyoxylate_bypass	curation_document	inst/doc/proposal-next-gift-release.md	Curation proposal: next coherent GIFT release
+guanylate_biosynthesis	curation_document	inst/extdata/database-source/SOURCES.md	Reference database provenance: the KEGG modules and Rhea reactions the initial nucleotide GIFTs were curated from, and the boundary choices against them
+heme_b_biosynthesis	curation_document	inst/doc/proposal-compatible-solutes-heme-enterobactin-detoxification.md	Proposal: compatible-solute and heme biosynthesis, enterobactin assembly
+histidine_biosynthesis	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+histidine_degradation_glutamate	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+hmp_phosphate_biosynthesis	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+homoserine_biosynthesis	curation_document	inst/doc/proposal-amino-acid-biosynthesis.md	Curation proposal: serine, threonine, cysteine and methionine GIFTs
+hydroxyectoine_biosynthesis	curation_document	inst/doc/proposal-anchor-fates.md	Curation proposal: fates for anchors that had only one
+hydroxyphenylpropanoate_hydroxylation	curation_document	inst/doc/proposal-aromatic-degradation.md	Curation proposal: aromatic compound degradation and mercury detoxification GIFTs
+indole_3_acetate_biosynthesis	curation_document	inst/doc/proposal-shikimate-aromatics.md	Curation proposal: shikimate-derived aromatic biosynthesis
+isocitrate_to_oxoglutarate	curation_document	inst/doc/proposal-central-metabolic-cycles.md	Design proposal: circular central metabolism and higher-order metabolic topology
+isoleucine_biosynthesis	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+kdg_degradation	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+lactate_formation	curation_document	inst/doc/proposal-organic-acid-formation.md	Curation proposal: organic acid formation GIFTs
+lactate_formation_lactaldehyde	curation_document	inst/doc/proposal-anchor-fates.md	Curation proposal: fates for anchors that had only one
+lactate_racemisation	curation_document	inst/doc/proposal-organic-acid-formation.md	Curation proposal: organic acid formation GIFTs
+leucine_biosynthesis	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+lpt_lipopolysaccharide_export_apparatus	curation_document	inst/doc/proposal-structural-gifts.md	Structural GIFTs: curated content, refusals, and open questions
+lysine_biosynthesis_dap	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+malolactic_fermentation	curation_document	inst/doc/proposal-organic-acid-formation.md	Curation proposal: organic acid formation GIFTs
+menaquinone_biosynthesis	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+mercury_detoxification	curation_document	inst/doc/proposal-aromatic-degradation.md	Curation proposal: aromatic compound degradation and mercury detoxification GIFTs
+methionine_biosynthesis_sulfhydrylation	curation_document	inst/doc/proposal-amino-acid-biosynthesis.md	Curation proposal: serine, threonine, cysteine and methionine GIFTs
+methionine_biosynthesis_transsulfuration	curation_document	inst/doc/proposal-amino-acid-biosynthesis.md	Curation proposal: serine, threonine, cysteine and methionine GIFTs
+methionine_degradation_methanethiol	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+methylamine_degradation	curation_document	inst/doc/proposal-nitrogen-compound-catabolism.md	Curation proposal: nitrogen compound catabolism GIFTs
+methylglyoxal_detoxification	curation_document	inst/doc/proposal-compatible-solutes-heme-enterobactin-detoxification.md	Proposal: compatible-solute and heme biosynthesis, enterobactin assembly
+mucin_fucose_release	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+mucin_galnac_release	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+mucin_sialic_acid_release	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+nad_biosynthesis_namn	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+namn_biosynthesis_quinolinate	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+namn_salvage_nicotinate	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+neuac_degradation	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+nitrate_assimilation	curation_document	inst/doc/proposal-nitrogen-compound-catabolism.md	Curation proposal: nitrogen compound catabolism GIFTs
+nitrogen_fixation	curation_document	inst/doc/proposal-next-gift-release.md	Curation proposal: next coherent GIFT release
+ornithine_biosynthesis	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+oxoadipate_activation	curation_document	inst/doc/proposal-aromatic-degradation.md	Curation proposal: aromatic compound degradation and mercury detoxification GIFTs
+oxoadipyl_coa_thiolysis	curation_document	inst/doc/proposal-aromatic-degradation.md	Curation proposal: aromatic compound degradation and mercury detoxification GIFTs
+oxobutanoate_biosynthesis_citramalate	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+oxoglutarate_to_succinate	curation_document	inst/doc/proposal-central-metabolic-cycles.md	Design proposal: circular central metabolism and higher-order metabolic topology
+oxoisovalerate_biosynthesis	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+oxopentenoate_degradation	curation_document	inst/doc/proposal-aromatic-degradation.md	Curation proposal: aromatic compound degradation and mercury detoxification GIFTs
+paba_biosynthesis	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+pantothenate_biosynthesis	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+pectate_lyase_degradation	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+pectin_degradation	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+phenol_hydroxylation	curation_document	inst/doc/proposal-aromatic-degradation.md	Curation proposal: aromatic compound degradation and mercury detoxification GIFTs
+phenylacetate_degradation	curation_document	inst/doc/proposal-aromatic-degradation.md	Curation proposal: aromatic compound degradation and mercury detoxification GIFTs
+phenylalanine_biosynthesis	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+phenylpropanoate_dihydroxylation	curation_document	inst/doc/proposal-aromatic-degradation.md	Curation proposal: aromatic compound degradation and mercury detoxification GIFTs
+phosphate_starvation_response	curation_document	inst/doc/proposal-regulatory-gifts.md	Regulatory GIFTs: curated content, refusals, and open questions
+plp_biosynthesis_dxp	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+plp_biosynthesis_r5p	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+proline_biosynthesis	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+proline_reduction_stickland	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+propanediol_formation	curation_document	inst/doc/proposal-scfa-biosynthesis.md	Curation proposal: short-chain fatty acid formation GIFTs
+propionate_formation_acrylate	curation_document	inst/doc/proposal-scfa-biosynthesis.md	Curation proposal: short-chain fatty acid formation GIFTs
+propionate_formation_propanediol	curation_document	inst/doc/proposal-scfa-biosynthesis.md	Curation proposal: short-chain fatty acid formation GIFTs
+purine_core_biosynthesis	curation_document	inst/extdata/database-source/SOURCES.md	Reference database provenance: the KEGG modules and Rhea reactions the initial nucleotide GIFTs were curated from, and the boundary choices against them
+pyrimidine_core_biosynthesis	curation_document	inst/extdata/database-source/SOURCES.md	Reference database provenance: the KEGG modules and Rhea reactions the initial nucleotide GIFTs were curated from, and the boundary choices against them
+pyruvate_to_acetyl_coa	curation_document	inst/doc/proposal-scfa-biosynthesis.md	Curation proposal: short-chain fatty acid formation GIFTs
+quinolinate_biosynthesis_aspartate	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+rhamnose_degradation	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+ribitol_phosphate_wall_teichoic_acid	curation_document	inst/doc/proposal-structural-gifts.md	Structural GIFTs: curated content, refusals, and open questions
+ribitol_phosphate_wall_teichoic_acid	analysis_script	data-raw/wta_ncbifam_prevalence.R	Exact candidate-specific NCBIfam prevalence screen for wall teichoic acid
+ribitol_phosphate_wall_teichoic_acid	result_table	data-raw/reference/wta-ncbifam-prevalence.tsv	Exact NCBIfam prevalence of the wall teichoic acid architectures within the KO-complete candidate set
+riboflavin_biosynthesis	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+salicylate_biosynthesis	curation_document	inst/doc/proposal-shikimate-aromatics.md	Curation proposal: shikimate-derived aromatic biosynthesis
+sarcosine_demethylation	curation_document	inst/doc/proposal-nitrogen-compound-catabolism.md	Curation proposal: nitrogen compound catabolism GIFTs
+serine_biosynthesis	curation_document	inst/doc/proposal-amino-acid-biosynthesis.md	Curation proposal: serine, threonine, cysteine and methionine GIFTs
+serine_deamination	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+siroheme_biosynthesis	curation_document	inst/doc/proposal-compatible-solutes-heme-enterobactin-detoxification.md	Proposal: compatible-solute and heme biosynthesis, enterobactin assembly
+siroheme_to_heme_b	curation_document	inst/doc/proposal-ncbifam-namespace.md	Assessment: NCBIfam as a marker namespace, read against the deferral register
+starch_degradation	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+succinate_fumarate_interconversion	curation_document	inst/doc/proposal-central-metabolic-cycles.md	Design proposal: circular central metabolism and higher-order metabolic topology
+superoxide_detoxification	curation_document	inst/doc/proposal-compatible-solutes-heme-enterobactin-detoxification.md	Proposal: compatible-solute and heme biosynthesis, enterobactin assembly
+taurine_degradation_sulfoacetaldehyde	curation_document	inst/doc/proposal-nitrogen-compound-catabolism.md	Curation proposal: nitrogen compound catabolism GIFTs
+taurine_desulfonation_aerobic	curation_document	inst/doc/proposal-nitrogen-compound-catabolism.md	Curation proposal: nitrogen compound catabolism GIFTs
+taurine_uptake_abc	curation_document	inst/doc/proposal-nitrogen-compound-catabolism.md	Curation proposal: nitrogen compound catabolism GIFTs
+thiamine_phosphate_biosynthesis	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+thiamine_precursor_salvage	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+thiazole_phosphate_biosynthesis	curation_document	inst/doc/proposal-vitamin-biosynthesis.md	Curation proposal: vitamin biosynthesis GIFTs
+threonine_biosynthesis	curation_document	inst/doc/proposal-amino-acid-biosynthesis.md	Curation proposal: serine, threonine, cysteine and methionine GIFTs
+threonine_deamination	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+tryptophan_biosynthesis	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+tryptophan_degradation_indole	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+type_i_e_crispr_cas_machinery	curation_document	inst/doc/proposal-defense-gifts.md	Defense GIFTs: curated content, refusals, and open questions
+type_i_restriction_modification	curation_document	inst/doc/proposal-defense-gifts.md	Defense GIFTs: curated content, refusals, and open questions
+type_ii_secretion_system	curation_document	inst/doc/architecture.md	Development and architecture guide; states the shared-component rule this curation depends on
+type_ii_secretion_system	curation_document	inst/doc/proposal-structural-gifts.md	Structural GIFTs: curated content, refusals, and open questions
+type_ii_secretion_system	analysis_script	data-raw/t2ss_prevalence.R	Prevalence and specificity screen for the type II secretion system
+type_ii_secretion_system	result_table	data-raw/reference/t2ss-controls.tsv	Named strains with what each is established to encode beside the marker result
+type_ii_secretion_system	result_table	data-raw/reference/t2ss-prevalence.tsv	Counts testing whether the Gsp inventory identifies a machine distinct from the type IVa pilus
+type_ii_secretion_system	result_table	data-raw/reference/t2ss-roles.tsv	Each Gsp role with its KO, its equivalog and the frame genomes carrying it, plus the shared peptidase
+type_iii_secretion_injectisome	curation_document	inst/doc/proposal-structural-gifts.md	Structural GIFTs: curated content, refusals, and open questions
+type_iii_secretion_injectisome	analysis_script	data-raw/secretion_system_prevalence.R	Marker and prevalence screen for type III and type VI secretion as structural GIFTs
+type_iii_secretion_injectisome	result_table	data-raw/reference/secretion-system-controls.tsv	Named reference strains with their established secretion systems beside the marker result
+type_iii_secretion_injectisome	result_table	data-raw/reference/secretion-system-marker-audit.tsv	Accessions tested against a role equivalog before acceptance, including the one refused
+type_iii_secretion_injectisome	result_table	data-raw/reference/secretion-system-prevalence.tsv	Complete and near-complete type III and type VI architectures, and overlap with the flagellar export apparatus
+type_iii_secretion_injectisome	result_table	data-raw/reference/secretion-system-roles.tsv	Role inventory of both secretion architectures with accepted KOs and equivalogs and genome counts
+type_iva_pilus	curation_document	inst/doc/proposal-structural-gifts.md	Structural GIFTs: curated content, refusals, and open questions
+type_vi_secretion_apparatus	curation_document	inst/doc/proposal-structural-gifts.md	Structural GIFTs: curated content, refusals, and open questions
+type_vi_secretion_apparatus	analysis_script	data-raw/secretion_system_prevalence.R	Marker and prevalence screen for type III and type VI secretion as structural GIFTs
+type_vi_secretion_apparatus	result_table	data-raw/reference/secretion-system-controls.tsv	Named reference strains with their established secretion systems beside the marker result
+type_vi_secretion_apparatus	result_table	data-raw/reference/secretion-system-marker-audit.tsv	Accessions tested against a role equivalog before acceptance, including the one refused
+type_vi_secretion_apparatus	result_table	data-raw/reference/secretion-system-prevalence.tsv	Complete and near-complete type III and type VI architectures, and overlap with the flagellar export apparatus
+type_vi_secretion_apparatus	result_table	data-raw/reference/secretion-system-roles.tsv	Role inventory of both secretion architectures with accepted KOs and equivalogs and genome counts
+tyrosine_biosynthesis	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+urate_degradation	curation_document	inst/doc/proposal-nitrogen-compound-catabolism.md	Curation proposal: nitrogen compound catabolism GIFTs
+urea_hydrolysis	curation_document	inst/doc/proposal-nitrogen-compound-catabolism.md	Curation proposal: nitrogen compound catabolism GIFTs
+valine_biosynthesis	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+xylan_degradation	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+xylose_degradation_isomerase	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+xylose_uptake_abc	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs
+serine_chemoreception	curation_document	inst/doc/proposal-regulatory-defense-expansion.md	Regulatory and defense GIFT expansion: October 2026 assessment
+beta_lactam_detoxification	curation_document	inst/doc/proposal-antimicrobial-detoxification.md	Curation proposal: antimicrobial detoxification, and CARD as a gifter source
+beta_lactam_detoxification	curation_document	inst/doc/proposal-regulatory-defense-expansion.md	Regulatory and defense GIFT expansion: October 2026 assessment
+chloramphenicol_detoxification	curation_document	inst/doc/proposal-antimicrobial-detoxification.md	Curation proposal: antimicrobial detoxification, and CARD as a gifter source
+chloramphenicol_detoxification	curation_document	inst/doc/proposal-regulatory-defense-expansion.md	Regulatory and defense GIFT expansion: October 2026 assessment
+beta_lactam_detoxification	analysis_script	data-raw/marker_specificity_screen.R	KO to Rhea marker-specificity screen
+beta_lactam_detoxification	result_table	data-raw/reference/ko-reaction-specificity.tsv	KO to Rhea marker-specificity results
+serine_chemoreception	curation_document	inst/doc/proposal-ncbifam-namespace.md	NCBIfam namespace and equivalog admission assessment
+chloramphenicol_detoxification	analysis_script	data-raw/marker_specificity_screen.R	KO to Rhea marker-specificity screen
+chloramphenicol_detoxification	result_table	data-raw/reference/ko-reaction-specificity.tsv	KO to Rhea marker-specificity results
+chemotaxis_signal_transduction	curation_document	inst/doc/proposal-regulatory-defense-expansion.md	Regulatory and defense GIFT expansion: October 2026 assessment

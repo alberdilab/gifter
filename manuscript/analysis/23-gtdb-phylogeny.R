@@ -66,6 +66,41 @@ read_xz_tsv <- function(path) {
   read_tsv(connection)
 }
 
+read_key_value <- function(path) {
+  table <- utils::read.delim(
+    path, header = FALSE, check.names = FALSE, stringsAsFactors = FALSE
+  )
+  if (ncol(table) != 2L) {
+    stop(basename(path), " must have exactly two columns", call. = FALSE)
+  }
+  if (nrow(table) && identical(as.character(table[1L, ]), c("item", "value"))) {
+    table <- table[-1L, , drop = FALSE]
+  }
+  names(table) <- c("item", "value")
+  if (!nrow(table) || anyNA(table$item) || any(!nzchar(table$item)) ||
+      anyDuplicated(table$item)) {
+    stop(basename(path), " has invalid or duplicate item names", call. = FALSE)
+  }
+  table
+}
+
+manifest_value <- function(lines, key) {
+  matched <- grep(paste0("^", key, ":[[:space:]]*"), lines, value = TRUE)
+  if (length(matched) != 1L) {
+    stop("annotation_manifest.yaml must define ", key, " exactly once", call. = FALSE)
+  }
+  value <- sub(paste0("^", key, ":[[:space:]]*"), "", matched)
+  gsub("^['\"]|['\"]$", "", trimws(value))
+}
+
+collapse_values <- function(x) {
+  vapply(x, function(value) {
+    value <- as.character(value)
+    value <- value[!is.na(value) & nzchar(value)]
+    paste(value, collapse = ";")
+  }, character(1))
+}
+
 sha256 <- function(path) {
   command <- if (nzchar(Sys.which("shasum"))) "shasum" else "sha256sum"
   args <- if (identical(command, "shasum")) c("-a", "256", path) else path
@@ -589,13 +624,27 @@ if (length(missing)) {
 panel <- read_tsv(panel_manifest_path)
 tree <- ape::read.tree(panel_tree_path)
 panel_size <- nrow(panel)
-if (panel_size < 1L || length(tree$tip.label) != panel_size ||
+if (panel_size != 697L || anyDuplicated(panel$genome_id) ||
+    length(tree$tip.label) != panel_size ||
     !setequal(panel$genome_id, tree$tip.label)) {
-  stop("Selected manifest and tree do not describe the same genomes", call. = FALSE)
+  stop("Selected manifest and tree do not describe the locked 697-genome panel",
+       call. = FALSE)
 }
 
 transfer_manifest <- read_tsv(transfer_manifest_path)
+expected_transfer_files <- c(
+  "gifter_input.tsv.xz", "annotation_manifest.yaml", "annotation_qc.tsv",
+  "selected-genomes.tsv", "resolved-downloads.tsv", "genome-sha256.tsv",
+  "assembly-summary-sha256.txt", "selected-manifest-sha256.txt"
+)
+if (!identical(names(transfer_manifest), c("file", "bytes", "sha256")) ||
+    anyDuplicated(transfer_manifest$file) ||
+    !setequal(transfer_manifest$file, expected_transfer_files)) {
+  stop("transfer-manifest.tsv does not describe the expected GTDB transfer",
+       call. = FALSE)
+}
 transfer_paths <- file.path(drakkar_dir, transfer_manifest$file)
+transfer_paths[transfer_manifest$file == "gifter_input.tsv.xz"] <- annotation_path
 if (any(!file.exists(transfer_paths))) {
   stop("Fetched transfer is incomplete", call. = FALSE)
 }
@@ -609,37 +658,103 @@ if (!identical(sha256(transferred_panel_path), sha256(panel_manifest_path))) {
   stop("The remotely annotated panel differs from the locked local panel", call. = FALSE)
 }
 
+manifest_lines <- readLines(annotation_manifest_path, warn = FALSE)
+manifest_schema <- manifest_value(manifest_lines, "schema_version")
+drakkar_version <- manifest_value(manifest_lines, "drakkar_version")
+if (manifest_schema != "drakkar-annotation-manifest-v1" ||
+    drakkar_version != "2.6.6") {
+  stop(
+    "Expected Drakkar 2.6.6 with annotation manifest schema v1; observed ",
+    drakkar_version, " and ", manifest_schema, call. = FALSE
+  )
+}
+
+annotation_qc <- read_tsv(annotation_qc_path)
+expected_qc_columns <- c(
+  "mag", "level", "source", "reported_records", "retained_records",
+  "rejected_records", "unmapped_records", "unique_entities", "filter_stage",
+  "database_release", "database_source_version", "database_checksums"
+)
+expected_annotation_sources <- c(
+  "cazy", "kegg", "ncbifam", "pfam", "prodigal", "tigrfam"
+)
+qc_key <- paste(annotation_qc$mag, annotation_qc$source, sep = "\r")
+if (!identical(names(annotation_qc), expected_qc_columns) ||
+    anyNA(annotation_qc[c("mag", "level", "source")]) ||
+    anyDuplicated(qc_key) ||
+    !setequal(annotation_qc$mag, panel$genome_id) ||
+    !setequal(annotation_qc$source, expected_annotation_sources) ||
+    any(table(annotation_qc$mag) != length(expected_annotation_sources)) ||
+    any(annotation_qc$level != "gene")) {
+  stop("annotation_qc.tsv does not contain one record per source and panel genome",
+       call. = FALSE)
+}
+
 annotations <- read_xz_tsv(annotation_path)
 expected_columns <- c("genome_id", "gene_id", "namespace", "accession")
-if (!identical(names(annotations), expected_columns) || anyNA(annotations)) {
+if (!identical(names(annotations), expected_columns) || anyNA(annotations) ||
+    any(!nzchar(annotations$genome_id)) || any(!nzchar(annotations$gene_id)) ||
+    any(!nzchar(annotations$namespace)) || any(!nzchar(annotations$accession))) {
   stop("Drakkar gifter input has an invalid schema or missing values", call. = FALSE)
 }
 if (!setequal(unique(annotations$genome_id), panel$genome_id)) {
   stop("Drakkar output does not cover exactly the selected GTDB panel", call. = FALSE)
 }
+marker_rows <- nrow(annotations)
 
-complete_record <- read_tsv(transfer_complete_path)
-if (ncol(complete_record) != 2L) {
-  complete_record <- utils::read.delim(
-    transfer_complete_path, header = FALSE, stringsAsFactors = FALSE
-  )
-}
-names(complete_record) <- c("item", "value")
-if (as.integer(complete_record$value[complete_record$item == "genomes"]) != panel_size ||
-    as.numeric(complete_record$value[complete_record$item == "marker_rows"]) != nrow(annotations)) {
+complete_record <- read_key_value(transfer_complete_path)
+completed_genomes <- suppressWarnings(as.integer(
+  complete_record$value[complete_record$item == "genomes"]
+))
+completed_rows <- suppressWarnings(as.numeric(
+  complete_record$value[complete_record$item == "marker_rows"]
+))
+if (!identical(completed_genomes, panel_size) || length(completed_rows) != 1L ||
+    completed_rows != marker_rows) {
   stop("transfer.complete does not match the marker table", call. = FALSE)
 }
 
-cat("Evaluating ", panel_size,
-    " GTDB origin-classified complete-genome species representatives...\n", sep = "")
-community <- evaluate_gifts_community(
-  annotations, genome_id = "genome_id", gene_id = "gene_id",
-  max_genes = Inf, workers = 1L, progress = TRUE
-)
+annotation_sha <- sha256(annotation_path)
+database_sha <- sha256("inst/extdata/gifter.sqlite")
+cache_key <- paste(annotation_sha, database_sha, sep = "-")
+community_cache <- file.path(cache_dir, paste0("community-", cache_key, ".rds"))
+workers <- suppressWarnings(as.integer(Sys.getenv("GTDB_PHYLOGENY_WORKERS", "8")))
+if (is.na(workers) || workers < 1L) workers <- 1L
+workers <- min(workers, panel_size)
 
-calls <- do.call(rbind, lapply(names(community$results), function(genome_id) {
+if (file.exists(community_cache)) {
+  cat("Reading cached GTDB genome calls...\n")
+  community <- readRDS(community_cache)
+} else {
+  cat(
+    "Evaluating ", panel_size,
+    " GTDB origin-classified complete-genome species representatives with ",
+    workers, " workers...\n", sep = ""
+  )
+  community <- evaluate_gifts_community(
+    annotations, genome_id = "genome_id", gene_id = "gene_id",
+    max_genes = Inf, workers = workers, progress = TRUE
+  )
+  community_cache_part <- paste0(community_cache, ".part")
+  saveRDS(community, community_cache_part, compress = "xz")
+  if (!file.rename(community_cache_part, community_cache)) {
+    stop("Could not finalize the GTDB call cache", call. = FALSE)
+  }
+}
+rm(annotations)
+invisible(gc(FALSE))
+
+expected_gifts <- as.data.frame(list_gifts())$gift_id
+if (!setequal(community$genome_id, panel$genome_id) ||
+    !setequal(community$gift_id, expected_gifts) ||
+    !identical(dim(community$matrix), c(length(expected_gifts), panel_size))) {
+  stop("The evaluated community does not match the panel and current catalogue",
+       call. = FALSE)
+}
+
+calls <- do.call(rbind, lapply(panel$genome_id, function(genome_id) {
   row <- as.data.frame(community$results[[genome_id]]$gifts)
-  data.frame(
+  result <- data.frame(
     genome_id = genome_id,
     gift_id = row$gift_id,
     gift_type = row$gift_type,
@@ -647,14 +762,23 @@ calls <- do.call(rbind, lapply(names(community$results), function(genome_id) {
     gift_name = row$name,
     complete = row$complete,
     evidence_confidence = row$evidence_confidence,
+    best_implementation = row$best_implementation,
+    number_of_complete_implementations = row$number_of_complete_implementations,
     minimum_missing_requirements = row$minimum_missing_requirements,
+    completeness_score = row$completeness_score,
     stringsAsFactors = FALSE
   )
+  result$missing_requirements <- collapse_values(row$missing_requirements)
+  result$supporting_components <- collapse_values(row$supporting_components)
+  result$supporting_markers <- collapse_values(row$supporting_markers)
+  result$supporting_genes <- collapse_values(row$supporting_genes)
+  result
 }))
 
-expected_gifts <- as.data.frame(list_gifts())$gift_id
 if (nrow(calls) != panel_size * length(expected_gifts) ||
-    !setequal(unique(calls$gift_id), expected_gifts)) {
+    !setequal(unique(calls$gift_id), expected_gifts) ||
+    any(table(calls$genome_id) != length(expected_gifts)) ||
+    any(table(calls$gift_id) != panel_size)) {
   stop("The result does not contain one call per current GIFT and genome", call. = FALSE)
 }
 
@@ -663,6 +787,10 @@ confidence_rank <- c(
   "high-confidence" = 3L, curated = 4L
 )
 calls$confidence_rank <- unname(confidence_rank[calls$evidence_confidence])
+if (anyNA(calls$confidence_rank[calls$complete])) {
+  stop("A supported call has an unknown evidence-confidence value", call. = FALSE)
+}
+calls$confidence_rank[is.na(calls$confidence_rank)] <- 0L
 calls$passes_high_confidence <- calls$complete & calls$confidence_rank >= 3L
 
 supported <- calls[calls$complete, , drop = FALSE]
@@ -699,6 +827,13 @@ gift_summary$genomes <- panel_size
 gift_summary$prevalence <- gift_summary$complete / gift_summary$genomes
 gift_summary$high_confidence_prevalence <- gift_summary$high_confidence / gift_summary$genomes
 gift_summary <- gift_summary[order(gift_summary$gift_type, gift_summary$mode, gift_summary$gift_name), ]
+gift_summary$heatmap_column <- seq_len(nrow(gift_summary))
+
+calls <- calls[order(
+  match(calls$genome_id, panel$genome_id),
+  match(calls$gift_id, gift_summary$gift_id)
+), ]
+rownames(calls) <- NULL
 
 phylum_summary <- aggregate(
   cbind(
@@ -729,11 +864,16 @@ write_tsv(phylum_summary, file.path(output_dir, "gtdb-phylogeny-phylum-summary.t
 audit <- data.frame(
   item = c(
     "GTDB release", "selected genomes", "selected orders", "selected classes",
-    "selected phyla",
+    "selected phyla", "current GIFTs", "genome-GIFT calls",
     "marker rows", "supported genome-GIFT pairs", "represented GIFTs",
-    "database version", "panel selection audit sha256", "origin rules sha256",
+    "evaluation function", "community cache key", "package version",
+    "database version", "database schema version",
+    "Drakkar version", "annotation manifest schema",
+    "panel selection audit sha256", "origin rules sha256",
     "origin summary sha256", "selected manifest sha256", "selected tree sha256",
     "gifter input sha256", "annotation manifest sha256", "annotation QC sha256",
+    "transfer manifest sha256", "transfer completion record sha256",
+    "remote selected-manifest checksum record sha256",
     "download resolution sha256", "genome checksum manifest sha256",
     "NCBI assembly summary checksum record sha256",
     "gifter SQLite sha256", "analysis script sha256"
@@ -741,14 +881,19 @@ audit <- data.frame(
   value = c(
     "R11-RS232", nrow(panel), length(unique(panel$order)),
     length(unique(panel$class)), length(unique(panel$phylum)),
-    nrow(annotations), nrow(supported), length(unique(supported$gift_id)),
-    gifter_db_version()$gifter_db_version,
+    length(expected_gifts), nrow(calls),
+    marker_rows, nrow(supported), length(unique(supported$gift_id)),
+    "evaluate_gifts_community()", cache_key, gifter_db_version()$package_version,
+    gifter_db_version()$gifter_db_version, gifter_db_version()$schema_version,
+    drakkar_version, manifest_schema,
     sha256(panel_audit_path), sha256(origin_rules_path), sha256(origin_summary_path),
     sha256(panel_manifest_path), sha256(panel_tree_path), sha256(annotation_path),
     sha256(annotation_manifest_path), sha256(annotation_qc_path),
+    sha256(transfer_manifest_path), sha256(transfer_complete_path),
+    sha256(remote_panel_checksum_path),
     sha256(download_resolution_path), sha256(genome_checksum_path),
     sha256(assembly_summary_checksum_path),
-    sha256("inst/extdata/gifter.sqlite"), sha256("manuscript/analysis/23-gtdb-phylogeny.R")
+    database_sha, sha256("manuscript/analysis/23-gtdb-phylogeny.R")
   ),
   stringsAsFactors = FALSE
 )
@@ -878,7 +1023,9 @@ figure <- panel_a + panel_b + panel_c + panel_d +
     title = "Encoded GIFT repertoires across a broad bacterial phylogeny",
     subtitle = paste0(
       format(panel_size, big.mark = ","),
-      " balanced origin-classified complete-genome GTDB R11-RS232 species representatives spanning every eligible order; ",
+      " balanced origin-classified complete-genome GTDB R11-RS232 species representatives × ",
+      format(length(expected_gifts), big.mark = ","),
+      " current GIFTs, spanning every eligible order; ",
       "gene-resolved Drakkar evidence evaluated against gifter database ",
       gifter_db_version()$gifter_db_version
     ),

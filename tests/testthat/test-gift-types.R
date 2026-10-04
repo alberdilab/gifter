@@ -51,13 +51,16 @@ test_that("gift_type reaches the browsing API and the call summary", {
     c(
       "type_i_restriction_modification", "type_i_e_crispr_cas_machinery",
       "mercury_detoxification", "methylglyoxal_detoxification",
-      "superoxide_detoxification"
+      "superoxide_detoxification", "beta_lactam_detoxification",
+      "chloramphenicol_detoxification"
     )
   )
-  expect_equal(nrow(list_gifts(type = "regulatory")), 3L)
+  expect_setequal(list_gifts(type = "regulatory")$gift_id,
+                  c("chemotaxis_signal_transduction", "aspartate_chemoreception",
+                    "phosphate_starvation_response", "serine_chemoreception"))
   expect_equal(
     as.integer(table(factor(list_gifts()$gift_type, levels = .gifter_gift_types))),
-    c(143L, 9L, 3L, 5L)
+    c(143L, 9L, 4L, 7L)
   )
   expect_equal(
     nrow(list_gifts(type = c("metabolic", "structural", "regulatory", "defense"))),
@@ -292,7 +295,7 @@ test_that("the metabolic model is unchanged by the presence of other types", {
   non_metabolic <- list_gifts()$gift_id[list_gifts()$gift_type != "metabolic"]
   gifts <- read_source(source_dir, "gifts")
   write_source(source_dir, "gifts", gifts[!gifts$gift_id %in% non_metabolic, , drop = FALSE])
-  for (table in c("gift_facets", "gift_xrefs", "change_gifts")) {
+  for (table in c("gift_facets", "gift_xrefs", "gift_evidence", "change_gifts")) {
     rows <- read_source(source_dir, table)
     write_source(source_dir, table, rows[!rows$gift_id %in% non_metabolic, , drop = FALSE])
   }

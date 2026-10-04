@@ -22,9 +22,11 @@ packaged gifter reference database is used.}
 The normalized output path, invisibly.
 }
 \description{
-Creates a dependency-free HTML report containing release metadata, table
-counts, a searchable guide to curated reference frames, a complete
-biological hierarchy, the SQL schema, and a searchable browser for every
+Creates a dependency-free HTML report that opens on an introduction to the
+database -- its counts, the evaluation layers of each GIFT type, the
+distribution of modes, compartments and marker namespaces, and the release
+versions -- followed by a searchable guide to curated frames, a complete
+biological hierarchy, the relational data model, and a searchable browser for every
 table. Two network views are drawn as inline SVG. The
 overview network draws every GIFT together with its declared anchors as an
 unlabelled force directed map in which a GIFT is a large dot and an anchor a
@@ -36,7 +38,12 @@ compartment, molecular tier, resource origin, or biomass essentiality -- and
 the key for whichever scheme is showing sits in the corner of the figure.
 The second network is drawn for each GIFT: a merged route network in which
 alternative routes are overlaid on the reactions they share. The GIFT table
-can be grouped by category and filtered by start and end anchor, and a
-selected GIFT opens in a dialog over the table. All styles, scripts, and data
-are embedded so the output can be opened or shared as one file.
+can be grouped by category and filtered by start and end anchor. Each GIFT
+and each named frame has its own page, addressed as `#gifts/<gift_id>` or
+`#frames/<frame_id>`. A GIFT page links its reactions, markers and related
+pathways to their public records, shows where each marker was accepted from,
+and lists the curation documents, analysis scripts and result tables behind
+its definition, linked to the source repository at the release commit. All
+styles, scripts, and data are embedded so the output can be opened or shared
+as one file.
 }

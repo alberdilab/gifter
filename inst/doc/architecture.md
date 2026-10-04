@@ -1541,6 +1541,7 @@ remain present in both forms.
 | `anchors.tsv` | `anchor` | Curated boundary molecule; `anchor_id`, `molecule` + `compartment`, usually with `chebi_id` |
 | `gift_anchors.tsv` | `gift_anchor` | Input/output role and ordinal for each GIFT boundary |
 | `gift_xrefs.tsv` | `gift_xref` | Related external pathway and how the curated boundaries compare |
+| `gift_evidence.tsv` | `gift_evidence` | Where a GIFT was curated: curation documents, analysis scripts and result tables, as repository paths |
 | `reactions.tsv` | `reaction` | Canonical chemistry; `reaction_id`, with `rhea_master` where Rhea covers it |
 | `reaction_xrefs.tsv` | `reaction_xref` | Namespaced external reaction cross-references |
 | `gift_routes.tsv` | `gift_route` | Alternative minimal route; `route_id` |
@@ -1562,7 +1563,7 @@ remain present in both forms.
 | `gift_mechanisms.tsv`, `mechanism_functions.tsv`, `defense_*.tsv` | `gift_mechanism`, `mechanism_function`, `defense_*` | The same six shapes for the defense model |
 | `database_changes.tsv` | `database_change` | Curation history entry; `change_id` |
 | `change_gifts.tsv` | `change_gift` | GIFTs a recorded change affects |
-| `database_release.tsv` | `database_release` | Database, schema, upstream-source, date, and commit metadata |
+| `database_release.tsv` | `database_release` | Database, schema, upstream-source, date, commit, and source repository metadata |
 
 The SQL contract is in `inst/schema/gifter.sql`; the compiler and structural
 validator are in `R/database-build.R`.
@@ -1680,7 +1681,10 @@ A practical order is:
 4. `gift_routes.tsv` and `route_reactions.tsv`;
 5. `enzyme_systems.tsv` and `enzyme_components.tsv`;
 6. reusable `markers.tsv` rows and `component_markers.tsv` links;
-7. `SOURCES.md` and `database_release.tsv`.
+7. `gift_evidence.tsv`: the proposal or assessment that defines the GIFT,
+   every analysis script run to decide it, and every result table those
+   scripts wrote;
+8. `SOURCES.md` and `database_release.tsv`.
 
 Reuse existing reactions, systems, components, and markers when they represent
 the same entity. Never duplicate them merely to make a new route self-contained.
@@ -1787,6 +1791,17 @@ Schema version 6 introduced `gift_type` and the three machinery models. Because
 `gift_type` decides which tables may attach to a GIFT, it changed the relational
 contract rather than adding an optional column, which is what made it a
 migration rather than a field.
+
+Schema version 8 added `gift_evidence` and `database_release.source_repository`.
+Together they say where each GIFT's definition was worked out and where those
+files live, so that the atlas and `get_gift_evidence()` can link a curation
+document, an analysis script or a result table at the commit the database was
+compiled from. A development build records `source_commit = unreleased` and its
+links follow the repository's default branch instead. The evidence is
+provenance and never enters a call. A location is a path inside the repository;
+the compiler checks its shape and that its file type matches its kind, and the
+package tests check that the file exists. The package still opens schema 7
+databases, which report no evidence.
 
 A package release must not silently change biological definitions without
 database provenance. A schema change requires an explicit schema-version bump

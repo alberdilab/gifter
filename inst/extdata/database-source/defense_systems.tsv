@@ -19,3 +19,9 @@ SYS_DF_CATALASE	DF_PEROXIDE_REMOVAL	monofunctional catalase	Single catalytic pro
 SYS_DF_KATG	DF_PEROXIDE_REMOVAL	catalase-peroxidase KatG	Single catalytic protein with catalase activity.
 SYS_DF_MN_CATALASE	DF_PEROXIDE_REMOVAL	manganese catalase	Single catalytic protein.
 SYS_DF_AHPCF	DF_PEROXIDE_REMOVAL	AhpC-AhpF peroxide-removal system	The peroxiredoxin catalytic subunit and its NADH-dependent reductase are jointly required.
+SYS_DF_BLA_CLASS_A	DF_BETA_LACTAM_HYDROLYSIS	Ambler class A beta-lactamase	Serine-dependent beta-lactamase enzyme; one catalytic protein.
+SYS_DF_BLA_CLASS_B	DF_BETA_LACTAM_HYDROLYSIS	Ambler class B beta-lactamase	Zinc-dependent beta-lactamase enzyme; one catalytic protein.
+SYS_DF_BLA_CLASS_C	DF_BETA_LACTAM_HYDROLYSIS	Ambler class C beta-lactamase	Serine-dependent beta-lactamase enzyme; one catalytic protein.
+SYS_DF_BLA_CLASS_D	DF_BETA_LACTAM_HYDROLYSIS	Ambler class D beta-lactamase	Serine-dependent beta-lactamase enzyme; one catalytic protein.
+SYS_DF_CAT_TYPE_A	DF_CHLORAMPHENICOL_ACETYLATION	chloramphenicol acetyltransferase type A	One chloramphenicol O-acetyltransferase protein.
+SYS_DF_CAT_TYPE_B	DF_CHLORAMPHENICOL_ACETYLATION	chloramphenicol acetyltransferase type B	One chloramphenicol O-acetyltransferase protein.

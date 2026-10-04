@@ -1,2 +1,2 @@
-gifter_db_version	schema_version	build_date	rhea_release	chebi_release	kegg_release	source_commit
-2026.33.1	7	2026-10-03	141	253	2026-10-03	unreleased
+gifter_db_version	schema_version	build_date	rhea_release	chebi_release	kegg_release	source_commit	source_repository
+2026.35.1	8	2026-10-04	141	253	2026-10-03	unreleased	https://github.com/alberdilab/gifter

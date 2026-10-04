@@ -1,7 +1,11 @@
 # Curation proposal: antimicrobial detoxification, and CARD as a gifter source
 
-Status: **assessed 2026-08-22.** Two GIFTs proposed, two deferred candidate
-families, five biological refusals, one facet registered. **No new namespace,
+Status: **assessed 2026-08-22; the two proposed GIFTs were curated in database
+2026.35.1.** The adoption and retained limits are recorded in
+[`proposal-regulatory-defense-expansion.md`](proposal-regulatory-defense-expansion.md).
+The original assessment proposed two GIFTs, deferred two candidate families,
+and documented five biological refusals. The subsequent curation registered
+the `challenge_class` facet. **No new namespace,
 no new `gift_type`, no schema change, and no CARD content vendored into the
 package.**
 

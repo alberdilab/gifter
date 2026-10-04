@@ -101,7 +101,10 @@ test_that("pathway links are filterable and KEGG context is complete or named", 
   # narrow LTA structure is evidenced through NCBIfam components and has no
   # external pathway record with the same anchor-and-backbone boundary.
   #
-  # citrate_fermentation is the fifth and its gap is a different one: KEGG has
+  # The new antibiotic conversions have no external pathway record whose
+  # boundary matches their complete defense GIFT claim. The serine input is
+  # linked as a subset of KEGG bacterial chemotaxis, like the aspartate input.
+  # citrate_fermentation has a different gap: KEGG has
   # no metabolic map for fermentative citrate cleavage at all. R00362 carries no
   # pathway link, and the citrate lyase orthology groups appear only in the
   # two-component system map, which describes the CitAB regulator rather than
@@ -111,12 +114,14 @@ test_that("pathway links are filterable and KEGG context is complete or named", 
   expect_equal(
     unname(gift_ids[linked == 0L]),
     c(
-      "archaellum",
+      "archaellum", "beta_lactam_detoxification",
       "carnitine_degradation_trimethylamine", "carnitine_to_betaine",
-      "citrate_fermentation", "collagen_cleavage",
+      "chloramphenicol_detoxification", "citrate_fermentation",
+      "collagen_cleavage",
       "diglucosyl_diacylglycerol_anchored_lipoteichoic_acid",
       "lpt_lipopolysaccharide_export_apparatus", "mercury_detoxification",
-      "taurine_uptake_abc", "type_i_e_crispr_cas_machinery",
+      "taurine_uptake_abc",
+      "type_i_e_crispr_cas_machinery",
       "type_i_restriction_modification", "type_iva_pilus"
     )
   )

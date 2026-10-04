@@ -10,14 +10,22 @@
 
   function currentView() {
     var active = document.querySelector("[data-view].active");
-    return active ? active.getAttribute("data-view") : "frames";
+    return active ? active.getAttribute("data-view") : "introduction";
   }
 
-  function activateView(name, updateHash) {
+  // A route is a view name, optionally followed by an item within it: the
+  // frames view gives each frame its own page at #frames/<frame_id>.
+  function activateView(route, updateHash) {
+    var parts = String(route).split("/");
+    var name = parts[0];
+    var item = parts.slice(1).join("/");
     var exists = views.some(function (view) {
       return view.getAttribute("data-view") === name;
     });
-    if (!exists) name = "frames";
+    if (!exists) {
+      name = "introduction";
+      item = "";
+    }
 
     views.forEach(function (view) {
       view.classList.toggle("active", view.getAttribute("data-view") === name);
@@ -34,11 +42,55 @@
       summary.setAttribute("aria-current", active ? "page" : "false");
     });
     if (updateHash && window.history && window.history.replaceState) {
-      window.history.replaceState(null, "", "#" + name);
+      window.history.replaceState(null, "", "#" + name + (item ? "/" + item : ""));
     }
-    if (name !== "gifts") closeGift();
+    showFrame(name === "frames" ? item : "");
     applySearch(false);
+    // The GIFT page is opened after the filters run, so its position counts the
+    // rows they keep.
+    if (name === "gifts" && item) openGift(item);
+    else closeGift();
+    updateBreadcrumbs(name, item);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // gifter > Atlas > section, and the open GIFT or frame when there is one.
+  // The section is named as the Atlas menu names it.
+  var breadcrumbs = document.querySelector("[data-breadcrumbs]");
+
+  function crumb(label, href) {
+    var item = document.createElement("li");
+    if (href) {
+      var link = document.createElement("a");
+      link.href = href;
+      link.textContent = label;
+      item.appendChild(link);
+    } else {
+      item.textContent = label;
+      item.setAttribute("aria-current", "page");
+    }
+    return item;
+  }
+
+  function updateBreadcrumbs(name, item) {
+    if (!breadcrumbs) return;
+    var button = document.querySelector('[data-view-menu] [data-view-button="' + name + '"]');
+    var leaf = "";
+    if (item && name === "gifts") {
+      var gift = openGiftPage();
+      if (gift) leaf = gift.getAttribute("data-gift-name") || gift.getAttribute("data-gift-id");
+    } else if (item && name === "frames") {
+      var frame = openFramePage();
+      var heading = frame && frame.querySelector("h2");
+      if (heading) leaf = heading.textContent;
+    }
+    var trail = [
+      crumb("gifter", breadcrumbs.getAttribute("data-home")),
+      crumb("Atlas", "#introduction"),
+      crumb(button ? button.textContent : name, leaf ? "#" + name : null)
+    ];
+    if (leaf) trail.push(crumb(leaf, null));
+    breadcrumbs.replaceChildren.apply(breadcrumbs, trail);
   }
 
   function showStatus(message) {
@@ -55,12 +107,10 @@
     if (empty) empty.classList.toggle("visible", visible);
   }
 
-  var modal = document.querySelector("[data-gift-modal]");
-  var modalWindow = modal.querySelector(".gift-modal-window");
-  var modalTitle = modal.querySelector("[data-gift-modal-title]");
-  var modalPosition = modal.querySelector("[data-gift-modal-position]");
-  var modalBody = modal.querySelector(".gift-modal-body");
-  var lastFocused = null;
+  var giftView = document.querySelector('[data-view="gifts"]');
+  var giftList = giftView.querySelector("[data-gift-list]");
+  var giftPages = giftView.querySelector("[data-gift-pages]");
+  var giftPosition = giftPages.querySelector("[data-gift-position]");
 
   function giftRows() {
     return Array.prototype.slice.call(
@@ -76,46 +126,53 @@
     return giftRows().filter(function (row) { return !row.hidden; });
   }
 
+  function openGiftPage() {
+    if (giftPages.hidden) return null;
+    return giftPages.querySelector("[data-gift-detail]:not([hidden])");
+  }
+
+  // Show one GIFT's page in place of the catalogue. Navigation goes through the
+  // address, #gifts/<gift_id>, so a page can be linked to and the browser's
+  // back button returns to the table.
   function openGift(giftId) {
-    var detail = modalBody.querySelector('[data-gift-detail][data-gift-id="' + giftId + '"]');
-    if (!detail) return;
+    var detail = giftPages.querySelector('[data-gift-detail][data-gift-id="' + giftId + '"]');
+    if (!detail) {
+      closeGift();
+      return;
+    }
 
     giftRows().forEach(function (row) {
       var selected = row.getAttribute("data-gift-id") === giftId;
       row.classList.toggle("selected", selected);
       row.setAttribute("aria-selected", selected ? "true" : "false");
     });
-    Array.prototype.slice.call(modalBody.querySelectorAll("[data-gift-detail]")).forEach(function (other) {
+    Array.prototype.slice.call(giftPages.querySelectorAll("[data-gift-detail]")).forEach(function (other) {
       other.hidden = other !== detail;
     });
 
-    modalTitle.textContent = detail.getAttribute("data-gift-name") || "GIFT detail";
     var visible = visibleGiftRows();
     var position = -1;
     visible.forEach(function (row, index) {
       if (row.getAttribute("data-gift-id") === giftId) position = index;
     });
-    modalPosition.textContent = position === -1 ? "" : (position + 1) + " / " + visible.length;
+    giftPosition.textContent = position === -1 ? "" : (position + 1) + " / " + visible.length;
 
-    if (modal.hidden) {
-      lastFocused = document.activeElement;
-      modal.hidden = false;
-      document.body.classList.add("modal-open");
-    }
-    modalBody.scrollTop = 0;
-    modalWindow.focus();
+    giftList.hidden = true;
+    giftPages.hidden = false;
+    setEmptyState(giftView, false);
   }
 
   function closeGift() {
-    if (modal.hidden) return;
-    modal.hidden = true;
-    document.body.classList.remove("modal-open");
-    if (lastFocused && document.contains(lastFocused)) lastFocused.focus();
-    lastFocused = null;
+    giftPages.hidden = true;
+    giftList.hidden = false;
+  }
+
+  function goToGift(giftId) {
+    window.location.hash = "gifts/" + giftId;
   }
 
   function stepGift(offset) {
-    var open = modalBody.querySelector("[data-gift-detail]:not([hidden])");
+    var open = openGiftPage();
     if (!open) return;
     var visible = visibleGiftRows();
     var current = -1;
@@ -124,12 +181,16 @@
     });
     if (current === -1 || !visible.length) return;
     var next = (current + offset + visible.length) % visible.length;
+    // The table follows along, so going back lands on the page holding the
+    // GIFT last shown.
     showGiftPage(pageOf(next));
-    openGift(visible[next].getAttribute("data-gift-id"));
+    goToGift(visible[next].getAttribute("data-gift-id"));
   }
 
-  var giftBody = document.querySelector(".gift-summary-table tbody");
-  var giftTable = document.querySelector(".gift-summary-table");
+  // Frame pages carry GIFT tables of their own, so the explorer's table is
+  // found within its view.
+  var giftBody = document.querySelector('[data-view="gifts"] .gift-summary-table tbody');
+  var giftTable = document.querySelector('[data-view="gifts"] .gift-summary-table');
   // The curated order the table ships in. Sorting reorders a copy, so clearing
   // a sort restores it rather than approximating it.
   var giftCurated = giftRows();
@@ -308,7 +369,7 @@
   }
 
   // Rows are laid out in document order, so grouping rewrites the body rather
-  // than duplicating it: one node per GIFT keeps selection and the modal in sync.
+  // than duplicating it: one node per GIFT keeps selection and the page in sync.
   // Each selected axis adds a nesting level: the second axis renders as
   // subgroup headers inside the first rather than as a combined label.
   function layoutGifts() {
@@ -507,22 +568,61 @@
     document.querySelectorAll("[data-frame-filter]")
   );
 
+  var frameView = document.querySelector('[data-view="frames"]');
+  var frameList = frameView.querySelector("[data-frame-list]");
+  var framePages = Array.prototype.slice.call(frameView.querySelectorAll("[data-frame-page]"));
+
+  function openFramePage() {
+    return framePages.filter(function (page) { return !page.hidden; })[0] || null;
+  }
+
+  // The table and a frame's page are alternatives: an unknown or empty id
+  // shows the table.
+  function showFrame(frameId) {
+    var target = null;
+    framePages.forEach(function (page) {
+      var match = Boolean(frameId) && page.getAttribute("data-frame-id") === frameId;
+      page.hidden = !match;
+      if (match) target = page;
+    });
+    frameList.hidden = Boolean(target);
+    if (target) setEmptyState(frameView, false);
+  }
+
   function filterFrames(query) {
-    var view = document.querySelector('[data-view="frames"]');
-    var cards = Array.prototype.slice.call(view.querySelectorAll("[data-frame-card]"));
+    var rows = Array.prototype.slice.call(frameView.querySelectorAll("[data-frame-row]"));
     var count = 0;
-    cards.forEach(function (card) {
-      var textMatches = !query || card.getAttribute("data-search").indexOf(query) !== -1;
+    rows.forEach(function (row) {
+      var textMatches = !query || row.getAttribute("data-search").indexOf(query) !== -1;
       var filterMatches = frameFilter === "all" ||
-        (frameFilter === "bounded" && card.getAttribute("data-frame-bounded") === "true") ||
-        card.getAttribute("data-frame-scopes").indexOf(" " + frameFilter + " ") !== -1;
+        (frameFilter === "bounded" && row.getAttribute("data-frame-bounded") === "true") ||
+        row.getAttribute("data-frame-scopes").indexOf(" " + frameFilter + " ") !== -1;
       var matches = textMatches && filterMatches;
-      card.hidden = !matches;
+      row.hidden = !matches;
       if (matches) count += 1;
     });
-    setEmptyState(view, count === 0);
+    setEmptyState(frameView, !openFramePage() && count === 0);
     return count;
   }
+
+  Array.prototype.slice.call(frameView.querySelectorAll("[data-frame-row]")).forEach(function (row) {
+    function open() {
+      window.location.hash = "frames/" + row.getAttribute("data-frame-id");
+    }
+    row.addEventListener("click", open);
+    row.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        open();
+      }
+    });
+  });
+
+  Array.prototype.slice.call(frameView.querySelectorAll("[data-frame-back]")).forEach(function (button) {
+    button.addEventListener("click", function () {
+      window.location.hash = "frames";
+    });
+  });
 
   function filterChangelog(query) {
     var view = document.querySelector('[data-view="changelog"]');
@@ -624,6 +724,14 @@
       activateView(button.getAttribute("data-view-button"), true);
       var menu = button.closest("[data-view-menu]");
       if (menu) menu.removeAttribute("open");
+    });
+  });
+
+  // The header dropdowns are <details> elements, which stay open until their
+  // summary is clicked again; a click anywhere else closes them too.
+  document.addEventListener("click", function (event) {
+    Array.prototype.forEach.call(document.querySelectorAll(".site-menu[open]"), function (menu) {
+      if (!menu.contains(event.target)) menu.removeAttribute("open");
     });
   });
 
@@ -855,63 +963,44 @@
 
   giftRows().forEach(function (row) {
     row.addEventListener("click", function () {
-      openGift(row.getAttribute("data-gift-id"));
+      goToGift(row.getAttribute("data-gift-id"));
     });
     row.addEventListener("keydown", function (event) {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
-        openGift(row.getAttribute("data-gift-id"));
+        goToGift(row.getAttribute("data-gift-id"));
       }
     });
   });
 
-  // A changelog entry names the GIFTs it affects; open the trait it refers to.
+  // A changelog entry names the GIFTs it affects, and a frame page lists its
+  // members; either opens the trait it refers to.
   Array.prototype.slice.call(document.querySelectorAll("[data-gift-link]")).forEach(function (link) {
-    link.addEventListener("click", function () {
-      var giftId = link.getAttribute("data-gift-link");
+    function open() {
       // A stale query would leave the target row filtered out of the sequence
-      // the modal arrows walk.
+      // the page arrows walk.
       search.value = "";
-      activateView("gifts", true);
-      openGift(giftId);
-    });
+      goToGift(link.getAttribute("data-gift-link"));
+    }
+    link.addEventListener("click", open);
+    if (link.tagName === "TR") {
+      link.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          open();
+        }
+      });
+    }
   });
 
-  Array.prototype.slice.call(modal.querySelectorAll("[data-gift-modal-close]")).forEach(function (control) {
-    control.addEventListener("click", closeGift);
+  giftPages.querySelector("[data-gift-back]").addEventListener("click", function () {
+    window.location.hash = "gifts";
   });
 
-  Array.prototype.slice.call(modal.querySelectorAll("[data-gift-step]")).forEach(function (control) {
+  Array.prototype.slice.call(giftPages.querySelectorAll("[data-gift-step]")).forEach(function (control) {
     control.addEventListener("click", function () {
       stepGift(parseInt(control.getAttribute("data-gift-step"), 10));
     });
-  });
-
-  modal.addEventListener("keydown", function (event) {
-    if (event.key === "Tab") {
-      // Keep tabbing inside the dialog; the table behind it is inert while open.
-      var focusable = Array.prototype.slice.call(
-        modalWindow.querySelectorAll("button, a[href], summary, [tabindex]:not([tabindex='-1'])")
-      ).filter(function (element) { return element.offsetParent !== null; });
-      if (!focusable.length) return;
-      var first = focusable[0];
-      var last = focusable[focusable.length - 1];
-      if (event.shiftKey && (document.activeElement === first || document.activeElement === modalWindow)) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-      return;
-    }
-    if (event.key === "ArrowLeft") {
-      event.preventDefault();
-      stepGift(-1);
-    } else if (event.key === "ArrowRight") {
-      event.preventDefault();
-      stepGift(1);
-    }
   });
 
   // The overview networks draw no labels, so every fact about a dot is read
@@ -1011,11 +1100,10 @@
       var giftId = dot.getAttribute("data-node-gift");
       if (!giftId) return;
       // A stale query would leave the target row filtered out of the sequence
-      // the modal arrows walk.
+      // the page arrows walk.
       search.value = "";
       clearProbe();
-      activateView("gifts", true);
-      openGift(giftId);
+      goToGift(giftId);
     }
 
     dots.forEach(function (dot) {
@@ -1065,7 +1153,17 @@
     repaint();
   });
 
-  search.addEventListener("input", function () { applySearch(true); });
+  search.addEventListener("input", function () {
+    if (currentView() === "frames" && openFramePage()) {
+      activateView("frames", true);
+      return;
+    }
+    if (currentView() === "gifts" && openGiftPage()) {
+      activateView("gifts", true);
+      return;
+    }
+    applySearch(true);
+  });
   search.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
       search.value = "";
@@ -1080,9 +1178,15 @@
       closeGroupMenu();
       return;
     }
-    if (event.key === "Escape" && !modal.hidden) {
+    // On a GIFT page the arrow keys step through the filtered GIFTs, unless
+    // the reader is typing or choosing in a form control.
+    var target = event.target;
+    var typing = target && /^(INPUT|SELECT|TEXTAREA)$/.test(target.tagName);
+    if (!typing && currentView() === "gifts" && openGiftPage() &&
+        (event.key === "ArrowLeft" || event.key === "ArrowRight") &&
+        !event.metaKey && !event.ctrlKey && !event.altKey) {
       event.preventDefault();
-      closeGift();
+      stepGift(event.key === "ArrowLeft" ? -1 : 1);
       return;
     }
     if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
@@ -1093,7 +1197,7 @@
   });
 
   window.addEventListener("hashchange", function () {
-    activateView(window.location.hash.replace(/^#/, "") || "frames", false);
+    activateView(window.location.hash.replace(/^#/, "") || "introduction", false);
   });
 
   // Browsers apply their native anchor scroll after inline scripts run. The
@@ -1106,5 +1210,5 @@
   // A reloaded page can restore a previously chosen grouping in the select.
   sortGifts();
   layoutGifts();
-  activateView(window.location.hash.replace(/^#/, "") || "frames", false);
+  activateView(window.location.hash.replace(/^#/, "") || "introduction", false);
 }());

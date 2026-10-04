@@ -25,13 +25,15 @@ marker_catalogue="$manifest_dir/markers.tsv"
 database="$manifest_dir/gifter.sqlite"
 representatives="$manifest_dir/representative-genomes.tsv"
 selected_samples="$manifest_dir/selected-samples.tsv"
+archive_aliases="$manifest_dir/archive-aliases.tsv"
 
 required=(
   "$full_input" "$annotation_manifest" "$annotation_qc" "$marker_catalogue"
-  "$database" "$representatives" "$selected_samples"
+  "$database" "$representatives" "$selected_samples" "$archive_aliases"
   "$manifest_dir/source-manifest.tsv" "$manifest_dir/habitat-design.tsv"
   "$manifest_dir/design-audit.tsv" "$manifest_dir/representative-mag-sha256.tsv"
   "$manifest_dir/public-data-sha256.tsv" "$manifest_dir/source-manifest-sha256.txt"
+  "$manifest_dir/archive-aliases-sha256.txt"
   "$manifest_dir/representative-manifest-sha256.txt"
   "$manifest_dir/selected-samples-sha256.txt"
   "$public_dir/MFD_SRnodrep_tax_relative_abundance.tsv.xz"
@@ -106,9 +108,11 @@ sha256sum "$marker_catalogue" > "$transfer_dir/marker-catalogue-sha256.txt"
 
 cp "$annotation_manifest" "$annotation_qc" "$transfer_dir/"
 cp "$database" "$marker_catalogue" "$representatives" "$selected_samples" \
+   "$archive_aliases" \
    "$manifest_dir/source-manifest.tsv" "$manifest_dir/habitat-design.tsv" \
    "$manifest_dir/design-audit.tsv" "$manifest_dir/representative-mag-sha256.tsv" \
    "$manifest_dir/public-data-sha256.tsv" "$manifest_dir/source-manifest-sha256.txt" \
+   "$manifest_dir/archive-aliases-sha256.txt" \
    "$manifest_dir/representative-manifest-sha256.txt" \
    "$manifest_dir/selected-samples-sha256.txt" "$transfer_dir/"
 cp "$public_dir/MFD_SRnodrep_tax_relative_abundance.tsv.xz" \

@@ -1504,3 +1504,72 @@ NCBIFAM	TIGR01711.1	gspJ type II secretion system minor pseudopilin GspJ	NCBIfam
 KO	K02460	general secretion pathway protein K	KEGG orthology marker.
 NCBIFAM	NF037980.1	gspK type II secretion system minor pseudopilin GspK	NCBIfam equivalog-grade profile. Type II secretion system minor pseudopilin GspK; 23881 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
 KO	K02464	general secretion pathway protein O	KEGG orthology marker.
+KO	K01467	ampC; beta-lactamase class C	KEGG orthology marker for a class C beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K17836	penP; beta-lactamase class A	KEGG orthology marker for a class A beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K17837	bla2, blm, ccrA, blaB; metallo-beta-lactamase class B	KEGG orthology marker for a class B beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K17838	oxa; beta-lactamase class D	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18698	blaTEM; beta-lactamase class A TEM	KEGG orthology marker for a class A beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18699	blaSHV; beta-lactamase class A SHV	KEGG orthology marker for a class A beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18766	blaZ; beta-lactamase class A BlaZ	KEGG orthology marker for a class A beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18767	blaCTX-M; beta-lactamase class A CTX-M	KEGG orthology marker for a class A beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18768	blaKPC; beta-lactamase class A KPC	KEGG orthology marker for a class A beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18780	blaNDM; metallo-beta-lactamase class B NDM	KEGG orthology marker for a class B beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18781	blaVIM; metallo-beta-lactamase class B VIM	KEGG orthology marker for a class B beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18782	blaIMP; metallo-beta-lactamase class B IMP	KEGG orthology marker for a class B beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18790	blaOXA-1; beta-lactamase class D OXA-1	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18791	blaOXA-2; beta-lactamase class D OXA-2	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18792	blaOXA-10; beta-lactamase class D OXA-10	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18793	blaOXA-23; beta-lactamase class D OXA-23	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18794	blaOXA-51; beta-lactamase class D OXA-51	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18795	blaCARB-1; beta-lactamase class A CARB-1, PSE family	KEGG orthology marker for a class A beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18796	blaLEN; beta-lactamase class A LEN	KEGG orthology marker for a class A beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18797	blaPER; beta-lactamase class A PER	KEGG orthology marker for a class A beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18970	blaGES; beta-lactamase class A GES	KEGG orthology marker for a class A beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18971	blaOXA-24; beta-lactamase class D OXA-24	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18972	blaOXA-58; beta-lactamase class D OXA-58	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18973	blaOXA-50; beta-lactamase class D OXA-50	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K18976	blaOXA-48; beta-lactamase class D OXA-48	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19095	blaCMY-1; beta-lactamase class C CMY-1	KEGG orthology marker for a class C beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19096	blaCMY-2; beta-lactamase class C CMY-2	KEGG orthology marker for a class C beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19097	blaVEB; beta-lactamase class A VEB	KEGG orthology marker for a class A beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19098	blaOXA-9; beta-lactamase class D OXA-9	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19099	blaGIM; metallo-beta-lactamase class B GIM	KEGG orthology marker for a class B beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19100	blaDHA; beta-lactamase class C DHA	KEGG orthology marker for a class C beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19101	blaFOX; beta-lactamase class C FOX	KEGG orthology marker for a class C beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19209	blaOXA-42; beta-lactamase class D OXA-42	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19210	blaOXA-61; beta-lactamase class D OXA-61	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19211	blaOXA-62; beta-lactamase class D OXA-62	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19212	blaOXA-63; beta-lactamase class D OXA-63	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19213	blaOXA-12; beta-lactamase class D OXA-12	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19214	blaACC; beta-lactamase class C ACC	KEGG orthology marker for a class C beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19215	blaACT_MIR; beta-lactamase class C ACT/MIR	KEGG orthology marker for a class C beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19216	blaIND; metallo-beta-lactamase class B IND	KEGG orthology marker for a class B beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19217	blaCARB-17; beta-lactamase class A CARB-17	KEGG orthology marker for a class A beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19218	blaCARB-5; beta-lactamase class A CARB-5, RTG family	KEGG orthology marker for a class A beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19316	blaIMI; beta-lactamase class A IMI	KEGG orthology marker for a class A beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19317	blaBEL; beta-lactamase class A BEL	KEGG orthology marker for a class A beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19318	blaOXA-213; beta-lactamase class D OXA-213	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19319	blaOXA-134; beta-lactamase class D OXA-134	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19320	blaOXA-211; beta-lactamase class D OXA-211	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19321	blaOXA-214; beta-lactamase class D OXA-214	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19322	blaOXA-229; beta-lactamase class D OXA-229	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K20319	blaADC; beta-lactamase class C ADC	KEGG orthology marker for a class C beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K20320	blaPDC; beta-lactamase class C PDC	KEGG orthology marker for a class C beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K21266	blaOXA-286; beta-lactamase class D OXA-286	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K21276	blaOXA-22; beta-lactamase class D OXA-22	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K21277	blaOXA-60; beta-lactamase class D OXA-60	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K22331	blaOXA-184; beta-lactamase class D OXA-184	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K22332	blaOXA-548; beta-lactamase class D OXA-548	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K22333	blaOXA-493; beta-lactamase class D OXA-493	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K22334	blaOXA-464; beta-lactamase class D OXA-464	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K22335	blaOXA-114; beta-lactamase class D OXA-114	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K22346	blaSME; beta-lactamase class A SME	KEGG orthology marker for a class A beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K22351	blaOXA-209; beta-lactamase class D OXA-209	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K22352	blaOXA-29; beta-lactamase class D OXA-29	KEGG orthology marker for a class D beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K24153	blaOXY; beta-lactamase class A OXY	KEGG orthology marker for a class A beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K24159	blaLAP; beta-lactamase class A LAP	KEGG orthology marker for a class A beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K24161	blaGOP; beta-lactamase class B GOB	KEGG orthology marker for a class B beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K24162	blaBlaB; beta-lactamase class B BlaB	KEGG orthology marker for a class B beta-lactamase; EC 3.5.2.6, RHEA:20401.
+KO	K19271	chloramphenicol O-acetyltransferase type A	KEGG orthology marker for EC 2.3.1.28, RHEA:18421.
+KO	K00638	chloramphenicol O-acetyltransferase type B	KEGG orthology marker for EC 2.3.1.28, RHEA:18421.
+NCBIFAM	NF011615.0	Tsr serine chemoreceptor	NCBIfam hmm_PGAP/20.0 equivalog-grade Tsr profile; separated from Tar.

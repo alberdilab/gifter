@@ -59,7 +59,10 @@ version identifies curated biological content. The schema version identifies
 the relational contract. None is inferred from either of the others, and a
 change to one does not automatically require a change to all three.
 
-Package 0.7.x, and the intended initial 1.x implementation, support schema 7.
+Package 0.7.x supports schemas 7 and 8. Schema 8 adds per-GIFT curation
+evidence and the source repository; a schema 7 database opens normally,
+`get_gift_evidence()` returns no rows for it, `gifter_db_version()` reports its
+`source_repository` as `NA`, and the atlas states that it records no evidence.
 A later package may list more than one supported schema during a migration.
 Every connection is checked before a query: an unsupported schema fails with
 an error naming the version found, the versions supported, and the remedies.
@@ -77,7 +80,7 @@ contract requires a schema bump and coordinated package support.
 `build_gifter_database()`. An already-open custom DBI connection may also be
 passed to public functions when it exposes the same schema contract. Custom
 databases must contain exactly one readable `database_release` row and use a
-supported schema version. Assigning `schema_version = 7` to an unrelated or
+supported schema version. Assigning `schema_version = 8` to an unrelated or
 partially constructed database does not make it compatible; the supported way
 to build one is from validated TSV sources with the package compiler.
 

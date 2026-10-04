@@ -254,6 +254,7 @@ for examples and rationale.
 | Multi-sample datasets, detection, per-sample traits | `R/dataset.R`, `R/dataset-traits.R`, `R/dataset-export.R`, `R/dataset-network.R` | `proposal-multi-sample-datasets.md`, the equality of a sample's traits with `community_traits()`, dataset tests |
 | GIFT graph or database reports | `R/database-visualization.R` | declared-anchor behavior, composition tests |
 | Biological source provenance | `inst/extdata/database-source/SOURCES.md`, `database_release.tsv` | affected TSV records |
+| Where a GIFT was curated: documents, analysis scripts, result tables | `gift_evidence.tsv` | the attempt log's sources, `data-raw/reference/README.md`, `test-gift-evidence.R` |
 | Architecture or curator guidance | `AGENTS.md`, `inst/doc/architecture.md`, `README.md` | behavior and links remain consistent |
 | User-facing tutorials | `vignettes/*.Rmd` | every chunk executes at `R CMD check`; illustrative marker sets are labelled as fixtures, never presented as annotation output from a named organism |
 | Catalogue-expansion attempt | `inst/doc/catalogue-expansion-attempts.tsv`, `inst/doc/catalogue-expansion-log.md` | prior matching attempts, proposal or assessment, deferral register, and any shipped database changes |
@@ -419,6 +420,8 @@ Before handing off a change, verify that:
   affects, code changes in `CHANGELOG.md`;
 - every catalogue-expansion effort, including one that added nothing, is closed
   in `catalogue-expansion-attempts.tsv` and links its evidence document;
+- every implemented GIFT lists in `gift_evidence.tsv` the document that defines
+  it and every analysis script and result table its curation relied on;
 - unrelated user changes were not overwritten.
 
 When uncertain, prefer the design that makes it easiest to state, defend, test,

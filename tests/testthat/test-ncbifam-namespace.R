@@ -191,7 +191,7 @@ pre_namespace_sources <- function(envir = parent.frame()) {
   components <- c("COMP_19093_AHBA", "COMP_19093_AHBB", "COMP_37431_AHBC",
                   "COMP_56520_AHBD")
 
-  for (table in c("gifts", "gift_anchors", "gift_facets", "gift_xrefs",
+  for (table in c("gifts", "gift_anchors", "gift_facets", "gift_xrefs", "gift_evidence",
                   "gift_routes", "change_gifts")) {
     drop(table, "gift_id", gift)
   }

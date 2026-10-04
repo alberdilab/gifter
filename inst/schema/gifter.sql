@@ -78,6 +78,21 @@ CREATE TABLE gift_xref (
   PRIMARY KEY (gift_pk, namespace, accession)
 );
 
+-- Where the curation of a GIFT is recorded: the documents that state and
+-- defend its definition, the analysis scripts run to decide it, and the result
+-- tables they wrote. Locations are paths within the source repository named in
+-- database_release, so a reader can open the exact file at the release commit.
+-- This is provenance only; it never enters a call.
+CREATE TABLE gift_evidence (
+  gift_pk INTEGER NOT NULL REFERENCES gift(gift_pk),
+  evidence_kind TEXT NOT NULL CHECK (evidence_kind IN (
+    'curation_document', 'analysis_script', 'result_table'
+  )),
+  location TEXT NOT NULL,
+  description TEXT NOT NULL,
+  PRIMARY KEY (gift_pk, location)
+);
+
 -- Registered facet vocabulary. Open to new facets, closed within a facet: the
 -- build rejects a (facet, value) pair not defined here, which is what keeps a
 -- multi-valued classification from degenerating into free text. Facets classify
@@ -449,7 +464,8 @@ CREATE TABLE database_release (
   rhea_release TEXT NOT NULL,
   chebi_release TEXT NOT NULL,
   kegg_release TEXT NOT NULL,
-  source_commit TEXT NOT NULL
+  source_commit TEXT NOT NULL,
+  source_repository TEXT NOT NULL
 );
 
 -- Curation history of the biological database. Code and API changes are not

@@ -474,6 +474,7 @@ abundance_path <- file.path(
 mag_metadata_path <- file.path(remote_dir, "mags_shallow_all.tsv")
 transferred_representatives_path <- file.path(remote_dir, "representative-genomes.tsv")
 transferred_samples_path <- file.path(remote_dir, "selected-samples.tsv")
+transferred_archive_alias_path <- file.path(remote_dir, "archive-aliases.tsv")
 
 required <- c(
   representative_manifest_path, selected_samples_path, design_audit_path,
@@ -481,6 +482,7 @@ required <- c(
   transfer_manifest_path, transfer_complete_path, database_path,
   marker_catalogue_path, abundance_path, mag_metadata_path,
   transferred_representatives_path, transferred_samples_path,
+  transferred_archive_alias_path,
   file.path(remote_dir, "gifter-input-full-sha256.txt"),
   file.path(remote_dir, "gifter-database-sha256.txt"),
   file.path(remote_dir, "marker-catalogue-sha256.txt"),
@@ -515,7 +517,8 @@ if (!identical(unname(observed_sha), transfer_manifest$sha256) ||
 if (!identical(
       sha256(representative_manifest_path), sha256(transferred_representatives_path)
     ) ||
-    !identical(sha256(selected_samples_path), sha256(transferred_samples_path))) {
+    !identical(sha256(selected_samples_path), sha256(transferred_samples_path)) ||
+    !identical(sha256(archive_alias_path), sha256(transferred_archive_alias_path))) {
   stop("The remotely processed panels differ from the locked local panels", call. = FALSE)
 }
 

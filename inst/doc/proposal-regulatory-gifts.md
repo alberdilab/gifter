@@ -1,7 +1,10 @@
 # Regulatory GIFTs: curated content, refusals, and open questions
 
 Status: **partly implemented**. `chemotaxis_signal_transduction`,
-`aspartate_chemoreception` and `phosphate_starvation_response` are curated.
+`aspartate_chemoreception`, `serine_chemoreception` and
+`phosphate_starvation_response` are curated. The 2026-10-04 reassessment of
+the serine candidate is in
+[`proposal-regulatory-defense-expansion.md`](proposal-regulatory-defense-expansion.md).
 The evidence-model limitation below is unchanged and still bounds what a
 regulatory GIFT may claim. Boolean semantics are fixed by synthetic fixtures and
 by the curated content in `tests/testthat/test-regulatory-defense.R`.
@@ -237,7 +240,8 @@ gradient. This is the regulatory counterpart of curating
 
 ### Refused
 
-Ligand-specific claims for every other chemoeffector. K05876 (Trg) covers ribose
+Ligand-specific claims for other chemoeffectors, except the subsequently curated
+Tsr-specific serine input. K05876 (Trg) covers ribose
 *and* galactose in one group and cannot separate them; K05877 (Tap) is a
 dipeptide receptor whose peptide range is not resolved; K03406 covers everything
 and names nothing. Tar was curated because its orthology group is anchored on a
@@ -257,7 +261,8 @@ refusal is the same shape as the flagellar coupling-ion refusal.
 
 ## What is still deferred
 
-1. Ligand-specific chemoreception beyond aspartate, pending evidence that names
+1. Ligand-specific chemoreception beyond the curated aspartate and serine inputs,
+   pending evidence that names
    one chemoeffector per orthology group.
 2. Any regulatory claim that depends on cognate pairing, gene neighbourhood,
    domain architecture or operon context. The evidence extension should be

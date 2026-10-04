@@ -108,8 +108,7 @@ a { color: inherit; }
 
 .brand-mark svg { display: block; width: 100%; height: 100%; }
 
-.site-nav,
-.view-nav {
+.site-nav {
   display: flex;
   padding: 4px;
   border: 1px solid rgba(23, 51, 48, .12);
@@ -202,18 +201,17 @@ a { color: inherit; }
   box-shadow: 0 2px 8px rgba(23, 51, 48, .09);
 }
 
-.view-nav {
-  width: max-content;
-  max-width: calc(100% - 40px);
-  margin: 18px auto 34px;
-  overflow: visible;
-}
+.atlas-menu .site-menu-list { width: 210px; }
 
-.view-nav .site-menu-list {
-  right: 0;
-  left: auto;
-  width: 190px;
-  transform: none;
+.site-menu-label {
+  margin: 6px 4px 2px;
+  padding: 8px 6px 4px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
 
 .view-menu-link {
@@ -288,11 +286,57 @@ a { color: inherit; }
 }
 
 main {
+  position: relative;
   width: min(1500px, 100%);
   min-height: calc(100vh - 140px);
   margin: 0 auto;
-  padding: 0 clamp(20px, 4vw, 64px) 80px;
+  padding: 20px clamp(20px, 4vw, 64px) 80px;
 }
+
+/* A rounded box 20px below the header and 20px above the page title. One
+   line: a long GIFT name is cut short rather than wrapped. */
+.breadcrumbs {
+  display: flex;
+  margin: 0 0 20px;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  min-width: 0;
+  max-width: 100%;
+  align-items: center;
+  margin: 0;
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: var(--surface);
+  box-shadow: 0 2px 8px rgba(23, 51, 48, .05);
+  font-size: 12px;
+  line-height: 18px;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.breadcrumbs li { flex: 0 0 auto; }
+
+.breadcrumbs li + li::before {
+  margin: 0 8px;
+  color: var(--forest-2);
+  content: "\2192";
+}
+
+.breadcrumbs li:last-child {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--forest);
+  font-weight: 700;
+  text-overflow: ellipsis;
+}
+
+.breadcrumbs a { color: var(--muted); text-decoration: none; }
+.breadcrumbs a:hover, .breadcrumbs a:focus { color: var(--forest); text-decoration: underline; }
 
 .view { display: none; }
 .view.active { display: block; animation: view-in .24s ease-out; }
@@ -374,6 +418,61 @@ h1, h2, h3, h4, h5, p { margin-top: 0; }
   color: var(--muted);
 }
 
+.view-explainer { margin-bottom: 34px; }
+
+.view-lead {
+  max-width: 820px;
+  margin: 0 0 22px;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  line-height: 1.45;
+}
+
+.view-concepts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.view-concepts > div {
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.view-concepts h3 { margin: 0 0 8px; color: var(--forest); font-size: 14px; }
+.view-concepts p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.view-concepts strong { color: var(--ink); }
+
+.view-concepts code {
+  padding: 1px 5px;
+  border-radius: 5px;
+  color: var(--forest);
+  background: var(--mint-pale);
+  font-size: 11px;
+}
+
+.view-caveat {
+  margin: 14px 0 0;
+  padding: 11px 14px;
+  border: 1px solid #ead7a7;
+  border-radius: 9px;
+  color: #62583e;
+  background: #faf2df;
+  font-size: 12px;
+}
+
+.view-section-title {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
 .frame-intro {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -444,40 +543,150 @@ h1, h2, h3, h4, h5, p { margin-top: 0; }
   background: var(--forest-2);
 }
 
-.frame-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  align-items: start;
+.frame-table-shell { margin-bottom: 8px; }
+
+.frame-table tbody tr { cursor: pointer; }
+.frame-table tbody tr:focus-visible { outline: 2px solid var(--forest-2); outline-offset: -2px; }
+.frame-table tbody tr:hover .frame-name strong { text-decoration: underline; }
+
+.frame-name { min-width: 210px; }
+.frame-name strong { display: block; color: var(--forest); font-size: 14px; }
+
+.frame-name code {
+  display: inline-block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 10px;
+  overflow-wrap: anywhere;
 }
 
-.frame-card {
-  overflow: hidden;
+.frame-summary { min-width: 260px; max-width: 460px; color: var(--muted); }
+
+.frame-count {
+  color: var(--forest);
+  font-size: 15px;
+  font-weight: 800;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.frame-table th:nth-child(3) { text-align: right; }
+.frame-scales { white-space: nowrap; }
+
+.frame-scale {
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 3px 7px;
   border: 1px solid var(--line);
-  border-radius: 16px;
-  background: var(--surface);
-  box-shadow: 0 8px 28px rgba(23, 51, 48, .055);
+  border-radius: 999px;
+  color: var(--forest);
+  background: var(--paper);
+  font-size: 10px;
+  font-weight: 750;
 }
 
-.frame-card.bounded { border-color: #d4bd7a; }
+/* A frame page is a page, not a card: its sections sit on the page itself and
+   only the member table keeps the table frame the GIFTs view uses. */
+.frame-page > header,
+.frame-page > .frame-description,
+.frame-page > .frame-facts,
+.frame-page > .frame-call,
+.frame-page > .frame-metrics,
+.frame-page > .frame-interpretation,
+.frame-page > .frame-definition { max-width: 920px; }
 
-.frame-card > header {
+.frame-page-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 18px;
-  padding: 22px 22px 0;
+  margin-top: 6px;
 }
 
-.frame-card h2 {
-  margin: 3px 0 0;
+.frame-page h2 {
+  margin: 4px 0 0;
   color: var(--forest);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 24px;
+  font-size: 34px;
   font-weight: 400;
-  letter-spacing: -.025em;
+  letter-spacing: -.03em;
   line-height: 1.08;
 }
+
+.frame-page .frame-id { font-size: 11px; }
+.frame-page .frame-description { min-height: 0; margin: 14px 0 18px; font-size: 15px; }
+
+.frame-page .frame-facts {
+  padding: 0 0 16px;
+  border-block: 0;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  font-size: 11px;
+}
+
+.frame-page .frame-call { padding: 18px 0 2px; }
+.frame-page .frame-metrics { padding: 22px 0 6px; }
+.frame-page .frame-scope li { font-size: 12px; }
+.frame-page .frame-scope li code { font-size: 11px; }
+.frame-page .frame-interpretation { margin: 16px 0 0; font-size: 12px; }
+.frame-page .frame-definition { margin-top: 22px; border-top: 0; }
+.frame-page .frame-definition h3 { padding: 0 0 8px; }
+.frame-page .frame-definition code { padding: 0; font-size: 12px; }
+.frame-page .frame-members { margin-top: 30px; }
+
+
+/* Frame and GIFT pages share one navigation bar: back to the table on the
+   left and, for GIFTs, previous and next on the right. */
+.page-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.page-stepper { display: flex; align-items: center; gap: 6px; }
+
+.page-position {
+  min-width: 54px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.page-step {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--forest);
+  background: var(--surface);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  place-items: center;
+  transition: color .16s, background .16s, border-color .16s;
+}
+
+.page-step:hover { border-color: var(--forest-2); color: var(--surface); background: var(--forest); }
+.page-step:focus-visible { outline: 2px solid var(--forest-2); outline-offset: 2px; }
+
+.page-back {
+  margin-bottom: 14px;
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--forest);
+  background: var(--surface);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.page-back:hover { border-color: var(--mint); }
+.page-bar .page-back { margin-bottom: 0; }
 
 .frame-id {
   color: var(--muted);
@@ -585,19 +794,22 @@ h1, h2, h3, h4, h5, p { margin-top: 0; }
 
 .frame-definition { border-top: 1px solid var(--line); }
 
-.frame-definition summary {
-  padding: 12px 22px;
+.frame-definition h3 {
+  margin: 0;
+  padding: 14px 22px 8px;
   color: var(--muted);
-  cursor: pointer;
-  font-size: 10px;
-  font-weight: 750;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: .11em;
+  text-transform: uppercase;
 }
+
 
 .frame-definition code {
   display: block;
   padding: 0 22px 16px;
   color: var(--forest);
-  font-size: 9px;
+  font-size: 11px;
   overflow-wrap: anywhere;
 }
 
@@ -1178,9 +1390,7 @@ h1, h2, h3, h4, h5, p { margin-top: 0; }
 .edge-label rect { fill: var(--mint-pale); stroke: #b6d6c9; }
 .edge-label text { fill: var(--forest); font: 750 10px Inter, sans-serif; }
 
-.page-heading { padding: 66px 0 27px; border-bottom: 1px solid var(--line); }
-
-#gifts .page-heading { margin-bottom: 38px; border-bottom: 0; }
+.page-heading { padding: 0 0 27px; border-bottom: 1px solid var(--line); }
 
 .route-section h4 span {
   padding: 2px 5px;
@@ -1709,116 +1919,32 @@ h1, h2, h3, h4, h5, p { margin-top: 0; }
 
 .open-cell span { margin-right: 7px; }
 
-.gift-modal {
-  position: fixed;
-  z-index: 60;
-  display: grid;
-  padding: 3vh 3vw;
-  inset: 0;
-  place-items: center;
-}
-
-.gift-modal-backdrop {
-  position: absolute;
-  background: rgba(13, 61, 56, .38);
-  inset: 0;
-  animation: modal-fade .16s ease-out;
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
-}
-
-.gift-modal-window {
-  position: relative;
-  display: flex;
-  overflow: hidden;
-  width: min(1080px, 100%);
-  max-height: 94vh;
-  flex-direction: column;
-  border: 1px solid #d6dad1;
-  border-radius: 18px;
-  outline: 0;
-  background: var(--surface);
-  box-shadow: 0 30px 80px rgba(23, 51, 48, .28);
-  animation: modal-in .2s ease-out;
-}
-
-.gift-modal-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 11px 14px 11px 20px;
-  border-bottom: 1px solid var(--line);
-  background: #f1f4ef;
-}
-
-.gift-modal-title {
-  overflow: hidden;
-  color: var(--forest);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: .05em;
-  text-overflow: ellipsis;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.gift-modal-actions { display: flex; flex: 0 0 auto; align-items: center; gap: 6px; }
-
-.gift-modal-position {
-  min-width: 54px;
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 700;
-  text-align: center;
-}
-
-.gift-modal-step, .gift-modal-close {
-  display: grid;
-  width: 30px;
-  height: 30px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--forest);
-  background: var(--surface);
-  cursor: pointer;
-  font-size: 14px;
-  line-height: 1;
-  place-items: center;
-  transition: color .16s, background .16s, border-color .16s;
-}
-
-.gift-modal-close { margin-left: 6px; font-size: 19px; }
-
-.gift-modal-step:hover, .gift-modal-close:hover {
-  border-color: var(--forest-2);
-  color: var(--surface);
-  background: var(--forest);
-}
-
-.gift-modal-step:focus-visible, .gift-modal-close:focus-visible {
-  outline: 2px solid var(--forest-2);
-  outline-offset: 2px;
-}
-
-.gift-modal-body {
-  overflow-y: auto;
-  flex: 1 1 auto;
-  overscroll-behavior: contain;
-}
-
-body.modal-open { overflow: hidden; }
-
 .gift-detail { background: var(--surface); }
 
 .gift-detail:not([hidden]) { animation: view-in .2s ease-out; }
 
-@keyframes modal-fade { from { opacity: 0; } to { opacity: 1; } }
+/* A GIFT page, like a frame page, sits on the page itself: the sections drop
+   the inset they had inside the former dialog. */
+.gift-page { background: none; }
 
-@keyframes modal-in {
-  from { opacity: 0; transform: translateY(14px) scale(.985); }
-  to { opacity: 1; transform: none; }
-}
+.gift-page > .gift-header,
+.gift-page > .gift-statline,
+.gift-page > .network-section,
+.gift-page > .route-section,
+.gift-page > .pathway-section,
+.gift-page > .history-section { padding-inline: 0; }
+
+.gift-page > .gift-header { padding-top: 6px; }
+
+.gift-page > .gift-description,
+.gift-page > .metadata-section,
+.gift-page > .boundary-note { margin-inline: 0; }
+
+.gift-page > .boundary-flow { margin-left: 0; margin-right: 0; }
+.gift-page > .route-section { background: none; }
+.gift-page > .curation-note { margin-top: 18px; padding: 15px 18px; border: 1px solid #ead8bd; border-radius: 9px; }
+.gift-page .gift-header h3 { font-size: 34px; }
+.gift-page .gift-description { font-size: 15px; }
 
 .gift-header {
   display: flex;
@@ -2217,6 +2343,58 @@ details summary { cursor: pointer; }
 .marker-name { overflow: hidden; color: var(--muted); text-overflow: ellipsis; white-space: nowrap; }
 .confidence { color: var(--forest-2); font-size: 8px; font-weight: 750; text-transform: uppercase; }
 
+/* An identifier that links to its public record keeps its own colours and
+   gains an underline on hover, so a linked and an unlinked id read alike. */
+a.external-id { color: inherit; text-decoration: none; }
+a.external-id:hover { text-decoration: underline; text-underline-offset: 2px; }
+a.external-id:focus-visible { outline: 2px solid var(--forest-2); outline-offset: 2px; }
+
+.marker-source {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 8.5px;
+  overflow-wrap: anywhere;
+}
+
+.evidence-group + .evidence-group { margin-top: 14px; }
+
+.evidence-group h5 {
+  margin: 14px 0 6px;
+  color: var(--coral);
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.evidence-list { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+
+.evidence-entry {
+  display: grid;
+  grid-template-columns: minmax(220px, .9fr) minmax(0, 1.4fr);
+  gap: 12px;
+  align-items: baseline;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  font-size: 11px;
+}
+
+.evidence-entry code { color: var(--forest); font-size: 10.5px; overflow-wrap: anywhere; }
+.evidence-entry > span { color: var(--muted); }
+.evidence-link { text-decoration: none; }
+.evidence-link:hover code { text-decoration: underline; text-underline-offset: 2px; }
+
+.evidence-note {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border: 1px solid #ead7a7;
+  border-radius: 8px;
+  color: #62583e;
+  background: #faf2df;
+  font-size: 11px;
+}
+
 .curation-note {
   padding: 15px 34px;
   border-top: 1px solid #ead8bd;
@@ -2426,6 +2604,145 @@ footer {
   font-size: 10px;
 }
 
+/* Introduction: the atlas landing view. */
+.atlas-metrics { margin: 0 0 40px; }
+.atlas-subtitle { margin-top: 44px; }
+
+.atlas-layer-table td strong {
+  color: var(--forest);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -.03em;
+}
+
+.atlas-layer-table td small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.atlas-layer-table tbody th {
+  padding: 16px;
+  font-family: inherit;
+  background: transparent;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+  vertical-align: top;
+}
+
+.atlas-layer-table tbody tr:last-child th { border-bottom: 0; }
+
+.atlas-note {
+  max-width: 900px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.atlas-note strong { color: var(--ink); }
+
+.atlas-distributions,
+.atlas-sections {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.atlas-distributions { margin-top: 24px; }
+
+.atlas-distribution,
+.atlas-section {
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.atlas-distribution h3 { margin: 0 0 12px; color: var(--forest); font-size: 14px; }
+
+.atlas-distribution ul {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.atlas-distribution li {
+  display: grid;
+  grid-template-columns: minmax(90px, 34%) 1fr auto;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.atlas-distribution li span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.atlas-distribution li i {
+  display: block;
+  width: var(--share);
+  min-width: 2px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--mint);
+}
+
+.atlas-distribution li strong { color: var(--forest); font-variant-numeric: tabular-nums; }
+
+.atlas-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color .18s, box-shadow .18s, transform .18s;
+}
+
+.atlas-section:hover,
+.atlas-section:focus {
+  border-color: var(--mint);
+  box-shadow: var(--shadow);
+  transform: translateY(-1px);
+}
+
+.atlas-section-figure {
+  color: var(--coral);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.atlas-section strong { color: var(--forest); font-size: 17px; }
+.atlas-section p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+
+.atlas-release {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 1px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--line);
+}
+
+.atlas-release > div { padding: 14px 18px; background: var(--surface); }
+
+.atlas-release dt {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.atlas-release dd { margin: 3px 0 0; color: var(--forest); font-weight: 700; }
+
 [hidden] { display: none !important; }
 
 @media (max-width: 1180px) {
@@ -2460,8 +2777,9 @@ footer {
   .site-nav-link { justify-content: center; width: 100%; text-align: center; }
   .global-search { width: min(45vw, 300px); }
   .frame-intro { grid-template-columns: 1fr; }
+  .view-concepts { grid-template-columns: 1fr; }
+  .atlas-distributions, .atlas-sections { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .frame-intro > div { min-height: 0; }
-  .frame-grid { grid-template-columns: 1fr; }
   .schema-layout { grid-template-columns: 1fr; }
   .relationships { position: static; }
 }
@@ -2471,28 +2789,28 @@ footer {
   .global-search { grid-row: 2; justify-self: stretch; width: 100%; }
   .site-nav { grid-row: 3; flex-wrap: wrap; }
   .site-nav > .site-nav-link, .site-nav > .site-menu { flex: 1 1 28%; }
-  .view-nav {
-    max-width: calc(100% - 26px);
-    margin-block: 14px 28px;
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow: visible;
-  }
-  main { padding-inline: 13px; }
+  /* A wrapped nav can put a menu at either edge of the screen, so its list
+     drops across the whole nav rather than centring under its summary. */
+  .site-nav { position: relative; }
+  .site-menu { position: static; }
+  .site-menu-list,
+  .atlas-menu .site-menu-list { top: calc(100% + 6px); right: 0; left: 0; width: auto; transform: none; }
+  main { padding: 20px 13px 60px; }
+  .atlas-distributions, .atlas-sections { grid-template-columns: 1fr; }
   .metric-grid { grid-template-columns: repeat(2, 1fr); gap: 22px 12px; }
   .page-heading { align-items: flex-start; flex-direction: column; gap: 14px; }
-  .frame-card > header { flex-direction: column; gap: 10px; }
+  .frame-page-header { flex-direction: column; gap: 10px; }
+  .frame-page h2 { font-size: 28px; }
   .frame-description { min-height: 0; }
   .frame-scope li { grid-template-columns: 1fr; gap: 1px; }
+  .evidence-entry { grid-template-columns: 1fr; gap: 3px; }
   .frame-interpretation { grid-template-columns: 1fr; }
-  .gift-header { flex-direction: column; padding: 24px 20px 0; }
+  .gift-header { flex-direction: column; }
   .gift-table-caption small { display: none; }
   .gift-controls { gap: 10px; }
   .gift-pager { flex-wrap: wrap; gap: 10px; padding: 10px 13px; }
   .gift-control { flex: 1 1 140px; }
   .gift-control select, .combo-input { max-width: none; width: 100%; }
-  .gift-modal { padding: 0; }
-  .gift-modal-window { max-height: 100%; height: 100%; width: 100%; border: 0; border-radius: 0; }
   .gift-tags { justify-content: flex-start; }
   .gift-description { margin-inline: 20px; }
   .metadata-section { margin-inline: 20px; }
@@ -2514,24 +2832,19 @@ footer {
 }
 
 @media print {
-  .site-header, .global-search, .site-nav, .view-nav, .search-status, .gift-controls, .gift-pager { display: none; }
+  .site-header, .global-search, .site-nav, .breadcrumbs, .search-status, .gift-controls, .gift-pager { display: none; }
   body { background: white; }
   main { max-width: none; padding: 0; }
   .view { display: block !important; break-before: page; }
-  .view:first-child { break-before: auto; }
+  .view:first-of-type { break-before: auto; }
   details > * { display: block; }
-  .gift-detail, .frame-card, .schema-card, .table-panel { break-inside: avoid; }
-  /* Printing the atlas should list every GIFT, not the one left on screen. */
-  .gift-modal { position: static; display: block; padding: 0; }
-  .gift-modal-backdrop, .gift-modal-bar { display: none; }
-  .gift-modal-window {
-    max-height: none;
-    border: 0;
-    box-shadow: none;
-    animation: none;
-  }
-  .gift-modal-body { overflow: visible; }
-  .gift-modal[hidden], .gift-detail[hidden] { display: block !important; }
+  .gift-detail, .schema-card, .table-panel { break-inside: avoid; }
+  /* Printing the atlas should list every GIFT and every frame after the table
+     that indexes them, not the one page left on screen. */
+  .gift-list[hidden], .gift-pages[hidden], .gift-detail[hidden] { display: block !important; }
+  .frame-list[hidden], .frame-page[hidden] { display: block !important; }
+  .frame-page, .gift-detail { margin-top: 24px; }
+  .page-bar, .page-back { display: none; }
 }
 
 .pathway-section {

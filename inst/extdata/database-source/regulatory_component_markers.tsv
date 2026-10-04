@@ -22,3 +22,5 @@ COMP_RF_PSTC	KO	K02037	orthology	curated	KEGG orthology, verified against KEGG R
 COMP_RF_PSTA	KO	K02038	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
 COMP_RF_PSTB	KO	K02036	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
 COMP_RF_PHOU	KO	K02039	orthology	curated	KEGG orthology, verified against KEGG REST 2026-08-18	
+COMP_RF_TSR_SERINE	NCBIFAM	NF011615.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0 equivalog; compared with UniProt P02942 and KEGG K05874, 2026-10-04	family_type=equivalog. Tsr-specific profile separates it from the Tar profile NF011622.0. KO K05874 collects multiple Tsr-like paralogues in some genomes and is not accepted for this ligand-specific function.
+COMP_RF_CHARACTERISED_RECEPTOR	NCBIFAM	NF011615.0	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0 equivalog; compared with UniProt P02942 and KEGG K05874, 2026-10-04	family_type=equivalog. A Tsr-specific receptor is also a chemoreceptor; accepting it here keeps serine_chemoreception a subset of core chemotaxis signal transduction.

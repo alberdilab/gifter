@@ -26,3 +26,9 @@ COMP_DF_KATG	SYS_DF_KATG	catalase-peroxidase	Removes hydrogen peroxide through i
 COMP_DF_MN_CATALASE	SYS_DF_MN_CATALASE	manganese catalase	Dismutates hydrogen peroxide without heme.
 COMP_DF_AHPC	SYS_DF_AHPCF	AhpC peroxiredoxin catalytic subunit	Reduces peroxide and becomes oxidised.
 COMP_DF_AHPF	SYS_DF_AHPCF	AhpF NADH-dependent reductase	Regenerates reduced AhpC.
+COMP_DF_BLA_CLASS_A	SYS_DF_BLA_CLASS_A	class A beta-lactamase	Catalyses hydrolysis of a beta-lactam ring; family-level substrate spectrum is not asserted.
+COMP_DF_BLA_CLASS_B	SYS_DF_BLA_CLASS_B	class B beta-lactamase	Catalyses hydrolysis of a beta-lactam ring; family-level substrate spectrum is not asserted.
+COMP_DF_BLA_CLASS_C	SYS_DF_BLA_CLASS_C	class C beta-lactamase	Catalyses hydrolysis of a beta-lactam ring; family-level substrate spectrum is not asserted.
+COMP_DF_BLA_CLASS_D	SYS_DF_BLA_CLASS_D	class D beta-lactamase	Catalyses hydrolysis of a beta-lactam ring; family-level substrate spectrum is not asserted.
+COMP_DF_CAT_TYPE_A	SYS_DF_CAT_TYPE_A	type A chloramphenicol O-acetyltransferase	Acetylates chloramphenicol at the 3-O position.
+COMP_DF_CAT_TYPE_B	SYS_DF_CAT_TYPE_B	type B chloramphenicol O-acetyltransferase	Acetylates chloramphenicol at the 3-O position.

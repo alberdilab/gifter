@@ -5,12 +5,12 @@ test_that("canonical source tables validate", {
   expect_true(report$valid)
   expect_length(report$errors, 0L)
   expect_equal(
-    unname(report$rows[c("gifts", "anchors", "reactions")]), c(160L, 156L, 440L)
+    unname(report$rows[c("gifts", "anchors", "reactions")]), c(163L, 156L, 440L)
   )
   # Every typed model now ships curated content.
   expect_equal(
     unname(report$rows[c("gift_architectures", "gift_circuits", "gift_mechanisms")]),
-    c(11L, 4L, 5L)
+    c(11L, 5L, 7L)
   )
 })
 
@@ -27,7 +27,7 @@ test_that("database compilation creates constrained SQLite schema", {
   expect_true(all(c(
     "gift", "anchor", "gift_anchor", "reaction", "gift_route",
     "route_reaction", "enzyme_system", "enzyme_component", "marker",
-    "component_marker", "gift_xref", "database_release",
+    "component_marker", "gift_xref", "gift_evidence", "database_release",
     "reference_frame", "reference_frame_filter",
     "reference_frame_metric",
     "gift_architecture", "architecture_function", "structural_function",
@@ -87,11 +87,12 @@ test_that("database accessors return stable definitions", {
       "aspartate_biosynthesis", "aspartate_chemoreception",
       "aspartate_semialdehyde_biosynthesis", "assimilatory_sulfate_reduction",
       "benzoate_degradation_catechol",
-      "betaine_demethylation", "biotin_biosynthesis", "butyrate_formation",
+      "beta_lactam_detoxification", "betaine_demethylation",
+      "biotin_biosynthesis", "butyrate_formation",
       "carnitine_degradation_trimethylamine", "carnitine_to_betaine",
       "catechol_meta_cleavage", "catechol_ortho_cleavage",
       "chemotaxis_signal_transduction", "chitin_degradation",
-      "choline_to_betaine",
+      "chloramphenicol_detoxification", "choline_to_betaine",
       "chorismate_biosynthesis",
       "citrate_fermentation", "cobamide_nucleotide_loop_assembly",
       "cobinamide_biosynthesis", "collagen_cleavage",
@@ -146,7 +147,8 @@ test_that("database accessors return stable definitions", {
       "rhamnose_degradation", "ribitol_phosphate_wall_teichoic_acid",
       "riboflavin_biosynthesis",
       "salicylate_biosynthesis", "sarcosine_demethylation",
-      "serine_biosynthesis", "serine_deamination", "siroheme_biosynthesis",
+      "serine_biosynthesis", "serine_chemoreception",
+      "serine_deamination", "siroheme_biosynthesis",
       "siroheme_to_heme_b", "starch_degradation",
       "succinate_fumarate_interconversion", "superoxide_detoxification",
       "taurine_degradation_sulfoacetaldehyde",
@@ -221,8 +223,9 @@ test_that("database accessors return stable definitions", {
 test_that("database and schema versions are independent", {
   version <- gifter_db_version()
   expect_equal(version$package_version, "0.7.3")
-  expect_equal(version$gifter_db_version, "2026.33.1")
-  expect_equal(version$schema_version, 7L)
+  expect_equal(version$gifter_db_version, "2026.35.1")
+  expect_equal(version$schema_version, 8L)
+  expect_equal(version$source_repository, "https://github.com/alberdilab/gifter")
   expect_equal(version$rhea_release, "141")
 })
 
@@ -310,7 +313,78 @@ test_that("database HTML atlas is self-contained and reflects compiled rows", {
   )
   expect_true(all(workflow_positions > 0L))
   expect_true(all(diff(workflow_positions) > 0L))
-  expect_match(html, 'href="#frames" aria-current="page">Atlas</a>', fixed = TRUE)
+  # The atlas sections live in an Atlas dropdown of the site navigation, not in
+  # a bar of their own, and the atlas lands on its introduction.
+  expect_match(
+    html,
+    '<details class="site-menu atlas-menu" data-view-menu><summary class="site-nav-link active" aria-current="page">Atlas</summary>',
+    fixed = TRUE
+  )
+  expect_no_match(html, 'class="view-nav"', fixed = TRUE)
+  atlas_positions <- vapply(
+    c(
+      'data-view-button="introduction">Introduction</button>',
+      'data-view-button="frames">Frames</button>',
+      'data-view-button="gifts">GIFTs</button>',
+      'data-view-button="changelog">Changes</button>',
+      '<div class="site-menu-label">Advanced</div>',
+      'data-view-button="overview">Network overview</button>',
+      'data-view-button="schema">Data model</button>',
+      'data-view-button="tables">Tables</button>'
+    ),
+    function(item) regexpr(item, html, fixed = TRUE)[[1]],
+    integer(1)
+  )
+  expect_true(all(atlas_positions > 0L))
+  expect_true(all(diff(atlas_positions) > 0L))
+  expect_match(html, '<section class="view active" id="introduction"', fixed = TRUE)
+  expect_match(
+    html,
+    paste0(
+      '<main><nav class="breadcrumbs" aria-label="Breadcrumb">',
+      '<ol data-breadcrumbs data-home="https://alberdilab.github.io/gifter/">',
+      '<li><a href="https://alberdilab.github.io/gifter/">gifter</a></li>',
+      '<li><a href="#introduction">Atlas</a></li>',
+      '<li aria-current="page">Introduction</li></ol></nav>'
+    ),
+    fixed = TRUE
+  )
+  expect_match(html, "<h1>Reference atlas</h1>", fixed = TRUE)
+  expect_match(html, 'class="atlas-section" href="#frames"', fixed = TRUE)
+  # The introduction's statistics are read from the compiled database, one row
+  # per GIFT type over the layers of its own completeness model.
+  db <- gifter_db_connect()
+  type_counts <- DBI::dbGetQuery(
+    db, "SELECT gift_type, COUNT(*) AS n FROM gift GROUP BY gift_type"
+  )
+  layer_counts <- DBI::dbGetQuery(db, paste(
+    "SELECT (SELECT COUNT(*) FROM gift_route) AS routes,",
+    "(SELECT COUNT(*) FROM structural_function) AS structural_functions"
+  ))
+  DBI::dbDisconnect(db)
+  metric <- function(count, label) {
+    paste0('<div class="metric-card"><strong>', format(count, big.mark = ","),
+      "</strong><span>", label, "</span>")
+  }
+  expect_match(html, metric(sum(type_counts$n), "GIFTs"), fixed = TRUE)
+  layer_cell <- function(count, unit) {
+    paste0("<td><strong>", format(count, big.mark = ","), "</strong><small>", unit, "</small></td>")
+  }
+  metabolic_row <- paste0(
+    '<tr><th scope="row">Metabolic</th><td><strong>',
+    type_counts$n[type_counts$gift_type == "metabolic"], "</strong></td>",
+    layer_cell(layer_counts$routes, "routes")
+  )
+  expect_match(html, metabolic_row, fixed = TRUE)
+  expect_match(
+    html,
+    paste0(
+      '<tr><th scope="row">Structural</th><td><strong>',
+      type_counts$n[type_counts$gift_type == "structural"], "</strong></td>"
+    ),
+    fixed = TRUE
+  )
+  expect_match(html, layer_cell(layer_counts$structural_functions, "functions"), fixed = TRUE)
   expect_match(html, '>How a GIFT is built</a>', fixed = TRUE)
   expect_match(html, '>Glossary</a>', fixed = TRUE)
   expect_match(
@@ -319,20 +393,51 @@ test_that("database HTML atlas is self-contained and reflects compiled rows", {
     fixed = TRUE
   )
   expect_match(html, 'aria-label="Atlas sections"', fixed = TRUE)
-  expect_match(
+  expect_match(html, '<section class="view" id="frames"', fixed = TRUE)
+  expect_match(html, "<h1>Frames</h1>", fixed = TRUE)
+  expect_match(html, "4 of the 19 presets are bounded", fixed = TRUE)
+  # Frames are indexed in one table and each one is detailed on its own page,
+  # reached at #frames/<frame_id>. Row and page must pair up one to one.
+  frame_row_ids <- regmatches(
+    html, gregexpr('<tr class="frame-row" data-frame-row data-frame-id="[^"]+"', html)
+  )[[1]]
+  frame_page_ids <- regmatches(
+    html, gregexpr('<article class="frame-page" data-frame-page data-frame-id="[^"]+" hidden>', html)
+  )[[1]]
+  expect_length(frame_row_ids, 19L)
+  expect_identical(
+    sub('.*data-frame-id="([^"]+)".*', "\\1", frame_row_ids),
+    sub('.*data-frame-id="([^"]+)".*', "\\1", frame_page_ids)
+  )
+  expect_match(html, '<table class="changelog-table frame-table">', fixed = TRUE)
+  expect_match(html, 'data-frame-back>&larr; All frames</button>', fixed = TRUE)
+  expect_match(html, 'window.location.hash = "frames/"', fixed = TRUE)
+  # A frame page lists the GIFTs the preset resolves to, linked to their detail.
+  carbohydrate_page <- regmatches(
     html,
-    '<button class="nav-button active" data-view-button="frames">Frames</button>',
+    regexpr('data-frame-id="carbohydrate_degradation" hidden>.*?</article>', html, perl = TRUE)
+  )
+  carbohydrate_members <- reference_frame(preset = "carbohydrate_degradation")$gift_id
+  expect_length(
+    regmatches(carbohydrate_page, gregexpr("data-gift-link=", carbohydrate_page))[[1]],
+    length(carbohydrate_members)
+  )
+  expect_match(
+    carbohydrate_page,
+    paste0('data-gift-link="', carbohydrate_members[[1]], '"'),
     fixed = TRUE
   )
-  expect_match(html, '<section class="view active" id="frames"', fixed = TRUE)
-  expect_match(html, "Choose a frame", fixed = TRUE)
-  expect_match(html, 'data-view-menu><summary class="nav-button">Advanced</summary>', fixed = TRUE)
-  expect_match(html, 'data-view-button="schema">Data model</button>', fixed = TRUE)
-  frame_cards <- regmatches(
-    html,
-    gregexpr('<article class="frame-card[^>]* data-frame-card', html)
-  )[[1]]
-  expect_length(frame_cards, 19L)
+  # Members are listed in the GIFTs view's own table layout, cell for cell.
+  expect_match(carbohydrate_page, '<table class="gift-summary-table frame-member-table">', fixed = TRUE)
+  explorer_row <- regmatches(html, regexpr(
+    paste0('data-gift-row data-search-item data-gift-id="', carbohydrate_members[[1]], '"[^>]*>.*?</tr>'),
+    html, perl = TRUE
+  ))
+  expect_true(grepl(sub("^[^>]*>", "", explorer_row), carbohydrate_page, fixed = TRUE))
+  # Every preset label is sentence case, as the table lists them side by side.
+  frame_labels <- list_reference_frames()$label
+  expect_true(all(grepl("^[A-Z]", frame_labels)), info = paste(frame_labels, collapse = "; "))
+  expect_match(html, "<strong>Biomass-essential anabolic GIFTs</strong>", fixed = TRUE)
   expect_match(html, 'data-frame-filter="genome"', fixed = TRUE)
   expect_match(html, 'data-frame-filter="community"', fixed = TRUE)
   expect_match(html, 'data-frame-filter="network"', fixed = TRUE)
@@ -345,7 +450,8 @@ test_that("database HTML atlas is self-contained and reflects compiled rows", {
   expect_match(html, "Count complete curated carbohydrate-degradation capabilities.", fixed = TRUE)
   expect_match(html, "bounded &middot; coverage valid", fixed = TRUE)
   expect_match(html, "function filterFrames", fixed = TRUE)
-  expect_match(html, "Explore GIFTs", fixed = TRUE)
+  expect_match(html, "<h1>GIFTs</h1>", fixed = TRUE)
+  expect_match(html, "The catalogue currently contains [0-9]+ metabolic, [0-9]+ structural, [0-9]+ regulatory and [0-9]+ defense GIFTs.")
   expect_match(html, "purine_core_biosynthesis", fixed = TRUE)
   expect_match(html, "reference_frame", fixed = TRUE)
   expect_match(html, "carbohydrate_degradation", fixed = TRUE)
@@ -357,7 +463,24 @@ test_that("database HTML atlas is self-contained and reflects compiled rows", {
   expect_match(html, "data-gift-row", fixed = TRUE)
   expect_match(html, "data-gift-detail", fixed = TRUE)
   expect_match(html, "data-table-panel", fixed = TRUE)
-  expect_match(html, "data-gift-modal", fixed = TRUE)
+  # Each GIFT has its own page at #gifts/<gift_id>, as each frame does, in
+  # place of a dialog over the table: one page per catalogue row.
+  expect_no_match(html, "data-gift-modal", fixed = TRUE)
+  expect_match(html, '<div class="gift-list" data-gift-list>', fixed = TRUE)
+  expect_match(html, '<div class="gift-pages" data-gift-pages hidden>', fixed = TRUE)
+  expect_match(html, 'data-gift-back>&larr; All GIFTs</button>', fixed = TRUE)
+  expect_match(html, 'window.location.hash = "gifts/" + giftId', fixed = TRUE)
+  gift_pages <- regmatches(
+    html, gregexpr('<article class="gift-detail gift-page" data-gift-detail data-gift-id="[^"]+"', html)
+  )[[1]]
+  gift_row_ids <- regmatches(
+    html, gregexpr('data-gift-row data-search-item data-gift-id="[^"]+"', html)
+  )[[1]]
+  expect_length(gift_pages, nrow(list_gifts()))
+  expect_identical(
+    sub('.*data-gift-id="([^"]+)"', "\\1", gift_pages),
+    sub('.*data-gift-id="([^"]+)"', "\\1", gift_row_ids)
+  )
   expect_match(html, "data-gift-group-select", fixed = TRUE)
   expect_match(html, 'data-gift-anchor-filter="input"', fixed = TRUE)
   expect_match(html, 'data-gift-anchor-filter="output"', fixed = TRUE)
@@ -368,6 +491,13 @@ test_that("database HTML atlas is self-contained and reflects compiled rows", {
   # The atlas groups by the substrate_class facet, which replaced the former
   # free-text category column.
   expect_match(html, 'data-substrate-class="monosaccharide"', fixed = TRUE)
+  # A change record's own category column is unrelated to the facet rename: the
+  # changelog Scope cell pairs the layer with it, never with a GIFT facet.
+  expect_match(
+    html, '<span class="scope-chip">gift</span><span class="category-chip">addition</span>',
+    fixed = TRUE
+  )
+  expect_no_match(html, '<span class="category-chip">&mdash;</span>', fixed = TRUE)
   # Process grouping is the biosynthesis/degradation axis; it must stay
   # reachable in the report, not only in the API.
   expect_match(html, 'data-mode="transport"', fixed = TRUE)
@@ -387,7 +517,7 @@ test_that("database HTML atlas is self-contained and reflects compiled rows", {
   expect_match(html, "function ancestorCollapsed", fixed = TRUE)
   expect_match(html, 'data-inputs=" STARCH "', fixed = TRUE)
   expect_match(html, 'data-outputs=" GLUCOSE "', fixed = TRUE)
-  detail_tags <- regmatches(html, gregexpr('<article class="gift-detail"[^>]*>', html))[[1]]
+  detail_tags <- regmatches(html, gregexpr('<article class="gift-detail[^"]*"[^>]*>', html))[[1]]
   expect_gt(length(detail_tags), 0L)
   expect_true(all(grepl(" hidden>$", detail_tags)))
   expect_false(grepl('<link[^>]+rel=["\']stylesheet', html))
@@ -691,7 +821,11 @@ test_that("the atlas publishes the changelog linked to GIFT traits", {
   for (id in changes$change_id) expect_match(html, id, fixed = TRUE)
   for (summary in changes$summary) expect_match(html, gifter:::.html_escape(summary), fixed = TRUE)
 
-  links <- regmatches(html, gregexpr('data-gift-link="[^"]+"', html))[[1]]
+  # Frame pages link their member GIFTs too, so count within the Changes view.
+  changelog <- regmatches(
+    html, regexpr('id="changelog" data-view="changelog".*?</table>', html, perl = TRUE)
+  )
+  links <- regmatches(changelog, gregexpr('data-gift-link="[^"]+"', changelog))[[1]]
   expect_equal(
     length(links),
     sum(lengths(changes$gifts))

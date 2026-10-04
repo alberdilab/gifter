@@ -21,18 +21,45 @@ candidate capability
   -> prior-attempt search
   -> precise claim and GIFT type
   -> boundaries or machinery architecture
-  -> routes/reactions or functions/systems
+  -> routes/reactions or functions/systems        (reference knowledge bases)
   -> jointly required components
-  -> sufficiently specific marker evidence
+  -> sufficiently specific marker evidence        (catalogue-wide specificity screens)
+  -> test against genomes                         (KEGG reference genomes + named controls)
   -> composition and redundancy review
   -> provenance, validation and tests
   -> implemented, deferred or refused outcome
 ```
 
-The detailed normative contract lives in the
+This article explains each stage, which data it draws on, and where the record
+of every decision can be found. The normative contract lives in the
 [development and architecture guide](https://github.com/alberdilab/gifter/blob/main/inst/doc/architecture.md#curating-a-new-or-changed-gift).
-This article explains how to read that process and why every stage exists.
 Technical terms are defined in the [glossary](glossary.html).
+
+## Which data are used, and are they always the same?
+
+Curation draws on four kinds of data. They do different jobs, and only some of
+them are the same from one GIFT to the next.
+
+| Data | Same for every GIFT? | Used to | Never used to |
+|---|---|---|---|
+| **Reference knowledge bases**: Rhea, ChEBI, KEGG, MetaCyc, UniProt, NCBIfam, dbCAN, literature | Yes, at a pinned release | define the chemistry, the molecules, the enzymes and the candidate markers | decide where a GIFT's boundary lies; that is gifter's own decision |
+| **Catalogue-wide specificity screens** | Yes; rerun when a resource is updated | measure how many distinct reactions each marker can license | admit a marker on their own; they flag rows for a curator to read |
+| **KEGG reference genome set**: every genome in the KEGG catalogue, about 11,900 | Yes; the snapshot date is recorded with each assessment | count how many genomes complete a candidate, which function near-misses lack, and whether it is distinguishable from homologous machinery | define a GIFT by its prevalence |
+| **Named control genomes** | **No.** Chosen for each investigation | check the definition against organisms whose biology is established in the literature | produce a call; the expectation is compared with the marker result, never fed into it |
+
+Two further kinds of data meet gifter only after curation and never define a
+GIFT: observed phenotypes (BacDive, MediaDive and species-level trait tables)
+and application datasets such as metagenome-assembled genomes. They are
+described in [Data that do not define GIFTs](#data-that-do-not-define-gifts).
+
+The releases the current database was compiled against are recorded in the
+database itself:
+
+```{r}
+library(gifter)
+release <- gifter_db_version()
+data.frame(field = names(release), value = unlist(release, use.names = FALSE))
+```
 
 ## Begin with the question, not the markers
 
@@ -42,8 +69,10 @@ genomes without claiming expression, activity, physiological state or
 phenotype.
 
 Before new evidence is collected, the curator searches the append-only
-catalogue-expansion history for the candidate, its aliases and the wider request
-that produced it. A previous refusal is reopened only when its evidence or
+[catalogue-expansion attempt log](https://github.com/alberdilab/gifter/blob/main/inst/doc/catalogue-expansion-attempts.tsv)
+for the candidate, its aliases and the wider request that produced it, and reads
+the [deferral register](https://github.com/alberdilab/gifter/blob/main/inst/doc/deferral-register.md)
+for standing blockers. A previous refusal is reopened only when its evidence or
 recorded retrigger has changed. A new bounded investigation is then registered
 as `in_progress`, even if it may ultimately add nothing. This makes unsuccessful
 searches and honest refusals as discoverable as additions.
@@ -82,6 +111,29 @@ single reaction.
 At this stage the curator also checks whether the proposal duplicates an
 existing GIFT, bundles independently meaningful capabilities, or is already
 represented by a chain of composable metabolic GIFTs.
+
+## Where the biological knowledge comes from
+
+Each external resource is trusted for one thing. The table states what each
+contributes and what it is not allowed to decide.
+
+| Resource | Supplies | Is not trusted for |
+|---|---|---|
+| [Rhea](https://www.rhea-db.org/) | reaction identity: every reaction is a Rhea master reaction where Rhea covers the chemistry, with its participants | the direction a route uses it, which gifter curates per route |
+| [ChEBI](https://www.ebi.ac.uk/chebi/) | the identity of each anchor molecule | whether that molecule is a meaningful boundary |
+| [KEGG](https://www.kegg.jp/) modules and orthology | a starting pathway skeleton and KO markers | GIFT boundaries: modules are read and cut, never adopted whole |
+| [MetaCyc](https://metacyc.org/) | reconnaissance of pathway variants and alternative routes | evidence from pathway pages that could not be read without a subscription |
+| [UniProt](https://www.uniprot.org/) and primary literature | characterised enzymes and subunits, and which proteins a complex jointly requires | a family-wide claim from one characterised member |
+| [NCBIfam](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/evidence/) (`hmm_PGAP` 20.0) | HMM profile markers; only the `equivalog` and `equivalog_domain` grades are admitted | anything a `subfamily` or `domain` profile would imply |
+| [dbCAN](https://bcb.unl.edu/dbCAN2/) (`db_v5-2-9_5-5-2026`) | CAZy family, subfamily and eCAMI-cluster markers, with their substrate and EC associations | a substrate-specific claim from a polyspecific family |
+
+KEGG modules are the most common starting point and the most common place where
+gifter departs from its source. For the guanylate GIFT, for example, KEGG
+module M00050 runs from IMP all the way to GTP. gifter ends the GIFT at GMP,
+the first product that establishes guanylate identity, and leaves out the
+shared kinase steps after it. Every such departure is written down, either in
+[`SOURCES.md`](https://github.com/alberdilab/gifter/blob/main/inst/extdata/database-source/SOURCES.md)
+or, when it changes which markers count, in the database's own change history.
 
 ## Materialize every valid implementation
 
@@ -131,16 +183,243 @@ machines. The rest of a route may provide context for a genuinely broad shared
 reaction, but it cannot repair a marker that does not identify its own curated
 component.
 
-NCBIfam illustrates why source terminology matters. Only profiles graded
-`equivalog` or `equivalog_domain` carry the one-function assertion gifter admits
-by grade. `subfamily`, `domain`, `PfamAutoEq` and other grades do not receive
-that interpretation. Even an equivalog is read biologically before admission:
-grade and EC agreement screen candidates, but neither replaces curation.
-Version suffixes and the pinned resource release remain part of the evidence.
+### Specificity screens across the whole catalogue
 
-For every accepted marker, the source rows record its evidence type,
-confidence, provenance and any ambiguity that affects interpretation. A marker
-that cannot support the claim is refused rather than stretched to fit it.
+Specificity is not judged one accession at a time from its name. Three screens
+measure it across each marker namespace. They use the reference knowledge bases
+only, not genomes:
+
+| Namespace | What is measured | Script |
+|---|---|---|
+| KEGG orthology | each KO's EC numbers are followed to the Rhea master reactions they reach. A KO reaching one master reaction states one reaction; a KO reaching several states only their union | [`marker_specificity_screen.R`](https://github.com/alberdilab/gifter/blob/main/data-raw/marker_specificity_screen.R) |
+| NCBIfam | the same join for every equivalog profile, after the grade filter. It also asks whether a profile resolves a curated reaction that no single-reaction KO resolves; 229 profiles reaching a curated reaction are refused on grade alone | [`ncbifam_equivalog_screen.R`](https://github.com/alberdilab/gifter/blob/main/data-raw/ncbifam_equivalog_screen.R) |
+| CAZy (eCAMI clusters) | the fraction of a cluster's EC-annotated members that carry the claimed EC | [`extract_cazy_subfamilies.R`](https://github.com/alberdilab/gifter/blob/main/data-raw/extract_cazy_subfamilies.R) |
+
+A screen finds the rows that need a curator; it does not decide them. A KO
+reaching several reactions may group genes of different activities, which
+cannot support a substrate-specific claim. Or it may be one genuinely
+promiscuous enzyme, which supports every reaction it performs. Reading which
+participants vary between the reactions usually settles it.
+
+The screen outputs are kept in
+[`data-raw/reference/`](https://github.com/alberdilab/gifter/tree/main/data-raw/reference),
+whose README explains every table.
+
+### Confidence grades
+
+Every accepted marker row records an evidence type, a confidence grade, the
+source it was taken from, and any ambiguity that affects interpretation.
+
+| Grade | Meaning |
+|---|---|
+| `curated` | the marker identifies the component. Most KO rows; for a CAZy cluster, at least 93% EC agreement across ten or more annotated members |
+| `high-confidence` | strong but not exhaustive support. Admitted NCBIfam equivalogs; CAZy clusters with at least 70% EC agreement |
+| `putative` | accepted with a stated doubt, recorded in the row's notes. The archaellum ATPase KO is one: it also collects the ATPases of homologous archaeal pili |
+| `ambiguous` | the only available evidence, and polyspecific; for a CAZy cluster, 50--70% EC agreement |
+
+Below 50% EC agreement a CAZy cluster is not admitted at all: a cluster in which
+3 of 96 annotated members carry the claimed EC is evidence against the
+assignment, not weak evidence for it.
+
+Confidence reaches the call. `evaluate_gifts()` reports `evidence_confidence`,
+the weakest grade among the markers supporting the best route, so a GIFT resting
+on an ambiguous family never reads like one resting on curated orthology. A
+marker that cannot support the claim is refused rather than stretched to fit it.
+
+NCBIfam accessions keep their version suffix (`NF040708.3`), because a rebuilt
+profile may match different sequences. The same caution applies to dbCAN's
+eCAMI cluster identifiers, which are renumbered between releases. Annotate
+genomes against the releases the database names, or CAZy markers will fail to
+match without any error.
+
+## Test the definition against genomes
+
+A definition that reads well on paper still has to behave sensibly on real
+genomes. Two genome datasets are used for this, and they answer different
+questions.
+
+### The KEGG reference genome set: the same for every GIFT
+
+The population-level reference is the KEGG genome catalogue: about 11,900
+genomes, of which roughly 10,100 are bacterial and 470 archaeal. For each
+marker, KEGG's REST service returns every genome carrying it, so a candidate's
+marker set can be evaluated across the whole catalogue without annotating a
+single genome. The same reference serves every curation round. The snapshot
+date and the exact denominators are stated in each assessment, because KEGG
+grows between snapshots. Domain counts come from KEGG's organism hierarchy,
+because the catalogue's own prokaryote flag admits some eukaryotes.
+
+The screen answers four questions:
+
+1. **How many genomes complete the candidate?** A GIFT that no genome completes
+   is refused on evidence. Vitamin C biosynthesis was refused this way: 0 of
+   10,151 bacterial genomes completed it.
+2. **What do near-misses lack?** If genomes one function short mostly miss the
+   same component, that component may be an annotation gap or a taxon-specific
+   replacement still to be curated, rather than real absence.
+3. **Is the candidate distinguishable from homologous machinery?** Secretion
+   systems share ancestry with the flagellum and with pili, so the screen counts
+   how many genomes complete the homologue while supporting none of the
+   candidate's roles.
+4. **Does each required component do discriminating work?** A required
+   component that almost every candidate genome carries anyway adds no
+   specificity.
+
+Prevalence never decides on its own. A rare architecture can be admitted when
+its markers resolve it: the *Bacillus subtilis* W23-type ribitol-phosphate wall
+teichoic acid architecture completes in only 22 genomes and was curated under an
+explicit biological-importance exception.
+
+This reference has two limits, and both are stated wherever it is used:
+
+- **It is KO-only.** CAZy, NCBIfam and Pfam markers cannot be reached through
+  it, so a GIFT whose usual evidence is a CAZy family is under-counted here.
+- **It is KEGG's own per-genome assignment**, not the output of the annotation
+  pipeline a user would run. Its counts are therefore an upper bound on what a
+  user's annotation will support.
+
+KEGG's per-genome assignments may not be redistributed, so only aggregate
+counts are committed. The per-genome data stay in a local cache that each
+script rebuilds.
+
+When a KO is suspected of merging homologues, the screen goes down to sequence
+level. It retrieves the exact proteins KEGG assigned to that KO and searches
+them with the candidate NCBIfam equivalogs, plus contrast profiles for the
+homologous machines, at each profile's own gathering threshold. Contrast
+profiles only name what a protein is; they are never accepted as gifter
+evidence. The archaellum, wall teichoic acid and type II secretion GIFTs were
+all checked this way.
+
+### Named control genomes: chosen for each investigation
+
+The second dataset is small and changes every time. For each candidate the
+curator picks organisms whose relevant biology is established in the
+literature, both organisms expected to carry the capability and organisms
+expected to lack it. Examples include:
+
+- 16 gut and model organisms for short-chain fatty acid formation;
+- 18 genomes for vitamin biosynthesis;
+- three archaellated archaea and two flagellated bacteria for the archaellum;
+- 12 strains for type II secretion: seven expected to carry it, three expected
+  to lack it, and two marked `unverified`;
+- 17 strains for type III and type VI secretion.
+
+The controls are listed by KEGG organism code in the assessment, or in a
+`*-controls.tsv` table beside the screen.
+
+A control's expected result is written beside the marker result and compared
+with it. It is never used to produce the call, and a strain whose expectation
+was not actually checked is marked `unverified`. A control that disagrees is
+reported as it is, not fixed: it may point to a missing route (see
+[acetate](#a-metabolic-gift-acetate-interconversion) below), a marker gap, or a
+genuine exception.
+
+## Data that do not define GIFTs
+
+Some data are used to evaluate gifter but never to define a GIFT.
+
+- **Observed phenotypes.** BacDive substrate-use records, MediaDive growth media
+  and species-level trait tables are compared with gifter's calls as a
+  benchmark. They are not accepted as marker evidence: an organism growing on a
+  substrate says nothing about which gene does the work.
+- **Application datasets.** The GTDB panel, the chicken caecal
+  metagenome-assembled genomes and the Microflora Danica samples used in the
+  manuscript analyses are readings of the catalogue, not inputs to it.
+
+A benchmark can, however, raise a question for curation. When genomes of
+organisms observed to perform a capability are called unsupported, gifter's own
+trace names the reaction that failed. That lead then goes through the full
+process above.
+
+- **GlcNAc degradation.** Of 119 strains observed to use
+  N-acetylglucosamine as a carbon source, only 15% were called positive. The
+  same kinase reaction failed in all 30 sampled failures. The boundaries were
+  right but a whole route was missing, and a second route through the
+  phosphotransferase system was curated in database 2026.26.1.
+- **Serine biosynthesis.** The lead's premise did not survive measurement, so
+  nothing was changed.
+
+A benchmark lead is a question, not a diagnosis. The record is in
+[the phenotype curation leads](https://github.com/alberdilab/gifter/blob/main/inst/doc/proposal-phenotype-curation-leads.md).
+
+## Two worked examples
+
+### A metabolic GIFT: acetate interconversion
+
+The candidate was "acetate formation", assessed with the short-chain fatty
+acids on 2026-08-18.
+
+- **Knowledge bases.** KEGG module M00579 offered a clean two-reaction
+  skeleton: phosphate acetyltransferase then acetate kinase, both with Rhea
+  master reactions.
+- **Specificity.** The KOs for both enzymes each state one reaction.
+- **Reference genomes.** 6,582 KEGG genomes carry both enzymes.
+- **Controls.** Every reference genome checked was positive except
+  *Akkermansia muciniphila*, which excretes acetate but lacks acetate kinase.
+  That was recorded as a missing alternative route, not a reason to refuse.
+- **The claim.** Both reactions are reversible and the markers cannot tell the
+  direction, so the GIFT was named an *interconversion* rather than a
+  *formation*. A name that claims direction would exceed the evidence.
+- **A refusal in the same assessment.** The butyrate-kinase route was refused.
+  Its enzymes are shared with *Bacillus* branched-chain metabolism at both the
+  KO and TIGRFAM levels, so no change of marker namespace could make it
+  specific.
+
+The resulting definition can be read with the public accessors:
+
+```{r}
+reactions <- get_gift_reactions("acetate_interconversion")
+reactions[, c("route_id", "reaction_id", "orientation")]
+
+systems <- get_reaction_systems("RHEA:19521")
+systems[, c("component_id", "namespace", "accession", "confidence", "source")]
+
+evidence <- get_gift_evidence("acetate_interconversion")
+evidence[, c("evidence_kind", "location")]
+```
+
+The `source` column names the module and date the markers were taken from. The
+evidence row points to the assessment that defines and defends the GIFT.
+
+### A structural GIFT: the type II secretion system
+
+The type II secretion system was deferred by the 2026-10-03 survey of
+structural machines. Its prepilin peptidase is not merely a homologue of the
+type IVa pilus peptidase; it is often the same enzyme. Once the rule for shared
+components was settled, the curation questions were quantitative, and a
+dedicated screen answered them over 11,908 KEGG genomes:
+
+- **Is it a distinct machine?** 1,571 genomes complete the core Gsp
+  apparatus. 703 complete it without the type IVa pilus, and 674 complete the
+  pilus without it, so the apparatus is not a proxy for the pilus.
+- **Does the shared peptidase discriminate?** Requiring it removes only 35 of
+  the 1,571 genomes, so it does almost no discriminating work. It could not be
+  refused either: 1,319 of the 1,536 complete apparatuses reach the peptidase
+  through PilD rather than GspO.
+- **Controls.** Twelve named strains were evaluated.
+  - Five of the seven expected to carry a type II system complete it,
+    including *Pseudomonas aeruginosa* PAO1 and *Escherichia coli* K-12.
+  - *Vibrio cholerae* N16961 and *Legionella pneumophila* fall one role short
+    (GspD and GspC respectively). Both shortfalls are kept in the table as
+    observations about the markers.
+  - The three expected to lack it (*Bacillus subtilis* 168, *Campylobacter
+    jejuni* and *Helicobacter pylori*) support at most two of the eleven roles.
+
+Each Gsp role is supported by a KEGG orthology and, where one exists, an NCBIfam
+equivalog for the same role:
+
+```{r}
+machinery <- get_gift_machinery("type_ii_secretion_system")
+unique(machinery[, c("function_name", "required")])
+head(machinery[, c("component_name", "namespace", "accession", "confidence")])
+
+get_gift_evidence("type_ii_secretion_system")[, c("evidence_kind", "location")]
+```
+
+Here the evidence lists the analysis script and the three result tables it
+wrote, as well as the curation documents. The numbers above can be regenerated
+with `Rscript data-raw/t2ss_prevalence.R`, or checked from the cached inputs
+with `--offline`.
 
 ## Check composition and traceability
 
@@ -177,7 +456,9 @@ For a metabolic GIFT, source records are normally added in dependency order:
 4. routes and ordered route reactions;
 5. enzyme systems and required components;
 6. reusable markers and component-to-marker evidence;
-7. provenance, biological change history and release metadata.
+7. curation evidence: the proposal that defines the GIFT and any analysis
+   script and result table behind it, in `gift_evidence.tsv`;
+8. provenance, biological change history and release metadata.
 
 The machinery models use the corresponding architecture, circuit or mechanism
 tables and their typed function, system, component and marker tables.
@@ -207,6 +488,18 @@ Finally, the investigation is closed with one of three explicit outcomes:
 A refusal is a curation result, not missing data. Recording it prevents a later
 curator from unknowingly repeating the same investigation or admitting the same
 over-broad evidence under a different name.
+
+### Where to find the record of any decision
+
+| Question | Where it is answered |
+|---|---|
+| Which documents, scripts and result tables define this GIFT? | `get_gift_evidence()`, and the "Curation evidence" section of the GIFT's page in the [Atlas](../atlas/#gifts) |
+| Why is the GIFT bounded where it is, and what was refused alongside it? | the curation proposal or assessment the evidence points to, under [`inst/doc/`](https://github.com/alberdilab/gifter/tree/main/inst/doc) |
+| What was investigated, when, and with what outcome? | the [catalogue-expansion attempt log](https://github.com/alberdilab/gifter/blob/main/inst/doc/catalogue-expansion-attempts.tsv) |
+| Why is a candidate not in the catalogue, and what would change that? | the [deferral register](https://github.com/alberdilab/gifter/blob/main/inst/doc/deferral-register.md) |
+| Which exact genome screens and controls were used? | the analysis scripts in [`data-raw/`](https://github.com/alberdilab/gifter/tree/main/data-raw) and their outputs in `data-raw/reference/` |
+| What changed in the biological content, and which GIFTs did it affect? | `database_changelog()`, and the [Changes view of the Atlas](../atlas/#changelog) |
+| Which upstream releases and pathway modules were used? | `gifter_db_version()` and [`SOURCES.md`](https://github.com/alberdilab/gifter/blob/main/inst/extdata/database-source/SOURCES.md) |
 
 ## What database compilation does—and does not do
 

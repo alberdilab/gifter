@@ -1,7 +1,9 @@
 test_that("the WTA NCBIfam screen separates proxies from resolved calls", {
   root <- testthat::test_path("..", "..")
+  path <- file.path(root, "data-raw", "reference", "wta-ncbifam-prevalence.tsv")
+  skip_if_not(file.exists(path), "source reference table is unavailable")
   screen <- utils::read.delim(
-    file.path(root, "data-raw", "reference", "wta-ncbifam-prevalence.tsv"),
+    path,
     sep = "\t", quote = "", comment.char = "", check.names = FALSE,
     stringsAsFactors = FALSE
   )
@@ -29,8 +31,10 @@ test_that("the WTA NCBIfam screen separates proxies from resolved calls", {
 
 test_that("the 168-type TagF audit admits no profile", {
   root <- testthat::test_path("..", "..")
+  path <- file.path(root, "data-raw", "reference", "wta-tagf-marker-audit.tsv")
+  skip_if_not(file.exists(path), "source reference table is unavailable")
   audit <- utils::read.delim(
-    file.path(root, "data-raw", "reference", "wta-tagf-marker-audit.tsv"),
+    path,
     sep = "\t", quote = "", comment.char = "", check.names = FALSE,
     stringsAsFactors = FALSE
   )

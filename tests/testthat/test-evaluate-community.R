@@ -122,7 +122,7 @@ test_that("one immutable database snapshot serves every worker", {
   )
   metadata <- lapply(community$results, `[[`, "database_version")
   expect_true(all(vapply(metadata[-1L], identical, logical(1), metadata[[1L]])))
-  expect_equal(metadata[[1L]]$gifter_db_version, "2026.33.1")
+  expect_equal(metadata[[1L]]$gifter_db_version, "2026.35.1")
   expect_equal(metadata[[1L]]$source_commit, "unreleased")
 
   replacement <- gifter_db_connect(original_path)
@@ -143,7 +143,7 @@ test_that("database snapshots are removed on success, failure, and interruption"
     remember(connection)
     gifter_db_version(connection)$gifter_db_version
   })
-  expect_equal(value, "2026.33.1")
+  expect_equal(value, "2026.35.1")
   expect_false(file.exists(paths[[1L]]))
 
   expect_error(

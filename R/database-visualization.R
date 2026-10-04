@@ -13,6 +13,10 @@
   "database_release"
 )
 
+# Tables shown when the database has them. gift_evidence arrived with schema 8;
+# a schema 7 database still renders without it.
+.gifter_report_optional_tables <- c("gift_evidence")
+
 .html_escape <- function(value) {
   value <- as.character(value)
   value[is.na(value)] <- ""
@@ -36,6 +40,52 @@
   tolower(paste(value, collapse = " "))
 }
 
+# Links an identifier to the public record it was taken from. These are
+# presentation only: the namespace and accession are the curated facts, and a
+# namespace without a known record page is shown as plain text. A CAZy
+# accession may name a dbCAN-sub cluster, which has no page of its own, so it
+# links to the parent family.
+.report_external_url <- function(namespace, accession) {
+  accession <- as.character(accession)
+  namespace <- rep_len(toupper(as.character(namespace)), length(accession))
+  vapply(seq_along(accession), function(index) {
+    ns <- namespace[[index]]
+    id <- accession[[index]]
+    if (is.na(ns) || is.na(id) || !nzchar(id)) return(NA_character_)
+    encoded <- utils::URLencode(id, reserved = TRUE)
+    switch(
+      ns,
+      KO = paste0("https://www.kegg.jp/entry/", encoded),
+      KEGG_REACTION = paste0("https://www.kegg.jp/entry/", encoded),
+      KEGG_MODULE = paste0("https://www.kegg.jp/module/", encoded),
+      KEGG_PATHWAY = paste0("https://www.kegg.jp/pathway/", encoded),
+      EC = paste0("https://enzyme.expasy.org/EC/", encoded),
+      CAZY = {
+        family <- regmatches(id, regexpr("^[A-Z]+[0-9]+", id))
+        if (length(family)) paste0("http://www.cazy.org/", family, ".html") else NA_character_
+      },
+      NCBIFAM = ,
+      TIGRFAM = paste0("https://www.ncbi.nlm.nih.gov/genome/annotation_prok/evidence/", encoded, "/"),
+      PFAM = paste0("https://www.ebi.ac.uk/interpro/entry/pfam/", encoded, "/"),
+      METACYC = paste0("https://metacyc.org/pathway?orgid=META&id=", encoded),
+      CHEBI = paste0("https://www.ebi.ac.uk/chebi/searchId.do?chebiId=", encoded),
+      NA_character_
+    )
+  }, character(1))
+}
+
+# An identifier as a link to its record when one is known, otherwise as text.
+.report_identifier_link <- function(namespace, accession, label, class) {
+  url <- .report_external_url(namespace, accession)
+  if (is.na(url)) {
+    return(paste0('<span class="', class, '">', label, "</span>"))
+  }
+  paste0(
+    '<a class="', class, ' external-id" href="', .html_escape(url),
+    '" target="_blank" rel="noreferrer">', label, "</a>"
+  )
+}
+
 .gifter_report_asset <- function(name) {
   path <- system.file("templates", name, package = "gifter")
   if (!nzchar(path)) path <- file.path("inst", "templates", name)
@@ -53,10 +103,13 @@
     )
   }
 
-  tables <- lapply(.gifter_report_tables, function(table) {
+  report_tables <- c(
+    .gifter_report_tables, intersect(.gifter_report_optional_tables, available)
+  )
+  tables <- lapply(report_tables, function(table) {
     DBI::dbReadTable(connection, table)
   })
-  names(tables) <- .gifter_report_tables
+  names(tables) <- report_tables
 
   # Each typed machinery model is read through the same six shapes, named
   # generically here because the report renders them identically; the biological
@@ -204,7 +257,7 @@
   )
   values <- lapply(queries, function(sql) DBI::dbGetQuery(connection, sql))
 
-  schema <- lapply(.gifter_report_tables, function(table) {
+  schema <- lapply(report_tables, function(table) {
     columns <- DBI::dbGetQuery(
       connection,
       paste0("PRAGMA table_info('", gsub("'", "''", table, fixed = TRUE), "')")
@@ -215,13 +268,48 @@
     )
     list(table = table, columns = columns, foreign_keys = foreign_keys)
   })
-  names(schema) <- .gifter_report_tables
+  names(schema) <- report_tables
+
+  # Schema 8 records where each GIFT was curated; a schema 7 database has no
+  # such table, and its GIFT pages say so rather than failing.
+  evidence <- if (.gifter_has_gift_evidence(connection)) {
+    DBI::dbGetQuery(
+      connection,
+      paste(
+        "SELECT g.gift_id, ge.evidence_kind, ge.location, ge.description",
+        "FROM gift_evidence ge JOIN gift g ON g.gift_pk = ge.gift_pk",
+        "ORDER BY g.gift_id, ge.location"
+      )
+    )
+  } else {
+    NULL
+  }
+  release_row <- DBI::dbGetQuery(
+    connection, "SELECT source_commit FROM database_release WHERE release_pk = 1"
+  )
+  source_repository <- .gifter_release_repository(connection)
+  if (!is.null(evidence)) {
+    evidence$url <- .gifter_source_url(
+      source_repository, release_row$source_commit[[1L]], evidence$location
+    )
+  }
+
+  frames <- list_reference_frames(db = connection)
+  # Each frame's page lists its members, resolved from the curated filters the
+  # same way reference_frame() resolves them for an analysis.
+  frame_members <- lapply(frames$frame_id, function(frame_id) {
+    reference_frame(preset = frame_id, db = connection)$gift_id
+  })
+  names(frame_members) <- frames$frame_id
 
   c(
     values,
     list(
       machinery = machinery,
-      frames = list_reference_frames(db = connection),
+      frames = frames,
+      frame_members = frame_members,
+      evidence = evidence,
+      source_repository = source_repository,
       tables = tables,
       schema = schema,
       release = tables$database_release[1, , drop = FALSE],
@@ -256,13 +344,24 @@
     row <- rows[index, , drop = FALSE]
     paste0(
       '<div class="marker-row">',
-      '<span class="marker-accession"><span class="namespace">',
-      .html_text(row$namespace), '</span>', .html_text(row$accession), "</span>",
+      .report_identifier_link(
+        row$namespace, row$accession,
+        paste0('<span class="namespace">', .html_text(row$namespace), "</span>",
+               .html_text(row$accession)),
+        "marker-accession"
+      ),
       '<span class="marker-name">', .html_text(row$name), "</span>",
       '<span class="confidence">', .html_text(row$confidence), "</span>",
+      .report_marker_source(row),
       "</div>"
     )
   }, character(1)), collapse = "")
+}
+
+# Where a marker's acceptance was taken from, as curated in the source table.
+.report_marker_source <- function(row) {
+  if (is.null(row$source) || is.na(row$source) || !nzchar(row$source)) return("")
+  paste0('<span class="marker-source">Source: ', .html_escape(row$source), "</span>")
 }
 
 .report_component_rows <- function(system_id, data) {
@@ -328,9 +427,10 @@
       data$xrefs$reaction_id == row$reaction_id & !is.na(data$xrefs$namespace), , drop = FALSE
     ]
     xref_html <- if (nrow(xrefs)) paste(vapply(seq_len(nrow(xrefs)), function(x) {
-      paste0(
-        '<span class="xref">', .html_text(xrefs$namespace[x]), ":",
-        .html_text(xrefs$accession[x]), "</span>"
+      .report_identifier_link(
+        xrefs$namespace[x], xrefs$accession[x],
+        paste0(.html_text(xrefs$namespace[x]), ":", .html_text(xrefs$accession[x])),
+        "xref"
       )
     }, character(1)), collapse = "") else ""
     required <- if (identical(as.integer(row$required), 1L)) "required" else "optional"
@@ -456,6 +556,80 @@
 # External pathways are shown with the relation spelled out, because a GIFT is
 # curated between declared anchors and is almost never the same thing as the
 # pathway record a reader arrives from.
+# Where a GIFT's definition was worked out, linked to the files in the source
+# repository. Kinds are listed in the order a reader follows them: the argument,
+# the code run to test it, and what that code produced.
+.report_evidence_kinds <- c(
+  curation_document = "Curation documents",
+  analysis_script = "Analysis scripts (R)",
+  result_table = "Result tables"
+)
+
+.report_gift_evidence <- function(gift_id, data) {
+  if (is.null(data$evidence)) {
+    return(paste0(
+      '<div class="pathway-section evidence-section"><h4>Curation evidence</h4>',
+      '<p class="network-caption">This database was compiled for a schema that ',
+      'records no curation evidence.</p></div>'
+    ))
+  }
+  rows <- data$evidence[data$evidence$gift_id == gift_id, , drop = FALSE]
+  groups <- paste(vapply(names(.report_evidence_kinds), function(kind) {
+    entries <- rows[rows$evidence_kind == kind, , drop = FALSE]
+    if (!nrow(entries)) return("")
+    items <- paste(vapply(seq_len(nrow(entries)), function(index) {
+      entry <- entries[index, , drop = FALSE]
+      location <- if (is.na(entry$url)) {
+        paste0("<code>", .html_escape(entry$location), "</code>")
+      } else {
+        paste0(
+          '<a class="evidence-link" href="', .html_escape(entry$url),
+          '" target="_blank" rel="noreferrer"><code>', .html_escape(entry$location),
+          "</code></a>"
+        )
+      }
+      paste0(
+        '<li class="evidence-entry">', location,
+        '<span>', .html_text(entry$description), "</span></li>"
+      )
+    }, character(1)), collapse = "")
+    paste0(
+      '<div class="evidence-group"><h5>', .report_evidence_kinds[[kind]], "</h5>",
+      '<ul class="evidence-list">', items, "</ul></div>"
+    )
+  }, character(1)), collapse = "")
+  no_script <- if (!any(rows$evidence_kind == "analysis_script")) {
+    paste0(
+      '<p class="evidence-note">No analysis script is recorded for this GIFT. Its ',
+      'definition rests on the curation documents listed here and on the external ',
+      'records linked from its reactions and markers.</p>'
+    )
+  } else ""
+  where <- if (is.na(data$source_repository)) {
+    "Locations are paths within the source repository."
+  } else {
+    commit <- data$tables$database_release$source_commit[[1L]]
+    released <- grepl("^([0-9a-fA-F]{40}|[0-9a-fA-F]{64})$", commit)
+    paste0(
+      "Links open the files in the ",
+      '<a href="', .html_escape(data$source_repository),
+      '" target="_blank" rel="noreferrer">source repository</a> ',
+      if (released) {
+        paste0("at commit <code>", .html_escape(substr(commit, 1L, 12L)), "</code>, the one this database was compiled from.")
+      } else {
+        "on its default branch, because this is a development build that records no release commit."
+      }
+    )
+  }
+  paste0(
+    '<div class="pathway-section evidence-section"><h4>Curation evidence <span>',
+    nrow(rows), " item", if (nrow(rows) == 1L) "" else "s",
+    '</span></h4><p class="network-caption">Where the definition of this GIFT was ',
+    'worked out. ', where, ' This is provenance only: a call rests on the markers ',
+    'observed in a genome.</p>', groups, no_script, "</div>"
+  )
+}
+
 .report_gift_pathways <- function(gift_id, data) {
   rows <- data$gift_pathways[data$gift_pathways$gift_id == gift_id, , drop = FALSE]
   if (!nrow(rows)) return("")
@@ -470,8 +644,12 @@
     paste0(
       '<li class="pathway-entry" data-pathway-accession="', .html_escape(row$accession), '">',
       '<div class="pathway-head">',
-      '<span class="marker-accession"><span class="namespace">',
-      .html_text(row$namespace), "</span>", .html_text(row$accession), "</span>",
+      .report_identifier_link(
+        row$namespace, row$accession,
+        paste0('<span class="namespace">', .html_text(row$namespace), "</span>",
+               .html_text(row$accession)),
+        "marker-accession"
+      ),
       '<span class="pathway-relation ', .html_escape(row$relation), '">',
       .html_escape(phrase), "</span></div>",
       '<div class="pathway-name">', .html_text(row$name), "</div>", notes, "</li>"
@@ -569,7 +747,7 @@
 # Every column but the open-detail one sorts. The header carries what the
 # script needs to read a row: which element in the cell holds the key, and
 # whether to compare it as a number or as text.
-.report_gift_table_head <- function() {
+.report_gift_table_head <- function(sortable = TRUE) {
   columns <- list(
     list(label = "GIFT", key = "name", type = "text", select = "strong"),
     list(label = "Boundaries or structure", key = "boundary", type = "text"),
@@ -580,6 +758,7 @@
     list(label = "Status", key = "status", type = "text")
   )
   cells <- vapply(columns, function(column) {
+    if (!sortable) return(paste0("<th>", column$label, "</th>"))
     paste0(
       '<th class="sortable" aria-sort="none" data-gift-sort-column="', column$key, '">',
       '<button type="button" class="th-sort" data-gift-sort="', column$key,
@@ -611,6 +790,61 @@
     '<span class="gift-pager-pages" data-gift-pager-pages></span>',
     '<button type="button" class="gift-pager-step" data-gift-page-step="1" ',
     'aria-label="Next page">&rarr;</button></div></div>'
+  )
+}
+
+.report_gift_intro <- function(data) {
+  # The type counts are read from the catalogue, so the introduction stays
+  # true as GIFTs are curated.
+  type_order <- c("metabolic", "structural", "regulatory", "defense")
+  counts <- table(factor(data$gifts$gift_type, levels = type_order))
+  counts <- counts[counts > 0L]
+  count_text <- paste0(
+    "The catalogue currently contains ",
+    paste(paste(as.integer(counts), names(counts)), collapse = ", "),
+    " GIFTs."
+  )
+  count_text <- sub(", ([^,]+ GIFTs\\.)$", " and \\1", count_text)
+
+  paste0(
+    '<section class="view-explainer" aria-label="What a GIFT is">',
+    '<p class="view-lead">A genome-inferred functional trait (GIFT) is a biologically ',
+    'defined capability whose genomic support is evaluated through an explicit, curated ',
+    'completeness model. Each GIFT receives a Boolean call from the markers observed in a ',
+    'genome, and every call can be traced back to the markers and genes that support it.</p>',
+    '<div class="view-concepts">',
+    '<div><h3>GIFT types</h3>',
+    '<p>Each GIFT declares a type, which selects its completeness model. A ',
+    '<strong>metabolic</strong> GIFT describes a directed capability between curated ',
+    'molecular anchors. A <strong>structural</strong> GIFT describes the machinery that ',
+    'builds a defined cellular structure, a <strong>regulatory</strong> GIFT the ',
+    'machinery that senses a signal and executes a response, and a ',
+    '<strong>defense</strong> GIFT the machinery that executes a defined defense ',
+    'mechanism. ', count_text, '</p></div>',
+    '<div><h3>Evaluation logic</h3>',
+    '<p>A metabolic GIFT is supported when any of its curated routes is complete. A route ',
+    'requires all of its reactions, a reaction is catalysed by any complete enzyme ',
+    'system, a system requires all of its components, and a component is supported by ',
+    'any accepted marker. Structural, regulatory and defense GIFTs follow the same ',
+    'alternation through architectures, circuits or mechanisms, functions, systems and ',
+    'components.</p></div>',
+    '<div><h3>Boundaries and composition</h3>',
+    '<p>A metabolic GIFT is bounded by declared input and output anchors, and GIFTs ',
+    'connect to one another only through these anchors; metabolites shared inside ',
+    'routes do not create links. Larger capabilities are composed from GIFTs that share ',
+    'anchors rather than by repeating their reactions. Machinery GIFTs declare no ',
+    'anchors.</p></div>',
+    '<div><h3>Reading the catalogue</h3>',
+    '<p>Each row lists a GIFT with its boundaries or structure, its class, the number of ',
+    '<strong>alternatives</strong> (routes or implementations), <strong>requirements</strong> ',
+    '(reactions or functions) and <strong>systems</strong>. Selecting a row opens its ',
+    'routes or implementations, reactions or functions, systems, components and ',
+    'accepted markers.</p></div>',
+    '</div>',
+    '<p class="view-caveat">A positive call indicates that the markers support at least ',
+    'one complete curated route, architecture, circuit or mechanism. It does not indicate ',
+    'expression, activity, physiological state or phenotype.</p>',
+    '</section>'
   )
 }
 
@@ -775,16 +1009,9 @@
       )
     }
 
-    row <- paste0(
-      '<tr class="gift-table-row" data-gift-row data-search-item data-gift-id="',
-      .html_escape(gift$gift_id),
-      '" data-gift-type="', .html_escape(gift$gift_type),
-      '" data-substrate-class="', .html_escape(gift$substrate_class),
-      '" data-mode="', .html_escape(gift$mode),
-      '" data-inputs="', .html_escape(paste0(" ", paste(input_ids, collapse = " "), " ")),
-      '" data-outputs="', .html_escape(paste0(" ", paste(output_ids, collapse = " "), " ")),
-      '" data-search="', .html_escape(searchable), '" tabindex="0" role="button"',
-      ' aria-selected="false" aria-haspopup="dialog" aria-controls="', detail_id, '">',
+    # The cells are shared with the member tables on frame pages, so a GIFT
+    # reads the same wherever it is listed.
+    cells <- paste0(
       '<td class="gift-name-cell"><span class="gift-table-index">', sprintf("%02d", index),
       '</span><span><strong>', .html_text(gift$name), '</strong><code>',
       .html_text(gift$gift_id), "</code></span></td>",
@@ -794,10 +1021,22 @@
       '<td class="numeric-cell"><strong>', requirements, "</strong></td>",
       '<td class="numeric-cell"><strong>', system_count, "</strong></td>",
       '<td><span class="table-status"><i></i>', .html_text(gift$status), "</span></td>",
-      '<td class="open-cell"><span>View detail</span>&rarr;</td></tr>'
+      '<td class="open-cell"><span>View detail</span>&rarr;</td>'
+    )
+    row <- paste0(
+      '<tr class="gift-table-row" data-gift-row data-search-item data-gift-id="',
+      .html_escape(gift$gift_id),
+      '" data-gift-type="', .html_escape(gift$gift_type),
+      '" data-substrate-class="', .html_escape(gift$substrate_class),
+      '" data-mode="', .html_escape(gift$mode),
+      '" data-inputs="', .html_escape(paste0(" ", paste(input_ids, collapse = " "), " ")),
+      '" data-outputs="', .html_escape(paste0(" ", paste(output_ids, collapse = " "), " ")),
+      '" data-search="', .html_escape(searchable), '" tabindex="0" role="link"',
+      ' aria-selected="false" aria-controls="', detail_id, '">',
+      cells, "</tr>"
     )
     detail <- paste0(
-      '<article class="gift-detail" data-gift-detail data-gift-id="',
+      '<article class="gift-detail gift-page" data-gift-detail data-gift-id="',
       .html_escape(gift$gift_id), '" data-gift-name="', .html_escape(gift$name),
       '" id="', detail_id, '" hidden>',
       '<header class="gift-header"><div><div class="gift-index">GIFT ',
@@ -813,6 +1052,7 @@
       statline,
       network_block,
       alternatives_block,
+      .report_gift_evidence(gift$gift_id, data),
       .report_gift_pathways(gift$gift_id, data),
       .report_gift_change_history(gift$gift_id, data),
       if (!is.na(gift$notes) && nzchar(gift$notes)) {
@@ -820,12 +1060,14 @@
       } else "",
       "</article>"
     )
-    list(row = row, detail = detail)
+    list(row = row, detail = detail, cells = cells)
   })
 
   rows <- paste(vapply(rendered, `[[`, character(1), "row"), collapse = "")
+  cells <- vapply(rendered, `[[`, character(1), "cells")
+  names(cells) <- data$gifts$gift_id
   details <- paste(vapply(rendered, `[[`, character(1), "detail"), collapse = "")
-  paste0(
+  table <- paste0(
     # The filters sit above the table rather than inside it, so the box holds
     # the result and nothing else.
     .report_gift_controls(data),
@@ -835,24 +1077,22 @@
     .report_gift_table_head(),
     '<tbody>', rows, '</tbody></table></div>',
     .report_gift_pager(),
-    "</div>",
-    # The detail of one GIFT is long, so it opens over the table instead of
-    # below it: the list stays where the reader left it.
-    '<div class="gift-modal" data-gift-modal hidden>',
-    '<div class="gift-modal-backdrop" data-gift-modal-close></div>',
-    '<div class="gift-modal-window" role="dialog" aria-modal="true" tabindex="-1" ',
-    'aria-labelledby="gift-modal-title">',
-    '<div class="gift-modal-bar"><div class="gift-modal-title" id="gift-modal-title" ',
-    'data-gift-modal-title>GIFT detail</div>',
-    '<div class="gift-modal-actions"><button type="button" class="gift-modal-step" ',
-    'data-gift-step="-1" aria-label="Previous GIFT">&larr;</button>',
-    '<span class="gift-modal-position" data-gift-modal-position></span>',
-    '<button type="button" class="gift-modal-step" data-gift-step="1" ',
-    'aria-label="Next GIFT">&rarr;</button>',
-    '<button type="button" class="gift-modal-close" data-gift-modal-close ',
-    'aria-label="Close GIFT detail">&times;</button></div></div>',
-    '<div class="gift-modal-body">', details, "</div></div></div>"
+    "</div>"
   )
+  # Each GIFT has its own page at #gifts/<gift_id>, as each frame does. The
+  # arrows step through the GIFTs the table's current filters keep.
+  pages <- paste0(
+    '<div class="gift-pages" data-gift-pages hidden>',
+    '<nav class="page-bar" aria-label="GIFT navigation">',
+    '<button class="page-back" type="button" data-gift-back>&larr; All GIFTs</button>',
+    '<div class="page-stepper"><button type="button" class="page-step" data-gift-step="-1" ',
+    'aria-label="Previous GIFT">&larr;</button>',
+    '<span class="page-position" data-gift-position></span>',
+    '<button type="button" class="page-step" data-gift-step="1" ',
+    'aria-label="Next GIFT">&rarr;</button></div></nav>',
+    details, "</div>"
+  )
+  list(table = table, pages = pages, cells = cells)
 }
 
 .graph_truncate <- function(label, max_chars) {
@@ -1110,7 +1350,7 @@
       '<td><span class="release-badge">', .html_text(row$released), "</span></td>",
       '<td class="changelog-date">', .report_change_timestamp(row$changed_at), "</td>",
       '<td><span class="scope-chip">', .html_text(row$layer), "</span>",
-      '<span class="category-chip">', .html_text(row$substrate_class), "</span></td>",
+      '<span class="category-chip">', .html_text(row$category), "</span></td>",
       '<td class="changelog-change"><strong>', .html_text(row$summary), "</strong>",
       "<code>", .html_text(row$change_id), "</code>",
       .report_change_detail(row), "</td>",
@@ -1797,10 +2037,15 @@
       paste0('<span class="marker-note">', .html_escape(row$notes), "</span>")
     } else ""
     paste0(
-      '<div class="marker-row"><code>', .html_escape(row$namespace), ":",
-      .html_escape(row$accession), "</code><span>", .html_text(row$name),
+      '<div class="marker-row">',
+      .report_identifier_link(
+        row$namespace, row$accession,
+        paste0("<code>", .html_escape(row$namespace), ":", .html_escape(row$accession), "</code>"),
+        "marker-code"
+      ),
+      "<span>", .html_text(row$name),
       '</span><span class="marker-confidence">', .html_text(row$confidence),
-      "</span>", notes, "</div>"
+      "</span>", notes, .report_marker_source(row), "</div>"
     )
   }, character(1)), collapse = "")
 }
@@ -1942,7 +2187,7 @@
 }
 
 .report_schema <- function(data) {
-  table_cards <- paste(vapply(.gifter_report_tables, function(table) {
+  table_cards <- paste(vapply(names(data$schema), function(table) {
     info <- data$schema[[table]]
     foreign_columns <- if (nrow(info$foreign_keys)) info$foreign_keys$from else character()
     column_rows <- paste(vapply(seq_len(nrow(info$columns)), function(index) {
@@ -2009,7 +2254,7 @@
 }
 
 .report_table_browser <- function(data) {
-  paste(vapply(.gifter_report_tables, function(table) {
+  paste(vapply(names(data$tables), function(table) {
     values <- data$tables[[table]]
     header <- paste0("<tr>", paste0("<th>", .html_escape(names(values)), "</th>", collapse = ""), "</tr>")
     rows <- if (nrow(values)) paste(vapply(seq_len(nrow(values)), function(index) {
@@ -2053,23 +2298,64 @@
   )
 }
 
-.report_reference_frames <- function(data) {
+.report_reference_frames <- function(data, gift_cells) {
   definitions <- data$tables$reference_frame
   metric_table <- data$tables$reference_frame_metric
   scope_order <- c("genome", "community", "network")
 
-  cards <- paste(vapply(seq_len(nrow(data$frames)), function(index) {
+  frames <- lapply(seq_len(nrow(data$frames)), function(index) {
     frame <- data$frames[index, , drop = FALSE]
     frame_pk <- definitions$frame_pk[
       match(frame$frame_id, definitions$frame_id)
     ]
     metrics <- metric_table[metric_table$frame_pk == frame_pk, , drop = FALSE]
-    scopes <- scope_order[scope_order %in% unique(metrics$scope)]
-    bounded <- isTRUE(frame$bounded[[1L]])
-    scope_sections <- paste(vapply(scopes, function(scope) {
-      rows <- metrics[metrics$scope == scope, , drop = FALSE]
-      items <- paste(vapply(seq_len(nrow(rows)), function(metric_index) {
-        metric <- rows[metric_index, , drop = FALSE]
+    list(
+      frame = frame,
+      metrics = metrics,
+      scopes = scope_order[scope_order %in% unique(metrics$scope)],
+      bounded = isTRUE(frame$bounded[[1L]])
+    )
+  })
+
+  bound_chip <- function(bounded) {
+    paste0(
+      '<span class="frame-bound ', if (bounded) "bounded" else "open", '">',
+      if (bounded) "bounded &middot; coverage valid" else "open &middot; counts and breadth",
+      "</span>"
+    )
+  }
+
+  # The table is the index: one row per frame, enough to tell the options
+  # apart. Everything needed to use a frame lives on its own page.
+  rows <- paste(vapply(frames, function(entry) {
+    frame <- entry$frame
+    searchable <- .html_search_text(
+      frame, entry$metrics$scope, entry$metrics$metric_id, entry$metrics$rationale
+    )
+    scale_chips <- paste(vapply(entry$scopes, function(scope) {
+      paste0('<span class="frame-scale">', .html_escape(.report_facet_label(scope)), "</span>")
+    }, character(1)), collapse = "")
+    paste0(
+      '<tr class="frame-row" data-frame-row data-frame-id="', .html_escape(frame$frame_id), '" ',
+      'data-frame-scopes=" ', paste(entry$scopes, collapse = " "), ' " ',
+      'data-frame-bounded="', if (entry$bounded) "true" else "false", '" ',
+      'data-search="', .html_escape(searchable), '" tabindex="0" role="link">',
+      '<td class="frame-name"><strong>', .html_text(frame$label), "</strong>",
+      "<code>", .html_text(frame$frame_id), "</code></td>",
+      '<td class="frame-summary">', .html_text(frame$description), "</td>",
+      '<td class="frame-count">', frame$member_count, "</td>",
+      '<td class="frame-scales">', scale_chips, "</td>",
+      "<td>", bound_chip(entry$bounded), "</td></tr>"
+    )
+  }, character(1)), collapse = "")
+
+  pages <- paste(vapply(frames, function(entry) {
+    frame <- entry$frame
+    metrics <- entry$metrics
+    scope_sections <- paste(vapply(entry$scopes, function(scope) {
+      scope_rows <- metrics[metrics$scope == scope, , drop = FALSE]
+      items <- paste(vapply(seq_len(nrow(scope_rows)), function(metric_index) {
+        metric <- scope_rows[metric_index, , drop = FALSE]
         paste0(
           '<li><code>', .html_text(metric$metric_id), '</code><span>',
           .html_text(metric$rationale), "</span></li>"
@@ -2080,25 +2366,37 @@
         '</h3><ul>', items, "</ul></section>"
       )
     }, character(1)), collapse = "")
-    searchable <- .html_search_text(
-      frame, metrics$scope, metrics$metric_id, metrics$rationale
-    )
+    members <- data$frame_members[[frame$frame_id]]
+    member_table <- if (length(members)) {
+      member_rows <- paste0(
+        '<tr class="gift-table-row" data-gift-link="', .html_escape(members), '" ',
+        'tabindex="0" role="link">', gift_cells[members], "</tr>",
+        collapse = ""
+      )
+      paste0(
+        '<div class="gift-table-shell"><div class="gift-table-caption"><span>',
+        length(members), " member GIFT", if (length(members) == 1L) "" else "s",
+        '</span><small>Select a row to open its routes and reactions</small></div>',
+        '<div class="gift-table-scroll"><table class="gift-summary-table frame-member-table">',
+        .report_gift_table_head(sortable = FALSE),
+        "<tbody>", member_rows, "</tbody></table></div></div>"
+      )
+    } else {
+      '<div class="empty-state">No member GIFTs</div>'
+    }
 
     paste0(
-      '<article class="frame-card', if (bounded) " bounded" else "", '" ',
-      'data-frame-card data-frame-scopes=" ', paste(scopes, collapse = " "), ' " ',
-      'data-frame-bounded="', if (bounded) "true" else "false", '" data-search="',
-      .html_escape(searchable), '">',
-      '<header><div><div class="frame-id">', .html_text(frame$frame_id),
-      '</div><h2>', .html_text(frame$label), '</h2></div>',
-      '<span class="frame-bound ', if (bounded) "bounded" else "open", '">',
-      if (bounded) "bounded &middot; coverage valid" else "open &middot; counts and breadth",
-      '</span></header>',
+      '<article class="frame-page" data-frame-page data-frame-id="',
+      .html_escape(frame$frame_id), '" hidden>',
+      '<button class="page-back" type="button" data-frame-back>&larr; All frames</button>',
+      '<header class="frame-page-header"><div><div class="frame-id">',
+      .html_text(frame$frame_id), '</div><h2>', .html_text(frame$label), '</h2></div>',
+      bound_chip(entry$bounded), '</header>',
       '<p class="frame-description">', .html_text(frame$description), "</p>",
       '<div class="frame-facts"><span><strong>', frame$member_count,
-      '</strong> current GIFT', if (frame$member_count == 1L) "" else "s", '</span>',
-      '<span><strong>', length(scopes), '</strong> analysis scale',
-      if (length(scopes) == 1L) "" else "s", "</span></div>",
+      '</strong> GIFT', if (frame$member_count == 1L) "" else "s", '</span>',
+      '<span><strong>', length(entry$scopes), '</strong> analysis scale',
+      if (length(entry$scopes) == 1L) "" else "s", "</span></div>",
       '<div class="frame-call"><span>Use this preset</span><code>',
       'reference_frame(preset = &quot;', .html_text(frame$frame_id), '&quot;)',
       "</code></div>",
@@ -2106,21 +2404,81 @@
       scope_sections, "</div>",
       '<aside class="frame-interpretation"><strong>Interpret carefully</strong><span>',
       .html_text(frame$interpretation), "</span></aside>",
-      '<details class="frame-definition"><summary>How membership is defined</summary>',
-      '<code>', .html_text(frame$filter_expression), "</code></details></article>"
+      '<section class="frame-definition"><h3>How membership is defined</h3>',
+      '<code>', .html_text(frame$filter_expression), "</code></section>",
+      '<section class="frame-members">', member_table,
+      "</section></article>"
     )
   }, character(1)), collapse = "")
 
+  bounded_labels <- vapply(Filter(function(entry) entry$bounded, frames), function(entry) {
+    .html_text(entry$frame$label)
+  }, character(1))
+  bounded_text <- if (length(bounded_labels)) {
+    paste0(
+      length(bounded_labels), " of the ", length(frames), " presets are bounded: ",
+      paste(bounded_labels, collapse = ", "), "."
+    )
+  } else {
+    "No preset is currently bounded."
+  }
+
+  explainer <- paste0(
+    '<section class="view-explainer" aria-label="What a frame is">',
+    '<p class="view-lead">A frame is the set of GIFTs over which a quantitative trait is ',
+    'computed. It defines the comparison set for counts and breadth and, when the set is ',
+    'bounded, the denominator for proportions. Every trait reported by gifter states the ',
+    'frame in which it was computed.</p>',
+    '<div class="view-concepts">',
+    '<div><h3>Membership defined by curated metadata</h3>',
+    '<p>A frame is defined by filters on curated metadata: GIFT type, metabolic mode, ',
+    'facets such as substrate class, and the derived GIFT profile. It does not store a ',
+    'list of GIFT identifiers. Membership is therefore resolved against each database ',
+    'release, and a newly curated GIFT is included in every frame whose filters it ',
+    'satisfies. Frames are not mutually exclusive; a GIFT may belong to several.</p></div>',
+    '<div><h3>Open and bounded frames</h3>',
+    '<p>An <strong>open</strong> frame contains the GIFTs currently curated for a ',
+    'capability, which is not the full extent of that capability in microbial genomes. ',
+    'Open frames support counts and breadth, and no proportion of the frame is reported. ',
+    'A <strong>bounded</strong> frame represents a biologically closed set that curation ',
+    'intends to cover completely, so the proportion of its members supported by a genome ',
+    'is interpretable. ', bounded_text, '</p></div>',
+    '<div><h3>Analysis scales</h3>',
+    '<p><strong>Genome</strong> metrics describe the repertoire encoded by a single ',
+    'genome, such as richness, breadth across a facet and, in bounded frames, coverage. ',
+    '<strong>Community</strong> metrics describe how these capabilities are distributed ',
+    'across genomes, with abundance reported separately from presence. ',
+    '<strong>Network</strong> metrics describe potential handoffs between organisms, ',
+    'which are inferred only through anchors curated as extracellular. Each preset lists ',
+    'recommended metrics for every scale it supports.</p></div>',
+    '<div><h3>Preset, custom and default frames</h3>',
+    '<p>The presets listed below are used with ',
+    '<code>reference_frame(preset = &quot;&hellip;&quot;)</code>. Custom frames are built ',
+    'from the same filters, for example <code>reference_frame(mode = &quot;catabolic&quot;)</code>, ',
+    'and are open unless declared bounded. When no frame is supplied, the trait functions ',
+    'report a default set: all curated GIFTs, each GIFT type, each metabolic mode, each ',
+    'resource strategy, and the biomass-essential anabolic frame.</p></div>',
+    '</div>',
+    '<p class="view-caveat">Traits computed in any frame describe genomic capability. ',
+    'They do not indicate expression, activity, flux, substrate availability or ',
+    'phenotype.</p>',
+    '</section>'
+  )
+
   paste0(
+    '<div class="frame-list" data-frame-list>',
+    explainer,
+    '<h2 class="view-section-title">Choosing a frame</h2>',
     '<section class="frame-intro" aria-label="How to choose a frame">',
-    '<div><span>1</span><strong>Start with the biological question</strong>',
-    '<p>Choose the card whose scope matches what you want to compare, not the metric ',
-    'whose name sounds most familiar.</p></div>',
+    '<div><span>1</span><strong>Define the biological question</strong>',
+    '<p>Select the frame whose scope corresponds to the comparison of interest, rather ',
+    'than selecting by metric name.</p></div>',
     '<div><span>2</span><strong>Match the unit of analysis</strong>',
-    '<p>Genome metrics describe one encoded repertoire; community metrics describe ',
-    'its distribution; network metrics require compatible extracellular boundaries.</p></div>',
-    '<div><span>3</span><strong>Read the denominator</strong>',
-    '<p>Open frames support counts and breadth. Coverage fractions are meaningful ',
+    '<p>Genome metrics describe a single encoded repertoire; community metrics describe ',
+    'its distribution across genomes; network metrics require compatible extracellular ',
+    'boundaries.</p></div>',
+    '<div><span>3</span><strong>Check the denominator</strong>',
+    '<p>Open frames support counts and breadth. Coverage fractions are interpretable ',
     'only for frames curated as bounded.</p></div></section>',
     '<div class="frame-toolbar" aria-label="Filter frames by analysis scale">',
     '<span>Show questions for</span>',
@@ -2130,20 +2488,251 @@
     '<button type="button" data-frame-filter="network" aria-pressed="false">Networks</button>',
     '<button type="button" data-frame-filter="bounded" aria-pressed="false">Coverage fractions</button>',
     "</div>",
-    '<div class="frame-grid">', cards, "</div>"
+    '<div class="changelog-shell frame-table-shell"><div class="changelog-caption"><span>',
+    length(frames), " frame", if (length(frames) == 1L) "" else "s",
+    '</span><small>Select a frame to open its definition, members and recommended analyses</small></div>',
+    '<div class="changelog-scroll"><table class="changelog-table frame-table">',
+    "<thead><tr><th>Frame</th><th>Covers</th><th>GIFTs</th><th>Analysis scales</th>",
+    "<th>Denominator</th></tr></thead><tbody>", rows, "</tbody></table></div></div></div>",
+    pages
+  )
+}
+
+# The atlas sections, in the order the Atlas menu lists them. The introduction
+# is the landing view; the advanced sections sit below a divider.
+.report_atlas_sections <- list(
+  list(view = "introduction", label = "Introduction", advanced = FALSE),
+  list(view = "frames", label = "Frames", advanced = FALSE),
+  list(view = "gifts", label = "GIFTs", advanced = FALSE),
+  list(view = "changelog", label = "Changes", advanced = FALSE),
+  list(view = "overview", label = "Network overview", advanced = TRUE),
+  list(view = "schema", label = "Data model", advanced = TRUE),
+  list(view = "tables", label = "Tables", advanced = TRUE)
+)
+
+# The Atlas entry of the site navigation: one dropdown that switches between
+# the atlas views, so the atlas needs no navigation bar of its own.
+.report_atlas_menu <- function() {
+  item <- function(section) {
+    paste0(
+      '<button class="view-menu-link" type="button" data-view-button="',
+      section$view, '">', .html_escape(section$label), "</button>"
+    )
+  }
+  advanced <- vapply(.report_atlas_sections, function(section) section$advanced, logical(1))
+  paste0(
+    '<details class="site-menu atlas-menu" data-view-menu>',
+    '<summary class="site-nav-link active" aria-current="page">Atlas</summary>',
+    '<div class="site-menu-list" aria-label="Atlas sections">',
+    paste(vapply(.report_atlas_sections[!advanced], item, character(1)), collapse = ""),
+    '<div class="site-menu-label">Advanced</div>',
+    paste(vapply(.report_atlas_sections[advanced], item, character(1)), collapse = ""),
+    "</div></details>"
+  )
+}
+
+# A horizontal bar list: one row per value, scaled to the largest count.
+.report_distribution <- function(title, counts, note = NULL) {
+  counts <- sort(counts[counts > 0L], decreasing = TRUE)
+  peak <- max(c(counts, 1L))
+  rows <- paste(vapply(names(counts), function(name) {
+    paste0(
+      '<li><span>', .html_escape(name), '</span><i style="--share:',
+      sprintf("%.1f", 100 * counts[[name]] / peak), '%"></i><strong>',
+      format(counts[[name]], big.mark = ","), "</strong></li>"
+    )
+  }, character(1)), collapse = "")
+  paste0(
+    '<div class="atlas-distribution"><h3>', .html_escape(title), "</h3>",
+    "<ul>", rows, "</ul>",
+    if (!is.null(note)) paste0("<p>", note, "</p>"),
+    "</div>"
+  )
+}
+
+# The landing view: what the atlas contains and how it is organised. Every
+# number is read from the compiled database, so the page stays true as the
+# catalogue grows.
+.report_atlas_intro <- function(data) {
+  release <- data$release
+  counts <- data$counts
+  type_order <- c("metabolic", "structural", "regulatory", "defense")
+  type_counts <- table(factor(data$gifts$gift_type, levels = type_order))
+  marker_keys <- function(rows) unique(paste(rows$namespace, rows$accession, sep = ":"))
+
+  # One row per GIFT type over the five layers of its completeness model.
+  # Reactions, functions and markers are counted once however many GIFTs use
+  # them, so a column is not a sum over GIFTs.
+  layer_rows <- list(list(
+    type = "metabolic", gifts = type_counts[["metabolic"]],
+    alternatives = c(counts[["gift_route"]], "routes"),
+    requirements = c(counts[["reaction"]], "reactions"),
+    systems = c(counts[["enzyme_system"]], "enzyme systems"),
+    components = counts[["enzyme_component"]],
+    markers = length(marker_keys(data$component_markers))
+  ))
+  for (gift_type in setdiff(type_order, "metabolic")) {
+    view <- data$machinery[[gift_type]]
+    if (is.null(view)) next
+    layer_rows[[length(layer_rows) + 1L]] <- list(
+      type = gift_type, gifts = type_counts[[gift_type]],
+      alternatives = c(nrow(view$implementations), view$model$implementation_plural),
+      requirements = c(nrow(view$functions), "functions"),
+      systems = c(nrow(view$systems), "systems"),
+      components = nrow(view$components),
+      markers = length(marker_keys(view$markers))
+    )
+  }
+  layer_cell <- function(value) {
+    paste0(
+      "<td><strong>", format(as.integer(value[[1L]]), big.mark = ","), "</strong>",
+      if (length(value) > 1L) paste0("<small>", .html_escape(value[[2L]]), "</small>"),
+      "</td>"
+    )
+  }
+  layer_table <- paste(vapply(layer_rows, function(row) {
+    paste0(
+      '<tr><th scope="row">', .html_escape(.report_facet_label(row$type)), "</th>",
+      layer_cell(row$gifts), layer_cell(row$alternatives), layer_cell(row$requirements),
+      layer_cell(row$systems), layer_cell(row$components), layer_cell(row$markers), "</tr>"
+    )
+  }, character(1)), collapse = "")
+
+  machinery_tables <- unlist(lapply(.gifter_machinery_models, function(model) {
+    c(model$implementation_table, model$system_table, model$component_table)
+  }), use.names = FALSE)
+  machinery_count <- function(table_name) sum(counts[intersect(table_name, names(counts))])
+  metric_cards <- paste0(
+    .report_count_card(counts[["gift"]], "GIFTs", "curated capabilities"),
+    .report_count_card(counts[["anchor"]], "Anchors", "declared boundary molecules"),
+    .report_count_card(
+      counts[["gift_route"]] + machinery_count(machinery_tables[c(TRUE, FALSE, FALSE)]),
+      "Alternatives", "routes and implementations"
+    ),
+    .report_count_card(
+      counts[["enzyme_system"]] + machinery_count(machinery_tables[c(FALSE, TRUE, FALSE)]),
+      "Systems", "enzymes and machinery"
+    ),
+    .report_count_card(
+      counts[["enzyme_component"]] + machinery_count(machinery_tables[c(FALSE, FALSE, TRUE)]),
+      "Components", "jointly required proteins"
+    ),
+    .report_count_card(counts[["marker"]], "Markers", "accepted identifiers")
+  )
+
+  modes <- table(data$gifts$mode[data$gifts$gift_type == "metabolic"])
+  names(modes) <- vapply(names(modes), .report_facet_label, character(1))
+  namespaces <- table(data$tables$marker$namespace)
+  compartments <- table(data$tables$anchor$compartment)
+  names(compartments) <- vapply(names(compartments), .report_facet_label, character(1))
+
+  frames <- data$frames
+  bounded <- sum(as.logical(frames$bounded), na.rm = TRUE)
+  section_card <- function(view, title, figure, text) {
+    paste0(
+      '<a class="atlas-section" href="#', view, '"><span class="atlas-section-figure">',
+      figure, '</span><strong>', title, "</strong><p>", text, "</p></a>"
+    )
+  }
+  plural <- function(n, word) paste0(format(n, big.mark = ","), " ", word, if (n == 1L) "" else "s")
+  release_fact <- function(label, value) {
+    paste0("<div><dt>", label, "</dt><dd>", .html_text(value), "</dd></div>")
+  }
+  commit <- release$source_commit[[1L]]
+
+  paste0(
+    '<div class="page-heading"><div><div class="eyebrow">Database ',
+    .html_text(release$gifter_db_version), " &middot; schema ",
+    .html_text(release$schema_version), '</div><h1>Reference atlas</h1></div>',
+    '<p>A browsable compilation of the gifter reference database: every curated GIFT, ',
+    'how its genomic support is evaluated, and where its definition came from.</p></div>',
+    '<section class="view-explainer" aria-label="What the atlas is">',
+    '<p class="view-lead">gifter infers genome-inferred functional traits (GIFTs) from ',
+    'the markers observed in a genome. Each GIFT is a biologically defined capability ',
+    'with an explicit completeness model, and this atlas renders the curated database ',
+    'behind those calls, from the trait down to the accepted markers.</p></section>',
+    '<h2 class="view-section-title">The database at a glance</h2>',
+    '<div class="metric-grid atlas-metrics">', metric_cards, "</div>",
+    '<h2 class="view-section-title atlas-subtitle">Layers by GIFT type</h2>',
+    '<div class="changelog-shell atlas-layer-shell"><div class="changelog-scroll">',
+    '<table class="changelog-table atlas-layer-table"><thead><tr>',
+    "<th>Type</th><th>GIFTs</th><th>Alternatives</th><th>Requirements</th>",
+    "<th>Systems</th><th>Components</th><th>Markers</th></tr></thead><tbody>",
+    layer_table, "</tbody></table></div></div>",
+    '<p class="atlas-note">Each type evaluates five Boolean layers: a GIFT is supported by ',
+    '<strong>any</strong> complete alternative (a route, architecture, circuit or ',
+    'mechanism), an alternative requires <strong>all</strong> of its reactions or ',
+    'functions, each of those is met by <strong>any</strong> complete system, a system ',
+    'requires <strong>all</strong> of its components, and a component is supported by ',
+    '<strong>any</strong> accepted marker. Reactions, functions and markers are counted ',
+    'once however many GIFTs share them, and a marker may serve more than one type.</p>',
+    '<div class="atlas-distributions">',
+    .report_distribution("Metabolic GIFTs by mode", modes),
+    .report_distribution("Anchors by compartment", compartments),
+    .report_distribution("Markers by namespace", namespaces),
+    "</div>",
+    '<h2 class="view-section-title atlas-subtitle">How the atlas is organised</h2>',
+    '<div class="atlas-sections">',
+    section_card(
+      "frames", "Frames", plural(nrow(frames), "preset"),
+      paste0(
+        "The sets of GIFTs over which quantitative traits are computed, with the ",
+        "analyses each supports. ", bounded, " ", if (bounded == 1L) "is" else "are",
+        " bounded, so coverage fractions are interpretable."
+      )
+    ),
+    section_card(
+      "gifts", "GIFTs", plural(counts[["gift"]], "GIFT"),
+      paste0(
+        "The catalogue. Each GIFT has its own page with its boundaries, alternatives, ",
+        "reactions or functions, systems, components, markers and curation evidence."
+      )
+    ),
+    section_card(
+      "changelog", "Changes", plural(counts[["database_change"]], "change"),
+      paste0(
+        "Every change to the biological content, why it was made, its evidence, and ",
+        "the GIFTs it affects."
+      )
+    ),
+    section_card(
+      "overview", "Network overview", plural(counts[["gift_anchor"]], "boundary link"),
+      paste0(
+        "Every GIFT and its declared anchors drawn as one network, recoloured by ",
+        "curated metadata. GIFTs connect only through declared anchors."
+      )
+    ),
+    section_card(
+      "schema", "Data model", plural(length(data$schema), "table"),
+      "Primary keys, foreign keys and the normalized tables behind the evaluation model."
+    ),
+    section_card(
+      "tables", "Tables", plural(sum(counts), "row"),
+      "Every compiled row, searchable, for inspecting exact values."
+    ),
+    "</div>",
+    '<h2 class="view-section-title atlas-subtitle">This release</h2>',
+    '<dl class="atlas-release">',
+    release_fact("Database version", release$gifter_db_version),
+    release_fact("Schema version", release$schema_version),
+    release_fact("Build date", release$build_date),
+    release_fact("Rhea release", release$rhea_release),
+    release_fact("ChEBI release", release$chebi_release),
+    release_fact("KEGG release", release$kegg_release),
+    release_fact(
+      "Source commit",
+      if (is.na(commit) || identical(commit, "unreleased")) commit else substr(commit, 1L, 12L)
+    ),
+    "</dl>",
+    '<p class="view-caveat">A positive call indicates that the markers support at least ',
+    'one complete curated route, architecture, circuit or mechanism. It does not indicate ',
+    'expression, activity, physiological state or phenotype.</p>'
   )
 }
 
 .render_gifter_report <- function(data) {
   release <- data$release
-  metric_cards <- paste0(
-    .report_count_card(data$counts[["gift"]], "GIFTs", "curated capabilities"),
-    .report_count_card(data$counts[["gift_route"]], "Routes", "alternative paths"),
-    .report_count_card(data$counts[["reaction"]], "Reactions", "Rhea masters"),
-    .report_count_card(data$counts[["enzyme_system"]], "Systems", "enzyme configurations"),
-    .report_count_card(data$counts[["enzyme_component"]], "Components", "required proteins"),
-    .report_count_card(data$counts[["marker"]], "Markers", "accepted identifiers")
-  )
+  explorer <- .report_gift_explorer(data)
   css <- .gifter_report_asset("database-report.css")
   javascript <- .gifter_report_asset("database-report.js")
   logo <- sub(
@@ -2174,11 +2763,13 @@
     '<a href="https://alberdilab.github.io/gifter/articles/multi-sample-datasets.html">',
     'Many samples over one catalogue</a>',
     '</div></details>',
-    '<a class="site-nav-link active" href="#frames" aria-current="page">Atlas</a>',
+    .report_atlas_menu(),
     '<details class="site-menu"><summary class="site-nav-link">Curation</summary>',
     '<div class="site-menu-list">',
     '<a href="https://alberdilab.github.io/gifter/articles/curating-a-gift.html">',
     'How a GIFT is built</a>',
+    '<a href="https://alberdilab.github.io/gifter/articles/curating-a-gift.html#which-data-are-used-and-are-they-always-the-same">',
+    'Data sources and genome tests</a>',
     '<a href="https://alberdilab.github.io/gifter/articles/curating-a-gift.html#choose-marker-evidence">',
     'Marker selection and specificity</a>',
     '<a href="https://alberdilab.github.io/gifter/articles/curating-a-gift.html#record-provenance-build-and-close-the-attempt">',
@@ -2190,18 +2781,19 @@
     '<span class="sr-only">Search the database</span><input id="global-search" type="search" ',
     'placeholder="Search IDs, questions, markers&hellip;" autocomplete="off">',
     '<kbd>&#8984; K</kbd></label></header>',
-    '<nav class="view-nav" aria-label="Atlas sections">',
-    '<button class="nav-button active" data-view-button="frames">Frames</button>',
-    '<button class="nav-button" data-view-button="gifts">GIFTs</button>',
-    '<button class="nav-button" data-view-button="changelog">Changes</button>',
-    '<details class="site-menu view-menu" data-view-menu>',
-    '<summary class="nav-button">Advanced</summary><div class="site-menu-list">',
-    '<button class="view-menu-link" data-view-button="overview">Network overview</button>',
-    '<button class="view-menu-link" data-view-button="schema">Data model</button>',
-    '<button class="view-menu-link" data-view-button="tables">Tables</button>',
-    '</div></details></nav>',
-    '<main><section class="view" id="overview" data-view="overview">',
-    '<div class="metric-grid">', metric_cards, "</div>",
+    # The trail is filled in by the script as the view changes; the markup
+    # carries the landing view's trail for a reader without scripts.
+    '<main><nav class="breadcrumbs" aria-label="Breadcrumb">',
+    '<ol data-breadcrumbs data-home="https://alberdilab.github.io/gifter/">',
+    '<li><a href="https://alberdilab.github.io/gifter/">gifter</a></li>',
+    '<li><a href="#introduction">Atlas</a></li>',
+    '<li aria-current="page">Introduction</li></ol></nav>',
+    '<section class="view active" id="introduction" data-view="introduction">',
+    .report_atlas_intro(data), "</section>",
+    '<section class="view" id="overview" data-view="overview"><div class="page-heading">',
+    '<div><div class="eyebrow">Declared anchors</div><h1>Network overview</h1></div>',
+    '<p>Every GIFT with its declared boundaries. GIFTs connect only through anchors, ',
+    'never through metabolites shared inside routes.</p></div>',
     '<section class="content-section network-overview">',
     '<div class="dot-controls">',
     .report_scheme_menu("gift", "Colour GIFTs by"),
@@ -2209,16 +2801,16 @@
     '<span class="dot-hint">Hover a dot for its detail &middot; click a GIFT to open it</span></div>',
     '<div data-graph-panel="anchors">', .report_anchor_network_svg(data),
     "</div></section></section>",
-    '<section class="view active" id="frames" data-view="frames"><div class="page-heading">',
-    '<div><div class="eyebrow">Quantitative analysis</div><h1>Choose a frame</h1></div>',
-    '<p>A frame &mdash; formally, a reference frame &mdash; defines the comparison set and ',
-    'denominator. Find the one matching your biological question and data scale.</p></div>',
-    .report_reference_frames(data),
+    '<section class="view" id="frames" data-view="frames"><div class="page-heading">',
+    '<div><div class="eyebrow">Quantitative analysis</div><h1>Frames</h1></div></div>',
+    .report_reference_frames(data, explorer$cells),
     '<div class="no-results" data-no-results>No matching frames.</div></section>',
     '<section class="view" id="gifts" data-view="gifts"><div class="page-heading">',
-    '<div><div class="eyebrow">Biological hierarchy</div><h1>Explore GIFTs</h1></div>',
-    '<p>Select a GIFT to inspect its boundaries, routes, reactions, and accepted genomic evidence.</p></div>',
-    .report_gift_explorer(data), '<div class="no-results" data-no-results>No matching GIFTs.</div></section>',
+    '<div><div class="eyebrow">Biological hierarchy</div><h1>GIFTs</h1></div></div>',
+    '<div class="gift-list" data-gift-list>',
+    .report_gift_intro(data),
+    '<h2 class="view-section-title">Catalogue</h2>',
+    explorer$table, "</div>", explorer$pages, '<div class="no-results" data-no-results>No matching GIFTs.</div></section>',
     '<section class="view" id="changelog" data-view="changelog"><div class="page-heading">',
     '<div><div class="eyebrow">Curation history &middot; database ',
     .html_text(release$gifter_db_version), '</div><h1>Database changes</h1></div>',
@@ -2244,8 +2836,10 @@
 
 #' Write an interactive HTML atlas of the gifter database
 #'
-#' Creates a dependency-free HTML report containing release metadata, table
-#' counts, a searchable guide to curated frames, a complete
+#' Creates a dependency-free HTML report that opens on an introduction to the
+#' database -- its counts, the evaluation layers of each GIFT type, the
+#' distribution of modes, compartments and marker namespaces, and the release
+#' versions -- followed by a searchable guide to curated frames, a complete
 #' biological hierarchy, the relational data model, and a searchable browser for every
 #' table. Two network views are drawn as inline SVG. The
 #' overview network draws every GIFT together with its declared anchors as an
@@ -2258,9 +2852,14 @@
 #' the key for whichever scheme is showing sits in the corner of the figure.
 #' The second network is drawn for each GIFT: a merged route network in which
 #' alternative routes are overlaid on the reactions they share. The GIFT table
-#' can be grouped by category and filtered by start and end anchor, and a
-#' selected GIFT opens in a dialog over the table. All styles, scripts, and data
-#' are embedded so the output can be opened or shared as one file.
+#' can be grouped by category and filtered by start and end anchor. Each GIFT
+#' and each named frame has its own page, addressed as `#gifts/<gift_id>` or
+#' `#frames/<frame_id>`. A GIFT page links its reactions, markers and related
+#' pathways to their public records, shows where each marker was accepted from,
+#' and lists the curation documents, analysis scripts and result tables behind
+#' its definition, linked to the source repository at the release commit. All
+#' styles, scripts, and data are embedded so the output can be opened or shared
+#' as one file.
 #'
 #' @param output Path of the HTML file to create.
 #' @param database Optional SQLite path or open DBI connection. By default, the

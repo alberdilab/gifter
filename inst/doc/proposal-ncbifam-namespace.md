@@ -104,6 +104,10 @@ deferrals survive.
 | Variant and SNP resistance | **Never.** The evidence layer has no accession for a residue, and a profile is not a residue. |
 | CRISPR array context, PUL substrate context | **Not unblocked.** Both need genomic context, which is a different axis. |
 
+The later [regulatory and defense expansion](proposal-regulatory-defense-expansion.md)
+curated `serine_chemoreception` from the Tsr equivalog after a separate
+ligand-specific circuit assessment; the namespace admission alone made no call.
+
 ## 4. The cost side
 
 Three costs, none prohibitive, all real.

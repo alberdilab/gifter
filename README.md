@@ -408,7 +408,11 @@ large dot and an anchor a small one -- hover a dot for its identifier and
 boundaries, click a GIFT to open it, and recolour either kind of dot by the
 metadata it carries -- a merged route network for every GIFT, the complete GIFT-to-marker evidence hierarchy, the
 curation changelog linked to the traits each change affects, an entity map, and
-a searchable browser for every SQLite table.
+a searchable browser for every SQLite table. Each GIFT has its own page, which
+links its reactions, markers and related pathways to their public records and
+lists the curation documents, analysis scripts and result tables behind its
+definition, linked to this repository at the commit the database was compiled
+from.
 
 The biological changelog is part of the database rather than a file beside the
 code, so it travels with the compiled artifact:
@@ -416,6 +420,13 @@ code, so it travels with the compiled artifact:
 ```r
 database_changelog()
 database_changelog("pyrimidine_core_biosynthesis")
+```
+
+So does the record of where each GIFT was worked out — the documents that
+define it, and any R script run to decide it with the tables that script wrote:
+
+```r
+get_gift_evidence("type_ii_secretion_system")
 ```
 
 Package and API changes are tracked separately in

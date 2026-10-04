@@ -1,4 +1,4 @@
-.gifter_schema_version <- 7L
+.gifter_schema_version <- 8L
 
 # The kinds of biologically meaningful capability gifter can state. This is not a
 # facet: it selects the completeness model that produces a call, decides which
@@ -215,6 +215,16 @@
 
 .gifter_change_categories <- c("addition", "correction", "removal", "clarification")
 
+# What a gift_evidence row points at. A curation document states and defends a
+# GIFT's definition, an analysis script is code run to decide it, and a result
+# table is what such a script wrote. Each kind has the file types it may name,
+# so a location cannot claim to be code when it is a table.
+.gifter_evidence_kinds <- list(
+  curation_document = c("md"),
+  analysis_script = c("R"),
+  result_table = c("tsv", "csv", "txt")
+)
+
 .gifter_call_effects <- c("broadens", "narrows", "mixed", "none")
 
 .gifter_source_spec <- list(
@@ -233,6 +243,7 @@
   anchors = c("anchor_id", "molecule", "compartment", "name", "chebi_id", "description"),
   gift_anchors = c("gift_id", "anchor_id", "role", "ordinal"),
   gift_xrefs = c("gift_id", "namespace", "accession", "name", "relation", "notes"),
+  gift_evidence = c("gift_id", "evidence_kind", "location", "description"),
   reactions = c("reaction_id", "rhea_master", "name", "description"),
   reaction_xrefs = c("reaction_id", "namespace", "accession"),
   gift_routes = c(
@@ -280,7 +291,7 @@
   change_gifts = c("change_id", "gift_id"),
   database_release = c(
     "gifter_db_version", "schema_version", "build_date", "rhea_release",
-    "chebi_release", "kegg_release", "source_commit"
+    "chebi_release", "kegg_release", "source_commit", "source_repository"
   )
 )
 
@@ -493,6 +504,7 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
     list("gift_anchors.gift_id", tables$gift_anchors$gift_id, tables$gifts$gift_id),
     list("gift_anchors.anchor_id", tables$gift_anchors$anchor_id, tables$anchors$anchor_id),
     list("gift_xrefs.gift_id", tables$gift_xrefs$gift_id, tables$gifts$gift_id),
+    list("gift_evidence.gift_id", tables$gift_evidence$gift_id, tables$gifts$gift_id),
     list("gift_routes.gift_id", tables$gift_routes$gift_id, tables$gifts$gift_id),
     list("route_reactions.route_id", tables$route_reactions$route_id, tables$gift_routes$route_id),
     list("route_reactions.reaction_id", tables$route_reactions$reaction_id, tables$reactions$reaction_id),
@@ -1375,6 +1387,8 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
     }
   }
 
+  errors <- c(errors, .validate_gift_evidence(tables$gift_evidence))
+
   changes <- tables$database_changes
   if (length(.duplicate_keys(tables$change_gifts, c("change_id", "gift_id")))) {
     errors <- c(errors, "change_gifts contains duplicate change/gift pairs")
@@ -1448,6 +1462,12 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
     if (is.na(suppressWarnings(as.Date(release$build_date[[1]])))) {
       errors <- c(errors, "database_release.build_date must use YYYY-MM-DD")
     }
+    if (!grepl("^https://[^[:space:]]+[^/[:space:]]$", release$source_repository[[1]])) {
+      errors <- c(
+        errors,
+        "database_release.source_repository must be an https URL without a trailing slash"
+      )
+    }
   }
 
   errors <- unique(errors)
@@ -1501,6 +1521,57 @@ validate_gifter_sources <- function(source_dir, stop_on_error = TRUE) {
 # artifact-only commit, which avoids a circular requirement for SQLite to name
 # the commit that contains SQLite itself. `git` is injectable only to make the
 # decision testable without changing a repository.
+# A gift_evidence location is a path inside the source repository, so that the
+# atlas can link it at the release commit. It is checked for shape here; that
+# the file exists is a property of the repository, which the package tests
+# check, not of a source directory that may have been copied elsewhere.
+.validate_gift_evidence <- function(evidence) {
+  errors <- character()
+  if (!nrow(evidence)) return(errors)
+  duplicates <- .duplicate_keys(evidence, c("gift_id", "location"))
+  if (length(duplicates)) {
+    errors <- c(errors, paste0(
+      "Duplicated gift_evidence GIFT/location pairs: ", paste(duplicates, collapse = ", ")
+    ))
+  }
+  invalid_kinds <- setdiff(unique(evidence$evidence_kind), names(.gifter_evidence_kinds))
+  if (length(invalid_kinds)) {
+    errors <- c(errors, paste0(
+      "Invalid gift_evidence.evidence_kind: ", paste(invalid_kinds, collapse = ", ")
+    ))
+  }
+  location <- evidence$location
+  malformed <- is.na(location) | !nzchar(location) |
+    grepl("^[a-zA-Z][a-zA-Z0-9+.-]*://", location) | startsWith(location, "/") |
+    grepl("(^|/)\\.\\.(/|$)", location) | grepl("[[:space:]\\\\]", location)
+  if (any(malformed)) {
+    errors <- c(errors, paste0(
+      "gift_evidence.location must be a relative path inside the source repository: ",
+      paste(unique(location[malformed]), collapse = ", ")
+    ))
+  }
+  known <- evidence$evidence_kind %in% names(.gifter_evidence_kinds)
+  extension <- tools::file_ext(location)
+  mismatched <- known & !malformed & !mapply(function(kind, ext) {
+    ext %in% .gifter_evidence_kinds[[kind]]
+  }, evidence$evidence_kind, extension)
+  if (any(mismatched)) {
+    errors <- c(errors, paste0(
+      "gift_evidence.location does not match its evidence_kind: ",
+      paste(unique(paste0(location[mismatched], " (", evidence$evidence_kind[mismatched], ")")),
+            collapse = ", ")
+    ))
+  }
+  empty <- is.na(evidence$description) | !nzchar(trimws(evidence$description))
+  if (any(empty)) {
+    errors <- c(errors, paste0(
+      "gift_evidence.description must be recorded for: ",
+      paste(unique(location[empty]), collapse = ", ")
+    ))
+  }
+  errors
+}
+
 .release_source_commit <- function(
     value = Sys.getenv("GIFTER_SOURCE_COMMIT", unset = ""), root = ".",
     git = function(args) system2("git", args, stdout = TRUE, stderr = TRUE)) {
@@ -1658,6 +1729,18 @@ build_gifter_database <- function(source_dir, output, overwrite = FALSE, source_
     notes = tables$gift_xrefs$notes
   )
   DBI::dbWriteTable(connection, "gift_xref", gift_xrefs, append = TRUE, row.names = FALSE)
+
+  DBI::dbWriteTable(
+    connection, "gift_evidence",
+    data.frame(
+      gift_pk = unname(gift_pk[tables$gift_evidence$gift_id]),
+      evidence_kind = tables$gift_evidence$evidence_kind,
+      location = tables$gift_evidence$location,
+      description = tables$gift_evidence$description,
+      stringsAsFactors = FALSE
+    ),
+    append = TRUE, row.names = FALSE
+  )
 
   reaction_xrefs <- data.frame(
     reaction_pk = unname(reaction_pk[tables$reaction_xrefs$reaction_id]),
@@ -1825,7 +1908,8 @@ build_gifter_database <- function(source_dir, output, overwrite = FALSE, source_
   release$schema_version <- as.integer(release$schema_version)
   release <- release[c(
     "release_pk", "gifter_db_version", "schema_version", "build_date",
-    "rhea_release", "chebi_release", "kegg_release", "source_commit"
+    "rhea_release", "chebi_release", "kegg_release", "source_commit",
+    "source_repository"
   )]
   DBI::dbWriteTable(connection, "database_release", release, append = TRUE, row.names = FALSE)
 

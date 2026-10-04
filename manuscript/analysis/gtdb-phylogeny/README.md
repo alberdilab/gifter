@@ -12,6 +12,16 @@ does not mean expression, activity, flux, phenotype, ecological importance or
 an ancestral-state reconstruction. An unsupported cell is likewise not proof
 of biological absence.
 
+Figure S4 is an overview rather than an ancestral-state analysis. Every one of
+the 697 locked genomes is a row ordered by the pruned GTDB bac120 tree. The
+panels show that tree, a phylum strip, one heatmap column for every current GIFT
+grouped by `gift_type`, and the total supported and high-confidence-or-curated
+GIFT counts for each genome. Heatmap values remain Boolean completeness calls;
+colour separates the confidence of positive calls and does not turn partial
+routes or machinery into fractional support. This makes phylogenetically local
+changes in encoded repertoire breadth visible without claiming that the figure
+reconstructs gains, losses or ancestral states.
+
 ## Locked panel
 
 The official source files, release URLs and SHA-256 checksums are recorded in
@@ -97,6 +107,14 @@ task implied by its name, making the scripts executable. Then:
 6. run `monitor-and-fetch.sh` locally; after checksum-verifying the transfer,
    it launches the final analysis.
 
+The final evaluation follows the proven R10 chicken ingestion path: it checks
+the four-column Drakkar marker schema, the six expected per-genome annotation-QC
+records, Drakkar version and manifest schema, the locked panel identity, and
+every transferred checksum before calling any GIFT. Genome calls are cached by
+the annotation and gifter-database checksums, so a plotting retry cannot silently
+reuse calls from another input or database. Set `GTDB_PHYLOGENY_WORKERS` to
+control evaluation parallelism; the default is eight.
+
 The run uses the existing shared Drakkar environment and its `gifter`
 annotation mode. It does not install or update Drakkar. The generated
 `annotation_manifest.yaml`, rather than this README, is authoritative for tool,
@@ -114,11 +132,13 @@ The final script writes:
 
 - `gtdb-phylogeny-input-audit.tsv`, with source, annotation, database and
   analysis checksums;
-- `gtdb-phylogeny-calls.tsv.xz`, one current call per genome and GIFT;
+- `gtdb-phylogeny-calls.tsv.xz`, one current call per genome and GIFT, retaining
+  the best implementation, missing requirements, supporting components,
+  markers and genes;
 - `gtdb-phylogeny-genome-summary.tsv`, repertoire counts retaining every
   genome and taxonomic rank;
 - `gtdb-phylogeny-gift-summary.tsv`, panel prevalence with an explicit
-  denominator of 697;
+  denominator of 697 and the heatmap column order;
 - `gtdb-phylogeny-phylum-summary.tsv`, descriptive genome-level ranges;
 - `figure-s4-gtdb-phylogeny.{pdf,png}`.
 

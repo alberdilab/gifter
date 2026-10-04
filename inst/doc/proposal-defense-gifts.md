@@ -1,13 +1,18 @@
 # Defense GIFTs: curated content, refusals, and open questions
 
 Status: **partly implemented**. `type_i_restriction_modification`,
-`type_i_e_crispr_cas_machinery` and `mercury_detoxification` are curated. The
+`type_i_e_crispr_cas_machinery`, `mercury_detoxification`,
+`methylglyoxal_detoxification`, `superoxide_detoxification`,
+`beta_lactam_detoxification` and `chloramphenicol_detoxification` are curated.
+The antimicrobial additions and their specificity bounds are recorded in
+[`proposal-regulatory-defense-expansion.md`](proposal-regulatory-defense-expansion.md).
+The
 CRISPR array limitation below is unchanged: it is why the second claim is about
 encoded machinery rather than interference. Boolean semantics are fixed by
 synthetic fixtures and by the curated content in
 `tests/testthat/test-regulatory-defense.R`.
 
-The third GIFT is the one that exercises the other half of the contract. The
+The mercury GIFT was the first to exercise the other half of the contract. The
 claim below says "a defined biological **or chemical** challenge", and until
 2026-08-19 only the biological half had content. Mercury detoxification is
 assessed in `inst/doc/proposal-aromatic-degradation.md` §8.8, and the

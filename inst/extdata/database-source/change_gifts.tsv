@@ -367,3 +367,12 @@ DBC-20261003-SECRETION-SYSTEMS	type_vi_secretion_apparatus
 DBC-20261003-SECRETION-SYSTEMS	type_iii_secretion_injectisome
 DBC-20261003-ARCHAELLUM	archaellum
 DBC-20261003-T2SS	type_ii_secretion_system
+DBC-20261004-SERINE-CHEMORECEPTION	serine_chemoreception
+DBC-20261004-ANTIMICROBIAL-DETOX	beta_lactam_detoxification
+DBC-20261004-ANTIMICROBIAL-DETOX	chloramphenicol_detoxification
+DBC-20261004-CHALLENGE-CLASS	beta_lactam_detoxification
+DBC-20261004-CHALLENGE-CLASS	chloramphenicol_detoxification
+DBC-20261004-CHALLENGE-CLASS	mercury_detoxification
+DBC-20261004-CHALLENGE-CLASS	superoxide_detoxification
+DBC-20261004-CHALLENGE-CLASS	methylglyoxal_detoxification
+DBC-20261004-SERINE-CHEMORECEPTION	chemotaxis_signal_transduction

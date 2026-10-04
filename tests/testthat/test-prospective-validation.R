@@ -1,7 +1,8 @@
 if (!exists("gifter_db_version", mode = "function")) {
   devtools::load_all(testthat::test_path("..", ".."), quiet = TRUE)
 }
-source(testthat::test_path("..", "..", "manuscript", "analysis", "_prospective.R"))
+prospective_script <- testthat::test_path("..", "..", "manuscript", "analysis", "_prospective.R")
+if (file.exists(prospective_script)) source(prospective_script)
 
 prospective_fixture <- function(path, database_version = gifter_db_version()$gifter_db_version[[1L]],
                                 locked_at = "2026-10-01T12:00Z", target_layer = "gift",
@@ -63,6 +64,7 @@ prospective_fixture <- function(path, database_version = gifter_db_version()$gif
 }
 
 test_that("prospective validation keeps a locked assay, annotation and trace together", {
+  skip_if_not(file.exists(prospective_script), "manuscript analysis source is unavailable")
   paths <- prospective_fixture(tempfile("prospective-validation-"))
   inputs <- prospective_read_inputs(
     paths[["studies"]], paths[["samples"]], paths[["annotations"]], paths[["observations"]]
@@ -83,6 +85,7 @@ test_that("prospective validation keeps a locked assay, annotation and trace tog
 })
 
 test_that("prospective validation refuses an unpinned database or pilot observation", {
+  skip_if_not(file.exists(prospective_script), "manuscript analysis source is unavailable")
   paths <- prospective_fixture(tempfile("prospective-validation-version-"),
                                database_version = "not-the-open-database")
   expect_error(
@@ -101,6 +104,7 @@ test_that("prospective validation refuses an unpinned database or pilot observat
 })
 
 test_that("prospective validation keeps reaction observations separate from GIFT traces", {
+  skip_if_not(file.exists(prospective_script), "manuscript analysis source is unavailable")
   paths <- prospective_fixture(
     tempfile("prospective-validation-reaction-"),
     target_layer = "reaction", target_id = "RHEA:15753"

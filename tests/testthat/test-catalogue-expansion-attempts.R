@@ -68,10 +68,15 @@ test_that("attempt sources and revisit links resolve", {
   root <- testthat::test_path("..", "..")
 
   sources <- split_attempt_values(attempts$source)
-  expect_true(
-    all(file.exists(file.path(root, sources))),
-    info = paste("Missing source paths:", paste(sources[!file.exists(file.path(root, sources))], collapse = ", "))
-  )
+  # The full source repository is not included in an installed package. The
+  # source-path audit applies when that repository is available; revisit links
+  # are part of the packaged register and are checked in either setting.
+  if (dir.exists(file.path(root, "data-raw"))) {
+    expect_true(
+      all(file.exists(file.path(root, sources))),
+      info = paste("Missing source paths:", paste(sources[!file.exists(file.path(root, sources))], collapse = ", "))
+    )
+  }
 
   revisits <- split_attempt_values(attempts$revisits)
   expect_true(all(revisits %in% attempts$attempt_id))
@@ -86,8 +91,12 @@ test_that("attempt sources and revisit links resolve", {
 test_that("completed expansion attempts account for the curated catalogue", {
   attempts <- read_attempt_register()
   root <- testthat::test_path("..", "..")
+  gifts_path <- file.path(root, "inst", "extdata", "database-source", "gifts.tsv")
+  if (!file.exists(gifts_path)) {
+    gifts_path <- system.file("extdata", "database-source", "gifts.tsv", package = "gifter")
+  }
   gifts <- utils::read.delim(
-    file.path(root, "inst", "extdata", "database-source", "gifts.tsv"),
+    gifts_path,
     sep = "\t",
     colClasses = "character",
     quote = "",

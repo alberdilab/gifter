@@ -15,6 +15,182 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-10-04T02:00Z — GTDB phylogeny heatmap is ready for the Drakkar transfer
+
+**What changed.** The locked 697-genome GTDB R11-RS232 analysis now validates
+the exact Drakkar 2.6.6 marker, manifest and per-source QC contracts before
+evaluation; caches genome calls by the annotation and gifter-database
+checksums; evaluates with configurable parallel workers; and retains best
+implementations, missing requirements, supporting components, markers and
+genes in its call table. Figure S4 aligns the pruned bac120 tree with a phylum
+strip, every current GIFT grouped by type, and per-genome repertoire breadth.
+The GIFT summary records the exact heatmap-column order.
+
+**Why.** The annotation transfer is large and expensive to reevaluate, and the
+phylogenetic overview must show all Boolean GIFT calls without losing their
+evidence trail or mistaking incomplete implementations for fractional support.
+
+**Effect.** Once the checksum-verified Mjolnir transfer arrives,
+`23-gtdb-phylogeny.R` can run directly. The figure visualises phylogenetically
+local differences in encoded functional breadth; it does not infer activity,
+phenotype, gain/loss events or ancestral states. No package API or biological
+database content changes.
+
+### 2026-10-04T01:56Z — Atlas introduction, a single Atlas menu and breadcrumbs
+
+**What changed.** The atlas now opens on an Introduction view (`#introduction`)
+instead of Frames. It states what the atlas is, gives database-wide counts
+(GIFTs, anchors, alternatives, systems, components, markers), a table of the
+five evaluation layers for each GIFT type, distributions of metabolic modes,
+anchor compartments and marker namespaces, a card for each atlas section, and
+the release versions. The atlas sections are no longer a separate bar under the
+header: the Atlas entry of the site navigation is a dropdown listing
+Introduction, Frames, GIFTs and Changes, then Network overview, Data model and
+Tables under an "Advanced" label. The pkgdown navbar carries the same dropdown,
+linking to each view's hash. The database-wide counts moved from the Network
+overview to the introduction, and the overview gained a page heading. Header
+dropdowns now close on a click outside them, and on narrow screens they span the
+navigation instead of overflowing the screen edge. Every documentation page
+except the home page, and every atlas view, now shows a breadcrumb trail
+(gifter → section → page, and the open GIFT or frame in the atlas) in a
+rounded box 20px below the header and 20px above the page title, which brings
+the title closer to the header than before. The home page has no trail and
+keeps its spacing. The pkgdown
+trail is built by `pkgdown/extra.js` from the navbar, so it follows
+`_pkgdown.yml`.
+
+**Why.** Landing on Frames dropped readers into the quantitative-trait chooser
+before they knew what the database holds, and a second navigation bar under the
+site header made the atlas look like a separate site.
+
+**Effect.** Every number on the introduction is read from the compiled
+database, so it follows the catalogue without edits. Links to `atlas/#frames`
+and other existing views still resolve; `atlas/` alone now opens the
+introduction. No call or database content changes. Tests in `test-database.R`
+check the menu order, the landing view and that the per-type counts match the
+database.
+
+### 2026-10-03T12:20Z — Curation evidence and source links for every GIFT
+
+**What changed.** Schema version 8 adds a `gift_evidence` source table and
+`database_release.source_repository`. Each evidence row links a GIFT to a
+repository file of one of three kinds: a curation document that defines and
+defends it, an analysis script (R) run to decide it, or a result table that
+script wrote. The new export `get_gift_evidence()` returns these with a `url` at
+the commit the database was compiled from, or at the repository's default
+branch for a development build. `gifter_db_version()` gains
+`source_repository`. In the atlas, each GIFT page gains a "Curation evidence"
+section with those links, and states when no analysis script is recorded.
+Marker accessions, reaction cross-references and related pathways now link to
+their public records (KEGG, CAZy, NCBIfam, Pfam, ENZYME, MetaCyc), and each
+marker shows the source its acceptance was taken from.
+
+**Why.** The atlas showed what each GIFT is but not where it was worked out or
+which public records its identifiers come from. The trail from a definition to
+the argument, the code and the numbers behind it existed only in the
+catalogue-expansion log, outside the database, and the R code was not
+reachable from the atlas at all.
+
+**Effect.** The compiler validates the new table. A location must be a
+relative repository path whose file type matches its kind, and the package
+tests check that every location exists. The package reads schemas 7 and 8: a
+schema 7 database reports no evidence and an `NA` repository, and its atlas says
+so. No call changes, and a test confirms that removing all evidence leaves
+every call unchanged. The atlas includes `gift_evidence` in its data model and
+table browser when the database has it. The database change is
+`DBC-20261003-GIFT-EVIDENCE` (database 2026.34.1). New tests are in
+`test-gift-evidence.R`.
+
+### 2026-10-03T11:20Z — Each GIFT has its own atlas page
+
+**What changed.** A GIFT's detail no longer opens in a dialog over the
+catalogue. Each GIFT has its own page at `#gifts/<gift_id>`, like the frame
+pages: selecting a catalogue row, a frame's member row, a changelog GIFT link or
+a network-overview dot opens it. The page is laid out on the page itself rather
+than inside a box. A bar above it holds "All GIFTs" on the left and, on the
+right, previous and next arrows with the position, which step through the GIFTs
+the catalogue's current filters keep. The left and right arrow keys step too,
+except while typing in a form control. The browser's back button returns to
+the previous page, and typing a search on a GIFT page returns to the filtered
+catalogue. Printing the atlas prints the catalogue and then every GIFT page.
+
+**Why.** A page can be linked to, bookmarked and reached with the back button,
+and the GIFT and frame views now behave the same way.
+
+**Effect.** Report only. `.report_gift_explorer()` returns the catalogue
+(`table`) and the pages (`pages`) separately. The dialog markup, styles and
+focus handling are removed, and so is the Escape shortcut, which only closed
+the dialog. Frame and GIFT pages share the `page-back`, `page-bar` and
+`page-step` styles. `test-database.R` checks that there is one GIFT page per
+catalogue row, in the same order, and that no dialog remains.
+
+### 2026-10-03T10:40Z — GIFTs view introduction matches the Frames view
+
+**What changed.** The GIFTs view is titled "GIFTs" instead of "Explore GIFTs".
+The sentence beside the title is replaced by an introduction in the same layout
+as the Frames view: a lead definition of a GIFT, four panels (GIFT types,
+evaluation logic, boundaries and composition, reading the catalogue), and a
+statement of what a positive call does not indicate. A "Catalogue" heading then
+introduces the filters and the table. The per-type GIFT counts in the
+introduction are read from the database. Frame pages now report "N GIFTs"
+rather than "N current GIFTs".
+
+**Why.** The two main views of the atlas should introduce their content in the
+same way, and a reader opening the GIFTs view needs the completeness model
+explained before the table is useful.
+
+**Effect.** Report only. The introduction styles are shared as `view-*`
+classes, which replace the former `frame-explainer`, `frame-lead`,
+`frame-concepts`, `frame-caveat` and `frame-section-title`. `test-database.R`
+checks the new title and that the type counts are rendered.
+
+### 2026-10-03T09:30Z — Atlas frames as a table with a page per frame
+
+**What changed.** The atlas Frames view lists the presets in one table — label
+and identifier, what the frame covers, current GIFT count, analysis scales and
+denominator — and each row opens that frame's own page at `#frames/<frame_id>`.
+The page is laid out on the page itself rather than in a card, and carries
+the preset call, recommended analyses, interpretation limits and membership
+filters, followed by the frame's current member GIFTs in the same table layout
+as the GIFTs view. Its rows are rendered from the same cells, and each opens
+that GIFT's detail. The scale filters and global search
+filter the table rows; typing a search on a frame page returns to the table.
+Printing the atlas prints the table and then every frame page. The view is
+titled "Frames" and names the concept a frame, with no "formally, a reference
+frame" aside. Above the table, an introduction explains what a frame is: it is
+defined by metadata rather than a list of GIFTs, it is either open or bounded
+(the bounded presets are named from the database), it works at three analysis
+scales, and you can use a preset, build your own or rely on the default set. It
+ends by stating that a trait describes encoded capability, not activity or
+phenotype.
+
+**Why.** Nineteen cards in a two-column grid made the options hard to compare
+at a glance; a table shows all of them at once, and a page per frame gives the
+detail room and a stable link.
+
+**Effect.** Report only. `.gifter_report_data()` gains `frame_members`, resolved
+through `reference_frame(preset = ...)`; `.report_gift_explorer()` now also
+returns each GIFT's table cells, and the script finds the GIFTs view's table
+within that view, since frame pages carry GIFT tables of their own. `test-database.R` checks that table
+rows and pages pair one to one, that a page lists exactly the preset's members,
+and that every preset label is sentence case. The one preset label that was
+not, `biomass_essential_anabolism`, is corrected in the database as
+`DBC-20261003-FRAME-LABEL` (database 2026.33.2).
+
+### 2026-10-03T09:00Z — Atlas changelog shows each change's category again
+
+**What changed.** The Scope cell of the atlas Changes view now pairs a change's
+`layer` with its `category` (`addition`, `clarification`, `correction`).
+
+**Why.** When the GIFT `category` facet was renamed `substrate_class`, the
+rename also caught the changelog renderer, which reads the change record's own
+`category` column. That column has no `substrate_class`, so every row showed an
+em dash after the layer, e.g. "gift —".
+
+**Effect.** Report only; no GIFT call or database content changes.
+`test-database.R` asserts the chip pairing and the absence of an empty category
+chip.
+
 ### 2026-10-03T07:10Z — The shared-component rule, and a screen that measures what it predicts
 
 **What changed.** `inst/doc/architecture.md` now states what one accession
