@@ -73,6 +73,10 @@ navbar:
         href: articles/curating-a-gift.html#choose-marker-evidence
       - text: Provenance and releases
         href: articles/curating-a-gift.html#record-provenance-build-and-close-the-attempt
+      - text: ---
+      - text: History
+      - text: Expansion attempts
+        href: atlas/#attempts
     glossary:
       text: Glossary
       href: articles/glossary.html

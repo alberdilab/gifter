@@ -635,6 +635,116 @@ h1, h2, h3, h4, h5, p { margin-top: 0; }
 .frame-page .frame-members { margin-top: 30px; }
 
 
+/* Expansion attempts reuse the frame table and page; only their outcome
+   chips and the outcome lists on an attempt's page are their own. */
+.attempt-table tbody tr { cursor: pointer; }
+.attempt-table tbody tr:focus-visible { outline: 2px solid var(--forest-2); outline-offset: -2px; }
+.attempt-table tbody tr:hover .frame-name strong { text-decoration: underline; }
+.attempt-table .changelog-date { white-space: nowrap; }
+.attempt-types { white-space: nowrap; }
+.attempt-outcomes { min-width: 150px; }
+
+/* The table indexes; the full result is on the attempt's page. */
+.attempt-result {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+.outcome-chip {
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 3px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: var(--paper);
+  font-size: 10px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.outcome-chip strong { font-variant-numeric: tabular-nums; }
+.outcome-chip.implemented { border-color: #9fc7b7; color: var(--forest); background: var(--mint-pale); }
+.outcome-chip.deferred { border-color: #e0c48a; color: #8a6516; background: var(--gold-pale); }
+.outcome-chip.refused { border-color: #e8b2a6; color: #a4432c; background: var(--coral-pale); }
+.outcome-chip.open { border-color: var(--blue); color: var(--blue); background: var(--surface); }
+
+.attempt-metrics { margin-bottom: 26px; }
+
+/* The three outcome cards sit side by side and carry the colours of the
+   outcome chips in the table, so each card is the key to its chip. */
+.attempt-concepts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.attempt-concepts > div { border-top-width: 4px; }
+.attempt-concepts > .implemented { border-color: #9fc7b7; border-top-color: var(--mint); background: var(--mint-pale); }
+.attempt-concepts > .deferred { border-color: #e0c48a; border-top-color: var(--gold); background: var(--gold-pale); }
+.attempt-concepts > .refused { border-color: #e8b2a6; border-top-color: var(--coral); background: var(--coral-pale); }
+.attempt-concepts > .implemented h3 { color: var(--forest); }
+.attempt-concepts > .deferred h3 { color: #8a6516; }
+.attempt-concepts > .refused h3 { color: #a4432c; }
+.attempt-concepts p { color: var(--ink); }
+
+.attempt-page > .attempt-outcome-grid,
+.attempt-page > .attempt-candidates,
+.attempt-page > .attempt-history,
+.attempt-page > .attempt-sources { max-width: 920px; }
+
+.attempt-page .frame-facts { flex-wrap: wrap; align-items: center; }
+.attempt-page .frame-facts .scope-chip { margin-bottom: 0; }
+
+.attempt-outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.attempt-outcome {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-top-width: 3px;
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.attempt-outcome.implemented { border-top-color: var(--mint); }
+.attempt-outcome.deferred { border-top-color: var(--gold); }
+.attempt-outcome.refused { border-top-color: var(--coral); }
+
+.attempt-page h3,
+.attempt-page h4 {
+  margin: 0 0 8px;
+  color: var(--forest);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.attempt-page h3 span { margin-left: 4px; color: var(--muted); }
+.attempt-page h4 { margin-top: 12px; color: var(--muted); }
+.attempt-gifts .gift-link { font-size: 10.5px; }
+
+.attempt-terms {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 0 0 0 16px;
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.attempt-candidates .attempt-terms { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); column-gap: 24px; }
+.attempt-candidates, .attempt-history, .attempt-sources { margin-top: 26px; }
+
+.attempt-related { display: grid; gap: 5px; margin: 0; padding: 0; list-style: none; font-size: 12px; }
+.attempt-related li { display: grid; grid-template-columns: minmax(250px, auto) 1fr; gap: 12px; }
+.attempt-related a { color: var(--forest); text-decoration: none; }
+.attempt-related a:hover code { text-decoration: underline; }
+.attempt-related code { font-size: 10.5px; }
+.attempt-related span { color: var(--muted); }
+
 /* Frame and GIFT pages share one navigation bar: back to the table on the
    left and, for GIFTs, previous and next on the right. */
 .page-bar {
@@ -2804,6 +2914,9 @@ footer {
   .frame-description { min-height: 0; }
   .frame-scope li { grid-template-columns: 1fr; gap: 1px; }
   .evidence-entry { grid-template-columns: 1fr; gap: 3px; }
+  .attempt-outcome-grid { grid-template-columns: 1fr; }
+  .attempt-concepts { grid-template-columns: 1fr; }
+  .attempt-related li { grid-template-columns: 1fr; gap: 1px; }
   .frame-interpretation { grid-template-columns: 1fr; }
   .gift-header { flex-direction: column; }
   .gift-table-caption small { display: none; }
@@ -2843,6 +2956,7 @@ footer {
      that indexes them, not the one page left on screen. */
   .gift-list[hidden], .gift-pages[hidden], .gift-detail[hidden] { display: block !important; }
   .frame-list[hidden], .frame-page[hidden] { display: block !important; }
+  .attempt-list[hidden], .attempt-page[hidden] { display: block !important; }
   .frame-page, .gift-detail { margin-top: 24px; }
   .page-bar, .page-back { display: none; }
 }

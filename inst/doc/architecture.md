@@ -1727,8 +1727,8 @@ reviewed.
 
 ### 0. Search the history and open the attempt
 
-Before collecting evidence, search
-[`catalogue-expansion-attempts.tsv`](catalogue-expansion-attempts.tsv) for the
+Before collecting evidence, search the
+[expansion attempts](https://alberdilab.github.io/gifter/atlas/#attempts) for the
 candidate name, aliases, proposed identifier and broader request scope. Read
 the linked sources and any earlier attempts named in `revisits`. A prior refusal
 is reopened only when its recorded evidence, blocker or retrigger changed.

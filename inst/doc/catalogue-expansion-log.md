@@ -1,8 +1,10 @@
 # Catalogue expansion attempt log
 
 The append-only source of truth for attempts to add GIFTs is
-[`catalogue-expansion-attempts.tsv`](catalogue-expansion-attempts.tsv). It
-records an effort even when it produces no database content. Its purpose is to
+[`catalogue-expansion-attempts.tsv`](catalogue-expansion-attempts.tsv), and
+the [expansion attempts](https://alberdilab.github.io/gifter/atlas/#attempts) page of the
+documentation renders it for browsing. It records an effort even when it
+produces no database content. Its purpose is to
 make previous searches, refusals and unresolved candidates visible before a new
 catalogue-expansion request repeats them.
 

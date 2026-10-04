@@ -262,6 +262,34 @@ report lookup only read `substrate_class` and `structural_class`.
 
 **Effect.** Presentation only. Class assignments and Boolean calls are unchanged.
 
+### 2026-10-04T03:20Z — Expansion attempts view under the Curation menu
+
+**What changed.** The atlas gains an Expansion attempts view (`#attempts`),
+reached from the Curation menu of both the atlas and the pkgdown site. It
+renders `inst/doc/catalogue-expansion-attempts.tsv` as shipped with the
+installed package: totals of attempts, implemented GIFTs, deferred candidates
+and refused claims; an outcome filter; and a table with one row per attempt
+(scope, period, GIFT types, outcome counts, result). Each attempt has its own
+page at `#attempts/<attempt_id>` listing the implemented GIFTs as links to their
+atlas pages, the deferred and refused candidates, every candidate considered,
+the attempts it revisits and is revisited by, and its source documents linked
+to the repository at the release commit. Breadcrumbs now name the menu a view
+belongs to, so this view reads gifter > Curation > Expansion attempts. In both
+menus the entry sits below a "History" separator. The curation article, the
+architecture guide, the deferral register, the structural proposal and the
+attempt-log guide now send readers to this view instead of the raw TSV; only
+instructions naming the file a curator edits still give its path.
+
+**Why.** Refusals and deferrals are curation results, but they were only
+discoverable by opening a TSV in the repository. The atlas already indexed
+GIFTs and frames as browsable tables; the investigation history now has the
+same form, with the full argument left in the linked documents.
+
+**Effect.** Presentation only. The attempt log is read as a package document,
+not compiled into SQLite, so no schema, database content or call changes. An
+implemented GIFT that the rendered database does not contain is shown without
+a link.
+
 ### 2026-10-04T02:00Z — GTDB phylogeny heatmap is ready for the Drakkar transfer
 
 **What changed.** The locked 697-genome GTDB R11-RS232 analysis now validates

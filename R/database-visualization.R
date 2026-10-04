@@ -93,6 +93,25 @@
   paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
 }
 
+# The catalogue-expansion attempt log is a package document, not a database
+# table: it records every investigation that set out to add GIFTs, including the
+# ones that added nothing, and is versioned with the package. The atlas shows
+# the log shipped with the installed package, or NULL when there is none.
+.gifter_attempt_register <- function() {
+  path <- system.file("doc", "catalogue-expansion-attempts.tsv", package = "gifter")
+  if (!nzchar(path)) path <- file.path("inst", "doc", "catalogue-expansion-attempts.tsv")
+  if (!file.exists(path)) return(NULL)
+  utils::read.delim(
+    path,
+    sep = "\t",
+    colClasses = "character",
+    quote = "",
+    comment.char = "",
+    check.names = FALSE,
+    na.strings = character()
+  )
+}
+
 .gifter_report_data <- function(connection) {
   available <- DBI::dbListTables(connection)
   missing <- setdiff(.gifter_report_tables, available)
@@ -309,6 +328,7 @@
       frames = frames,
       frame_members = frame_members,
       evidence = evidence,
+      attempts = .gifter_attempt_register(),
       source_repository = source_repository,
       tables = tables,
       schema = schema,
@@ -2499,6 +2519,264 @@
   )
 }
 
+# The three outcomes an expansion attempt closes with, keyed by the register
+# column that lists them.
+.report_attempt_outcomes <- list(
+  implemented = list(column = "implemented_gifts", label = "implemented"),
+  deferred = list(column = "deferred_or_open", label = "deferred or open"),
+  refused = list(column = "refused_or_superseded", label = "refused or superseded")
+)
+
+.report_attempt_values <- function(value) {
+  if (!length(value) || is.na(value) || !nzchar(value)) return(character())
+  values <- trimws(strsplit(value, ";", fixed = TRUE)[[1]])
+  values[nzchar(values)]
+}
+
+.report_attempt_period <- function(attempt) {
+  started <- substr(attempt$started_at, 1L, 10L)
+  closed <- substr(attempt$closed_at, 1L, 10L)
+  if (!nzchar(closed)) return(paste0(.html_escape(started), " &rarr;"))
+  if (identical(started, closed)) return(.html_escape(started))
+  paste0(.html_escape(started), " &rarr; ", .html_escape(closed))
+}
+
+.report_attempt_time <- function(value) {
+  if (!nzchar(value)) return("&mdash;")
+  .html_escape(sub("Z$", " UTC", sub("T", " ", value, fixed = TRUE)))
+}
+
+.report_attempt_chips <- function(attempt, counts) {
+  if (identical(attempt$state, "in_progress")) {
+    return('<span class="outcome-chip open">in progress</span>')
+  }
+  shown <- names(counts)[counts > 0L]
+  if (!length(shown)) return('<span class="empty-state compact">No outcome recorded</span>')
+  paste(vapply(shown, function(outcome) {
+    paste0(
+      '<span class="outcome-chip ', outcome, '"><strong>', counts[[outcome]],
+      "</strong> ", .report_attempt_outcomes[[outcome]]$label, "</span>"
+    )
+  }, character(1)), collapse = "")
+}
+
+# The catalogue-expansion attempts, shown like the frames: a table that indexes
+# every attempt with its outcome counts, and a page per attempt at
+# #attempts/<attempt_id> with the candidates, outcomes, related attempts and the
+# documents that hold the detail.
+.report_expansion_attempts <- function(data) {
+  attempts <- data$attempts
+  if (is.null(attempts) || !nrow(attempts)) {
+    return(paste0(
+      '<div class="attempt-list" data-attempt-list><div class="empty-state">',
+      "No catalogue-expansion attempt log is installed with this package.</div></div>"
+    ))
+  }
+  attempts <- attempts[order(attempts$started_at, seq_len(nrow(attempts)), decreasing = TRUE), , drop = FALSE]
+  commit <- data$tables$database_release$source_commit[[1L]]
+  source_url <- function(location) .gifter_source_url(data$source_repository, commit, location)
+
+  entries <- lapply(seq_len(nrow(attempts)), function(index) {
+    attempt <- attempts[index, , drop = FALSE]
+    values <- lapply(.report_attempt_outcomes, function(outcome) {
+      .report_attempt_values(attempt[[outcome$column]])
+    })
+    list(
+      attempt = attempt,
+      values = values,
+      counts = vapply(values, length, integer(1)),
+      types = .report_attempt_values(attempt$gift_types)
+    )
+  })
+  names(entries) <- attempts$attempt_id
+  revisited_by <- lapply(attempts$attempt_id, function(attempt_id) {
+    later <- vapply(entries, function(entry) {
+      attempt_id %in% .report_attempt_values(entry$attempt$revisits)
+    }, logical(1))
+    rev(attempts$attempt_id[later])
+  })
+  names(revisited_by) <- attempts$attempt_id
+
+  type_chips <- function(types) {
+    paste(vapply(types, function(type) {
+      paste0('<span class="scope-chip">', .html_escape(type), "</span>")
+    }, character(1)), collapse = "")
+  }
+  gift_chips <- function(gift_ids) {
+    labels <- data$gifts$name[match(gift_ids, data$gifts$gift_id)]
+    paste(vapply(seq_along(gift_ids), function(index) {
+      if (is.na(labels[[index]])) {
+        return(paste0('<span class="gift-link static">', .html_escape(gift_ids[[index]]), "</span>"))
+      }
+      paste0(
+        '<button class="gift-link" type="button" data-gift-link="',
+        .html_escape(gift_ids[[index]]), '" title="', .html_escape(labels[[index]]),
+        '">', .html_escape(gift_ids[[index]]), "</button>"
+      )
+    }, character(1)), collapse = "")
+  }
+  attempt_links <- function(attempt_ids) {
+    paste(vapply(attempt_ids, function(attempt_id) {
+      scope <- entries[[attempt_id]]$attempt$scope
+      paste0(
+        '<li><a href="#attempts/', .html_escape(attempt_id), '"><code>',
+        .html_escape(attempt_id), "</code></a><span>", .html_text(scope), "</span></li>"
+      )
+    }, character(1)), collapse = "")
+  }
+
+  rows <- paste(vapply(entries, function(entry) {
+    attempt <- entry$attempt
+    outcomes <- names(entry$counts)[entry$counts > 0L]
+    paste0(
+      '<tr class="attempt-row" data-attempt-row data-attempt-id="',
+      .html_escape(attempt$attempt_id), '" data-attempt-outcomes=" ',
+      paste(outcomes, collapse = " "), ' " data-search="',
+      .html_escape(.html_search_text(attempt)), '" tabindex="0" role="link">',
+      '<td class="frame-name"><strong>', .html_text(attempt$scope), "</strong>",
+      "<code>", .html_text(attempt$attempt_id), "</code></td>",
+      '<td class="changelog-date">', .report_attempt_period(attempt), "</td>",
+      '<td class="attempt-types">', type_chips(entry$types), "</td>",
+      '<td class="attempt-outcomes">', .report_attempt_chips(attempt, entry$counts), "</td>",
+      '<td class="frame-summary"><div class="attempt-result">', .html_text(attempt$result),
+      "</div></td></tr>"
+    )
+  }, character(1)), collapse = "")
+
+  pages <- paste(vapply(entries, function(entry) {
+    attempt <- entry$attempt
+    values <- entry$values
+    outcome_list <- function(items) {
+      if (!length(items)) return('<p class="empty-state compact">None</p>')
+      paste0(
+        '<ul class="attempt-terms">',
+        paste0("<li>", .html_escape(items), "</li>", collapse = ""), "</ul>"
+      )
+    }
+    outcome_section <- function(outcome, body) {
+      paste0(
+        '<section class="attempt-outcome ', outcome, '"><h3>',
+        .report_attempt_outcomes[[outcome]]$label, " <span>", entry$counts[[outcome]],
+        "</span></h3>", body, "</section>"
+      )
+    }
+    implemented <- if (length(values$implemented)) {
+      paste0('<div class="attempt-gifts">', gift_chips(values$implemented), "</div>")
+    } else {
+      '<p class="empty-state compact">None</p>'
+    }
+    candidates <- .report_attempt_values(attempt$candidate_terms)
+    revisits <- .report_attempt_values(attempt$revisits)
+    later <- revisited_by[[attempt$attempt_id]]
+    related <- paste(c(
+      if (length(revisits)) {
+        paste0('<h4>Revisits</h4><ul class="attempt-related">', attempt_links(revisits), "</ul>")
+      },
+      if (length(later)) {
+        paste0('<h4>Revisited by</h4><ul class="attempt-related">', attempt_links(later), "</ul>")
+      }
+    ), collapse = "")
+    # The page is the rendering of the attempt's row in the log, so only the
+    # documents that hold the detail are listed, not the log itself.
+    sources <- .report_attempt_values(attempt$source)
+    urls <- source_url(sources)
+    source_items <- paste(vapply(seq_along(sources), function(index) {
+      location <- paste0("<code>", .html_escape(sources[[index]]), "</code>")
+      if (!is.na(urls[[index]])) {
+        location <- paste0(
+          '<a class="evidence-link" href="', .html_escape(urls[[index]]),
+          '" target="_blank" rel="noreferrer">', location, "</a>"
+        )
+      }
+      paste0(
+        '<li class="evidence-entry">', location, "<span>Where the detail is recorded</span></li>"
+      )
+    }, character(1)), collapse = "")
+    state <- if (identical(attempt$state, "in_progress")) {
+      '<span class="outcome-chip open">in progress</span>'
+    } else {
+      '<span class="frame-bound">closed</span>'
+    }
+
+    paste0(
+      '<article class="frame-page attempt-page" data-attempt-page data-attempt-id="',
+      .html_escape(attempt$attempt_id), '" hidden>',
+      '<button class="page-back" type="button" data-attempt-back>&larr; All attempts</button>',
+      '<header class="frame-page-header"><div><div class="frame-id">',
+      .html_text(attempt$attempt_id), "</div><h2>", .html_text(attempt$scope), "</h2></div>",
+      state, "</header>",
+      '<p class="frame-description">', .html_text(attempt$result), "</p>",
+      '<div class="frame-facts"><span>Started <strong>',
+      .report_attempt_time(attempt$started_at), "</strong></span>",
+      "<span>Closed <strong>", .report_attempt_time(attempt$closed_at), "</strong></span>",
+      '<span class="attempt-types">', type_chips(entry$types), "</span></div>",
+      '<div class="attempt-outcome-grid">',
+      outcome_section("implemented", implemented),
+      outcome_section("deferred", outcome_list(values$deferred)),
+      outcome_section("refused", outcome_list(values$refused)),
+      "</div>",
+      '<section class="attempt-candidates"><h3>Candidates considered <span>',
+      length(candidates), "</span></h3>", outcome_list(candidates), "</section>",
+      if (nzchar(related)) paste0('<section class="attempt-history">', related, "</section>"),
+      '<section class="attempt-sources"><h3>Detail in the source repository</h3>',
+      '<ul class="evidence-list">', source_items, "</ul></section></article>"
+    )
+  }, character(1)), collapse = "")
+
+  counts <- Reduce(`+`, lapply(entries, function(entry) entry$counts))
+  implemented_gifts <- unique(unlist(lapply(entries, function(entry) entry$values$implemented)))
+
+  explainer <- paste0(
+    '<section class="view-explainer" aria-label="What an expansion attempt is">',
+    '<p class="view-lead">Every bounded request, screen or investigation that set out to ',
+    'add GIFTs to the catalogue is registered before new evidence is collected, and closed ',
+    'with what came of it. Investigations that added nothing are listed too: a deferral or ',
+    'a refusal is a curation result, and recording it keeps a later curator from repeating ',
+    'the same search or admitting the same over-broad evidence under another name.</p>',
+    '<div class="view-concepts attempt-concepts">',
+    '<div class="implemented"><h3>Implemented</h3><p>The GIFTs the attempt added or redefined. Each links to ',
+    'its page in the atlas, where its curation evidence and change history are listed.</p></div>',
+    '<div class="deferred"><h3>Deferred or open</h3><p>Candidates with a standing blocker, such as missing ',
+    'evidence, an unresolved boundary or a marker that is not yet specific enough. The ',
+    'deferral register states what would reopen each one.</p></div>',
+    '<div class="refused"><h3>Refused or superseded</h3><p>Claims that could not be supported without ',
+    'exceeding the specificity of the genomic evidence or breaking the ontology, and ',
+    'candidates replaced by a better-bounded definition.</p></div>',
+    "</div>",
+    '<p class="view-caveat">This view renders the catalogue-expansion attempt log ',
+    '(<code>inst/doc/catalogue-expansion-attempts.tsv</code>) shipped with gifter ',
+    .html_escape(as.character(utils::packageVersion("gifter"))), '. Outcomes are recorded ',
+    'per attempt, so a candidate deferred by one attempt and implemented by a later one ',
+    'appears in both. The documents linked from each attempt hold the full argument.</p>',
+    "</section>"
+  )
+
+  paste0(
+    '<div class="attempt-list" data-attempt-list>',
+    explainer,
+    '<div class="metric-grid attempt-metrics">',
+    .report_count_card(nrow(attempts), "Attempts", "registered investigations"),
+    .report_count_card(length(implemented_gifts), "Implemented", "GIFTs added or redefined"),
+    .report_count_card(counts[["deferred"]], "Deferred", "candidates left open"),
+    .report_count_card(counts[["refused"]], "Refused", "claims refused or superseded"),
+    "</div>",
+    '<div class="frame-toolbar" aria-label="Filter attempts by outcome">',
+    "<span>Show attempts that</span>",
+    '<button type="button" class="active" data-attempt-filter="all" aria-pressed="true">All</button>',
+    '<button type="button" data-attempt-filter="implemented" aria-pressed="false">Implemented GIFTs</button>',
+    '<button type="button" data-attempt-filter="deferred" aria-pressed="false">Deferred candidates</button>',
+    '<button type="button" data-attempt-filter="refused" aria-pressed="false">Refused claims</button>',
+    "</div>",
+    '<div class="changelog-shell frame-table-shell"><div class="changelog-caption"><span>',
+    nrow(attempts), " attempt", if (nrow(attempts) == 1L) "" else "s",
+    '</span><small>Select an attempt to open its candidates, outcomes and sources</small></div>',
+    '<div class="changelog-scroll"><table class="changelog-table attempt-table">',
+    "<thead><tr><th>Attempt</th><th>Period</th><th>GIFT types</th><th>Outcome</th>",
+    "<th>Result</th></tr></thead><tbody>", rows, "</tbody></table></div></div></div>",
+    pages
+  )
+}
+
 # The atlas sections, in the order the Atlas menu lists them. The introduction
 # is the landing view; the advanced sections sit below a divider.
 .report_atlas_sections <- list(
@@ -2765,7 +3043,11 @@
     'Many samples over one catalogue</a>',
     '</div></details>',
     .report_atlas_menu(),
-    '<details class="site-menu"><summary class="site-nav-link">Curation</summary>',
+    # The expansion attempts are an atlas view, but they belong to curation,
+    # so the Curation menu switches to them like the Atlas menu does.
+    '<details class="site-menu" data-view-menu ',
+    'data-menu-home="https://alberdilab.github.io/gifter/articles/curating-a-gift.html">',
+    '<summary class="site-nav-link">Curation</summary>',
     '<div class="site-menu-list">',
     '<a href="https://alberdilab.github.io/gifter/articles/curating-a-gift.html">',
     'How a GIFT is built</a>',
@@ -2775,6 +3057,9 @@
     'Marker selection and specificity</a>',
     '<a href="https://alberdilab.github.io/gifter/articles/curating-a-gift.html#record-provenance-build-and-close-the-attempt">',
     'Provenance and releases</a>',
+    '<div class="site-menu-label">History</div>',
+    '<button class="view-menu-link" type="button" data-view-button="attempts">',
+    'Expansion attempts</button>',
     '</div></details>',
     '<a class="site-nav-link" href="https://alberdilab.github.io/gifter/articles/glossary.html">Glossary</a>',
     '<a class="site-nav-link" href="https://alberdilab.github.io/gifter/reference/index.html">API</a></nav>',
@@ -2819,6 +3104,12 @@
     'and the traits it affects. Package and API changes are tracked separately.</p></div>',
     .report_changelog(data),
     '<div class="no-results" data-no-results>No matching changes.</div></section>',
+    '<section class="view" id="attempts" data-view="attempts"><div class="page-heading">',
+    '<div><div class="eyebrow">Curation history</div><h1>Expansion attempts</h1></div>',
+    '<p>Every investigation that set out to add GIFTs, and whether its candidates were ',
+    'implemented, deferred or refused.</p></div>',
+    .report_expansion_attempts(data),
+    '<div class="no-results" data-no-results>No matching attempts.</div></section>',
     '<section class="view" id="schema" data-view="schema"><div class="page-heading">',
     '<div><div class="eyebrow">SQLite &middot; schema ', .html_text(release$schema_version),
     '</div><h1>Data model</h1></div><p>Primary keys, foreign keys, and normalized tables behind the evaluation model.</p></div>',
@@ -2858,7 +3149,12 @@
 #' `#frames/<frame_id>`. A GIFT page links its reactions, markers and related
 #' pathways to their public records, shows where each marker was accepted from,
 #' and lists the curation documents, analysis scripts and result tables behind
-#' its definition, linked to the source repository at the release commit. All
+#' its definition, linked to the source repository at the release commit. An
+#' expansion-attempts view, reached from the Curation menu at `#attempts`,
+#' renders the catalogue-expansion attempt log shipped with the package: one row
+#' per investigation with its implemented, deferred and refused candidates, and
+#' a page per attempt at `#attempts/<attempt_id>` that links its implemented
+#' GIFTs, related attempts and source documents. All
 #' styles, scripts, and data are embedded so the output can be opened or shared
 #' as one file.
 #'

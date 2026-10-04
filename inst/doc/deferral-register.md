@@ -12,8 +12,8 @@ declined to make has no row in it.
 
 This is the current-blocker index, not the chronological record of expansion
 work. Every catalogue-expansion pass, including successful and superseded ones,
-is indexed separately in
-[`catalogue-expansion-attempts.tsv`](catalogue-expansion-attempts.tsv); the
+is indexed separately in the
+[expansion attempts](https://alberdilab.github.io/gifter/atlas/#attempts); the
 workflow is in [`catalogue-expansion-log.md`](catalogue-expansion-log.md).
 
 **Rule for curators: a proposal that defers or refuses a candidate adds a row

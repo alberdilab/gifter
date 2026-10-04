@@ -43,7 +43,12 @@ and each named frame has its own page, addressed as `#gifts/<gift_id>` or
 `#frames/<frame_id>`. A GIFT page links its reactions, markers and related
 pathways to their public records, shows where each marker was accepted from,
 and lists the curation documents, analysis scripts and result tables behind
-its definition, linked to the source repository at the release commit. All
+its definition, linked to the source repository at the release commit. An
+expansion-attempts view, reached from the Curation menu at `#attempts`,
+renders the catalogue-expansion attempt log shipped with the package: one row
+per investigation with its implemented, deferred and refused candidates, and
+a page per attempt at `#attempts/<attempt_id>` that links its implemented
+GIFTs, related attempts and source documents. All
 styles, scripts, and data are embedded so the output can be opened or shared
 as one file.
 }

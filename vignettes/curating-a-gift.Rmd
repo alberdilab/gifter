@@ -69,8 +69,9 @@ genomes without claiming expression, activity, physiological state or
 phenotype.
 
 Before new evidence is collected, the curator searches the append-only
-[catalogue-expansion attempt log](https://github.com/alberdilab/gifter/blob/main/inst/doc/catalogue-expansion-attempts.tsv)
-for the candidate, its aliases and the wider request that produced it, and reads
+[expansion attempts](../atlas/#attempts), which list every earlier attempt with
+its implemented, deferred and refused candidates, for the candidate, its aliases
+and the wider request that produced it, and reads
 the [deferral register](https://github.com/alberdilab/gifter/blob/main/inst/doc/deferral-register.md)
 for standing blockers. A previous refusal is reopened only when its evidence or
 recorded retrigger has changed. A new bounded investigation is then registered
@@ -221,7 +222,6 @@ Below 50% EC agreement a CAZy cluster is not admitted at all: a cluster in which
 3 of 96 annotated members carry the claimed EC is evidence against the
 assignment, not weak evidence for it.
 
-Confidence reaches the call. `evaluate_gifts()` reports `evidence_confidence`,
 A grade is bounded by what the assignment rests on. Each row carries a `basis`
 that is derived, not typed: for a KO on an enzyme component, whether KEGG links
 the orthologue to the reaction, assigns it an EC number the reaction carries, or
@@ -230,6 +230,7 @@ places it in a module the GIFT cross-references. A row with none of these is
 an `unsupported` row is recorded as `putative` at most. Markers in the other
 namespaces and GIFT types have no derivation yet and read `not_assessed`.
 
+Confidence reaches the call. `evaluate_gifts()` reports `evidence_confidence`,
 the weakest grade among the markers supporting the best route, so a GIFT resting
 on an ambiguous family never reads like one resting on curated orthology. A
 marker that cannot support the claim is refused rather than stretched to fit it.
@@ -486,8 +487,8 @@ identifier is a master, and every anchor is consumed or produced by its route on
 the side each step's orientation selects.
 
 ```sh
-Rscript data-raw/build_database.R
 Rscript data-raw/reference_snapshot.R --sync
+Rscript data-raw/build_database.R
 Rscript -e 'testthat::test_local(".")'
 ```
 
@@ -514,7 +515,7 @@ over-broad evidence under a different name.
 |---|---|
 | Which documents, scripts and result tables define this GIFT? | `get_gift_evidence()`, and the "Curation evidence" section of the GIFT's page in the [Atlas](../atlas/#gifts) |
 | Why is the GIFT bounded where it is, and what was refused alongside it? | the curation proposal or assessment the evidence points to, under [`inst/doc/`](https://github.com/alberdilab/gifter/tree/main/inst/doc) |
-| What was investigated, when, and with what outcome? | the [catalogue-expansion attempt log](https://github.com/alberdilab/gifter/blob/main/inst/doc/catalogue-expansion-attempts.tsv) |
+| What was investigated, when, and with what outcome? | the [expansion attempts](../atlas/#attempts) |
 | Why is a candidate not in the catalogue, and what would change that? | the [deferral register](https://github.com/alberdilab/gifter/blob/main/inst/doc/deferral-register.md) |
 | Which exact genome screens and controls were used? | the analysis scripts in [`data-raw/`](https://github.com/alberdilab/gifter/tree/main/data-raw) and their outputs in `data-raw/reference/` |
 | What changed in the biological content, and which GIFTs did it affect? | `database_changelog()`, and the [Changes view of the Atlas](../atlas/#changelog) |

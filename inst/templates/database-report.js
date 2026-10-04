@@ -14,7 +14,8 @@
   }
 
   // A route is a view name, optionally followed by an item within it: the
-  // frames view gives each frame its own page at #frames/<frame_id>.
+  // frames view gives each frame its own page at #frames/<frame_id>, and the
+  // attempts view each expansion attempt at #attempts/<attempt_id>.
   function activateView(route, updateHash) {
     var parts = String(route).split("/");
     var name = parts[0];
@@ -45,6 +46,7 @@
       window.history.replaceState(null, "", "#" + name + (item ? "/" + item : ""));
     }
     showFrame(name === "frames" ? item : "");
+    showAttempt(name === "attempts" ? item : "");
     applySearch(false);
     // The GIFT page is opened after the filters run, so its position counts the
     // rows they keep.
@@ -54,8 +56,9 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  // gifter > Atlas > section, and the open GIFT or frame when there is one.
-  // The section is named as the Atlas menu names it.
+  // gifter > menu > section, and the open GIFT, frame or attempt when there is
+  // one. The section is named as its menu names it: most views sit under Atlas,
+  // the expansion attempts under Curation.
   var breadcrumbs = document.querySelector("[data-breadcrumbs]");
 
   function crumb(label, href) {
@@ -79,14 +82,19 @@
     if (item && name === "gifts") {
       var gift = openGiftPage();
       if (gift) leaf = gift.getAttribute("data-gift-name") || gift.getAttribute("data-gift-id");
-    } else if (item && name === "frames") {
-      var frame = openFramePage();
-      var heading = frame && frame.querySelector("h2");
+    } else if (item && (name === "frames" || name === "attempts")) {
+      var page = name === "frames" ? openFramePage() : openAttemptPage();
+      var heading = page && page.querySelector("h2");
       if (heading) leaf = heading.textContent;
     }
+    var menu = button && button.closest("[data-view-menu]");
+    var summary = menu && menu.querySelector("summary");
     var trail = [
       crumb("gifter", breadcrumbs.getAttribute("data-home")),
-      crumb("Atlas", "#introduction"),
+      crumb(
+        summary ? summary.textContent : "Atlas",
+        (menu && menu.getAttribute("data-menu-home")) || "#introduction"
+      ),
       crumb(button ? button.textContent : name, leaf ? "#" + name : null)
     ];
     if (leaf) trail.push(crumb(leaf, null));
@@ -624,6 +632,64 @@
     });
   });
 
+  var attemptFilter = "all";
+  var attemptButtons = Array.prototype.slice.call(
+    document.querySelectorAll("[data-attempt-filter]")
+  );
+  var attemptView = document.querySelector('[data-view="attempts"]');
+  var attemptList = attemptView.querySelector("[data-attempt-list]");
+  var attemptPages = Array.prototype.slice.call(attemptView.querySelectorAll("[data-attempt-page]"));
+
+  function openAttemptPage() {
+    return attemptPages.filter(function (page) { return !page.hidden; })[0] || null;
+  }
+
+  // As with frames, the table and an attempt's page are alternatives.
+  function showAttempt(attemptId) {
+    var target = null;
+    attemptPages.forEach(function (page) {
+      var match = Boolean(attemptId) && page.getAttribute("data-attempt-id") === attemptId;
+      page.hidden = !match;
+      if (match) target = page;
+    });
+    attemptList.hidden = Boolean(target);
+    if (target) setEmptyState(attemptView, false);
+  }
+
+  function filterAttempts(query) {
+    var rows = Array.prototype.slice.call(attemptView.querySelectorAll("[data-attempt-row]"));
+    var count = 0;
+    rows.forEach(function (row) {
+      var textMatches = !query || row.getAttribute("data-search").indexOf(query) !== -1;
+      var filterMatches = attemptFilter === "all" ||
+        row.getAttribute("data-attempt-outcomes").indexOf(" " + attemptFilter + " ") !== -1;
+      var matches = textMatches && filterMatches;
+      row.hidden = !matches;
+      if (matches) count += 1;
+    });
+    setEmptyState(attemptView, !openAttemptPage() && count === 0);
+    return count;
+  }
+
+  Array.prototype.slice.call(attemptView.querySelectorAll("[data-attempt-row]")).forEach(function (row) {
+    function open() {
+      window.location.hash = "attempts/" + row.getAttribute("data-attempt-id");
+    }
+    row.addEventListener("click", open);
+    row.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        open();
+      }
+    });
+  });
+
+  Array.prototype.slice.call(attemptView.querySelectorAll("[data-attempt-back]")).forEach(function (button) {
+    button.addEventListener("click", function () {
+      window.location.hash = "attempts";
+    });
+  });
+
   function filterChangelog(query) {
     var view = document.querySelector('[data-view="changelog"]');
     var rows = Array.prototype.slice.call(view.querySelectorAll(".changelog-row"));
@@ -697,6 +763,10 @@
       var frameCount = filterFrames(query);
       message = frameCount +
         (frameCount === 1 ? " matching frame" : " matching frames");
+    } else if (section === "attempts") {
+      var attemptCount = filterAttempts(query);
+      message = attemptCount +
+        (attemptCount === 1 ? " matching attempt" : " matching attempts");
     } else if (section === "changelog") {
       var changeCount = filterChangelog(query);
       message = changeCount + (changeCount === 1 ? " matching change" : " matching changes");
@@ -714,7 +784,8 @@
     // An anchor filter narrows the list without any typed query, so the count
     // still needs announcing.
     var filtered = (section === "gifts" && Boolean(anchorFilter("input") || anchorFilter("output"))) ||
-      (section === "frames" && frameFilter !== "all");
+      (section === "frames" && frameFilter !== "all") ||
+      (section === "attempts" && attemptFilter !== "all");
     if (announce && (query || filtered)) showStatus(message);
     if (!query && !filtered) status.classList.remove("visible");
   }
@@ -739,6 +810,18 @@
     button.addEventListener("click", function () {
       frameFilter = button.getAttribute("data-frame-filter");
       frameButtons.forEach(function (other) {
+        var active = other === button;
+        other.classList.toggle("active", active);
+        other.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+      applySearch(true);
+    });
+  });
+
+  attemptButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      attemptFilter = button.getAttribute("data-attempt-filter");
+      attemptButtons.forEach(function (other) {
         var active = other === button;
         other.classList.toggle("active", active);
         other.setAttribute("aria-pressed", active ? "true" : "false");

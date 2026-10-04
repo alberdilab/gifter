@@ -8,8 +8,8 @@ documented here rather than silently curated.
 
 This proposal is the evidence record for the initial structural pass, not the
 complete chronological history. Later attempts involving secretion systems,
-NCBIfam and genomic context are indexed under their own rows in
-[`catalogue-expansion-attempts.tsv`](catalogue-expansion-attempts.tsv).
+NCBIfam and genomic context are indexed under their own entries in the
+[expansion attempts](https://alberdilab.github.io/gifter/atlas/#attempts).
 
 A **structural GIFT** claims:
 
