@@ -432,7 +432,9 @@ SYS_12232_GRD	RHEA:12232	glycine reductase complex	Selenoprotein A, the substrat
 SYS_12737_PRD	RHEA:12737	D-proline reductase complex	PrdA and the selenocysteine-containing PrdB are jointly required. The PrdD and PrdE stabilising proteins are not required, on the precedent recorded for the PyrI regulatory subunit.
 SYS_13101_HUTU	RHEA:13101	urocanate hydratase	Single catalytic protein.
 SYS_17785_GAD	RHEA:17785	glutamate decarboxylase	Single catalytic protein.
-SYS_19169_SDAA	RHEA:19169	L-serine ammonia-lyase	Single catalytic protein.
+SYS_19169_SDAA	RHEA:19169	single-chain iron-sulfur L-serine ammonia-lyase	One complete catalytic protein; the split alpha and beta chains are a separate system.
+SYS_19169_SDA_SPLIT	RHEA:19169	split iron-sulfur L-serine ammonia-lyase	Both SdaAA alpha and SdaAB beta are required.
+SYS_19169_SDS	RHEA:19169	PLP-dependent serine/threonine ammonia-lyase	One complete K17989-assigned catalytic protein.
 SYS_19553_TNAA	RHEA:19553	tryptophanase	Single catalytic protein.
 SYS_19597_ARCA	RHEA:19597	arginine deiminase	Single catalytic protein.
 SYS_21232_HUTH	RHEA:21232	histidine ammonia-lyase	Single catalytic protein.

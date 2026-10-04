@@ -61,6 +61,9 @@ TIGR00221.1	equivalog	nagA	N-acetylglucosamine-6-phosphate deacetylase	3.5.1.25	
 TIGR00502.1	equivalog	nagB	glucosamine-6-phosphate deaminase	3.5.99.6	35984	JCVI	1	1	COMP_12172_CATALYTIC	hmm_PGAP/20.0
 TIGR00562.1	equivalog	hemG	protoporphyrinogen oxidase	1.3.3.4	35757	JCVI	1	1	COMP_25576_HEMY	hmm_PGAP/20.0
 TIGR00715.1	equivalog	cobK	precorrin-6A reductase	1.3.1.54	32358	JCVI	1	1	COMP_23408_CATALYTIC	hmm_PGAP/20.0
+TIGR00718.1	equivalog	sdaAA	L-serine ammonia-lyase, iron-sulfur-dependent, subunit alpha	4.3.1.17	15278	JCVI	1	1	COMP_19169_SDA_ALPHA	hmm_PGAP/20.0
+TIGR00719.1	equivalog	sdaAB	L-serine ammonia-lyase, iron-sulfur-dependent, subunit beta	4.3.1.17	12514	JCVI	1	1	COMP_19169_SDA_BETA	hmm_PGAP/20.0
+TIGR00720.1	equivalog	sdaA	L-serine ammonia-lyase	4.3.1.17	69887	JCVI	1	1	COMP_19169_CATALYTIC	hmm_PGAP/20.0
 TIGR01001.2	equivalog	metA	homoserine O-succinyltransferase MetA	2.3.1.46	4449	JCVI	1	1	COMP_22008_CATALYTIC	hmm_PGAP/20.0
 TIGR01089.1	equivalog	fucI	L-fucose isomerase	5.3.1.25	9572	JCVI	1	1	COMP_17233_CATALYTIC	hmm_PGAP/20.0
 TIGR01261.1	equivalog_domain	hisB	histidinol-phosphatase	3.1.3.15	19756	JCVI	1	1	COMP_14465_HISB_BIFUNCTIONAL_CATALYTIC	hmm_PGAP/20.0

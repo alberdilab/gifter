@@ -221,7 +221,7 @@
 # so a location cannot claim to be code when it is a table.
 .gifter_evidence_kinds <- list(
   curation_document = c("md"),
-  analysis_script = c("R"),
+  analysis_script = c("R", "py"),
   result_table = c("tsv", "csv", "txt")
 )
 

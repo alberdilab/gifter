@@ -627,6 +627,11 @@ L-serine → pyruvate + ammonium. `sdaA`/`sdaB`/`tdcG` (`K01752`), **68.2%
 layer to the entire fermentation layer in one edge, and it is the step that
 makes serine a fermentable substrate rather than only a biosynthetic product.
 
+**Later revision (database 2026.37.1).** The 68.2% figure is the historical
+KO screen, not current GIFT prevalence. `K01752` also marks either isolated
+subunit of a split enzyme and was retired as completing evidence. See the
+[architecture-specific reassessment](assessment-serine-deamination-revision.md).
+
 ### 8.5 Deferred deaminations
 
 - **Aspartate ammonia-lyase** (`aspA`, `K01744`, 41.1%) produces fumarate and is

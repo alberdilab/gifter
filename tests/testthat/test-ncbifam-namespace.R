@@ -8,8 +8,8 @@
 #      refuses.
 #   2. Versioned accessions. `NF040708` and `NF040708.3` are not guaranteed to
 #      be the same profile, so an unversioned accession is pinned to nothing.
-#   3. Additive. The namespace joins components that already accept evidence,
-#      so no call over the marker vocabulary that existed before it may move.
+#   3. The original namespace release was additive. Later architecture
+#      corrections can replace ambiguous KO evidence and are tested separately.
 #
 # The third is proved rather than asserted: the release before this one is
 # reconstructed by deleting every NCBIFAM evidence row from the source tables
@@ -109,14 +109,14 @@ test_that("an NCBIfam marker must declare its grade and carry a version", {
   expect_error(validate_gifter_sources(source_dir), "must declare family_type")
 })
 
-test_that("an NCBIfam marker is an OR alternative, not a second required gene", {
-  # Two claims, and the first is what makes the additive release additive.
+test_that("an NCBIfam marker respects its curated component logic", {
+  # The original namespace release added OR evidence to existing components.
   #
   # Structurally: on every component that existed before the namespace, the
   # NCBIfam profile sits beside a marker that was already there. Nothing became
-  # newly satisfiable. The only components whose sole evidence is NCBIfam belong
-  # to `siroheme_to_heme_b`, which exists *because* no KEGG accession separates
-  # AhbA from AhbB -- a capability the namespace created, not one it took over.
+  # newly satisfiable. The later serine-deamination correction deliberately
+  # replaces an ambiguous KO with NCBIfam-only components; its AND logic is
+  # exercised in test-amino-acids.R.
   #
   # Behaviourally: where a component has both, either marker alone completes the
   # reaction. A layer that required both would be modelling a heterodimer, which
@@ -138,7 +138,7 @@ test_that("an NCBIfam marker is an OR alternative, not a second required gene", 
   ahb <- get_gift_reactions("siroheme_to_heme_b")$reaction_id
   expect_setequal(
     unique(evidence$reaction_id[evidence$component_id %in% ncbifam_only]),
-    "RHEA:19093"
+    c("RHEA:19093", "RHEA:19169")
   )
   expect_true("RHEA:19093" %in% ahb)
 
@@ -172,11 +172,9 @@ test_that("an NCBIfam marker is an OR alternative, not a second required gene", 
   expect_equal(citd$minimum_missing_components[citd$reaction_id == "RHEA:10760"], 3L)
 })
 
-# Reconstruct the database as it stood before the namespace was admitted: every
-# NCBIFAM row removed, and with it the one capability that depends on the
-# namespace, whose components have no other evidence by construction. Nothing
-# else is touched, so any difference in a call afterwards is attributable to
-# these two releases alone.
+# Reconstruct the pre-namespace comparison frame: remove every NCBIFAM row and
+# the capabilities whose current definitions depend on NCBIfam-only evidence.
+# Serine deamination was revised later and has its own regression tests.
 pre_namespace_sources <- function(envir = parent.frame()) {
   source_dir <- gifter_source_copy(envir)
   drop <- function(table, column, values) {
@@ -203,6 +201,25 @@ pre_namespace_sources <- function(envir = parent.frame()) {
   drop("component_markers", "component_id", components)
   drop("change_gifts", "change_id", "DBC-20260823-SIROHEME-TO-HEME-B")
   drop("database_changes", "change_id", "DBC-20260823-SIROHEME-TO-HEME-B")
+
+  # The 2026.37.1 serine correction is intentionally outside the additive
+  # namespace comparison: its old K01752 semantics were unsound, and deleting
+  # its NCBIfam markers would leave required components without evidence.
+  serine <- "serine_deamination"
+  for (table in c("gifts", "gift_anchors", "gift_facets", "gift_xrefs",
+                  "gift_evidence", "gift_routes", "change_gifts")) {
+    drop(table, "gift_id", serine)
+  }
+  drop("route_reactions", "route_id", "SER_DEAMINATION")
+  drop("reaction_xrefs", "reaction_id", "RHEA:19169")
+  drop("reactions", "reaction_id", "RHEA:19169")
+  serine_systems <- c("SYS_19169_SDAA", "SYS_19169_SDA_SPLIT", "SYS_19169_SDS")
+  serine_components <- c("COMP_19169_CATALYTIC", "COMP_19169_SDA_ALPHA",
+                         "COMP_19169_SDA_BETA", "COMP_19169_SDS")
+  drop("enzyme_systems", "system_id", serine_systems)
+  drop("enzyme_components", "component_id", serine_components)
+  drop("component_markers", "component_id", serine_components)
+  drop("database_changes", "change_id", "DBC-20261004-SERINE-DEAMINATION-SYSTEMS")
 
   evidence <- read_source(source_dir, "component_markers")
   write_source(source_dir, "component_markers",

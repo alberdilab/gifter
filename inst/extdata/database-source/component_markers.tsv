@@ -980,8 +980,10 @@ COMP_12737_PRDA	KO	K10793	orthology	curated	KEGG orthology and Rhea release 141,
 COMP_12737_PRDB	KO	K10794	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
 COMP_13101_CATALYTIC	KO	K01712	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
 COMP_17785_CATALYTIC	KO	K01580	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
-COMP_19169_CATALYTIC	KO	K01752	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
-COMP_19169_CATALYTIC	KO	K17989	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
+COMP_19169_CATALYTIC	NCBIFAM	TIGR00720.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-04	family_type=equivalog. Full-length single-chain iron-sulfur serine dehydratase; verified against E. coli SdaA, SdaB and TdcG.
+COMP_19169_SDA_ALPHA	NCBIFAM	TIGR00718.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-04	family_type=equivalog. SdaAA alpha chain; cannot complete the split enzyme without the beta component.
+COMP_19169_SDA_BETA	NCBIFAM	TIGR00719.1	sequence_family	high-confidence	NCBIfam hmm_PGAP/20.0, retrieved 2026-10-04	family_type=equivalog. SdaAB beta chain; cannot complete the split enzyme without the alpha component.
+COMP_19169_SDS	KO	K17989	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-10-04	The KO names a single-chain L-serine/L-threonine ammonia-lyase and is kept separate from the iron-sulfur systems.
 COMP_19553_CATALYTIC	KO	K01667	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
 COMP_19597_CATALYTIC	KO	K01478	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	
 COMP_21232_CATALYTIC	KO	K01745	orthology	curated	KEGG orthology and Rhea release 141, verified 2026-08-19	

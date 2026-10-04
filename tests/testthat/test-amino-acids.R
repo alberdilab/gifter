@@ -304,6 +304,41 @@ test_that("evidence traces from a call back to the markers that made it", {
   expect_true(all(grepl("^gene_", supported$gene_id)))
 })
 
+test_that("serine deamination requires a complete enzyme architecture", {
+  serine_call <- function(genes, namespaces, accessions) {
+    result <- evaluate_gifts(data.frame(
+      gene_id = genes, namespace = namespaces, accession = accessions
+    ))
+    row <- result$gifts[result$gifts$gift_id == "serine_deamination", ]
+    list(complete = row$complete, trace = trace_gift(result, "serine_deamination"))
+  }
+
+  # KEGG assigns K01752 to both B. subtilis split chains. It cannot identify
+  # a complete enzyme, even if two proteins carry the same accession.
+  expect_false(serine_call("BSU15860", "KO", "K01752")$complete)
+  expect_false(serine_call(c("BSU15850", "BSU15860"), rep("KO", 2),
+                           rep("K01752", 2))$complete)
+
+  alpha <- "TIGR00718.1"
+  beta <- "TIGR00719.1"
+  monomer <- "TIGR00720.1"
+  expect_false(serine_call("BSU15860", "NCBIFAM", alpha)$complete)
+  expect_false(serine_call("BSU15850", "NCBIFAM", beta)$complete)
+
+  split <- serine_call(c("BSU15860", "BSU15850"), rep("NCBIFAM", 2),
+                       c(alpha, beta))
+  expect_true(split$complete)
+  expect_setequal(split$trace$gene_id, c("BSU15860", "BSU15850"))
+  expect_setequal(split$trace$accession, c(alpha, beta))
+  expect_true(serine_call("b1814", "NCBIFAM", monomer)$complete)
+  expect_true(serine_call("sds", "KO", "K17989")$complete)
+
+  # A protein containing both distinct profile domains may evidence both
+  # required component roles; no distinct-gene requirement is curated.
+  expect_true(serine_call(rep("Pcatena_15640", 2), rep("NCBIFAM", 2),
+                          c(alpha, beta))$complete)
+})
+
 test_that("the histidine phosphatase step accepts every family that solves it", {
   # Database 2026.25.1. RHEA:14465 is solved by at least three unrelated protein
   # families and RHEA:22828 occurs standalone and fused, which is why orthology

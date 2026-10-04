@@ -53,7 +53,8 @@ test_that("a cited result table brings the script recorded as regenerating it", 
     "^data-raw/reference/archaellum-" = "data-raw/archaellum_ncbifam_prevalence.R",
     "^data-raw/reference/t2ss-" = "data-raw/t2ss_prevalence.R",
     "^data-raw/reference/wta-" = "data-raw/wta_ncbifam_prevalence.R",
-    "^data-raw/reference/secretion-system-" = "data-raw/secretion_system_prevalence.R"
+    "^data-raw/reference/secretion-system-" = "data-raw/secretion_system_prevalence.R",
+    "^data-raw/reference/serine-deamination-" = "data-raw/serine_deamination_marker_audit.py"
   )
   tables <- evidence[evidence$evidence_kind == "result_table", , drop = FALSE]
   for (pattern in names(producers)) {
@@ -82,6 +83,11 @@ test_that("source validation refuses malformed curation evidence", {
   }))))
   expect_true(any(grepl("does not match its evidence_kind", evidence_errors(function(x) {
     row <- which(x$evidence_kind == "curation_document")[1]
+    x$evidence_kind[row] <- "analysis_script"
+    x
+  }))))
+  expect_false(any(grepl("does not match its evidence_kind", evidence_errors(function(x) {
+    row <- which(x$location == "data-raw/serine_deamination_marker_audit.py")
     x$evidence_kind[row] <- "analysis_script"
     x
   }))))

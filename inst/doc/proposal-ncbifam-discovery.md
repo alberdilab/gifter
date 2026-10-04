@@ -326,6 +326,13 @@ Checking the vanadium comparison turned up something small and separate, and
 
 ### 4.5 Two more readings from the same 23
 
+**2026-10-04 update.** The `K01752` assignment question below was resolved:
+KEGG assigns it to both *B. subtilis* split chains as well as complete
+single-chain proteins. Database 2026.37.1 retires it as completing evidence
+and adds architecture-specific systems. The audit and call limits are in
+[the serine-deamination revision](assessment-serine-deamination-revision.md).
+The paragraphs below preserve the original discovery-stage reasoning.
+
 **A new alternative enzyme system that is ready to curate.** EC 4.3.1.17,
 `RHEA:19169`, L-serine ammonia-lyase, inside `serine_deamination`. gifter
 evidences the reaction with **one** component, `COMP_19169_CATALYTIC`, carrying

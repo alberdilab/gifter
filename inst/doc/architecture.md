@@ -1547,7 +1547,7 @@ remain present in both forms.
 | `anchors.tsv` | `anchor` | Curated boundary molecule; `anchor_id`, `molecule` + `compartment`, usually with `chebi_id` |
 | `gift_anchors.tsv` | `gift_anchor` | Input/output role and ordinal for each GIFT boundary |
 | `gift_xrefs.tsv` | `gift_xref` | Related external pathway and how the curated boundaries compare |
-| `gift_evidence.tsv` | `gift_evidence` | Where a GIFT was curated: curation documents, analysis scripts and result tables, as repository paths |
+| `gift_evidence.tsv` | `gift_evidence` | Where a GIFT was curated: curation documents (`.md`), analysis scripts (`.R` or `.py`) and result tables (`.tsv`, `.csv` or `.txt`), as repository paths |
 | `reactions.tsv` | `reaction` | Canonical chemistry; `reaction_id`, with `rhea_master` where Rhea covers it |
 | `reaction_xrefs.tsv` | `reaction_xref` | Namespaced external reaction cross-references |
 | `gift_routes.tsv` | `gift_route` | Alternative minimal route; `route_id` |

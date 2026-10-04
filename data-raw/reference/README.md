@@ -4,6 +4,22 @@ Evidence files consulted during curation. They are **not** compiled into the
 database and are not loaded at runtime; they are kept so that a curation
 decision can be re-checked against the exact input that informed it.
 
+## serine-deamination-gene-audit.tsv and serine-deamination-genome-audit.tsv
+
+`data-raw/serine_deamination_marker_audit.py` regenerates both tables from
+KEGG K01752/K17989 gene links and NCBIfam `hmm_PGAP/20.0` profiles. It uses
+the repository's fixed KEGG genome frame, samples 40 genomes in each K01752
+copy-count stratum by SHA256 rank, and adds *E. coli* and *B. subtilis*
+controls. The gene table preserves KEGG protein identifiers and NCBIfam profile
+scores at published gathering thresholds. The genome table reports whether
+the audited K01752 proteins support a complete single-chain or two-subunit
+system, or the genome has K17989. The `prokaryote` flag used for this frame is
+not a reliable taxonomy filter. This sample is evidence for marker specificity,
+not a full-frame NCBIfam prevalence or exact mixed-input call delta. Downloaded
+KEGG links, sequences and HMMs stay in the ignored cache. Reproduce online
+once, then verify with `python3 data-raw/serine_deamination_marker_audit.py
+--offline` (requires HMMER `hmmsearch`).
+
 ## lta-peptidoglycan-prevalence.tsv and lta-peptidoglycan-marker-audit.tsv
 
 These tables retain the 2026-10-02 dedicated reassessment of lipoteichoic acid

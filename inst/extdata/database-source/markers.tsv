@@ -936,7 +936,6 @@ KO	K10793	D-proline reductase (dithiol) PrdA	KEGG orthology marker.
 KO	K10794	D-proline reductase (dithiol) PrdB	KEGG orthology marker.
 KO	K01712	urocanate hydratase	KEGG orthology marker.
 KO	K01580	glutamate decarboxylase	KEGG orthology marker.
-KO	K01752	L-serine dehydratase	KEGG orthology marker.
 KO	K17989	L-serine/L-threonine ammonia-lyase	KEGG orthology marker.
 KO	K01667	tryptophanase	KEGG orthology marker.
 KO	K01478	arginine deiminase	KEGG orthology marker.
@@ -1319,6 +1318,9 @@ NCBIFAM	NF012017.0	cobalt-precorrin-4 methyltransferase	NCBIfam equivalog-grade 
 NCBIFAM	TIGR00109.1	hemH ferrochelatase	NCBIfam equivalog-grade profile. ferrochelatase, EC 4.98.1.1. Built from JCVI; 70512 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
 NCBIFAM	TIGR00562.1	hemG protoporphyrinogen oxidase	NCBIfam equivalog-grade profile. protoporphyrinogen oxidase, EC 1.3.3.4. Built from JCVI; 35757 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
 NCBIFAM	TIGR00715.1	cobK precorrin-6A reductase	NCBIfam equivalog-grade profile. precorrin-6A reductase, EC 1.3.1.54. Built from JCVI; 32358 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
+NCBIFAM	TIGR00718.1	sdaAA L-serine ammonia-lyase alpha chain	NCBIfam equivalog-grade profile for the alpha subunit of the split iron-sulfur enzyme; release hmm_PGAP/20.0.
+NCBIFAM	TIGR00719.1	sdaAB L-serine ammonia-lyase beta chain	NCBIfam equivalog-grade profile for the beta subunit of the split iron-sulfur enzyme; release hmm_PGAP/20.0.
+NCBIFAM	TIGR00720.1	sdaA single-chain L-serine ammonia-lyase	NCBIfam equivalog-grade profile for the complete single-chain iron-sulfur enzyme; release hmm_PGAP/20.0.
 NCBIFAM	TIGR01001.2	metA homoserine O-succinyltransferase MetA	NCBIfam equivalog-grade profile. homoserine O-succinyltransferase MetA, EC 2.3.1.46. Built from JCVI; 4449 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
 NCBIFAM	TIGR01089.1	fucI L-fucose isomerase	NCBIfam equivalog-grade profile. L-fucose isomerase, EC 5.3.1.25. Built from JCVI; 9572 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.
 NCBIFAM	TIGR01327.1	serA phosphoglycerate dehydrogenase	NCBIfam equivalog-grade profile. phosphoglycerate dehydrogenase, EC 1.1.1.95. Built from JCVI; 36301 RefSeq protein hits in NCBIfam release hmm_PGAP/20.0.

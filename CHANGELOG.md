@@ -15,6 +15,18 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-10-04T11:41Z — Python curation scripts can be indexed as GIFT evidence
+
+**What changed.** Source validation accepts `.py` analysis scripts in
+`gift_evidence.tsv`, alongside `.R` scripts.
+
+**Why.** The reproducible serine-deamination marker audit is written in Python;
+its script must travel with the GIFT's curation documents and result tables.
+
+**Effect.** Curation provenance only. Evaluation logic and the database schema
+are unchanged. The biological marker correction is recorded in
+`database_changes.tsv`.
+
 ### 2026-10-04T03:51Z — Atlas shows the class of every GIFT type
 
 **What changed.** The GIFT table and detail header now read the required class

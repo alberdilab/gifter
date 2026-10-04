@@ -1,5 +1,23 @@
 # Reference database provenance
 
+## Serine ammonia-lyase architectures (2026.37.1)
+
+[KEGG K01752](https://www.kegg.jp/entry/ko:K01752) assigns both
+*Bacillus subtilis* SdaAA and SdaAB split chains, as well as the complete
+*E. coli* SdaA, SdaB and TdcG proteins. A single K01752 observation cannot
+establish a complete `RHEA:19169` enzyme. NCBIfam release `hmm_PGAP/20.0`
+equivalogs [TIGR00718.1](https://www.ncbi.nlm.nih.gov/Structure/cdd/TIGR00718)
+(alpha), [TIGR00719.1](https://www.ncbi.nlm.nih.gov/Structure/cdd/TIGR00719)
+(beta) and [TIGR00720.1](https://www.ncbi.nlm.nih.gov/Structure/cdd/TIGR00720)
+(single chain) distinguish the alternatives. The two-subunit architecture is
+also supported by the [*B. subtilis* study](https://pmc.ncbi.nlm.nih.gov/articles/PMC6620397/).
+The stratified, gene-level audit and its scope are documented in
+`inst/doc/assessment-serine-deamination-revision.md`; executable and result
+evidence are under `data-raw/serine_deamination_marker_audit.py` and
+`data-raw/reference/serine-deamination-*-audit.tsv`. The existing K17989
+single-protein alternative is retained independently. No new reaction, anchor
+or claim of enzyme activity is introduced.
+
 ## Intracellular activated-carrier boundaries (2026.36.1)
 
 The four CoA/acyl-carrier thioester anchors are curated as cytoplasmic at their

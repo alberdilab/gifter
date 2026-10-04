@@ -144,6 +144,10 @@ salicylate_biosynthesis	curation_document	inst/doc/proposal-shikimate-aromatics.
 sarcosine_demethylation	curation_document	inst/doc/proposal-nitrogen-compound-catabolism.md	Curation proposal: nitrogen compound catabolism GIFTs
 serine_biosynthesis	curation_document	inst/doc/proposal-amino-acid-biosynthesis.md	Curation proposal: serine, threonine, cysteine and methionine GIFTs
 serine_deamination	curation_document	inst/doc/proposal-amino-acid-metabolism.md	Curation proposal: the rest of amino acid metabolism
+serine_deamination	curation_document	inst/doc/assessment-serine-deamination-revision.md	Architecture-specific reassessment of serine ammonia-lyase evidence
+serine_deamination	analysis_script	data-raw/serine_deamination_marker_audit.py	Stratified KEGG protein and NCBIfam profile audit
+serine_deamination	result_table	data-raw/reference/serine-deamination-gene-audit.tsv	Gene-level alpha, beta and single-chain profile calls
+serine_deamination	result_table	data-raw/reference/serine-deamination-genome-audit.tsv	Genome-level architecture support in the fixed sample
 siroheme_biosynthesis	curation_document	inst/doc/proposal-compatible-solutes-heme-enterobactin-detoxification.md	Proposal: compatible-solute and heme biosynthesis, enterobactin assembly
 siroheme_to_heme_b	curation_document	inst/doc/proposal-ncbifam-namespace.md	Assessment: NCBIfam as a marker namespace, read against the deferral register
 starch_degradation	curation_document	inst/doc/proposal-polysaccharide-degradation.md	Curation proposal: complex polysaccharide and sugar degradation GIFTs

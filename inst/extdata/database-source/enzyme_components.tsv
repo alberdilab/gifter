@@ -515,7 +515,10 @@ COMP_12737_PRDA	SYS_12737_PRD	D-proline reductase PrdA	Required subunit.
 COMP_12737_PRDB	SYS_12737_PRD	D-proline reductase PrdB	Required selenocysteine-containing subunit.
 COMP_13101_CATALYTIC	SYS_13101_HUTU	urocanate hydratase protein	Required catalytic protein.
 COMP_17785_CATALYTIC	SYS_17785_GAD	glutamate decarboxylase protein	Required catalytic protein.
-COMP_19169_CATALYTIC	SYS_19169_SDAA	L-serine dehydratase protein	Required catalytic protein.
+COMP_19169_CATALYTIC	SYS_19169_SDAA	single-chain L-serine dehydratase	Required complete catalytic protein.
+COMP_19169_SDA_ALPHA	SYS_19169_SDA_SPLIT	SdaAA alpha subunit	Required split-enzyme alpha chain.
+COMP_19169_SDA_BETA	SYS_19169_SDA_SPLIT	SdaAB beta subunit	Required split-enzyme beta chain.
+COMP_19169_SDS	SYS_19169_SDS	PLP-dependent serine/threonine ammonia-lyase	Required catalytic protein.
 COMP_19553_CATALYTIC	SYS_19553_TNAA	tryptophanase protein	Required catalytic protein.
 COMP_19597_CATALYTIC	SYS_19597_ARCA	arginine deiminase protein	Required catalytic protein.
 COMP_21232_CATALYTIC	SYS_21232_HUTH	histidine ammonia-lyase protein	Required catalytic protein.

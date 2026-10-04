@@ -165,7 +165,7 @@ ARG_CANONICAL	arginine_biosynthesis	Citrulline route	Ornithine carbamoyltransfer
 ADI_CANONICAL	arginine_deiminase_pathway	Arginine deiminase route	Arginine deiminase, ornithine carbamoyltransferase run in the phosphorolytic direction, and carbamate kinase run in the ATP-forming direction.	curated	independent
 HUT_FORMAMIDE	histidine_degradation_glutamate	Formimidoylglutamase route	Histidase, urocanate hydratase, imidazolonepropionase and formimidoylglutamase.	curated	independent
 THR_DEAMINATION	threonine_deamination	Threonine ammonia-lyase route	Single PLP-dependent deamination.	curated	independent
-SER_DEAMINATION	serine_deamination	L-serine ammonia-lyase route	Single deamination by the iron-sulfur or PLP-dependent serine dehydratase.	curated	independent
+SER_DEAMINATION	serine_deamination	L-serine ammonia-lyase route	Single deamination supported by a complete single-chain iron-sulfur enzyme, both split iron-sulfur subunits, or a K17989-assigned PLP enzyme.	curated	independent
 GAD_DECARBOXYLATION	glutamate_decarboxylation_gaba	Glutamate decarboxylase route	Single PLP-dependent decarboxylation.	curated	independent
 TNA_INDOLE	tryptophan_degradation_indole	Tryptophanase route	Single PLP-dependent beta-elimination.	curated	independent
 MGL_METHANETHIOL	methionine_degradation_methanethiol	Methionine gamma-lyase route	Single PLP-dependent gamma-elimination.	curated	independent
