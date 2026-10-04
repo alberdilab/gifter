@@ -1,4 +1,4 @@
-test_that("curated content declares a mode and leaves compartment unspecified", {
+test_that("curated content declares a mode and licenses compartment claims", {
   # `mode` is a property of the metabolic model. Non-metabolic GIFTs have no
   # direction between molecules and must leave it unset.
   gifts <- list_gifts(type = "metabolic")
@@ -7,15 +7,28 @@ test_that("curated content declares a mode and leaves compartment unspecified", 
   expect_true(all(gifts$mode[grepl("_biosynthesis", gifts$gift_id)] == "anabolic"))
   expect_true(all(gifts$mode[grepl("_degradation", gifts$gift_id)] == "catabolic"))
 
-  # An anchor is split only where the uptake layer licensed it. Everything
-  # else stays unresolved rather than being assigned a compartment by default.
+  # Uptake licenses three molecule splits. The four CoA/acyl-carrier thioester
+  # boundaries are also intracellular, without an extracellular variant.
   connection <- gifter_db_connect()
   withr::defer(gifter_db_disconnect(connection))
   anchors <- DBI::dbGetQuery(connection, "SELECT anchor_id, molecule, compartment FROM anchor")
-  # Two ways an anchor acquires a compartment: an uptake GIFT licensed the
-  # split, or the substance is extracellular by its own nature.
+  # Uptake licenses a split; polymer physics and the intracellular carrier
+  # boundary license single-location anchors.
   licensed <- sort(unique(anchors$molecule[anchors$compartment == "cytoplasmic"]))
-  expect_equal(licensed, c("ARABINOSE", "TAURINE", "XYLOSE"))
+  expect_equal(licensed, c(
+    "ACETYL_COA", "ARABINOSE", "OXOADIPYL_COA", "PIMELOYL_COA",
+    "SUCCINYL_COA", "TAURINE", "XYLOSE"
+  ))
+  carriers <- c("ACETYL_COA", "OXOADIPYL_COA", "PIMELOYL_COA", "SUCCINYL_COA")
+  expect_true(all(anchors$compartment[match(carriers, anchors$anchor_id)] == "cytoplasmic"))
+  expect_false(any(anchors$molecule %in% carriers & anchors$compartment == "extracellular"))
+  expect_true(all(anchors$compartment[match(
+    c("ACETATE", "BUTYRATE", "PROPIONATE", "GLCNAC"), anchors$anchor_id
+  )] == "unspecified"))
+  carrier_edges <- gift_graph()
+  carrier_edges <- carrier_edges[carrier_edges$shared_anchor %in% carriers, ]
+  expect_gt(nrow(carrier_edges), 0L)
+  expect_true(all(carrier_edges$edge_quality == "exact"))
   intrinsic <- sort(anchors$molecule[anchors$compartment == "extracellular"])
   expect_true(all(c("ARABINOXYLAN", "XYLAN", "STARCH") %in% intrinsic))
   expect_true(all(anchors$compartment[grepl("_biosynthesis", anchors$anchor_id)] == "unspecified"))

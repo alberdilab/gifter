@@ -38,11 +38,12 @@ test_that("every organic acid GIFT is curated to the full evidence depth", {
     anchors <- get_gift_anchors(gift_id)
     expect_true(any(anchors$role == "input"))
     expect_true(any(anchors$role == "output"))
-    # No organic acid transporter marker is specific enough to license a
-    # compartment split, so no boundary here may claim one. The lactate
-    # cross-feeding edge is as well documented as the acetate one and the model
-    # still may not draw it.
-    expect_true(all(anchors$compartment == "unspecified"))
+    # Acetyl-CoA is intracellular. The soluble acids and neutral end products
+    # remain unresolved, so this layer still draws no cross-feeding edge.
+    expect_equal(
+      anchors$compartment,
+      ifelse(anchors$anchor_id == "ACETYL_COA", "cytoplasmic", "unspecified")
+    )
 
     mirrored <- intersect(
       anchors$anchor_id[anchors$role == "input"],

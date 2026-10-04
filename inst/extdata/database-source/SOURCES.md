@@ -1,5 +1,20 @@
 # Reference database provenance
 
+## Intracellular activated-carrier boundaries (2026.36.1)
+
+The four CoA/acyl-carrier thioester anchors are curated as cytoplasmic at their
+declared reaction boundaries. This is an inference from the carrier chemistry
+and the curated intracellular routes, not a localisation assigned by KO or EC
+markers. [Balibar et al. 2011](https://pubmed.ncbi.nlm.nih.gov/21551303/)
+tested rescue of *E. coli* CoA-biosynthesis mutants: extracellular CoA and
+dephospho-CoA did not enter the cells, while the less charged pantethine did.
+[Jackowski et al. 1985](https://pubmed.ncbi.nlm.nih.gov/3884600/) localized
+acyl carrier protein to the *E. coli* cytoplasm, supporting the ACP-linked
+alternative covered by the `PIMELOYL_COA` anchor. Neither study proves a
+universal absence of unusual transport or release; the curation claim is
+limited to the routes currently attached to these four anchors. Soluble acids,
+amino acids, sugars and other phosphorylated molecules were not reclassified.
+
 ## Regulatory and defense expansion (2026.35.1)
 
 The serine receptor role is based on NCBIfam hmm_PGAP/20.0 equivalog

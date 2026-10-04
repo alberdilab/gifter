@@ -1251,20 +1251,26 @@ and they are invisible if every boundary molecule is compartment-blind.
 
 **Compartment is a curated boundary claim, not a genomic inference.** A KO or
 CAZy family identifies chemistry, not localisation, and a signal peptide is not
-an accession. Two cases are intrinsic and need no genomic claim: a polymer is
-extracellular because nothing imports it, and a transporter is membrane-located
-because that is what a transporter is. Everything else is a curation judgement
-about the substrate class, recorded in the GIFT's notes.
+an accession. A polymer is extracellular because it cannot be imported intact;
+a transport GIFT declares the sides its transporter connects. The four curated
+CoA/acyl-carrier thioester anchors are cytoplasmic boundary claims: their
+curated routes use intracellular activated carriers, and CoA does not cross the
+*E. coli* cytoplasmic membrane in supplementation experiments. This is a
+judgement about those boundaries, not a localisation inferred from a marker or
+a claim that every phosphorylated metabolite is cytoplasmic. Its evidence and
+affected GIFTs are recorded in `database_changes.tsv` and `change_gifts.tsv`.
 
 Split an anchor by compartment only when both hold:
 
 - the substrate can physically occupy both locations, and
 - substrate-specific transporter markers exist to evidence the crossing.
 
-Otherwise leave the chemistry `unspecified`. An unevidenced transporter made
-into a required reaction would silently break an otherwise complete catabolic
-chain, turning a missing annotation into a false negative for the whole
-capability.
+The split rule concerns a molecule with plausible locations on both sides of
+the membrane. It does not prevent a single anchor from naming a well-supported
+intracellular activated carrier. Otherwise leave the chemistry `unspecified`.
+An unevidenced transporter made into a required reaction would silently break
+an otherwise complete catabolic chain, turning a missing annotation into a
+false negative for the whole capability.
 
 A GIFT with `mode = transport` must declare the same `molecule` as both input
 and output; that is what distinguishes moving a substance from changing it. The

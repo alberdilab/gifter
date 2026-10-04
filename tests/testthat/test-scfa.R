@@ -34,10 +34,12 @@ test_that("every SCFA GIFT is curated to the full evidence depth", {
     anchors <- get_gift_anchors(gift_id)
     expect_true(any(anchors$role == "input"))
     expect_true(any(anchors$role == "output"))
-    # No SCFA transport GIFT is evidenceable, so no boundary here may claim a
-    # compartment. Declaring one would manufacture the cross-feeding edge that
-    # inst/doc/proposal-scfa-biosynthesis.md deliberately refuses.
-    expect_true(all(anchors$compartment == "unspecified"))
+    # Acetyl-CoA is an intracellular carrier. SCFAs and other soluble products
+    # remain unresolved, so no cross-feeding edge is licensed by them.
+    expect_equal(
+      anchors$compartment,
+      ifelse(anchors$anchor_id == "ACETYL_COA", "cytoplasmic", "unspecified")
+    )
     # Every anchor of an interconversion GIFT carries both roles; every anchor
     # of a directed one carries exactly one.
     mirrored <- intersect(

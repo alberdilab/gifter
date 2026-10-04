@@ -69,10 +69,12 @@ test_that("every vitamin GIFT is curated to the full evidence depth", {
     anchors <- get_gift_anchors(gift_id)
     expect_true(any(anchors$role == "input"))
     expect_true(any(anchors$role == "output"))
-    # No vitamin transporter is evidenceable, so no boundary in this layer may
-    # claim a compartment. Declaring one would manufacture the cross-feeding
-    # edge the proposal deliberately refuses.
-    expect_true(all(anchors$compartment == "unspecified"))
+    # The pimeloyl CoA/ACP carrier is intracellular. The vitamin and precursor
+    # boundaries remain unresolved and license no cross-feeding edge.
+    expect_equal(
+      anchors$compartment,
+      ifelse(anchors$anchor_id == "PIMELOYL_COA", "cytoplasmic", "unspecified")
+    )
     expect_length(
       intersect(
         anchors$anchor_id[anchors$role == "input"],

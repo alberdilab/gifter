@@ -55,9 +55,11 @@ test_that("every cycle segment is curated to the full evidence depth", {
     anchors <- get_gift_anchors(gift_id)
     expect_true(any(anchors$role == "input"))
     expect_true(any(anchors$role == "output"))
-    # No transporter marker licenses a compartment split for these acids, so no
-    # boundary here may claim one.
-    expect_true(all(anchors$compartment == "unspecified"))
+    # The activated carrier is intracellular; the cycle acids remain unresolved.
+    expect_equal(
+      anchors$compartment,
+      ifelse(anchors$anchor_id == "ACETYL_COA", "cytoplasmic", "unspecified")
+    )
 
     reactions <- get_gift_reactions(gift_id)
     expect_gt(nrow(reactions), 0L)

@@ -45,9 +45,11 @@ test_that("every aromatic GIFT is curated to the full evidence depth", {
     anchors <- get_gift_anchors(gift_id)
     expect_true(any(anchors$role == "input"))
     expect_true(any(anchors$role == "output"))
-    # No transport GIFT is evidenceable for an aromatic compound, so no boundary
-    # here may claim a compartment and none may claim a cross-feeding edge.
-    expect_true(all(anchors$compartment == "unspecified"))
+    # The activated CoA carriers are intracellular boundaries. No aromatic
+    # substrate or free acid is placed outside the cell by this evidence.
+    carriers <- c("OXOADIPYL_COA", "SUCCINYL_COA", "ACETYL_COA")
+    expected <- ifelse(anchors$anchor_id %in% carriers, "cytoplasmic", "unspecified")
+    expect_equal(anchors$compartment, expected)
 
     reactions <- get_gift_reactions(gift_id)
     expect_gt(nrow(reactions), 0L)
