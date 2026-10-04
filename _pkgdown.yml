@@ -34,6 +34,9 @@ navbar:
     workflows:
       text: Workflows
       menu:
+      - text: Start from FASTA with giftag
+        href: https://alberdilab.github.io/giftag/get-started.html
+      - text: ---
       - text: From calls to quantitative traits
         href: articles/quantitative-traits.html
       - text: A genome-resolved community

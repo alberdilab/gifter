@@ -34,6 +34,12 @@ number later in these tutorials inherits it.
 
 ## Step 1: get your annotations into three columns
 
+> **Starting from FASTA?** [giftag](https://alberdilab.github.io/giftag/get-started.html)
+> searches the profiles used by gifter and writes `giftag_markers.tsv` in the
+> format this guide expects. Its [handoff guide](https://alberdilab.github.io/giftag/with-gifter.html)
+> shows the exact R call. Review giftag's searchable-marker ledger before
+> interpreting an unsupported GIFT as evidence of absence.
+
 gifter takes a plain data frame. Whatever tool produced your annotations —
 kofamscan, dbCAN, eggNOG-mapper, DRAM, bakta — the job is to reshape its output
 into one row per observed marker:

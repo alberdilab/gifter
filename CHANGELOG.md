@@ -15,6 +15,17 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-10-04T13:31Z — Link giftag annotation to gifter evaluation
+
+**What changed.** The website's Workflows menu, README, and first evaluation
+guide link to giftag's new documentation and its marker-table handoff.
+
+**Why.** A user starting from FASTA needs a path to produce gifter's input and
+to review marker search coverage before interpreting missing evidence.
+
+**Effect.** Documentation and navigation only. GIFT definitions, evaluation
+logic, database content, and calls are unchanged.
+
 ### 2026-10-04T11:41Z — Python curation scripts can be indexed as GIFT evidence
 
 **What changed.** Source validation accepts `.py` analysis scripts in

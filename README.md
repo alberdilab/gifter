@@ -130,6 +130,12 @@ remotes::install_github("alberdilab/gifter", build_vignettes = TRUE)
 library(gifter)
 ```
 
+Starting from genome or protein FASTA? [giftag](https://alberdilab.github.io/giftag/get-started.html)
+searches the markers in gifter's reference database and writes the table used
+below. Its [handoff guide](https://alberdilab.github.io/giftag/with-gifter.html)
+connects annotation to evaluation and explains which markers could not be
+searched.
+
 ## Workflows
 
 Four workflow guides walk through a complete analysis. Start at the first if
