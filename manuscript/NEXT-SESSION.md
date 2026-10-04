@@ -14,14 +14,29 @@ source of truth.
    `manuscript/analysis/r10-mfd/`. Run `monitor-and-fetch.sh`; it will fetch and
    verify the transfer and launch `25-r10-mfd.R` only after Drakkar succeeds.
    Do not write habitat results before those generated tables exist.
-2. **Annotate the locked GTDB R232 phylogenetic panel.** The 697 selected
-   complete assemblies are all tips in the main bac120 tree, each has at least
-   one reviewed origin-group assignment, and all retain raw origin metadata
-   plus BioSample/BioProject identifiers. Run the prepared
-   Mjolnir/Drakkar workflow under `manuscript/analysis/gtdb-phylogeny/`, verify
-   the transfer, execute `23-gtdb-phylogeny.R`, then replace the pending R6.1
-   language with results from Figure S4. Do not submit the cluster run without
-   explicit authorisation.
+2. **Write R6.1 from the evaluated GTDB R232 phylogenetic panel.** Drakkar
+   annotation and evaluation finished on 2026-10-04 for the 696 selected
+   complete assemblies, and Figure S4 is drawn. They are
+   all tips in the main bac120 tree, each
+   have at least one reviewed origin-group assignment, and all retain raw origin
+   metadata plus BioSample/BioProject identifiers. The transfer is fetched and
+   checksum-verified under `manuscript/analysis/.cache/gtdb-phylogeny/drakkar/`.
+   Replace the pending R6.1 language with results from the
+   `analysis/output/gtdb-phylogeny-*` tables and Figure S4, and from the
+   follow-ups (`26-gtdb-repertoire-genome-size.R`,
+   `27-gtdb-size-signal-and-gift-classes.R`,
+   `28-gtdb-origin-and-annotations.R` and
+   `29-gtdb-near-misses-and-gift-signal.R` and `30-gtdb-near-miss-steps.R`,
+   Figures S9 to S18). `gtdb-near-miss-steps.tsv` is also a ranked list of
+   curation candidates, each read as same-step, varying-step or shared-steps;
+   deciding between an uncurated alternative and a failing marker needs the
+   sub-threshold KOfam hits still on Mjolnir. The most frequent candidate,
+   indole-3-acetate biosynthesis, is not a real one: its present step rests on
+   the generic amidase K01426, which the sharing rule cannot see because the
+   marker is accepted only once. That marker deserves a specificity review.
+   The full to-do list for polishing GIFT definitions from these analyses is
+   `inst/doc/assessment-gtdb-near-miss-leads.md` (attempt
+   `GEA-20261004-GTDB-NEAR-MISS-SCREEN`).
 3. **Run R8, the controlled comparison of abstractions.** Choose the common
    genome subset and pin the KEGG-module and DRAM versions/parameters before
    writing results. Analyse disagreement causes; do not frame this as a
@@ -77,11 +92,14 @@ source of truth.
   taxonomic breadth. The complete 85-genome food/fermentation group defines the
   balance target for every sufficiently large group; smaller groups are
   exhaustive, and marginal rooted Faith diversity decides among
-  balance-compatible additions. This yields 697 genomes without using
+  balance-compatible additions. This yields 696 genomes without using
   annotations or calls and spans all 49 eligible phyla, 120 classes and 321
   orders. Animal-associated and plant-associated counts are each 85 rather than
   being pooled as host-associated; raw metadata and BioSample/BioProject
-  identifiers are retained. Figure S4 remains pending until the genomes are
+  identifiers are retained. The panel is stated as 696 throughout: one
+  food/fermentation genome chosen by the procedure, `GCA_002285495.1`, could
+  not be annotated and is removed in `--prepare` through
+  `gtdb-phylogeny/excluded-genomes.tsv`, so that group holds 84 genomes. Figure S4 remains pending until the genomes are
   annotated with Drakkar and evaluated against the current database.
 
 - **2026-10-03T03:13:00Z — R10 uses the Marcos et al. chicken caecal

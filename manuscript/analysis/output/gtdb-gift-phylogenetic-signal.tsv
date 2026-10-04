@@ -1,0 +1,141 @@
+gift_id	gift_type	mode	supporting_genomes	prevalence	d_statistic	p_random	p_brownian	q_random	q_brownian	distribution
+plp_biosynthesis_dxp	metabolic	anabolic	19	0.0273	-1.473	0	0.998	0	1	as conserved as Brownian motion
+malolactic_fermentation	metabolic	catabolic	22	0.03161	-1.213	0	0.998	0	1	as conserved as Brownian motion
+glutamine_biosynthesis	metabolic	anabolic	624	0.8966	-0.8289	0	0.994	0	1	as conserved as Brownian motion
+siroheme_to_heme_b	metabolic	anabolic	35	0.05029	-0.7744	0	0.983	0	1	as conserved as Brownian motion
+lpt_lipopolysaccharide_export_apparatus	structural		168	0.2414	-0.7376	0	1	0	1	as conserved as Brownian motion
+type_iva_pilus	structural		67	0.09626	-0.7054	0	0.98	0	1	as conserved as Brownian motion
+heme_b_biosynthesis	metabolic	anabolic	408	0.5862	-0.5502	0	1	0	1	as conserved as Brownian motion
+adenylate_biosynthesis	metabolic	anabolic	622	0.8937	-0.5472	0	0.971	0	1	as conserved as Brownian motion
+succinate_fumarate_interconversion	metabolic	interconversion	474	0.681	-0.5417	0	1	0	1	as conserved as Brownian motion
+guanylate_biosynthesis	metabolic	anabolic	576	0.8276	-0.5354	0	0.986	0	1	as conserved as Brownian motion
+oxobutanoate_biosynthesis_citramalate	metabolic	anabolic	29	0.04167	-0.5117	0	0.916	0	1	as conserved as Brownian motion
+plp_biosynthesis_r5p	metabolic	anabolic	200	0.2874	-0.4643	0	0.994	0	1	as conserved as Brownian motion
+arginine_biosynthesis	metabolic	anabolic	501	0.7198	-0.4398	0	0.993	0	1	as conserved as Brownian motion
+phosphate_starvation_response	regulatory		226	0.3247	-0.4316	0	0.992	0	1	as conserved as Brownian motion
+acetyl_coa_to_isocitrate	metabolic	catabolic	367	0.5273	-0.4134	0	0.995	0	1	as conserved as Brownian motion
+menaquinone_biosynthesis	metabolic	anabolic	84	0.1207	-0.3938	0	0.927	0	1	as conserved as Brownian motion
+serine_biosynthesis	metabolic	anabolic	227	0.3261	-0.3917	0	0.991	0	1	as conserved as Brownian motion
+oxoglutarate_to_succinate	metabolic	catabolic	402	0.5776	-0.3854	0	0.993	0	1	as conserved as Brownian motion
+fumarate_oxaloacetate_interconversion	metabolic	interconversion	416	0.5977	-0.3788	0	0.991	0	1	as conserved as Brownian motion
+cysteine_biosynthesis_homocysteine	metabolic	anabolic	103	0.148	-0.3705	0	0.939	0	1	as conserved as Brownian motion
+type_ii_secretion_system	structural		58	0.08333	-0.3085	0	0.875	0	1	as conserved as Brownian motion
+aspartate_biosynthesis	metabolic	anabolic	477	0.6853	-0.3056	0	0.965	0	1	as conserved as Brownian motion
+siroheme_biosynthesis	metabolic	anabolic	142	0.204	-0.304	0	0.946	0	1	as conserved as Brownian motion
+betaine_demethylation	metabolic	catabolic	17	0.02443	-0.2994	0	0.777	0	1	as conserved as Brownian motion
+alanine_biosynthesis	metabolic	anabolic	514	0.7385	-0.2985	0	0.946	0	1	as conserved as Brownian motion
+chorismate_biosynthesis	metabolic	anabolic	476	0.6839	-0.2814	0	0.961	0	1	as conserved as Brownian motion
+aspartate_semialdehyde_biosynthesis	metabolic	anabolic	516	0.7414	-0.2776	0	0.945	0	1	as conserved as Brownian motion
+valine_biosynthesis	metabolic	anabolic	576	0.8276	-0.2717	0	0.896	0	1	as conserved as Brownian motion
+methylglyoxal_detoxification	defense		252	0.3621	-0.262	0	0.953	0	1	as conserved as Brownian motion
+purine_core_biosynthesis	metabolic	anabolic	407	0.5848	-0.2615	0	0.947	0	1	as conserved as Brownian motion
+folate_biosynthesis	metabolic	anabolic	273	0.3922	-0.2511	0	0.944	0	1	as conserved as Brownian motion
+assimilatory_sulfate_reduction	metabolic	anabolic	168	0.2414	-0.2475	0	0.916	0	1	as conserved as Brownian motion
+phenylalanine_biosynthesis	metabolic	anabolic	443	0.6365	-0.2435	0	0.937	0	1	as conserved as Brownian motion
+ornithine_biosynthesis	metabolic	anabolic	412	0.592	-0.2395	0	0.943	0	1	as conserved as Brownian motion
+dap_biosynthesis	metabolic	anabolic	390	0.5603	-0.2309	0	0.931	0	1	as conserved as Brownian motion
+lysine_biosynthesis_dap	metabolic	anabolic	578	0.8305	-0.2218	0	0.857	0	1	as conserved as Brownian motion
+ethanol_formation	metabolic	catabolic	113	0.1624	-0.2067	0	0.844	0	1	as conserved as Brownian motion
+homoserine_biosynthesis	metabolic	anabolic	553	0.7945	-0.2022	0	0.86	0	1	as conserved as Brownian motion
+tyrosine_biosynthesis	metabolic	anabolic	389	0.5589	-0.185	0	0.897	0	1	as conserved as Brownian motion
+riboflavin_biosynthesis	metabolic	anabolic	533	0.7658	-0.1681	0	0.848	0	1	as conserved as Brownian motion
+glucuronate_degradation	metabolic	catabolic	25	0.03592	-0.1639	0	0.714	0	1	as conserved as Brownian motion
+namn_biosynthesis_quinolinate	metabolic	anabolic	492	0.7069	-0.136	0	0.809	0	1	as conserved as Brownian motion
+rhamnose_degradation	metabolic	catabolic	32	0.04598	-0.134	0	0.691	0	1	as conserved as Brownian motion
+nitrate_assimilation	metabolic	anabolic	103	0.148	-0.1299	0	0.762	0	1	as conserved as Brownian motion
+oxoisovalerate_biosynthesis	metabolic	anabolic	513	0.7371	-0.1294	0	0.799	0	1	as conserved as Brownian motion
+threonine_biosynthesis	metabolic	anabolic	446	0.6408	-0.1082	0	0.763	0	1	as conserved as Brownian motion
+ammonium_assimilation	metabolic	anabolic	531	0.7629	-0.1018	0	0.726	0	1	as conserved as Brownian motion
+corrin_ring_biosynthesis	metabolic	anabolic	58	0.08333	-0.09357	0	0.667	0	1	as conserved as Brownian motion
+acetate_interconversion	metabolic	interconversion	302	0.4339	-0.09328	0	0.763	0	1	as conserved as Brownian motion
+pyruvate_to_acetyl_coa	metabolic	catabolic	506	0.727	-0.09114	0	0.736	0	1	as conserved as Brownian motion
+galacturonate_degradation	metabolic	catabolic	69	0.09914	-0.09016	0	0.662	0	1	as conserved as Brownian motion
+isoleucine_biosynthesis	metabolic	anabolic	491	0.7055	-0.08869	0	0.72	0	1	as conserved as Brownian motion
+pyrimidine_core_biosynthesis	metabolic	anabolic	353	0.5072	-0.08559	0	0.738	0	1	as conserved as Brownian motion
+proline_biosynthesis	metabolic	anabolic	466	0.6695	-0.07049	0	0.686	0	1	as conserved as Brownian motion
+glcnac_degradation	metabolic	catabolic	98	0.1408	-0.06391	0	0.683	0	1	as conserved as Brownian motion
+leucine_biosynthesis	metabolic	anabolic	479	0.6882	-0.06023	0	0.687	0	1	as conserved as Brownian motion
+glyoxylate_bypass	metabolic	catabolic	185	0.2658	-0.05785	0	0.658	0	1	as conserved as Brownian motion
+glycine_reduction_stickland	metabolic	catabolic	23	0.03305	-0.0438	0	0.609	0	1	as conserved as Brownian motion
+lactate_formation	metabolic	catabolic	152	0.2184	-0.03142	0	0.593	0	1	as conserved as Brownian motion
+nad_biosynthesis_namn	metabolic	anabolic	327	0.4698	-0.008855	0	0.541	0	0.9468	as conserved as Brownian motion
+cysteine_degradation_sulfide	metabolic	catabolic	63	0.09052	-0.005332	0	0.554	0	0.9575	as conserved as Brownian motion
+threonine_deamination	metabolic	catabolic	463	0.6652	-0.0003129	0	0.534	0	0.9463	as conserved as Brownian motion
+cysteine_biosynthesis_sulfide	metabolic	anabolic	418	0.6006	0.01232	0	0.486	0	0.9195	as conserved as Brownian motion
+flagellar_apparatus	structural		103	0.148	0.01315	0	0.499	0	0.9279	as conserved as Brownian motion
+methionine_biosynthesis_sulfhydrylation	metabolic	anabolic	398	0.5718	0.01867	0	0.471	0	0.9158	as conserved as Brownian motion
+carnitine_to_betaine	metabolic	catabolic	39	0.05603	0.02851	0	0.507	0	0.9279	as conserved as Brownian motion
+superoxide_detoxification	defense		406	0.5833	0.03045	0	0.45	0	0.8992	as conserved as Brownian motion
+cytidylate_biosynthesis	metabolic	anabolic	678	0.9741	0.03478	0	0.517	0	0.9279	as conserved as Brownian motion
+thiamine_precursor_salvage	metabolic	anabolic	183	0.2629	0.03733	0	0.421	0	0.8668	as conserved as Brownian motion
+taurine_degradation_sulfoacetaldehyde	metabolic	catabolic	27	0.03879	0.03743	0	0.515	0	0.9279	as conserved as Brownian motion
+thiamine_phosphate_biosynthesis	metabolic	anabolic	476	0.6839	0.03775	0	0.421	0	0.8668	as conserved as Brownian motion
+histidine_biosynthesis	metabolic	anabolic	256	0.3678	0.04021	0	0.418	0	0.8668	as conserved as Brownian motion
+pantothenate_biosynthesis	metabolic	anabolic	317	0.4555	0.05732	0	0.383	0	0.8249	as conserved as Brownian motion
+isocitrate_to_oxoglutarate	metabolic	catabolic	448	0.6437	0.06171	0	0.357	0	0.7809	as conserved as Brownian motion
+urate_degradation	metabolic	catabolic	54	0.07759	0.06215	0	0.448	0	0.8992	as conserved as Brownian motion
+quinolinate_biosynthesis_aspartate	metabolic	anabolic	419	0.602	0.06797	0	0.337	0	0.761	as conserved as Brownian motion
+oxoadipate_activation	metabolic	catabolic	40	0.05747	0.07027	0	0.456	0	0.8992	as conserved as Brownian motion
+arabinose_uptake_abc	metabolic	transport	17	0.02443	0.0747	0	0.481	0	0.9195	as conserved as Brownian motion
+galactose_degradation_leloir	metabolic	catabolic	122	0.1753	0.0914	0	0.355	0	0.7809	as conserved as Brownian motion
+tryptophan_biosynthesis	metabolic	anabolic	364	0.523	0.1128	0	0.22	0	0.6039	as conserved as Brownian motion
+serine_deamination	metabolic	catabolic	317	0.4555	0.1172	0	0.218	0	0.6039	as conserved as Brownian motion
+paba_biosynthesis	metabolic	anabolic	130	0.1868	0.1214	0	0.274	0	0.6662	as conserved as Brownian motion
+namn_salvage_nicotinate	metabolic	anabolic	453	0.6509	0.1282	0	0.2	0	0.5863	as conserved as Brownian motion
+urea_hydrolysis	metabolic	catabolic	147	0.2112	0.1308	0	0.235	0	0.6287	as conserved as Brownian motion
+mucin_fucose_release	metabolic	catabolic	133	0.1911	0.1369	0	0.247	0	0.6404	as conserved as Brownian motion
+cobinamide_biosynthesis	metabolic	anabolic	262	0.3764	0.152	0	0.145	0	0.4805	as conserved as Brownian motion
+chemotaxis_signal_transduction	regulatory		249	0.3578	0.1553	0	0.148	0	0.4805	as conserved as Brownian motion
+taurine_desulfonation_aerobic	metabolic	catabolic	31	0.04454	0.1723	0	0.333	0	0.761	as conserved as Brownian motion
+hmp_phosphate_biosynthesis	metabolic	anabolic	263	0.3779	0.1734	0	0.112	0	0.4238	as conserved as Brownian motion
+thiazole_phosphate_biosynthesis	metabolic	anabolic	295	0.4239	0.1863	0	0.098	0	0.4035	as conserved as Brownian motion
+arabinoxylan_debranching	metabolic	catabolic	478	0.6868	0.2087	0	0.084	0	0.3675	as conserved as Brownian motion
+oxopentenoate_degradation	metabolic	catabolic	36	0.05172	0.2257	0	0.273	0	0.6662	as conserved as Brownian motion
+benzoate_degradation_catechol	metabolic	catabolic	17	0.02443	0.226	0	0.329	0	0.761	as conserved as Brownian motion
+biotin_biosynthesis	metabolic	anabolic	192	0.2759	0.2376	0	0.052	0	0.2912	as conserved as Brownian motion
+lactate_racemisation	metabolic	interconversion	136	0.1954	0.2396	0	0.097	0	0.4035	as conserved as Brownian motion
+taurine_uptake_abc	metabolic	transport	40	0.05747	0.2524	0	0.201	0	0.5863	as conserved as Brownian motion
+choline_to_betaine	metabolic	anabolic	64	0.09195	0.2582	0	0.163	0	0.4961	as conserved as Brownian motion
+hydroxyphenylpropanoate_hydroxylation	metabolic	catabolic	63	0.09052	0.261	0	0.151	0	0.4805	as conserved as Brownian motion
+hydroxyectoine_biosynthesis	metabolic	anabolic	30	0.0431	0.2643	0	0.238	0	0.6287	as conserved as Brownian motion
+dihydroxybenzoate_biosynthesis	metabolic	anabolic	21	0.03017	0.2656	0	0.273	0	0.6662	as conserved as Brownian motion
+dmb_biosynthesis_aerobic	metabolic	anabolic	90	0.1293	0.2678	0	0.084	0	0.3675	as conserved as Brownian motion
+ectoine_degradation	metabolic	catabolic	16	0.02299	0.2706	0	0.295	0	0.7	as conserved as Brownian motion
+propanediol_formation	metabolic	catabolic	21	0.03017	0.2765	0	0.276	0	0.6662	as conserved as Brownian motion
+acetoin_formation	metabolic	catabolic	82	0.1178	0.2766	0	0.111	0	0.4238	as conserved as Brownian motion
+nitrogen_fixation	metabolic	anabolic	75	0.1078	0.2787	0	0.107	0	0.4238	as conserved as Brownian motion
+asparagine_biosynthesis	metabolic	anabolic	452	0.6494	0.2798	0	0.02	0	0.1474	as conserved as Brownian motion
+cobamide_nucleotide_loop_assembly	metabolic	anabolic	110	0.158	0.2944	0	0.056	0	0.294	as conserved as Brownian motion
+xylose_uptake_abc	metabolic	transport	54	0.07759	0.2945	0	0.137	0	0.4805	as conserved as Brownian motion
+beta_lactam_detoxification	defense		317	0.4555	0.2982	0	0.014	0	0.1225	as conserved as Brownian motion
+lactate_formation_lactaldehyde	metabolic	catabolic	41	0.05891	0.3018	0	0.151	0	0.4805	as conserved as Brownian motion
+mucin_sialic_acid_release	metabolic	catabolic	115	0.1652	0.3074	0	0.04	0	0.2545	as conserved as Brownian motion
+sarcosine_demethylation	metabolic	catabolic	103	0.148	0.3078	0	0.062	0	0.294	as conserved as Brownian motion
+glycine_biosynthesis	metabolic	anabolic	675	0.9698	0.3208	0.001	0.216	0.001061	0.6039	as conserved as Brownian motion
+methionine_biosynthesis_transsulfuration	metabolic	anabolic	35	0.05029	0.3238	0	0.159	0	0.4947	as conserved as Brownian motion
+arginine_deiminase_pathway	metabolic	catabolic	81	0.1164	0.3301	0	0.063	0	0.294	as conserved as Brownian motion
+xylose_degradation_isomerase	metabolic	catabolic	146	0.2098	0.3441	0	0.015	0	0.1235	as conserved as Brownian motion
+mucin_galnac_release	metabolic	catabolic	214	0.3075	0.3451	0	0.004	0	0.06222	as conserved as Brownian motion
+pectin_degradation	metabolic	catabolic	100	0.1437	0.3541	0	0.028	0	0.1867	as conserved as Brownian motion
+starch_degradation	metabolic	catabolic	157	0.2256	0.3679	0	0.005	0	0.07	as conserved as Brownian motion
+xylan_degradation	metabolic	catabolic	232	0.3333	0.3827	0	0.004	0	0.06222	as conserved as Brownian motion
+tryptophan_degradation_indole	metabolic	catabolic	67	0.09626	0.3892	0	0.043	0	0.2567	as conserved as Brownian motion
+arabinose_degradation	metabolic	catabolic	77	0.1106	0.419	0	0.017	0	0.1322	as conserved as Brownian motion
+histidine_degradation_glutamate	metabolic	catabolic	86	0.1236	0.4258	0	0.013	0	0.1213	as conserved as Brownian motion
+kdg_degradation	metabolic	catabolic	235	0.3376	0.4427	0	0	0	0	between Brownian motion and random
+type_vi_secretion_apparatus	structural		44	0.06322	0.4561	0	0.044	0	0.2567	as conserved as Brownian motion
+glutamate_decarboxylation_gaba	metabolic	catabolic	52	0.07471	0.4616	0	0.023	0	0.161	as conserved as Brownian motion
+chloramphenicol_detoxification	defense		98	0.1408	0.4787	0	0.001	0	0.02333	between Brownian motion and random
+methylamine_degradation	metabolic	catabolic	15	0.02155	0.4865	0.005	0.151	0.005185	0.4805	as conserved as Brownian motion
+chitin_degradation	metabolic	catabolic	144	0.2069	0.4976	0	0.001	0	0.02333	between Brownian motion and random
+collagen_cleavage	metabolic	catabolic	13	0.01868	0.5126	0.009	0.123	0.009265	0.4532	as conserved as Brownian motion
+ectoine_biosynthesis	metabolic	anabolic	54	0.07759	0.5254	0	0.009	0	0.09692	as conserved as Brownian motion
+methionine_degradation_methanethiol	metabolic	catabolic	83	0.1193	0.5305	0	0.003	0	0.06	as conserved as Brownian motion
+allantoin_degradation	metabolic	catabolic	19	0.0273	0.5776	0.004	0.063	0.004179	0.294	as conserved as Brownian motion
+type_i_e_crispr_cas_machinery	defense		38	0.0546	0.618	0.001	0.007	0.001061	0.08167	as conserved as Brownian motion
+catechol_ortho_cleavage	metabolic	catabolic	10	0.01437	0.7284	0.103	0.062	0.1045	0.294	not distinguishable from random
+mercury_detoxification	defense		67	0.09626	0.7566	0.002	0	0.002105	0	between Brownian motion and random
+catechol_meta_cleavage	metabolic	catabolic	19	0.0273	0.7695	0.058	0.011	0.05927	0.11	not distinguishable from random
+type_i_restriction_modification	defense		348	0.5	0.7766	0	0	0	0	between Brownian motion and random
+creatinine_degradation	metabolic	catabolic	16	0.02299	0.8241	0.14	0.007	0.141	0.08167	not distinguishable from random
+salicylate_biosynthesis	metabolic	anabolic	16	0.02299	1.12	0.744	0	0.744	0	not distinguishable from random

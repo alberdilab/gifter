@@ -137,7 +137,34 @@ panel_manifest_path <- file.path(case_dir, "selected-genomes.tsv")
 panel_tree_path <- file.path(case_dir, "selected-genomes.tree")
 panel_audit_path <- file.path(case_dir, "selection-audit.tsv")
 origin_summary_path <- file.path(case_dir, "origin-group-summary.tsv")
+panel_exclusions_path <- file.path(case_dir, "excluded-genomes.tsv")
+species_size_path <- file.path(case_dir, "species-genome-size.tsv")
 ORIGIN_BALANCE_TARGET <- 85L
+
+# Genomes the selection chose but that could not be annotated. They are removed
+# after selection, without replacement and without reference to any GIFT call.
+read_panel_exclusions <- function(path) {
+  exclusions <- utils::read.delim(
+    path, check.names = FALSE, stringsAsFactors = FALSE, quote = ""
+  )
+  if (!identical(
+        names(exclusions), c("genome_id", "excluded_at_utc", "stage", "reason")
+      ) || anyNA(exclusions) || anyDuplicated(exclusions$genome_id) ||
+      any(!nzchar(exclusions$stage)) || any(!nzchar(exclusions$reason))) {
+    stop(basename(path), " must name each excluded genome once, with a reason",
+         call. = FALSE)
+  }
+  exclusions
+}
+
+rooted_faith_pd <- function(tree, tips) {
+  root <- length(tree$tip.label) + 1L
+  nodes <- unique(unlist(lapply(
+    match(tips, tree$tip.label),
+    function(tip) ape::nodepath(tree, from = root, to = tip)
+  )))
+  sum(tree$edge.length[tree$edge[, 2L] %in% nodes])
+}
 
 balanced_origin_panel <- function(tree, seeds, origin_membership, origin_targets) {
   n_tips <- length(tree$tip.label)
@@ -470,6 +497,17 @@ prepare_panel <- function() {
     stop("The selected GTDB panel violates its order, origin, or balance contract", call. = FALSE)
   }
 
+  exclusions <- read_panel_exclusions(panel_exclusions_path)
+  if (any(!exclusions$genome_id %in% panel$genome_id)) {
+    stop("excluded-genomes.tsv names a genome the selection did not choose",
+         call. = FALSE)
+  }
+  panel <- panel[!panel$genome_id %in% exclusions$genome_id, , drop = FALSE]
+  if (!setequal(unique(candidates$order), unique(panel$order))) {
+    stop("An excluded genome removes a GTDB order from the panel", call. = FALSE)
+  }
+  selected_pd <- rooted_faith_pd(candidate_tree, panel$genome_id)
+
   selected_tree <- ape::keep.tip(candidate_tree, panel$genome_id)
   write_tsv(panel, panel_manifest_path)
   ape::write.tree(selected_tree, file = panel_tree_path, digits = 10)
@@ -532,7 +570,8 @@ prepare_panel <- function() {
       "selected food/fermentation origin", "selected animal-associated origin",
       "selected plant-associated origin", "selected with any origin group",
       "origin balance reference target", "GTDB order medoid seeds",
-      "origin balance additions", "minimum selected genomes per origin group",
+      "origin balance additions", "genomes excluded after selection",
+      "minimum selected genomes per origin group",
       "median selected genomes per origin group",
       "maximum selected genomes per origin group", "selected rooted Faith PD",
       "eligible rooted Faith PD", "selected percent eligible rooted Faith PD",
@@ -558,15 +597,15 @@ prepare_panel <- function() {
       sum(candidates[[food_column]]), sum(panel[[food_column]]),
       sum(panel$origin_animal_associated), sum(panel$origin_plant_associated),
       sum(any_panel_group), ORIGIN_BALANCE_TARGET, length(order_seeds),
-      sum(selection$selection_stage ==
+      sum(panel$selection_stage ==
             "origin balance + marginal phylogenetic diversity"),
+      nrow(exclusions),
       min(colSums(panel[origin_group_columns])),
       stats::median(colSums(panel[origin_group_columns])),
       max(colSums(panel[origin_group_columns])),
-      sum(candidate_tree$edge.length[selection$covered_edge]),
+      selected_pd,
       sum(candidate_tree$edge.length),
-      round(100 * sum(candidate_tree$edge.length[selection$covered_edge]) /
-              sum(candidate_tree$edge.length), 3),
+      round(100 * selected_pd / sum(candidate_tree$edge.length), 3),
       unique(panel$selection_rule),
       sources$sha256[match("GTDB bacterial reference tree", sources$role)],
       sources$sha256[match("GTDB bacterial metadata", sources$role)],
@@ -577,6 +616,39 @@ prepare_panel <- function() {
     stringsAsFactors = FALSE
   )
   write_tsv(audit, panel_audit_path)
+
+  # Assembly size of the GTDB species cluster each panel genome represents:
+  # every R232 genome assigned to that representative, whatever its quality.
+  # A cluster of one has no deviation.
+  cluster_sizes <- data.table::fread(
+    cmd = paste("gzip -dc", shQuote(metadata_path)),
+    select = c("gtdb_genome_representative", "genome_size"),
+    data.table = FALSE
+  )
+  cluster_sizes <- cluster_sizes[
+    cluster_sizes$gtdb_genome_representative %in% panel$gtdb_accession, ,
+    drop = FALSE
+  ]
+  if (anyNA(cluster_sizes$genome_size) ||
+      !setequal(cluster_sizes$gtdb_genome_representative, panel$gtdb_accession)) {
+    stop("GTDB metadata does not give a genome size for every panel species cluster",
+         call. = FALSE)
+  }
+  by_cluster <- split(
+    cluster_sizes$genome_size,
+    factor(cluster_sizes$gtdb_genome_representative, levels = panel$gtdb_accession)
+  )
+  species_size <- data.frame(
+    genome_id = panel$genome_id,
+    gtdb_accession = panel$gtdb_accession,
+    species = panel$species,
+    cluster_genomes = lengths(by_cluster),
+    mean_genome_size_bp = round(vapply(by_cluster, mean, numeric(1))),
+    sd_genome_size_bp = round(vapply(by_cluster, stats::sd, numeric(1))),
+    stringsAsFactors = FALSE
+  )
+  write_tsv(species_size, species_size_path)
+  message("wrote ", species_size_path)
   message("wrote ", panel_manifest_path)
   message("wrote ", panel_tree_path)
   message("wrote ", origin_summary_path)
@@ -603,10 +675,13 @@ download_resolution_path <- file.path(drakkar_dir, "resolved-downloads.tsv")
 genome_checksum_path <- file.path(drakkar_dir, "genome-sha256.tsv")
 assembly_summary_checksum_path <- file.path(drakkar_dir, "assembly-summary-sha256.txt")
 remote_panel_checksum_path <- file.path(drakkar_dir, "selected-manifest-sha256.txt")
+transferred_exclusions_path <- file.path(drakkar_dir, "excluded-genomes.tsv")
 
 required <- c(
   panel_manifest_path, panel_tree_path, panel_audit_path, origin_rules_path,
-  origin_summary_path, annotation_path,
+  origin_summary_path, panel_exclusions_path, species_size_path,
+  transferred_exclusions_path,
+  annotation_path,
   annotation_manifest_path, annotation_qc_path, transfer_manifest_path,
   transfer_complete_path, transferred_panel_path, download_resolution_path,
   genome_checksum_path, assembly_summary_checksum_path, remote_panel_checksum_path
@@ -624,10 +699,10 @@ if (length(missing)) {
 panel <- read_tsv(panel_manifest_path)
 tree <- ape::read.tree(panel_tree_path)
 panel_size <- nrow(panel)
-if (panel_size != 697L || anyDuplicated(panel$genome_id) ||
+if (panel_size != 696L || anyDuplicated(panel$genome_id) ||
     length(tree$tip.label) != panel_size ||
     !setequal(panel$genome_id, tree$tip.label)) {
-  stop("Selected manifest and tree do not describe the locked 697-genome panel",
+  stop("Selected manifest and tree do not describe the locked 696-genome panel",
        call. = FALSE)
 }
 
@@ -635,7 +710,8 @@ transfer_manifest <- read_tsv(transfer_manifest_path)
 expected_transfer_files <- c(
   "gifter_input.tsv.xz", "annotation_manifest.yaml", "annotation_qc.tsv",
   "selected-genomes.tsv", "resolved-downloads.tsv", "genome-sha256.tsv",
-  "assembly-summary-sha256.txt", "selected-manifest-sha256.txt"
+  "assembly-summary-sha256.txt", "selected-manifest-sha256.txt",
+  "excluded-genomes.tsv"
 )
 if (!identical(names(transfer_manifest), c("file", "bytes", "sha256")) ||
     anyDuplicated(transfer_manifest$file) ||
@@ -654,7 +730,19 @@ if (!identical(unname(observed_sha), transfer_manifest$sha256) ||
     !identical(as.numeric(observed_bytes), as.numeric(transfer_manifest$bytes))) {
   stop("Fetched Drakkar files do not match transfer-manifest.tsv", call. = FALSE)
 }
-if (!identical(sha256(transferred_panel_path), sha256(panel_manifest_path))) {
+# Mjolnir acquired every genome the selection chose. The annotated set is that
+# manifest minus the exclusion record, and must be exactly the locked panel.
+if (!identical(sha256(transferred_exclusions_path), sha256(panel_exclusions_path))) {
+  stop("The transferred exclusion record differs from the committed one", call. = FALSE)
+}
+exclusions <- read_panel_exclusions(panel_exclusions_path)
+transferred_panel <- read_tsv(transferred_panel_path)
+transferred_panel <- transferred_panel[
+  !transferred_panel$genome_id %in% exclusions$genome_id, , drop = FALSE
+]
+rownames(transferred_panel) <- NULL
+if (!isTRUE(all.equal(transferred_panel, panel, check.attributes = FALSE)) ||
+    !identical(names(transferred_panel), names(panel))) {
   stop("The remotely annotated panel differs from the locked local panel", call. = FALSE)
 }
 
@@ -876,6 +964,7 @@ audit <- data.frame(
     "remote selected-manifest checksum record sha256",
     "download resolution sha256", "genome checksum manifest sha256",
     "NCBI assembly summary checksum record sha256",
+    "exclusion record sha256", "species genome-size summary sha256",
     "gifter SQLite sha256", "analysis script sha256"
   ),
   value = c(
@@ -893,6 +982,7 @@ audit <- data.frame(
     sha256(remote_panel_checksum_path),
     sha256(download_resolution_path), sha256(genome_checksum_path),
     sha256(assembly_summary_checksum_path),
+    sha256(panel_exclusions_path), sha256(species_size_path),
     database_sha, sha256("manuscript/analysis/23-gtdb-phylogeny.R")
   ),
   stringsAsFactors = FALSE
@@ -936,6 +1026,33 @@ phylum_colours <- setNames(
   phylum_levels
 )
 
+# Name each major phylum once, beside its longest run of consecutive tips.
+tip_order <- tip_panel[order(tip_panel$y), ]
+phylum_runs <- rle(as.character(tip_order$phylum_group))
+run_end <- cumsum(phylum_runs$lengths)
+run_start <- run_end - phylum_runs$lengths + 1L
+phylum_runs <- data.frame(
+  phylum_group = phylum_runs$values, tips = phylum_runs$lengths,
+  y = (tip_order$y[run_start] + tip_order$y[run_end]) / 2,
+  stringsAsFactors = FALSE
+)
+phylum_runs <- phylum_runs[phylum_runs$phylum_group != "other phyla", ]
+phylum_labels <- do.call(rbind, lapply(
+  split(phylum_runs, phylum_runs$phylum_group),
+  function(runs) runs[which.max(runs$tips), ]
+))
+
+species_size <- read_tsv(species_size_path)
+if (!identical(species_size$genome_id, panel$genome_id) ||
+    anyNA(species_size$mean_genome_size_bp) ||
+    any(species_size$cluster_genomes < 1L) ||
+    any(is.na(species_size$sd_genome_size_bp) != (species_size$cluster_genomes == 1L))) {
+  stop("species-genome-size.tsv does not describe the locked panel", call. = FALSE)
+}
+species_size <- merge(species_size, tip_data, by = "genome_id", sort = FALSE)
+species_size$mean_mb <- species_size$mean_genome_size_bp / 1e6
+species_size$sd_mb <- species_size$sd_genome_size_bp / 1e6
+
 n_tips <- length(tree$tip.label)
 shared_y <- scale_y_continuous(limits = c(0.5, n_tips + 0.5), expand = c(0, 0))
 
@@ -947,6 +1064,14 @@ panel_a <- tree_plot +
     plot.title = element_text(size = 8, face = "bold", hjust = 0),
     plot.margin = margin(4, 0, 4, 4)
   )
+
+panel_phylum_names <- ggplot(phylum_labels, aes(x = 1, y = y, label = phylum_group)) +
+  geom_text(hjust = 1, size = 1.75, colour = "#252522") +
+  shared_y +
+  scale_x_continuous(limits = c(0, 1), expand = expansion(add = c(0, 0.04))) +
+  coord_cartesian(clip = "off") +
+  theme_void(base_size = 7) +
+  theme(plot.margin = margin(4, 0, 4, 0))
 
 panel_b <- ggplot(tip_panel, aes(x = 1, y = y, fill = phylum_group)) +
   geom_tile(width = 1, height = 1) +
@@ -966,7 +1091,13 @@ panel_b <- ggplot(tip_panel, aes(x = 1, y = y, fill = phylum_group)) +
 
 panel_c <- ggplot(figure_calls, aes(x = gift_id, y = y, fill = status)) +
   geom_raster() +
-  facet_grid(cols = vars(gift_type), scales = "free_x", space = "free_x") +
+  facet_grid(
+    cols = vars(gift_type), scales = "free_x", space = "free_x",
+    labeller = as_labeller(c(
+      metabolic = "metabolic", structural = "str.",
+      regulatory = "reg.", defense = "def."
+    ))
+  ) +
   shared_y +
   scale_fill_manual(values = c(
     unsupported = "#f2f1ed", ambiguous = "#efc46d", putative = "#a8c7e8",
@@ -975,7 +1106,7 @@ panel_c <- ggplot(figure_calls, aes(x = gift_id, y = y, fill = status)) +
   labs(title = "c  Encoded GIFTs", fill = "Call evidence") +
   theme_void(base_size = 7) +
   theme(
-    strip.text = element_text(size = 6.4, face = "bold", colour = "#252522"),
+    strip.text = element_text(size = 5.6, face = "bold", colour = "#252522"),
     strip.background = element_rect(fill = "#e9e8e3", colour = NA),
     panel.spacing.x = grid::unit(0.7, "mm"),
     plot.title = element_text(size = 8, face = "bold", hjust = 0),
@@ -1006,34 +1137,60 @@ panel_d <- ggplot(richness, aes(y = y)) +
   shared_y +
   scale_colour_manual(values = c("all accepted" = "#234f84", "high-confidence+" = "#ef8a47")) +
   scale_x_continuous(expand = expansion(mult = c(0.02, 0.08))) +
-  labs(title = "d  Repertoire size", x = "supported GIFTs", colour = NULL) +
+  labs(title = "d  Repertoire", x = "supported GIFTs", colour = NULL) +
   theme_minimal(base_size = 7) +
   theme(
     panel.grid.major.y = element_blank(), panel.grid.minor = element_blank(),
     axis.text.y = element_blank(), axis.title.y = element_blank(),
     plot.title = element_text(size = 8, face = "bold", hjust = 0),
+    axis.title.x = element_text(size = 6),
     legend.position = "bottom", legend.text = element_text(size = 6),
     legend.key.width = grid::unit(2.5, "mm"),
+    plot.margin = margin(4, 6, 4, 0)
+  )
+
+panel_e <- ggplot(species_size, aes(y = y)) +
+  geom_segment(
+    data = species_size[!is.na(species_size$sd_mb), ],
+    aes(x = pmax(mean_mb - sd_mb, 0), xend = mean_mb + sd_mb, yend = y),
+    colour = "#bab9b4", linewidth = 0.25
+  ) +
+  geom_point(aes(x = mean_mb), colour = "#3f7a5c", size = 0.55) +
+  shared_y +
+  scale_x_continuous(expand = expansion(mult = c(0.02, 0.08))) +
+  labs(title = "e  Genome size", x = "mean \u00b1 s.d. (Mb)") +
+  theme_minimal(base_size = 7) +
+  theme(
+    panel.grid.major.y = element_blank(), panel.grid.minor = element_blank(),
+    axis.text.y = element_blank(), axis.title.y = element_blank(),
+    plot.title = element_text(size = 8, face = "bold", hjust = 0),
+    axis.title.x = element_text(size = 6),
     plot.margin = margin(4, 4, 4, 0)
   )
 
-figure <- panel_a + panel_b + panel_c + panel_d +
-  plot_layout(widths = c(1.35, 0.08, 3.5, 0.9), guides = "keep") +
+wrap_text <- function(x, width) paste(strwrap(x, width = width), collapse = "\n")
+
+figure <- panel_a + panel_phylum_names + panel_b + panel_c + panel_d + panel_e +
+  plot_layout(widths = c(1.1, 0.5, 0.08, 3.2, 0.85, 0.85), guides = "collect") +
   plot_annotation(
     title = "Encoded GIFT repertoires across a broad bacterial phylogeny",
-    subtitle = paste0(
+    subtitle = wrap_text(paste0(
       format(panel_size, big.mark = ","),
       " balanced origin-classified complete-genome GTDB R11-RS232 species representatives × ",
       format(length(expected_gifts), big.mark = ","),
       " current GIFTs, spanning every eligible order; ",
       "gene-resolved Drakkar evidence evaluated against gifter database ",
       gifter_db_version()$gifter_db_version
-    ),
-    caption = paste0(
+    ), 140),
+    caption = wrap_text(paste0(
       "Rows follow the pruned GTDB bac120 tree; columns include every current GIFT. ",
+      "Genome size is the mean and standard deviation over all GTDB genomes of the species each row represents; a species with one genome has no deviation. ",
       "Unsupported is not evidence of biological absence. The panel describes encoded capability, not activity or phenotype."
-    ),
+    ), 165),
     theme = theme(
+      legend.position = "bottom", legend.box = "vertical",
+      legend.box.just = "left", legend.spacing.y = grid::unit(0.5, "mm"),
+      legend.margin = margin(0, 0, 0, 0),
       plot.title = element_text(size = 10, face = "bold"),
       plot.subtitle = element_text(size = 7.5, colour = "#555550"),
       plot.caption = element_text(size = 6.5, colour = "#666660", hjust = 0)

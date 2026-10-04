@@ -1,0 +1,15 @@
+item	value
+genomes	696
+origin groups tested	food fermentation; animal associated; plant associated; algal associated; engineered wastewater; marine coastal; freshwater groundwater; soil terrestrial; sediment; thermal geothermal; aquatic unspecified; air built environment
+origin groups below the minimum	fungal associated
+minimum genomes per origin group	20
+genome-level model	phylolm, Pagel's lambda: response on all tested origin tags jointly
+class-level model	phylolm, Pagel's lambda: standardised supported count in the class on all tested origin tags jointly and log2 genome size; Benjamini-Hochberg over all pairs
+GIFT-level screen	Fisher's exact test of support inside against outside each origin group, unadjusted for genome size and phylogeny; Benjamini-Hochberg over all pairs
+annotation model	phylolm, Pagel's lambda: response on all annotations jointly, continuous annotations per standard deviation, single-cell assemblies excluded
+latitude model	phylolm, Pagel's lambda: response on absolute latitude, 245 genomes with coordinates
+false discovery rate	0.05
+origin and class pairs tested	288
+origin and class pairs at the false discovery rate	11
+origin and GIFT pairs tested	1680
+origin and GIFT pairs at the false discovery rate	322

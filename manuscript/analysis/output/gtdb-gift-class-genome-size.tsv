@@ -1,0 +1,26 @@
+grouping	class	gifts	genomes	mean_supported_share	spearman_rho	rho_lower	rho_upper	log_odds_per_doubling	log_odds_standard_error
+all GIFTs	all GIFTs	163	696	0.2807	0.7315	0.6896	0.7704	0.6575	0.0218
+gift_type	metabolic	143	696	0.2953	0.7288	0.685	0.7663	0.6617	0.0221
+gift_type	defense	7	696	0.3132	0.6464	0.5983	0.6935	0.8463	0.0412
+gift_type	structural	9	696	0.0715	0.1969	0.1318	0.2645	0.5459	0.0895
+mode	catabolic	69	696	0.1391	0.7502	0.711	0.7863	0.7621	0.027
+mode	anabolic	67	696	0.4562	0.6158	0.5634	0.6647	0.7439	0.0301
+physiological_role	carbon_acquisition	36	696	0.1351	0.7278	0.6872	0.7647	0.9086	0.0372
+physiological_role	central_carbon_metabolism	11	696	0.4197	0.6635	0.6138	0.7099	0.924	0.0394
+physiological_role	nitrogen_acquisition	20	696	0.1664	0.6302	0.5798	0.6755	0.7266	0.0352
+physiological_role	fibre_degradation	13	696	0.1672	0.6113	0.5588	0.6561	0.9965	0.0601
+physiological_role	biosynthesis	57	696	0.5225	0.6059	0.5473	0.6561	0.8227	0.0333
+physiological_role	vitamin_biosynthesis	20	696	0.3718	0.5698	0.513	0.6256	0.7749	0.0376
+physiological_role	host_glycan_foraging	7	696	0.1408	0.5074	0.4525	0.561	1.014	0.073
+physiological_role	aromatic_ring_catabolism	12	696	0.0248	0.2711	0.2151	0.3293	0.9157	0.15
+physiological_role	released_bioactive_product	5	696	0.0761	0.2632	0.1952	0.3279	0.6822	0.0932
+physiological_role	fermentative_end_product	11	696	0.0951	0.1651	0.0934	0.2357	0.28	0.0632
+substrate_class	polysaccharide	9	696	0.2518	0.6257	0.5792	0.6732	1.1376	0.0624
+substrate_class	central_metabolite	9	696	0.4875	0.6237	0.5713	0.6718	1.0366	0.0497
+substrate_class	amino_acid	37	696	0.4881	0.6175	0.5651	0.6666	0.7741	0.0315
+substrate_class	cofactor	23	696	0.3599	0.585	0.5269	0.6364	0.7642	0.036
+substrate_class	nucleotide	5	696	0.7575	0.4495	0.3813	0.517	0.9955	0.054
+substrate_class	monosaccharide	7	696	0.0924	0.4487	0.3868	0.5051	1.1194	0.1053
+substrate_class	aromatic_compound	17	696	0.0619	0.419	0.3551	0.4816	0.5603	0.055
+substrate_class	methylated_amine	7	696	0.0521	0.3632	0.3018	0.4208	1.2117	0.1323
+substrate_class	organic_acid	5	696	0.1014	0.2226	0.1531	0.2921	0.4943	0.0792

@@ -36,9 +36,14 @@ begun asking gifter to claim something it does not claim.
 | `20-figures-core.R` | Figures 1–5 plus the purine, frame and four-genome community trace tables; all values are derived through the public API | R1–R5, M4 |
 | `21-r10-chicken.R` | Figure 7 and the 822-MAG × 388-sample chicken caecal case study: Drakkar marker audit, completeness-aware traits, detection sensitivity, age contrasts and exact extracellular-anchor-compatible topology | R10 |
 | `22-r10-handoff-bimodality.R` | R10 follow-up: every exact extracellular handoff, provider/recipient presence and abundance axes, confidence and detection sensitivity, detected-count-matched null, and the `cmag_510` richness-mode diagnostic with Figure S3 | R10 |
-| `23-gtdb-phylogeny.R` | A locked 697-genome, origin-balanced panel from the GTDB R232 bac120 tree, current GIFT calls after Drakkar annotation, and Figure S4 | R6.1 |
+| `23-gtdb-phylogeny.R` | A locked 696-genome, origin-balanced panel from the GTDB R232 bac120 tree, current GIFT calls after Drakkar annotation, and Figure S4 | R6.1 |
 | `24-r10-reference-frame-time.R` | R10 follow-up across all 19 database-defined reference frames: temporal change, equivalence-based stability, detection and confidence sensitivity, the classification heatmap (Figure S5), adjusted three-day trajectories (Figure S6), frame-to-GIFT decomposition (Figure S7), and carrier-abundance sensitivity (Figure S8) | R10 |
 | `25-r10-mfd.R` | Environmental complement to R10: a locked, spatially distributed 360-sample Microflora Danica panel, one deposited representative per 95% ANI cluster, habitat-descriptive reference-frame readings and detection/confidence sensitivity | R10b |
+| `26-gtdb-repertoire-genome-size.R` | GTDB overview follow-up: supported GIFTs against the size of the evaluated assembly, a smooth quasi-binomial expectation, per-genome deviations with an outlier test, phylum and class summaries, and Figures S9 and S10 | R6.1 |
+| `27-gtdb-size-signal-and-gift-classes.R` | GTDB overview follow-up: phylogenetic signal of the size deviation (Pagel's λ, Blomberg's K, a Moran's I correlogram over patristic distance), the association of genome size with each class of GIFT and with each GIFT, and Figures S11 and S12 | R6.1 |
+| `28-gtdb-origin-and-annotations.R` | GTDB overview follow-up: origin tags and assembly annotations against genome size, repertoire, the size deviation, classes of GIFT (phylogenetic regressions) and individual GIFTs (unadjusted screen), and Figures S13 to S15 | R6.1 |
+| `29-gtdb-near-misses-and-gift-signal.R` | GTDB overview follow-up: unsupported GIFTs one requirement short, by lineage and by missing requirement, as ranked curation candidates; Fritz and Purvis's D for each GIFT; and Figures S16 and S17 | R6.1 |
+| `30-gtdb-near-miss-steps.R` | GTDB overview follow-up: for each implementation, whether its near misses lack the same requirement, and whether the requirements present are specific to the GIFT or shared with others (read from the database source); ranked curation candidates and Figure S18 | R6.1 |
 
 The curated inputs live with the other consulted evidence, in
 `data-raw/reference/`: `phenotype-crosswalk.tsv` maps an observation to
@@ -323,13 +328,15 @@ labelled `Complete Genome` and `full` in the NCBI-derived GTDB fields. Of the
 12,094 genomes meeting those assembly criteria, eligibility further requires
 at least one reviewed origin-group assignment from the raw isolation-source
 field. The resulting 4,116 genomes span 49 phyla, 120 classes and 321 orders.
-Selection takes one phylogenetic medoid per eligible order, retains all 85
+Selection takes one phylogenetic medoid per eligible order, takes the 85
 candidates assigned to the food/fermentation origin group, and uses that count
 as the common target for every origin group with enough eligible genomes.
 Smaller groups are retained exhaustively. Balance is advanced before marginal
 rooted Faith phylogenetic diversity, with accession as the final tie-break. The
-resulting 697-genome panel retains every eligible phylum, class and order.
-Annotation or GIFT values never enter selection.
+resulting 696-genome panel retains every eligible phylum, class and order.
+Annotation or GIFT values never enter selection. One food/fermentation genome
+the procedure chose could not be annotated and is removed in `--prepare`
+through `gtdb-phylogeny/excluded-genomes.tsv`, so that group holds 84.
 
 The committed panel manifest retains the GTDB tree-tip accession, BioSample,
 BioProject, isolation source, genome category, geography, dates, submitter,
@@ -341,7 +348,7 @@ complete, the checksum-verified Drakkar projection. The case-specific README
 documents the Mjolnir workflow and the limits of the eventual overview.
 Reviewable, nonexclusive origin rules produce separate animal-associated and
 plant-associated fields rather than a combined host field; the corresponding
-summary table reports 85 food/fermentation, 85 animal-associated and 85
+summary table reports 84 food/fermentation, 85 animal-associated and 85
 plant-associated genomes in the selected panel. Fungal, air/built-environment
 and algal origins are included exhaustively because fewer than 85 are eligible.
 

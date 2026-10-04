@@ -1,0 +1,2 @@
+genome_id	excluded_at_utc	stage	reason
+GCA_002285495.1	2026-10-04T11:39:06Z	kegg	KOfam hmmscan failed all 8 attempts across two runs (timeouts at 8/16 GB, "Failed to open binary auxfiles" at 32/64 GB); excluded by user decision to finish with 696 genomes

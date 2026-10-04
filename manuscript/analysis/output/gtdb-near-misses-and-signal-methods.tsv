@@ -1,0 +1,23 @@
+item	value
+genomes	696
+current GIFTs	163
+random seed	20261004
+near-miss definition	unsupported, closest implementation lacks exactly one requirement and has a completeness score of at least 0.5
+unsupported genome-GIFT pairs	81599
+near-miss genome-GIFT pairs	11736
+median near misses per genome	18
+Spearman rho, size deviation and near misses	-0.12
+Spearman p value	0.001518
+phylogenetic slope, size deviation per near miss	-0.2523
+phylogenetic slope p value	0.0006611
+distinct one-step gaps	325
+D statistic	caper::phylo.d (Fritz and Purvis) on the pruned GTDB bac120 tree, for GIFTs carried and lacked by at least ten genomes
+D permutations	1000
+GIFTs with an estimable D	140
+median D	0.03759
+GIFTs not distinguishable from random	4
+GIFTs as conserved as Brownian motion	131
+GIFTs between Brownian motion and random	5
+catabolic against anabolic D, Wilcoxon p value	1.536e-06
+Spearman rho, prevalence and D	-0.4174
+false discovery rate	0.05

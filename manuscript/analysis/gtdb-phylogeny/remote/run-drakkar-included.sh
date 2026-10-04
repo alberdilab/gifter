@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# Resume the annotation on the genomes in included-genomes.txt only
+# (selected genomes minus manifests/excluded-genomes.tsv).
+if ! type module >/dev/null 2>&1; then source /etc/profile.d/modules.sh; fi
+module use /opt/shared_software/shared_envmodules/modules
+export PATH="/home/jpl786/miniforge3/bin:$PATH"
+set -euo pipefail
+
+export STY="slurm-${SLURM_JOB_ID:-driver}"
+
+project_root=/projects/alberdilab/scratch/jpl786/projects/gifter-gtdb-phylogeny
+acquisition_task="$project_root/tasks/01-genome-acquisition"
+annotation_task="$project_root/tasks/02-drakkar-annotation"
+manifest="$acquisition_task/manifests/selected-genomes.tsv"
+excluded="$acquisition_task/manifests/excluded-genomes.tsv"
+included="$annotation_task/included-genomes.txt"
+output_dir="$annotation_task/output"
+drakkar=/projects/alberdilab/data/environments/conda/drakkar/bin/drakkar
+env_dir=/projects/alberdilab/data/environments/drakkar
+
+[[ -x "$drakkar" ]] || { printf 'Missing Drakkar executable: %s\n' "$drakkar" >&2; exit 1; }
+[[ -s "$manifest" && -s "$excluded" && -s "$included" ]] || { printf 'Missing manifest, exclusion or inclusion list.\n' >&2; exit 1; }
+expected=$(( $(awk 'END {print NR - 1}' "$manifest") - $(awk 'END {print NR - 1}' "$excluded") ))
+count=$(grep -c . "$included")
+[[ "$expected" -gt 0 && "$count" -eq "$expected" ]] || {
+  printf 'Expected %s genomes, found %s\n' "$expected" "$count" >&2
+  exit 1
+}
+
+printf 'started_at_utc\t%s\n' "$(date -u +'%Y-%m-%dT%H:%M:%SZ')" > "$annotation_task/logs/drakkar-driver-metadata.tsv"
+printf 'command\t%s\n' "$drakkar annotating -B $included -o $output_dir --annotation-type gifter -e $env_dir -p slurm --snakemake-jobs 100 --snakemake-rerun-incomplete --snakemake-keep-going" >> "$annotation_task/logs/drakkar-driver-metadata.tsv"
+
+"$drakkar" annotating \
+  -B "$included" \
+  -o "$output_dir" \
+  --annotation-type gifter \
+  -e "$env_dir" \
+  -p slurm \
+  --snakemake-jobs 100 \
+  --snakemake-rerun-incomplete \
+  --snakemake-keep-going
+
+cd "$project_root/tasks/03-result-transfer"
+sbatch --parsable prepare-transfer.sh > transfer-job.id

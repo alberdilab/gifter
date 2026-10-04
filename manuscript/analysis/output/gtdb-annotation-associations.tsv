@@ -1,0 +1,15 @@
+response	term	annotation	genomes	one_standard_deviation	phylogenetic_estimate	standard_error	p_value	lambda	q_value
+deviation from the size expectation (GIFTs)	metagenome_derived	derived from a metagenome	693		-3.245	1.081	0.002785	0.932	0.006499
+deviation from the size expectation (GIFTs)	type_strain	type strain of a species or subspecies	693		-0.3763	0.5485	0.4929	0.932	0.5751
+deviation from the size expectation (GIFTs)	checkm2_completeness	CheckM2 completeness (per s.d.)	693	3.819	2.897	0.3546	1.476e-15	0.932	1.033e-14
+deviation from the size expectation (GIFTs)	checkm2_contamination	CheckM2 contamination (per s.d.)	693	1.449	-0.9728	0.2841	0.0006533	0.932	0.002287
+deviation from the size expectation (GIFTs)	log2_contigs	contig count, log2 (per s.d.)	693	0.7449	0.0965	0.2658	0.7167	0.932	0.7167
+deviation from the size expectation (GIFTs)	release_year	sequence release year (per s.d.)	693	3.522	-0.631	0.2831	0.02614	0.932	0.04575
+supported GIFTs	metagenome_derived	derived from a metagenome	693		-5.289	1.511	0.0004957	0.9815	0.001735
+supported GIFTs	type_strain	type strain of a species or subspecies	693		0.31	0.7057	0.6606	0.9815	0.7665
+supported GIFTs	checkm2_completeness	CheckM2 completeness (per s.d.)	693	3.819	4.283	0.5075	1.901e-16	0.9815	1.331e-15
+supported GIFTs	checkm2_contamination	CheckM2 contamination (per s.d.)	693	1.449	1.288	0.3843	0.0008468	0.9815	0.001976
+supported GIFTs	log2_contigs	contig count, log2 (per s.d.)	693	0.7449	0.8078	0.3401	0.01782	0.9815	0.03118
+supported GIFTs	release_year	sequence release year (per s.d.)	693	3.522	-0.1108	0.3731	0.7665	0.9815	0.7665
+deviation from the size expectation (GIFTs)	absolute_latitude	absolute latitude (per s.d.)	245	14.38	-0.6565	0.5436	0.2283	1	0.3197
+supported GIFTs	absolute_latitude	absolute latitude (per s.d.)	245	14.38	-1.197	0.8251	0.1482	1	0.2075

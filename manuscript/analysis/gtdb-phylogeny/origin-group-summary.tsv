@@ -1,15 +1,15 @@
 origin_group	eligible_genomes	selected_genomes	balance_target	selected_minus_balance_target	selected_panel_percent	selected_phyla	selected_classes	selected_orders	nonexclusive	description
-food_fermentation	85	85	85	0	12.195	6	11	23	TRUE	Food material, food-production environment, or fermentation process
-animal_associated	996	85	85	0	12.195	22	34	73	TRUE	Animal body, body site, excretion, clinical material, or animal-associated microbiome
-plant_associated	446	85	85	0	12.195	12	17	42	TRUE	Plant body, plant surface, rhizosphere, or plant-associated material
-fungal_associated	6	6	6	0	0.861	4	4	5	TRUE	Fungal body, culture, or fungal-associated material
-algal_associated	51	51	51	0	7.317	7	8	21	TRUE	Algal body, phycosphere, or algal-associated material
-engineered_wastewater	289	85	85	0	12.195	21	43	79	TRUE	Engineered system, wastewater, waste-treatment, or industrial material
-marine_coastal	588	85	85	0	12.195	19	37	64	TRUE	Marine, coastal, brackish, or deep-sea environment
-freshwater_groundwater	403	85	85	0	12.195	22	39	63	TRUE	Freshwater, groundwater, or drinking-water environment
-soil_terrestrial	987	85	85	0	12.195	18	30	62	TRUE	Soil or other terrestrial environment
-sediment	534	85	85	0	12.195	16	40	69	TRUE	Sediment, mud, or sand without forcing an aquatic system
-thermal_geothermal	119	85	85	0	12.195	22	37	57	TRUE	Thermal or geothermal environment
-aquatic_unspecified	749	87	85	2	12.482	20	34	73	TRUE	Aquatic origin lacking a more specific water-body label
-air_built_environment	49	49	49	0	7.03	6	9	21	TRUE	Air or built-environment surface
-any_origin_group	4116	697			100	49	120	321	FALSE	Genome assigned to at least one reviewed origin group
+food_fermentation	85	84	85	-1	12.069	6	11	23	TRUE	Food material, food-production environment, or fermentation process
+animal_associated	996	85	85	0	12.213	22	34	73	TRUE	Animal body, body site, excretion, clinical material, or animal-associated microbiome
+plant_associated	446	85	85	0	12.213	12	17	42	TRUE	Plant body, plant surface, rhizosphere, or plant-associated material
+fungal_associated	6	6	6	0	0.862	4	4	5	TRUE	Fungal body, culture, or fungal-associated material
+algal_associated	51	51	51	0	7.328	7	8	21	TRUE	Algal body, phycosphere, or algal-associated material
+engineered_wastewater	289	85	85	0	12.213	21	43	79	TRUE	Engineered system, wastewater, waste-treatment, or industrial material
+marine_coastal	588	85	85	0	12.213	19	37	64	TRUE	Marine, coastal, brackish, or deep-sea environment
+freshwater_groundwater	403	85	85	0	12.213	22	39	63	TRUE	Freshwater, groundwater, or drinking-water environment
+soil_terrestrial	987	85	85	0	12.213	18	30	62	TRUE	Soil or other terrestrial environment
+sediment	534	85	85	0	12.213	16	40	69	TRUE	Sediment, mud, or sand without forcing an aquatic system
+thermal_geothermal	119	85	85	0	12.213	22	37	57	TRUE	Thermal or geothermal environment
+aquatic_unspecified	749	87	85	2	12.5	20	34	73	TRUE	Aquatic origin lacking a more specific water-body label
+air_built_environment	49	49	49	0	7.04	6	9	21	TRUE	Air or built-environment surface
+any_origin_group	4116	696			100	49	120	321	FALSE	Genome assigned to at least one reviewed origin group

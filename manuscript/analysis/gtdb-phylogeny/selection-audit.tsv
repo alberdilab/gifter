@@ -10,37 +10,38 @@ complete-genome representatives excluded without an origin group	7978
 eligible phyla	49
 eligible classes	120
 eligible orders	321
-selected genomes	697
+selected genomes	696
 selected phyla	49
 selected classes	120
 selected orders	321
 selected derived-from-metagenome assemblies	129
 selected derived-from-single-cell assemblies	3
-selected tree members	697
-selected with BioSample	697
-selected with BioProject	697
-selected with isolation source	697
-selected with country	610
+selected tree members	696
+selected with BioSample	696
+selected with BioProject	696
+selected with isolation source	696
+selected with country	609
 selected with latitude-longitude	245
 eligible food/fermentation origin	85
-selected food/fermentation origin	85
+selected food/fermentation origin	84
 selected animal-associated origin	85
 selected plant-associated origin	85
-selected with any origin group	697
+selected with any origin group	696
 origin balance reference target	85
 GTDB order medoid seeds	321
-origin balance additions	376
+origin balance additions	375
+genomes excluded after selection	1
 minimum selected genomes per origin group	6
 median selected genomes per origin group	85
 maximum selected genomes per origin group	87
-selected rooted Faith PD	164.56416
+selected rooted Faith PD	164.46605
 eligible rooted Faith PD	312.79246
-selected percent eligible rooted Faith PD	52.611
+selected percent eligible rooted Faith PD	52.58
 selection rule	require at least one reviewed origin group; one eligible GTDB-order phylogenetic medoid; balance every nonexclusive origin group toward 85 genomes or retain all eligible genomes when fewer exist; avoid inflating a completed group, then maximize marginal rooted Faith phylogenetic diversity; accession tie-break
 tree sha256	9034e52f25ed0caead4e2153def93ee80ba0f513a0a2f65030127839a26fe02d
 metadata sha256	1650d3164666e5839c20ee15d82511909a5bbd5269035a7b564b9048dd777893
 GTDB checksum manifest sha256	cc2a92314cc87a62d4cb73b7addbec4e9bd54f6f1fe97a9b557d2924ccc1e3e1
 origin rules sha256	64fb96d38720694c8dd305a6f1d478ab24670e45bfd80b17bcdb98a869e0430f
-origin summary sha256	a345fe13eab7b6fc49b142d3342389146714e1bd085699e865cc9faeaf96fc8c
-selected manifest sha256	a1935f0fb0cff4c35b30d797b821d631fb46564199fffbbc790634c30c9eaa1d
-selected tree sha256	30212130edb5081ec9e85b535106076ce0edcc037737715ab36bd22262a7bb9e
+origin summary sha256	be393221b72641699de08bc2925ed5efd814b05ed02bf7c535f1e153c6fe8473
+selected manifest sha256	c34d113a9e259ea5d59bee1fa30d18da7cff6ba95bbb3fc9e2ce5a98340e28ad
+selected tree sha256	1cf78573ec07cfb8fe4682821d6d10869b7a17975d3b0cb589221d7af85d9403

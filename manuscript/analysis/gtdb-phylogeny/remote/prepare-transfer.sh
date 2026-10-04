@@ -42,12 +42,18 @@ read -r genomes rows < <(
   '
 )
 expected=$(awk 'END {print NR - 1}' "$acquisition_dir/selected-genomes.tsv")
+# Genomes dropped after selection are recorded in excluded-genomes.tsv.
+excluded_genomes="$acquisition_dir/excluded-genomes.tsv"
+if [[ -s "$excluded_genomes" ]]; then
+  expected=$(( expected - $(awk 'END {print NR - 1}' "$excluded_genomes") ))
+fi
 [[ "$expected" -gt 0 && "$genomes" -eq "$expected" ]] || {
   printf 'Expected %s genomes, found %s\n' "$expected" "$genomes" >&2
   exit 1
 }
 
 mkdir -p "$transfer_dir"
+if [[ -s "$excluded_genomes" ]]; then cp "$excluded_genomes" "$transfer_dir/"; fi
 cp "$gifter_input" "$annotation_manifest" "$annotation_qc" "$transfer_dir/"
 cp "$acquisition_dir/selected-genomes.tsv" \
    "$acquisition_dir/resolved-downloads.tsv" \
@@ -66,7 +72,9 @@ manifest_tmp="$transfer_task/transfer-manifest.tsv.tmp"
               "$transfer_dir/resolved-downloads.tsv" \
               "$transfer_dir/genome-sha256.tsv" \
               "$transfer_dir/assembly-summary-sha256.txt" \
-              "$transfer_dir/selected-manifest-sha256.txt"; do
+              "$transfer_dir/selected-manifest-sha256.txt" \
+              "$transfer_dir/excluded-genomes.tsv"; do
+    [[ -e "$path" ]] || continue
     checksum=$(sha256sum "$path" | cut -d' ' -f1)
     printf '%s\t%s\t%s\n' "$(basename "$path")" "$(stat -c '%s' "$path")" "$checksum"
   done

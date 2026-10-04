@@ -1,0 +1,63 @@
+variant	genomes_in_variant	deviance_explained	phylum	genomes	median_residual	p_value	q_value	deviation
+all genomes	696	0.6779	p__Acidobacteriota	11	-10.396	0.003857	0.006172	fewer than expected
+all genomes	696	0.6779	p__Actinomycetota	60	8.155	0.0002646	0.0007057	more than expected
+all genomes	696	0.6779	p__Bacillota	135	1.338	0.3108	0.3552	within expectation
+all genomes	696	0.6779	p__Bacillota_I	18	-6.873	0.0002141	0.0006851	fewer than expected
+all genomes	696	0.6779	p__Bacteroidota	65	-5.681	2.394e-08	1.277e-07	fewer than expected
+all genomes	696	0.6779	p__Campylobacterota	9	2.865	0.02439	0.03548	more than expected
+all genomes	696	0.6779	p__Chloroflexota	13	-10.705	0.002105	0.00421	fewer than expected
+all genomes	696	0.6779	p__Cyanobacteriota	20	-6.83	0.002998	0.00533	fewer than expected
+all genomes	696	0.6779	p__Deinococcota	6	0.488	1	1	within expectation
+all genomes	696	0.6779	p__Desulfobacterota	21	-3.765	0.04757	0.06343	within expectation
+all genomes	696	0.6779	p__Patescibacteriota	42	-4.558	1.709e-08	1.277e-07	fewer than expected
+all genomes	696	0.6779	p__Planctomycetota	21	-6.741	7.421e-05	0.0002968	fewer than expected
+all genomes	696	0.6779	p__Pseudomonadota	191	7.933	6.444e-20	1.031e-18	more than expected
+all genomes	696	0.6779	p__Spirochaetota	13	-11.796	0.002105	0.00421	fewer than expected
+all genomes	696	0.6779	p__Thermotogota	5	-9.787	0.1775	0.2185	within expectation
+all genomes	696	0.6779	p__Verrucomicrobiota	13	-0.517	0.675	0.72	within expectation
+isolates only	564	0.6103	p__Acidobacteriota	6	-11.186	0.03603	0.06005	within expectation
+isolates only	564	0.6103	p__Actinomycetota	58	6.599	0.001211	0.003633	more than expected
+isolates only	564	0.6103	p__Bacillota	132	0.425	0.8567	0.8567	within expectation
+isolates only	564	0.6103	p__Bacillota_I	17	-11.389	0.000321	0.001204	fewer than expected
+isolates only	564	0.6103	p__Bacteroidota	51	-6.297	5.875e-08	4.407e-07	fewer than expected
+isolates only	564	0.6103	p__Campylobacterota	8	2.987	0.08006	0.1092	within expectation
+isolates only	564	0.6103	p__Chloroflexota	7	-13.987	0.02249	0.04218	fewer than expected
+isolates only	564	0.6103	p__Cyanobacteriota	18	-8.384	0.001988	0.004511	fewer than expected
+isolates only	564	0.6103	p__Deinococcota	6	-1.521	0.8339	0.8567	within expectation
+isolates only	564	0.6103	p__Desulfobacterota	16	-3.739	0.07443	0.1092	within expectation
+isolates only	564	0.6103	p__Planctomycetota	18	-7.559	0.0002141	0.00107	fewer than expected
+isolates only	564	0.6103	p__Pseudomonadota	163	6.566	2.533e-17	3.799e-16	more than expected
+isolates only	564	0.6103	p__Spirochaetota	13	-13.793	0.002105	0.004511	fewer than expected
+isolates only	564	0.6103	p__Thermotogota	5	-10.452	0.1775	0.2219	within expectation
+isolates only	564	0.6103	p__Verrucomicrobiota	13	-2.034	0.2084	0.2405	within expectation
+high CheckM2 quality only	622	0.6713	p__Acidobacteriota	10	-12.397	0.005922	0.009869	fewer than expected
+high CheckM2 quality only	622	0.6713	p__Actinomycetota	55	7.533	3.251e-06	1.219e-05	more than expected
+high CheckM2 quality only	622	0.6713	p__Bacillota	125	1.182	0.6771	0.7383	within expectation
+high CheckM2 quality only	622	0.6713	p__Bacillota_I	14	-9.015	0.001097	0.002743	fewer than expected
+high CheckM2 quality only	622	0.6713	p__Bacteroidota	62	-6.755	6.166e-09	4.625e-08	fewer than expected
+high CheckM2 quality only	622	0.6713	p__Campylobacterota	9	2.453	0.0972	0.1325	within expectation
+high CheckM2 quality only	622	0.6713	p__Chloroflexota	9	-11.419	0.009152	0.01373	fewer than expected
+high CheckM2 quality only	622	0.6713	p__Cyanobacteriota	19	-7.522	0.00208	0.003947	fewer than expected
+high CheckM2 quality only	622	0.6713	p__Deinococcota	6	-0.532	0.8339	0.8339	within expectation
+high CheckM2 quality only	622	0.6713	p__Desulfobacterota	16	-3.8	0.1148	0.1435	within expectation
+high CheckM2 quality only	622	0.6713	p__Patescibacteriota	34	-5.638	3.821e-07	1.911e-06	fewer than expected
+high CheckM2 quality only	622	0.6713	p__Planctomycetota	20	-8.772	9.569e-05	0.0002871	fewer than expected
+high CheckM2 quality only	622	0.6713	p__Pseudomonadota	178	7.685	2.043e-20	3.064e-19	more than expected
+high CheckM2 quality only	622	0.6713	p__Spirochaetota	13	-12.929	0.002105	0.003947	fewer than expected
+high CheckM2 quality only	622	0.6713	p__Verrucomicrobiota	11	-0.677	0.6891	0.7383	within expectation
+quality-adjusted	696	0.7394	p__Acidobacteriota	11	-6.333	0.005099	0.009065	fewer than expected
+quality-adjusted	696	0.7394	p__Actinomycetota	60	5.735	1.38e-05	5.52e-05	more than expected
+quality-adjusted	696	0.7394	p__Bacillota	135	-0.453	0.3708	0.4238	within expectation
+quality-adjusted	696	0.7394	p__Bacillota_I	18	-9.032	0.0002141	0.0005709	fewer than expected
+quality-adjusted	696	0.7394	p__Bacteroidota	65	-7.997	4.401e-09	3.521e-08	fewer than expected
+quality-adjusted	696	0.7394	p__Campylobacterota	9	2.742	0.1235	0.1797	within expectation
+quality-adjusted	696	0.7394	p__Chloroflexota	13	-1.07	0.08061	0.129	within expectation
+quality-adjusted	696	0.7394	p__Cyanobacteriota	20	-9.65	0.0009534	0.002179	fewer than expected
+quality-adjusted	696	0.7394	p__Deinococcota	6	-2.529	0.5294	0.5647	within expectation
+quality-adjusted	696	0.7394	p__Desulfobacterota	21	-1.439	0.3304	0.4067	within expectation
+quality-adjusted	696	0.7394	p__Patescibacteriota	42	-3.663	1.148e-07	6.124e-07	fewer than expected
+quality-adjusted	696	0.7394	p__Planctomycetota	21	-8.703	0.0001515	0.0004848	fewer than expected
+quality-adjusted	696	0.7394	p__Pseudomonadota	191	6.063	8.608e-20	1.377e-18	more than expected
+quality-adjusted	696	0.7394	p__Spirochaetota	13	-14.5	0.001662	0.003323	fewer than expected
+quality-adjusted	696	0.7394	p__Thermotogota	5	-12.292	0.2807	0.3743	within expectation
+quality-adjusted	696	0.7394	p__Verrucomicrobiota	13	1.931	0.9443	0.9443	within expectation

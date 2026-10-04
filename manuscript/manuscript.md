@@ -798,8 +798,10 @@ release. *[Candidate for a supplementary file and a figure.]*
 
 ### R6.1. A phylogenetically broad bacterial overview
 
-*[Status: the GTDB panel and metadata are locked; Drakkar annotation and Figure
-S4 are pending. No GIFT-distribution result is claimed yet.]*
+*[Status: the GTDB panel is annotated and evaluated and Figure S4 is drawn
+(`23-gtdb-phylogeny.R`, tables under `analysis/output/gtdb-phylogeny-*`). The
+GIFT-distribution prose below is still to be written from those tables; no
+result is claimed yet.]*
 
 To show how encoded GIFT repertoires vary across bacterial phylogeny, we
 selected species representatives from the main GTDB R11-RS232 bac120 tree.
@@ -814,19 +816,20 @@ define a common balance target for every origin group with at least that many
 eligible genomes, while smaller groups are retained exhaustively. Further
 genomes advance the least-represented group, avoid increasing an already
 complete group where possible, and maximise marginal rooted Faith phylogenetic
-diversity. The resulting 697-genome panel contains 321 order medoids and 376
+diversity. The resulting 696-genome panel contains 321 order medoids and 375
 balance-aware additions. It retains all 49 eligible phyla, 120 classes and 321
-orders and 164.564 of the eligible tree's 312.792 branch-length units (52.6%).
-Selection was completed before annotation and used no marker, GIFT call or
-phenotype.
+orders and 164.466 of the eligible tree's 312.792 branch-length units (52.6%).
+Selection used no marker, GIFT call or phenotype.
 
 Every selected accession is an explicit R232 tree tip and retains its raw
 GTDB/NCBI provenance. BioSample, BioProject and the isolation source required
-for origin classification are present for all 697 genomes; country is populated
-for 610 and latitude–longitude for 245. Every selected genome has at least one
-nonexclusive origin tag. Food/fermentation, animal-associated,
-plant-associated and the other sufficiently large groups each contribute 85
-genomes; aquatic origin contributes 87 because of nonexclusive overlap. The
+for origin classification are present for all 696 genomes; country is populated
+for 609 and latitude–longitude for 245. Every selected genome has at least one
+nonexclusive origin tag. Animal-associated, plant-associated and the other
+sufficiently large groups each contribute 85 genomes; food/fermentation
+contributes 84, because one of its 85 candidates could not be annotated
+(Methods), and aquatic origin contributes 87 because of nonexclusive overlap.
+The
 smaller fungal, air/built-environment and algal groups are represented
 exhaustively by 6, 49 and 51 genomes. Animal and plant associations are
 separate rather than pooled into a generic host category. Genome category,
@@ -834,12 +837,12 @@ isolate, dates, submitter, strain, taxon and WGS identifiers are also retained
 when supplied. The cross-references permit later enrichment from BioSample
 without inferring origin from a genome name or changing the selection.
 
-The pending Drakkar run will provide gene-resolved evidence for evaluation
-against the current gifter database. Figure S4 will place every current GIFT
-beside the pruned bac120 tree and report repertoire size separately. A coloured
-cell will mean support for a complete encoded implementation, not expression,
+The completed Drakkar run provides gene-resolved evidence for evaluation
+against the current gifter database. Figure S4 places every current GIFT
+beside the pruned bac120 tree and reports repertoire size separately. A coloured
+cell means support for a complete encoded implementation, not expression,
 activity, phenotype, ancestral state or ecological importance; an unsupported
-cell will not establish biological absence.
+cell does not establish biological absence.
 
 <!--
 R7-R10 ARE RESULTS. Nothing below may be written as prose before a committed
@@ -1983,8 +1986,8 @@ recommended annotation upstream; parallel/batch usage over many genomes.]*
 
 ### M6. Datasets and analysis
 
-*[Status: R7, R9 and R10 scripted; the GTDB phylogenetic panel is locked but
-awaits annotation; R8 remains pending. Genome sets, tool versions and
+*[Status: R7, R9 and R10 scripted; the GTDB phylogenetic panel is annotated and
+evaluated; R8 remains pending. Genome sets, tool versions and
 parameters, and the analysis scripts are under
 `manuscript/analysis/`.]*
 
@@ -2008,11 +2011,16 @@ over the raw isolation-source field provide nonexclusive food/fermentation,
 animal-associated and plant-associated tags; animal and plant associations are
 not collapsed into a generic host class.
 
-The genomes will be annotated in Drakkar's `gifter` mode under the same
+One genome chosen by this procedure, `GCA_002285495.1` (food/fermentation),
+failed KOfam annotation in every attempt and was removed without replacement
+and without reference to any GIFT call; the removal is recorded with its
+reason. The panel is therefore 696 genomes.
+
+The genomes were annotated in Drakkar's `gifter` mode under the same
 gene-resolved evidence contract used for R10. The generated annotation
-manifest and projection will be checksum-verified before each genome is
-evaluated independently. Panel prevalence will use 697 as its explicit
-denominator and will describe this phylogenetically enriched selection, not a
+manifest and projection were checksum-verified before each genome was
+evaluated independently. Panel prevalence uses 696 as its explicit
+denominator and describes this phylogenetically enriched selection, not a
 frequency-weighted census of GTDB, bacterial organisms or communities.
 
 **R10 chicken caecal case study.** We used the analysis archive accompanying
@@ -2106,7 +2114,17 @@ the operational threshold, not whether the MAG was biologically absent.
 | S1 | Data lifecycle: TSV sources, validation, compilation, runtime, and the version tracks | M2, M3 | Not started |
 | S2 | The interactive database atlas | R6 | Exists; needs packaging |
 | S3 | Richness-mode diagnostic against the abundance of the single matching high-repertoire MAG | R10 | **Drawn**; `22-r10-handoff-bimodality.R` |
-| S4 | Current encoded GIFT calls beside a 697-tip, origin-balanced and order-covered GTDB R232 bacterial tree | R6.1 | Panel locked; Drakkar annotation pending; `23-gtdb-phylogeny.R` |
+| S4 | Current encoded GIFT calls beside a 696-tip, origin-balanced and order-covered GTDB R232 bacterial tree | R6.1 | **Drawn**; `23-gtdb-phylogeny.R` |
+| S9 | Supported GIFTs against genome size across the GTDB panel, with a fitted expectation and each genome's deviation from it | R6.1 | **Drawn**; `26-gtdb-repertoire-genome-size.R` |
+| S10 | Deviation from the size expectation by phylum and class | R6.1 | **Drawn**; `26-gtdb-repertoire-genome-size.R` |
+| S11 | Phylogenetic signal of the deviation from the size expectation: deviations beside the tree and a correlogram over patristic distance | R6.1 | **Drawn**; `27-gtdb-size-signal-and-gift-classes.R` |
+| S12 | Association with genome size by class of GIFT and for individual GIFTs | R6.1 | **Drawn**; `27-gtdb-size-signal-and-gift-classes.R` |
+| S13 | Genome size, repertoire, size deviation and classes of GIFT by origin tag, from phylogenetic regressions | R6.1 | **Drawn**; `28-gtdb-origin-and-annotations.R` |
+| S14 | Individual GIFTs whose prevalence differs between an origin group and the rest of the panel | R6.1 | **Drawn**; `28-gtdb-origin-and-annotations.R` |
+| S15 | Repertoire and size deviation against assembly annotations: genome category, completeness, contamination, contigs, release year, latitude | R6.1 | **Drawn**; `28-gtdb-origin-and-annotations.R` |
+| S16 | GIFTs one step short of support, by phylum, and the requirements most often missing alone | R6.1 | **Drawn**; `29-gtdb-near-misses-and-gift-signal.R` |
+| S17 | Phylogenetic signal (Fritz and Purvis's D) of each GIFT, by type and mode and against prevalence | R6.1 | **Drawn**; `29-gtdb-near-misses-and-gift-signal.R` |
+| S18 | Which requirement is missing in a near miss: concentration on one step against the specificity of the steps present, and the most frequent candidates by phylum | R6.1 | **Drawn**; `30-gtdb-near-miss-steps.R` |
 
 **Figure 1. One Boolean hierarchy resolves four capability types and retains
 the evidence path.** (a) The OR/AND operators are identical across metabolic,
@@ -2169,17 +2187,19 @@ declared detection threshold, not evidence that the organism, its encoded
 capabilities or their activity is truly absent below the line.
 
 **Figure S4. Encoded GIFT repertoires across a broad bacterial phylogeny.**
-Rows follow 697 complete-assembly species representatives selected from the
+Rows follow 696 complete-assembly species representatives selected from the
 GTDB R11-RS232 bac120 tree after requiring assignment to at least one reviewed
 origin group, with coverage of every eligible order and balanced origin counts.
 Every sufficiently large group targets 85 genomes and smaller groups are
-included exhaustively; columns are the current GIFT catalogue, grouped by type.
+included exhaustively. Columns are the current GIFT catalogue, grouped by type.
 Calls are coloured by evidence confidence and repertoire size is shown
-separately. The panel is
+separately. Major phyla are named beside the phylum strip. The final panel
+gives, for the GTDB species each row represents, the mean and standard
+deviation of assembly size over all R232 genomes assigned to that species; a
+species with a single genome has no deviation. The panel is
 phylogenetically enriched rather than frequency weighted. Cells describe
 encoded capability, not expression, activity, phenotype or ancestral state,
-and unsupported cells are not proof of biological absence. *[Pending Drakkar
-annotation and rendering.]*
+and unsupported cells are not proof of biological absence.
 
 **Figure S5. Curated capability frames separate temporal change from
 stability.** Rows are all 19 database-defined reference frames; columns are the
@@ -2231,6 +2251,112 @@ contrasts remain beyond the one-GIFT margin; the abundance-weighted vitamin
 biosynthesis contrast at day 21 remains negative but its interval crosses the
 margin. Carrier abundance describes encoded capability distribution, not
 activity, expression or flux.
+
+**Figure S9. Encoded repertoire size against genome size.** (A) Supported GIFTs
+for each of the 696 GTDB panel genomes against the size of the evaluated
+assembly. The line is a smooth quasi-binomial expectation of the supported share
+of the 163 current GIFTs given log genome size, and the band is its 95% range.
+Points are coloured by the standardised deviation from that expectation, and
+the eight most extreme genomes in each direction are named. (B) The same
+deviations in GIFTs. No single genome departs from the expectation at a false
+discovery rate of 0.05. A deviation is a difference in encoded, curated
+capabilities relative to this panel and this catalogue; it is not activity,
+phenotype or a statement about functions the catalogue does not hold.
+
+**Figure S10. Taxa above and below the size expectation.** Deviations from the
+Figure S9 expectation for every phylum (A) and class (B) with at least five
+panel genomes; genome counts are in brackets and taxa are ordered by median
+deviation. A box is coloured when the taxon's standardised residuals differ
+from zero in a two-sided Wilcoxon signed-rank test at a false discovery rate of
+0.05 within rank. (C) Median deviation of each phylum when the expectation is
+refitted on isolates only, on genomes at least 95% complete and at most 5%
+contaminated by CheckM2, and on all genomes with CheckM2 completeness and
+metagenome origin as covariates; filled points differ from zero at the same
+false discovery rate. Genomes within a taxon are not phylogenetically independent
+and the panel is enriched rather than frequency weighted, so the tests screen
+for departures and do not estimate lineage-wide effects.
+
+**Figure S11. Deviation from the size expectation is phylogenetically
+clustered.** (A) The pruned GTDB bac120 tree of the 696 panel genomes, with the
+12 most represented phyla named. (B) Each genome's deviation from the Figure S9
+expectation, in GIFTs. (C) Moran's I of the standardised deviation among genome
+pairs in 12 patristic-distance classes of equal pair count; the band is the 95%
+range of 9,999 tip permutations and filled points differ from it at a false
+discovery rate of 0.05. Pagel's λ and Blomberg's K for the standardised
+deviation are given above the panels. Clustering describes how encoded, curated
+capabilities are distributed over this panel; it is not an ancestral-state
+reconstruction.
+
+**Figure S12. Which GIFTs follow genome size.** (A) Spearman correlation between
+genome size and the number of supported GIFTs in each class with at least five
+GIFTs, with 95% bootstrap intervals over genomes. Classes are resolved from
+`gift_type`, `mode` and the curated physiological-role and substrate-class
+facets, and a GIFT can belong to several. (B) Log-odds of support per doubling
+of genome size from one logistic regression per GIFT with at least ten genomes
+carrying and ten lacking it, grouped by type and metabolic mode and coloured at
+a false discovery rate of 0.05. Genomes are treated as independent although
+Figure S11 shows they are not, and an association describes encoded capability
+over this panel, not activity or phenotype.
+
+**Figure S13. Encoded repertoire by origin of the genome.** (A) Difference in
+log2 genome size, supported GIFTs and deviation from the Figure S9 expectation
+for genomes carrying each nonexclusive origin tag, from phylogenetic regressions
+(Pagel's λ) on the pruned bac120 tree in which the 12 tags with at least 20
+genomes are fitted jointly; points with 95% intervals, filled at a false
+discovery rate of 0.05 within response. (B) The same model for the standardised
+number of supported GIFTs in each class, with log2 genome size as a covariate;
+a dot marks a false discovery rate below 0.05 over all pairs. Origin tags are
+coarse labels parsed from the free-text isolation source and the panel was
+balanced on them by design. Differences describe encoded, curated capability,
+not activity, phenotype or ecological function.
+
+**Figure S14. Individual GIFTs by origin of the genome.** Prevalence inside
+minus outside each origin group for the 45 GIFTs with the largest significant
+difference; a dot marks Fisher's exact test at a false discovery rate below
+0.05 over all origin and GIFT pairs. This screen adjusts for neither genome
+size nor phylogeny, so a difference may reflect which lineages were sampled
+from an origin.
+
+**Figure S15. Encoded repertoire by assembly annotation.** (A) Difference in
+the size deviation and in supported GIFTs associated with each assembly
+annotation, fitted jointly in a phylogenetic regression (single-cell
+assemblies excluded; continuous annotations per standard deviation; latitude
+fitted alone on the genomes with coordinates). (B–D) Deviation from the Figure
+S9 expectation by genome category, CheckM2 completeness and absolute latitude.
+Completeness and contamination are themselves marker-based estimates.
+
+**Figure S16. Where genomes fall one step short of a GIFT.** A near miss is an
+unsupported GIFT whose closest curated implementation has at least two
+requirements and lacks exactly one. (A) Near misses per genome for phyla with
+at least five genomes, ordered and coloured by their deviation from the size
+expectation. (B) The 30 requirements most often missing alone, as the share of
+each phylum's genomes one step short on them; genome counts are in brackets. A
+near miss is never counted as support. A requirement missing across a lineage
+is a candidate for an alternative the catalogue has not curated or for a
+capability the lineage does not encode, and the most frequent ones are
+committing steps whose remaining requirements are shared with another GIFT or
+rest on a broad marker.
+
+**Figure S17. How each GIFT is distributed over the phylogeny.** Fritz and
+Purvis's D for the 140 GIFTs carried and lacked by at least ten genomes, on the
+pruned GTDB bac120 tree with 1,000 permutations. D is about 0 for a trait as
+clumped as Brownian motion predicts and about 1 for a trait scattered at random.
+(A) By GIFT type and metabolic mode. (B) Against prevalence, with the most
+extreme GIFTs named. Colours give the test outcome at a false discovery rate of
+0.05. D describes the distribution of an encoded, curated capability over this
+enriched panel; it is not an ancestral-state reconstruction and does not
+measure rates of gain or loss.
+
+**Figure S18. Which step is missing when a GIFT is one step short.** (A) Each
+point is one implementation and missing requirement with at least 20 near-miss
+genomes: the share of that implementation's near misses that lack this
+requirement, against the share of the requirements present that are specific
+to the GIFT. A requirement is specific when no other GIFT requires the same
+reaction or function or accepts one of its markers. (B) The 25 most frequent
+candidates, in which the same requirement is missing while GIFT-specific
+requirements are present, by phylum. A candidate may be an alternative the
+catalogue has not curated, a marker that fails in a lineage, or a capability
+that is not encoded; a near miss is never counted as support.
 
 ## References
 
@@ -2330,7 +2456,7 @@ before the text can be finalised.
 | R4. Quantitative traits | Frame API stable | **Complete**; worked example + Figure 4 |
 | R5. Community | Community API stable | **Complete**; worked example + Figure 5 |
 | R6. Reference database | Counts regenerated at submission | Complete, counts to refresh |
-| R6.1. Phylogenetic overview | Drakkar annotation of the locked GTDB R232 panel | Panel and metadata locked; Figure S4 pending |
+| R6.1. Phylogenetic overview | Results prose from the generated tables | Panel evaluated; Figure S4 drawn; prose pending |
 | R7. Incompleteness | Nothing outstanding | **Complete**; prose and Figure 6 from `02-incompleteness.R` |
 | R8. Tool comparison | Common genome subset + pinned KEGG-module/DRAM runs; METABOLIC excluded | Not started |
 | R9. Phenotype agreement | Nothing outstanding | **Complete**; prose, Figure 8 and the annotation route all from committed scripts |
@@ -2346,11 +2472,21 @@ before the text can be finalised.
 | Availability | Release tag, Zenodo DOI | Pending release |
 | Abstract | Everything | Draft, rewrite last |
 | Figures 1-5 | Nothing — derivable today | **Complete**; `20-figures-core.R` |
-| Figure S4 | Drakkar annotation of the locked 697-genome panel | Panel locked; rendering pending |
+| Figure S4 | Nothing — derived from the evaluated 696-genome panel | **Complete**; `23-gtdb-phylogeny.R` |
 | Figure S5 | Nothing — derived from the audited R10 cache | **Complete**; `24-r10-reference-frame-time.R` |
 | Figure S6 | Nothing — derived from the audited R10 cache | **Complete**; `24-r10-reference-frame-time.R` |
 | Figure S7 | Nothing — derived from the audited R10 cache | **Complete**; `24-r10-reference-frame-time.R` |
 | Figure S8 | Nothing — derived from the audited R10 cache | **Complete**; `24-r10-reference-frame-time.R` |
+| Figure S9 | Nothing — derived from the evaluated 696-genome panel | **Complete**; `26-gtdb-repertoire-genome-size.R` |
+| Figure S10 | Nothing — derived from the evaluated 696-genome panel | **Complete**; `26-gtdb-repertoire-genome-size.R` |
+| Figure S11 | Nothing — derived from the evaluated 696-genome panel | **Complete**; `27-gtdb-size-signal-and-gift-classes.R` |
+| Figure S12 | Nothing — derived from the evaluated 696-genome panel | **Complete**; `27-gtdb-size-signal-and-gift-classes.R` |
+| Figure S13 | Nothing — derived from the evaluated 696-genome panel | **Complete**; `28-gtdb-origin-and-annotations.R` |
+| Figure S14 | Nothing — derived from the evaluated 696-genome panel | **Complete**; `28-gtdb-origin-and-annotations.R` |
+| Figure S15 | Nothing — derived from the evaluated 696-genome panel | **Complete**; `28-gtdb-origin-and-annotations.R` |
+| Figure S16 | Nothing — derived from the evaluated 696-genome panel | **Complete**; `29-gtdb-near-misses-and-gift-signal.R` |
+| Figure S17 | Nothing — derived from the evaluated 696-genome panel | **Complete**; `29-gtdb-near-misses-and-gift-signal.R` |
+| Figure S18 | Nothing — derived from the evaluated 696-genome panel | **Complete**; `30-gtdb-near-miss-steps.R` |
 
 **Open decisions**
 

@@ -1,0 +1,5 @@
+trait	genomes	blomberg_k	k_permutation_p	pagel_lambda	lambda_log_likelihood	lambda_zero_log_likelihood	lambda_likelihood_ratio_p
+deviation from the size expectation (standardised)	696	0.7142	1e-04	0.939	-730.53	-988.8783	2.214e-114
+deviation from the size expectation (GIFTs)	696	0.6817	1e-04	0.919	-2467.385	-2712.1886	1.735e-108
+supported GIFTs	696	0.9744	1e-04	0.9828	-2698.8559	-3051.1524	2.999e-155
+log10 genome size	696	0.8173	1e-04	0.9948	266.6691	-23.9414	2.035e-128

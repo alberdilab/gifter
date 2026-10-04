@@ -15,6 +15,110 @@ versioned with the package.
 
 ## Unreleased
 
+### 2026-10-04T15:28Z — GTDB near misses are read by which step is missing
+
+**What changed.** A new manuscript analysis, `30-gtdb-near-miss-steps.R`,
+measures for each implementation how concentrated the missing requirement is
+over its near-miss genomes, and whether the requirements present are specific
+to the GIFT or shared with another GIFT through a reaction, function or marker.
+Requirement and marker sharing is read from the database source tables. It
+writes three tables and Figure S18.
+
+**Why.** The same step missing everywhere means a correct refusal when the
+steps present are shared with other GIFTs, and a curation candidate when they
+are specific to the GIFT. Counting near misses alone could not tell these apart.
+
+**Effect.** Of 11,736 near misses, 47% lack the same step while GIFT-specific
+steps are present, 29% lack a varying step, and 23% have only shared steps
+present. The first group is a ranked list of curation candidates. The sharing
+rule does not detect a marker that is biologically broad but accepted once. No
+call, package API or database content changes.
+
+### 2026-10-04T15:15Z — GTDB near misses, per-GIFT phylogenetic signal and a quality check
+
+**What changed.** `26-gtdb-repertoire-genome-size.R` now repeats the phylum
+reading of the size deviation on isolates only, on genomes of high CheckM2
+quality, and with completeness and metagenome origin in the expectation; it
+writes `gtdb-size-expectation-sensitivity.tsv` and adds a panel to Figure S10.
+A new analysis, `29-gtdb-near-misses-and-gift-signal.R`, counts unsupported
+GIFTs whose closest implementation lacks exactly one of at least two
+requirements, ranks the requirements most often missing alone by lineage, and
+computes Fritz and Purvis's D for each GIFT. It writes six tables and Figures
+S16 and S17.
+
+**Why.** Assembly quality shifts the size deviation, so the taxon results
+needed a robustness check. The call table already records what each
+unsupported GIFT lacks, which separates a lineage that lacks a capability from
+a catalogue that lacks the lineage's alternative.
+
+**Effect.** Eight of the eleven deviating phyla keep their direction and
+significance under every quality variant in which they can be tested;
+Acidobacteriota, Campylobacterota and Chloroflexota each lose significance in
+at least one. One in
+seven unsupported calls is a near miss, and the most frequent are committing
+steps correctly refused. Anabolic GIFTs are more phylogenetically conserved
+than catabolic ones. A near miss is never counted as support; no call, package
+API or database content changes.
+
+### 2026-10-04T15:05Z — GTDB repertoire is read against origin and assembly annotations
+
+**What changed.** A new manuscript analysis, `28-gtdb-origin-and-annotations.R`,
+relates the panel's nonexclusive origin tags and its assembly annotations to
+genome size, repertoire size, the size deviation, classes of GIFT and
+individual GIFTs. Genome-level and class-level models are phylogenetic
+regressions with Pagel's lambda on the pruned GTDB tree; the per-GIFT screen is
+Fisher's exact test and is labelled as unadjusted. It writes five tables and
+Figures S13 to S15.
+
+**Why.** The panel was built with origin and provenance metadata, and the size
+deviation is phylogenetically clustered, so origin effects have to be read
+after phylogeny and assembly quality are accounted for.
+
+**Effect.** Few origin effects survive the phylogenetic correction: 11 of 288
+origin and class pairs, against 322 of 1,680 unadjusted origin and GIFT pairs.
+Metagenome-derived assemblies and lower CheckM2 completeness are associated
+with fewer supported GIFTs than size predicts. No call, package API or database
+content changes.
+
+### 2026-10-04T14:30Z — GTDB size deviation: phylogenetic signal and GIFT classes
+
+**What changed.** A new manuscript analysis,
+`27-gtdb-size-signal-and-gift-classes.R`, measures the phylogenetic signal of
+each genome's deviation from the size expectation (Pagel's lambda, Blomberg's K
+and a Moran's I correlogram over patristic distance on the pruned GTDB tree),
+and the association of genome size with the supported count in each class of
+GIFT and with each GIFT. Classes are resolved from `gift_type`, `mode` and the
+`physiological_role` and `substrate_class` facets through `list_facets()` and
+`gifts_by_facet()`. It writes five tables and Figures S11 and S12.
+
+**Why.** The size deviation differed between phyla, which raised whether it is
+phylogenetically structured and whether the size trend is carried by particular
+kinds of capability.
+
+**Effect.** The deviation carries strong phylogenetic signal (lambda 0.94,
+K 0.71), concentrated among close relatives. Catabolic and carbon-acquisition
+GIFTs follow genome size most closely; structural, fermentative-end-product and
+aromatic-ring-catabolism GIFTs least. No call, package API or database content
+changes.
+
+### 2026-10-04T14:18Z — GTDB repertoire size is read against genome size
+
+**What changed.** A new manuscript analysis, `26-gtdb-repertoire-genome-size.R`,
+reads the calls from `23-gtdb-phylogeny.R` and fits a smooth quasi-binomial
+expectation of the supported share of the catalogue given log assembly size.
+It writes each genome's deviation with a standardised residual and a
+Benjamini-Hochberg-adjusted test, phylum and class summaries with a Wilcoxon
+signed-rank test, the model record, and Figures S9 and S10.
+
+**Why.** Repertoire size rises with genome size, so a raw count cannot say
+which genomes or taxa encode more or fewer curated capabilities than their size
+predicts.
+
+**Effect.** No genome departs from the expectation at a false discovery rate of
+0.05; 11 of 16 phyla and 14 of 24 classes with at least five genomes do. The
+tests treat genomes as independent and are a screen, not a phylogenetically
+corrected estimate. No call, package API or database content changes.
+
 ### 2026-10-04T13:31Z — Link giftag annotation to gifter evaluation
 
 **What changed.** The website's Workflows menu, README, and first evaluation
@@ -25,6 +129,35 @@ to review marker search coverage before interpreting missing evidence.
 
 **Effect.** Documentation and navigation only. GIFT definitions, evaluation
 logic, database content, and calls are unchanged.
+
+### 2026-10-04T13:21Z — GTDB phylogeny panel is 696 genomes
+
+**What changed.** `23-gtdb-phylogeny.R --prepare` now removes the genomes
+listed in the committed `gtdb-phylogeny/excluded-genomes.tsv` after selection,
+without replacement, and stops if a removal would drop a GTDB order. The locked
+manifest, tree, selection audit and origin summary therefore describe 696
+genomes, and the final analysis requires 696. It also checks that the
+transferred Mjolnir manifest minus the transferred exclusion record is exactly
+the committed panel. On Mjolnir, `run-drakkar-included.sh` resumes Drakkar on
+the selected genomes minus the exclusion record, and `prepare-transfer.sh`
+expects that count and ships the record. The manuscript, session notes and
+analysis READMEs state 696 throughout. Figure S4 now wraps its subtitle and
+caption, collects its legends and abbreviates the non-metabolic type labels,
+which were clipped or overlapping. It also names the major phyla beside the
+phylum strip and adds a panel with the mean and standard deviation of assembly
+size over all GTDB R232 genomes of the species each row represents, read from
+the new `species-genome-size.tsv` that `--prepare` writes.
+
+**Why.** KOfam annotation of `GCA_002285495.1` failed all eight attempts across
+two Drakkar runs for a cause that was not established. Evaluating it without
+KEGG evidence would show unsupported GIFTs that are an annotation gap, so it is
+removed rather than called. Stating one panel size everywhere is simpler than
+carrying a selected and an analysed count.
+
+**Effect.** Every count and denominator in the GTDB overview is 696. All 49
+phyla, 120 classes and 321 orders remain; the food/fermentation group holds 84
+of its 85 eligible genomes. No package API, biological database content or
+call changes.
 
 ### 2026-10-04T11:41Z — Python curation scripts can be indexed as GIFT evidence
 

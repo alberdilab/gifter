@@ -1,0 +1,4 @@
+reading	gaps	near_miss_calls	share_of_near_miss_calls	gifts
+missing step varies, GIFT-specific steps present	203	3445	0.2935	76
+present steps all shared with other GIFTs	40	2724	0.2321	24
+same step missing, GIFT-specific steps present	82	5567	0.4744	60

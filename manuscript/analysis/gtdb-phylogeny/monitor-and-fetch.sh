@@ -51,5 +51,9 @@ for path in \
   "$transfer_task/transfer.complete"; do
   scp "${ssh_options[@]}" "$ssh_host:$path" "$local_dir/"
 done
+# Present only when a locked genome could not be annotated.
+if ssh "${ssh_options[@]}" "$ssh_host" "test -s '$transfer_task/output/excluded-genomes.tsv'"; then
+  scp "${ssh_options[@]}" "$ssh_host:$transfer_task/output/excluded-genomes.tsv" "$local_dir/"
+fi
 
 Rscript manuscript/analysis/23-gtdb-phylogeny.R

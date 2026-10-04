@@ -1,0 +1,8 @@
+class	gifts	median_d	lower_quartile_d	upper_quartile_d
+structural	5	-0.3085	-0.7054	0.01315
+metabolic, interconversion	4	-0.236	-0.4195	-0.01005
+regulatory	2	-0.1381	-0.2849	0.008569
+metabolic, anabolic	65	-0.1018	-0.2776	0.1214
+metabolic, catabolic	54	0.2258	-0.004077	0.379
+metabolic, transport	3	0.2524	0.1635	0.2734
+defense	7	0.4787	0.1643	0.6873

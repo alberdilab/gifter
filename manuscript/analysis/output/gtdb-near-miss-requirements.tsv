@@ -1,0 +1,326 @@
+gift_id	gift_type	mode	implementation	missing_requirement	genomes_one_step_short	genomes_supporting_gift	phyla_affected	most_affected_phylum	genomes_in_that_phylum	one_step_short_in_that_phylum	share_of_that_phylum
+indole_3_acetate_biosynthesis	metabolic	anabolic	IAA_IAM	RHEA:16165	618	4	46	p__Acidobacteriota	11	11	1
+oxobutanoate_biosynthesis_citramalate	metabolic	anabolic	OBU_CITRAMALATE	RHEA:19045	475	29	37	p__Deinococcota	6	6	1
+chitin_degradation	metabolic	catabolic	CHITIN_SACCHARIFICATION	RXN_CHITIN_ENDO	331	144	34	p__Cyanobacteriota	20	16	0.8
+xylan_degradation	metabolic	catabolic	XYLAN_SACCHARIFICATION	RXN_XYLAN_ENDO_1_4	315	232	38	p__Spirochaetota	13	9	0.6923
+methionine_biosynthesis_transsulfuration	metabolic	anabolic	MET_TS_ACETYL_B12	RHEA:30931	282	35	22	p__Deinococcota	6	5	0.8333
+nad_biosynthesis_namn	metabolic	anabolic	NAD_GLN	RHEA:24384	267	327	39	p__Desulfobacterota	21	18	0.8571
+aspartate_chemoreception	regulatory		CIRCUIT_ASPARTATE_CHEMORECEPTION	RF_ASPARTATE_RECEPTION	244	5	30	p__Thermotogota	5	4	0.8
+serine_chemoreception	regulatory		CIRCUIT_SERINE_CHEMORECEPTION	RF_SERINE_RECEPTION	244	5	30	p__Thermotogota	5	4	0.8
+methylglyoxal_detoxification	defense		MECH_MG_GLYOXALASE	DF_MG_GLYOXALASE_I	237	252	33	p__Deinococcota	6	6	1
+creatinine_degradation	metabolic	catabolic	CREATININE_AMIDOHYDROLASE	RHEA:22456	231	16	24	p__Cyanobacteriota	20	16	0.8
+starch_degradation	metabolic	catabolic	STARCH_SACCHARIFICATION	RXN_STARCH_ENDO_1_4	203	157	22	p__Spirochaetota	13	9	0.6923
+thiamine_precursor_salvage	metabolic	anabolic	SALVAGE_HMP_HET	RHEA:24212	189	183	28	p__Cyanobacteriota	20	14	0.7
+histidine_degradation_glutamate	metabolic	catabolic	HUT_FORMAMIDE	RHEA:22492	183	86	23	p__Deinococcota	6	5	0.8333
+type_i_e_crispr_cas_machinery	defense		MECH_TYPE_I_E_CRISPR	DF_CRISPR_I_E_SURVEILLANCE	174	38	31	p__Chloroflexota	13	9	0.6923
+phosphate_starvation_response	regulatory		CIRCUIT_PHO_PHOR_PHOB	RF_PHO_RESPONSE_PHOB	160	226	33	p__Planctomycetota	21	18	0.8571
+cobamide_nucleotide_loop_assembly	metabolic	anabolic	LOOP_DMB	RHEA:24456	157	110	20	p__Desulfobacterota	21	14	0.6667
+siroheme_biosynthesis	metabolic	anabolic	SIROHEME_UROGEN	RHEA:24360	154	142	21	p__Desulfobacterota	21	18	0.8571
+dap_biosynthesis	metabolic	anabolic	DAP_AMINOTRANSFERASE	RHEA:23988	147	390	26	p__Campylobacterota	9	9	1
+superoxide_detoxification	defense		MECH_SUPEROXIDE_COMPLETE	DF_PEROXIDE_REMOVAL	147	406	24	p__Patescibacteriota	42	31	0.7381
+assimilatory_sulfate_reduction	metabolic	anabolic	SULFATE_APS_FD	RHEA:23132	143	168	22	p__Deinococcota	6	4	0.6667
+glcnac_degradation	metabolic	catabolic	GLCNAC_KINASE	RHEA:17417	137	98	19	p__Planctomycetota	21	12	0.5714
+purine_core_biosynthesis	metabolic	anabolic	PCR_FOLATE_DIRECT_FOLATE	RHEA:10792	137	407	29	p__Campylobacterota	9	6	0.6667
+acetate_interconversion	metabolic	interconversion	ACETATE_PTA_ACKA	RHEA:19521	135	302	25	p__Spirochaetota	13	10	0.7692
+pantothenate_biosynthesis	metabolic	anabolic	PANTOTHENATE_PANBCDE	RHEA:19497	135	317	16	p__Acidobacteriota	11	5	0.4545
+serine_biosynthesis	metabolic	anabolic	SER_PHOSPHORYLATED	RHEA:21208	134	227	18	p__Bacteroidota	65	50	0.7692
+fumarate_oxaloacetate_interconversion	metabolic	interconversion	TCA4_FUMARASE_MDH	RHEA:21432	132	416	19	p__Bacillota	135	63	0.4667
+folate_biosynthesis	metabolic	anabolic	FOLATE_THF	RHEA:15009	130	273	19	p__Deinococcota	6	5	0.8333
+glucuronate_degradation	metabolic	catabolic	GLCUA_ISOMERASE	RHEA:15729	125	25	16	p__Verrucomicrobiota	13	7	0.5385
+hmp_phosphate_biosynthesis	metabolic	anabolic	HMP_THIC	RHEA:19893	122	263	20	p__Campylobacterota	9	8	0.8889
+threonine_biosynthesis	metabolic	anabolic	THR_CANONICAL	RHEA:13985	121	446	22	p__Planctomycetota	21	20	0.9524
+salicylate_biosynthesis	metabolic	anabolic	SAL_ISOCHORISMATE	RHEA:27874	115	16	12	p__Actinomycetota	60	45	0.75
+butyrate_formation	metabolic	catabolic	BUTYRATE_ACOA_TRANSFERASE	RHEA:30071	111	4	15	p__Bacteroidota	65	42	0.6462
+acetyl_coa_to_isocitrate	metabolic	catabolic	TCA1_CS_ACN	RHEA:10336	110	367	19	p__Desulfobacterota	21	13	0.619
+hmp_phosphate_biosynthesis	metabolic	anabolic	HMP_THIC	RHEA:24840	109	263	17	p__Bacillota	135	45	0.3333
+aspartate_semialdehyde_biosynthesis	metabolic	anabolic	ASA_CANONICAL	RHEA:23776	103	516	22	p__Bacillota	135	50	0.3704
+biotin_biosynthesis	metabolic	anabolic	BIOTIN_SAM	RHEA:20712	103	192	18	p__Campylobacterota	9	8	0.8889
+cysteine_biosynthesis_sulfide	metabolic	anabolic	CYS_OAS_SULFIDE	RHEA:14829	103	418	14	p__Thermotogota	5	2	0.4
+galactose_degradation_leloir	metabolic	catabolic	GAL_LELOIR	RHEA:13989	102	122	13	p__Verrucomicrobiota	13	8	0.6154
+oxoglutarate_to_succinate	metabolic	catabolic	TCA2_OFOR_SCS	RHEA:17661	102	402	22	p__Thermotogota	5	4	0.8
+urate_degradation	metabolic	catabolic	URATE_HPXO	RHEA:27329	98	54	10	p__Pseudomonadota	191	76	0.3979
+kdg_degradation	metabolic	catabolic	KDG_ED	RHEA:14797	95	235	20	p__Cyanobacteriota	20	16	0.8
+tyrosine_biosynthesis	metabolic	anabolic	TYR_NAD	RHEA:13869	87	389	19	p__Desulfobacterota	21	12	0.5714
+lpt_lipopolysaccharide_export_apparatus	structural		ARCH_LPT_CANONICAL	SF_LPT_OUTER_MEMBRANE_TRANSLOCON	83	168	12	p__Cyanobacteriota	20	14	0.7
+thiazole_phosphate_biosynthesis	metabolic	anabolic	THZ_THIH	RHEA:26361	83	295	18	p__Campylobacterota	9	8	0.8889
+tyrosine_biosynthesis	metabolic	anabolic	TYR_NAD	RHEA:13897	79	389	12	p__Acidobacteriota	11	6	0.5455
+paba_biosynthesis	metabolic	anabolic	PABA_ADC	RHEA:16201	71	130	11	p__Planctomycetota	21	12	0.5714
+phenylalanine_biosynthesis	metabolic	anabolic	PHE_CANONICAL	RHEA:13897	70	443	12	p__Acidobacteriota	11	7	0.6364
+rhamnose_degradation	metabolic	catabolic	RHA_ISOMERASE	RHEA:19689	69	32	12	p__Deinococcota	6	4	0.6667
+serine_biosynthesis	metabolic	anabolic	SER_PHOSPHORYLATED	RHEA:14329	67	227	20	p__Campylobacterota	9	8	0.8889
+arginine_biosynthesis	metabolic	anabolic	ARG_CANONICAL	RHEA:19513	65	501	9	p__Bacteroidota	65	42	0.6462
+galactose_degradation_leloir	metabolic	catabolic	GAL_LELOIR	RHEA:13553	65	122	17	p__Planctomycetota	21	10	0.4762
+arginine_deiminase_pathway	metabolic	catabolic	ADI_CANONICAL	RHEA:19597	63	81	18	p__Chloroflexota	13	8	0.6154
+cysteine_biosynthesis_homocysteine	metabolic	anabolic	CYS_RT_SERINE	RHEA:14005	63	103	12	p__Actinomycetota	60	34	0.5667
+histidine_biosynthesis	metabolic	anabolic	HIS_CANONICAL	RHEA:14465	60	256	11	p__Cyanobacteriota	20	17	0.85
+oxoglutarate_to_succinate	metabolic	catabolic	TCA2_KGD_SSADH_NAD	RHEA:13217	54	402	14	p__Verrucomicrobiota	13	3	0.2308
+folate_biosynthesis	metabolic	anabolic	FOLATE_THF	RHEA:10540	53	273	10	p__Thermotogota	5	3	0.6
+guanylate_biosynthesis	metabolic	anabolic	GMP_XMP	RHEA:11708	53	576	16	p__Cyanobacteriota	20	19	0.95
+glyoxylate_bypass	metabolic	catabolic	GLYOXYLATE_BYPASS_DIRECT	RHEA:13245	52	185	12	p__Acidobacteriota	11	5	0.4545
+pyrimidine_core_biosynthesis	metabolic	anabolic	PYR_DHODH_QUINONE	RHEA:24296	52	353	5	p__Campylobacterota	9	6	0.6667
+salicylate_biosynthesis	metabolic	anabolic	SAL_ISOCHORISMATE	RHEA:18985	52	16	5	p__Campylobacterota	9	6	0.6667
+xylose_degradation_isomerase	metabolic	catabolic	XYL_ISOMERASE	RHEA:10964	52	146	9	p__Bacteroidota	65	36	0.5538
+nitrate_assimilation	metabolic	anabolic	NITRATE_ASSIM_NARB_NADH	RHEA:21828	51	103	8	p__Deinococcota	6	2	0.3333
+xylose_degradation_isomerase	metabolic	catabolic	XYL_ISOMERASE	RHEA:22816	51	146	7	p__Actinomycetota	60	11	0.1833
+chorismate_biosynthesis	metabolic	anabolic	CHOR_SHIKIMATE	RHEA:14717	50	476	4	p__Bacteroidota	65	43	0.6615
+menaquinone_biosynthesis	metabolic	anabolic	MK_FUTALOSINE	RHEA:26478	50	84	11	p__Deinococcota	6	6	1
+pyrimidine_core_biosynthesis	metabolic	anabolic	PYR_DHODH_QUINONE	RHEA:18633	50	353	10	p__Bacteroidota	65	39	0.6
+superoxide_detoxification	defense		MECH_SUPEROXIDE_COMPLETE	DF_SUPEROXIDE_REMOVAL	50	406	15	p__Desulfobacterota	21	5	0.2381
+thiazole_phosphate_biosynthesis	metabolic	anabolic	THZ_THIH	RHEA:26297	49	295	15	p__Thermotogota	5	4	0.8
+flagellar_apparatus	structural		ARCH_FLAGELLUM_MONODERM	SF_FLAGELLAR_ROD	47	103	2	p__Bacillota	135	40	0.2963
+paba_biosynthesis	metabolic	anabolic	PABA_ADC	RHEA:11672	47	130	5	p__Actinomycetota	60	19	0.3167
+tryptophan_biosynthesis	metabolic	anabolic	TRP_CANONICAL	RHEA:23476	47	364	16	p__Deinococcota	6	4	0.6667
+ethanol_formation	metabolic	catabolic	ETHANOL_ADHE	RHEA:25290	44	113	6	p__Actinomycetota	60	10	0.1667
+allantoin_degradation	metabolic	catabolic	ALLANTOIN_ALLANTOICASE	RHEA:11016	43	19	5	p__Cyanobacteriota	20	5	0.25
+histidine_biosynthesis	metabolic	anabolic	HIS_CANONICAL	RHEA:11040	43	256	10	p__Campylobacterota	9	7	0.7778
+choline_to_betaine	metabolic	anabolic	BETAINE_BETA	RHEA:17433	40	64	10	p__Planctomycetota	21	9	0.4286
+tryptophan_biosynthesis	metabolic	anabolic	TRP_CANONICAL	RHEA:21540	40	364	15	p__Verrucomicrobiota	13	3	0.2308
+citrate_fermentation	metabolic	catabolic	CITRATE_LYASE_OAD	RHEA:15641	39	2	8	p__Bacillota_I	18	6	0.3333
+arabinose_degradation	metabolic	catabolic	ARA_ISOMERASE	RHEA:22072	38	77	5	p__Actinomycetota	60	13	0.2167
+choline_to_betaine	metabolic	anabolic	BETAINE_BETA	RHEA:15305	38	64	7	p__Pseudomonadota	191	31	0.1623
+methionine_biosynthesis_transsulfuration	metabolic	anabolic	MET_TS_ACETYL_FOLATE	RHEA:30931	38	35	3	p__Actinomycetota	60	11	0.1833
+chemotaxis_signal_transduction	regulatory		CIRCUIT_CHEMOTAXIS_CORE	RF_CHEMOTAXIS_KINASE_CORE	37	249	7	p__Cyanobacteriota	20	6	0.3
+chitin_degradation	metabolic	catabolic	CHITIN_SACCHARIFICATION	RXN_CHITOBIOSE_EXO	37	144	7	p__Bacillota	135	28	0.2074
+starch_degradation	metabolic	catabolic	STARCH_SACCHARIFICATION	RXN_MALTOOLIGO_EXO	37	157	11	p__Patescibacteriota	42	10	0.2381
+quinolinate_biosynthesis_aspartate	metabolic	anabolic	QUIN_NADB	RHEA:25876	36	419	11	p__Actinomycetota	60	10	0.1667
+nitrate_assimilation	metabolic	anabolic	NITRATE_ASSIM_NARB_FD	RHEA:21828	35	103	13	p__Planctomycetota	21	6	0.2857
+methionine_biosynthesis_sulfhydrylation	metabolic	anabolic	MET_SH_ACETYL_B12	RHEA:27822	33	398	8	p__Acidobacteriota	11	2	0.1818
+phenylalanine_biosynthesis	metabolic	anabolic	PHE_CANONICAL	RHEA:21648	33	443	4	p__Thermotogota	5	1	0.2
+betaine_demethylation	metabolic	catabolic	BETAINE_GBC_DMGDH	RHEA:45700	32	17	4	p__Pseudomonadota	191	27	0.1414
+citrate_fermentation	metabolic	catabolic	CITRATE_LYASE_OAD	RHEA:10760	32	2	4	p__Pseudomonadota	191	26	0.1361
+fucose_degradation_isomerase	metabolic	catabolic	FUC_ISOMERASE	RHEA:12376	32	2	10	p__Thermotogota	5	2	0.4
+ornithine_biosynthesis	metabolic	anabolic	ORN_TRANSACETYLASE	RHEA:18049	32	412	8	p__Campylobacterota	9	8	0.8889
+corrin_ring_biosynthesis	metabolic	anabolic	CORRIN_ANAEROBIC	RHEA:15613	31	58	4	p__Cyanobacteriota	20	16	0.8
+serine_biosynthesis	metabolic	anabolic	SER_PHOSPHORYLATED	RHEA:12641	31	227	5	p__Spirochaetota	13	3	0.2308
+ectoine_degradation	metabolic	catabolic	ECTOINE_DEG_DOEAB	RHEA:40951	30	16	6	p__Campylobacterota	9	1	0.1111
+pantothenate_biosynthesis	metabolic	anabolic	PANTOTHENATE_PANBCDE	RHEA:16233	30	317	8	p__Thermotogota	5	4	0.8
+proline_reduction_stickland	metabolic	catabolic	PRD_STICKLAND	RHEA:12737	30	9	7	p__Chloroflexota	13	3	0.2308
+tryptophan_biosynthesis	metabolic	anabolic	TRP_CANONICAL	RHEA:21732	30	364	5	p__Actinomycetota	60	11	0.1833
+catechol_meta_cleavage	metabolic	catabolic	CATECHOL_META_HYDROLYTIC	RHEA:14549	29	19	6	p__Deinococcota	6	3	0.5
+pyrimidine_core_biosynthesis	metabolic	anabolic	PYR_DHODH_FUMARATE	RHEA:30059	29	353	9	p__Acidobacteriota	11	3	0.2727
+acetyl_coa_to_isocitrate	metabolic	catabolic	TCA1_CS_ACN	RHEA:16845	28	367	12	p__Campylobacterota	9	5	0.5556
+cysteine_biosynthesis_sulfide	metabolic	anabolic	CYS_OAS_SULFIDE	RHEA:24560	28	418	10	p__Deinococcota	6	5	0.8333
+methionine_biosynthesis_sulfhydrylation	metabolic	anabolic	MET_SH_ACETYL_B12	RHEA:11172	28	398	5	p__Desulfobacterota	21	3	0.1429
+taurine_degradation_sulfoacetaldehyde	metabolic	catabolic	TAURINE_TPA_XSC	RHEA:24204	27	27	4	p__Bacillota	135	22	0.163
+oxoglutarate_to_succinate	metabolic	catabolic	TCA2_KGD_SSADH_NADP	RHEA:10524	25	402	5	p__Cyanobacteriota	20	13	0.65
+oxopentenoate_degradation	metabolic	catabolic	OXOPENTENOATE_LOWER	RHEA:22580	25	36	6	p__Deinococcota	6	1	0.1667
+quinolinate_biosynthesis_aspartate	metabolic	anabolic	QUIN_NADX	RHEA:25888	25	419	7	p__Pseudomonadota	191	17	0.08901
+lpt_lipopolysaccharide_export_apparatus	structural		ARCH_LPT_CANONICAL	SF_LPT_INNER_MEMBRANE_EXTRACTION	24	168	8	p__Acidobacteriota	11	3	0.2727
+riboflavin_biosynthesis	metabolic	anabolic	RIBOFLAVIN_GTP	RHEA:18457	24	533	8	p__Spirochaetota	13	1	0.07692
+chorismate_biosynthesis	metabolic	anabolic	CHOR_SHIKIMATE	RHEA:13121	23	476	11	p__Spirochaetota	13	5	0.3846
+corrin_ring_biosynthesis	metabolic	anabolic	CORRIN_ANAEROBIC	RHEA:15625	23	58	7	p__Desulfobacterota	21	13	0.619
+phosphate_starvation_response	regulatory		CIRCUIT_PHO_PHOR_PHOB	RF_PHO_SIGNAL_RECEPTION	23	226	3	p__Cyanobacteriota	20	6	0.3
+pyrimidine_core_biosynthesis	metabolic	anabolic	PYR_DHODH_NAD	RHEA:18633	23	353	13	p__Bacillota_I	18	2	0.1111
+arginine_deiminase_pathway	metabolic	catabolic	ADI_CANONICAL	RHEA:10152	22	81	9	p__Actinomycetota	60	9	0.15
+isoleucine_biosynthesis	metabolic	anabolic	ILE_CANONICAL	RHEA:24801	22	491	5	p__Cyanobacteriota	20	7	0.35
+dap_biosynthesis	metabolic	anabolic	DAP_DEHYDROGENASE	RHEA:13561	21	390	5	p__Thermotogota	5	1	0.2
+type_ii_secretion_system	structural		ARCH_T2SS_CANONICAL	SF_T2SS_INNER_MEMBRANE_PLATFORM	21	58	7	p__Planctomycetota	21	5	0.2381
+cobinamide_biosynthesis	metabolic	anabolic	COBINAMIDE_ARM	RHEA:21896	20	262	8	p__Verrucomicrobiota	13	3	0.2308
+flagellar_apparatus	structural		ARCH_FLAGELLUM_DIDERM	SF_FLAGELLAR_ROD	20	103	5	p__Desulfobacterota	21	2	0.09524
+histidine_biosynthesis	metabolic	anabolic	HIS_CANONICAL	RHEA:15469	20	256	5	p__Bacteroidota	65	6	0.09231
+histidine_biosynthesis	metabolic	anabolic	HIS_CANONICAL	RHEA:20049	20	256	5	p__Chloroflexota	13	1	0.07692
+leucine_biosynthesis	metabolic	anabolic	LEU_CANONICAL	RHEA:18321	20	479	5	p__Cyanobacteriota	20	7	0.35
+adenylate_biosynthesis	metabolic	anabolic	AMP_ADENYLOSUCCINATE	RHEA:16853	19	622	9	p__Spirochaetota	13	4	0.3077
+assimilatory_sulfate_reduction	metabolic	anabolic	SULFATE_PAPS_FD	RHEA:23132	19	168	8	p__Desulfobacterota	21	3	0.1429
+fumarate_oxaloacetate_interconversion	metabolic	interconversion	TCA4_FUMARASE_MDH	RHEA:12460	19	416	10	p__Cyanobacteriota	20	5	0.25
+phenylacetate_degradation	metabolic	catabolic	PAA_COA_EPOXIDASE	RHEA:34799	19	0	2	p__Pseudomonadota	191	16	0.08377
+type_i_restriction_modification	defense		MECH_TYPE_I_RM	DF_TYPE_I_RM_RESTRICTION	19	348	11	p__Spirochaetota	13	1	0.07692
+chorismate_biosynthesis	metabolic	anabolic	CHOR_SHIKIMATE	RHEA:21096	18	476	8	p__Verrucomicrobiota	13	7	0.5385
+cobinamide_biosynthesis	metabolic	anabolic	COBINAMIDE_ARM	RHEA:23256	18	262	7	p__Acidobacteriota	11	2	0.1818
+heme_b_biosynthesis	metabolic	anabolic	HEME_COPRO	RHEA:56516	18	408	10	p__Deinococcota	6	2	0.3333
+methionine_biosynthesis_transsulfuration	metabolic	anabolic	MET_TS_PHOSPHO_B12	RHEA:80891	18	35	12	p__Chloroflexota	13	5	0.3846
+nitrate_assimilation	metabolic	anabolic	NITRATE_ASSIM_NARB_FD	RHEA:18041	18	103	3	p__Bacteroidota	65	16	0.2462
+pectate_lyase_degradation	metabolic	catabolic	PECTATE_LYASE	RHEA:20269	17	4	8	p__Acidobacteriota	11	1	0.09091
+taurine_degradation_sulfoacetaldehyde	metabolic	catabolic	TAURINE_TAUXY_XSC	RHEA:18709	17	27	4	p__Desulfobacterota	21	3	0.1429
+proline_biosynthesis	metabolic	anabolic	PRO_CANONICAL	RHEA:19541	16	466	6	p__Bacteroidota	65	7	0.1077
+flagellar_apparatus	structural		ARCH_FLAGELLUM_DIDERM	SF_FLAGELLAR_EXPORT_ATPASE	14	103	6	p__Campylobacterota	9	4	0.4444
+glcnac_degradation	metabolic	catabolic	GLCNAC_PTS	RHEA:12172	14	98	3	p__Actinomycetota	60	4	0.06667
+histidine_biosynthesis	metabolic	anabolic	HIS_CANONICAL	RHEA:22828	14	256	8	p__Planctomycetota	21	5	0.2381
+methylglyoxal_detoxification	defense		MECH_MG_GLYOXALASE	DF_MG_GLYOXALASE_II	14	252	8	p__Verrucomicrobiota	13	6	0.4615
+type_iva_pilus	structural		ARCH_T4AP_CORE	SF_T4AP_ALIGNMENT_COMPLEX	14	67	6	p__Desulfobacterota	21	5	0.2381
+allantoin_degradation	metabolic	catabolic	ALLANTOIN_ALLANTOICASE	RHEA:11304	13	19	4	p__Actinomycetota	60	10	0.1667
+arabinose_degradation	metabolic	catabolic	ARA_ISOMERASE	RHEA:14821	13	77	7	p__Verrucomicrobiota	13	2	0.1538
+methionine_biosynthesis_transsulfuration	metabolic	anabolic	MET_TS_ACETYL_B12	RHEA:13701	13	35	5	p__Actinomycetota	60	8	0.1333
+ornithine_biosynthesis	metabolic	anabolic	ORN_DEACETYLASE	RHEA:18049	13	412	8	p__Deinococcota	6	1	0.1667
+plp_biosynthesis_dxp	metabolic	anabolic	PLP_DXP	RHEA:12056	13	19	2	p__Pseudomonadota	191	12	0.06283
+betaine_demethylation	metabolic	catabolic	BETAINE_GBC_DMGO	RHEA:45700	12	17	4	p__Chloroflexota	13	2	0.1538
+chemotaxis_signal_transduction	regulatory		CIRCUIT_CHEMOTAXIS_CORE	RF_CHEMOTAXIS_ADAPTATION	12	249	5	p__Campylobacterota	9	4	0.4444
+chemotaxis_signal_transduction	regulatory		CIRCUIT_CHEMOTAXIS_CORE	RF_CHEMOTAXIS_RESPONSE_REGULATOR	12	249	7	p__Spirochaetota	13	3	0.2308
+leucine_biosynthesis	metabolic	anabolic	LEU_CANONICAL	RHEA:32271	12	479	7	p__Verrucomicrobiota	13	2	0.1538
+nad_biosynthesis_namn	metabolic	anabolic	NAD_NH3	RHEA:22860	12	327	2	p__Deinococcota	6	2	0.3333
+neuac_degradation	metabolic	catabolic	NEUAC_LYASE	RHEA:25253	12	2	3	p__Bacillota	135	10	0.07407
+ornithine_biosynthesis	metabolic	anabolic	ORN_DEACETYLASE	RHEA:15941	12	412	3	p__Pseudomonadota	191	7	0.03665
+threonine_biosynthesis	metabolic	anabolic	THR_CANONICAL	RHEA:10840	12	446	8	p__Campylobacterota	9	2	0.2222
+urate_degradation	metabolic	catabolic	URATE_HPXO	RHEA:23736	12	54	5	p__Bacteroidota	65	8	0.1231
+cobamide_nucleotide_loop_assembly	metabolic	anabolic	LOOP_DMB	RHEA:11196	11	110	5	p__Chloroflexota	13	2	0.1538
+galacturonate_degradation	metabolic	catabolic	GALUA_ISOMERASE	RHEA:17813	11	69	4	p__Verrucomicrobiota	13	1	0.07692
+oxoglutarate_to_succinate	metabolic	catabolic	TCA2_ODH_SCS	RHEA:27786	11	402	6	p__Pseudomonadota	191	6	0.03141
+biotin_biosynthesis	metabolic	anabolic	BIOTIN_LYS	RHEA:26329	10	192	3	p__Cyanobacteriota	20	8	0.4
+corrin_ring_biosynthesis	metabolic	anabolic	CORRIN_AEROBIC	RHEA:15341	10	58	3	p__Actinomycetota	60	7	0.1167
+kdg_degradation	metabolic	catabolic	KDG_ED	RHEA:17089	10	235	5	p__Thermotogota	5	1	0.2
+pyrimidine_core_biosynthesis	metabolic	anabolic	PYR_DHODH_NAD	RHEA:10380	10	353	7	p__Chloroflexota	13	1	0.07692
+menaquinone_biosynthesis	metabolic	anabolic	MK_CLASSIC	RHEA:10196	9	84	4	p__Bacillota	135	3	0.02222
+menaquinone_biosynthesis	metabolic	anabolic	MK_CLASSIC	RHEA:18985	9	84	5	p__Actinomycetota	60	3	0.05
+proline_biosynthesis	metabolic	anabolic	PRO_CANONICAL	RHEA:14109	9	466	7	p__Thermotogota	5	1	0.2
+proline_biosynthesis	metabolic	anabolic	PRO_CANONICAL	RHEA:14877	9	466	5	p__Spirochaetota	13	2	0.1538
+pyrimidine_core_biosynthesis	metabolic	anabolic	PYR_DHODH_FUMARATE	RHEA:18633	9	353	4	p__Acidobacteriota	11	1	0.09091
+type_ii_secretion_system	structural		ARCH_T2SS_CANONICAL	SF_T2SS_PSEUDOPILUS	9	58	5	p__Desulfobacterota	21	2	0.09524
+allantoin_degradation	metabolic	catabolic	ALLANTOIN_DEIMINASE	RHEA:11304	8	19	6	p__Deinococcota	6	1	0.1667
+corrin_ring_biosynthesis	metabolic	anabolic	CORRIN_ANAEROBIC	RHEA:15893	8	58	2	p__Bacillota	135	7	0.05185
+dap_biosynthesis	metabolic	anabolic	DAP_ACETYL	RHEA:13085	8	390	1	p__Bacillota	135	8	0.05926
+dap_biosynthesis	metabolic	anabolic	DAP_AMINOTRANSFERASE	RHEA:15393	8	390	3	p__Spirochaetota	13	6	0.4615
+lpt_lipopolysaccharide_export_apparatus	structural		ARCH_LPT_CANONICAL	SF_LPT_PERIPLASMIC_BRIDGE	8	168	3	p__Bacteroidota	65	2	0.03077
+siroheme_to_heme_b	metabolic	anabolic	AHB_AHBD	RHEA:19093	8	35	4	p__Verrucomicrobiota	13	3	0.2308
+type_i_restriction_modification	defense		MECH_TYPE_I_RM	DF_TYPE_I_RM_SPECIFICITY	8	348	6	p__Deinococcota	6	1	0.1667
+type_vi_secretion_apparatus	structural		ARCH_T6SS_I	SF_T6SS_MEMBRANE_COMPLEX	8	44	3	p__Planctomycetota	21	6	0.2857
+cobinamide_biosynthesis	metabolic	anabolic	COBINAMIDE_ARM	RHEA:11528	7	262	4	p__Campylobacterota	9	3	0.3333
+corrin_ring_biosynthesis	metabolic	anabolic	CORRIN_AEROBIC	RHEA:17293	7	58	1	p__Pseudomonadota	191	7	0.03665
+corrin_ring_biosynthesis	metabolic	anabolic	CORRIN_AEROBIC	RHEA:18261	7	58	1	p__Pseudomonadota	191	7	0.03665
+flagellar_apparatus	structural		ARCH_FLAGELLUM_DIDERM	SF_FLAGELLAR_FILAMENT	7	103	2	p__Desulfobacterota	21	1	0.04762
+galacturonate_degradation	metabolic	catabolic	GALUA_ISOMERASE	RHEA:27702	7	69	2	p__Bacillota	135	6	0.04444
+glucuronate_degradation	metabolic	catabolic	GLCUA_ISOMERASE	RHEA:13049	7	25	1	p__Pseudomonadota	191	7	0.03665
+methionine_biosynthesis_sulfhydrylation	metabolic	anabolic	MET_SH_ACETYL_FOLATE	RHEA:27822	7	398	3	p__Bacillota	135	4	0.02963
+siroheme_biosynthesis	metabolic	anabolic	SIROHEME_UROGEN	RHEA:15613	7	142	4	p__Planctomycetota	21	3	0.1429
+carnitine_to_betaine	metabolic	catabolic	CARNITINE_CDH	RHEA:47044	6	39	4	p__Chloroflexota	13	1	0.07692
+catechol_meta_cleavage	metabolic	catabolic	CATECHOL_META_HYDROLYTIC	RHEA:17337	6	19	2	p__Pseudomonadota	191	5	0.02618
+dap_biosynthesis	metabolic	anabolic	DAP_ACETYL	RHEA:25315	6	390	2	p__Bacillota	135	5	0.03704
+dihydroxyphenylpropanoate_degradation	metabolic	catabolic	DHPP_EXTRADIOL	RHEA:34187	6	2	2	p__Actinomycetota	60	3	0.05
+galacturonate_degradation	metabolic	catabolic	GALUA_ISOMERASE	RHEA:15957	6	69	4	p__Chloroflexota	13	1	0.07692
+histidine_biosynthesis	metabolic	anabolic	HIS_CANONICAL	RHEA:24793	6	256	4	p__Bacteroidota	65	2	0.03077
+isoleucine_biosynthesis	metabolic	anabolic	ILE_CANONICAL	RHEA:27694	6	491	3	p__Pseudomonadota	191	4	0.02094
+methionine_biosynthesis_transsulfuration	metabolic	anabolic	MET_TS_PHOSPHO_FOLATE	RHEA:80891	6	35	1	p__Bacillota	135	6	0.04444
+ornithine_biosynthesis	metabolic	anabolic	ORN_DEACETYLASE	RHEA:14629	6	412	2	p__Chloroflexota	13	1	0.07692
+oxoisovalerate_biosynthesis	metabolic	anabolic	OIV_CANONICAL	RHEA:24809	6	513	3	p__Pseudomonadota	191	4	0.02094
+pyrimidine_core_biosynthesis	metabolic	anabolic	PYR_DHODH_FUMARATE	RHEA:24296	6	353	4	p__Chloroflexota	13	3	0.2308
+pyrimidine_core_biosynthesis	metabolic	anabolic	PYR_DHODH_NAD	RHEA:24296	6	353	3	p__Spirochaetota	13	1	0.07692
+ribitol_phosphate_wall_teichoic_acid	structural		ARCH_RIBITOL_WTA_STAPHYLOCOCCUS	SF_RIBITOL_WTA_STAPH_POLYMERIZATION	6	2	1	p__Bacillota	135	6	0.04444
+arginine_deiminase_pathway	metabolic	catabolic	ADI_CANONICAL	RHEA:19513	5	81	2	p__Bacillota_I	18	4	0.2222
+carnitine_to_betaine	metabolic	catabolic	CARNITINE_CDH	RHEA:19265	5	39	1	p__Pseudomonadota	191	5	0.02618
+catechol_meta_cleavage	metabolic	catabolic	CATECHOL_META_OXALOCROTONATE	RHEA:17337	5	19	3	p__Actinomycetota	60	3	0.05
+creatinine_degradation	metabolic	catabolic	CREATININE_AMIDOHYDROLASE	RHEA:14533	5	16	1	p__Pseudomonadota	191	5	0.02618
+cysteine_biosynthesis_homocysteine	metabolic	anabolic	CYS_RT_OAS	RHEA:32743	5	103	4	p__Acidobacteriota	11	1	0.09091
+dihydroxybenzoate_biosynthesis	metabolic	anabolic	DHB_CHORISMATE	RHEA:11112	5	21	2	p__Actinomycetota	60	4	0.06667
+flagellar_apparatus	structural		ARCH_FLAGELLUM_DIDERM	SF_FLAGELLAR_HOOK_FILAMENT_JUNCTION	5	103	2	p__Pseudomonadota	191	3	0.01571
+leucine_biosynthesis	metabolic	anabolic	LEU_CANONICAL	RHEA:21524	5	479	2	p__Pseudomonadota	191	3	0.01571
+pantothenate_biosynthesis	metabolic	anabolic	PANTOTHENATE_PANBCDE	RHEA:11824	5	317	5	p__Chloroflexota	13	1	0.07692
+phenylalanine_biosynthesis	metabolic	anabolic	PHE_CANONICAL	RHEA:25152	5	443	1	p__Pseudomonadota	191	5	0.02618
+type_vi_secretion_apparatus	structural		ARCH_T6SS_I	SF_T6SS_INNER_TUBE	5	44	2	p__Pseudomonadota	191	4	0.02094
+xylan_degradation	metabolic	catabolic	XYLAN_SACCHARIFICATION	RXN_XYLOOLIGO_EXO	5	232	3	p__Verrucomicrobiota	13	1	0.07692
+acetate_interconversion	metabolic	interconversion	ACETATE_PTA_ACKA	RHEA:11352	4	302	3	p__Acidobacteriota	11	1	0.09091
+catechol_ortho_cleavage	metabolic	catabolic	CATECHOL_ORTHO	RHEA:10184	4	10	2	p__Actinomycetota	60	3	0.05
+chorismate_biosynthesis	metabolic	anabolic	CHOR_SHIKIMATE	RHEA:21968	4	476	4	p__Thermotogota	5	1	0.2
+cobamide_nucleotide_loop_assembly	metabolic	anabolic	LOOP_DMB	RHEA:22712	4	110	2	p__Bacteroidota	65	3	0.04615
+dihydroxyphenylpropanoate_degradation	metabolic	catabolic	DHPP_EXTRADIOL	RHEA:23840	4	2	2	p__Actinomycetota	60	2	0.03333
+folate_biosynthesis	metabolic	anabolic	FOLATE_THF	RHEA:19949	4	273	2	p__Bacteroidota	65	2	0.03077
+folate_biosynthesis	metabolic	anabolic	FOLATE_THF	RHEA:23584	4	273	3	p__Bacteroidota	65	1	0.01538
+guanylate_biosynthesis	metabolic	anabolic	GMP_XMP	RHEA:11680	4	576	2	p__Patescibacteriota	42	3	0.07143
+heme_b_biosynthesis	metabolic	anabolic	HEME_PROTO_HEMN_HEMG	RHEA:19865	4	408	4	p__Chloroflexota	13	1	0.07692
+menaquinone_biosynthesis	metabolic	anabolic	MK_CLASSIC	RHEA:17009	4	84	3	p__Actinomycetota	60	2	0.03333
+menaquinone_biosynthesis	metabolic	anabolic	MK_CLASSIC	RHEA:42640	4	84	2	p__Actinomycetota	60	3	0.05
+nad_biosynthesis_namn	metabolic	anabolic	NAD_GLN	RHEA:22860	4	327	2	p__Cyanobacteriota	20	3	0.15
+pectin_degradation	metabolic	catabolic	PECTIN_SACCHARIFICATION	RXN_PECTIN_ENDO_PG	4	100	2	p__Bacillota	135	3	0.02222
+purine_core_biosynthesis	metabolic	anabolic	PCR_FOLATE_TWOSTEP_FOLATE	RHEA:15053	4	407	4	p__Verrucomicrobiota	13	1	0.07692
+purine_core_biosynthesis	metabolic	anabolic	PCR_FOLATE_TWOSTEP_FOLATE	RHEA:23920	4	407	3	p__Spirochaetota	13	2	0.1538
+pyrimidine_core_biosynthesis	metabolic	anabolic	PYR_DHODH_QUINONE	RHEA:10380	4	353	2	p__Verrucomicrobiota	13	2	0.1538
+adenylate_biosynthesis	metabolic	anabolic	AMP_ADENYLOSUCCINATE	RHEA:15753	3	622	2	p__Patescibacteriota	42	2	0.04762
+assimilatory_sulfate_reduction	metabolic	anabolic	SULFATE_APS_FD	RHEA:21976	3	168	2	p__Chloroflexota	13	1	0.07692
+assimilatory_sulfate_reduction	metabolic	anabolic	SULFATE_APS_NADPH	RHEA:21976	3	168	1	p__Verrucomicrobiota	13	3	0.2308
+corrin_ring_biosynthesis	metabolic	anabolic	CORRIN_ANAEROBIC	RHEA:36155	3	58	2	p__Bacteroidota	65	2	0.03077
+fumarate_oxaloacetate_interconversion	metabolic	interconversion	TCA4_FUMARASE_MQO	RHEA:12460	3	416	3	p__Patescibacteriota	42	1	0.02381
+glyoxylate_bypass	metabolic	catabolic	GLYOXYLATE_BYPASS_DIRECT	RHEA:18181	3	185	1	p__Pseudomonadota	191	3	0.01571
+heme_b_biosynthesis	metabolic	anabolic	HEME_PROTO_HEMF_HEMG	RHEA:27409	3	408	1	p__Pseudomonadota	191	3	0.01571
+isoleucine_biosynthesis	metabolic	anabolic	ILE_CANONICAL	RHEA:27654	3	491	3	p__Bacteroidota	65	1	0.01538
+methionine_biosynthesis_sulfhydrylation	metabolic	anabolic	MET_SH_ACETYL_B12	RHEA:13701	3	398	3	p__Chloroflexota	13	1	0.07692
+oxoisovalerate_biosynthesis	metabolic	anabolic	OIV_CANONICAL	RHEA:25249	3	513	3	p__Bacteroidota	65	1	0.01538
+oxopentenoate_degradation	metabolic	catabolic	OXOPENTENOATE_LOWER	RHEA:23288	3	36	2	p__Actinomycetota	60	1	0.01667
+pectate_lyase_degradation	metabolic	catabolic	PECTATE_LYASE	RHEA:23896	3	4	3	p__Pseudomonadota	191	1	0.005236
+propionate_formation_propanediol	metabolic	catabolic	PROPIONATE_PDU	RHEA:23148	3	0	1	p__Bacillota	135	3	0.02222
+purine_core_biosynthesis	metabolic	anabolic	PCR_FOLATE_TWOSTEP_FOLATE	RHEA:17129	3	407	3	p__Cyanobacteriota	20	1	0.05
+purine_core_biosynthesis	metabolic	anabolic	PCR_FOLATE_TWOSTEP_FOLATE	RHEA:22628	3	407	2	p__Verrucomicrobiota	13	1	0.07692
+purine_core_biosynthesis	metabolic	anabolic	PCR_FORMATE_DIRECT_FOLATE	RHEA:10792	3	407	2	p__Campylobacterota	9	2	0.2222
+rhamnose_degradation	metabolic	catabolic	RHA_ISOMERASE	RHEA:23160	3	32	2	p__Actinomycetota	60	1	0.01667
+type_iva_pilus	structural		ARCH_T4AP_CORE	SF_T4AP_ASSEMBLY_ATPASE	3	67	2	p__Desulfobacterota	21	2	0.09524
+arginine_biosynthesis	metabolic	anabolic	ARG_CANONICAL	RHEA:10932	2	501	2	p__Thermotogota	5	1	0.2
+aspartate_semialdehyde_biosynthesis	metabolic	anabolic	ASA_CANONICAL	RHEA:24284	2	516	2				
+assimilatory_sulfate_reduction	metabolic	anabolic	SULFATE_APS_NADPH	RHEA:18136	2	168	2	p__Verrucomicrobiota	13	1	0.07692
+benzoate_degradation_catechol	metabolic	catabolic	BENZOATE_TO_CATECHOL	RHEA:11560	2	17	2	p__Actinomycetota	60	1	0.01667
+betaine_demethylation	metabolic	catabolic	BETAINE_GBC_DGC	RHEA:74167	2	17	1	p__Pseudomonadota	191	2	0.01047
+biotin_biosynthesis	metabolic	anabolic	BIOTIN_LYS	RHEA:20712	2	192	1	p__Bacillota	135	2	0.01481
+biotin_biosynthesis	metabolic	anabolic	BIOTIN_SAM	RHEA:15805	2	192	2				
+catechol_ortho_cleavage	metabolic	catabolic	CATECHOL_ORTHO	RHEA:23852	2	10	1	p__Pseudomonadota	191	2	0.01047
+choline_to_betaine	metabolic	anabolic	BETAINE_CMO	RHEA:15305	2	64	2	p__Planctomycetota	21	1	0.04762
+corrin_ring_biosynthesis	metabolic	anabolic	CORRIN_ANAEROBIC	RHEA:26285	2	58	1	p__Actinomycetota	60	2	0.03333
+corrin_ring_biosynthesis	metabolic	anabolic	CORRIN_ANAEROBIC	RHEA:36067	2	58	1	p__Bacillota	135	2	0.01481
+cysteine_biosynthesis_homocysteine	metabolic	anabolic	CYS_RT_OAS	RHEA:14005	2	103	1	p__Bacillota	135	2	0.01481
+dap_biosynthesis	metabolic	anabolic	DAP_AMINOTRANSFERASE	RHEA:34171	2	390	2				
+dap_biosynthesis	metabolic	anabolic	DAP_AMINOTRANSFERASE	RHEA:35331	2	390	2	p__Bacillota	135	1	0.007407
+dap_biosynthesis	metabolic	anabolic	DAP_DEHYDROGENASE	RHEA:35331	2	390	1	p__Bacillota	135	2	0.01481
+dap_biosynthesis	metabolic	anabolic	DAP_SUCCINYL	RHEA:34171	2	390	1	p__Pseudomonadota	191	2	0.01047
+flagellar_apparatus	structural		ARCH_FLAGELLUM_DIDERM	SF_FLAGELLAR_EXPORT_GATE	2	103	2	p__Acidobacteriota	11	1	0.09091
+flagellar_apparatus	structural		ARCH_FLAGELLUM_DIDERM	SF_FLAGELLAR_STATOR	2	103	1	p__Planctomycetota	21	2	0.09524
+galactose_degradation_leloir	metabolic	catabolic	GAL_LELOIR	RHEA:22168	2	122	2	p__Bacteroidota	65	1	0.01538
+glcnac_degradation	metabolic	catabolic	GLCNAC_KINASE	RHEA:12172	2	98	1	p__Pseudomonadota	191	2	0.01047
+glucuronate_degradation	metabolic	catabolic	GLCUA_ISOMERASE	RHEA:20097	2	25	1	p__Pseudomonadota	191	2	0.01047
+menaquinone_biosynthesis	metabolic	anabolic	MK_FUTALOSINE	RHEA:25904	2	84	2	p__Bacteroidota	65	1	0.01538
+methionine_biosynthesis_transsulfuration	metabolic	anabolic	MET_TS_ACETYL_B12	RHEA:11172	2	35	1	p__Actinomycetota	60	2	0.03333
+nitrate_assimilation	metabolic	anabolic	NITRATE_ASSIM_NAS_FD	RHEA:18041	2	103	1	p__Pseudomonadota	191	2	0.01047
+oxobutanoate_biosynthesis_citramalate	metabolic	anabolic	OBU_CITRAMALATE	RHEA:32715	2	29	2	p__Verrucomicrobiota	13	1	0.07692
+pectate_lyase_degradation	metabolic	catabolic	PECTATE_LYASE	RXN_PECTATE_ENDO_PL	2	4	1	p__Pseudomonadota	191	2	0.01047
+phenylacetate_degradation	metabolic	catabolic	PAA_COA_EPOXIDASE	RHEA:76647	2	0	1	p__Pseudomonadota	191	2	0.01047
+phosphate_starvation_response	regulatory		CIRCUIT_PHO_PHOR_PHOP	RF_PHO_SIGNAL_RECEPTION	2	226	1	p__Cyanobacteriota	20	2	0.1
+purine_core_biosynthesis	metabolic	anabolic	PCR_FOLATE_TWOSTEP_FOLATE	RHEA:23032	2	407	2	p__Bacteroidota	65	1	0.01538
+pyrimidine_core_biosynthesis	metabolic	anabolic	PYR_DHODH_FUMARATE	RHEA:10380	2	353	2	p__Deinococcota	6	1	0.1667
+type_i_restriction_modification	defense		MECH_TYPE_I_RM	DF_TYPE_I_RM_MODIFICATION	2	348	2	p__Bacteroidota	65	1	0.01538
+type_iii_secretion_injectisome	structural		ARCH_T3SS_INJECTISOME	SF_T3SS_INNER_ROD	2	3	2	p__Desulfobacterota	21	1	0.04762
+type_iva_pilus	structural		ARCH_T4AP_CORE	SF_T4AP_MAJOR_PILIN	2	67	2	p__Desulfobacterota	21	1	0.04762
+type_vi_secretion_apparatus	structural		ARCH_T6SS_I	SF_T6SS_ASSEMBLY_COORDINATION	2	44	1	p__Pseudomonadota	191	2	0.01047
+type_vi_secretion_apparatus	structural		ARCH_T6SS_I	SF_T6SS_SHEATH_RECYCLING	2	44	2	p__Desulfobacterota	21	1	0.04762
+arabinose_degradation	metabolic	catabolic	ARA_ISOMERASE	RHEA:22368	1	77	1				
+assimilatory_sulfate_reduction	metabolic	anabolic	SULFATE_APS_FD	RHEA:18136	1	168	1	p__Actinomycetota	60	1	0.01667
+betaine_demethylation	metabolic	catabolic	BETAINE_GBC_DGC	RHEA:45700	1	17	1	p__Pseudomonadota	191	1	0.005236
+choline_to_betaine	metabolic	anabolic	BETAINE_GBS	RHEA:15305	1	64	1	p__Bacillota	135	1	0.007407
+chorismate_biosynthesis	metabolic	anabolic	CHOR_SHIKIMATE	RHEA:21256	1	476	1	p__Actinomycetota	60	1	0.01667
+cobamide_nucleotide_loop_assembly	metabolic	anabolic	LOOP_DMB	RHEA:16049	1	110	1	p__Actinomycetota	60	1	0.01667
+cysteine_biosynthesis_homocysteine	metabolic	anabolic	CYS_RT_SERINE	RHEA:10112	1	103	1				
+dap_biosynthesis	metabolic	anabolic	DAP_ACETYL	RHEA:20405	1	390	1	p__Bacillota	135	1	0.007407
+ectoine_biosynthesis	metabolic	anabolic	ECT_ABC	RHEA:16901	1	54	1	p__Pseudomonadota	191	1	0.005236
+flagellar_apparatus	structural		ARCH_FLAGELLUM_DIDERM	SF_FLAGELLAR_HOOK	1	103	1	p__Desulfobacterota	21	1	0.04762
+flagellar_apparatus	structural		ARCH_FLAGELLUM_MONODERM	SF_FLAGELLAR_EXPORT_GATE	1	103	1	p__Bacillota	135	1	0.007407
+fucose_degradation_isomerase	metabolic	catabolic	FUC_ISOMERASE	RHEA:12933	1	2	1				
+glcnac_degradation	metabolic	catabolic	GLCNAC_PTS	RHEA:22936	1	98	1	p__Bacillota	135	1	0.007407
+heme_b_biosynthesis	metabolic	anabolic	HEME_PROTO_HEMF_HEMG	RHEA:19865	1	408	1	p__Pseudomonadota	191	1	0.005236
+heme_b_biosynthesis	metabolic	anabolic	HEME_PROTO_HEMN_HEMG	RHEA:22584	1	408	1	p__Bacillota	135	1	0.007407
+heme_b_biosynthesis	metabolic	anabolic	HEME_PROTO_HEMN_HEMG	RHEA:27409	1	408	1	p__Chloroflexota	13	1	0.07692
+heme_b_biosynthesis	metabolic	anabolic	HEME_PROTO_HEMN_HEMY	RHEA:22584	1	408	1				
+histidine_biosynthesis	metabolic	anabolic	HIS_CANONICAL	RHEA:18473	1	256	1	p__Pseudomonadota	191	1	0.005236
+histidine_biosynthesis	metabolic	anabolic	HIS_CANONICAL	RHEA:23744	1	256	1	p__Campylobacterota	9	1	0.1111
+histidine_degradation_glutamate	metabolic	catabolic	HUT_FORMAMIDE	RHEA:21232	1	86	1	p__Actinomycetota	60	1	0.01667
+histidine_degradation_glutamate	metabolic	catabolic	HUT_FORMAMIDE	RHEA:23660	1	86	1				
+menaquinone_biosynthesis	metabolic	anabolic	MK_CLASSIC	RHEA:26478	1	84	1	p__Cyanobacteriota	20	1	0.05
+menaquinone_biosynthesis	metabolic	anabolic	MK_CLASSIC	RHEA:26562	1	84	1	p__Actinomycetota	60	1	0.01667
+methionine_biosynthesis_sulfhydrylation	metabolic	anabolic	MET_SH_ACETYL_FOLATE	RHEA:13701	1	398	1	p__Bacillota	135	1	0.007407
+methionine_biosynthesis_sulfhydrylation	metabolic	anabolic	MET_SH_SUCCINYL_B12	RHEA:11172	1	398	1	p__Pseudomonadota	191	1	0.005236
+methionine_biosynthesis_sulfhydrylation	metabolic	anabolic	MET_SH_SUCCINYL_B12	RHEA:22008	1	398	1	p__Actinomycetota	60	1	0.01667
+neuac_degradation	metabolic	catabolic	NEUAC_LYASE	RHEA:23296	1	2	1	p__Deinococcota	6	1	0.1667
+ornithine_biosynthesis	metabolic	anabolic	ORN_DEACETYLASE	RHEA:24292	1	412	1				
+ornithine_biosynthesis	metabolic	anabolic	ORN_TRANSACETYLASE	RHEA:14629	1	412	1				
+pantothenate_biosynthesis	metabolic	anabolic	PANTOTHENATE_PANBCDE	RHEA:10912	1	317	1	p__Spirochaetota	13	1	0.07692
+pectate_lyase_degradation	metabolic	catabolic	PECTATE_LYASE	RHEA:57104	1	4	1	p__Bacteroidota	65	1	0.01538
+phenylpropanoate_dihydroxylation	metabolic	catabolic	PHENYLPROPANOATE_DIOXYGENASE	RHEA:20357	1	3	1	p__Pseudomonadota	191	1	0.005236
+plp_biosynthesis_dxp	metabolic	anabolic	PLP_DXP	RHEA:18829	1	19	1	p__Pseudomonadota	191	1	0.005236
+proline_reduction_stickland	metabolic	catabolic	PRD_STICKLAND	RHEA:10680	1	9	1	p__Bacillota	135	1	0.007407
+propionate_formation_acrylate	metabolic	catabolic	PROPIONATE_ACRYLATE	RHEA:34691	1	1	1	p__Bacillota	135	1	0.007407
+pyrimidine_core_biosynthesis	metabolic	anabolic	PYR_DHODH_QUINONE	RHEA:20013	1	353	1	p__Pseudomonadota	191	1	0.005236
+quinolinate_biosynthesis_aspartate	metabolic	anabolic	QUIN_NADB	RHEA:25888	1	419	1				
+rhamnose_degradation	metabolic	catabolic	RHA_ISOMERASE	RHEA:20117	1	32	1	p__Planctomycetota	21	1	0.04762
+siroheme_to_heme_b	metabolic	anabolic	AHB_AHBD	RHEA:37431	1	35	1	p__Bacillota	135	1	0.007407
+taurine_degradation_sulfoacetaldehyde	metabolic	catabolic	TAURINE_TAUXY_XSC	RHEA:24204	1	27	1	p__Pseudomonadota	191	1	0.005236
+thiazole_phosphate_biosynthesis	metabolic	anabolic	THZ_THIO	RHEA:26297	1	295	1	p__Chloroflexota	13	1	0.07692
+type_i_e_crispr_cas_machinery	defense		MECH_TYPE_I_E_CRISPR	DF_CRISPR_I_E_INTERFERENCE_NUCLEASE	1	38	1	p__Actinomycetota	60	1	0.01667
+type_ii_secretion_system	structural		ARCH_T2SS_CANONICAL	SF_T2SS_PREPILIN_PEPTIDASE	1	58	1	p__Pseudomonadota	191	1	0.005236
+type_iii_secretion_injectisome	structural		ARCH_T3SS_INJECTISOME	SF_T3SS_EXTRACELLULAR_FILAMENT	1	3	1	p__Pseudomonadota	191	1	0.005236
+type_iii_secretion_injectisome	structural		ARCH_T3SS_INJECTISOME	SF_T3SS_SECRETIN	1	3	1	p__Pseudomonadota	191	1	0.005236
+type_iva_pilus	structural		ARCH_T4AP_CORE	SF_T4AP_PLATFORM	1	67	1	p__Pseudomonadota	191	1	0.005236
+type_iva_pilus	structural		ARCH_T4AP_CORE	SF_T4AP_SECRETIN	1	67	1				
+type_vi_secretion_apparatus	structural		ARCH_T6SS_I	SF_T6SS_SHEATH	1	44	1	p__Pseudomonadota	191	1	0.005236
+urate_degradation	metabolic	catabolic	URATE_URICASE	RHEA:23736	1	54	1	p__Actinomycetota	60	1	0.01667

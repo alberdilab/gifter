@@ -13,10 +13,11 @@ an ancestral-state reconstruction. An unsupported cell is likewise not proof
 of biological absence.
 
 Figure S4 is an overview rather than an ancestral-state analysis. Every one of
-the 697 locked genomes is a row ordered by the pruned GTDB bac120 tree. The
-panels show that tree, a phylum strip, one heatmap column for every current GIFT
-grouped by `gift_type`, and the total supported and high-confidence-or-curated
-GIFT counts for each genome. Heatmap values remain Boolean completeness calls;
+the 696 locked genomes is a row ordered by the pruned GTDB bac120 tree. The
+panels show that tree, a phylum strip with the major phyla named beside it, one
+heatmap column for every current GIFT grouped by `gift_type`, the total
+supported and high-confidence-or-curated GIFT counts for each genome, and the
+genome size of the species each genome represents. Heatmap values remain Boolean completeness calls;
 colour separates the confidence of positive calls and does not turn partial
 routes or machinery into fractional support. This makes phylogenetically local
 changes in encoded repertoire breadth visible without claiming that the figure
@@ -36,17 +37,19 @@ filter; it does not imply that every assembly originated from an isolate.
 
 The panel size is an outcome rather than a preset target. Selection first takes
 the phylogenetic medoid of each of the 321 eligible GTDB orders. It then uses 85
-genomes—the size of the complete food/fermentation group—as the common balance
+genomes—the size of the eligible food/fermentation group—as the common balance
 target for every origin group with at least 85 eligible members and retains all
 members of smaller groups. At each step it advances the least-represented group,
 avoids increasing a group whose target is already complete where possible, and
 chooses the genome with the greatest marginal rooted Faith phylogenetic
-diversity. Accession is the deterministic tie-break. This produces 697 genomes:
-321 order medoids and 376 balance-aware additions. Selection uses no annotation,
+diversity. Accession is the deterministic tie-break. Genomes listed in
+`excluded-genomes.tsv` are then removed without replacement; the file holds
+one, described under "Excluded genome" below. This produces 696 genomes: 321
+order medoids and 375 balance-aware additions. Selection uses no annotation,
 marker, GIFT call or phenotype. The resulting `selected-genomes.tsv`,
-`selected-genomes.tree` and `selection-audit.tsv` lock the panel before
-annotation. It retains all 49 phyla, 120 classes and 321 eligible orders and
-164.564 of the eligible tree's 312.792 branch-length units (52.6%).
+`selected-genomes.tree` and `selection-audit.tsv` lock the panel. It retains
+all 49 phyla, 120 classes and 321 eligible orders and 164.466 of the eligible
+tree's 312.792 branch-length units (52.6%).
 
 `selected-genomes.tsv` retains the exact GTDB tree-tip accession and an
 explicit tree-membership flag. It also carries every origin field available in
@@ -65,10 +68,10 @@ combined `host_associated` category. Fungal and algal associations are also
 kept separate. The raw isolation-source text remains in the manifest, and the
 derived tags are coarse metadata groupings rather than claims about ecological
 function. `origin-group-summary.tsv` reports eligible and selected counts plus
-the balance target and taxonomic spread of every group. Food/fermentation,
-animal-associated, plant-associated and the other sufficiently large groups
-each contribute 85 genomes; aquatic origin contributes 87 because of
-unavoidable nonexclusive overlap. The smaller fungal, air/built-environment and
+the balance target and taxonomic spread of every group. Animal-associated,
+plant-associated and the other sufficiently large groups each contribute 85
+genomes; food/fermentation contributes 84 because of the excluded genome, and
+aquatic origin contributes 87 because of unavoidable nonexclusive overlap. The smaller fungal, air/built-environment and
 algal groups are represented exhaustively by 6, 49 and 51 genomes,
 respectively. Counts are nonexclusive, so they do not sum to the panel size.
 
@@ -80,6 +83,13 @@ Rscript manuscript/analysis/23-gtdb-phylogeny.R --prepare
 
 The script downloads pinned inputs into the ignored
 `manuscript/analysis/.cache/gtdb-phylogeny/sources/` directory when needed.
+
+`--prepare` also writes `species-genome-size.tsv`: for the GTDB species cluster
+each panel genome represents, the number of R232 genomes assigned to it and the
+mean and standard deviation of their assembly sizes. Every cluster member
+counts, whatever its assembly level or completeness, so incomplete assemblies
+lower the mean and widen the deviation. Of the 696 clusters, 355 hold a single
+genome and have no deviation.
 
 ## Mjolnir annotation
 
@@ -126,6 +136,35 @@ script retrieves the same INSDC assembly accession from the official ENA
 Browser API instead. `resolved-downloads.tsv` records the source and exact URL
 per genome, and `genome-sha256.tsv` pins every downloaded FASTA.
 
+## Excluded genome
+
+The procedure chose 697 genomes, and all 697 were downloaded and submitted to
+Drakkar. KOfam annotation of `GCA_002285495.1` (*Clostridium isatidis*,
+isolated from a woad vat) failed all eight attempts across two runs: the 8 GB
+and 16 GB attempts timed out or lost the HMM file, and the 32 GB and 64 GB
+attempts stopped within seconds with `Failed to open binary auxfiles`. The
+cause was not established. The KOfam database was unchanged and served every
+other genome, and the genome's other five annotation sources completed.
+
+The genome was removed on 2026-10-04 rather than evaluated without KEGG
+evidence, because a genome missing one marker namespace would show unsupported
+GIFTs that are an annotation gap and not a genomic reading. For simplicity the
+panel is stated as 696 genomes everywhere else. `excluded-genomes.tsv` in this
+directory records the genome and the reason; `--prepare` applies it after
+selection, so the committed panel files describe 696 genomes. The removal used
+no GIFT call.
+
+The genome was a balance-aware addition, not an order medoid, so all 321
+orders, 120 classes and 49 phyla remain; `--prepare` stops if an exclusion
+would remove an order. It was one of the 85 eligible food/fermentation genomes,
+so that group contributes 84.
+
+On Mjolnir the acquisition records still cover 697 genomes.
+`run-drakkar-included.sh` resumes Drakkar on the selected genomes minus the
+remote copy of the exclusion record, and `prepare-transfer.sh` expects that
+count and ships the record. The final script checks that the transferred
+manifest minus the transferred exclusions is exactly the committed panel.
+
 ## Outputs
 
 The final script writes:
@@ -138,10 +177,10 @@ The final script writes:
 - `gtdb-phylogeny-genome-summary.tsv`, repertoire counts retaining every
   genome and taxonomic rank;
 - `gtdb-phylogeny-gift-summary.tsv`, panel prevalence with an explicit
-  denominator of 697 and the heatmap column order;
+  denominator of 696 and the heatmap column order;
 - `gtdb-phylogeny-phylum-summary.tsv`, descriptive genome-level ranges;
 - `figure-s4-gtdb-phylogeny.{pdf,png}`.
 
 The panel intentionally overrepresents lineages relative to their abundance in
-GTDB. Its summaries describe these 697 selected complete assemblies; they are
+GTDB. Its summaries describe these 696 selected complete assemblies; they are
 not estimates of prevalence among bacterial genomes, organisms or communities.

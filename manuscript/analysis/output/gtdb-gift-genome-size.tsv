@@ -1,0 +1,164 @@
+gift_id	gift_type	mode	gift_name	supporting_genomes	prevalence	log_odds_per_doubling	log_odds_standard_error	p_value	q_value	association
+glutamine_biosynthesis	metabolic	anabolic	L-glutamate and ammonium to L-glutamine	624	0.8966	4.5783	0.5416	2.814e-17	7.726e-17	more frequent in larger genomes
+superoxide_detoxification	defense		Complete superoxide detoxification	406	0.5833	2.3015	0.1894	5.784e-34	8.098e-32	more frequent in larger genomes
+valine_biosynthesis	metabolic	anabolic	3-methyl-2-oxobutanoate to L-valine	576	0.8276	2.1281	0.1828	2.561e-31	8.963e-30	more frequent in larger genomes
+arabinose_uptake_abc	metabolic	transport	L-arabinose uptake	17	0.0244	1.9927	0.4446	7.415e-06	1.104e-05	more frequent in larger genomes
+adenylate_biosynthesis	metabolic	anabolic	IMP to AMP	622	0.8937	1.9824	0.1886	7.514e-26	4.573e-25	more frequent in larger genomes
+cytidylate_biosynthesis	metabolic	anabolic	UTP to CTP	678	0.9741	1.9728	0.3136	3.138e-10	5.633e-10	more frequent in larger genomes
+xylan_degradation	metabolic	catabolic	Xylan to D-xylose	232	0.3333	1.9504	0.1811	4.69e-27	3.922e-26	more frequent in larger genomes
+ammonium_assimilation	metabolic	anabolic	Ammonium and 2-oxoglutarate to glutamate	531	0.7629	1.9376	0.1641	3.453e-32	2.417e-30	more frequent in larger genomes
+urate_degradation	metabolic	catabolic	Urate to allantoin	54	0.0776	1.9028	0.275	4.565e-12	9.539e-12	more frequent in larger genomes
+allantoin_degradation	metabolic	catabolic	Allantoin to glyoxylate and urea	19	0.0273	1.8467	0.4132	7.848e-06	1.157e-05	more frequent in larger genomes
+alanine_biosynthesis	metabolic	anabolic	Pyruvate to L-alanine	514	0.7385	1.8291	0.156	9.598e-32	4.479e-30	more frequent in larger genomes
+sarcosine_demethylation	metabolic	catabolic	Sarcosine to glycine	103	0.148	1.7606	0.212	1.017e-16	2.543e-16	more frequent in larger genomes
+betaine_demethylation	metabolic	catabolic	Glycine betaine to sarcosine	17	0.0244	1.7424	0.4262	4.344e-05	6.022e-05	more frequent in larger genomes
+lysine_biosynthesis_dap	metabolic	anabolic	meso-diaminopimelate to L-lysine	578	0.8305	1.728	0.1548	6.409e-29	8.973e-28	more frequent in larger genomes
+chitin_degradation	metabolic	catabolic	Chitin to N-acetyl-D-glucosamine	144	0.2069	1.7052	0.1881	1.237e-19	4.123e-19	more frequent in larger genomes
+collagen_cleavage	metabolic	catabolic	Collagen to collagen peptides	13	0.0187	1.6882	0.4768	0.0003991	0.0005079	more frequent in larger genomes
+glycine_biosynthesis	metabolic	anabolic	Serine to glycine	675	0.9698	1.6733	0.2527	3.563e-11	6.803e-11	more frequent in larger genomes
+dihydroxybenzoate_biosynthesis	metabolic	anabolic	Chorismate to 2,3-dihydroxybenzoate	21	0.0302	1.6542	0.3825	1.529e-05	2.184e-05	more frequent in larger genomes
+namn_biosynthesis_quinolinate	metabolic	anabolic	Quinolinate to nicotinate D-ribonucleotide	492	0.7069	1.6473	0.144	2.611e-30	7.31e-29	more frequent in larger genomes
+kdg_degradation	metabolic	catabolic	2-dehydro-3-deoxy-D-gluconate to pyruvate and D-glyceraldehyde 3-phosphate	235	0.3376	1.6461	0.1618	2.613e-24	1.18e-23	more frequent in larger genomes
+succinate_fumarate_interconversion	metabolic	interconversion	Succinate and fumarate interconversion	474	0.681	1.6027	0.1413	7.841e-30	1.83e-28	more frequent in larger genomes
+threonine_deamination	metabolic	catabolic	L-threonine to 2-oxobutanoate and ammonium	463	0.6652	1.5904	0.1406	1.181e-29	2.361e-28	more frequent in larger genomes
+urea_hydrolysis	metabolic	catabolic	Urea to ammonium	147	0.2112	1.5809	0.1795	1.304e-18	3.884e-18	more frequent in larger genomes
+guanylate_biosynthesis	metabolic	anabolic	IMP to GMP	576	0.8276	1.5607	0.1442	2.708e-27	2.654e-26	more frequent in larger genomes
+galacturonate_degradation	metabolic	catabolic	D-galacturonate to 2-dehydro-3-deoxy-D-gluconate	69	0.0991	1.5503	0.23	1.575e-11	3.196e-11	more frequent in larger genomes
+riboflavin_biosynthesis	metabolic	anabolic	GTP and D-ribulose 5-phosphate to riboflavin	533	0.7658	1.5437	0.1388	1.009e-28	1.284e-27	more frequent in larger genomes
+leucine_biosynthesis	metabolic	anabolic	3-methyl-2-oxobutanoate to L-leucine	479	0.6882	1.5383	0.1373	4.045e-29	7.08e-28	more frequent in larger genomes
+homoserine_biosynthesis	metabolic	anabolic	Aspartate 4-semialdehyde to homoserine	553	0.7945	1.5324	0.1396	5.1e-28	5.95e-27	more frequent in larger genomes
+isoleucine_biosynthesis	metabolic	anabolic	2-oxobutanoate to L-isoleucine	491	0.7055	1.5306	0.1369	5.115e-29	7.957e-28	more frequent in larger genomes
+catechol_ortho_cleavage	metabolic	catabolic	Catechol to 3-oxoadipate by ortho cleavage	10	0.0144	1.5065	0.5245	0.004073	0.004674	more frequent in larger genomes
+beta_lactam_detoxification	defense		Beta-lactam detoxification	317	0.4555	1.4939	0.1426	1.125e-25	6.565e-25	more frequent in larger genomes
+type_vi_secretion_apparatus	structural		Type VI secretion apparatus	44	0.0632	1.4901	0.2704	3.552e-08	5.92e-08	more frequent in larger genomes
+thiazole_phosphate_biosynthesis	metabolic	anabolic	DXP to the thiamine thiazole	295	0.4239	1.487	0.1444	7.179e-25	3.723e-24	more frequent in larger genomes
+xylose_degradation_isomerase	metabolic	catabolic	D-xylose to D-xylulose 5-phosphate	146	0.2098	1.4536	0.1725	3.492e-17	9.402e-17	more frequent in larger genomes
+thiamine_phosphate_biosynthesis	metabolic	anabolic	Thiamine pyrimidine and thiazole to thiamine phosphate	476	0.6839	1.4484	0.1321	5.773e-28	6.217e-27	more frequent in larger genomes
+heme_b_biosynthesis	metabolic	anabolic	Uroporphyrinogen III to heme b	408	0.5862	1.4477	0.1338	2.844e-27	2.654e-26	more frequent in larger genomes
+mucin_galnac_release	metabolic	catabolic	Mucin O-glycan to N-acetyl-D-galactosamine	214	0.3075	1.427	0.1527	8.962e-21	3.217e-20	more frequent in larger genomes
+pyruvate_to_acetyl_coa	metabolic	catabolic	Pyruvate to acetyl-CoA	506	0.727	1.391	0.1292	4.762e-27	3.922e-26	more frequent in larger genomes
+mucin_sialic_acid_release	metabolic	catabolic	Mucin O-glycan to N-acetylneuraminate	115	0.1652	1.3905	0.1828	2.799e-14	6.532e-14	more frequent in larger genomes
+tryptophan_biosynthesis	metabolic	anabolic	Chorismate and L-glutamine to L-tryptophan	364	0.523	1.383	0.1325	1.678e-25	9.396e-25	more frequent in larger genomes
+phenylalanine_biosynthesis	metabolic	anabolic	Chorismate to L-phenylalanine	443	0.6365	1.3819	0.1289	7.873e-27	5.801e-26	more frequent in larger genomes
+arabinoxylan_debranching	metabolic	catabolic	Arabinoxylan to xylan and L-arabinose	478	0.6868	1.3766	0.1281	6.088e-27	4.735e-26	more frequent in larger genomes
+acetyl_coa_to_isocitrate	metabolic	catabolic	Acetyl-CoA and oxaloacetate to isocitrate	367	0.5273	1.3744	0.1318	1.891e-25	1.018e-24	more frequent in larger genomes
+oxoglutarate_to_succinate	metabolic	catabolic	2-oxoglutarate to succinate	402	0.5776	1.3664	0.1295	4.818e-26	3.066e-25	more frequent in larger genomes
+oxoisovalerate_biosynthesis	metabolic	anabolic	Pyruvate to 3-methyl-2-oxobutanoate	513	0.7371	1.3649	0.1279	1.422e-26	9.954e-26	more frequent in larger genomes
+fumarate_oxaloacetate_interconversion	metabolic	interconversion	Fumarate and oxaloacetate interconversion	416	0.5977	1.3624	0.1286	3.271e-26	2.181e-25	more frequent in larger genomes
+pectin_degradation	metabolic	catabolic	Pectin to D-galacturonate	100	0.1437	1.3618	0.1903	8.384e-13	1.806e-12	more frequent in larger genomes
+hydroxyphenylpropanoate_hydroxylation	metabolic	catabolic	3-(3-Hydroxyphenyl)propanoate to 3-(2,3-dihydroxyphenyl)propanoate	63	0.0905	1.2996	0.2231	5.736e-09	9.792e-09	more frequent in larger genomes
+xylose_uptake_abc	metabolic	transport	D-xylose uptake	54	0.0776	1.2917	0.2371	5.107e-08	8.412e-08	more frequent in larger genomes
+mucin_fucose_release	metabolic	catabolic	Mucin O-glycan to L-fucose	133	0.1911	1.2867	0.1681	1.963e-14	4.657e-14	more frequent in larger genomes
+arabinose_degradation	metabolic	catabolic	L-arabinose to D-xylulose 5-phosphate	77	0.1106	1.2672	0.2043	5.513e-10	9.769e-10	more frequent in larger genomes
+purine_core_biosynthesis	metabolic	anabolic	PRPP to IMP	407	0.5848	1.2667	0.1237	1.354e-24	6.771e-24	more frequent in larger genomes
+aspartate_semialdehyde_biosynthesis	metabolic	anabolic	Aspartate to aspartate 4-semialdehyde	516	0.7414	1.2386	0.1215	2.156e-24	1.041e-23	more frequent in larger genomes
+corrin_ring_biosynthesis	metabolic	anabolic	Uroporphyrinogen III to cobyrinate a,c-diamide	58	0.0833	1.2261	0.2264	6.129e-08	9.977e-08	more frequent in larger genomes
+asparagine_biosynthesis	metabolic	anabolic	L-aspartate to L-asparagine	452	0.6494	1.2214	0.12	2.569e-24	1.18e-23	more frequent in larger genomes
+dmb_biosynthesis_aerobic	metabolic	anabolic	FMNH2 to 5,6-dimethylbenzimidazole	90	0.1293	1.2116	0.1892	1.512e-10	2.749e-10	more frequent in larger genomes
+isocitrate_to_oxoglutarate	metabolic	catabolic	Isocitrate to 2-oxoglutarate	448	0.6437	1.2059	0.1193	5.13e-24	2.244e-23	more frequent in larger genomes
+aspartate_biosynthesis	metabolic	anabolic	Oxaloacetate to L-aspartate	477	0.6853	1.1955	0.1186	6.651e-24	2.821e-23	more frequent in larger genomes
+cysteine_biosynthesis_homocysteine	metabolic	anabolic	Serine and homocysteine to cysteine	103	0.148	1.19	0.1786	2.665e-11	5.181e-11	more frequent in larger genomes
+tyrosine_biosynthesis	metabolic	anabolic	Chorismate to L-tyrosine	389	0.5589	1.1848	0.1202	6.492e-23	2.456e-22	more frequent in larger genomes
+ornithine_biosynthesis	metabolic	anabolic	L-glutamate to L-ornithine	412	0.592	1.1847	0.1192	2.856e-23	1.111e-22	more frequent in larger genomes
+quinolinate_biosynthesis_aspartate	metabolic	anabolic	L-aspartate to quinolinate	419	0.602	1.1826	0.1189	2.523e-23	1.009e-22	more frequent in larger genomes
+methionine_biosynthesis_sulfhydrylation	metabolic	anabolic	Homoserine and sulfide to methionine	398	0.5718	1.1737	0.1192	7.211e-23	2.657e-22	more frequent in larger genomes
+proline_biosynthesis	metabolic	anabolic	L-glutamate to L-proline	466	0.6695	1.1714	0.1174	1.881e-23	7.746e-23	more frequent in larger genomes
+cobinamide_biosynthesis	metabolic	anabolic	Cobyrinate a,c-diamide to adenosylcobinamide phosphate	262	0.3764	1.17	0.1305	3.11e-19	9.896e-19	more frequent in larger genomes
+cobamide_nucleotide_loop_assembly	metabolic	anabolic	Adenosylcobinamide phosphate and dimethylbenzimidazole to cobalamin	110	0.158	1.1533	0.1722	2.131e-11	4.262e-11	more frequent in larger genomes
+histidine_biosynthesis	metabolic	anabolic	PRPP and L-glutamine to L-histidine	256	0.3678	1.1525	0.1304	9.672e-19	2.944e-18	more frequent in larger genomes
+nitrate_assimilation	metabolic	anabolic	Nitrate to ammonium	103	0.148	1.1509	0.1764	6.813e-11	1.258e-10	more frequent in larger genomes
+taurine_uptake_abc	metabolic	transport	Taurine uptake	40	0.0575	1.1278	0.2592	1.351e-05	1.951e-05	more frequent in larger genomes
+glucuronate_degradation	metabolic	catabolic	D-glucuronate to 2-dehydro-3-deoxy-D-gluconate	25	0.0359	1.116	0.3197	0.0004824	0.000603	more frequent in larger genomes
+carnitine_to_betaine	metabolic	catabolic	L-carnitine to glycine betaine	39	0.056	1.1141	0.2612	2.002e-05	2.832e-05	more frequent in larger genomes
+glutamate_decarboxylation_gaba	metabolic	catabolic	L-glutamate to 4-aminobutanoate	52	0.0747	1.1103	0.2302	1.405e-06	2.162e-06	more frequent in larger genomes
+serine_biosynthesis	metabolic	anabolic	3-phosphoglycerate to serine	227	0.3261	1.1031	0.1323	7.458e-17	1.898e-16	more frequent in larger genomes
+methylglyoxal_detoxification	defense		Glutathione-dependent methylglyoxal detoxification	252	0.3621	1.102	0.1283	8.624e-18	2.515e-17	more frequent in larger genomes
+cysteine_degradation_sulfide	metabolic	catabolic	L-cysteine to hydrogen sulfide and pyruvate	63	0.0905	1.0994	0.2115	2.02e-07	3.214e-07	more frequent in larger genomes
+oxobutanoate_biosynthesis_citramalate	metabolic	anabolic	Pyruvate to 2-oxobutanoate	29	0.0417	1.0983	0.2975	0.000223	0.0002864	more frequent in larger genomes
+plp_biosynthesis_dxp	metabolic	anabolic	Erythrose 4-phosphate and DXP to pyridoxal 5-phosphate	19	0.0273	1.0944	0.3618	0.002488	0.002926	more frequent in larger genomes
+serine_deamination	metabolic	catabolic	L-serine to pyruvate and ammonium	317	0.4555	1.0904	0.1203	1.22e-19	4.123e-19	more frequent in larger genomes
+starch_degradation	metabolic	catabolic	Starch to D-glucose	157	0.2256	1.0786	0.1477	2.776e-13	6.072e-13	more frequent in larger genomes
+assimilatory_sulfate_reduction	metabolic	anabolic	Sulfate to hydrogen sulfide	168	0.2414	1.0757	0.1441	8.369e-14	1.921e-13	more frequent in larger genomes
+lactate_racemisation	metabolic	interconversion	(S)-lactate and (R)-lactate interconversion	136	0.1954	1.0718	0.155	4.671e-12	9.616e-12	more frequent in larger genomes
+hmp_phosphate_biosynthesis	metabolic	anabolic	AIR to the thiamine pyrimidine	263	0.3779	1.0607	0.1246	1.703e-17	4.768e-17	more frequent in larger genomes
+taurine_degradation_sulfoacetaldehyde	metabolic	catabolic	Taurine to sulfite through sulfoacetaldehyde	27	0.0388	1.0475	0.3041	0.0005713	0.0007078	more frequent in larger genomes
+ectoine_degradation	metabolic	catabolic	L-ectoine to L-2,4-diaminobutanoate	16	0.023	1.0406	0.3883	0.00737	0.008321	more frequent in larger genomes
+choline_to_betaine	metabolic	anabolic	Choline to glycine betaine	64	0.092	1.0365	0.2065	5.196e-07	8.083e-07	more frequent in larger genomes
+salicylate_biosynthesis	metabolic	anabolic	Chorismate to salicylate	16	0.023	1.018	0.3866	0.008456	0.009471	more frequent in larger genomes
+hydroxyectoine_biosynthesis	metabolic	anabolic	L-ectoine to 5-hydroxyectoine	30	0.0431	1.0126	0.2873	0.0004249	0.0005359	more frequent in larger genomes
+chloramphenicol_detoxification	defense		Chloramphenicol detoxification	98	0.1408	1.0011	0.1715	5.268e-09	9.105e-09	more frequent in larger genomes
+chorismate_biosynthesis	metabolic	anabolic	Phosphoenolpyruvate and erythrose 4-phosphate to chorismate	476	0.6839	0.9993	0.1094	6.748e-20	2.362e-19	more frequent in larger genomes
+creatinine_degradation	metabolic	catabolic	Creatinine to sarcosine and urea	16	0.023	0.9948	0.3847	0.009719	0.0108	more frequent in larger genomes
+cysteine_biosynthesis_sulfide	metabolic	anabolic	Serine and sulfide to cysteine	418	0.6006	0.9925	0.1096	1.394e-19	4.539e-19	more frequent in larger genomes
+arginine_biosynthesis	metabolic	anabolic	L-ornithine to L-arginine	501	0.7198	0.9724	0.1089	4.352e-19	1.354e-18	more frequent in larger genomes
+lactate_formation_lactaldehyde	metabolic	catabolic	(S)-lactaldehyde to (S)-lactate	41	0.0589	0.9708	0.2467	8.317e-05	0.000112	more frequent in larger genomes
+pyrimidine_core_biosynthesis	metabolic	anabolic	Glutamine and PRPP to UMP	353	0.5072	0.9441	0.1103	1.139e-17	3.254e-17	more frequent in larger genomes
+rhamnose_degradation	metabolic	catabolic	L-rhamnose to dihydroxyacetone phosphate and (S)-lactaldehyde	32	0.046	0.9436	0.2744	0.0005846	0.0007145	more frequent in larger genomes
+galactose_degradation_leloir	metabolic	catabolic	beta-D-galactose to alpha-D-glucose 1-phosphate	122	0.1753	0.9309	0.1537	1.395e-09	2.441e-09	more frequent in larger genomes
+taurine_desulfonation_aerobic	metabolic	catabolic	Taurine to sulfite	31	0.0445	0.9214	0.277	0.0008795	0.001052	more frequent in larger genomes
+benzoate_degradation_catechol	metabolic	catabolic	Benzoate to catechol	17	0.0244	0.8969	0.366	0.01425	0.0157	more frequent in larger genomes
+dap_biosynthesis	metabolic	anabolic	L-aspartate 4-semialdehyde to meso-diaminopimelate	390	0.5603	0.8908	0.106	4.364e-17	1.131e-16	more frequent in larger genomes
+oxopentenoate_degradation	metabolic	catabolic	2-Oxopent-4-enoate to pyruvate and acetyl-CoA	36	0.0517	0.8792	0.2557	0.0005869	0.0007145	more frequent in larger genomes
+threonine_biosynthesis	metabolic	anabolic	Homoserine to threonine	446	0.6408	0.8751	0.1041	4.291e-17	1.131e-16	more frequent in larger genomes
+chemotaxis_signal_transduction	regulatory		Chemotaxis signal transduction	249	0.3578	0.8614	0.1166	1.48e-13	3.289e-13	more frequent in larger genomes
+pantothenate_biosynthesis	metabolic	anabolic	2-oxoisovalerate and L-aspartate to pantothenate	317	0.4555	0.8604	0.1091	3.054e-15	7.502e-15	more frequent in larger genomes
+glyoxylate_bypass	metabolic	catabolic	Isocitrate and acetyl-CoA to succinate and malate	185	0.2658	0.8451	0.1277	3.596e-11	6.803e-11	more frequent in larger genomes
+biotin_biosynthesis	metabolic	anabolic	Pimeloyl-CoA to biotin	192	0.2759	0.8421	0.1259	2.237e-11	4.41e-11	more frequent in larger genomes
+folate_biosynthesis	metabolic	anabolic	GTP and 4-aminobenzoate to tetrahydrofolate	273	0.3922	0.8275	0.1119	1.418e-13	3.202e-13	more frequent in larger genomes
+ectoine_biosynthesis	metabolic	anabolic	Aspartate semialdehyde to ectoine	54	0.0776	0.7918	0.2075	0.0001358	0.0001776	more frequent in larger genomes
+namn_salvage_nicotinate	metabolic	anabolic	Nicotinate to nicotinate D-ribonucleotide	453	0.6509	0.7902	0.1009	4.722e-15	1.14e-14	more frequent in larger genomes
+nitrogen_fixation	metabolic	anabolic	Dinitrogen to ammonium	75	0.1078	0.7813	0.1788	1.246e-05	1.817e-05	more frequent in larger genomes
+menaquinone_biosynthesis	metabolic	anabolic	Chorismate to menaquinone	84	0.1207	0.7734	0.1699	5.279e-06	7.947e-06	more frequent in larger genomes
+methionine_biosynthesis_transsulfuration	metabolic	anabolic	Homoserine and cysteine to methionine	35	0.0503	0.7673	0.2515	0.002286	0.002712	more frequent in larger genomes
+phosphate_starvation_response	regulatory		Phosphate starvation response	226	0.3247	0.7493	0.1149	6.829e-11	1.258e-10	more frequent in larger genomes
+nad_biosynthesis_namn	metabolic	anabolic	Nicotinate D-ribonucleotide to NAD	327	0.4698	0.7213	0.1023	1.763e-12	3.741e-12	more frequent in larger genomes
+oxoadipate_activation	metabolic	catabolic	3-Oxoadipate to 3-oxoadipyl-CoA	40	0.0575	0.6957	0.2316	0.002664	0.003108	more frequent in larger genomes
+methylamine_degradation	metabolic	catabolic	Methylamine to ammonium	15	0.0216	0.6794	0.3687	0.06537	0.0683	no association
+type_iva_pilus	structural		Type IVa pilus machinery	67	0.0963	0.6789	0.1819	0.0001901	0.0002464	more frequent in larger genomes
+histidine_degradation_glutamate	metabolic	catabolic	L-histidine to L-glutamate and ammonium	86	0.1236	0.6741	0.1627	3.43e-05	4.802e-05	more frequent in larger genomes
+lpt_lipopolysaccharide_export_apparatus	structural		Lpt lipopolysaccharide export apparatus	168	0.2414	0.6149	0.1211	3.801e-07	5.98e-07	more frequent in larger genomes
+glcnac_degradation	metabolic	catabolic	N-acetyl-D-glucosamine to beta-D-fructose 6-phosphate	98	0.1408	0.6063	0.1503	5.47e-05	7.435e-05	more frequent in larger genomes
+catechol_meta_cleavage	metabolic	catabolic	Catechol to 2-oxopent-4-enoate by meta cleavage	19	0.0273	0.602	0.3217	0.06129	0.06451	no association
+siroheme_biosynthesis	metabolic	anabolic	Uroporphyrinogen III to siroheme	142	0.204	0.5815	0.1277	5.241e-06	7.947e-06	more frequent in larger genomes
+type_ii_secretion_system	structural		Type II secretion system	58	0.0833	0.5596	0.1869	0.002749	0.00318	more frequent in larger genomes
+methionine_degradation_methanethiol	metabolic	catabolic	L-methionine to methanethiol and 2-oxobutanoate	83	0.1193	0.5417	0.158	0.0006066	0.0007321	more frequent in larger genomes
+type_i_restriction_modification	defense		Type I restriction-modification	348	0.5	0.5198	0.0937	2.936e-08	4.952e-08	more frequent in larger genomes
+acetate_interconversion	metabolic	interconversion	Acetyl-CoA and acetate interconversion	302	0.4339	0.4991	0.0958	1.908e-07	3.071e-07	more frequent in larger genomes
+paba_biosynthesis	metabolic	anabolic	Chorismate to 4-aminobenzoate	130	0.1868	0.4898	0.128	0.0001292	0.0001706	more frequent in larger genomes
+thiamine_precursor_salvage	metabolic	anabolic	Thiamine precursor salvage to the activated moieties	183	0.2629	0.4474	0.1102	4.88e-05	6.698e-05	more frequent in larger genomes
+plp_biosynthesis_r5p	metabolic	anabolic	Ribose 5-phosphate and glyceraldehyde 3-phosphate to pyridoxal 5-phosphate	200	0.2874	0.4084	0.1052	0.0001033	0.0001378	more frequent in larger genomes
+mercury_detoxification	defense		Mercury detoxification	67	0.0963	0.3362	0.162	0.03798	0.0409	more frequent in larger genomes
+tryptophan_degradation_indole	metabolic	catabolic	L-tryptophan to indole, pyruvate and ammonium	67	0.0963	0.3255	0.1614	0.04371	0.04671	more frequent in larger genomes
+flagellar_apparatus	structural		Flagellar apparatus	103	0.148	0.3093	0.1324	0.01951	0.02117	more frequent in larger genomes
+lactate_formation	metabolic	catabolic	Pyruvate to (S)-lactate	152	0.2184	0.3018	0.1124	0.00723	0.008229	more frequent in larger genomes
+ethanol_formation	metabolic	catabolic	Acetyl-CoA to ethanol	113	0.1624	0.2493	0.1246	0.04547	0.04823	more frequent in larger genomes
+acetoin_formation	metabolic	catabolic	Pyruvate to (R)-acetoin	82	0.1178	0.2411	0.1429	0.09162	0.09501	no association
+siroheme_to_heme_b	metabolic	anabolic	Siroheme to heme b	35	0.0503	0.2295	0.2116	0.2781	0.2842	no association
+type_i_e_crispr_cas_machinery	defense		Type I-E CRISPR-Cas machinery	38	0.0546	0.2109	0.202	0.2965	0.3008	no association
+arginine_deiminase_pathway	metabolic	catabolic	L-arginine to L-ornithine and ammonium	81	0.1164	0.1869	0.141	0.1849	0.1903	no association
+propanediol_formation	metabolic	catabolic	(S)-lactaldehyde to (S)-propane-1,2-diol	21	0.0302	0.1651	0.2645	0.5324	0.5362	no association
+glycine_reduction_stickland	metabolic	catabolic	Glycine to acetyl phosphate and ammonium	23	0.033	0.0934	0.2462	0.7046	0.7046	no association
+malolactic_fermentation	metabolic	catabolic	(S)-malate to (S)-lactate	22	0.0316	-0.4945	0.2039	0.01528	0.01671	more frequent in smaller genomes
+enterobactin_biosynthesis	metabolic	anabolic	2,3-Dihydroxybenzoate and serine to enterobactin	8	0.0115					not estimable
+indole_3_acetate_biosynthesis	metabolic	anabolic	L-tryptophan to indole-3-acetate	4	0.0057					not estimable
+propionate_formation_acrylate	metabolic	catabolic	(R)-lactate to propanoate	1	0.0014					not estimable
+propionate_formation_propanediol	metabolic	catabolic	(S)-propane-1,2-diol to propanoate	0	0					not estimable
+dihydroxyphenylpropanoate_degradation	metabolic	catabolic	3-(2,3-Dihydroxyphenyl)propanoate to 2-oxopent-4-enoate and succinate	2	0.0029					not estimable
+oxoadipyl_coa_thiolysis	metabolic	catabolic	3-Oxoadipyl-CoA to succinyl-CoA and acetyl-CoA	2	0.0029					not estimable
+phenylpropanoate_dihydroxylation	metabolic	catabolic	3-Phenylpropanoate to 3-(2,3-dihydroxyphenyl)propanoate	3	0.0043					not estimable
+butyrate_formation	metabolic	catabolic	Acetyl-CoA and acetate to butanoate	4	0.0057					not estimable
+anthranilate_degradation_catechol	metabolic	catabolic	Anthranilate to catechol	8	0.0115					not estimable
+citrate_fermentation	metabolic	catabolic	Citrate to pyruvate and acetate	2	0.0029					not estimable
+carnitine_degradation_trimethylamine	metabolic	catabolic	L-carnitine to trimethylamine	0	0					not estimable
+fucose_degradation_isomerase	metabolic	catabolic	L-fucose to dihydroxyacetone phosphate and (S)-lactaldehyde	2	0.0029					not estimable
+proline_reduction_stickland	metabolic	catabolic	L-proline to 5-aminopentanoate	9	0.0129					not estimable
+neuac_degradation	metabolic	catabolic	N-acetylneuraminate to beta-D-fructose 6-phosphate	2	0.0029					not estimable
+pectate_lyase_degradation	metabolic	catabolic	Pectin to 2-dehydro-3-deoxy-D-gluconate by beta-elimination	4	0.0057					not estimable
+phenol_hydroxylation	metabolic	catabolic	Phenol to catechol	7	0.0101					not estimable
+phenylacetate_degradation	metabolic	catabolic	Phenylacetate to 3-oxoadipyl-CoA	0	0					not estimable
+aspartate_chemoreception	regulatory		Aspartate chemoreception	5	0.0072					not estimable
+serine_chemoreception	regulatory		Serine chemoreception	5	0.0072					not estimable
+archaellum	structural		Archaellum machinery	0	0					not estimable
+diglucosyl_diacylglycerol_anchored_lipoteichoic_acid	structural		Diglucosyldiacylglycerol-anchored poly(glycerol-phosphate) lipoteichoic acid	3	0.0043					not estimable
+ribitol_phosphate_wall_teichoic_acid	structural		Poly(ribitol-phosphate) wall teichoic acid	2	0.0029					not estimable
+type_iii_secretion_injectisome	structural		Type III secretion injectisome	3	0.0043					not estimable

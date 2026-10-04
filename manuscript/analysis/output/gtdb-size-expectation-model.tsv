@@ -1,0 +1,23 @@
+item	value
+genomes	696
+current GIFTs	163
+response	supported GIFTs out of the current catalogue
+predictor	log10 size of the evaluated assembly (bp)
+model	mgcv quasi-binomial GAM, logit link, s(log10 genome size, k = 6), REML
+smooth effective degrees of freedom	4.7
+dispersion	4.852
+deviance explained	0.6779
+Spearman rho, genome size and supported GIFTs	0.7315
+Spearman p value	1.544e-117
+genome test	two-sided normal test of the leverage- and dispersion-standardised deviance residual, Benjamini-Hochberg over genomes
+taxon test	two-sided Wilcoxon signed-rank test of standardised residuals against zero, Benjamini-Hochberg within rank
+false discovery rate	0.05
+minimum genomes per tested taxon	5
+genomes with more than expected	0
+genomes with fewer than expected	0
+phyla tested	16
+phyla with more than expected	3
+phyla with fewer than expected	8
+classes tested	24
+classes with more than expected	4
+classes with fewer than expected	10

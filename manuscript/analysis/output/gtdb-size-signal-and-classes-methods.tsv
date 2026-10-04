@@ -1,0 +1,18 @@
+item	value
+genomes	696
+current GIFTs	163
+random seed	20261004
+permutations	9999
+phylogenetic signal	phytools::phylosig on the pruned GTDB bac120 tree: Blomberg's K with a tip-permutation test and Pagel's lambda with a likelihood-ratio test against lambda = 0
+correlogram	Moran's I of the standardised deviation among genome pairs in equal-count patristic-distance classes; two-sided tip-permutation test, Benjamini-Hochberg over classes
+patristic distance classes	12
+false discovery rate	0.05
+class definitions	gift_type, mode and the database facets physiological_role, substrate_class
+minimum GIFTs per class	5
+class association	Spearman correlation of the supported count in the class with assembly size, percentile bootstrap interval over genomes; quasi-binomial log-odds per doubling of assembly size
+bootstrap resamples	2000
+GIFT association	binomial logistic regression of support on log2 assembly size, Wald test, Benjamini-Hochberg over estimable GIFTs
+minimum genomes with and without a GIFT	10
+GIFTs with an estimable association	140
+GIFTs more frequent in larger genomes	131
+GIFTs more frequent in smaller genomes	1
