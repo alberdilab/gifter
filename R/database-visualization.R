@@ -68,7 +68,11 @@
       TIGRFAM = paste0("https://www.ncbi.nlm.nih.gov/genome/annotation_prok/evidence/", encoded, "/"),
       PFAM = paste0("https://www.ebi.ac.uk/interpro/entry/pfam/", encoded, "/"),
       METACYC = paste0("https://metacyc.org/pathway?orgid=META&id=", encoded),
-      CHEBI = paste0("https://www.ebi.ac.uk/chebi/searchId.do?chebiId=", encoded),
+      RHEA = paste0(
+        "https://www.rhea-db.org/rhea/",
+        utils::URLencode(sub("^RHEA:", "", id), reserved = TRUE)
+      ),
+      CHEBI = paste0("https://www.ebi.ac.uk/chebi/", encoded),
       NA_character_
     )
   }, character(1))
@@ -351,9 +355,18 @@
     } else {
       ""
     }
+    linked <- nzchar(chebi)
     paste0(
-      '<span class="anchor-chip ', .html_escape(row$role), '" title="',
-      .html_escape(row$name), chebi, '">', .html_escape(row$anchor_id), "</span>"
+      if (linked) '<a' else '<span',
+      ' class="anchor-chip ', .html_escape(row$role),
+      if (linked) ' external-id' else '', '" title="',
+      .html_escape(row$name), chebi, '"',
+      if (linked) paste0(
+        ' href="', .html_escape(.report_external_url("CHEBI", row$chebi_id)),
+        '" target="_blank" rel="noopener noreferrer"',
+        ' aria-label="Open ', .html_escape(row$chebi_id), ' in ChEBI"'
+      ) else '',
+      '>', .html_escape(row$anchor_id), if (linked) "</a>" else "</span>"
     )
   }, character(1)), collapse = "")
 }
@@ -409,10 +422,8 @@
 # its curated reaction_id and has nothing to link to.
 .reaction_id_html <- function(row) {
   if (!is.na(row$rhea_master) && nzchar(row$rhea_master)) {
-    paste0(
-      '<a class="rhea-id" href="https://www.rhea-db.org/rhea/',
-      sub("^RHEA:", "", row$rhea_master), '" target="_blank" rel="noreferrer">',
-      .html_text(row$rhea_master), "</a>"
+    .report_identifier_link(
+      "RHEA", row$rhea_master, .html_text(row$rhea_master), "rhea-id"
     )
   } else {
     paste0('<span class="rhea-id">', .html_text(row$reaction_id), "</span>")
@@ -2303,8 +2314,21 @@
   )
 }
 
-.report_table_cell <- function(value) {
+.report_table_cell <- function(value, column) {
   if (is.na(value) || !nzchar(as.character(value))) return('<td class="null">NULL</td>')
+  namespace <- if (column %in% c("reaction_id", "rhea_master") &&
+                   grepl("^RHEA:[0-9]+$", value)) {
+    "RHEA"
+  } else if (identical(column, "chebi_id") && grepl("^CHEBI:[0-9]+$", value)) {
+    "CHEBI"
+  } else {
+    NULL
+  }
+  if (!is.null(namespace)) {
+    return(paste0("<td>", .report_identifier_link(
+      namespace, value, .html_escape(value), "entity-id"
+    ), "</td>"))
+  }
   paste0("<td>", .html_escape(value), "</td>")
 }
 
@@ -2316,7 +2340,9 @@
       row <- values[index, , drop = FALSE]
       paste0(
         '<tr data-table-row data-search="', .html_escape(.html_search_text(row)), '">',
-        paste(vapply(row, .report_table_cell, character(1)), collapse = ""), "</tr>"
+        paste(vapply(names(row), function(column) {
+          .report_table_cell(row[[column]], column)
+        }, character(1)), collapse = ""), "</tr>"
       )
     }, character(1)), collapse = "") else ""
     paste0(

@@ -1093,10 +1093,12 @@
   }
 
   giftRows().forEach(function (row) {
-    row.addEventListener("click", function () {
+    row.addEventListener("click", function (event) {
+      if (event.target.closest("a")) return;
       goToGift(row.getAttribute("data-gift-id"));
     });
     row.addEventListener("keydown", function (event) {
+      if (event.target.closest("a")) return;
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
         goToGift(row.getAttribute("data-gift-id"));

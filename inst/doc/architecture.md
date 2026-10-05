@@ -1877,6 +1877,15 @@ Rscript -e 'testthat::test_local(".")'
 atomic: the intended output is replaced only after the new database passes
 foreign-key and integrity checks.
 
+After a successful compilation, the same script updates the marked catalogue
+summary in `README.md` from SQLite. That block reports the GIFT count by type
+and the counts of declared anchors, metabolic routes, distinct reactions,
+systems and marker identifiers. `Rscript data-raw/update_database_docs.R --check`
+fails when the README does not match the packaged database; CI runs it before
+publishing the pkgdown site. The atlas reads its counts directly from SQLite.
+Counts in dated curation proposals and fixed analyses describe their own
+historical database versions and are not rewritten when the catalogue grows.
+
 Do not rebuild SQLite for a documentation-only edit. Do rebuild it whenever the
 TSV source content, SQL schema, or compiler changes in a way that affects the
 artifact.

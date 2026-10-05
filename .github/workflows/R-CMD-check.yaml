@@ -83,3 +83,6 @@ jobs:
 
       - name: Validate sources, compile separately, and compare with packaged SQLite
         run: Rscript data-raw/verify_database.R
+
+      - name: Check README catalogue statistics
+        run: Rscript data-raw/update_database_docs.R --check

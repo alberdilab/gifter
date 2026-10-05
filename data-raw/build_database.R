@@ -29,3 +29,5 @@ build_gifter_database(
   reference_dir = reference_dir,
   marker_links = marker_links
 )
+source("data-raw/update_database_docs.R", local = TRUE)
+update_database_docs()

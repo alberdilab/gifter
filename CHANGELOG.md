@@ -13,6 +13,22 @@ versioned with the package.
 
 ---
 
+### 2026-10-05T14:39Z — Catalogue statistics and reference links follow the database
+
+**What changed.** A successful database rebuild now refreshes the README's
+catalogue counts from the compiled SQLite database, and CI checks the counts
+before publishing documentation. The atlas links declared ChEBI anchors and
+raw table IDs to their compound or reaction records, and uses the same
+record-link helper for Rhea reactions.
+
+**Why.** The README's 153-GIFT count lagged behind the current 163-GIFT
+catalogue. ChEBI identifiers in the atlas appeared only as tooltip text.
+
+**Effect.** Documentation and atlas navigation only. No biological definitions,
+calls, source tables, schema or public API changed.
+
+---
+
 ### 2026-10-05T05:05Z — Historical curation evidence is audited retrospectively
 
 **What changed.** A repository-only audit script counts the documents, analysis

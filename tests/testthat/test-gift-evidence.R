@@ -211,6 +211,27 @@ test_that("the atlas links each GIFT's evidence and each identifier's public rec
   expect_match(adenylate, 'href="https://www.kegg.jp/entry/K01939"', fixed = TRUE)
   expect_match(adenylate, "Source: KEGG M00049", fixed = TRUE)
   expect_match(adenylate, 'href="https://www.kegg.jp/module/M00049"', fixed = TRUE)
+  expect_match(html, 'href="https://www.rhea-db.org/rhea/17129"', fixed = TRUE)
+  expect_match(html, 'href="https://www.ebi.ac.uk/chebi/CHEBI%3A58053"', fixed = TRUE)
+  expect_match(html, 'aria-label="Open CHEBI:58053 in ChEBI"', fixed = TRUE)
+  expect_match(
+    gifter:::.report_table_cell("RHEA:17129", "reaction_id"),
+    'href="https://www.rhea-db.org/rhea/17129"', fixed = TRUE
+  )
+  expect_match(
+    gifter:::.report_table_cell("CHEBI:58053", "chebi_id"),
+    'href="https://www.ebi.ac.uk/chebi/CHEBI%3A58053"', fixed = TRUE
+  )
+  expect_no_match(
+    gifter:::.report_table_cell("LOCAL:1", "reaction_id"), "href=", fixed = TRUE
+  )
+
+  # A declared boundary without a ChEBI ID remains plain text.
+  plain_anchor <- data.frame(
+    role = "input", name = "uncatalogued compound",
+    chebi_id = NA_character_, anchor_id = "UNMAPPED"
+  )
+  expect_no_match(gifter:::.report_anchor_badges(plain_anchor), "href=", fixed = TRUE)
 
   # A dbCAN-sub cluster has no CAZy page; it links to its parent family.
   expect_identical(

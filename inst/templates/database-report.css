@@ -2206,6 +2206,7 @@ h1, h2, h3, h4, h5, p { margin-top: 0; }
   font-size: 11px;
   font-weight: 750;
 }
+a.anchor-chip.external-id { color: var(--forest); }
 
 .anchor-chip.output { border-color: #e8b2a6; background: var(--coral-pale); }
 /* A non-metabolic GIFT has no molecular boundary, so this chip states which

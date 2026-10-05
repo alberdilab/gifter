@@ -25,6 +25,9 @@ jobs:
           extra-packages: any::pkgdown, local::.
           needs: website
 
+      - name: Check README catalogue statistics
+        run: Rscript data-raw/update_database_docs.R --check
+
       - name: Build package website
         run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
         shell: Rscript {0}

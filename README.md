@@ -35,12 +35,18 @@ GIFT
 └── defense       the machinery to execute a defined defense mechanism
 ```
 
-The packaged database currently contains 153 GIFTs: 143 metabolic, 2
-structural, 3 regulatory and 5 defense capabilities. These counts are checked
-against the compiled database in the package tests. Examples include the
-flagellar apparatus and type IVa pilus; chemotaxis, aspartate chemoreception and
-phosphate-response signalling; and restriction-modification, CRISPR-Cas and
-chemical-detoxification machinery.
+<!-- database-stats:start -->
+The packaged database currently contains 163 GIFTs: 143 metabolic, 9
+structural, 4 regulatory and 7 defense capabilities.
+
+The same release has 156 declared anchors, 210 metabolic routes, 440 distinct
+reactions, 606 systems across the four types, and 1,576 distinct marker
+identifiers.
+<!-- database-stats:end -->
+
+Examples include the flagellar apparatus and type IVa pilus; chemotaxis,
+aspartate chemoreception and phosphate-response signalling; and
+restriction-modification, CRISPR-Cas and chemical-detoxification machinery.
 
 ## What gifter does
 
@@ -362,10 +368,13 @@ get_reaction_systems("RHEA:17129")
 gifter_db_version()
 ```
 
-Rhea master IDs identify reactions. Reaction direction within a GIFT is stored
-separately as `forward` or `reverse`. ChEBI IDs identify only declared boundary
-anchors; internal compounds such as GAR, AIR, AICAR, dihydroorotate, and
-orotidine 5'-phosphate are intentionally absent from the anchor vocabulary.
+Rhea master IDs identify reactions (for example,
+[RHEA:17129](https://www.rhea-db.org/rhea/17129)). Reaction direction within a
+GIFT is stored separately as `forward` or `reverse`. ChEBI IDs identify only
+declared boundary anchors (for example,
+[CHEBI:58053](https://www.ebi.ac.uk/chebi/CHEBI:58053)); internal compounds such
+as GAR, AIR, AICAR, dihydroorotate, and orotidine 5'-phosphate are intentionally
+absent from the anchor vocabulary.
 
 ## Curating and rebuilding
 
@@ -390,6 +399,10 @@ build_gifter_database(
   reference_dir = "inst/extdata/reference-snapshot"
 )
 ```
+
+For a repository rebuild, run `Rscript data-raw/build_database.R` from the
+package root. It validates and compiles the packaged database, then refreshes
+the catalogue counts above.
 
 `reference_dir` names a pinned extract of Rhea, ChEBI and KEGG. With it the
 sources are checked against those resources as well as against each other, so
