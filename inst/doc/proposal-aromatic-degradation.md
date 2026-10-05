@@ -692,7 +692,7 @@ declares a catechol 2,3-dioxygenase component, and any such GIFT would fire in
 
 **Recommendation**: evidence the component with `K00446`, optionally with
 NCBIfam `TIGR03211`, and record the `K07104` exclusion in the component `notes`
-so the next curator does not re-add it.
+so that it is not re-added later.
 
 ### 10.3 `mode` has no value for detoxification, and that is the right answer
 
@@ -858,8 +858,8 @@ Two consequences to record:
    curated `methylamine_degradation` runs `METHYLAMINE` to `AMMONIUM` and
    releases formaldehyde without declaring it as an anchor; the same FrmA/FrmB
    markers are detoxification in most organisms and carbon metabolism in
-   methylotrophs. That decision belongs to whoever proposes the GIFT, not to
-   this proposal.
+   methylotrophs. That decision belongs to the proposal for that GIFT, not to
+   this one.
 
 ---
 
@@ -1004,7 +1004,7 @@ route has a KEGG module boundary and a Rhea master at every step.
 
 ---
 
-## 14. Open questions for the reviewer
+## 14. Open questions
 
 1. **Is an environmental layer wanted at all?** gifter's anchors already admit
    "environmental or host compound", so nothing forbids it, but the curated

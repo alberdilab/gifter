@@ -534,7 +534,7 @@ audit. Details and retriggers are in the cited sections.
   `siroheme_to_heme_b` GIFT rather than to `heme_b_biosynthesis`, and both
   final-reaction routes are materialised as `AHB_AHBD` and `AHB_CHDC`.
 
-## 15. Recommendation to the maintainer
+## 15. Recommendation
 
 Retain the implemented upstream siroheme GIFT and the explicit downstream Ahb
 refusal. Do not treat the absent graph edge from `SIROHEME` to `HEME_B` as a

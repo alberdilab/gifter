@@ -464,7 +464,7 @@ Recorded so they are not re-proposed:
 
 ---
 
-## 8. Open questions for the curator
+## 8. Open questions
 
 1. **Split the trunk at ASA, or defer?** (section 2.1) Recommendation: split now.
 2. **Split methionine by sulfur source, or one GIFT with a homoserine-only input?**

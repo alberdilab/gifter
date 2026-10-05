@@ -133,7 +133,7 @@ is made by this dossier.
 
 ## Resolution record required before v1
 
-For each human_review_required row, a human reviewer must record the resource,
+For each human_review_required row, the human review must record the resource,
 release or access date, exact material considered, source-owner permission or
 terms interpretation, reviewer and date, and any attribution or redistribution
 conditions. If the conclusion is removal or replacement, follow the full

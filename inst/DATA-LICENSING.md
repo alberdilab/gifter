@@ -25,8 +25,8 @@ assessment. `inst/extdata/database-source/SOURCES.md` remains the detailed
 record of biological derivation and boundary decisions.
 
 `inst/doc/licensing-review.md` is the dated, source-level dossier for the
-unresolved rows. It records the public evidence and exact content inventory a
-human reviewer must consider; it is not legal advice, permission, or a licence
+unresolved rows. It records the public evidence and exact content inventory that
+must be considered in human review; it is not legal advice, permission, or a licence
 interpretation.
 
 Rhea and ChEBI state CC BY 4.0 terms, and Pfam states CC0. Those sources must
@@ -42,9 +42,9 @@ software from data, or do not clearly address the selected identifiers and
 metadata shipped here.
 
 This is a release blocker, not a conclusion that distribution is forbidden.
-Before publishing v1, a human must document permission or a defensible terms
-interpretation for each marked row, or remove/replace the affected redistributed
-material and rerun the database validation, reproducibility check, and package
+Before publishing v1, we must document, under human review, permission or a
+defensible terms interpretation for each marked row, or remove/replace the
+affected redistributed material and rerun the database validation, reproducibility check, and package
 tests. Do not change a manifest row to `cleared` merely because the resource is
 free to browse or accessible through an API.
 

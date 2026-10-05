@@ -715,7 +715,7 @@ comparable numbers of pairs at all.
 The prior layer's eight invariants
 ([§12](proposal-quantitative-traits.md#12-invariants-this-layer-must-preserve))
 carry over unchanged. This layer adds one, which is proposed as **AGENTS.md rule
-24** subject to the reviewer agreeing it belongs there:
+24** subject to agreement that it belongs there:
 
 > **Detection is to samples what assessability is to genomes.** Both may only
 > move denominators. Assessability decides whether a genome's silence about a

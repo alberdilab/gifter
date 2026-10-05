@@ -326,7 +326,7 @@ statement worth recording is that **an assimilatory cycle cannot be decomposed
 by anchors, because both halves are anabolic**; the citric acid cycle could be
 cut only because two of its four segments are `interconversion`.
 
-The fallback, if the maintainer prefers the invariant intact: curate GDH only,
+The fallback, if we prefer the invariant intact: curate GDH only,
 and record the 1911-genome cost as a known under-call. This proposal does not
 recommend it.
 
@@ -339,8 +339,8 @@ is two GIFTs for one chemistry. Recommended: **one GIFT named
 `OXOGLUTARATE` + `AMMONIUM` in and `GLUTAMATE` out, with both routes. The
 product-naming convention is the database's existing one, and the assimilation
 reading is preserved in the description and in the `AMMONIUM` input anchor,
-which is what a nitrogen-focused user will filter on. §14 Q2 puts the naming
-choice to the maintainer alongside the cycle decision.
+which is what a nitrogen-focused user will filter on. §14 Q2 leaves the naming
+choice open alongside the cycle decision.
 
 ### 6.2 Alanine
 
@@ -943,7 +943,7 @@ citrulline-internal decision.
 
 ---
 
-## 14. Open questions for the curator
+## 14. Open questions
 
 **Q1 — the anchor vocabulary.** This layer adds roughly 28 anchors, the largest
 single addition gifter has made, and invariant 3 says to keep the vocabulary

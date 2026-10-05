@@ -346,7 +346,7 @@ because "the chemistry is required and the missing reaction is reported rather
 than silently scored away". The same applies — curate the reductase as required,
 expect four complete calls, and report the other nine as incomplete with the
 named missing reaction. Whether a GIFT that fires in four genomes earns its
-place is a curator's call, not an evidence question; it is listed as
+place is a curation call, not an evidence question; it is listed as
 conditional for that reason alone.
 
 **Succinate (Wood–Werkman) route — refuse.** This is the route most people mean
@@ -509,7 +509,7 @@ specific as the trait, for the same reason marker identity does.
 
 ---
 
-## 11. Open decisions for the curator
+## 11. Open decisions
 
 1. **EtfA/EtfB in the Bcd system.** Recommended: not required, on the ground
    that `K03521`/`K03522` are the generic `fixA`/`fixB` orthologues present in

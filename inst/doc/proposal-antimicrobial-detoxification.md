@@ -409,7 +409,7 @@ reaction that makes the mechanism what it is) and the prevalence clause (107 is
 above the 50-genome line). The accessory *van* proteins `K18346` *vanW*,
 `K18353` *vanJ* and `K18354` *vanK* exist as separate groups, and the *vraSR*
 two-component system (`K07681`, `K07694`) is available as the regulatory arm.
-A curator could build this GIFT.
+This GIFT could be built.
 
 It is refused because the drug is untouched. Vancomycin is neither converted nor
 removed; the cell rebuilds its own target around it. That is not
@@ -583,11 +583,11 @@ the composition graph. Nothing in this proposal can create a trait edge.
 
 ---
 
-## 12. Open questions for the reviewer
+## 12. Open questions
 
 1. **Is a GIFT with no incomplete state worth curating?** §6 argues yes on the
    `mercury_detoxification` precedent and on the value of the marker partition
-   and the refusals. A reviewer who disagrees should refuse both GIFTs, and the
+   and the refusals. If we disagree, both GIFTs should be refused, and the
    §9 refusals still stand as the result.
 2. **Should `K00638` *catB* be admitted given hexapeptide acyltransferase
    promiscuity?** Admitted here on the EC assignment; re-grade if KEGG widens

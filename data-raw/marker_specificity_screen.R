@@ -19,7 +19,7 @@
 # which bounds the claim. A KO reaching one master may still be the wrong
 # evidence for a curated component, and a KO reaching several may still be the
 # only honest evidence for a deliberately broad GIFT. The flags are questions
-# for a curator, not verdicts.
+# for us to answer, not verdicts.
 #
 # Three products:
 #

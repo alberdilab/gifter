@@ -198,7 +198,7 @@ scope and specificity before accepting the profile as marker evidence.
 
 An NCBIfam profile covering a function-specific domain rather than necessarily
 the full protein. It carries NCBIfam's one-function assertion and is an eligible
-grade in gifter, but the curator must still verify that the domain is sufficient
+grade in gifter, but we must still verify that the domain is sufficient
 evidence for the component being claimed.
 
 ### Gathering threshold

@@ -19,13 +19,13 @@
 # layer is overwhelmingly KO, and an NCBIfam profile that resolves a reaction a
 # KO already resolves buys sensitivity at best. What buys *specificity* is a
 # reaction that a single-reaction equivalog resolves and no single-reaction KO
-# does. Those are the rows a curator reads.
+# does. Those are the rows we read.
 #
 # What the screen is not: an authority on whether a profile is correct evidence
 # for a curated component. EC agreement is a necessary condition, never a
 # sufficient one -- two proteins can share an EC and be different subunits of
 # one enzyme, which is exactly the case that motivated admitting the namespace.
-# The screen finds the reactions worth reading; a curator decides them.
+# The screen finds the reactions worth reading; we decide them.
 #
 # The EC join has a blind spot, and it is most of the namespace. Two thirds of
 # the equivalog profiles carry no EC number at all, so nothing above can see

@@ -81,7 +81,7 @@ reinforced by new evidence in §6.6 here.
    acyclicity heuristic keeps doing its job everywhere it is meaningful; the
    only reported cycle is the reversible succinate–fumarate–oxaloacetate arm,
    which is exempt for the reason above. Verified, not predicted. §9.3.
-10. **Name the higher-order object with a facet, not a table.** If curators want
+10. **Name the higher-order object with a facet, not a table.** If we want
     to say "this GIFT belongs to the oxidative citric acid cycle", that is
     *classification*, and gifter's mechanism for classification is
     `facet_terms.tsv` + `gift_facets.tsv`, which is an open vocabulary needing no

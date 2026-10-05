@@ -34,7 +34,7 @@
 # No label or formula rule separates those cases, which is the assessment's
 # point restated: a traversal that goes one step too far turns a specific anchor
 # into a compound class. So the subClassOf steps are written to a candidates
-# file for review, and a curator who accepts one adds it to the alias table with
+# file for review, and an accepted one is added to the alias table with
 # `status = curated`. Reruns preserve curated rows.
 #
 # This is a curation reference input. It is not compiled into the database, and

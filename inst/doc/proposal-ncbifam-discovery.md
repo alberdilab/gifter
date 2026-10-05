@@ -359,7 +359,7 @@ carrying the split enzyme and neither `K01752` nor `K17989` would begin
 completing `serine_deamination` — and that is the next release's decision, with
 its own `database_changes.tsv` entry.
 
-**One question was left unresolved and the curator should settle it first.**
+**One question was left unresolved and must be settled first.**
 KEGG defines `K01752` by the single-chain genes *sdaA*, *sdaB* and *tdcG*, but
 whether it is also *assigned* to the halves of the split enzyme in annotated
 genomes cannot be read from `list/ko` and was not checked here. The answer does

@@ -224,7 +224,7 @@ than argued away.
 5. **Whether the amended acceptor clause is the right rule.** §3.1 proposes
    replacing "no external acceptor" with "no trait named for the molecule that
    receives the electrons, and no claim about energy conservation". A machinery
-   model satisfies the second version. Someone has to agree it is the version
+   model satisfies the second version. We have to agree it is the version
    that was meant.
 
 ## 6. Recommendation

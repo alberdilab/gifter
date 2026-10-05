@@ -187,7 +187,7 @@ rather than a migration of the existing one.
 
 The current schema *would* accept a `defense_component_marker` row asserting
 that some Cas protein accession evidences the array. That would be false, and no
-validator can catch it. It is written down here so that a future curator meets
+validator can catch it. It is written down here so that we later meet
 the refusal rather than the convenience.
 
 ## Curated: mercury detoxification

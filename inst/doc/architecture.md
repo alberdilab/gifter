@@ -1691,7 +1691,7 @@ is visible in every call that depends on it.
 An `ec_match` compares EC numbers exactly. A marker whose resource gives it a
 narrower EC number than the reaction records, such as a linkage-specific
 fucosidase against a reaction recorded under the general alpha-L-fucosidase
-number, is `unsupported` until a curator decides whether the reaction should
+number, is `unsupported` until we decide whether the reaction should
 carry the narrower number.
 
 An NCBIfam or CAZy accession must be current in the pinned release, and the
@@ -1735,8 +1735,8 @@ is reopened only when its recorded evidence, blocker or retrigger changed.
 
 Append an `in_progress` row for the new bounded investigation before doing new
 screening. This is required even if no GIFT is ultimately curated: an empty
-result, a refusal and an interrupted pass are all results future curators must
-be able to find. The register's workflow and field contract are documented in
+result, a refusal and an interrupted pass are all results we must
+be able to find later. The register's workflow and field contract are documented in
 [`catalogue-expansion-log.md`](catalogue-expansion-log.md).
 
 ### 1. Define the biological claim
@@ -2247,7 +2247,7 @@ of the architectural contract.
   share one specific function. It makes a profile eligible for review, not
   automatically acceptable as marker evidence.
 - **Equivalog domain:** The corresponding one-function NCBIfam grade for a
-  function-specific domain. The curator still checks that the domain is
+  function-specific domain. We still check that the domain is
   sufficient evidence for the component.
 - **Frame (reference frame):** A metadata-defined comparison set and
   denominator for derived traits. It resolves its current GIFT members against

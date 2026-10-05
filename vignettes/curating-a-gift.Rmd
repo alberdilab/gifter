@@ -43,7 +43,7 @@ them are the same from one GIFT to the next.
 | Data | Same for every GIFT? | Used to | Never used to |
 |---|---|---|---|
 | **Reference knowledge bases**: Rhea, ChEBI, KEGG, MetaCyc, UniProt, NCBIfam, dbCAN, literature | Yes, at a pinned release | define the chemistry, the molecules, the enzymes and the candidate markers | decide where a GIFT's boundary lies; that is gifter's own decision |
-| **Catalogue-wide specificity screens** | Yes; rerun when a resource is updated | measure how many distinct reactions each marker can license | admit a marker on their own; they flag rows for a curator to read |
+| **Catalogue-wide specificity screens** | Yes; rerun when a resource is updated | measure how many distinct reactions each marker can license | admit a marker on their own; they flag rows to be read |
 | **KEGG reference genome set**: every genome in the KEGG catalogue, about 11,900 | Yes; the snapshot date is recorded with each assessment | count how many genomes complete a candidate, which function near-misses lack, and whether it is distinguishable from homologous machinery | define a GIFT by its prevalence |
 | **Named control genomes** | **No.** Chosen for each investigation | check the definition against organisms whose biology is established in the literature | produce a call; the expectation is compared with the marker result, never fed into it |
 
@@ -68,10 +68,10 @@ means. It should name an encoded capability that is useful to compare among
 genomes without claiming expression, activity, physiological state or
 phenotype.
 
-Before new evidence is collected, the curator searches the append-only
+Before new evidence is collected, we search the append-only
 [expansion attempts](../atlas/#attempts), which list every earlier attempt with
 its implemented, deferred and refused candidates, for the candidate, its aliases
-and the wider request that produced it, and reads
+and the wider request that produced it, and read
 the [deferral register](https://github.com/alberdilab/gifter/blob/main/inst/doc/deferral-register.md)
 for standing blockers. A previous refusal is reopened only when its evidence or
 recorded retrigger has changed. A new bounded investigation is then registered
@@ -109,7 +109,7 @@ enough that the genomic evidence can support it, but large enough to represent
 a biologically meaningful capability rather than an arbitrary protein or
 single reaction.
 
-At this stage the curator also checks whether the proposal duplicates an
+At this stage we also check whether the proposal duplicates an
 existing GIFT, bundles independently meaningful capabilities, or is already
 represented by a chain of composable metabolic GIFTs.
 
@@ -196,7 +196,7 @@ only, not genomes:
 | NCBIfam | the same join for every equivalog profile, after the grade filter. It also asks whether a profile resolves a curated reaction that no single-reaction KO resolves; 229 profiles reaching a curated reaction are refused on grade alone | [`ncbifam_equivalog_screen.R`](https://github.com/alberdilab/gifter/blob/main/data-raw/ncbifam_equivalog_screen.R) |
 | CAZy (eCAMI clusters) | the fraction of a cluster's EC-annotated members that carry the claimed EC | [`extract_cazy_subfamilies.R`](https://github.com/alberdilab/gifter/blob/main/data-raw/extract_cazy_subfamilies.R) |
 
-A screen finds the rows that need a curator; it does not decide them. A KO
+A screen finds the rows that need to be read; it does not decide them. A KO
 reaching several reactions may group genes of different activities, which
 cannot support a substrate-specific claim. Or it may be one genuinely
 promiscuous enzyme, which supports every reaction it performs. Reading which
@@ -301,8 +301,8 @@ all checked this way.
 
 ### Named control genomes: chosen for each investigation
 
-The second dataset is small and changes every time. For each candidate the
-curator picks organisms whose relevant biology is established in the
+The second dataset is small and changes every time. For each candidate
+we pick organisms whose relevant biology is established in the
 literature, both organisms expected to carry the capability and organisms
 expected to lack it. Examples include:
 
@@ -515,7 +515,7 @@ For a metabolic GIFT, source records are normally added in dependency order:
 The machinery models use the corresponding architecture, circuit or mechanism
 tables and their typed function, system, component and marker tables.
 
-Reaction equations, ChEBI names and every `basis` are left empty by the curator.
+Reaction equations, ChEBI names and every `basis` are left empty.
 A script extends the pinned extract of Rhea, ChEBI and KEGG to the new
 accessions, which is where an accession that does not exist upstream is caught,
 and fills those columns from it.

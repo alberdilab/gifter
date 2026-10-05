@@ -171,7 +171,7 @@ one.
   directions of omission.
 - **The boundary decision itself**: `K15785` matches no marker in the database,
   and `ectoine_degradation` declares `DABA` as its output. If a future change
-  admits DoeD, this test fails and the curator is sent back to §3.
+  admits DoeD, this test fails and sends us back to §3.
 - Neither ectoine fate fires the biosynthetic GIFT, and EctABC does not fire the
   hydroxylase.
 - `ECTOINE` is declared by exactly three GIFTs, and the graph now draws it as a

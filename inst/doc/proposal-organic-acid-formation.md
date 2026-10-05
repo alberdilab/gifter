@@ -385,7 +385,7 @@ defer it.** `K03778` is specific to the right chemistry, but its top genera are
 *Pseudomonas* (224), *Streptomyces* (158) and *Burkholderia* (90) — obligate
 aerobes running the reaction oxidatively. It fails clause 2 the way acetate
 does, without acetate's justification, because the racemase route already
-reaches the anchor. If a curator wants it anyway, the honest form is a second
+reaches the anchor. If we want it anyway, the honest form is a second
 route on a D-lactate GIFT with the marker mapping recorded as `ambiguous`, so
 `evidence_confidence` reports the weakness at the call. It should not be
 curated as a peer of the L route.
@@ -637,8 +637,8 @@ mobilis* and *Saccharomyces cerevisiae* — the two organisms most associated
 with ethanol production — carry no `adhE`; they use pyruvate decarboxylase
 (`K01568`) with a separate alcohol dehydrogenase. That route is complete in only
 258 organisms and the set is fungus-dominated with an *Acetobacter* and
-*Gluconobacter* tail, which are ethanol *oxidisers*. A curator who wants
-ethanol should curate the AdhE route first and accept that the eukaryotic and
+*Gluconobacter* tail, which are ethanol *oxidisers*. If we want
+ethanol, we should curate the AdhE route first and accept that the eukaryotic and
 *Zymomonas* route is a second, weaker route rather than an equal one.
 
 **Formate — refuse on architecture, not on evidence.** The evidence is fine:
@@ -802,7 +802,7 @@ trigger condition is the same: a substrate-specific lactate transporter marker.
 | `malolactic_fermentation` | `catabolic` | decarboxylation, irreversible |
 | `citrate_fermentation` | `catabolic` | lyase and synthase are unrelated enzymes |
 | `acetoin_formation` | `catabolic` | decarboxylation, irreversible |
-| `ethanol_formation` | `catabolic` | see the §6.7 caveat; `interconversion` is the fallback if a curator finds the AdhE reversibility argument decisive |
+| `ethanol_formation` | `catabolic` | see the §6.7 caveat; `interconversion` is the fallback if we find the AdhE reversibility argument decisive |
 
 `lactate_racemisation` is the assessment's argument that the fourth mode was not
 a one-off for acetate. Acetate's reversibility is a physiological claim about
@@ -840,7 +840,7 @@ the trait, and no more specific than the enzyme.
 
 ---
 
-## 11. Open decisions for the curator
+## 11. Open decisions
 
 1. **Whether `lactate_formation` should be `catabolic` or `interconversion`.**
    Recommended: `catabolic`, on the §6.1 evidence. The counter-argument is

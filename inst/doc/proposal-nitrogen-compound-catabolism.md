@@ -976,7 +976,7 @@ returned a master reaction.
 
 ---
 
-## 14. Open decisions for the maintainer
+## 14. Open decisions
 
 ### 14.1 What `mode` does assimilatory nitrate reduction take?
 

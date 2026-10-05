@@ -251,7 +251,7 @@ reactions can this marker license?
 broad in two different ways and the mapping cannot tell them apart: an ortholog
 that groups genes of different activities cannot support a substrate-specific
 claim, while a genuinely promiscuous enzyme supports every reaction it performs
-including the curated one. The screen finds the rows that need a curator; it
+including the curated one. The screen finds the rows that need to be read; it
 does not decide them. `varying_participants` is the column that usually settles
 it — masters differing only in `a quinone` versus `a menaquinone` are one
 activity, masters differing in the sugar are not.
@@ -326,8 +326,8 @@ an identical molecular formula (`N-acetyl-D-glucosamine` to
 `N-acetyl-D-hexosamine`). No label or formula rule separates those, which is
 the assessment's point restated: a traversal that goes one step too far turns a
 specific anchor into a compound class. So every `subClassOf` step is written to
-`chebi-anchor-alias-candidates.tsv` for review, and a curator who accepts one
-adds it with `status = curated`. Reruns carry curated rows through untouched.
+`chebi-anchor-alias-candidates.tsv` for review, and an accepted one
+is added with `status = curated`. Reruns carry curated rows through untouched.
 
 The candidates file is worth reading beside the accepted one, because it shows
 both at once: `GLCNAC` proposes `N-acetylglucosamine` and `N-acetyl-D-hexosamine`

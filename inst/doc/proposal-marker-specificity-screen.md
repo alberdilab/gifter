@@ -247,7 +247,7 @@ ce484307452ed1803034a455cdae39c1bcc07b91034df4cbdb59d5751e9a1ff0  kegg-ko-list.t
   not cover, and 2,017 carry only partial ECs. A KO in either group is invisible
   to the screen, which is not evidence that it is broad or narrow.
 - **The screen cannot separate an ambiguous ortholog from a promiscuous
-  enzyme.** Section 2. Every flag needs a curator.
+  enzyme.** Section 2. Every flag must be read.
 - **No saturation filter, and it matters.** The screen ranks a candidate by how
   specific the anchor it touches is, which says whether a candidate is
   *markable*. It says nothing about whether the resulting trait would be
