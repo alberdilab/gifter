@@ -15,7 +15,8 @@
 
   // A route is a view name, optionally followed by an item within it: the
   // frames view gives each frame its own page at #frames/<frame_id>, and the
-  // attempts view each expansion attempt at #attempts/<attempt_id>.
+  // attempts view each expansion attempt at #attempts/<attempt_id>, and the
+  // changes view each database change at #changelog/<change_id>.
   function activateView(route, updateHash) {
     var parts = String(route).split("/");
     var name = parts[0];
@@ -47,6 +48,7 @@
     }
     showFrame(name === "frames" ? item : "");
     showAttempt(name === "attempts" ? item : "");
+    showChange(name === "changelog" ? item : "");
     applySearch(false);
     // The GIFT page is opened after the filters run, so its position counts the
     // rows they keep.
@@ -86,6 +88,10 @@
       var page = name === "frames" ? openFramePage() : openAttemptPage();
       var heading = page && page.querySelector("h2");
       if (heading) leaf = heading.textContent;
+    } else if (item && name === "changelog") {
+      // A change is headed by a sentence, so the trail names it by identifier.
+      var change = openChangePage();
+      if (change) leaf = change.getAttribute("data-change-id");
     }
     var menu = button && button.closest("[data-view-menu]");
     var summary = menu && menu.querySelector("summary");
@@ -690,18 +696,60 @@
     });
   });
 
+  var changeView = document.querySelector('[data-view="changelog"]');
+  var changeList = changeView.querySelector("[data-change-list]");
+  var changePages = Array.prototype.slice.call(changeView.querySelectorAll("[data-change-page]"));
+
+  function openChangePage() {
+    return changePages.filter(function (page) { return !page.hidden; })[0] || null;
+  }
+
+  // As with frames and attempts, the table and a change's page are alternatives.
+  function showChange(changeId) {
+    var target = null;
+    changePages.forEach(function (page) {
+      var match = Boolean(changeId) && page.getAttribute("data-change-id") === changeId;
+      page.hidden = !match;
+      if (match) target = page;
+    });
+    changeList.hidden = Boolean(target);
+    if (target) setEmptyState(changeView, false);
+  }
+
   function filterChangelog(query) {
-    var view = document.querySelector('[data-view="changelog"]');
-    var rows = Array.prototype.slice.call(view.querySelectorAll(".changelog-row"));
+    var rows = Array.prototype.slice.call(changeView.querySelectorAll("[data-change-row]"));
     var count = 0;
     rows.forEach(function (row) {
       var matches = !query || row.getAttribute("data-search").indexOf(query) !== -1;
       row.hidden = !matches;
       if (matches) count += 1;
     });
-    setEmptyState(view, count === 0);
+    setEmptyState(changeView, !openChangePage() && count === 0);
     return count;
   }
+
+  Array.prototype.slice.call(changeView.querySelectorAll("[data-change-row]")).forEach(function (row) {
+    function open() {
+      window.location.hash = "changelog/" + row.getAttribute("data-change-id");
+    }
+    // A GIFT identifier in the row opens that GIFT, not the change.
+    row.addEventListener("click", function (event) {
+      if (!event.target.closest("[data-gift-link]")) open();
+    });
+    row.addEventListener("keydown", function (event) {
+      if (event.target !== row) return;
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        open();
+      }
+    });
+  });
+
+  Array.prototype.slice.call(changeView.querySelectorAll("[data-change-back]")).forEach(function (button) {
+    button.addEventListener("click", function () {
+      window.location.hash = "changelog";
+    });
+  });
 
   function filterSchema(query) {
     var view = document.querySelector('[data-view="schema"]');

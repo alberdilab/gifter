@@ -858,4 +858,30 @@ test_that("the atlas publishes the changelog linked to GIFT traits", {
   expect_true(all(
     paste0('data-gift-link="', unique(unlist(changes$gifts)), '"') %in% links
   ))
+
+  # One table row and one page per change; nothing expands in place.
+  for (id in changes$change_id) {
+    expect_match(html, paste0('data-change-row data-change-id="', id, '"'), fixed = TRUE)
+    expect_match(html, paste0('data-change-page data-change-id="', id, '"'), fixed = TRUE)
+  }
+  expect_no_match(html, '<details class="change-detail">', fixed = TRUE)
+
+  # The page carries what the change recorded and the GIFTs it affects.
+  change <- changes[1, ]
+  page <- regmatches(html, regexpr(
+    paste0('data-change-page data-change-id="', change$change_id, '".*?</article>'),
+    html, perl = TRUE
+  ))
+  for (field in c("rationale", "evidence", "effect")) {
+    expect_match(page, gifter:::.html_escape(change[[field]]), fixed = TRUE)
+  }
+  for (gift_id in change$gifts[[1]]) {
+    expect_match(page, paste0('data-gift-link="', gift_id, '"'), fixed = TRUE)
+  }
+
+  # A GIFT's change history links to the page of each change it lists.
+  history <- regmatches(html, regexpr(
+    '<div class="history-section">.*?</ol>', html, perl = TRUE
+  ))
+  expect_match(history, 'href="#changelog/DBC-[A-Z0-9-]+"', perl = TRUE)
 })

@@ -1339,59 +1339,93 @@
   }, character(1)), collapse = "")
 }
 
-.report_change_detail <- function(row) {
-  fields <- list(
-    Rationale = row$rationale, Evidence = row$evidence, Effect = row$effect
-  )
-  fields <- fields[vapply(fields, function(value) {
-    length(value) && !is.na(value[[1]]) && nzchar(as.character(value[[1]]))
-  }, logical(1))]
-  if (!length(fields)) return("")
-  body <- paste(vapply(names(fields), function(name) {
-    paste0("<dt>", name, "</dt><dd>", .html_text(fields[[name]]), "</dd>")
-  }, character(1)), collapse = "")
+# The link from a change, wherever it is summarised, to its own page.
+.report_change_link <- function(change_id) {
   paste0(
-    '<details class="change-detail"><summary>Why, evidence and effect</summary>',
-    "<dl>", body, "</dl></details>"
+    '<a class="change-open" href="#changelog/', .html_escape(change_id),
+    '">Why, evidence and effect &rarr;</a>'
   )
 }
 
+# A change's own page at #changelog/<change_id>: the rationale, evidence and
+# effect recorded with it, and the GIFTs it affects.
+.report_change_page <- function(row, data) {
+  fields <- list(
+    Rationale = row$rationale, Evidence = row$evidence, Effect = row$effect
+  )
+  sections <- paste(vapply(names(fields), function(name) {
+    paste0(
+      '<section class="change-field"><h3>', name, "</h3><p>",
+      .html_text(fields[[name]], empty = "Not recorded"), "</p></section>"
+    )
+  }, character(1)), collapse = "")
+  affected <- sum(data$change_gifts$change_id == row$change_id)
+  paste0(
+    '<article class="frame-page change-page" data-change-page data-change-id="',
+    .html_escape(row$change_id), '" hidden>',
+    '<button class="page-back" type="button" data-change-back>&larr; All changes</button>',
+    '<header class="frame-page-header"><div><div class="frame-id">',
+    .html_text(row$change_id), "</div><h2>", .html_text(row$summary), "</h2></div>",
+    '<span class="effect-chip ', .html_escape(row$call_effect), '">',
+    .html_text(row$call_effect), "</span></header>",
+    '<div class="frame-facts"><span>Release <strong>', .html_text(row$released),
+    "</strong></span><span>Recorded <strong>", .report_change_timestamp(row$changed_at),
+    '</strong></span><span><span class="scope-chip">', .html_text(row$layer), "</span>",
+    '<span class="category-chip">', .html_text(row$category), "</span></span></div>",
+    sections,
+    '<section class="change-affected"><h3>GIFTs affected <span>', affected, "</span></h3>",
+    '<div class="change-gifts">', .report_change_gift_chips(row$change_id, data),
+    "</div></section></article>"
+  )
+}
+
+# The database changes, shown like the frames and the expansion attempts: a
+# table that indexes every change, and a page per change.
 .report_changelog <- function(data) {
   changes <- data$changes
   if (!nrow(changes)) {
-    return('<div class="empty-state">No recorded database changes</div>')
+    return(paste0(
+      '<div class="change-list" data-change-list>',
+      '<div class="empty-state">No recorded database changes</div></div>'
+    ))
   }
   rows <- paste(vapply(seq_len(nrow(changes)), function(index) {
     row <- changes[index, , drop = FALSE]
     gifts <- data$change_gifts[data$change_gifts$change_id == row$change_id, , drop = FALSE]
     searchable <- .html_search_text(row, gifts$gift_id, gifts$name)
     paste0(
-      '<tr class="changelog-row" data-search-item data-search="',
-      .html_escape(searchable), '">',
+      '<tr class="changelog-row" data-change-row data-change-id="',
+      .html_escape(row$change_id), '" data-search-item data-search="',
+      .html_escape(searchable), '" tabindex="0" role="link">',
       '<td><span class="release-badge">', .html_text(row$released), "</span></td>",
       '<td class="changelog-date">', .report_change_timestamp(row$changed_at), "</td>",
       '<td><span class="scope-chip">', .html_text(row$layer), "</span>",
       '<span class="category-chip">', .html_text(row$category), "</span></td>",
       '<td class="changelog-change"><strong>', .html_text(row$summary), "</strong>",
-      "<code>", .html_text(row$change_id), "</code>",
-      .report_change_detail(row), "</td>",
+      "<code>", .html_text(row$change_id), "</code></td>",
       '<td><span class="effect-chip ', .html_escape(row$call_effect), '">',
       .html_text(row$call_effect), "</span></td>",
       '<td class="changelog-gifts">', .report_change_gift_chips(row$change_id, data), "</td>",
       "</tr>"
     )
   }, character(1)), collapse = "")
+  pages <- paste(vapply(seq_len(nrow(changes)), function(index) {
+    .report_change_page(changes[index, , drop = FALSE], data)
+  }, character(1)), collapse = "")
 
   releases <- unique(changes$released)
   paste0(
+    '<div class="change-list" data-change-list>',
     '<div class="changelog-shell"><div class="changelog-caption"><span>',
     nrow(changes), " recorded change", if (nrow(changes) == 1L) "" else "s",
     " across ", length(releases), " release", if (length(releases) == 1L) "" else "s",
-    '</span><small>Select a GIFT identifier to open the trait a change refers to</small></div>',
-    '<div class="changelog-scroll"><table class="changelog-table">',
+    "</span><small>Select a change to open its rationale, evidence and effect, ",
+    "or a GIFT identifier to open the trait it refers to</small></div>",
+    '<div class="changelog-scroll"><table class="changelog-table change-table">',
     "<thead><tr><th>Release</th><th>Recorded</th><th>Scope</th><th>Change</th>",
     "<th>Calls</th><th>GIFTs affected</th></tr></thead><tbody>",
-    rows, "</tbody></table></div></div>"
+    rows, "</tbody></table></div></div></div>",
+    pages
   )
 }
 
@@ -1408,7 +1442,7 @@
       '<span class="effect-chip ', .html_escape(row$call_effect), '">',
       .html_text(row$call_effect), "</span></div>",
       '<div class="history-summary">', .html_text(row$summary), "</div>",
-      .report_change_detail(row), "</li>"
+      .report_change_link(row$change_id), "</li>"
     )
   }, character(1)), collapse = "")
   paste0(
@@ -3154,7 +3188,10 @@
 #' renders the catalogue-expansion attempt log shipped with the package: one row
 #' per investigation with its implemented, deferred and refused candidates, and
 #' a page per attempt at `#attempts/<attempt_id>` that links its implemented
-#' GIFTs, related attempts and source documents. All
+#' GIFTs, related attempts and source documents. The Changes view lists every
+#' recorded database change, and each change has a page at
+#' `#changelog/<change_id>` with its rationale, evidence, effect and affected
+#' GIFTs; a GIFT page links to the page of each change in its history. All
 #' styles, scripts, and data are embedded so the output can be opened or shared
 #' as one file.
 #'

@@ -1354,40 +1354,46 @@ h1, h2, h3, h4, h5, p { margin-top: 0; }
 .gift-link:hover { color: var(--surface); background: var(--forest); }
 .gift-link.static { cursor: default; }
 
-.change-detail { margin-top: 10px; }
+/* Changes reuse the frame page; the table indexes them and each row opens the
+   change's own page. */
+.change-table tbody tr { cursor: pointer; }
+.change-table tbody tr:focus-visible { outline: 2px solid var(--forest-2); outline-offset: -2px; }
+.change-table tbody tr:hover .changelog-change strong { text-decoration: underline; }
 
-.change-detail > summary {
+.change-open {
+  display: inline-block;
+  margin-top: 10px;
   color: var(--coral);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: .04em;
+  text-decoration: none;
   text-transform: uppercase;
 }
 
-.change-detail dl {
-  margin: 10px 0 0;
-  padding: 14px;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: #fbfaf6;
-}
+.change-open:hover { text-decoration: underline; }
 
-.change-detail dt {
-  color: var(--muted);
-  font-size: 9px;
-  font-weight: 850;
-  letter-spacing: .12em;
+.change-page > .change-field,
+.change-page > .change-affected { max-width: 920px; }
+
+.change-page h2 { font-size: 26px; line-height: 1.18; }
+.change-page .frame-facts { flex-wrap: wrap; align-items: center; margin-top: 16px; }
+.change-page .frame-facts .scope-chip,
+.change-page .frame-facts .category-chip { margin-bottom: 0; }
+.change-page .frame-facts .change-time { margin-left: 5px; font-size: 11px; font-weight: 400; }
+.change-field, .change-affected { margin-top: 24px; }
+
+.change-page h3 {
+  margin: 0 0 8px;
+  color: var(--forest);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
   text-transform: uppercase;
 }
 
-.change-detail dd {
-  margin: 4px 0 12px;
-  color: var(--ink);
-  font-size: 12px;
-  line-height: 1.55;
-}
-
-.change-detail dd:last-child { margin-bottom: 0; }
+.change-page h3 span { margin-left: 4px; color: var(--muted); }
+.change-field p { margin: 0; color: var(--ink); font-size: 14px; line-height: 1.6; }
 
 .history-section {
   padding: 26px 34px 30px;
@@ -2957,6 +2963,7 @@ footer {
   .gift-list[hidden], .gift-pages[hidden], .gift-detail[hidden] { display: block !important; }
   .frame-list[hidden], .frame-page[hidden] { display: block !important; }
   .attempt-list[hidden], .attempt-page[hidden] { display: block !important; }
+  .change-list[hidden], .change-page[hidden] { display: block !important; }
   .frame-page, .gift-detail { margin-top: 24px; }
   .page-bar, .page-back { display: none; }
 }

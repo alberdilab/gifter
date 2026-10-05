@@ -13,6 +13,25 @@ versioned with the package.
 
 ---
 
+### 2026-10-05T04:35Z — Each database change has its own page in the atlas
+
+**What changed.** The Changes view of the atlas is now a table that indexes the
+changes, and each change opens on its own page at `#changelog/<change_id>`,
+showing its release, timestamp, scope, call effect, rationale, evidence, effect
+and affected GIFTs. The expanding "Why, evidence and effect" box is gone from
+the table and from the change history on a GIFT page, which links to the
+change's page instead. A GIFT identifier in a table row still opens that GIFT.
+
+**Why.** Rationale, evidence and effect are paragraphs, and unfolding them
+inside a table cell made them hard to read and impossible to link to. Frames
+and expansion attempts already had a page each; changes now follow the same
+pattern.
+
+**Effect.** Atlas presentation only. A change can be cited by URL. No database
+content, call, schema or public function signature changes.
+
+---
+
 ### 2026-10-05T03:24Z — The documentation gains a Case studies section, starting with the phylogeny
 
 **What changed.** The site has a new "Case studies" menu after Workflows, and

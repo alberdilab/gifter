@@ -48,7 +48,10 @@ expansion-attempts view, reached from the Curation menu at `#attempts`,
 renders the catalogue-expansion attempt log shipped with the package: one row
 per investigation with its implemented, deferred and refused candidates, and
 a page per attempt at `#attempts/<attempt_id>` that links its implemented
-GIFTs, related attempts and source documents. All
+GIFTs, related attempts and source documents. The Changes view lists every
+recorded database change, and each change has a page at
+`#changelog/<change_id>` with its rationale, evidence, effect and affected
+GIFTs; a GIFT page links to the page of each change in its history. All
 styles, scripts, and data are embedded so the output can be opened or shared
 as one file.
 }
