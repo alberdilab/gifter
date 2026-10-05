@@ -70,6 +70,42 @@ bound on a biological effect. No call, package API or database content changes.
 
 ## Unreleased
 
+### 2026-10-05T03:28Z — R10 gifter resource benchmark
+
+**What changed.** A reproducible analysis script measures input loading,
+genome evaluation, dataset assembly, sample traits, and the sample network for
+the checksum-verified 822-MAG, 388-sample R10 case. It records stage and total
+wall time, CPU time, and sampled peak resident memory in a fresh process.
+
+**Why.** The manuscript needs a technical account of gifter's computational
+cost on a realistic catalogue. Annotation and gifter evaluation have different
+inputs and resource scopes, so their measurements are reported separately.
+
+**Effect.** This adds a benchmark artifact and method without changing GIFT
+calls, database content, schema, or package API.
+
+### 2026-10-05T03:01Z — Chicken giftag rerun and Drakkar resource audit
+
+**What changed.** The R10 analysis accepts checksum-verified giftag marker
+tables and writes their results and Figure 7 to separate directories. A
+Mjolnir job verifies the original 822 MAG FASTAs, annotates them with giftag
+0.2.0, measures wall time, CPU time and memory, and prepares a verified
+transfer. Separate scripts compare marker presence, genome-GIFT calls and
+sample metrics after both annotations are evaluated against the same current
+gifter database. The original Drakkar log is linked to all 5,784 Slurm job
+records, including failed attempts and retries.
+
+**Why.** The chicken study provides a realistic nucleotide-input workload for
+measuring giftag's practical annotation speed against the completed Drakkar
+workflow. Matching MAGs and the gifter marker vocabulary make the timing and
+output comparison interpretable.
+
+**Effect.** The original Drakkar analysis and Figure 7 remain available. The
+current-database Drakkar reevaluation completed in isolated outputs; the full
+giftag run is in progress, so no final speed or call-concordance result is
+asserted here. No biological
+database, schema, package API or GIFT definition changed.
+
 ### 2026-10-04T17:39Z — Marker basis is derived for NCBIfam and CAZy, and NCBIfam grades are checked
 
 **What changed.** `.derive_marker_basis()` now covers NCBIfam profiles and CAZy

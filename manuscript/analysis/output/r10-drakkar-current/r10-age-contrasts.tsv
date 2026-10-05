@@ -1,0 +1,297 @@
+detection	reference_frame	metric_id	contrast	estimate	standard_error	degrees_freedom	p_value	model_status	q_value
+0	All metabolic GIFTs	community_richness	day_21_minus_day_7	0.103226950399594	0.0597991855502426	338	0.0852204336158157	ok	0.101001995396522
+0	All metabolic GIFTs	community_richness	day_35_minus_day_7	0.181625360491564	0.0584496156421928	338	0.00204751900979745	ok	0.00318502957079603
+0	All metabolic GIFTs	mean_genome_richness	day_21_minus_day_7	-0.230378790225732	0.0860016202538202	338	0.00775051191704281	ok	0.0107833209280596
+0	All metabolic GIFTs	mean_genome_richness	day_35_minus_day_7	-0.193084180097249	0.0840159968164778	338	0.022161389080133	ok	0.0290301237073087
+0	All metabolic GIFTs	singleton_fraction	day_21_minus_day_7	0.000367255331068025	0.000298127416345952	338	0.218852570075301	ok	0.237975610178968
+0	All metabolic GIFTs	singleton_fraction	day_35_minus_day_7	0.00103691859905209	0.000291204323317308	338	0.000422745358254335	ok	0.000769877725601391
+0	Amino-acid autonomy	community_coverage	day_21_minus_day_7					constant_metric	
+0	Amino-acid autonomy	community_coverage	day_35_minus_day_7					constant_metric	
+0	Amino-acid autonomy	community_richness	day_21_minus_day_7					constant_metric	
+0	Amino-acid autonomy	community_richness	day_35_minus_day_7					constant_metric	
+0	Amino-acid autonomy	mean_genome_richness	day_21_minus_day_7	-0.0857638552169385	0.0311382285660813	338	0.00620015732640611	ok	0.00890279000714724
+0	Amino-acid autonomy	mean_genome_richness	day_35_minus_day_7	-0.0836650874612609	0.0304157472351144	338	0.00626676123396687	ok	0.00894111156948139
+0	Amino-acid autonomy	singleton_fraction	day_21_minus_day_7					constant_metric	
+0	Amino-acid autonomy	singleton_fraction	day_35_minus_day_7					constant_metric	
+0	Biomass-essential anabolic GIFTs	community_coverage	day_21_minus_day_7	0.00177952498537917	0.000907398353684702	338	0.0506847204180438	ok	0.0613696074252332
+0	Biomass-essential anabolic GIFTs	community_coverage	day_35_minus_day_7	0.00361035133140616	0.000886919864384855	338	5.84227186236805e-05	ok	0.000122305504408866
+0	Biomass-essential anabolic GIFTs	community_richness	day_21_minus_day_7	0.0782990993566593	0.0399255275621349	338	0.0506847204181613	ok	0.0613696074252332
+0	Biomass-essential anabolic GIFTs	community_richness	day_35_minus_day_7	0.158855458581874	0.0390244740329421	338	5.84227186238777e-05	ok	0.000122305504408866
+0	Biomass-essential anabolic GIFTs	mean_genome_richness	day_21_minus_day_7	-0.126454566808221	0.0471564339431177	338	0.00768675789172787	ok	0.010761461048419
+0	Biomass-essential anabolic GIFTs	mean_genome_richness	day_35_minus_day_7	-0.0988754509770403	0.0460667787106586	338	0.0325564800257028	ok	0.0405147306986524
+0	Biomass-essential anabolic GIFTs	singleton_fraction	day_21_minus_day_7	0.00187195441716432	0.000842917459266078	338	0.027026698321692	ok	0.0345941738517658
+0	Biomass-essential anabolic GIFTs	singleton_fraction	day_35_minus_day_7	0.00384842277569192	0.000823480263463023	338	4.28578921363823e-06	ok	9.7960896311731e-06
+0	Carbohydrate degradation	community_richness	day_21_minus_day_7					constant_metric	
+0	Carbohydrate degradation	community_richness	day_35_minus_day_7					constant_metric	
+0	Carbohydrate degradation	mean_genome_richness	day_21_minus_day_7	-0.0188749655149667	0.00752614114409879	338	0.0126125186766332	ok	0.0171224495973688
+0	Carbohydrate degradation	mean_genome_richness	day_35_minus_day_7	-0.0100627019932382	0.00735446923884062	338	0.172144819692847	ok	0.196736936791825
+0	Carbohydrate degradation	singleton_fraction	day_21_minus_day_7	0.000459284974111588	0.000912003304230667	338	0.61487045875021	ok	0.631793498899298
+0	Carbohydrate degradation	singleton_fraction	day_35_minus_day_7	0.000656178601285097	0.00089067218490615	338	0.461801911913521	ok	0.48338144050761
+0	Cofactor autonomy	community_coverage	day_21_minus_day_7	0.000538791171060619	0.000429450260675919	338	0.21048842329542	ok	0.229997106430117
+0	Cofactor autonomy	community_coverage	day_35_minus_day_7	0.000562847977407221	0.000419701825778055	338	0.180799403457555	ok	0.20148789241041
+0	Cofactor autonomy	community_richness	day_21_minus_day_7	0.00808186771208712	0.00644175388035568	338	0.210488412959687	ok	0.229997106430117
+0	Cofactor autonomy	community_richness	day_35_minus_day_7	0.00844271972999697	0.00629552735533188	338	0.180799397743631	ok	0.20148789241041
+0	Cofactor autonomy	mean_genome_richness	day_21_minus_day_7	-0.0138539205628774	0.0076593375120521	338	0.0713764233227101	ok	0.0850442490653567
+0	Cofactor autonomy	mean_genome_richness	day_35_minus_day_7	0.00714840131585976	0.0074862922187486	338	0.3403281796787	ok	0.359592038905796
+0	Cofactor autonomy	singleton_fraction	day_21_minus_day_7	0.000512168369392962	0.00112275226982208	338	0.648559120676558	ok	0.663366406536753
+0	Cofactor autonomy	singleton_fraction	day_35_minus_day_7	0.000750545878339388	0.00109652109254695	338	0.494141676795273	ok	0.514826677219262
+0	Extracellular processing outputs	community_richness	day_21_minus_day_7	0.0159737776997978	0.0152490483217644	338	0.295605436563963	ok	0.319882211547477
+0	Extracellular processing outputs	community_richness	day_35_minus_day_7	0.0117666418077046	0.0148844728572447	338	0.429771848648148	ok	0.451966638953921
+0	Extracellular processing outputs	mean_genome_richness	day_21_minus_day_7	-0.00607443537606824	0.00187018073002562	338	0.00127857813133129	ok	0.00221199575432218
+0	Extracellular processing outputs	mean_genome_richness	day_35_minus_day_7	-0.00368971447110684	0.00182777149718068	338	0.0443081515167192	ok	0.054533109559039
+0	Extracellular processing outputs	singleton_fraction	day_21_minus_day_7	-0.0138757488567369	0.00472446555825585	338	0.00354139937360894	ok	0.00518479385417257
+0	Extracellular processing outputs	singleton_fraction	day_35_minus_day_7	-0.0142719259779592	0.00461784213682289	338	0.00216338925824514	ok	0.00334206340584077
+0	Fermentation products	community_richness	day_21_minus_day_7					constant_metric	
+0	Fermentation products	community_richness	day_35_minus_day_7					constant_metric	
+0	Fermentation products	mean_genome_richness	day_21_minus_day_7	-0.0149860323427793	0.00382712894446411	338	0.000109042831423554	ok	0.000214259598586633
+0	Fermentation products	mean_genome_richness	day_35_minus_day_7	-0.0263442908397768	0.00373777483760046	338	1.02493861759334e-11	ok	2.94341346590908e-11
+0	Fermentation products	singleton_fraction	day_21_minus_day_7					constant_metric	
+0	Fermentation products	singleton_fraction	day_35_minus_day_7					constant_metric	
+0	Nucleotide autonomy	community_coverage	day_21_minus_day_7					constant_metric	
+0	Nucleotide autonomy	community_coverage	day_35_minus_day_7					constant_metric	
+0	Nucleotide autonomy	community_richness	day_21_minus_day_7					constant_metric	
+0	Nucleotide autonomy	community_richness	day_35_minus_day_7					constant_metric	
+0	Nucleotide autonomy	mean_genome_richness	day_21_minus_day_7	-0.0219542480983019	0.00690158553919826	338	0.00160341295938977	ok	0.00264091546252433
+0	Nucleotide autonomy	mean_genome_richness	day_35_minus_day_7	-0.0172262321556842	0.00674158552917409	338	0.0110494782862491	ok	0.0151845591172994
+0	Nucleotide autonomy	singleton_fraction	day_21_minus_day_7					constant_metric	
+0	Nucleotide autonomy	singleton_fraction	day_35_minus_day_7					constant_metric	
+0	Nutrient uptake	community_richness	day_21_minus_day_7					constant_metric	
+0	Nutrient uptake	community_richness	day_35_minus_day_7					constant_metric	
+0	Nutrient uptake	mean_genome_richness	day_21_minus_day_7	-0.000296320852192309	0.000159668154825946	338	0.0643445349778946	ok	0.0770758066045368
+0	Nutrient uptake	mean_genome_richness	day_35_minus_day_7	-0.000478913774579595	0.000156005167748195	338	0.00231500632121544	ok	0.00355179052022095
+0	Nutrient uptake	singleton_fraction	day_21_minus_day_7					constant_metric	
+0	Nutrient uptake	singleton_fraction	day_35_minus_day_7					constant_metric	
+0	Plant fibre utilisation	community_richness	day_21_minus_day_7					constant_metric	
+0	Plant fibre utilisation	community_richness	day_35_minus_day_7					constant_metric	
+0	Plant fibre utilisation	mean_genome_richness	day_21_minus_day_7	-0.0115872675731624	0.00497820786563181	338	0.0205233866804579	ok	0.0270425800966034
+0	Plant fibre utilisation	mean_genome_richness	day_35_minus_day_7	-0.00476147272492942	0.0048649794974461	338	0.328416306587671	ok	0.350310727026849
+0	Plant fibre utilisation	singleton_fraction	day_21_minus_day_7					constant_metric	
+0	Plant fibre utilisation	singleton_fraction	day_35_minus_day_7					constant_metric	
+0	Short-chain fatty acids	community_richness	day_21_minus_day_7					constant_metric	
+0	Short-chain fatty acids	community_richness	day_35_minus_day_7					constant_metric	
+0	Short-chain fatty acids	mean_genome_richness	day_21_minus_day_7	-0.00628911247302378	0.00175183833443742	338	0.000379631523547238	ok	0.000708645510621511
+0	Short-chain fatty acids	mean_genome_richness	day_35_minus_day_7	-0.0107897018774117	0.00171113280489027	338	8.97679563335242e-10	ok	2.51350277733868e-09
+0	Short-chain fatty acids	singleton_fraction	day_21_minus_day_7					constant_metric	
+0	Short-chain fatty acids	singleton_fraction	day_35_minus_day_7					constant_metric	
+1e-05	All metabolic GIFTs	community_richness	day_21_minus_day_7	-0.562564682139007	0.327302669294357	338	0.0865681793559722	ok	0.102059327240725
+1e-05	All metabolic GIFTs	community_richness	day_35_minus_day_7	-0.946929190357809	0.319915985684127	338	0.00329437975518163	ok	0.00491960710107124
+1e-05	All metabolic GIFTs	mean_genome_richness	day_21_minus_day_7	-2.36670289885698	0.164731108962977	338	7.25686162034697e-37	ok	2.95552182355949e-36
+1e-05	All metabolic GIFTs	mean_genome_richness	day_35_minus_day_7	-2.6431170398023	0.161013398593117	338	6.07338189940996e-45	ok	2.95747292493007e-44
+1e-05	All metabolic GIFTs	singleton_fraction	day_21_minus_day_7	0.00645022371294466	0.00218822334836903	338	0.0034241046567585	ok	0.00506837684680984
+1e-05	All metabolic GIFTs	singleton_fraction	day_35_minus_day_7	0.0163912169122572	0.0021388387442566	338	1.932024325862e-13	ok	5.77031265324118e-13
+1e-05	Amino-acid autonomy	community_coverage	day_21_minus_day_7					constant_metric	
+1e-05	Amino-acid autonomy	community_coverage	day_35_minus_day_7					constant_metric	
+1e-05	Amino-acid autonomy	community_richness	day_21_minus_day_7					constant_metric	
+1e-05	Amino-acid autonomy	community_richness	day_35_minus_day_7					constant_metric	
+1e-05	Amino-acid autonomy	mean_genome_richness	day_21_minus_day_7	-0.891688543850313	0.0616400972339421	338	2.98663995585373e-37	ok	1.23890250020599e-36
+1e-05	Amino-acid autonomy	mean_genome_richness	day_35_minus_day_7	-1.00930207062282	0.0602489815556866	338	2.76498673590883e-46	ok	1.40762961100813e-45
+1e-05	Amino-acid autonomy	singleton_fraction	day_21_minus_day_7					constant_metric	
+1e-05	Amino-acid autonomy	singleton_fraction	day_35_minus_day_7					constant_metric	
+1e-05	Biomass-essential anabolic GIFTs	community_coverage	day_21_minus_day_7	-0.00319467453716327	0.001187823436365	338	0.00751045592843981	ok	0.0105807681004435
+1e-05	Biomass-essential anabolic GIFTs	community_coverage	day_35_minus_day_7	-0.00425741690157817	0.00116061979560814	338	0.000283631598023133	ok	0.000543021179121212
+1e-05	Biomass-essential anabolic GIFTs	community_richness	day_21_minus_day_7	-0.140565679720173	0.0522642310554904	338	0.00751045572879593	ok	0.0105807681004435
+1e-05	Biomass-essential anabolic GIFTs	community_richness	day_35_minus_day_7	-0.187326343948195	0.0510672708554676	338	0.000283631580614124	ok	0.000543021179121212
+1e-05	Biomass-essential anabolic GIFTs	mean_genome_richness	day_21_minus_day_7	-1.32128657293677	0.0925458255017811	338	1.62423279576241e-36	ok	6.49693118304966e-36
+1e-05	Biomass-essential anabolic GIFTs	mean_genome_richness	day_35_minus_day_7	-1.4525554870731	0.0904572183355181	338	1.60433184930825e-43	ok	7.64617732436272e-43
+1e-05	Biomass-essential anabolic GIFTs	singleton_fraction	day_21_minus_day_7	0.000694682797855539	0.00166012150060593	338	0.675881706010728	ok	0.688170464301832
+1e-05	Biomass-essential anabolic GIFTs	singleton_fraction	day_35_minus_day_7	0.00533860771851448	0.00162258131788656	338	0.00110672039560981	ok	0.00195201077650864
+1e-05	Carbohydrate degradation	community_richness	day_21_minus_day_7					constant_metric	
+1e-05	Carbohydrate degradation	community_richness	day_35_minus_day_7					constant_metric	
+1e-05	Carbohydrate degradation	mean_genome_richness	day_21_minus_day_7	-0.194181865717658	0.0143008669052148	338	8.11809487964367e-34	ok	3.08212415769522e-33
+1e-05	Carbohydrate degradation	mean_genome_richness	day_35_minus_day_7	-0.19836763880497	0.0139781198460984	338	3.49875774928937e-36	ok	1.37495041375582e-35
+1e-05	Carbohydrate degradation	singleton_fraction	day_21_minus_day_7	0.0185581934777468	0.00486030557046554	338	0.000159818982386709	ok	0.000311299583083677
+1e-05	Carbohydrate degradation	singleton_fraction	day_35_minus_day_7	0.037891883286855	0.00475061646327857	338	2.35990604452275e-14	ok	7.14349937801481e-14
+1e-05	Cofactor autonomy	community_coverage	day_21_minus_day_7	0.000538791171060619	0.000429450260675919	338	0.21048842329542	ok	0.229997106430117
+1e-05	Cofactor autonomy	community_coverage	day_35_minus_day_7	0.000562847977407221	0.000419701825778055	338	0.180799403457555	ok	0.20148789241041
+1e-05	Cofactor autonomy	community_richness	day_21_minus_day_7	0.00808186771208712	0.00644175388035568	338	0.210488412959687	ok	0.229997106430117
+1e-05	Cofactor autonomy	community_richness	day_35_minus_day_7	0.00844271972999697	0.00629552735533188	338	0.180799397743631	ok	0.20148789241041
+1e-05	Cofactor autonomy	mean_genome_richness	day_21_minus_day_7	-0.163835641041877	0.0137340856914321	338	1.28529583698844e-27	ok	4.64364947557115e-27
+1e-05	Cofactor autonomy	mean_genome_richness	day_35_minus_day_7	-0.146367688805041	0.0134241299535839	338	6.39577780727988e-24	ok	2.10684445416278e-23
+1e-05	Cofactor autonomy	singleton_fraction	day_21_minus_day_7	0.0123753885452682	0.0041709905375878	338	0.00322132793717515	ok	0.00484280173105526
+1e-05	Cofactor autonomy	singleton_fraction	day_35_minus_day_7	0.0289718245686034	0.00407685813743685	338	7.10687761512755e-12	ok	2.06745530621892e-11
+1e-05	Extracellular processing outputs	community_richness	day_21_minus_day_7	0.354567441298878	0.036642090874426	338	1.0393208202786e-19	ok	3.27898399637191e-19
+1e-05	Extracellular processing outputs	community_richness	day_35_minus_day_7	0.358182038249314	0.0358151391139225	338	8.48366854429973e-21	ok	2.71477393417591e-20
+1e-05	Extracellular processing outputs	mean_genome_richness	day_21_minus_day_7	-0.0439165459061052	0.0033209678149094	338	1.83392863297055e-32	ok	6.84666689642339e-32
+1e-05	Extracellular processing outputs	mean_genome_richness	day_35_minus_day_7	-0.0488169590539245	0.00324520635003105	338	1.64929389678958e-39	ok	7.69670485168472e-39
+1e-05	Extracellular processing outputs	singleton_fraction	day_21_minus_day_7	-0.0378253214666311	0.0133546757157741	338	0.00489758257915912	ok	0.00712375647877691
+1e-05	Extracellular processing outputs	singleton_fraction	day_35_minus_day_7	-0.0738773653548553	0.0130472841749733	338	3.19446523415901e-08	ok	8.41835544060728e-08
+1e-05	Fermentation products	community_richness	day_21_minus_day_7	-0.141616441377149	0.0449369837549703	338	0.00176991499803823	ok	0.00277245430303001
+1e-05	Fermentation products	community_richness	day_35_minus_day_7	-0.237909044017907	0.0439228298938465	338	1.15604782496884e-07	ok	2.78445942435806e-07
+1e-05	Fermentation products	mean_genome_richness	day_21_minus_day_7	-0.102988728812783	0.00685860287044335	338	2.10185410855965e-39	ok	9.60847592484411e-39
+1e-05	Fermentation products	mean_genome_richness	day_35_minus_day_7	-0.156736725598679	0.00670381547812338	338	1.33258198856583e-72	ok	2.48748637865622e-71
+1e-05	Fermentation products	singleton_fraction	day_21_minus_day_7	-0.015735160157505	0.00499299820298229	338	0.00176991502241232	ok	0.00277245430303001
+1e-05	Fermentation products	singleton_fraction	day_35_minus_day_7	-0.0264343382230073	0.00488031444117553	338	1.15604788269705e-07	ok	2.78445942435806e-07
+1e-05	Nucleotide autonomy	community_coverage	day_21_minus_day_7					constant_metric	
+1e-05	Nucleotide autonomy	community_coverage	day_35_minus_day_7					constant_metric	
+1e-05	Nucleotide autonomy	community_richness	day_21_minus_day_7					constant_metric	
+1e-05	Nucleotide autonomy	community_richness	day_35_minus_day_7					constant_metric	
+1e-05	Nucleotide autonomy	mean_genome_richness	day_21_minus_day_7	-0.203650136797202	0.0138447706369746	338	3.3435122011939e-38	ok	1.41310704352346e-37
+1e-05	Nucleotide autonomy	mean_genome_richness	day_35_minus_day_7	-0.230191814218524	0.0135323169210887	338	2.57358639680177e-47	ok	1.47816244329127e-46
+1e-05	Nucleotide autonomy	singleton_fraction	day_21_minus_day_7					constant_metric	
+1e-05	Nucleotide autonomy	singleton_fraction	day_35_minus_day_7					constant_metric	
+1e-05	Nutrient uptake	community_richness	day_21_minus_day_7					constant_metric	
+1e-05	Nutrient uptake	community_richness	day_35_minus_day_7					constant_metric	
+1e-05	Nutrient uptake	mean_genome_richness	day_21_minus_day_7	-0.0028036063430875	0.00027591703266272	338	2.42212364220868e-21	ok	7.86312602688036e-21
+1e-05	Nutrient uptake	mean_genome_richness	day_35_minus_day_7	-0.00399861073456801	0.000269690038787861	338	1.16260755548395e-38	ok	5.00815562362315e-38
+1e-05	Nutrient uptake	singleton_fraction	day_21_minus_day_7	0.0472054804675284	0.0149789946000748	338	0.0017699150133856	ok	0.00277245430303001
+1e-05	Nutrient uptake	singleton_fraction	day_35_minus_day_7	0.0793030146703604	0.0146409433140542	338	1.15604786131804e-07	ok	2.78445942435806e-07
+1e-05	Plant fibre utilisation	community_richness	day_21_minus_day_7					constant_metric	
+1e-05	Plant fibre utilisation	community_richness	day_35_minus_day_7					constant_metric	
+1e-05	Plant fibre utilisation	mean_genome_richness	day_21_minus_day_7	-0.117170854535879	0.00890213345107176	338	3.15395582750876e-32	ok	1.15817394321633e-31
+1e-05	Plant fibre utilisation	mean_genome_richness	day_35_minus_day_7	-0.119784386655579	0.00870122693265164	338	1.53708998193493e-34	ok	5.93634751643834e-34
+1e-05	Plant fibre utilisation	singleton_fraction	day_21_minus_day_7	0.0236027402366434	0.00748949730516	338	0.00176991502380934	ok	0.00277245430303001
+1e-05	Plant fibre utilisation	singleton_fraction	day_35_minus_day_7	0.0396515073344074	0.00732047166249632	338	1.1560478860058e-07	ok	2.78445942435806e-07
+1e-05	Short-chain fatty acids	community_richness	day_21_minus_day_7	-0.14161644137715	0.0449369837549714	338	0.00176991499803853	ok	0.00277245430303001
+1e-05	Short-chain fatty acids	community_richness	day_35_minus_day_7	-0.237909044017908	0.0439228298938477	338	1.15604782496961e-07	ok	2.78445942435806e-07
+1e-05	Short-chain fatty acids	mean_genome_richness	day_21_minus_day_7	-0.0414915153716711	0.00276673396191355	338	2.50557718631271e-39	ok	1.12249857946809e-38
+1e-05	Short-chain fatty acids	mean_genome_richness	day_35_minus_day_7	-0.0616261561124478	0.00270429332441001	338	2.7053909841139e-70	ok	4.66159677262704e-69
+1e-05	Short-chain fatty acids	singleton_fraction	day_21_minus_day_7	-0.0472054804675287	0.0149789946000752	338	0.00176991501338605	ok	0.00277245430303001
+1e-05	Short-chain fatty acids	singleton_fraction	day_35_minus_day_7	-0.0793030146703604	0.0146409433140547	338	1.15604786131911e-07	ok	2.78445942435806e-07
+1e-04	All metabolic GIFTs	community_richness	day_21_minus_day_7	-0.39020267631992	0.402305709807595	338	0.332781987924591	ok	0.353285143578713
+1e-04	All metabolic GIFTs	community_richness	day_35_minus_day_7	-0.629970107956975	0.39322633115525	338	0.110077613405553	ok	0.127758473589865
+1e-04	All metabolic GIFTs	mean_genome_richness	day_21_minus_day_7	-4.93534750955067	0.260423647800265	338	4.41456944770833e-55	ok	4.12026481786111e-54
+1e-04	All metabolic GIFTs	mean_genome_richness	day_35_minus_day_7	-6.23070135606672	0.254501851864006	338	7.37621119087696e-77	ok	1.83585700750716e-75
+1e-04	All metabolic GIFTs	singleton_fraction	day_21_minus_day_7	0.016933714336856	0.00348299569321393	338	1.78473822984465e-06	ok	4.2082248787916e-06
+1e-04	All metabolic GIFTs	singleton_fraction	day_35_minus_day_7	0.0120684939514152	0.00340384698779626	338	0.000447034055796874	ok	0.000807545391116934
+1e-04	Amino-acid autonomy	community_coverage	day_21_minus_day_7					constant_metric	
+1e-04	Amino-acid autonomy	community_coverage	day_35_minus_day_7					constant_metric	
+1e-04	Amino-acid autonomy	community_richness	day_21_minus_day_7					constant_metric	
+1e-04	Amino-acid autonomy	community_richness	day_35_minus_day_7					constant_metric	
+1e-04	Amino-acid autonomy	mean_genome_richness	day_21_minus_day_7	-1.84817845501373	0.0984489889349499	338	2.28204529580403e-54	ok	1.82563623664322e-53
+1e-04	Amino-acid autonomy	mean_genome_richness	day_35_minus_day_7	-2.33398864808038	0.096211767594705	338	5.31622242707727e-76	ok	1.19083382366531e-74
+1e-04	Amino-acid autonomy	singleton_fraction	day_21_minus_day_7					constant_metric	
+1e-04	Amino-acid autonomy	singleton_fraction	day_35_minus_day_7					constant_metric	
+1e-04	Biomass-essential anabolic GIFTs	community_coverage	day_21_minus_day_7	0.00256969717307933	0.00151487403476976	338	0.0907477567853889	ok	0.10587238298201
+1e-04	Biomass-essential anabolic GIFTs	community_coverage	day_35_minus_day_7	0.00931843524133812	0.00147997012347332	338	9.46775412524484e-10	ok	2.58631334235489e-09
+1e-04	Biomass-essential anabolic GIFTs	community_richness	day_21_minus_day_7	0.113066675618373	0.0666544575432503	338	0.0907477568417226	ok	0.10587238298201
+1e-04	Biomass-essential anabolic GIFTs	community_richness	day_35_minus_day_7	0.410011150617982	0.0651186854467772	338	9.46775419969201e-10	ok	2.58631334235489e-09
+1e-04	Biomass-essential anabolic GIFTs	mean_genome_richness	day_21_minus_day_7	-2.72587591579052	0.145919371556187	338	5.34076168783446e-54	ok	4.12527799336179e-53
+1e-04	Biomass-essential anabolic GIFTs	mean_genome_richness	day_35_minus_day_7	-3.39558852775833	0.142590159666015	338	2.77997287749196e-74	ok	5.6610356778018e-73
+1e-04	Biomass-essential anabolic GIFTs	singleton_fraction	day_21_minus_day_7	0.00424822187823528	0.00192474184212883	338	0.0279741336292227	ok	0.0356034428008288
+1e-04	Biomass-essential anabolic GIFTs	singleton_fraction	day_35_minus_day_7	0.000634731553136704	0.00188130358267931	338	0.736032928731544	ok	0.746024325954144
+1e-04	Carbohydrate degradation	community_richness	day_21_minus_day_7	8.67704660858573e-05	0.0255537506581414	338	0.997292706886182	ok	0.997292968951937
+1e-04	Carbohydrate degradation	community_richness	day_35_minus_day_7	-0.0549052139159863	0.0249740548149053	338	0.0285915262314506	ok	0.0357793400885191
+1e-04	Carbohydrate degradation	mean_genome_richness	day_21_minus_day_7	-0.39238188830392	0.0216428211564728	338	8.56830245792979e-52	ok	5.99781172055085e-51
+1e-04	Carbohydrate degradation	mean_genome_richness	day_35_minus_day_7	-0.473482572930697	0.0211543782123758	338	1.05311424539873e-68	ok	1.5726506064621e-67
+1e-04	Carbohydrate degradation	singleton_fraction	day_21_minus_day_7	0.0225897078590507	0.00628968759720645	338	0.000377478064864632	ok	0.000708645510621511
+1e-04	Carbohydrate degradation	singleton_fraction	day_35_minus_day_7	0.0115827931334378	0.00614773968740357	338	0.0604131149174687	ok	0.0727555792554462
+1e-04	Cofactor autonomy	community_coverage	day_21_minus_day_7	0.0182586197472069	0.00329972554837828	338	6.30646612858738e-08	ok	1.62373382335462e-07
+1e-04	Cofactor autonomy	community_coverage	day_35_minus_day_7	0.0369474974035256	0.00322358766983104	338	6.47916365538728e-26	ok	2.19898895575514e-25
+1e-04	Cofactor autonomy	community_richness	day_21_minus_day_7	0.273879296198873	0.049495883240371	338	6.30646618892195e-08	ok	1.62373382335462e-07
+1e-04	Cofactor autonomy	community_richness	day_35_minus_day_7	0.554212461020041	0.0483538150627752	338	6.47916388749283e-26	ok	2.19898895575514e-25
+1e-04	Cofactor autonomy	mean_genome_richness	day_21_minus_day_7	-0.389836429294986	0.0213189181366116	338	2.03271383503202e-52	ok	1.46879967434572e-51
+1e-04	Cofactor autonomy	mean_genome_richness	day_35_minus_day_7	-0.462637139050657	0.0208322496726791	338	5.10231220789699e-68	ok	7.14323709105578e-67
+1e-04	Cofactor autonomy	singleton_fraction	day_21_minus_day_7	0.0224946339643744	0.00526094265462066	338	2.48134443194595e-05	ok	5.50317973025636e-05
+1e-04	Cofactor autonomy	singleton_fraction	day_35_minus_day_7	0.0103193160464029	0.00514221182707234	338	0.0455685235392546	ok	0.0557778648786504
+1e-04	Extracellular processing outputs	community_richness	day_21_minus_day_7	0.524872520376351	0.0454292252085739	338	3.01046093704556e-26	ok	1.07038611094953e-25
+1e-04	Extracellular processing outputs	community_richness	day_35_minus_day_7	0.661253977636231	0.0443709529736676	338	5.84486750996452e-39	ok	2.56715749457265e-38
+1e-04	Extracellular processing outputs	mean_genome_richness	day_21_minus_day_7	-0.0834656821123314	0.00494906059022835	338	9.81136395001344e-47	ok	5.49436381200752e-46
+1e-04	Extracellular processing outputs	mean_genome_richness	day_35_minus_day_7	-0.103271844052352	0.00483489984674393	338	1.12747767437469e-64	ok	1.32923683715753e-63
+1e-04	Extracellular processing outputs	singleton_fraction	day_21_minus_day_7	0.0218501632462678	0.0161545588677797	338	0.17709735664735	ok	0.201369583192925
+1e-04	Extracellular processing outputs	singleton_fraction	day_35_minus_day_7	-0.0234857436517916	0.0157899770292837	338	0.137845950901742	ok	0.158346117958925
+1e-04	Fermentation products	community_richness	day_21_minus_day_7	-0.162063040538638	0.0502734756142684	338	0.00138914810163152	ok	0.00233961787386614
+1e-04	Fermentation products	community_richness	day_35_minus_day_7	-0.194790325746624	0.0491388859026862	338	8.99399346669669e-05	ok	0.000180221624897846
+1e-04	Fermentation products	mean_genome_richness	day_21_minus_day_7	-0.16536020812508	0.00947988242656583	338	4.79585574306779e-49	ok	2.9034369903978e-48
+1e-04	Fermentation products	mean_genome_richness	day_35_minus_day_7	-0.263086169697085	0.00926488010388398	338	1.59945053276493e-91	ok	3.58276919339345e-89
+1e-04	Fermentation products	singleton_fraction	day_21_minus_day_7	-0.0170501255380858	0.00570002831206283	338	0.0029825973789891	ok	0.00454491029179291
+1e-04	Fermentation products	singleton_fraction	day_35_minus_day_7	-0.0199376810574547	0.00557062729550962	338	0.000395261375327055	ok	0.000726171359744938
+1e-04	Nucleotide autonomy	community_coverage	day_21_minus_day_7					constant_metric	
+1e-04	Nucleotide autonomy	community_coverage	day_35_minus_day_7					constant_metric	
+1e-04	Nucleotide autonomy	community_richness	day_21_minus_day_7					constant_metric	
+1e-04	Nucleotide autonomy	community_richness	day_35_minus_day_7					constant_metric	
+1e-04	Nucleotide autonomy	mean_genome_richness	day_21_minus_day_7	-0.364913474895643	0.0202711221563708	338	2.79476086454232e-51	ok	1.89704979896206e-50
+1e-04	Nucleotide autonomy	mean_genome_richness	day_35_minus_day_7	-0.448817564950668	0.0198022821213879	338	8.21539724778924e-70	ok	1.31446355964628e-68
+1e-04	Nucleotide autonomy	singleton_fraction	day_21_minus_day_7					constant_metric	
+1e-04	Nucleotide autonomy	singleton_fraction	day_35_minus_day_7					constant_metric	
+1e-04	Nutrient uptake	community_richness	day_21_minus_day_7	4.33810301454803e-05	0.0127768743882936	338	0.997292968951937	ok	0.997292968951937
+1e-04	Nutrient uptake	community_richness	day_35_minus_day_7	-0.0274526140311322	0.0124870264171402	338	0.028591473006358	ok	0.0357793400885191
+1e-04	Nutrient uptake	mean_genome_richness	day_21_minus_day_7	-0.00597566696763975	0.000517505548538803	338	3.18013762901333e-26	ok	1.11304817015467e-25
+1e-04	Nutrient uptake	mean_genome_richness	day_35_minus_day_7	-0.0084378456187113	0.00050582629895656	338	5.30098831100345e-46	ok	2.63871418147728e-45
+1e-04	Nutrient uptake	singleton_fraction	day_21_minus_day_7	0.0393010073899656	0.0253427015923559	338	0.121889713368304	ok	0.14073863811598
+1e-04	Nutrient uptake	singleton_fraction	day_35_minus_day_7	0.0803826447296051	0.0247570193013301	338	0.00128374753599055	ok	0.00221199575432218
+1e-04	Plant fibre utilisation	community_richness	day_21_minus_day_7	8.67704175144062e-05	0.0255537506472693	338	0.997292708400484	ok	0.997292968951937
+1e-04	Plant fibre utilisation	community_richness	day_35_minus_day_7	-0.0549052139977277	0.0249740548034608	338	0.0285915259239005	ok	0.0357793400885191
+1e-04	Plant fibre utilisation	mean_genome_richness	day_21_minus_day_7	-0.235501535371729	0.0134575865945254	338	2.85645293371594e-49	ok	1.77734849208992e-48
+1e-04	Plant fibre utilisation	mean_genome_richness	day_35_minus_day_7	-0.287313979375451	0.0131528587487639	338	1.37568614132289e-66	ok	1.8126687979784e-65
+1e-04	Plant fibre utilisation	singleton_fraction	day_21_minus_day_7	0.0206955665913752	0.00978251108836323	338	0.0351126352905296	ok	0.0434543110777825
+1e-04	Plant fibre utilisation	singleton_fraction	day_35_minus_day_7	0.0304591705414391	0.00956029385018982	338	0.00157695195333568	ok	0.00263609878766562
+1e-04	Short-chain fatty acids	community_richness	day_21_minus_day_7	-0.162063040538643	0.0502734756142755	338	0.00138914810163318	ok	0.00233961787386614
+1e-04	Short-chain fatty acids	community_richness	day_35_minus_day_7	-0.194790325746612	0.0491388859026936	338	8.99399346672732e-05	ok	0.000180221624897846
+1e-04	Short-chain fatty acids	mean_genome_richness	day_21_minus_day_7	-0.0720147466225947	0.00386770423695362	338	9.38780830830232e-54	ok	7.00956353686573e-53
+1e-04	Short-chain fatty acids	mean_genome_richness	day_35_minus_day_7	-0.106125827545274	0.00378041651013099	338	2.43620303194483e-90	ok	1.81903159718547e-88
+1e-04	Short-chain fatty acids	singleton_fraction	day_21_minus_day_7	-0.0540210135226266	0.0167578252199094	338	0.00138914811260802	ok	0.00233961787386614
+1e-04	Short-chain fatty acids	singleton_fraction	day_35_minus_day_7	-0.0649301085557544	0.0163796286503788	338	8.99399366561841e-05	ok	0.000180221624897846
+0.001	All metabolic GIFTs	community_richness	day_21_minus_day_7	-3.31603769533285	0.957184786606864	338	0.000599904157557412	ok	0.00106649628010207
+0.001	All metabolic GIFTs	community_richness	day_35_minus_day_7	-2.95012042441475	0.935582699229037	338	0.0017593579039236	ok	0.00277245430303001
+0.001	All metabolic GIFTs	mean_genome_richness	day_21_minus_day_7	-6.78639313305132	0.346705231206204	338	1.42891758013895e-57	ok	1.39164146935272e-56
+0.001	All metabolic GIFTs	mean_genome_richness	day_35_minus_day_7	-8.8619862552019	0.338880663688746	338	3.33706643849441e-83	ok	1.4950057644455e-81
+0.001	All metabolic GIFTs	singleton_fraction	day_21_minus_day_7	-0.0167761186508488	0.00602727722718158	338	0.00568234811233853	ok	0.00821190953008923
+0.001	All metabolic GIFTs	singleton_fraction	day_35_minus_day_7	-0.0213534773839972	0.00588891603007194	338	0.000332128021487158	ok	0.000630480311975622
+0.001	Amino-acid autonomy	community_coverage	day_21_minus_day_7					constant_metric	
+0.001	Amino-acid autonomy	community_coverage	day_35_minus_day_7					constant_metric	
+0.001	Amino-acid autonomy	community_richness	day_21_minus_day_7					constant_metric	
+0.001	Amino-acid autonomy	community_richness	day_35_minus_day_7					constant_metric	
+0.001	Amino-acid autonomy	mean_genome_richness	day_21_minus_day_7	-2.47470866630019	0.131693381528019	338	1.92454166819269e-54	ok	1.59665679138949e-53
+0.001	Amino-acid autonomy	mean_genome_richness	day_35_minus_day_7	-3.3185092185369	0.128718650991566	338	8.26685651929384e-82	ok	3.08629310053637e-80
+0.001	Amino-acid autonomy	singleton_fraction	day_21_minus_day_7					constant_metric	
+0.001	Amino-acid autonomy	singleton_fraction	day_35_minus_day_7					constant_metric	
+0.001	Biomass-essential anabolic GIFTs	community_coverage	day_21_minus_day_7	-0.00229755433885251	0.00234060924234525	338	0.326996445758624	ok	0.350310727026849
+0.001	Biomass-essential anabolic GIFTs	community_coverage	day_35_minus_day_7	0.0090594220607944	0.00228693458088897	338	9.09153732743601e-05	ok	0.000180221624897846
+0.001	Biomass-essential anabolic GIFTs	community_richness	day_21_minus_day_7	-0.101092390682167	0.102986805702144	338	0.32699644233715	ok	0.350310727026849
+0.001	Biomass-essential anabolic GIFTs	community_richness	day_35_minus_day_7	0.398614569769586	0.100625120554196	338	9.09153621540588e-05	ok	0.000180221624897846
+0.001	Biomass-essential anabolic GIFTs	mean_genome_richness	day_21_minus_day_7	-3.6663393470632	0.193699877630317	338	5.47109122064205e-55	ok	4.77289110381494e-54
+0.001	Biomass-essential anabolic GIFTs	mean_genome_richness	day_35_minus_day_7	-4.78127490644117	0.189303954406829	338	8.02650115762955e-80	ok	2.56848037044146e-78
+0.001	Biomass-essential anabolic GIFTs	singleton_fraction	day_21_minus_day_7	-0.00967674498205762	0.00328437401393514	338	0.00343925571747811	ok	0.00506837684680984
+0.001	Biomass-essential anabolic GIFTs	singleton_fraction	day_35_minus_day_7	-0.0131410091219731	0.00321025109138132	338	5.32102712139678e-05	ok	0.000114335990448878
+0.001	Carbohydrate degradation	community_richness	day_21_minus_day_7	-0.434235921912531	0.136404078637712	338	0.00159052249312083	ok	0.00263908917377087
+0.001	Carbohydrate degradation	community_richness	day_35_minus_day_7	-0.337456418789979	0.133325662788732	338	0.0118245525339594	ok	0.0161506083390666
+0.001	Carbohydrate degradation	mean_genome_richness	day_21_minus_day_7	-0.544506624663961	0.0308198127759823	338	6.08311724536447e-50	ok	3.89319503703326e-49
+0.001	Carbohydrate degradation	mean_genome_richness	day_35_minus_day_7	-0.635376916460042	0.0301242602632209	338	1.29594691257609e-63	ok	1.45146054208522e-62
+0.001	Carbohydrate degradation	singleton_fraction	day_21_minus_day_7	-0.0168319817478758	0.00707101654985442	338	0.0178467867641659	ok	0.0239382050010369
+0.001	Carbohydrate degradation	singleton_fraction	day_35_minus_day_7	-0.0206337164920762	0.00690872421658791	338	0.00302682139354308	ok	0.00458113508211925
+0.001	Cofactor autonomy	community_coverage	day_21_minus_day_7	-0.00411525025086817	0.00659288641936856	338	0.532920246102957	ok	0.550111221783697
+0.001	Cofactor autonomy	community_coverage	day_35_minus_day_7	0.0263662209828238	0.00644383210261939	338	5.35949955229114e-05	ok	0.000114335990448878
+0.001	Cofactor autonomy	community_richness	day_21_minus_day_7	-0.0617287533427493	0.098893295271895	338	0.532920244673404	ok	0.550111221783697
+0.001	Cofactor autonomy	community_richness	day_35_minus_day_7	0.395493313553391	0.0966574804647584	338	5.35949882153905e-05	ok	0.000114335990448878
+0.001	Cofactor autonomy	mean_genome_richness	day_21_minus_day_7	-0.582841711567035	0.0292389099244532	338	5.23168113637094e-59	ok	5.32680261157769e-58
+0.001	Cofactor autonomy	mean_genome_richness	day_35_minus_day_7	-0.709496880701942	0.0285761472740033	338	3.47126069815629e-78	ok	9.7195299548376e-77
+0.001	Cofactor autonomy	singleton_fraction	day_21_minus_day_7	-0.0251861657863996	0.00953657589253214	338	0.00864981347310296	ok	0.0119602359134263
+0.001	Cofactor autonomy	singleton_fraction	day_35_minus_day_7	-0.0422816689919263	0.00932135105102612	338	7.97439251428831e-06	ok	1.8043069931319e-05
+0.001	Extracellular processing outputs	community_richness	day_21_minus_day_7	0.312220589521236	0.0512834220321002	338	3.10172696816e-09	ok	8.37092579358843e-09
+0.001	Extracellular processing outputs	community_richness	day_35_minus_day_7	0.41749528197109	0.0500852298439922	338	1.96577418666594e-15	ok	6.03196462757767e-15
+0.001	Extracellular processing outputs	mean_genome_richness	day_21_minus_day_7	-0.134649899441232	0.00803139458859578	338	2.44792847899818e-46	ok	1.27519995185021e-45
+0.001	Extracellular processing outputs	mean_genome_richness	day_35_minus_day_7	-0.148576293120106	0.00785013921504728	338	5.53996288835663e-55	ok	4.77289110381494e-54
+0.001	Extracellular processing outputs	singleton_fraction	day_21_minus_day_7	0.0775986333288824	0.0160215329208526	338	1.94673723743367e-06	ok	4.54238688734522e-06
+0.001	Extracellular processing outputs	singleton_fraction	day_35_minus_day_7	0.112167176554867	0.0156400261963367	338	4.70091911133058e-12	ok	1.38553405386586e-11
+0.001	Fermentation products	community_richness	day_21_minus_day_7	-0.494606409377009	0.102201239513306	338	1.98244125354136e-06	ok	4.5780086679718e-06
+0.001	Fermentation products	community_richness	day_35_minus_day_7	-0.641673943829147	0.0998474819228185	338	4.44141721586217e-10	ok	1.25933855234573e-09
+0.001	Fermentation products	mean_genome_richness	day_21_minus_day_7	-0.279815535307365	0.0156205121318759	338	6.30735013075617e-51	ok	4.15543067438053e-50
+0.001	Fermentation products	mean_genome_richness	day_35_minus_day_7	-0.426805106944421	0.0152679828400698	338	6.6132709692941e-90	ok	3.7034317428047e-88
+0.001	Fermentation products	singleton_fraction	day_21_minus_day_7	0.0574224931168258	0.0135080597103615	338	2.75700947792303e-05	ok	6.05460904955647e-05
+0.001	Fermentation products	singleton_fraction	day_35_minus_day_7	0.0577686632017758	0.0132032050066192	338	1.61745066024439e-05	ok	3.62308947894744e-05
+0.001	Nucleotide autonomy	community_coverage	day_21_minus_day_7					constant_metric	
+0.001	Nucleotide autonomy	community_coverage	day_35_minus_day_7					constant_metric	
+0.001	Nucleotide autonomy	community_richness	day_21_minus_day_7					constant_metric	
+0.001	Nucleotide autonomy	community_richness	day_35_minus_day_7					constant_metric	
+0.001	Nucleotide autonomy	mean_genome_richness	day_21_minus_day_7	-0.468517038022382	0.0271213667689068	338	2.26164034576263e-48	ok	1.33317746697587e-47
+0.001	Nucleotide autonomy	mean_genome_richness	day_35_minus_day_7	-0.577567730564827	0.0264957730346341	338	2.0837098777558e-66	ok	2.59306118120722e-65
+0.001	Nucleotide autonomy	singleton_fraction	day_21_minus_day_7					constant_metric	
+0.001	Nucleotide autonomy	singleton_fraction	day_35_minus_day_7					constant_metric	
+0.001	Nutrient uptake	community_richness	day_21_minus_day_7	-0.472663273109544	0.134518434386079	338	0.000501958934319253	ok	0.000899510410300101
+0.001	Nutrient uptake	community_richness	day_35_minus_day_7	-0.530499108561646	0.131482574433424	338	6.7634351453992e-05	ok	0.000140278654867539
+0.001	Nutrient uptake	mean_genome_richness	day_21_minus_day_7	-0.0132900067052486	0.00146224191423351	338	8.65906201139962e-18	ok	2.69393040354655e-17
+0.001	Nutrient uptake	mean_genome_richness	day_35_minus_day_7	-0.0163130270012642	0.00142924151788014	338	9.64133985184412e-26	ok	3.22337332360162e-25
+0.001	Nutrient uptake	singleton_fraction	day_21_minus_day_7	0.149833585696717	0.0294376537838507	287	6.49146391055077e-07	ok	1.54690203825891e-06
+0.001	Nutrient uptake	singleton_fraction	day_35_minus_day_7	0.170248443347412	0.0287546213275702	287	9.13578714927124e-09	ok	2.43620990647233e-08
+0.001	Plant fibre utilisation	community_richness	day_21_minus_day_7	-0.51054920740733	0.155535792946513	338	0.00113632472445594	ok	0.00198856826779789
+0.001	Plant fibre utilisation	community_richness	day_35_minus_day_7	-0.544085402621578	0.152025605757655	338	0.000395504044146796	ok	0.000726171359744938
+0.001	Plant fibre utilisation	mean_genome_richness	day_21_minus_day_7	-0.321160519450033	0.0191499665539267	338	2.3301256389621e-46	ok	1.24273367411312e-45
+0.001	Plant fibre utilisation	mean_genome_richness	day_35_minus_day_7	-0.374566748128033	0.0187177832879743	338	2.5675088346675e-59	ok	2.738676090312e-58
+0.001	Plant fibre utilisation	singleton_fraction	day_21_minus_day_7	-0.0267255040277808	0.0119668830804012	338	0.0261839904359045	ok	0.0337081256186356
+0.001	Plant fibre utilisation	singleton_fraction	day_35_minus_day_7	-0.0290391863557031	0.011696810198442	338	0.0135254244040155	ok	0.0182511750993945
+0.001	Short-chain fatty acids	community_richness	day_21_minus_day_7	-0.0403475142217705	0.0178464294789098	338	0.0244060574654294	ok	0.0316009071278197
+0.001	Short-chain fatty acids	community_richness	day_35_minus_day_7	-0.040586521118489	0.0174364551660673	338	0.0205188801386469	ok	0.0270425800966034
+0.001	Short-chain fatty acids	mean_genome_richness	day_21_minus_day_7	-0.109675867378038	0.0065160893313867	338	1.33368378714104e-46	ok	7.28646751999006e-46
+0.001	Short-chain fatty acids	mean_genome_richness	day_35_minus_day_7	-0.179186386211008	0.00636744357530181	338	1.36722446513219e-90	ok	1.53129140094805e-88
+0.001	Short-chain fatty acids	singleton_fraction	day_21_minus_day_7	-0.0134491713595167	0.00594880981660155	338	0.0244060577371108	ok	0.0316009071278197
+0.001	Short-chain fatty acids	singleton_fraction	day_35_minus_day_7	-0.0135288403550288	0.00581215171188881	338	0.0205188800850567	ok	0.0270425800966034

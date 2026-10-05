@@ -34,7 +34,7 @@ begun asking gifter to claim something it does not claim.
 | `18-priority3-flagellar-annotation.R` | Checksum-pinned structural-pilot audit of PAO1's complete flagellar-marker evidence and component trace; no microscopy, motility or assay input | database-only evidence |
 | `19-phenotype-validation-coverage.R` | Checksum-pinned audit of which GIFTs have usable, frame-only, related, refused or no current public phenotype/genome evidence; no new score | R9 validation scope |
 | `20-figures-core.R` | Figures 1–5 plus the purine, frame and four-genome community trace tables; all values are derived through the public API | R1–R5, M4 |
-| `21-r10-chicken.R` | Figure 7 and the 822-MAG × 388-sample chicken caecal case study: Drakkar marker audit, completeness-aware traits, detection sensitivity, age contrasts and exact extracellular-anchor-compatible topology | R10 |
+| `21-r10-chicken.R` | Figure 7 and the 822-MAG × 388-sample chicken caecal case study: checksum-verified Drakkar or giftag marker input, completeness-aware traits, detection sensitivity, age contrasts and exact extracellular-anchor-compatible topology | R10 |
 | `22-r10-handoff-bimodality.R` | R10 follow-up: every exact extracellular handoff, provider/recipient presence and abundance axes, confidence and detection sensitivity, detected-count-matched null, and the `cmag_510` richness-mode diagnostic with Figure S3 | R10 |
 | `23-gtdb-phylogeny.R` | A locked 696-genome, origin-balanced panel from the GTDB R232 bac120 tree, current GIFT calls after Drakkar annotation, and Figure S4 | R6.1 |
 | `24-r10-reference-frame-time.R` | R10 follow-up across all 19 database-defined reference frames: temporal change, equivalence-based stability, detection and confidence sensitivity, the classification heatmap (Figure S5), adjusted three-day trajectories (Figure S6), frame-to-GIFT decomposition (Figure S7), and carrier-abundance sensitivity (Figure S8) | R10 |
@@ -45,6 +45,11 @@ begun asking gifter to claim something it does not claim.
 | `29-gtdb-near-misses-and-gift-signal.R` | GTDB overview follow-up: unsupported GIFTs one requirement short, by lineage and by missing requirement, as ranked curation candidates; Fritz and Purvis's D for each GIFT; and Figures S16 and S17 | R6.1 |
 | `30-gtdb-near-miss-steps.R` | GTDB overview follow-up: for each implementation, whether its near misses lack the same requirement, and whether the requirements present are specific to the GIFT or shared with others (read from the database source); ranked curation candidates and Figure S18 | R6.1 |
 | `31-r10-size-expectation.R` | R10 follow-up joining the GTDB overview: a per-frame size expectation fitted to the GTDB panel is applied to the 822 chicken MAGs, each sample's mean per-MAG richness is split into a size-expected part and a deviation, the R10 age model is fitted to each, and the contrast is partitioned by taxonomic rank (Figure S19) | R10, R6.1 |
+| `33-r10-giftag-compare.R` | Compare the Drakkar and giftag R10 GIFT calls and sample metrics after both are evaluated with the same gifter database | R10 benchmark |
+| `34-r10-giftag-markers.py` | Compare per-MAG marker presence within the exact gifter marker vocabulary; preserve the genome rather than gene as the comparison unit | R10 benchmark |
+| `35-r10-giftag-resources.py` | Summarize measured wall time, actual CPU time, throughput, memory and Drakkar job accounting for the same 822-MAG annotation workload | R10 benchmark |
+| `36-r10-giftag-genome-timing.py` | Extract giftag elapsed time per MAG and join each MAG to the original Drakkar Slurm CPU and retry accounting | R10 benchmark |
+| `36-r10-gifter-resources.R` | Measure uncached gifter input loading, genome evaluation, dataset assembly, sample traits and sample network on the 822-MAG × 388-sample R10 case; `_r10-gifter-benchmark-worker.R` runs the workload in a fresh process | M5 technical benchmark |
 
 The curated inputs live with the other consulted evidence, in
 `data-raw/reference/`: `phenotype-crosswalk.tsv` maps an observation to
@@ -226,6 +231,13 @@ annotation and transfer scripts live under `r10-chicken/`; their README pins the
 Zenodo snapshot, Git commit, MAG identities, Mjolnir layout and Drakkar
 workflow. The remote run uses the existing shared Drakkar 2.6.6 conda
 environment. It does not install or update Drakkar.
+
+The giftag rerun uses the same MAG checksum ledger on Mjolnir and an existing
+giftag 0.2.0 environment. Its eight-CPU full annotation, Slurm accounting,
+verified transfer and isolated local rerun are documented in
+`r10-chicken/README.md`. The original Drakkar run is reevaluated against the
+same current gifter database in a separate output directory before output
+concordance is calculated.
 
 The fetched `gifter_input.tsv.xz`, generated annotation manifest and QC table
 live in the ignored `.cache/r10-chicken/drakkar/` directory. The script verifies

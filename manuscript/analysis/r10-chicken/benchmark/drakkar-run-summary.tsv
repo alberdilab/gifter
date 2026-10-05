@@ -1,0 +1,10 @@
+metric	value
+slurm_jobs	5784
+completed_jobs	5757
+failed_or_cancelled_jobs	27
+first_slurm_start	2026-10-02T09:31:12
+last_slurm_end	2026-10-03T02:43:22
+slurm_workflow_span_seconds	61930
+sum_elapsed_job_seconds	3070199
+sum_allocated_core_seconds	3071393
+sum_actual_cpu_seconds	4998517.43

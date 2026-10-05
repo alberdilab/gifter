@@ -6,6 +6,26 @@ those tasks: the current `manuscript.md`, `manuscript/analysis/README.md`, the R
 case-study directory and `inst/doc/proposal-phenotype-validation.md` are the
 source of truth.
 
+## Active chicken giftag benchmark (2026-10-05)
+
+Mjolnir pilot job `45861710` passed, full 822-MAG giftag job `45861711`
+is running, and transfer job `45861732` depends on its success. They use the
+same verified FASTAs as the completed Drakkar R10 run. The original
+Drakkar per-job accounting is saved in `analysis/r10-chicken/benchmark/`.
+After `transfer/transfer.complete` appears, run
+`bash manuscript/analysis/r10-chicken/fetch-and-rerun-giftag.sh` from the
+repository root, then analysis scripts `33-r10-giftag-compare.R`,
+`34-r10-giftag-markers.py`, `35-r10-giftag-resources.py` and
+`36-r10-giftag-genome-timing.py`. The fetch
+script reruns Figure 7 and all R10 metrics in isolated giftag directories.
+The `monitor-giftag-benchmark.sh` wrapper runs this sequence automatically
+if its local process remains active; check for
+`analysis/.cache/r10-chicken/giftag-monitor/complete` before repeating it.
+The Drakkar reevaluation against the same current gifter database completed
+in `output/r10-drakkar-current/`. The case-study README documents
+the annotation scope and timing limits. Do not report a final speed ratio
+until the full giftag run and its checksum-verified transfer finish.
+
 ## Current priorities
 
 1. **Monitor the active Microflora Danica environmental run.** Mjolnir

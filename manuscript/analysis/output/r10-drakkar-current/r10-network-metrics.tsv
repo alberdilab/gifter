@@ -1,0 +1,1165 @@
+sample_id	detection	trial	pen	sampling_time	metric_id	value	unit	numerator	denominator	assessable	reference_frame	database_version
+CA01.01	0.001	CA	CA01	7	interaction_density	0.304450338933098	proportion	4132	13572	13	Plant fibre utilisation	2026.39.1
+CA01.01	0.001	CA	CA01	7	handoff_edges	4268	count	4268		13	Plant fibre utilisation	2026.39.1
+CA01.01	0.001	CA	CA01	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA01.03	0.001	CA	CA01	7	interaction_density	0.357612903225806	proportion	5543	15500	13	Plant fibre utilisation	2026.39.1
+CA01.03	0.001	CA	CA01	7	handoff_edges	5701	count	5701		13	Plant fibre utilisation	2026.39.1
+CA01.03	0.001	CA	CA01	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA01.06	0.001	CA	CA01	7	interaction_density	0.244761573268361	proportion	7032	28730	13	Plant fibre utilisation	2026.39.1
+CA01.06	0.001	CA	CA01	7	handoff_edges	7212	count	7212		13	Plant fibre utilisation	2026.39.1
+CA01.06	0.001	CA	CA01	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA01.07	0.001	CA	CA01	21	interaction_density	0.214355707986281	proportion	5250	24492	13	Plant fibre utilisation	2026.39.1
+CA01.07	0.001	CA	CA01	21	handoff_edges	5417	count	5417		13	Plant fibre utilisation	2026.39.1
+CA01.07	0.001	CA	CA01	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA01.09	0.001	CA	CA01	21	interaction_density	0.219336219336219	proportion	5168	23562	13	Plant fibre utilisation	2026.39.1
+CA01.09	0.001	CA	CA01	21	handoff_edges	5168	count	5168		13	Plant fibre utilisation	2026.39.1
+CA01.09	0.001	CA	CA01	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA01.10	0.001	CA	CA01	21	interaction_density	0.245719285089364	proportion	3932	16002	13	Plant fibre utilisation	2026.39.1
+CA01.10	0.001	CA	CA01	21	handoff_edges	4072	count	4072		13	Plant fibre utilisation	2026.39.1
+CA01.10	0.001	CA	CA01	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA01.11	0.001	CA	CA01	21	interaction_density	0.280660377358491	proportion	7140	25440	13	Plant fibre utilisation	2026.39.1
+CA01.11	0.001	CA	CA01	21	handoff_edges	7319	count	7319		13	Plant fibre utilisation	2026.39.1
+CA01.11	0.001	CA	CA01	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA01.15	0.001	CA	CA01	35	interaction_density	0.246808183356407	proportion	9627	39006	13	Plant fibre utilisation	2026.39.1
+CA01.15	0.001	CA	CA01	35	handoff_edges	9843	count	9843		13	Plant fibre utilisation	2026.39.1
+CA01.15	0.001	CA	CA01	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA01.16	0.001	CA	CA01	35	interaction_density	0.22873208779249	proportion	5044	22052	13	Plant fibre utilisation	2026.39.1
+CA01.16	0.001	CA	CA01	35	handoff_edges	5203	count	5203		13	Plant fibre utilisation	2026.39.1
+CA01.16	0.001	CA	CA01	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA01.18	0.001	CA	CA01	35	interaction_density	0.217267694149334	proportion	5808	26732	13	Plant fibre utilisation	2026.39.1
+CA01.18	0.001	CA	CA01	35	handoff_edges	5808	count	5808		13	Plant fibre utilisation	2026.39.1
+CA01.18	0.001	CA	CA01	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA02.01	0.001	CA	CA02	7	interaction_density	0.267628205128205	proportion	5511	20592	13	Plant fibre utilisation	2026.39.1
+CA02.01	0.001	CA	CA02	7	handoff_edges	5668	count	5668		13	Plant fibre utilisation	2026.39.1
+CA02.01	0.001	CA	CA02	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA02.04	0.001	CA	CA02	7	interaction_density	0.290489130434783	proportion	7483	25760	13	Plant fibre utilisation	2026.39.1
+CA02.04	0.001	CA	CA02	7	handoff_edges	7671	count	7671		13	Plant fibre utilisation	2026.39.1
+CA02.04	0.001	CA	CA02	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA02.08	0.001	CA	CA02	21	interaction_density	0.169484140815615	proportion	3890	22952	13	Plant fibre utilisation	2026.39.1
+CA02.08	0.001	CA	CA02	21	handoff_edges	3890	count	3890		13	Plant fibre utilisation	2026.39.1
+CA02.08	0.001	CA	CA02	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA02.11	0.001	CA	CA02	21	interaction_density	0.190739886171358	proportion	7440	39006	13	Plant fibre utilisation	2026.39.1
+CA02.11	0.001	CA	CA02	21	handoff_edges	7637	count	7637		13	Plant fibre utilisation	2026.39.1
+CA02.11	0.001	CA	CA02	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA02.12	0.001	CA	CA02	21	interaction_density	0.217245635690354	proportion	2464	11342	13	Plant fibre utilisation	2026.39.1
+CA02.12	0.001	CA	CA02	21	handoff_edges	2573	count	2573		13	Plant fibre utilisation	2026.39.1
+CA02.12	0.001	CA	CA02	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA02.14	0.001	CA	CA02	35	interaction_density	0.2214499572284	proportion	6213	28056	13	Plant fibre utilisation	2026.39.1
+CA02.14	0.001	CA	CA02	35	handoff_edges	6213	count	6213		13	Plant fibre utilisation	2026.39.1
+CA02.14	0.001	CA	CA02	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA02.15	0.001	CA	CA02	35	interaction_density	0.147084100675261	proportion	4792	32580	13	Plant fibre utilisation	2026.39.1
+CA02.15	0.001	CA	CA02	35	handoff_edges	4958	count	4958		13	Plant fibre utilisation	2026.39.1
+CA02.15	0.001	CA	CA02	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA02.17	0.001	CA	CA02	35	interaction_density	0.214441535776614	proportion	7864	36672	13	Plant fibre utilisation	2026.39.1
+CA02.17	0.001	CA	CA02	35	handoff_edges	8060	count	8060		13	Plant fibre utilisation	2026.39.1
+CA02.17	0.001	CA	CA02	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA02.18	0.001	CA	CA02	35	interaction_density	0.233812260536398	proportion	4882	20880	13	Plant fibre utilisation	2026.39.1
+CA02.18	0.001	CA	CA02	35	handoff_edges	4882	count	4882		13	Plant fibre utilisation	2026.39.1
+CA02.18	0.001	CA	CA02	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA03.01	0.001	CA	CA03	7	interaction_density	0.259016745384285	proportion	4826	18632	13	Plant fibre utilisation	2026.39.1
+CA03.01	0.001	CA	CA03	7	handoff_edges	4975	count	4975		13	Plant fibre utilisation	2026.39.1
+CA03.01	0.001	CA	CA03	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA03.03	0.001	CA	CA03	7	interaction_density	0.296220555934257	proportion	7822	26406	13	Plant fibre utilisation	2026.39.1
+CA03.03	0.001	CA	CA03	7	handoff_edges	8012	count	8012		13	Plant fibre utilisation	2026.39.1
+CA03.03	0.001	CA	CA03	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA03.04	0.001	CA	CA03	7	interaction_density	0.308619374523265	proportion	4046	13110	13	Plant fibre utilisation	2026.39.1
+CA03.04	0.001	CA	CA03	7	handoff_edges	4183	count	4183		13	Plant fibre utilisation	2026.39.1
+CA03.04	0.001	CA	CA03	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA03.07	0.001	CA	CA03	21	interaction_density	0.145276292335116	proportion	3423	23562	13	Plant fibre utilisation	2026.39.1
+CA03.07	0.001	CA	CA03	21	handoff_edges	3423	count	3423		13	Plant fibre utilisation	2026.39.1
+CA03.07	0.001	CA	CA03	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA03.10	0.001	CA	CA03	21	interaction_density	0.284154167996312	proportion	16028	56406	13	Plant fibre utilisation	2026.39.1
+CA03.10	0.001	CA	CA03	21	handoff_edges	16306	count	16306		13	Plant fibre utilisation	2026.39.1
+CA03.10	0.001	CA	CA03	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA03.14	0.001	CA	CA03	35	interaction_density	0.186703793943613	proportion	5364	28730	13	Plant fibre utilisation	2026.39.1
+CA03.14	0.001	CA	CA03	35	handoff_edges	5535	count	5535		13	Plant fibre utilisation	2026.39.1
+CA03.14	0.001	CA	CA03	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA03.16	0.001	CA	CA03	35	interaction_density	0.182613821875567	proportion	4027	22052	13	Plant fibre utilisation	2026.39.1
+CA03.16	0.001	CA	CA03	35	handoff_edges	4175	count	4175		13	Plant fibre utilisation	2026.39.1
+CA03.16	0.001	CA	CA03	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA03.17	0.001	CA	CA03	35	interaction_density	0.234916559691913	proportion	14274	60762	13	Plant fibre utilisation	2026.39.1
+CA03.17	0.001	CA	CA03	35	handoff_edges	14800	count	14800		13	Plant fibre utilisation	2026.39.1
+CA03.17	0.001	CA	CA03	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA04.01	0.001	CA	CA04	7	interaction_density	0.280287296642437	proportion	3239	11556	13	Plant fibre utilisation	2026.39.1
+CA04.01	0.001	CA	CA04	7	handoff_edges	3489	count	3489		13	Plant fibre utilisation	2026.39.1
+CA04.01	0.001	CA	CA04	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA04.03	0.001	CA	CA04	7	interaction_density	0.187691835481891	proportion	6115	32580	13	Plant fibre utilisation	2026.39.1
+CA04.03	0.001	CA	CA04	7	handoff_edges	6301	count	6301		13	Plant fibre utilisation	2026.39.1
+CA04.03	0.001	CA	CA04	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA04.04	0.001	CA	CA04	7	interaction_density	0.264560618768055	proportion	5678	21462	13	Plant fibre utilisation	2026.39.1
+CA04.04	0.001	CA	CA04	7	handoff_edges	5844	count	5844		13	Plant fibre utilisation	2026.39.1
+CA04.04	0.001	CA	CA04	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA04.09	0.001	CA	CA04	21	interaction_density	0.211590785416289	proportion	4666	22052	13	Plant fibre utilisation	2026.39.1
+CA04.09	0.001	CA	CA04	21	handoff_edges	4666	count	4666		13	Plant fibre utilisation	2026.39.1
+CA04.09	0.001	CA	CA04	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA04.10	0.001	CA	CA04	21	interaction_density	0.232730380287708	proportion	3268	14042	13	Plant fibre utilisation	2026.39.1
+CA04.10	0.001	CA	CA04	21	handoff_edges	3395	count	3395		13	Plant fibre utilisation	2026.39.1
+CA04.10	0.001	CA	CA04	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA04.12	0.001	CA	CA04	21	interaction_density	0.194635826771654	proportion	3164	16256	13	Plant fibre utilisation	2026.39.1
+CA04.12	0.001	CA	CA04	21	handoff_edges	3295	count	3295		13	Plant fibre utilisation	2026.39.1
+CA04.12	0.001	CA	CA04	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA04.13	0.001	CA	CA04	35	interaction_density	0.193335514834206	proportion	7090	36672	13	Plant fibre utilisation	2026.39.1
+CA04.13	0.001	CA	CA04	35	handoff_edges	7286	count	7286		13	Plant fibre utilisation	2026.39.1
+CA04.13	0.001	CA	CA04	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA04.14	0.001	CA	CA04	35	interaction_density	0.209148525764673	proportion	7590	36290	13	Plant fibre utilisation	2026.39.1
+CA04.14	0.001	CA	CA04	35	handoff_edges	7792	count	7792		13	Plant fibre utilisation	2026.39.1
+CA04.14	0.001	CA	CA04	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA04.16	0.001	CA	CA04	35	interaction_density	0.253777777777778	proportion	3997	15750	13	Plant fibre utilisation	2026.39.1
+CA04.16	0.001	CA	CA04	35	handoff_edges	3997	count	3997		13	Plant fibre utilisation	2026.39.1
+CA04.16	0.001	CA	CA04	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA05.03	0.001	CA	CA05	7	interaction_density	0.282953485272558	proportion	4246	15006	13	Plant fibre utilisation	2026.39.1
+CA05.03	0.001	CA	CA05	7	handoff_edges	4388	count	4388		13	Plant fibre utilisation	2026.39.1
+CA05.03	0.001	CA	CA05	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA05.05	0.001	CA	CA05	7	interaction_density	0.279030828326603	proportion	5666	20306	13	Plant fibre utilisation	2026.39.1
+CA05.05	0.001	CA	CA05	7	handoff_edges	5830	count	5830		13	Plant fibre utilisation	2026.39.1
+CA05.05	0.001	CA	CA05	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA05.06	0.001	CA	CA05	7	interaction_density	0.21501272264631	proportion	3718	17292	13	Plant fibre utilisation	2026.39.1
+CA05.06	0.001	CA	CA05	7	handoff_edges	3851	count	3851		13	Plant fibre utilisation	2026.39.1
+CA05.06	0.001	CA	CA05	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA05.08	0.001	CA	CA05	21	interaction_density	0.206428571428571	proportion	6358	30800	13	Plant fibre utilisation	2026.39.1
+CA05.08	0.001	CA	CA05	21	handoff_edges	6535	count	6535		13	Plant fibre utilisation	2026.39.1
+CA05.08	0.001	CA	CA05	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA05.12	0.001	CA	CA05	21	interaction_density	0.272170504654581	proportion	6666	24492	13	Plant fibre utilisation	2026.39.1
+CA05.12	0.001	CA	CA05	21	handoff_edges	6840	count	6840		13	Plant fibre utilisation	2026.39.1
+CA05.12	0.001	CA	CA05	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA05.17	0.001	CA	CA05	35	interaction_density	0.144818027362962	proportion	6478	44732	13	Plant fibre utilisation	2026.39.1
+CA05.17	0.001	CA	CA05	35	handoff_edges	6668	count	6668		13	Plant fibre utilisation	2026.39.1
+CA05.17	0.001	CA	CA05	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA05.18	0.001	CA	CA05	35	interaction_density	0.159895462105013	proportion	5384	33672	13	Plant fibre utilisation	2026.39.1
+CA05.18	0.001	CA	CA05	35	handoff_edges	5549	count	5549		13	Plant fibre utilisation	2026.39.1
+CA05.18	0.001	CA	CA05	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA06.01	0.001	CA	CA06	7	interaction_density	0.355546288573811	proportion	4263	11990	13	Plant fibre utilisation	2026.39.1
+CA06.01	0.001	CA	CA06	7	handoff_edges	4401	count	4401		13	Plant fibre utilisation	2026.39.1
+CA06.01	0.001	CA	CA06	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA06.02	0.001	CA	CA06	7	interaction_density	0.327729885057471	proportion	6843	20880	13	Plant fibre utilisation	2026.39.1
+CA06.02	0.001	CA	CA06	7	handoff_edges	7021	count	7021		13	Plant fibre utilisation	2026.39.1
+CA06.02	0.001	CA	CA06	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA06.05	0.001	CA	CA06	7	interaction_density	0.285752365720379	proportion	4288	15006	13	Plant fibre utilisation	2026.39.1
+CA06.05	0.001	CA	CA06	7	handoff_edges	4430	count	4430		13	Plant fibre utilisation	2026.39.1
+CA06.05	0.001	CA	CA06	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA06.07	0.001	CA	CA06	21	interaction_density	0.186259541984733	proportion	3172	17030	13	Plant fibre utilisation	2026.39.1
+CA06.07	0.001	CA	CA06	21	handoff_edges	3299	count	3299		13	Plant fibre utilisation	2026.39.1
+CA06.07	0.001	CA	CA06	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA06.09	0.001	CA	CA06	21	interaction_density	0.142035552457302	proportion	3260	22952	13	Plant fibre utilisation	2026.39.1
+CA06.09	0.001	CA	CA06	21	handoff_edges	3260	count	3260		13	Plant fibre utilisation	2026.39.1
+CA06.09	0.001	CA	CA06	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA06.11	0.001	CA	CA06	21	interaction_density	0.185211687537269	proportion	3106	16770	13	Plant fibre utilisation	2026.39.1
+CA06.11	0.001	CA	CA06	21	handoff_edges	3233	count	3233		13	Plant fibre utilisation	2026.39.1
+CA06.11	0.001	CA	CA06	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA06.13	0.001	CA	CA06	35	interaction_density	0.217165201967266	proportion	5387	24806	13	Plant fibre utilisation	2026.39.1
+CA06.13	0.001	CA	CA06	35	handoff_edges	5548	count	5548		13	Plant fibre utilisation	2026.39.1
+CA06.13	0.001	CA	CA06	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA06.15	0.001	CA	CA06	35	interaction_density	0.190239338126662	proportion	3863	20306	13	Plant fibre utilisation	2026.39.1
+CA06.15	0.001	CA	CA06	35	handoff_edges	4011	count	4011		13	Plant fibre utilisation	2026.39.1
+CA06.15	0.001	CA	CA06	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA06.17	0.001	CA	CA06	35	interaction_density	0.185686438318017	proportion	6668	35910	13	Plant fibre utilisation	2026.39.1
+CA06.17	0.001	CA	CA06	35	handoff_edges	6856	count	6856		13	Plant fibre utilisation	2026.39.1
+CA06.17	0.001	CA	CA06	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA06.18	0.001	CA	CA06	35	interaction_density	0.234042553191489	proportion	4686	20022	13	Plant fibre utilisation	2026.39.1
+CA06.18	0.001	CA	CA06	35	handoff_edges	4839	count	4839		13	Plant fibre utilisation	2026.39.1
+CA06.18	0.001	CA	CA06	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA07.02	0.001	CA	CA07	7	interaction_density	0.305112190608374	proportion	5276	17292	13	Plant fibre utilisation	2026.39.1
+CA07.02	0.001	CA	CA07	7	handoff_edges	5428	count	5428		13	Plant fibre utilisation	2026.39.1
+CA07.02	0.001	CA	CA07	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA07.04	0.001	CA	CA07	7	interaction_density	0.307149106361705	proportion	4915	16002	13	Plant fibre utilisation	2026.39.1
+CA07.04	0.001	CA	CA07	7	handoff_edges	5063	count	5063		13	Plant fibre utilisation	2026.39.1
+CA07.04	0.001	CA	CA07	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA07.07	0.001	CA	CA07	21	interaction_density	0.18769425019425	proportion	3865	20592	13	Plant fibre utilisation	2026.39.1
+CA07.07	0.001	CA	CA07	21	handoff_edges	3865	count	3865		13	Plant fibre utilisation	2026.39.1
+CA07.07	0.001	CA	CA07	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA07.09	0.001	CA	CA07	21	interaction_density	0.199488864549106	proportion	5464	27390	13	Plant fibre utilisation	2026.39.1
+CA07.09	0.001	CA	CA07	21	handoff_edges	5633	count	5633		13	Plant fibre utilisation	2026.39.1
+CA07.09	0.001	CA	CA07	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA07.11	0.001	CA	CA07	21	interaction_density	0.253787453708899	proportion	4523	17822	13	Plant fibre utilisation	2026.39.1
+CA07.11	0.001	CA	CA07	21	handoff_edges	4523	count	4523		13	Plant fibre utilisation	2026.39.1
+CA07.11	0.001	CA	CA07	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA07.13	0.001	CA	CA07	35	interaction_density	0.179121725731895	proportion	5580	31152	13	Plant fibre utilisation	2026.39.1
+CA07.13	0.001	CA	CA07	35	handoff_edges	5754	count	5754		13	Plant fibre utilisation	2026.39.1
+CA07.13	0.001	CA	CA07	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA07.14	0.001	CA	CA07	35	interaction_density	0.156996855345912	proportion	3994	25440	13	Plant fibre utilisation	2026.39.1
+CA07.14	0.001	CA	CA07	35	handoff_edges	3994	count	3994		13	Plant fibre utilisation	2026.39.1
+CA07.14	0.001	CA	CA07	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA08.01	0.001	CA	CA08	7	interaction_density	0.261717285339333	proportion	4188	16002	13	Plant fibre utilisation	2026.39.1
+CA08.01	0.001	CA	CA08	7	handoff_edges	4330	count	4330		13	Plant fibre utilisation	2026.39.1
+CA08.01	0.001	CA	CA08	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA08.03	0.001	CA	CA08	7	interaction_density	0.304142441860465	proportion	5022	16512	13	Plant fibre utilisation	2026.39.1
+CA08.03	0.001	CA	CA08	7	handoff_edges	5176	count	5176		13	Plant fibre utilisation	2026.39.1
+CA08.03	0.001	CA	CA08	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA08.06	0.001	CA	CA08	7	interaction_density	0.281665472494228	proportion	7076	25122	13	Plant fibre utilisation	2026.39.1
+CA08.06	0.001	CA	CA08	7	handoff_edges	7076	count	7076		13	Plant fibre utilisation	2026.39.1
+CA08.06	0.001	CA	CA08	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA08.08	0.001	CA	CA08	21	interaction_density	0.19845765074939	proportion	4555	22952	13	Plant fibre utilisation	2026.39.1
+CA08.08	0.001	CA	CA08	21	handoff_edges	4712	count	4712		13	Plant fibre utilisation	2026.39.1
+CA08.08	0.001	CA	CA08	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA08.09	0.001	CA	CA08	21	interaction_density	0.158904109589041	proportion	3364	21170	13	Plant fibre utilisation	2026.39.1
+CA08.09	0.001	CA	CA08	21	handoff_edges	3498	count	3498		13	Plant fibre utilisation	2026.39.1
+CA08.09	0.001	CA	CA08	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA08.12	0.001	CA	CA08	21	interaction_density	0.216547968160871	proportion	5169	23870	13	Plant fibre utilisation	2026.39.1
+CA08.12	0.001	CA	CA08	21	handoff_edges	5169	count	5169		13	Plant fibre utilisation	2026.39.1
+CA08.12	0.001	CA	CA08	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA08.13	0.001	CA	CA08	35	interaction_density	0.189902194025905	proportion	7184	37830	13	Plant fibre utilisation	2026.39.1
+CA08.13	0.001	CA	CA08	35	handoff_edges	7381	count	7381		13	Plant fibre utilisation	2026.39.1
+CA08.13	0.001	CA	CA08	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA08.16	0.001	CA	CA08	35	interaction_density	0.205499784110535	proportion	7615	37056	13	Plant fibre utilisation	2026.39.1
+CA08.16	0.001	CA	CA08	35	handoff_edges	7806	count	7806		13	Plant fibre utilisation	2026.39.1
+CA08.16	0.001	CA	CA08	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA08.18	0.001	CA	CA08	35	interaction_density	0.222997996478659	proportion	7346	32942	13	Plant fibre utilisation	2026.39.1
+CA08.18	0.001	CA	CA08	35	handoff_edges	7531	count	7531		13	Plant fibre utilisation	2026.39.1
+CA08.18	0.001	CA	CA08	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA09.01	0.001	CA	CA09	7	interaction_density	0.330672954834029	proportion	7292	22052	13	Plant fibre utilisation	2026.39.1
+CA09.01	0.001	CA	CA09	7	handoff_edges	7471	count	7471		13	Plant fibre utilisation	2026.39.1
+CA09.01	0.001	CA	CA09	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA09.05	0.001	CA	CA09	7	interaction_density	0.330323357413141	proportion	7682	23256	13	Plant fibre utilisation	2026.39.1
+CA09.05	0.001	CA	CA09	7	handoff_edges	7869	count	7869		13	Plant fibre utilisation	2026.39.1
+CA09.05	0.001	CA	CA09	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA09.06	0.001	CA	CA09	7	interaction_density	0.30529990479213	proportion	5772	18906	13	Plant fibre utilisation	2026.39.1
+CA09.06	0.001	CA	CA09	7	handoff_edges	5933	count	5933		13	Plant fibre utilisation	2026.39.1
+CA09.06	0.001	CA	CA09	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA09.07	0.001	CA	CA09	21	interaction_density	0.16573994867408	proportion	4650	28056	13	Plant fibre utilisation	2026.39.1
+CA09.07	0.001	CA	CA09	21	handoff_edges	4811	count	4811		13	Plant fibre utilisation	2026.39.1
+CA09.07	0.001	CA	CA09	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA09.08	0.001	CA	CA09	21	interaction_density	0.19514963880289	proportion	5673	29070	13	Plant fibre utilisation	2026.39.1
+CA09.08	0.001	CA	CA09	21	handoff_edges	5673	count	5673		13	Plant fibre utilisation	2026.39.1
+CA09.08	0.001	CA	CA09	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA09.12	0.001	CA	CA09	21	interaction_density	0.231682389937107	proportion	5894	25440	13	Plant fibre utilisation	2026.39.1
+CA09.12	0.001	CA	CA09	21	handoff_edges	6064	count	6064		13	Plant fibre utilisation	2026.39.1
+CA09.12	0.001	CA	CA09	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA09.13	0.001	CA	CA09	35	interaction_density	0.202749880439981	proportion	8479	41820	13	Plant fibre utilisation	2026.39.1
+CA09.13	0.001	CA	CA09	35	handoff_edges	8479	count	8479		13	Plant fibre utilisation	2026.39.1
+CA09.13	0.001	CA	CA09	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA09.18	0.001	CA	CA09	35	interaction_density	0.188949208686051	proportion	8214	43472	13	Plant fibre utilisation	2026.39.1
+CA09.18	0.001	CA	CA09	35	handoff_edges	8420	count	8420		13	Plant fibre utilisation	2026.39.1
+CA09.18	0.001	CA	CA09	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA10.03	0.001	CA	CA10	7	interaction_density	0.252355487649605	proportion	5946	23562	13	Plant fibre utilisation	2026.39.1
+CA10.03	0.001	CA	CA10	7	handoff_edges	6118	count	6118		13	Plant fibre utilisation	2026.39.1
+CA10.03	0.001	CA	CA10	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA10.06	0.001	CA	CA10	7	interaction_density	0.314661269082573	proportion	12903	41006	13	Plant fibre utilisation	2026.39.1
+CA10.06	0.001	CA	CA10	7	handoff_edges	13393	count	13393		13	Plant fibre utilisation	2026.39.1
+CA10.06	0.001	CA	CA10	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA10.10	0.001	CA	CA10	21	interaction_density	0.194553833263511	proportion	4644	23870	13	Plant fibre utilisation	2026.39.1
+CA10.10	0.001	CA	CA10	21	handoff_edges	4644	count	4644		13	Plant fibre utilisation	2026.39.1
+CA10.10	0.001	CA	CA10	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA10.11	0.001	CA	CA10	21	interaction_density	0.239567013245976	proportion	3364	14042	13	Plant fibre utilisation	2026.39.1
+CA10.11	0.001	CA	CA10	21	handoff_edges	3492	count	3492		13	Plant fibre utilisation	2026.39.1
+CA10.11	0.001	CA	CA10	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA10.12	0.001	CA	CA10	21	interaction_density	0.205341582432903	proportion	4713	22952	13	Plant fibre utilisation	2026.39.1
+CA10.12	0.001	CA	CA10	21	handoff_edges	4713	count	4713		13	Plant fibre utilisation	2026.39.1
+CA10.12	0.001	CA	CA10	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA10.14	0.001	CA	CA10	35	interaction_density	0.229580064605445	proportion	8955	39006	13	Plant fibre utilisation	2026.39.1
+CA10.14	0.001	CA	CA10	35	handoff_edges	9165	count	9165		13	Plant fibre utilisation	2026.39.1
+CA10.14	0.001	CA	CA10	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA10.15	0.001	CA	CA10	35	interaction_density	0.236852849910175	proportion	5801	24492	13	Plant fibre utilisation	2026.39.1
+CA10.15	0.001	CA	CA10	35	handoff_edges	5801	count	5801		13	Plant fibre utilisation	2026.39.1
+CA10.15	0.001	CA	CA10	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA10.16	0.001	CA	CA10	35	interaction_density	0.18599631816162	proportion	5860	31506	13	Plant fibre utilisation	2026.39.1
+CA10.16	0.001	CA	CA10	35	handoff_edges	6032	count	6032		13	Plant fibre utilisation	2026.39.1
+CA10.16	0.001	CA	CA10	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA11.01	0.001	CA	CA11	7	interaction_density	0.245364135501916	proportion	9474	38612	13	Plant fibre utilisation	2026.39.1
+CA11.01	0.001	CA	CA11	7	handoff_edges	9693	count	9693		13	Plant fibre utilisation	2026.39.1
+CA11.01	0.001	CA	CA11	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA11.02	0.001	CA	CA11	7	interaction_density	0.286912751677852	proportion	6327	22052	13	Plant fibre utilisation	2026.39.1
+CA11.02	0.001	CA	CA11	7	handoff_edges	6501	count	6501		13	Plant fibre utilisation	2026.39.1
+CA11.02	0.001	CA	CA11	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA11.06	0.001	CA	CA11	7	interaction_density	0.409674728940784	proportion	4912	11990	13	Plant fibre utilisation	2026.39.1
+CA11.06	0.001	CA	CA11	7	handoff_edges	5200	count	5200		13	Plant fibre utilisation	2026.39.1
+CA11.06	0.001	CA	CA11	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA11.07	0.001	CA	CA11	21	interaction_density	0.154470709146968	proportion	3006	19460	13	Plant fibre utilisation	2026.39.1
+CA11.07	0.001	CA	CA11	21	handoff_edges	3132	count	3132		13	Plant fibre utilisation	2026.39.1
+CA11.07	0.001	CA	CA11	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA11.08	0.001	CA	CA11	21	interaction_density	0.222273073989321	proportion	2914	13110	13	Plant fibre utilisation	2026.39.1
+CA11.08	0.001	CA	CA11	21	handoff_edges	2914	count	2914		13	Plant fibre utilisation	2026.39.1
+CA11.08	0.001	CA	CA11	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA11.12	0.001	CA	CA11	21	interaction_density	0.186053383236482	proportion	3778	20306	13	Plant fibre utilisation	2026.39.1
+CA11.12	0.001	CA	CA11	21	handoff_edges	3920	count	3920		13	Plant fibre utilisation	2026.39.1
+CA11.12	0.001	CA	CA11	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA11.14	0.001	CA	CA11	35	interaction_density	0.196777092963534	proportion	6130	31152	13	Plant fibre utilisation	2026.39.1
+CA11.14	0.001	CA	CA11	35	handoff_edges	6302	count	6302		13	Plant fibre utilisation	2026.39.1
+CA11.14	0.001	CA	CA11	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA11.16	0.001	CA	CA11	35	interaction_density	0.19246538513241	proportion	5727	29756	13	Plant fibre utilisation	2026.39.1
+CA11.16	0.001	CA	CA11	35	handoff_edges	5898	count	5898		13	Plant fibre utilisation	2026.39.1
+CA11.16	0.001	CA	CA11	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA11.17	0.001	CA	CA11	35	interaction_density	0.152444444444444	proportion	2401	15750	13	Plant fibre utilisation	2026.39.1
+CA11.17	0.001	CA	CA11	35	handoff_edges	2401	count	2401		13	Plant fibre utilisation	2026.39.1
+CA11.17	0.001	CA	CA11	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA11.18	0.001	CA	CA11	35	interaction_density	0.195238095238095	proportion	5945	30450	13	Plant fibre utilisation	2026.39.1
+CA11.18	0.001	CA	CA11	35	handoff_edges	5945	count	5945		13	Plant fibre utilisation	2026.39.1
+CA11.18	0.001	CA	CA11	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA12.01	0.001	CA	CA12	7	interaction_density	0.315032264889453	proportion	5956	18906	13	Plant fibre utilisation	2026.39.1
+CA12.01	0.001	CA	CA12	7	handoff_edges	6125	count	6125		13	Plant fibre utilisation	2026.39.1
+CA12.01	0.001	CA	CA12	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA12.03	0.001	CA	CA12	7	interaction_density	0.326535626535627	proportion	3987	12210	13	Plant fibre utilisation	2026.39.1
+CA12.03	0.001	CA	CA12	7	handoff_edges	4119	count	4119		13	Plant fibre utilisation	2026.39.1
+CA12.03	0.001	CA	CA12	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA12.05	0.001	CA	CA12	7	interaction_density	0.307625272331155	proportion	5648	18360	13	Plant fibre utilisation	2026.39.1
+CA12.05	0.001	CA	CA12	7	handoff_edges	5810	count	5810		13	Plant fibre utilisation	2026.39.1
+CA12.05	0.001	CA	CA12	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA12.09	0.001	CA	CA12	21	interaction_density	0.166411352092236	proportion	4128	24806	13	Plant fibre utilisation	2026.39.1
+CA12.09	0.001	CA	CA12	21	handoff_edges	4128	count	4128		13	Plant fibre utilisation	2026.39.1
+CA12.09	0.001	CA	CA12	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA12.11	0.001	CA	CA12	21	interaction_density	0.209362887596899	proportion	3457	16512	13	Plant fibre utilisation	2026.39.1
+CA12.11	0.001	CA	CA12	21	handoff_edges	3457	count	3457		13	Plant fibre utilisation	2026.39.1
+CA12.11	0.001	CA	CA12	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA12.13	0.001	CA	CA12	35	interaction_density	0.181180223285486	proportion	7952	43890	13	Plant fibre utilisation	2026.39.1
+CA12.13	0.001	CA	CA12	35	handoff_edges	8154	count	8154		13	Plant fibre utilisation	2026.39.1
+CA12.13	0.001	CA	CA12	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA12.15	0.001	CA	CA12	35	interaction_density	0.178368794326241	proportion	3521	19740	13	Plant fibre utilisation	2026.39.1
+CA12.15	0.001	CA	CA12	35	handoff_edges	3521	count	3521		13	Plant fibre utilisation	2026.39.1
+CA12.15	0.001	CA	CA12	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA13.01	0.001	CA	CA13	7	interaction_density	0.291117279666898	proportion	5034	17292	13	Plant fibre utilisation	2026.39.1
+CA13.01	0.001	CA	CA13	7	handoff_edges	5336	count	5336		13	Plant fibre utilisation	2026.39.1
+CA13.01	0.001	CA	CA13	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA13.03	0.001	CA	CA13	7	interaction_density	0.316010940458658	proportion	3004	9506	13	Plant fibre utilisation	2026.39.1
+CA13.03	0.001	CA	CA13	7	handoff_edges	3238	count	3238		13	Plant fibre utilisation	2026.39.1
+CA13.03	0.001	CA	CA13	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA13.04	0.001	CA	CA13	7	interaction_density	0.240889264105811	proportion	10272	42642	13	Plant fibre utilisation	2026.39.1
+CA13.04	0.001	CA	CA13	7	handoff_edges	10496	count	10496		13	Plant fibre utilisation	2026.39.1
+CA13.04	0.001	CA	CA13	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA13.06	0.001	CA	CA13	7	interaction_density	0.270983213429257	proportion	5198	19182	13	Plant fibre utilisation	2026.39.1
+CA13.06	0.001	CA	CA13	7	handoff_edges	5356	count	5356		13	Plant fibre utilisation	2026.39.1
+CA13.06	0.001	CA	CA13	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA13.07	0.001	CA	CA13	21	interaction_density	0.213827838827839	proportion	6071	28392	13	Plant fibre utilisation	2026.39.1
+CA13.07	0.001	CA	CA13	21	handoff_edges	6242	count	6242		13	Plant fibre utilisation	2026.39.1
+CA13.07	0.001	CA	CA13	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA13.08	0.001	CA	CA13	21	interaction_density	0.258595571095571	proportion	5325	20592	13	Plant fibre utilisation	2026.39.1
+CA13.08	0.001	CA	CA13	21	handoff_edges	5325	count	5325		13	Plant fibre utilisation	2026.39.1
+CA13.08	0.001	CA	CA13	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA13.13	0.001	CA	CA13	35	interaction_density	0.187194220047787	proportion	6581	35156	13	Plant fibre utilisation	2026.39.1
+CA13.13	0.001	CA	CA13	35	handoff_edges	6581	count	6581		13	Plant fibre utilisation	2026.39.1
+CA13.13	0.001	CA	CA13	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA13.16	0.001	CA	CA13	35	interaction_density	0.17397323488694	proportion	6786	39006	13	Plant fibre utilisation	2026.39.1
+CA13.16	0.001	CA	CA13	35	handoff_edges	6978	count	6978		13	Plant fibre utilisation	2026.39.1
+CA13.16	0.001	CA	CA13	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA14.02	0.001	CA	CA14	7	interaction_density	0.253059440559441	proportion	5211	20592	13	Plant fibre utilisation	2026.39.1
+CA14.02	0.001	CA	CA14	7	handoff_edges	5211	count	5211		13	Plant fibre utilisation	2026.39.1
+CA14.02	0.001	CA	CA14	7	distributed_chain_links	1	count	1	5	13	Plant fibre utilisation	2026.39.1
+CA14.03	0.001	CA	CA14	7	interaction_density	0.197527593818985	proportion	4474	22650	13	Plant fibre utilisation	2026.39.1
+CA14.03	0.001	CA	CA14	7	handoff_edges	4474	count	4474		13	Plant fibre utilisation	2026.39.1
+CA14.03	0.001	CA	CA14	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA14.05	0.001	CA	CA14	7	interaction_density	0.292857142857143	proportion	4182	14280	13	Plant fibre utilisation	2026.39.1
+CA14.05	0.001	CA	CA14	7	handoff_edges	4328	count	4328		13	Plant fibre utilisation	2026.39.1
+CA14.05	0.001	CA	CA14	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA14.06	0.001	CA	CA14	7	interaction_density	0.196929617383089	proportion	4169	21170	13	Plant fibre utilisation	2026.39.1
+CA14.06	0.001	CA	CA14	7	handoff_edges	4169	count	4169		13	Plant fibre utilisation	2026.39.1
+CA14.06	0.001	CA	CA14	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA14.07	0.001	CA	CA14	21	interaction_density	0.227113840340104	proportion	4808	21170	13	Plant fibre utilisation	2026.39.1
+CA14.07	0.001	CA	CA14	21	handoff_edges	4963	count	4963		13	Plant fibre utilisation	2026.39.1
+CA14.07	0.001	CA	CA14	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA14.09	0.001	CA	CA14	21	interaction_density	0.157298172565348	proportion	2720	17292	13	Plant fibre utilisation	2026.39.1
+CA14.09	0.001	CA	CA14	21	handoff_edges	2842	count	2842		13	Plant fibre utilisation	2026.39.1
+CA14.09	0.001	CA	CA14	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA14.11	0.001	CA	CA14	21	interaction_density	0.19351475341466	proportion	3712	19182	13	Plant fibre utilisation	2026.39.1
+CA14.11	0.001	CA	CA14	21	handoff_edges	3851	count	3851		13	Plant fibre utilisation	2026.39.1
+CA14.11	0.001	CA	CA14	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA14.13	0.001	CA	CA14	35	interaction_density	0.186963260860458	proportion	8926	47742	13	Plant fibre utilisation	2026.39.1
+CA14.13	0.001	CA	CA14	35	handoff_edges	9136	count	9136		13	Plant fibre utilisation	2026.39.1
+CA14.13	0.001	CA	CA14	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA14.15	0.001	CA	CA14	35	interaction_density	0.249031670084302	proportion	4372	17556	13	Plant fibre utilisation	2026.39.1
+CA14.15	0.001	CA	CA14	35	handoff_edges	4515	count	4515		13	Plant fibre utilisation	2026.39.1
+CA14.15	0.001	CA	CA14	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA14.17	0.001	CA	CA14	35	interaction_density	0.19607535321821	proportion	7494	38220	13	Plant fibre utilisation	2026.39.1
+CA14.17	0.001	CA	CA14	35	handoff_edges	7694	count	7694		13	Plant fibre utilisation	2026.39.1
+CA14.17	0.001	CA	CA14	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA15.01	0.001	CA	CA15	7	interaction_density	0.288507936507936	proportion	4544	15750	13	Plant fibre utilisation	2026.39.1
+CA15.01	0.001	CA	CA15	7	handoff_edges	4689	count	4689		13	Plant fibre utilisation	2026.39.1
+CA15.01	0.001	CA	CA15	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA15.03	0.001	CA	CA15	7	interaction_density	0.308312262958281	proportion	3902	12656	13	Plant fibre utilisation	2026.39.1
+CA15.03	0.001	CA	CA15	7	handoff_edges	4039	count	4039		13	Plant fibre utilisation	2026.39.1
+CA15.03	0.001	CA	CA15	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA15.06	0.001	CA	CA15	7	interaction_density	0.310648346930013	proportion	5788	18632	13	Plant fibre utilisation	2026.39.1
+CA15.06	0.001	CA	CA15	7	handoff_edges	5951	count	5951		13	Plant fibre utilisation	2026.39.1
+CA15.06	0.001	CA	CA15	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA15.12	0.001	CA	CA15	21	interaction_density	0.159504132231405	proportion	2316	14520	13	Plant fibre utilisation	2026.39.1
+CA15.12	0.001	CA	CA15	21	handoff_edges	2316	count	2316		13	Plant fibre utilisation	2026.39.1
+CA15.12	0.001	CA	CA15	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA15.13	0.001	CA	CA15	35	interaction_density	0.218420302252638	proportion	6128	28056	13	Plant fibre utilisation	2026.39.1
+CA15.13	0.001	CA	CA15	35	handoff_edges	6304	count	6304		13	Plant fibre utilisation	2026.39.1
+CA15.13	0.001	CA	CA15	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA15.17	0.001	CA	CA15	35	interaction_density	0.233428367783321	proportion	7860	33672	13	Plant fibre utilisation	2026.39.1
+CA15.17	0.001	CA	CA15	35	handoff_edges	8058	count	8058		13	Plant fibre utilisation	2026.39.1
+CA15.17	0.001	CA	CA15	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA16.02	0.001	CA	CA16	7	interaction_density	0.34445694288214	proportion	5512	16002	13	Plant fibre utilisation	2026.39.1
+CA16.02	0.001	CA	CA16	7	handoff_edges	5665	count	5665		13	Plant fibre utilisation	2026.39.1
+CA16.02	0.001	CA	CA16	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA16.04	0.001	CA	CA16	7	interaction_density	0.322333437597748	proportion	6183	19182	13	Plant fibre utilisation	2026.39.1
+CA16.04	0.001	CA	CA16	7	handoff_edges	6348	count	6348		13	Plant fibre utilisation	2026.39.1
+CA16.04	0.001	CA	CA16	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA16.05	0.001	CA	CA16	7	interaction_density	0.213476446034586	proportion	3580	16770	13	Plant fibre utilisation	2026.39.1
+CA16.05	0.001	CA	CA16	7	handoff_edges	3713	count	3713		13	Plant fibre utilisation	2026.39.1
+CA16.05	0.001	CA	CA16	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA16.07	0.001	CA	CA16	21	interaction_density	0.16759962681594	proportion	2515	15006	13	Plant fibre utilisation	2026.39.1
+CA16.07	0.001	CA	CA16	21	handoff_edges	2632	count	2632		13	Plant fibre utilisation	2026.39.1
+CA16.07	0.001	CA	CA16	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA16.09	0.001	CA	CA16	21	interaction_density	0.17561793045664	proportion	4192	23870	13	Plant fibre utilisation	2026.39.1
+CA16.09	0.001	CA	CA16	21	handoff_edges	4343	count	4343		13	Plant fibre utilisation	2026.39.1
+CA16.09	0.001	CA	CA16	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA16.12	0.001	CA	CA16	21	interaction_density	0.295009271950335	proportion	7318	24806	13	Plant fibre utilisation	2026.39.1
+CA16.12	0.001	CA	CA16	21	handoff_edges	7506	count	7506		13	Plant fibre utilisation	2026.39.1
+CA16.12	0.001	CA	CA16	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA16.13	0.001	CA	CA16	35	interaction_density	0.214321608040201	proportion	8530	39800	13	Plant fibre utilisation	2026.39.1
+CA16.13	0.001	CA	CA16	35	handoff_edges	8744	count	8744		13	Plant fibre utilisation	2026.39.1
+CA16.13	0.001	CA	CA16	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA16.18	0.001	CA	CA16	35	interaction_density	0.238574473123372	proportion	10075	42230	13	Plant fibre utilisation	2026.39.1
+CA16.18	0.001	CA	CA16	35	handoff_edges	10295	count	10295		13	Plant fibre utilisation	2026.39.1
+CA16.18	0.001	CA	CA16	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA17.02	0.001	CA	CA17	7	interaction_density	0.326967741935484	proportion	5068	15500	13	Plant fibre utilisation	2026.39.1
+CA17.02	0.001	CA	CA17	7	handoff_edges	5222	count	5222		13	Plant fibre utilisation	2026.39.1
+CA17.02	0.001	CA	CA17	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA17.03	0.001	CA	CA17	7	interaction_density	0.328641434678344	proportion	6304	19182	13	Plant fibre utilisation	2026.39.1
+CA17.03	0.001	CA	CA17	7	handoff_edges	6477	count	6477		13	Plant fibre utilisation	2026.39.1
+CA17.03	0.001	CA	CA17	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA17.07	0.001	CA	CA17	21	interaction_density	0.22550694919116	proportion	3959	17556	13	Plant fibre utilisation	2026.39.1
+CA17.07	0.001	CA	CA17	21	handoff_edges	4104	count	4104		13	Plant fibre utilisation	2026.39.1
+CA17.07	0.001	CA	CA17	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA17.12	0.001	CA	CA17	21	interaction_density	0.225137741046832	proportion	3269	14520	13	Plant fibre utilisation	2026.39.1
+CA17.12	0.001	CA	CA17	21	handoff_edges	3399	count	3399		13	Plant fibre utilisation	2026.39.1
+CA17.12	0.001	CA	CA17	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA17.14	0.001	CA	CA17	35	interaction_density	0.242938214712408	proportion	11387	46872	13	Plant fibre utilisation	2026.39.1
+CA17.14	0.001	CA	CA17	35	handoff_edges	11619	count	11619		13	Plant fibre utilisation	2026.39.1
+CA17.14	0.001	CA	CA17	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA17.15	0.001	CA	CA17	35	interaction_density	0.190169465531784	proportion	4960	26082	13	Plant fibre utilisation	2026.39.1
+CA17.15	0.001	CA	CA17	35	handoff_edges	5129	count	5129		13	Plant fibre utilisation	2026.39.1
+CA17.15	0.001	CA	CA17	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA18.01	0.001	CA	CA18	7	interaction_density	0.276001540832049	proportion	8598	31152	13	Plant fibre utilisation	2026.39.1
+CA18.01	0.001	CA	CA18	7	handoff_edges	8796	count	8796		13	Plant fibre utilisation	2026.39.1
+CA18.01	0.001	CA	CA18	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA18.04	0.001	CA	CA18	7	interaction_density	0.287324929971989	proportion	4103	14280	13	Plant fibre utilisation	2026.39.1
+CA18.04	0.001	CA	CA18	7	handoff_edges	4242	count	4242		13	Plant fibre utilisation	2026.39.1
+CA18.04	0.001	CA	CA18	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA18.06	0.001	CA	CA18	7	interaction_density	0.271762208067941	proportion	6656	24492	13	Plant fibre utilisation	2026.39.1
+CA18.06	0.001	CA	CA18	7	handoff_edges	6835	count	6835		13	Plant fibre utilisation	2026.39.1
+CA18.06	0.001	CA	CA18	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA18.08	0.001	CA	CA18	21	interaction_density	0.197372536753206	proportion	3786	19182	13	Plant fibre utilisation	2026.39.1
+CA18.08	0.001	CA	CA18	21	handoff_edges	3923	count	3923		13	Plant fibre utilisation	2026.39.1
+CA18.08	0.001	CA	CA18	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA18.09	0.001	CA	CA18	21	interaction_density	0.255718709419638	proportion	5120	20022	13	Plant fibre utilisation	2026.39.1
+CA18.09	0.001	CA	CA18	21	handoff_edges	5120	count	5120		13	Plant fibre utilisation	2026.39.1
+CA18.09	0.001	CA	CA18	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA18.11	0.001	CA	CA18	21	interaction_density	0.251411866321175	proportion	7568	30102	13	Plant fibre utilisation	2026.39.1
+CA18.11	0.001	CA	CA18	21	handoff_edges	7756	count	7756		13	Plant fibre utilisation	2026.39.1
+CA18.11	0.001	CA	CA18	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA18.13	0.001	CA	CA18	35	interaction_density	0.256513824098305	proportion	9018	35156	13	Plant fibre utilisation	2026.39.1
+CA18.13	0.001	CA	CA18	35	handoff_edges	9226	count	9226		13	Plant fibre utilisation	2026.39.1
+CA18.13	0.001	CA	CA18	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA18.15	0.001	CA	CA18	35	interaction_density	0.161838705290358	proportion	4760	29412	13	Plant fibre utilisation	2026.39.1
+CA18.15	0.001	CA	CA18	35	handoff_edges	4930	count	4930		13	Plant fibre utilisation	2026.39.1
+CA18.15	0.001	CA	CA18	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA18.16	0.001	CA	CA18	35	interaction_density	0.220867768595041	proportion	3207	14520	13	Plant fibre utilisation	2026.39.1
+CA18.16	0.001	CA	CA18	35	handoff_edges	3333	count	3333		13	Plant fibre utilisation	2026.39.1
+CA18.16	0.001	CA	CA18	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA19.01	0.001	CA	CA19	7	interaction_density	0.307058700865395	proportion	5890	19182	13	Plant fibre utilisation	2026.39.1
+CA19.01	0.001	CA	CA19	7	handoff_edges	6053	count	6053		13	Plant fibre utilisation	2026.39.1
+CA19.01	0.001	CA	CA19	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA19.02	0.001	CA	CA19	7	interaction_density	0.2106135986733	proportion	3810	18090	13	Plant fibre utilisation	2026.39.1
+CA19.02	0.001	CA	CA19	7	handoff_edges	3959	count	3959		13	Plant fibre utilisation	2026.39.1
+CA19.02	0.001	CA	CA19	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA19.06	0.001	CA	CA19	7	interaction_density	0.234536549972792	proportion	5172	22052	13	Plant fibre utilisation	2026.39.1
+CA19.06	0.001	CA	CA19	7	handoff_edges	5335	count	5335		13	Plant fibre utilisation	2026.39.1
+CA19.06	0.001	CA	CA19	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA19.10	0.001	CA	CA19	21	interaction_density	0.160517715858273	proportion	3733	23256	13	Plant fibre utilisation	2026.39.1
+CA19.10	0.001	CA	CA19	21	handoff_edges	3875	count	3875		13	Plant fibre utilisation	2026.39.1
+CA19.10	0.001	CA	CA19	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA19.11	0.001	CA	CA19	21	interaction_density	0.22960372960373	proportion	4728	20592	13	Plant fibre utilisation	2026.39.1
+CA19.11	0.001	CA	CA19	21	handoff_edges	4881	count	4881		13	Plant fibre utilisation	2026.39.1
+CA19.11	0.001	CA	CA19	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA19.13	0.001	CA	CA19	35	interaction_density	0.208214308385704	proportion	6560	31506	13	Plant fibre utilisation	2026.39.1
+CA19.13	0.001	CA	CA19	35	handoff_edges	6560	count	6560		13	Plant fibre utilisation	2026.39.1
+CA19.13	0.001	CA	CA19	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA19.14	0.001	CA	CA19	35	interaction_density	0.19258089976322	proportion	6344	32942	13	Plant fibre utilisation	2026.39.1
+CA19.14	0.001	CA	CA19	35	handoff_edges	6527	count	6527		13	Plant fibre utilisation	2026.39.1
+CA19.14	0.001	CA	CA19	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA19.15	0.001	CA	CA19	35	interaction_density	0.159588713534194	proportion	6674	41820	13	Plant fibre utilisation	2026.39.1
+CA19.15	0.001	CA	CA19	35	handoff_edges	6859	count	6859		13	Plant fibre utilisation	2026.39.1
+CA19.15	0.001	CA	CA19	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA19.17	0.001	CA	CA19	35	interaction_density	0.183607520564042	proportion	6250	34040	13	Plant fibre utilisation	2026.39.1
+CA19.17	0.001	CA	CA19	35	handoff_edges	6434	count	6434		13	Plant fibre utilisation	2026.39.1
+CA19.17	0.001	CA	CA19	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA19.18	0.001	CA	CA19	35	interaction_density	0.219826882247264	proportion	5384	24492	13	Plant fibre utilisation	2026.39.1
+CA19.18	0.001	CA	CA19	35	handoff_edges	5549	count	5549		13	Plant fibre utilisation	2026.39.1
+CA19.18	0.001	CA	CA19	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA20.01	0.001	CA	CA20	7	interaction_density	0.263147150089825	proportion	6445	24492	13	Plant fibre utilisation	2026.39.1
+CA20.01	0.001	CA	CA20	7	handoff_edges	6625	count	6625		13	Plant fibre utilisation	2026.39.1
+CA20.01	0.001	CA	CA20	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA20.05	0.001	CA	CA20	7	interaction_density	0.292624521072797	proportion	6110	20880	13	Plant fibre utilisation	2026.39.1
+CA20.05	0.001	CA	CA20	7	handoff_edges	6286	count	6286		13	Plant fibre utilisation	2026.39.1
+CA20.05	0.001	CA	CA20	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA20.08	0.001	CA	CA20	21	interaction_density	0.145477109762824	proportion	3165	21756	13	Plant fibre utilisation	2026.39.1
+CA20.08	0.001	CA	CA20	21	handoff_edges	3305	count	3305		13	Plant fibre utilisation	2026.39.1
+CA20.08	0.001	CA	CA20	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA20.09	0.001	CA	CA20	21	interaction_density	0.222174329501916	proportion	4639	20880	13	Plant fibre utilisation	2026.39.1
+CA20.09	0.001	CA	CA20	21	handoff_edges	4789	count	4789		13	Plant fibre utilisation	2026.39.1
+CA20.09	0.001	CA	CA20	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA20.10	0.001	CA	CA20	21	interaction_density	0.216574138329864	proportion	3745	17292	13	Plant fibre utilisation	2026.39.1
+CA20.10	0.001	CA	CA20	21	handoff_edges	3878	count	3878		13	Plant fibre utilisation	2026.39.1
+CA20.10	0.001	CA	CA20	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA20.12	0.001	CA	CA20	21	interaction_density	0.18942997661856	proportion	4699	24806	13	Plant fibre utilisation	2026.39.1
+CA20.12	0.001	CA	CA20	21	handoff_edges	4862	count	4862		13	Plant fibre utilisation	2026.39.1
+CA20.12	0.001	CA	CA20	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA20.13	0.001	CA	CA20	35	interaction_density	0.238527117721749	proportion	5260	22052	13	Plant fibre utilisation	2026.39.1
+CA20.13	0.001	CA	CA20	35	handoff_edges	5421	count	5421		13	Plant fibre utilisation	2026.39.1
+CA20.13	0.001	CA	CA20	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA20.14	0.001	CA	CA20	35	interaction_density	0.204724802717011	proportion	4099	20022	13	Plant fibre utilisation	2026.39.1
+CA20.14	0.001	CA	CA20	35	handoff_edges	4248	count	4248		13	Plant fibre utilisation	2026.39.1
+CA20.14	0.001	CA	CA20	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA20.16	0.001	CA	CA20	35	interaction_density	0.192484375834624	proportion	7207	37442	13	Plant fibre utilisation	2026.39.1
+CA20.16	0.001	CA	CA20	35	handoff_edges	7207	count	7207		13	Plant fibre utilisation	2026.39.1
+CA20.16	0.001	CA	CA20	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA21.01	0.001	CA	CA21	7	interaction_density	0.365522501906941	proportion	4792	13110	13	Plant fibre utilisation	2026.39.1
+CA21.01	0.001	CA	CA21	7	handoff_edges	4937	count	4937		13	Plant fibre utilisation	2026.39.1
+CA21.01	0.001	CA	CA21	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA21.02	0.001	CA	CA21	7	interaction_density	0.329419231989845	proportion	6228	18906	13	Plant fibre utilisation	2026.39.1
+CA21.02	0.001	CA	CA21	7	handoff_edges	6397	count	6397		13	Plant fibre utilisation	2026.39.1
+CA21.02	0.001	CA	CA21	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA21.03	0.001	CA	CA21	7	interaction_density	0.218560397131826	proportion	4755	21756	13	Plant fibre utilisation	2026.39.1
+CA21.03	0.001	CA	CA21	7	handoff_edges	4755	count	4755		13	Plant fibre utilisation	2026.39.1
+CA21.03	0.001	CA	CA21	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA21.05	0.001	CA	CA21	7	interaction_density	0.312456140350877	proportion	1781	5700	13	Plant fibre utilisation	2026.39.1
+CA21.05	0.001	CA	CA21	7	handoff_edges	1864	count	1864		13	Plant fibre utilisation	2026.39.1
+CA21.05	0.001	CA	CA21	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA21.09	0.001	CA	CA21	21	interaction_density	0.181727309076369	proportion	2727	15006	13	Plant fibre utilisation	2026.39.1
+CA21.09	0.001	CA	CA21	21	handoff_edges	2727	count	2727		13	Plant fibre utilisation	2026.39.1
+CA21.09	0.001	CA	CA21	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA21.10	0.001	CA	CA21	21	interaction_density	0.177244582043344	proportion	4122	23256	13	Plant fibre utilisation	2026.39.1
+CA21.10	0.001	CA	CA21	21	handoff_edges	4272	count	4272		13	Plant fibre utilisation	2026.39.1
+CA21.10	0.001	CA	CA21	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA21.11	0.001	CA	CA21	21	interaction_density	0.192684036864262	proportion	6774	35156	13	Plant fibre utilisation	2026.39.1
+CA21.11	0.001	CA	CA21	21	handoff_edges	6960	count	6960		13	Plant fibre utilisation	2026.39.1
+CA21.11	0.001	CA	CA21	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA21.12	0.001	CA	CA21	21	interaction_density	0.176771748770459	proportion	4385	24806	13	Plant fibre utilisation	2026.39.1
+CA21.12	0.001	CA	CA21	21	handoff_edges	4539	count	4539		13	Plant fibre utilisation	2026.39.1
+CA21.12	0.001	CA	CA21	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA21.14	0.001	CA	CA21	35	interaction_density	0.188893259900341	proportion	2881	15252	13	Plant fibre utilisation	2026.39.1
+CA21.14	0.001	CA	CA21	35	handoff_edges	3003	count	3003		13	Plant fibre utilisation	2026.39.1
+CA21.14	0.001	CA	CA21	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA21.15	0.001	CA	CA21	35	interaction_density	0.195300462249615	proportion	6084	31152	13	Plant fibre utilisation	2026.39.1
+CA21.15	0.001	CA	CA21	35	handoff_edges	6259	count	6259		13	Plant fibre utilisation	2026.39.1
+CA21.15	0.001	CA	CA21	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA21.17	0.001	CA	CA21	35	interaction_density	0.186648266344661	proportion	6492	34782	13	Plant fibre utilisation	2026.39.1
+CA21.17	0.001	CA	CA21	35	handoff_edges	6675	count	6675		13	Plant fibre utilisation	2026.39.1
+CA21.17	0.001	CA	CA21	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA22.01	0.001	CA	CA22	7	interaction_density	0.281879194630872	proportion	6300	22350	13	Plant fibre utilisation	2026.39.1
+CA22.01	0.001	CA	CA22	7	handoff_edges	6472	count	6472		13	Plant fibre utilisation	2026.39.1
+CA22.01	0.001	CA	CA22	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA22.05	0.001	CA	CA22	7	interaction_density	0.286177424108459	proportion	3884	13572	13	Plant fibre utilisation	2026.39.1
+CA22.05	0.001	CA	CA22	7	handoff_edges	4019	count	4019		13	Plant fibre utilisation	2026.39.1
+CA22.05	0.001	CA	CA22	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA22.09	0.001	CA	CA22	21	interaction_density	0.15620418499267	proportion	2344	15006	13	Plant fibre utilisation	2026.39.1
+CA22.09	0.001	CA	CA22	21	handoff_edges	2457	count	2457		13	Plant fibre utilisation	2026.39.1
+CA22.09	0.001	CA	CA22	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA22.11	0.001	CA	CA22	21	interaction_density	0.257660640013581	proportion	6071	23562	13	Plant fibre utilisation	2026.39.1
+CA22.11	0.001	CA	CA22	21	handoff_edges	6242	count	6242		13	Plant fibre utilisation	2026.39.1
+CA22.11	0.001	CA	CA22	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA22.12	0.001	CA	CA22	21	interaction_density	0.194361294813784	proportion	5584	28730	13	Plant fibre utilisation	2026.39.1
+CA22.12	0.001	CA	CA22	21	handoff_edges	5756	count	5756		13	Plant fibre utilisation	2026.39.1
+CA22.12	0.001	CA	CA22	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA22.15	0.001	CA	CA22	35	interaction_density	0.186313465783664	proportion	4220	22650	13	Plant fibre utilisation	2026.39.1
+CA22.15	0.001	CA	CA22	35	handoff_edges	4369	count	4369		13	Plant fibre utilisation	2026.39.1
+CA22.15	0.001	CA	CA22	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA22.16	0.001	CA	CA22	35	interaction_density	0.291388044579534	proportion	5752	19740	13	Plant fibre utilisation	2026.39.1
+CA22.16	0.001	CA	CA22	35	handoff_edges	5915	count	5915		13	Plant fibre utilisation	2026.39.1
+CA22.16	0.001	CA	CA22	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA22.18	0.001	CA	CA22	35	interaction_density	0.256017897091723	proportion	5722	22350	13	Plant fibre utilisation	2026.39.1
+CA22.18	0.001	CA	CA22	35	handoff_edges	5879	count	5879		13	Plant fibre utilisation	2026.39.1
+CA22.18	0.001	CA	CA22	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA23.01	0.001	CA	CA23	7	interaction_density	0.26181917211329	proportion	4807	18360	13	Plant fibre utilisation	2026.39.1
+CA23.01	0.001	CA	CA23	7	handoff_edges	4959	count	4959		13	Plant fibre utilisation	2026.39.1
+CA23.01	0.001	CA	CA23	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA23.04	0.001	CA	CA23	7	interaction_density	0.26121997471555	proportion	3306	12656	13	Plant fibre utilisation	2026.39.1
+CA23.04	0.001	CA	CA23	7	handoff_edges	3432	count	3432		13	Plant fibre utilisation	2026.39.1
+CA23.04	0.001	CA	CA23	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA23.08	0.001	CA	CA23	21	interaction_density	0.244089480772108	proportion	6525	26732	13	Plant fibre utilisation	2026.39.1
+CA23.08	0.001	CA	CA23	21	handoff_edges	6702	count	6702		13	Plant fibre utilisation	2026.39.1
+CA23.08	0.001	CA	CA23	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA23.10	0.001	CA	CA23	21	interaction_density	0.232370344587539	proportion	6676	28730	13	Plant fibre utilisation	2026.39.1
+CA23.10	0.001	CA	CA23	21	handoff_edges	6860	count	6860		13	Plant fibre utilisation	2026.39.1
+CA23.10	0.001	CA	CA23	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA23.11	0.001	CA	CA23	21	interaction_density	0.192406181015453	proportion	4358	22650	13	Plant fibre utilisation	2026.39.1
+CA23.11	0.001	CA	CA23	21	handoff_edges	4358	count	4358		13	Plant fibre utilisation	2026.39.1
+CA23.11	0.001	CA	CA23	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA23.14	0.001	CA	CA23	35	interaction_density	0.16117279666898	proportion	2787	17292	13	Plant fibre utilisation	2026.39.1
+CA23.14	0.001	CA	CA23	35	handoff_edges	2913	count	2913		13	Plant fibre utilisation	2026.39.1
+CA23.14	0.001	CA	CA23	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA23.15	0.001	CA	CA23	35	interaction_density	0.180727874276261	proportion	4370	24180	13	Plant fibre utilisation	2026.39.1
+CA23.15	0.001	CA	CA23	35	handoff_edges	4513	count	4513		13	Plant fibre utilisation	2026.39.1
+CA23.15	0.001	CA	CA23	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA23.16	0.001	CA	CA23	35	interaction_density	0.203175868713042	proportion	6116	30102	13	Plant fibre utilisation	2026.39.1
+CA23.16	0.001	CA	CA23	35	handoff_edges	6295	count	6295		13	Plant fibre utilisation	2026.39.1
+CA23.16	0.001	CA	CA23	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA24.01	0.001	CA	CA24	7	interaction_density	0.270005963029219	proportion	4528	16770	13	Plant fibre utilisation	2026.39.1
+CA24.01	0.001	CA	CA24	7	handoff_edges	4680	count	4680		13	Plant fibre utilisation	2026.39.1
+CA24.01	0.001	CA	CA24	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA24.02	0.001	CA	CA24	7	interaction_density	0.29254955570745	proportion	5136	17556	13	Plant fibre utilisation	2026.39.1
+CA24.02	0.001	CA	CA24	7	handoff_edges	5291	count	5291		13	Plant fibre utilisation	2026.39.1
+CA24.02	0.001	CA	CA24	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA24.05	0.001	CA	CA24	7	interaction_density	0.230798299480397	proportion	4886	21170	13	Plant fibre utilisation	2026.39.1
+CA24.05	0.001	CA	CA24	7	handoff_edges	5044	count	5044		13	Plant fibre utilisation	2026.39.1
+CA24.05	0.001	CA	CA24	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA24.09	0.001	CA	CA24	21	interaction_density	0.210411198600175	proportion	3367	16002	13	Plant fibre utilisation	2026.39.1
+CA24.09	0.001	CA	CA24	21	handoff_edges	3367	count	3367		13	Plant fibre utilisation	2026.39.1
+CA24.09	0.001	CA	CA24	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA24.10	0.001	CA	CA24	21	interaction_density	0.164966680266558	proportion	4852	29412	13	Plant fibre utilisation	2026.39.1
+CA24.10	0.001	CA	CA24	21	handoff_edges	4852	count	4852		13	Plant fibre utilisation	2026.39.1
+CA24.10	0.001	CA	CA24	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA24.12	0.001	CA	CA24	21	interaction_density	0.175720358998583	proportion	3720	21170	13	Plant fibre utilisation	2026.39.1
+CA24.12	0.001	CA	CA24	21	handoff_edges	3863	count	3863		13	Plant fibre utilisation	2026.39.1
+CA24.12	0.001	CA	CA24	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA24.13	0.001	CA	CA24	35	interaction_density	0.202184548867903	proportion	7108	35156	13	Plant fibre utilisation	2026.39.1
+CA24.13	0.001	CA	CA24	35	handoff_edges	7301	count	7301		13	Plant fibre utilisation	2026.39.1
+CA24.13	0.001	CA	CA24	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA24.16	0.001	CA	CA24	35	interaction_density	0.19780407327341	proportion	6954	35156	13	Plant fibre utilisation	2026.39.1
+CA24.16	0.001	CA	CA24	35	handoff_edges	7146	count	7146		13	Plant fibre utilisation	2026.39.1
+CA24.16	0.001	CA	CA24	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CA24.17	0.001	CA	CA24	35	interaction_density	0.188913403199117	proportion	4110	21756	13	Plant fibre utilisation	2026.39.1
+CA24.17	0.001	CA	CA24	35	handoff_edges	4256	count	4256		13	Plant fibre utilisation	2026.39.1
+CA24.17	0.001	CA	CA24	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB01.05	0.001	CB	CB01	7	interaction_density	0.310647783897194	proportion	4738	15252	13	Plant fibre utilisation	2026.39.1
+CB01.05	0.001	CB	CB01	7	handoff_edges	4885	count	4885		13	Plant fibre utilisation	2026.39.1
+CB01.05	0.001	CB	CB01	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB01.09	0.001	CB	CB01	21	interaction_density	0.275639141933588	proportion	1876	6806	13	Plant fibre utilisation	2026.39.1
+CB01.09	0.001	CB	CB01	21	handoff_edges	1971	count	1971		13	Plant fibre utilisation	2026.39.1
+CB01.09	0.001	CB	CB01	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB01.11	0.001	CB	CB01	21	interaction_density	0.182368837946137	proportion	3914	21462	13	Plant fibre utilisation	2026.39.1
+CB01.11	0.001	CB	CB01	21	handoff_edges	3914	count	3914		13	Plant fibre utilisation	2026.39.1
+CB01.11	0.001	CB	CB01	21	distributed_chain_links	1	count	1	5	13	Plant fibre utilisation	2026.39.1
+CB01.15	0.001	CB	CB01	35	interaction_density	0.243611177454024	proportion	6120	25122	13	Plant fibre utilisation	2026.39.1
+CB01.15	0.001	CB	CB01	35	handoff_edges	6297	count	6297		13	Plant fibre utilisation	2026.39.1
+CB01.15	0.001	CB	CB01	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB01.17	0.001	CB	CB01	35	interaction_density	0.235597826086957	proportion	6069	25760	13	Plant fibre utilisation	2026.39.1
+CB01.17	0.001	CB	CB01	35	handoff_edges	6241	count	6241		13	Plant fibre utilisation	2026.39.1
+CB01.17	0.001	CB	CB01	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB01.18	0.001	CB	CB01	35	interaction_density	0.236791657081512	proportion	6176	26082	13	Plant fibre utilisation	2026.39.1
+CB01.18	0.001	CB	CB01	35	handoff_edges	6176	count	6176		13	Plant fibre utilisation	2026.39.1
+CB01.18	0.001	CB	CB01	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB02.03	0.001	CB	CB02	7	interaction_density	0.276030986557302	proportion	4846	17556	13	Plant fibre utilisation	2026.39.1
+CB02.03	0.001	CB	CB02	7	handoff_edges	4996	count	4996		13	Plant fibre utilisation	2026.39.1
+CB02.03	0.001	CB	CB02	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB02.09	0.001	CB	CB02	21	interaction_density	0.191333101287852	proportion	5497	28730	13	Plant fibre utilisation	2026.39.1
+CB02.09	0.001	CB	CB02	21	handoff_edges	5497	count	5497		13	Plant fibre utilisation	2026.39.1
+CB02.09	0.001	CB	CB02	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB02.12	0.001	CB	CB02	21	interaction_density	0.281864445986583	proportion	4874	17292	13	Plant fibre utilisation	2026.39.1
+CB02.12	0.001	CB	CB02	21	handoff_edges	5030	count	5030		13	Plant fibre utilisation	2026.39.1
+CB02.12	0.001	CB	CB02	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB02.14	0.001	CB	CB02	35	interaction_density	0.234239130434783	proportion	6034	25760	13	Plant fibre utilisation	2026.39.1
+CB02.14	0.001	CB	CB02	35	handoff_edges	6206	count	6206		13	Plant fibre utilisation	2026.39.1
+CB02.14	0.001	CB	CB02	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB02.15	0.001	CB	CB02	35	interaction_density	0.222504863085441	proportion	5948	26732	13	Plant fibre utilisation	2026.39.1
+CB02.15	0.001	CB	CB02	35	handoff_edges	6122	count	6122		13	Plant fibre utilisation	2026.39.1
+CB02.15	0.001	CB	CB02	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB02.18	0.001	CB	CB02	35	interaction_density	0.246673794250416	proportion	8306	33672	13	Plant fibre utilisation	2026.39.1
+CB02.18	0.001	CB	CB02	35	handoff_edges	8500	count	8500		13	Plant fibre utilisation	2026.39.1
+CB02.18	0.001	CB	CB02	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB03.02	0.001	CB	CB03	7	interaction_density	0.290723854553642	proportion	10330	35532	13	Plant fibre utilisation	2026.39.1
+CB03.02	0.001	CB	CB03	7	handoff_edges	10544	count	10544		13	Plant fibre utilisation	2026.39.1
+CB03.02	0.001	CB	CB03	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB03.03	0.001	CB	CB03	7	interaction_density	0.2889019377569	proportion	4920	17030	13	Plant fibre utilisation	2026.39.1
+CB03.03	0.001	CB	CB03	7	handoff_edges	5075	count	5075		13	Plant fibre utilisation	2026.39.1
+CB03.03	0.001	CB	CB03	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB03.05	0.001	CB	CB03	7	interaction_density	0.336036036036036	proportion	4103	12210	13	Plant fibre utilisation	2026.39.1
+CB03.05	0.001	CB	CB03	7	handoff_edges	4103	count	4103		13	Plant fibre utilisation	2026.39.1
+CB03.05	0.001	CB	CB03	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB03.08	0.001	CB	CB03	21	interaction_density	0.245127436281859	proportion	3270	13340	13	Plant fibre utilisation	2026.39.1
+CB03.08	0.001	CB	CB03	21	handoff_edges	3400	count	3400		13	Plant fibre utilisation	2026.39.1
+CB03.08	0.001	CB	CB03	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB03.11	0.001	CB	CB03	21	interaction_density	0.153481378672218	proportion	2654	17292	13	Plant fibre utilisation	2026.39.1
+CB03.11	0.001	CB	CB03	21	handoff_edges	2780	count	2780		13	Plant fibre utilisation	2026.39.1
+CB03.11	0.001	CB	CB03	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB03.12	0.001	CB	CB03	21	interaction_density	0.222918807810894	proportion	4338	19460	13	Plant fibre utilisation	2026.39.1
+CB03.12	0.001	CB	CB03	21	handoff_edges	4486	count	4486		13	Plant fibre utilisation	2026.39.1
+CB03.12	0.001	CB	CB03	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB03.13	0.001	CB	CB03	35	interaction_density	0.23196675119752	proportion	6586	28392	13	Plant fibre utilisation	2026.39.1
+CB03.13	0.001	CB	CB03	35	handoff_edges	6769	count	6769		13	Plant fibre utilisation	2026.39.1
+CB03.13	0.001	CB	CB03	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB03.14	0.001	CB	CB03	35	interaction_density	0.239402173913043	proportion	6167	25760	13	Plant fibre utilisation	2026.39.1
+CB03.14	0.001	CB	CB03	35	handoff_edges	6347	count	6347		13	Plant fibre utilisation	2026.39.1
+CB03.14	0.001	CB	CB03	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB03.16	0.001	CB	CB03	35	interaction_density	0.231999079825167	proportion	6051	26082	13	Plant fibre utilisation	2026.39.1
+CB03.16	0.001	CB	CB03	35	handoff_edges	6051	count	6051		13	Plant fibre utilisation	2026.39.1
+CB03.16	0.001	CB	CB03	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB03.17	0.001	CB	CB03	35	interaction_density	0.244724836042201	proportion	6866	28056	13	Plant fibre utilisation	2026.39.1
+CB03.17	0.001	CB	CB03	35	handoff_edges	7056	count	7056		13	Plant fibre utilisation	2026.39.1
+CB03.17	0.001	CB	CB03	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB04.03	0.001	CB	CB04	7	interaction_density	0.3503663003663	proportion	3826	10920	13	Plant fibre utilisation	2026.39.1
+CB04.03	0.001	CB	CB04	7	handoff_edges	3960	count	3960		13	Plant fibre utilisation	2026.39.1
+CB04.03	0.001	CB	CB04	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB04.06	0.001	CB	CB04	7	interaction_density	0.32814549791294	proportion	5503	16770	13	Plant fibre utilisation	2026.39.1
+CB04.06	0.001	CB	CB04	7	handoff_edges	5664	count	5664		13	Plant fibre utilisation	2026.39.1
+CB04.06	0.001	CB	CB04	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB04.07	0.001	CB	CB04	21	interaction_density	0.248725637181409	proportion	3318	13340	13	Plant fibre utilisation	2026.39.1
+CB04.07	0.001	CB	CB04	21	handoff_edges	3441	count	3441		13	Plant fibre utilisation	2026.39.1
+CB04.07	0.001	CB	CB04	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB04.08	0.001	CB	CB04	21	interaction_density	0.212538540596095	proportion	4136	19460	13	Plant fibre utilisation	2026.39.1
+CB04.08	0.001	CB	CB04	21	handoff_edges	4285	count	4285		13	Plant fibre utilisation	2026.39.1
+CB04.08	0.001	CB	CB04	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB04.09	0.001	CB	CB04	21	interaction_density	0.17741935483871	proportion	2706	15252	13	Plant fibre utilisation	2026.39.1
+CB04.09	0.001	CB	CB04	21	handoff_edges	2706	count	2706		13	Plant fibre utilisation	2026.39.1
+CB04.09	0.001	CB	CB04	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB04.15	0.001	CB	CB04	35	interaction_density	0.164409696244202	proportion	4395	26732	13	Plant fibre utilisation	2026.39.1
+CB04.15	0.001	CB	CB04	35	handoff_edges	4395	count	4395		13	Plant fibre utilisation	2026.39.1
+CB04.15	0.001	CB	CB04	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB04.17	0.001	CB	CB04	35	interaction_density	0.226236440522155	proportion	4922	21756	13	Plant fibre utilisation	2026.39.1
+CB04.17	0.001	CB	CB04	35	handoff_edges	5081	count	5081		13	Plant fibre utilisation	2026.39.1
+CB04.17	0.001	CB	CB04	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB04.18	0.001	CB	CB04	35	interaction_density	0.216146741024747	proportion	4961	22952	13	Plant fibre utilisation	2026.39.1
+CB04.18	0.001	CB	CB04	35	handoff_edges	4961	count	4961		13	Plant fibre utilisation	2026.39.1
+CB04.18	0.001	CB	CB04	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB05.01	0.001	CB	CB05	7	interaction_density	0.289193132083941	proportion	5154	17822	13	Plant fibre utilisation	2026.39.1
+CB05.01	0.001	CB	CB05	7	handoff_edges	5311	count	5311		13	Plant fibre utilisation	2026.39.1
+CB05.01	0.001	CB	CB05	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB05.02	0.001	CB	CB05	7	interaction_density	0.247821540606483	proportion	5688	22952	13	Plant fibre utilisation	2026.39.1
+CB05.02	0.001	CB	CB05	7	handoff_edges	5854	count	5854		13	Plant fibre utilisation	2026.39.1
+CB05.02	0.001	CB	CB05	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB05.03	0.001	CB	CB05	7	interaction_density	0.287883328338827	proportion	5764	20022	13	Plant fibre utilisation	2026.39.1
+CB05.03	0.001	CB	CB05	7	handoff_edges	5934	count	5934		13	Plant fibre utilisation	2026.39.1
+CB05.03	0.001	CB	CB05	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB05.06	0.001	CB	CB05	7	interaction_density	0.203339296362552	proportion	3410	16770	13	Plant fibre utilisation	2026.39.1
+CB05.06	0.001	CB	CB05	7	handoff_edges	3538	count	3538		13	Plant fibre utilisation	2026.39.1
+CB05.06	0.001	CB	CB05	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB05.09	0.001	CB	CB05	21	interaction_density	0.233249464169229	proportion	5006	21462	13	Plant fibre utilisation	2026.39.1
+CB05.09	0.001	CB	CB05	21	handoff_edges	5162	count	5162		13	Plant fibre utilisation	2026.39.1
+CB05.09	0.001	CB	CB05	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB05.14	0.001	CB	CB05	35	interaction_density	0.217224262205902	proportion	6389	29412	13	Plant fibre utilisation	2026.39.1
+CB05.14	0.001	CB	CB05	35	handoff_edges	6389	count	6389		13	Plant fibre utilisation	2026.39.1
+CB05.14	0.001	CB	CB05	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB05.15	0.001	CB	CB05	35	interaction_density	0.218628990057561	proportion	8356	38220	13	Plant fibre utilisation	2026.39.1
+CB05.15	0.001	CB	CB05	35	handoff_edges	8554	count	8554		13	Plant fibre utilisation	2026.39.1
+CB05.15	0.001	CB	CB05	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB05.17	0.001	CB	CB05	35	interaction_density	0.238657718120805	proportion	5334	22350	13	Plant fibre utilisation	2026.39.1
+CB05.17	0.001	CB	CB05	35	handoff_edges	5493	count	5493		13	Plant fibre utilisation	2026.39.1
+CB05.17	0.001	CB	CB05	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB06.02	0.001	CB	CB06	7	interaction_density	0.328129032258065	proportion	5086	15500	13	Plant fibre utilisation	2026.39.1
+CB06.02	0.001	CB	CB06	7	handoff_edges	5235	count	5235		13	Plant fibre utilisation	2026.39.1
+CB06.02	0.001	CB	CB06	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB06.06	0.001	CB	CB06	7	interaction_density	0.316024127983215	proportion	4820	15252	13	Plant fibre utilisation	2026.39.1
+CB06.06	0.001	CB	CB06	7	handoff_edges	4972	count	4972		13	Plant fibre utilisation	2026.39.1
+CB06.06	0.001	CB	CB06	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB06.07	0.001	CB	CB06	21	interaction_density	0.192638544251447	proportion	4658	24180	13	Plant fibre utilisation	2026.39.1
+CB06.07	0.001	CB	CB06	21	handoff_edges	4828	count	4828		13	Plant fibre utilisation	2026.39.1
+CB06.07	0.001	CB	CB06	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB06.13	0.001	CB	CB06	35	interaction_density	0.182959382439939	proportion	5072	27722	13	Plant fibre utilisation	2026.39.1
+CB06.13	0.001	CB	CB06	35	handoff_edges	5239	count	5239		13	Plant fibre utilisation	2026.39.1
+CB06.13	0.001	CB	CB06	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB06.16	0.001	CB	CB06	35	interaction_density	0.262548262548263	proportion	5712	21756	13	Plant fibre utilisation	2026.39.1
+CB06.16	0.001	CB	CB06	35	handoff_edges	5877	count	5877		13	Plant fibre utilisation	2026.39.1
+CB06.16	0.001	CB	CB06	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB06.17	0.001	CB	CB06	35	interaction_density	0.185613286948715	proportion	3308	17822	13	Plant fibre utilisation	2026.39.1
+CB06.17	0.001	CB	CB06	35	handoff_edges	3308	count	3308		13	Plant fibre utilisation	2026.39.1
+CB06.17	0.001	CB	CB06	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB07.01	0.001	CB	CB07	7	interaction_density	0.346393301846286	proportion	6454	18632	13	Plant fibre utilisation	2026.39.1
+CB07.01	0.001	CB	CB07	7	handoff_edges	6626	count	6626		13	Plant fibre utilisation	2026.39.1
+CB07.01	0.001	CB	CB07	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB07.04	0.001	CB	CB07	7	interaction_density	0.2465834818776	proportion	5810	23562	13	Plant fibre utilisation	2026.39.1
+CB07.04	0.001	CB	CB07	7	handoff_edges	5810	count	5810		13	Plant fibre utilisation	2026.39.1
+CB07.04	0.001	CB	CB07	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB07.06	0.001	CB	CB07	7	interaction_density	0.286645161290323	proportion	4443	15500	13	Plant fibre utilisation	2026.39.1
+CB07.06	0.001	CB	CB07	7	handoff_edges	4443	count	4443		13	Plant fibre utilisation	2026.39.1
+CB07.06	0.001	CB	CB07	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB07.07	0.001	CB	CB07	21	interaction_density	0.286821705426357	proportion	4736	16512	13	Plant fibre utilisation	2026.39.1
+CB07.07	0.001	CB	CB07	21	handoff_edges	4885	count	4885		13	Plant fibre utilisation	2026.39.1
+CB07.07	0.001	CB	CB07	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB07.09	0.001	CB	CB07	21	interaction_density	0.255494505494505	proportion	7254	28392	13	Plant fibre utilisation	2026.39.1
+CB07.09	0.001	CB	CB07	21	handoff_edges	7446	count	7446		13	Plant fibre utilisation	2026.39.1
+CB07.09	0.001	CB	CB07	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB07.10	0.001	CB	CB07	21	interaction_density	0.172157684250619	proportion	5424	31506	13	Plant fibre utilisation	2026.39.1
+CB07.10	0.001	CB	CB07	21	handoff_edges	5591	count	5591		13	Plant fibre utilisation	2026.39.1
+CB07.10	0.001	CB	CB07	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB07.12	0.001	CB	CB07	21	interaction_density	0.213087365123564	proportion	6122	28730	13	Plant fibre utilisation	2026.39.1
+CB07.12	0.001	CB	CB07	21	handoff_edges	6122	count	6122		13	Plant fibre utilisation	2026.39.1
+CB07.12	0.001	CB	CB07	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB07.14	0.001	CB	CB07	35	interaction_density	0.235765065444157	proportion	7097	30102	13	Plant fibre utilisation	2026.39.1
+CB07.14	0.001	CB	CB07	35	handoff_edges	7282	count	7282		13	Plant fibre utilisation	2026.39.1
+CB07.14	0.001	CB	CB07	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB07.16	0.001	CB	CB07	35	interaction_density	0.240422099744589	proportion	7154	29756	13	Plant fibre utilisation	2026.39.1
+CB07.16	0.001	CB	CB07	35	handoff_edges	7348	count	7348		13	Plant fibre utilisation	2026.39.1
+CB07.16	0.001	CB	CB07	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB07.18	0.001	CB	CB07	35	interaction_density	0.202287581699346	proportion	3714	18360	13	Plant fibre utilisation	2026.39.1
+CB07.18	0.001	CB	CB07	35	handoff_edges	3714	count	3714		13	Plant fibre utilisation	2026.39.1
+CB07.18	0.001	CB	CB07	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB08.02	0.001	CB	CB08	7	interaction_density	0.33972153972154	proportion	4148	12210	13	Plant fibre utilisation	2026.39.1
+CB08.02	0.001	CB	CB08	7	handoff_edges	4279	count	4279		13	Plant fibre utilisation	2026.39.1
+CB08.02	0.001	CB	CB08	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB08.03	0.001	CB	CB08	7	interaction_density	0.284592077207945	proportion	5072	17822	13	Plant fibre utilisation	2026.39.1
+CB08.03	0.001	CB	CB08	7	handoff_edges	5224	count	5224		13	Plant fibre utilisation	2026.39.1
+CB08.03	0.001	CB	CB08	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB08.04	0.001	CB	CB08	7	interaction_density	0.306904363242391	proportion	6232	20306	13	Plant fibre utilisation	2026.39.1
+CB08.04	0.001	CB	CB08	7	handoff_edges	6399	count	6399		13	Plant fibre utilisation	2026.39.1
+CB08.04	0.001	CB	CB08	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB08.07	0.001	CB	CB08	21	interaction_density	0.263309352517986	proportion	5124	19460	13	Plant fibre utilisation	2026.39.1
+CB08.07	0.001	CB	CB08	21	handoff_edges	5287	count	5287		13	Plant fibre utilisation	2026.39.1
+CB08.07	0.001	CB	CB08	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB08.08	0.001	CB	CB08	21	interaction_density	0.218095238095238	proportion	3435	15750	13	Plant fibre utilisation	2026.39.1
+CB08.08	0.001	CB	CB08	21	handoff_edges	3435	count	3435		13	Plant fibre utilisation	2026.39.1
+CB08.08	0.001	CB	CB08	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB08.12	0.001	CB	CB08	21	interaction_density	0.291479028697572	proportion	6602	22650	13	Plant fibre utilisation	2026.39.1
+CB08.12	0.001	CB	CB08	21	handoff_edges	6770	count	6770		13	Plant fibre utilisation	2026.39.1
+CB08.12	0.001	CB	CB08	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB08.14	0.001	CB	CB08	35	interaction_density	0.300669420310497	proportion	4222	14042	13	Plant fibre utilisation	2026.39.1
+CB08.14	0.001	CB	CB08	35	handoff_edges	4358	count	4358		13	Plant fibre utilisation	2026.39.1
+CB08.14	0.001	CB	CB08	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB08.16	0.001	CB	CB08	35	interaction_density	0.191479028697572	proportion	4337	22650	13	Plant fibre utilisation	2026.39.1
+CB08.16	0.001	CB	CB08	35	handoff_edges	4486	count	4486		13	Plant fibre utilisation	2026.39.1
+CB08.16	0.001	CB	CB08	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB08.17	0.001	CB	CB08	35	interaction_density	0.290792540792541	proportion	5988	20592	13	Plant fibre utilisation	2026.39.1
+CB08.17	0.001	CB	CB08	35	handoff_edges	6159	count	6159		13	Plant fibre utilisation	2026.39.1
+CB08.17	0.001	CB	CB08	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB09.02	0.001	CB	CB09	7	interaction_density	0.309872461029759	proportion	6560	21170	13	Plant fibre utilisation	2026.39.1
+CB09.02	0.001	CB	CB09	7	handoff_edges	6735	count	6735		13	Plant fibre utilisation	2026.39.1
+CB09.02	0.001	CB	CB09	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB09.10	0.001	CB	CB09	21	interaction_density	0.223106688778331	proportion	4036	18090	13	Plant fibre utilisation	2026.39.1
+CB09.10	0.001	CB	CB09	21	handoff_edges	4036	count	4036		13	Plant fibre utilisation	2026.39.1
+CB09.10	0.001	CB	CB09	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB09.12	0.001	CB	CB09	21	interaction_density	0.273688100517369	proportion	7406	27060	13	Plant fibre utilisation	2026.39.1
+CB09.12	0.001	CB	CB09	21	handoff_edges	7592	count	7592		13	Plant fibre utilisation	2026.39.1
+CB09.12	0.001	CB	CB09	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB09.13	0.001	CB	CB09	35	interaction_density	0.253649068322981	proportion	6534	25760	13	Plant fibre utilisation	2026.39.1
+CB09.13	0.001	CB	CB09	35	handoff_edges	6709	count	6709		13	Plant fibre utilisation	2026.39.1
+CB09.13	0.001	CB	CB09	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB09.14	0.001	CB	CB09	35	interaction_density	0.153382974811546	proportion	3337	21756	13	Plant fibre utilisation	2026.39.1
+CB09.14	0.001	CB	CB09	35	handoff_edges	3337	count	3337		13	Plant fibre utilisation	2026.39.1
+CB09.14	0.001	CB	CB09	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB09.18	0.001	CB	CB09	35	interaction_density	0.217760463490161	proportion	4360	20022	13	Plant fibre utilisation	2026.39.1
+CB09.18	0.001	CB	CB09	35	handoff_edges	4514	count	4514		13	Plant fibre utilisation	2026.39.1
+CB09.18	0.001	CB	CB09	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB10.01	0.001	CB	CB10	7	interaction_density	0.344098649442161	proportion	5860	17030	13	Plant fibre utilisation	2026.39.1
+CB10.01	0.001	CB	CB10	7	handoff_edges	6021	count	6021		13	Plant fibre utilisation	2026.39.1
+CB10.01	0.001	CB	CB10	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB10.04	0.001	CB	CB10	7	interaction_density	0.389955022488756	proportion	5202	13340	13	Plant fibre utilisation	2026.39.1
+CB10.04	0.001	CB	CB10	7	handoff_edges	5352	count	5352		13	Plant fibre utilisation	2026.39.1
+CB10.04	0.001	CB	CB10	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB10.05	0.001	CB	CB10	7	interaction_density	0.301355732390215	proportion	4090	13572	13	Plant fibre utilisation	2026.39.1
+CB10.05	0.001	CB	CB10	7	handoff_edges	4226	count	4226		13	Plant fibre utilisation	2026.39.1
+CB10.05	0.001	CB	CB10	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB10.09	0.001	CB	CB10	21	interaction_density	0.266276207452678	proportion	6274	23562	13	Plant fibre utilisation	2026.39.1
+CB10.09	0.001	CB	CB10	21	handoff_edges	6449	count	6449		13	Plant fibre utilisation	2026.39.1
+CB10.09	0.001	CB	CB10	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB10.12	0.001	CB	CB10	21	interaction_density	0.221076309311603	proportion	5209	23562	13	Plant fibre utilisation	2026.39.1
+CB10.12	0.001	CB	CB10	21	handoff_edges	5369	count	5369		13	Plant fibre utilisation	2026.39.1
+CB10.12	0.001	CB	CB10	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB10.15	0.001	CB	CB10	35	interaction_density	0.230428122228493	proportion	5716	24806	13	Plant fibre utilisation	2026.39.1
+CB10.15	0.001	CB	CB10	35	handoff_edges	5716	count	5716		13	Plant fibre utilisation	2026.39.1
+CB10.15	0.001	CB	CB10	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB10.16	0.001	CB	CB10	35	interaction_density	0.165873267745689	proportion	3136	18906	13	Plant fibre utilisation	2026.39.1
+CB10.16	0.001	CB	CB10	35	handoff_edges	3275	count	3275		13	Plant fibre utilisation	2026.39.1
+CB10.16	0.001	CB	CB10	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB10.17	0.001	CB	CB10	35	interaction_density	0.133333333333333	proportion	2784	20880	13	Plant fibre utilisation	2026.39.1
+CB10.17	0.001	CB	CB10	35	handoff_edges	2915	count	2915		13	Plant fibre utilisation	2026.39.1
+CB10.17	0.001	CB	CB10	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB10.18	0.001	CB	CB10	35	interaction_density	0.113505747126437	proportion	2370	20880	13	Plant fibre utilisation	2026.39.1
+CB10.18	0.001	CB	CB10	35	handoff_edges	2370	count	2370		13	Plant fibre utilisation	2026.39.1
+CB10.18	0.001	CB	CB10	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB11.03	0.001	CB	CB11	7	interaction_density	0.331733973077436	proportion	4978	15006	13	Plant fibre utilisation	2026.39.1
+CB11.03	0.001	CB	CB11	7	handoff_edges	5126	count	5126		13	Plant fibre utilisation	2026.39.1
+CB11.03	0.001	CB	CB11	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB11.04	0.001	CB	CB11	7	interaction_density	0.308079470198675	proportion	6978	22650	13	Plant fibre utilisation	2026.39.1
+CB11.04	0.001	CB	CB11	7	handoff_edges	7158	count	7158		13	Plant fibre utilisation	2026.39.1
+CB11.04	0.001	CB	CB11	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB11.07	0.001	CB	CB11	21	interaction_density	0.29456253483003	proportion	7400	25122	13	Plant fibre utilisation	2026.39.1
+CB11.07	0.001	CB	CB11	21	handoff_edges	7583	count	7583		13	Plant fibre utilisation	2026.39.1
+CB11.07	0.001	CB	CB11	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB11.08	0.001	CB	CB11	21	interaction_density	0.222183668748554	proportion	3842	17292	13	Plant fibre utilisation	2026.39.1
+CB11.08	0.001	CB	CB11	21	handoff_edges	3988	count	3988		13	Plant fibre utilisation	2026.39.1
+CB11.08	0.001	CB	CB11	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB11.11	0.001	CB	CB11	21	interaction_density	0.139635936582501	proportion	2378	17030	13	Plant fibre utilisation	2026.39.1
+CB11.11	0.001	CB	CB11	21	handoff_edges	2378	count	2378		13	Plant fibre utilisation	2026.39.1
+CB11.11	0.001	CB	CB11	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB11.14	0.001	CB	CB11	35	interaction_density	0.15254800345492	proportion	4592	30102	13	Plant fibre utilisation	2026.39.1
+CB11.14	0.001	CB	CB11	35	handoff_edges	4592	count	4592		13	Plant fibre utilisation	2026.39.1
+CB11.14	0.001	CB	CB11	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB11.15	0.001	CB	CB11	35	interaction_density	0.248667010663915	proportion	5783	23256	13	Plant fibre utilisation	2026.39.1
+CB11.15	0.001	CB	CB11	35	handoff_edges	5783	count	5783		13	Plant fibre utilisation	2026.39.1
+CB11.15	0.001	CB	CB11	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB11.18	0.001	CB	CB11	35	interaction_density	0.279911699779249	proportion	6340	22650	13	Plant fibre utilisation	2026.39.1
+CB11.18	0.001	CB	CB11	35	handoff_edges	6517	count	6517		13	Plant fibre utilisation	2026.39.1
+CB11.18	0.001	CB	CB11	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB12.03	0.001	CB	CB12	7	interaction_density	0.323724548158316	proportion	2830	8742	13	Plant fibre utilisation	2026.39.1
+CB12.03	0.001	CB	CB12	7	handoff_edges	2942	count	2942		13	Plant fibre utilisation	2026.39.1
+CB12.03	0.001	CB	CB12	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB12.06	0.001	CB	CB12	7	interaction_density	0.270004189359028	proportion	6445	23870	13	Plant fibre utilisation	2026.39.1
+CB12.06	0.001	CB	CB12	7	handoff_edges	6807	count	6807		13	Plant fibre utilisation	2026.39.1
+CB12.06	0.001	CB	CB12	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB12.09	0.001	CB	CB12	21	interaction_density	0.214912280701754	proportion	4998	23256	13	Plant fibre utilisation	2026.39.1
+CB12.09	0.001	CB	CB12	21	handoff_edges	5151	count	5151		13	Plant fibre utilisation	2026.39.1
+CB12.09	0.001	CB	CB12	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB12.12	0.001	CB	CB12	21	interaction_density	0.265097153914376	proportion	6576	24806	13	Plant fibre utilisation	2026.39.1
+CB12.12	0.001	CB	CB12	21	handoff_edges	6753	count	6753		13	Plant fibre utilisation	2026.39.1
+CB12.12	0.001	CB	CB12	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB12.14	0.001	CB	CB12	35	interaction_density	0.211494645705172	proportion	3713	17556	13	Plant fibre utilisation	2026.39.1
+CB12.14	0.001	CB	CB12	35	handoff_edges	3713	count	3713		13	Plant fibre utilisation	2026.39.1
+CB12.14	0.001	CB	CB12	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB12.15	0.001	CB	CB12	35	interaction_density	0.196723151161486	proportion	3506	17822	13	Plant fibre utilisation	2026.39.1
+CB12.15	0.001	CB	CB12	35	handoff_edges	3506	count	3506		13	Plant fibre utilisation	2026.39.1
+CB12.15	0.001	CB	CB12	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB12.17	0.001	CB	CB12	35	interaction_density	0.210108676901846	proportion	7308	34782	13	Plant fibre utilisation	2026.39.1
+CB12.17	0.001	CB	CB12	35	handoff_edges	7499	count	7499		13	Plant fibre utilisation	2026.39.1
+CB12.17	0.001	CB	CB12	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB12.18	0.001	CB	CB12	35	interaction_density	0.215400202634245	proportion	4252	19740	13	Plant fibre utilisation	2026.39.1
+CB12.18	0.001	CB	CB12	35	handoff_edges	4252	count	4252		13	Plant fibre utilisation	2026.39.1
+CB12.18	0.001	CB	CB12	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB13.01	0.001	CB	CB13	7	interaction_density	0.25297619047619	proportion	3145	12432	13	Plant fibre utilisation	2026.39.1
+CB13.01	0.001	CB	CB13	7	handoff_edges	3267	count	3267		13	Plant fibre utilisation	2026.39.1
+CB13.01	0.001	CB	CB13	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB13.04	0.001	CB	CB13	7	interaction_density	0.295126269685957	proportion	6334	21462	13	Plant fibre utilisation	2026.39.1
+CB13.04	0.001	CB	CB13	7	handoff_edges	6503	count	6503		13	Plant fibre utilisation	2026.39.1
+CB13.04	0.001	CB	CB13	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB13.05	0.001	CB	CB13	7	interaction_density	0.349266001174398	proportion	5948	17030	13	Plant fibre utilisation	2026.39.1
+CB13.05	0.001	CB	CB13	7	handoff_edges	6106	count	6106		13	Plant fibre utilisation	2026.39.1
+CB13.05	0.001	CB	CB13	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB13.11	0.001	CB	CB13	21	interaction_density	0.21009397841977	proportion	6036	28730	13	Plant fibre utilisation	2026.39.1
+CB13.11	0.001	CB	CB13	21	handoff_edges	6211	count	6211		13	Plant fibre utilisation	2026.39.1
+CB13.11	0.001	CB	CB13	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB13.12	0.001	CB	CB13	21	interaction_density	0.18954150434522	proportion	3795	20022	13	Plant fibre utilisation	2026.39.1
+CB13.12	0.001	CB	CB13	21	handoff_edges	3942	count	3942		13	Plant fibre utilisation	2026.39.1
+CB13.12	0.001	CB	CB13	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB13.14	0.001	CB	CB13	35	interaction_density	0.158395989974937	proportion	5688	35910	13	Plant fibre utilisation	2026.39.1
+CB13.14	0.001	CB	CB13	35	handoff_edges	5865	count	5865		13	Plant fibre utilisation	2026.39.1
+CB13.14	0.001	CB	CB13	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB13.17	0.001	CB	CB13	35	interaction_density	0.162101806239737	proportion	4936	30450	13	Plant fibre utilisation	2026.39.1
+CB13.17	0.001	CB	CB13	35	handoff_edges	5105	count	5105		13	Plant fibre utilisation	2026.39.1
+CB13.17	0.001	CB	CB13	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB13.18	0.001	CB	CB13	35	interaction_density	0.202212732919255	proportion	5209	25760	13	Plant fibre utilisation	2026.39.1
+CB13.18	0.001	CB	CB13	35	handoff_edges	5374	count	5374		13	Plant fibre utilisation	2026.39.1
+CB13.18	0.001	CB	CB13	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB14.02	0.001	CB	CB14	7	interaction_density	0.323988005997002	proportion	4322	13340	13	Plant fibre utilisation	2026.39.1
+CB14.02	0.001	CB	CB14	7	handoff_edges	4468	count	4468		13	Plant fibre utilisation	2026.39.1
+CB14.02	0.001	CB	CB14	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB14.03	0.001	CB	CB14	7	interaction_density	0.295997973657548	proportion	5843	19740	13	Plant fibre utilisation	2026.39.1
+CB14.03	0.001	CB	CB14	7	handoff_edges	6004	count	6004		13	Plant fibre utilisation	2026.39.1
+CB14.03	0.001	CB	CB14	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB14.07	0.001	CB	CB14	21	interaction_density	0.196779261586803	proportion	3507	17822	13	Plant fibre utilisation	2026.39.1
+CB14.07	0.001	CB	CB14	21	handoff_edges	3648	count	3648		13	Plant fibre utilisation	2026.39.1
+CB14.07	0.001	CB	CB14	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB14.10	0.001	CB	CB14	21	interaction_density	0.174066405950464	proportion	4540	26082	13	Plant fibre utilisation	2026.39.1
+CB14.10	0.001	CB	CB14	21	handoff_edges	4699	count	4699		13	Plant fibre utilisation	2026.39.1
+CB14.10	0.001	CB	CB14	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB14.12	0.001	CB	CB14	21	interaction_density	0.207348141071571	proportion	5209	25122	13	Plant fibre utilisation	2026.39.1
+CB14.12	0.001	CB	CB14	21	handoff_edges	5369	count	5369		13	Plant fibre utilisation	2026.39.1
+CB14.12	0.001	CB	CB14	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB14.13	0.001	CB	CB14	35	interaction_density	0.170619006102877	proportion	5871	34410	13	Plant fibre utilisation	2026.39.1
+CB14.13	0.001	CB	CB14	35	handoff_edges	6050	count	6050		13	Plant fibre utilisation	2026.39.1
+CB14.13	0.001	CB	CB14	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB14.17	0.001	CB	CB14	35	interaction_density	0.223469387755102	proportion	8541	38220	13	Plant fibre utilisation	2026.39.1
+CB14.17	0.001	CB	CB14	35	handoff_edges	8750	count	8750		13	Plant fibre utilisation	2026.39.1
+CB14.17	0.001	CB	CB14	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB15.01	0.001	CB	CB15	7	interaction_density	0.320014992503748	proportion	4269	13340	13	Plant fibre utilisation	2026.39.1
+CB15.01	0.001	CB	CB15	7	handoff_edges	4404	count	4404		13	Plant fibre utilisation	2026.39.1
+CB15.01	0.001	CB	CB15	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB15.02	0.001	CB	CB15	7	interaction_density	0.323841698841699	proportion	4026	12432	13	Plant fibre utilisation	2026.39.1
+CB15.02	0.001	CB	CB15	7	handoff_edges	4160	count	4160		13	Plant fibre utilisation	2026.39.1
+CB15.02	0.001	CB	CB15	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB15.04	0.001	CB	CB15	7	interaction_density	0.332000968992248	proportion	5482	16512	13	Plant fibre utilisation	2026.39.1
+CB15.04	0.001	CB	CB15	7	handoff_edges	5638	count	5638		13	Plant fibre utilisation	2026.39.1
+CB15.04	0.001	CB	CB15	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB15.07	0.001	CB	CB15	21	interaction_density	0.326979865771812	proportion	7308	22350	13	Plant fibre utilisation	2026.39.1
+CB15.07	0.001	CB	CB15	21	handoff_edges	7486	count	7486		13	Plant fibre utilisation	2026.39.1
+CB15.07	0.001	CB	CB15	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB15.12	0.001	CB	CB15	21	interaction_density	0.226956456681131	proportion	6067	26732	13	Plant fibre utilisation	2026.39.1
+CB15.12	0.001	CB	CB15	21	handoff_edges	6067	count	6067		13	Plant fibre utilisation	2026.39.1
+CB15.12	0.001	CB	CB15	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB15.14	0.001	CB	CB15	35	interaction_density	0.198427672955975	proportion	5048	25440	13	Plant fibre utilisation	2026.39.1
+CB15.14	0.001	CB	CB15	35	handoff_edges	5048	count	5048		13	Plant fibre utilisation	2026.39.1
+CB15.14	0.001	CB	CB15	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB15.17	0.001	CB	CB15	35	interaction_density	0.211266294227188	proportion	6807	32220	13	Plant fibre utilisation	2026.39.1
+CB15.17	0.001	CB	CB15	35	handoff_edges	6807	count	6807		13	Plant fibre utilisation	2026.39.1
+CB15.17	0.001	CB	CB15	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB16.02	0.001	CB	CB16	7	interaction_density	0.318322580645161	proportion	4934	15500	13	Plant fibre utilisation	2026.39.1
+CB16.02	0.001	CB	CB16	7	handoff_edges	5080	count	5080		13	Plant fibre utilisation	2026.39.1
+CB16.02	0.001	CB	CB16	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB16.03	0.001	CB	CB16	7	interaction_density	0.285461580983969	proportion	5164	18090	13	Plant fibre utilisation	2026.39.1
+CB16.03	0.001	CB	CB16	7	handoff_edges	5324	count	5324		13	Plant fibre utilisation	2026.39.1
+CB16.03	0.001	CB	CB16	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB16.06	0.001	CB	CB16	7	interaction_density	0.295851706679732	proportion	7246	24492	13	Plant fibre utilisation	2026.39.1
+CB16.06	0.001	CB	CB16	7	handoff_edges	7428	count	7428		13	Plant fibre utilisation	2026.39.1
+CB16.06	0.001	CB	CB16	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB16.07	0.001	CB	CB16	21	interaction_density	0.223936320090166	proportion	6358	28392	13	Plant fibre utilisation	2026.39.1
+CB16.07	0.001	CB	CB16	21	handoff_edges	6536	count	6536		13	Plant fibre utilisation	2026.39.1
+CB16.07	0.001	CB	CB16	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB16.11	0.001	CB	CB16	21	interaction_density	0.281991744066047	proportion	6558	23256	13	Plant fibre utilisation	2026.39.1
+CB16.11	0.001	CB	CB16	21	handoff_edges	6734	count	6734		13	Plant fibre utilisation	2026.39.1
+CB16.11	0.001	CB	CB16	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB16.12	0.001	CB	CB16	21	interaction_density	0.244688014364806	proportion	6541	26732	13	Plant fibre utilisation	2026.39.1
+CB16.12	0.001	CB	CB16	21	handoff_edges	6722	count	6722		13	Plant fibre utilisation	2026.39.1
+CB16.12	0.001	CB	CB16	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB16.16	0.001	CB	CB16	35	interaction_density	0.202245188880969	proportion	6810	33672	13	Plant fibre utilisation	2026.39.1
+CB16.16	0.001	CB	CB16	35	handoff_edges	7002	count	7002		13	Plant fibre utilisation	2026.39.1
+CB16.16	0.001	CB	CB16	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB16.17	0.001	CB	CB16	35	interaction_density	0.19068423175158	proportion	5674	29756	13	Plant fibre utilisation	2026.39.1
+CB16.17	0.001	CB	CB16	35	handoff_edges	5848	count	5848		13	Plant fibre utilisation	2026.39.1
+CB16.17	0.001	CB	CB16	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB17.02	0.001	CB	CB17	7	interaction_density	0.265486725663717	proportion	3360	12656	13	Plant fibre utilisation	2026.39.1
+CB17.02	0.001	CB	CB17	7	handoff_edges	3482	count	3482		13	Plant fibre utilisation	2026.39.1
+CB17.02	0.001	CB	CB17	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB17.03	0.001	CB	CB17	7	interaction_density	0.262738853503185	proportion	6435	24492	13	Plant fibre utilisation	2026.39.1
+CB17.03	0.001	CB	CB17	7	handoff_edges	6435	count	6435		13	Plant fibre utilisation	2026.39.1
+CB17.03	0.001	CB	CB17	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB17.05	0.001	CB	CB17	7	interaction_density	0.305099742599743	proportion	3793	12432	13	Plant fibre utilisation	2026.39.1
+CB17.05	0.001	CB	CB17	7	handoff_edges	3923	count	3923		13	Plant fibre utilisation	2026.39.1
+CB17.05	0.001	CB	CB17	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB17.07	0.001	CB	CB17	21	interaction_density	0.267490355541654	proportion	5131	19182	13	Plant fibre utilisation	2026.39.1
+CB17.07	0.001	CB	CB17	21	handoff_edges	5457	count	5457		13	Plant fibre utilisation	2026.39.1
+CB17.07	0.001	CB	CB17	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB17.08	0.001	CB	CB17	21	interaction_density	0.232000502165589	proportion	7392	31862	13	Plant fibre utilisation	2026.39.1
+CB17.08	0.001	CB	CB17	21	handoff_edges	7581	count	7581		13	Plant fibre utilisation	2026.39.1
+CB17.08	0.001	CB	CB17	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB17.14	0.001	CB	CB17	35	interaction_density	0.282277215348081	proportion	4517	16002	13	Plant fibre utilisation	2026.39.1
+CB17.14	0.001	CB	CB17	35	handoff_edges	4663	count	4663		13	Plant fibre utilisation	2026.39.1
+CB17.14	0.001	CB	CB17	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB17.18	0.001	CB	CB17	35	interaction_density	0.20736914600551	proportion	3011	14520	13	Plant fibre utilisation	2026.39.1
+CB17.18	0.001	CB	CB17	35	handoff_edges	3136	count	3136		13	Plant fibre utilisation	2026.39.1
+CB17.18	0.001	CB	CB17	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB18.03	0.001	CB	CB18	7	interaction_density	0.243344783168742	proportion	4534	18632	13	Plant fibre utilisation	2026.39.1
+CB18.03	0.001	CB	CB18	7	handoff_edges	4683	count	4683		13	Plant fibre utilisation	2026.39.1
+CB18.03	0.001	CB	CB18	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB18.04	0.001	CB	CB18	7	interaction_density	0.313144709696434	proportion	4250	13572	13	Plant fibre utilisation	2026.39.1
+CB18.04	0.001	CB	CB18	7	handoff_edges	4388	count	4388		13	Plant fibre utilisation	2026.39.1
+CB18.04	0.001	CB	CB18	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB18.08	0.001	CB	CB18	21	interaction_density	0.165507582343282	proportion	6854	41412	13	Plant fibre utilisation	2026.39.1
+CB18.08	0.001	CB	CB18	21	handoff_edges	7042	count	7042		13	Plant fibre utilisation	2026.39.1
+CB18.08	0.001	CB	CB18	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB18.09	0.001	CB	CB18	21	interaction_density	0.250276243093923	proportion	8154	32580	13	Plant fibre utilisation	2026.39.1
+CB18.09	0.001	CB	CB18	21	handoff_edges	8348	count	8348		13	Plant fibre utilisation	2026.39.1
+CB18.09	0.001	CB	CB18	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB18.10	0.001	CB	CB18	21	interaction_density	0.157604227833235	proportion	2684	17030	13	Plant fibre utilisation	2026.39.1
+CB18.10	0.001	CB	CB18	21	handoff_edges	2808	count	2808		13	Plant fibre utilisation	2026.39.1
+CB18.10	0.001	CB	CB18	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB18.14	0.001	CB	CB18	35	interaction_density	0.205101558809636	proportion	4342	21170	13	Plant fibre utilisation	2026.39.1
+CB18.14	0.001	CB	CB18	35	handoff_edges	4488	count	4488		13	Plant fibre utilisation	2026.39.1
+CB18.14	0.001	CB	CB18	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB18.15	0.001	CB	CB18	35	interaction_density	0.145729813664596	proportion	3754	25760	13	Plant fibre utilisation	2026.39.1
+CB18.15	0.001	CB	CB18	35	handoff_edges	3897	count	3897		13	Plant fibre utilisation	2026.39.1
+CB18.15	0.001	CB	CB18	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB18.17	0.001	CB	CB18	35	interaction_density	0.188632051060894	proportion	6561	34782	13	Plant fibre utilisation	2026.39.1
+CB18.17	0.001	CB	CB18	35	handoff_edges	6561	count	6561		13	Plant fibre utilisation	2026.39.1
+CB18.17	0.001	CB	CB18	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB19.03	0.001	CB	CB19	7	interaction_density	0.263483642793988	proportion	3576	13572	13	Plant fibre utilisation	2026.39.1
+CB19.03	0.001	CB	CB19	7	handoff_edges	3709	count	3709		13	Plant fibre utilisation	2026.39.1
+CB19.03	0.001	CB	CB19	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB19.04	0.001	CB	CB19	7	interaction_density	0.278221899224806	proportion	4594	16512	13	Plant fibre utilisation	2026.39.1
+CB19.04	0.001	CB	CB19	7	handoff_edges	4745	count	4745		13	Plant fibre utilisation	2026.39.1
+CB19.04	0.001	CB	CB19	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB19.07	0.001	CB	CB19	21	interaction_density	0.233935998641881	proportion	5512	23562	13	Plant fibre utilisation	2026.39.1
+CB19.07	0.001	CB	CB19	21	handoff_edges	5678	count	5678		13	Plant fibre utilisation	2026.39.1
+CB19.07	0.001	CB	CB19	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB19.09	0.001	CB	CB19	21	interaction_density	0.270451659713405	proportion	5964	22052	13	Plant fibre utilisation	2026.39.1
+CB19.09	0.001	CB	CB19	21	handoff_edges	6129	count	6129		13	Plant fibre utilisation	2026.39.1
+CB19.09	0.001	CB	CB19	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB19.11	0.001	CB	CB19	21	interaction_density	0.186292400171748	proportion	3471	18632	13	Plant fibre utilisation	2026.39.1
+CB19.11	0.001	CB	CB19	21	handoff_edges	3605	count	3605		13	Plant fibre utilisation	2026.39.1
+CB19.11	0.001	CB	CB19	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB19.12	0.001	CB	CB19	21	interaction_density	0.269612903225806	proportion	4179	15500	13	Plant fibre utilisation	2026.39.1
+CB19.12	0.001	CB	CB19	21	handoff_edges	4321	count	4321		13	Plant fibre utilisation	2026.39.1
+CB19.12	0.001	CB	CB19	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB19.14	0.001	CB	CB19	35	interaction_density	0.220680083275503	proportion	3816	17292	13	Plant fibre utilisation	2026.39.1
+CB19.14	0.001	CB	CB19	35	handoff_edges	3816	count	3816		13	Plant fibre utilisation	2026.39.1
+CB19.14	0.001	CB	CB19	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB19.15	0.001	CB	CB19	35	interaction_density	0.174196987871518	proportion	2614	15006	13	Plant fibre utilisation	2026.39.1
+CB19.15	0.001	CB	CB19	35	handoff_edges	2614	count	2614		13	Plant fibre utilisation	2026.39.1
+CB19.15	0.001	CB	CB19	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB20.02	0.001	CB	CB20	7	interaction_density	0.354080615296966	proportion	4972	14042	13	Plant fibre utilisation	2026.39.1
+CB20.02	0.001	CB	CB20	7	handoff_edges	5123	count	5123		13	Plant fibre utilisation	2026.39.1
+CB20.02	0.001	CB	CB20	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB20.03	0.001	CB	CB20	7	interaction_density	0.335399449035813	proportion	4870	14520	13	Plant fibre utilisation	2026.39.1
+CB20.03	0.001	CB	CB20	7	handoff_edges	5016	count	5016		13	Plant fibre utilisation	2026.39.1
+CB20.03	0.001	CB	CB20	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB20.06	0.001	CB	CB20	7	interaction_density	0.290172432032159	proportion	5486	18906	13	Plant fibre utilisation	2026.39.1
+CB20.06	0.001	CB	CB20	7	handoff_edges	5644	count	5644		13	Plant fibre utilisation	2026.39.1
+CB20.06	0.001	CB	CB20	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB20.07	0.001	CB	CB20	21	interaction_density	0.181015452538631	proportion	4100	22650	13	Plant fibre utilisation	2026.39.1
+CB20.07	0.001	CB	CB20	21	handoff_edges	4252	count	4252		13	Plant fibre utilisation	2026.39.1
+CB20.07	0.001	CB	CB20	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB20.09	0.001	CB	CB20	21	interaction_density	0.139662882696938	proportion	3248	23256	13	Plant fibre utilisation	2026.39.1
+CB20.09	0.001	CB	CB20	21	handoff_edges	3388	count	3388		13	Plant fibre utilisation	2026.39.1
+CB20.09	0.001	CB	CB20	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB20.10	0.001	CB	CB20	21	interaction_density	0.207680072710748	proportion	5484	26406	13	Plant fibre utilisation	2026.39.1
+CB20.10	0.001	CB	CB20	21	handoff_edges	5657	count	5657		13	Plant fibre utilisation	2026.39.1
+CB20.10	0.001	CB	CB20	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB20.13	0.001	CB	CB20	35	interaction_density	0.19592389140992	proportion	4922	25122	13	Plant fibre utilisation	2026.39.1
+CB20.13	0.001	CB	CB20	35	handoff_edges	4922	count	4922		13	Plant fibre utilisation	2026.39.1
+CB20.13	0.001	CB	CB20	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB20.15	0.001	CB	CB20	35	interaction_density	0.198488702678438	proportion	5306	26732	13	Plant fibre utilisation	2026.39.1
+CB20.15	0.001	CB	CB20	35	handoff_edges	5479	count	5479		13	Plant fibre utilisation	2026.39.1
+CB20.15	0.001	CB	CB20	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB20.17	0.001	CB	CB20	35	interaction_density	0.206682389937107	proportion	5258	25440	13	Plant fibre utilisation	2026.39.1
+CB20.17	0.001	CB	CB20	35	handoff_edges	5420	count	5420		13	Plant fibre utilisation	2026.39.1
+CB20.17	0.001	CB	CB20	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB20.18	0.001	CB	CB20	35	interaction_density	0.207407407407407	proportion	3808	18360	13	Plant fibre utilisation	2026.39.1
+CB20.18	0.001	CB	CB20	35	handoff_edges	3808	count	3808		13	Plant fibre utilisation	2026.39.1
+CB20.18	0.001	CB	CB20	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB21.03	0.001	CB	CB21	7	interaction_density	0.320400822199383	proportion	6235	19460	13	Plant fibre utilisation	2026.39.1
+CB21.03	0.001	CB	CB21	7	handoff_edges	6404	count	6404		13	Plant fibre utilisation	2026.39.1
+CB21.03	0.001	CB	CB21	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB21.07	0.001	CB	CB21	21	interaction_density	0.212763351298383	proportion	5211	24492	13	Plant fibre utilisation	2026.39.1
+CB21.07	0.001	CB	CB21	21	handoff_edges	5369	count	5369		13	Plant fibre utilisation	2026.39.1
+CB21.07	0.001	CB	CB21	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB21.08	0.001	CB	CB21	21	interaction_density	0.218791946308725	proportion	4890	22350	13	Plant fibre utilisation	2026.39.1
+CB21.08	0.001	CB	CB21	21	handoff_edges	5046	count	5046		13	Plant fibre utilisation	2026.39.1
+CB21.08	0.001	CB	CB21	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB21.11	0.001	CB	CB21	21	interaction_density	0.18046095631235	proportion	5246	29070	13	Plant fibre utilisation	2026.39.1
+CB21.11	0.001	CB	CB21	21	handoff_edges	5246	count	5246		13	Plant fibre utilisation	2026.39.1
+CB21.11	0.001	CB	CB21	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB21.13	0.001	CB	CB21	35	interaction_density	0.208075335397317	proportion	4839	23256	13	Plant fibre utilisation	2026.39.1
+CB21.13	0.001	CB	CB21	35	handoff_edges	4839	count	4839		13	Plant fibre utilisation	2026.39.1
+CB21.13	0.001	CB	CB21	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB21.16	0.001	CB	CB21	35	interaction_density	0.190750256937307	proportion	3712	19460	13	Plant fibre utilisation	2026.39.1
+CB21.16	0.001	CB	CB21	35	handoff_edges	3859	count	3859		13	Plant fibre utilisation	2026.39.1
+CB21.16	0.001	CB	CB21	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB21.18	0.001	CB	CB21	35	interaction_density	0.270385674931129	proportion	3926	14520	13	Plant fibre utilisation	2026.39.1
+CB21.18	0.001	CB	CB21	35	handoff_edges	4065	count	4065		13	Plant fibre utilisation	2026.39.1
+CB21.18	0.001	CB	CB21	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB22.03	0.001	CB	CB22	7	interaction_density	0.252170022371365	proportion	5636	22350	13	Plant fibre utilisation	2026.39.1
+CB22.03	0.001	CB	CB22	7	handoff_edges	5805	count	5805		13	Plant fibre utilisation	2026.39.1
+CB22.03	0.001	CB	CB22	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB22.07	0.001	CB	CB22	21	interaction_density	0.148387096774194	proportion	3542	23870	13	Plant fibre utilisation	2026.39.1
+CB22.07	0.001	CB	CB22	21	handoff_edges	3682	count	3682		13	Plant fibre utilisation	2026.39.1
+CB22.07	0.001	CB	CB22	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB22.08	0.001	CB	CB22	21	interaction_density	0.211070619521324	proportion	4286	20306	13	Plant fibre utilisation	2026.39.1
+CB22.08	0.001	CB	CB22	21	handoff_edges	4428	count	4428		13	Plant fibre utilisation	2026.39.1
+CB22.08	0.001	CB	CB22	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB22.10	0.001	CB	CB22	21	interaction_density	0.258637041051348	proportion	3818	14762	13	Plant fibre utilisation	2026.39.1
+CB22.10	0.001	CB	CB22	21	handoff_edges	3958	count	3958		13	Plant fibre utilisation	2026.39.1
+CB22.10	0.001	CB	CB22	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB22.15	0.001	CB	CB22	35	interaction_density	0.255986454889946	proportion	6350	24806	13	Plant fibre utilisation	2026.39.1
+CB22.15	0.001	CB	CB22	35	handoff_edges	6532	count	6532		13	Plant fibre utilisation	2026.39.1
+CB22.15	0.001	CB	CB22	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB22.16	0.001	CB	CB22	35	interaction_density	0.145528455284553	proportion	3938	27060	13	Plant fibre utilisation	2026.39.1
+CB22.16	0.001	CB	CB22	35	handoff_edges	4091	count	4091		13	Plant fibre utilisation	2026.39.1
+CB22.16	0.001	CB	CB22	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB22.18	0.001	CB	CB22	35	interaction_density	0.182345255593663	proportion	4466	24492	13	Plant fibre utilisation	2026.39.1
+CB22.18	0.001	CB	CB22	35	handoff_edges	4623	count	4623		13	Plant fibre utilisation	2026.39.1
+CB22.18	0.001	CB	CB22	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB23.02	0.001	CB	CB23	7	interaction_density	0.270965993767782	proportion	4000	14762	13	Plant fibre utilisation	2026.39.1
+CB23.02	0.001	CB	CB23	7	handoff_edges	4137	count	4137		13	Plant fibre utilisation	2026.39.1
+CB23.02	0.001	CB	CB23	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB23.05	0.001	CB	CB23	7	interaction_density	0.298474945533769	proportion	5480	18360	13	Plant fibre utilisation	2026.39.1
+CB23.05	0.001	CB	CB23	7	handoff_edges	5641	count	5641		13	Plant fibre utilisation	2026.39.1
+CB23.05	0.001	CB	CB23	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB23.10	0.001	CB	CB23	21	interaction_density	0.19743650983202	proportion	4960	25122	13	Plant fibre utilisation	2026.39.1
+CB23.10	0.001	CB	CB23	21	handoff_edges	5123	count	5123		13	Plant fibre utilisation	2026.39.1
+CB23.10	0.001	CB	CB23	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB23.12	0.001	CB	CB23	21	interaction_density	0.232589547856723	proportion	3961	17030	13	Plant fibre utilisation	2026.39.1
+CB23.12	0.001	CB	CB23	21	handoff_edges	3961	count	3961		13	Plant fibre utilisation	2026.39.1
+CB23.12	0.001	CB	CB23	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB23.14	0.001	CB	CB23	35	interaction_density	0.192317880794702	proportion	4356	22650	13	Plant fibre utilisation	2026.39.1
+CB23.14	0.001	CB	CB23	35	handoff_edges	4512	count	4512		13	Plant fibre utilisation	2026.39.1
+CB23.14	0.001	CB	CB23	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB23.17	0.001	CB	CB23	35	interaction_density	0.275953565505804	proportion	4992	18090	13	Plant fibre utilisation	2026.39.1
+CB23.17	0.001	CB	CB23	35	handoff_edges	5148	count	5148		13	Plant fibre utilisation	2026.39.1
+CB23.17	0.001	CB	CB23	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB23.18	0.001	CB	CB23	35	interaction_density	0.206644760861628	proportion	5660	27390	13	Plant fibre utilisation	2026.39.1
+CB23.18	0.001	CB	CB23	35	handoff_edges	5837	count	5837		13	Plant fibre utilisation	2026.39.1
+CB23.18	0.001	CB	CB23	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB24.03	0.001	CB	CB24	7	interaction_density	0.296773055898431	proportion	3366	11342	13	Plant fibre utilisation	2026.39.1
+CB24.03	0.001	CB	CB24	7	handoff_edges	3493	count	3493		13	Plant fibre utilisation	2026.39.1
+CB24.03	0.001	CB	CB24	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB24.05	0.001	CB	CB24	7	interaction_density	0.327862208713273	proportion	6472	19740	13	Plant fibre utilisation	2026.39.1
+CB24.05	0.001	CB	CB24	7	handoff_edges	6472	count	6472		13	Plant fibre utilisation	2026.39.1
+CB24.05	0.001	CB	CB24	7	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB24.11	0.001	CB	CB24	21	interaction_density	0.294162702571958	proportion	7297	24806	13	Plant fibre utilisation	2026.39.1
+CB24.11	0.001	CB	CB24	21	handoff_edges	7488	count	7488		13	Plant fibre utilisation	2026.39.1
+CB24.11	0.001	CB	CB24	21	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB24.14	0.001	CB	CB24	35	interaction_density	0.227561521252796	proportion	5086	22350	13	Plant fibre utilisation	2026.39.1
+CB24.14	0.001	CB	CB24	35	handoff_edges	5239	count	5239		13	Plant fibre utilisation	2026.39.1
+CB24.14	0.001	CB	CB24	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB24.15	0.001	CB	CB24	35	interaction_density	0.224542124542125	proportion	8582	38220	13	Plant fibre utilisation	2026.39.1
+CB24.15	0.001	CB	CB24	35	handoff_edges	8783	count	8783		13	Plant fibre utilisation	2026.39.1
+CB24.15	0.001	CB	CB24	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1
+CB24.17	0.001	CB	CB24	35	interaction_density	0.186171483162169	proportion	4677	25122	13	Plant fibre utilisation	2026.39.1
+CB24.17	0.001	CB	CB24	35	handoff_edges	4677	count	4677		13	Plant fibre utilisation	2026.39.1
+CB24.17	0.001	CB	CB24	35	distributed_chain_links	0	count	0	5	13	Plant fibre utilisation	2026.39.1

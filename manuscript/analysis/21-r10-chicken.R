@@ -1,6 +1,6 @@
 # R10: genome-resolved chicken caecal case study.
 #
-# Drakkar supplies gene-resolved marker evidence for the exact 822 published
+# Drakkar or giftag supplies gene-resolved marker evidence for the exact 822 published
 # bacterial MAGs. gifter evaluates each genome separately, then reads those
 # immutable calls across 388 samples. Detection and completeness only change
 # denominators; neither may promote an unsupported GIFT. The archived public
@@ -8,8 +8,11 @@
 # result is repeated across explicit abundance thresholds and the network is
 # labelled as a sensitivity analysis rather than an observed interaction map.
 #
-# Run from the repository root after fetching the verified Drakkar transfer:
+# Run from the repository root after fetching a verified annotation transfer:
 #   Rscript manuscript/analysis/21-r10-chicken.R
+#   R10_ANNOTATOR=giftag R10_OUTPUT_DIR=manuscript/analysis/output/r10-giftag \
+#     R10_FIGURE_DIR=manuscript/figures/r10-giftag \
+#     Rscript manuscript/analysis/21-r10-chicken.R
 
 suppressWarnings(suppressPackageStartupMessages({
   library(ggplot2)
@@ -25,7 +28,15 @@ cache_dir <- Sys.getenv(
 public_dir <- Sys.getenv(
   "R10_PUBLIC_DATA", file.path(root, ".cache", "r10-chicken", "public-data")
 )
-drakkar_dir <- Sys.getenv("R10_DRAKKAR_DIR", file.path(cache_dir, "drakkar"))
+annotator <- Sys.getenv("R10_ANNOTATOR", "drakkar")
+if (!annotator %in% c("drakkar", "giftag")) {
+  stop("R10_ANNOTATOR must be drakkar or giftag", call. = FALSE)
+}
+annotation_dir <- if (identical(annotator, "drakkar")) {
+  Sys.getenv("R10_DRAKKAR_DIR", file.path(cache_dir, "drakkar"))
+} else {
+  Sys.getenv("R10_GIFTAG_DIR", file.path(cache_dir, "giftag"))
+}
 output_dir <- Sys.getenv("R10_OUTPUT_DIR", file.path(root, "output"))
 figure_dir <- Sys.getenv("R10_FIGURE_DIR", "manuscript/figures")
 dir.create(cache_dir, recursive = TRUE, showWarnings = FALSE)
@@ -34,18 +45,30 @@ dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)
 
 annotation_path <- Sys.getenv(
   "R10_GIFTER_INPUT",
-  file.path(drakkar_dir, "gifter_input.tsv.xz")
+  file.path(annotation_dir, if (identical(annotator, "drakkar")) {
+    "gifter_input.tsv.xz"
+  } else {
+    "giftag_markers.tsv.xz"
+  })
 )
 annotation_manifest_path <- Sys.getenv(
   "R10_ANNOTATION_MANIFEST",
-  file.path(drakkar_dir, "annotation_manifest.yaml")
+  file.path(annotation_dir, if (identical(annotator, "drakkar")) {
+    "annotation_manifest.yaml"
+  } else {
+    "giftag_run.json"
+  })
 )
 annotation_qc_path <- Sys.getenv(
   "R10_ANNOTATION_QC",
-  file.path(drakkar_dir, "annotation_qc.tsv")
+  file.path(annotation_dir, if (identical(annotator, "drakkar")) {
+    "annotation_qc.tsv"
+  } else {
+    "giftag_genomes.tsv"
+  })
 )
-transfer_manifest_path <- file.path(drakkar_dir, "transfer-manifest.tsv")
-transfer_complete_path <- file.path(drakkar_dir, "transfer.complete")
+transfer_manifest_path <- file.path(annotation_dir, "transfer-manifest.tsv")
+transfer_complete_path <- file.path(annotation_dir, "transfer.complete")
 
 required <- c(
   annotation_path,
@@ -111,7 +134,7 @@ if (!identical(unname(public_observed), public_manifest$sha256)) {
 }
 
 transfer_manifest <- read_tsv(transfer_manifest_path)
-transfer_paths <- file.path(drakkar_dir, transfer_manifest$file)
+transfer_paths <- file.path(annotation_dir, transfer_manifest$file)
 if (any(!file.exists(transfer_paths))) {
   stop(
     "Fetched transfer is incomplete: ",
@@ -123,7 +146,7 @@ transfer_observed_sha <- vapply(transfer_paths, sha256, character(1))
 transfer_observed_bytes <- unname(file.info(transfer_paths)$size)
 if (!identical(unname(transfer_observed_sha), transfer_manifest$sha256) ||
     !identical(as.numeric(transfer_observed_bytes), as.numeric(transfer_manifest$bytes))) {
-  stop("Fetched Drakkar files do not match transfer-manifest.tsv", call. = FALSE)
+  stop("Fetched annotation files do not match transfer-manifest.tsv", call. = FALSE)
 }
 
 mag_manifest <- read_tsv(file.path(case_dir, "mag-manifest.tsv"))
@@ -142,18 +165,23 @@ stopifnot(
 
 annotations <- read_xz_tsv(annotation_path)
 expected_columns <- c("genome_id", "gene_id", "namespace", "accession")
-if (!identical(names(annotations), expected_columns)) {
+if (!identical(names(annotations)[seq_along(expected_columns)], expected_columns) ||
+    (identical(annotator, "drakkar") &&
+       !identical(names(annotations), expected_columns))) {
   stop(
-    "Drakkar gifter input must have exactly: ",
+    annotator, " gifter input must start with: ",
     paste(expected_columns, collapse = ", "),
     call. = FALSE
   )
 }
+if (identical(annotator, "giftag")) {
+  annotations <- annotations[expected_columns]
+}
 if (anyNA(annotations) || any(!nzchar(annotations$genome_id))) {
-  stop("Drakkar gifter input contains missing identifiers", call. = FALSE)
+  stop(annotator, " gifter input contains missing identifiers", call. = FALSE)
 }
 if (!setequal(unique(annotations$genome_id), mag_manifest$genome_id)) {
-  stop("Drakkar output does not cover exactly the 822 manifest MAGs", call. = FALSE)
+  stop(annotator, " output does not cover exactly the 822 manifest MAGs", call. = FALSE)
 }
 
 transfer_complete <- utils::read.delim(
@@ -236,7 +264,9 @@ marker_counts <- as.data.frame(
 )
 names(marker_counts)[3L] <- "retained_markers"
 marker_counts <- marker_counts[marker_counts$retained_markers > 0, ]
-write_tsv(marker_counts, file.path(output_dir, "r10-drakkar-marker-counts.tsv"))
+write_tsv(marker_counts, file.path(output_dir, paste0(
+  "r10-", annotator, "-marker-counts.tsv"
+)))
 
 # Reconstruct count/length relative abundance. The archived preparation divides
 # by median_length / length, which multiplies by length; that object is retained
@@ -658,8 +688,8 @@ write_tsv(chain_status, file.path(output_dir, "r10-chain-status.tsv"))
 
 input_audit <- data.frame(
   item = c(
-    "published_bacterial_mags", "samples", "drakkar_marker_rows",
-    "drakkar_marker_genomes", "supported_genome_gift_calls",
+    "published_bacterial_mags", "samples", paste0(annotator, "_marker_rows"),
+    paste0(annotator, "_marker_genomes"), "supported_genome_gift_calls",
     "supported_call_genomes", "represented_gifts", "catalogue_gifts",
     "high_quality_genomes_at_90_percent",
     "annotation_sha256", "annotation_manifest_sha256",
@@ -744,9 +774,14 @@ figure <- ggplot(plot_metrics, aes(sampling_time, value, colour = trial)) +
     panel.grid.minor = element_blank()
   )
 
-ggsave(file.path(figure_dir, "figure-7-r10-chicken.pdf"), figure,
+figure_name <- if (identical(annotator, "drakkar")) {
+  "figure-7-r10-chicken"
+} else {
+  "figure-7-r10-chicken-giftag"
+}
+ggsave(file.path(figure_dir, paste0(figure_name, ".pdf")), figure,
        width = 8.2, height = 6.3, device = cairo_pdf)
-ggsave(file.path(figure_dir, "figure-7-r10-chicken.png"), figure,
+ggsave(file.path(figure_dir, paste0(figure_name, ".png")), figure,
        width = 8.2, height = 6.3, dpi = 320)
 
 cat("R10 analysis complete.\n")
