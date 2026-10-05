@@ -14,6 +14,10 @@ articles:
   - quantitative-traits
   - community-analysis
   - multi-sample-datasets
+- title: Case studies
+  navbar: ~
+  contents:
+  - articles/phylogeny
 - title: Curation
   navbar: ~
   contents:
@@ -25,9 +29,13 @@ articles:
 
 navbar:
   structure:
-    left: [get_started, workflows, atlas, curation, glossary, reference]
-    right: [search, github]
+    left: [get_started, workflows, cases, atlas, curation, glossary, reference]
+    right: [search, giftag, github]
   components:
+    giftag:
+      text: giftag docs ↗
+      href: https://alberdilab.github.io/giftag/
+      aria-label: Continue to the giftag documentation
     get_started:
       text: Get started
       href: articles/evaluating-a-genome.html
@@ -43,6 +51,11 @@ navbar:
         href: articles/community-analysis.html
       - text: Many samples over one catalogue
         href: articles/multi-sample-datasets.html
+    cases:
+      text: Case studies
+      menu:
+      - text: Across the bacterial phylogeny
+        href: articles/phylogeny.html
     atlas:
       text: Atlas
       menu:
@@ -71,6 +84,8 @@ navbar:
         href: articles/curating-a-gift.html#which-data-are-used-and-are-they-always-the-same
       - text: Marker selection and specificity
         href: articles/curating-a-gift.html#choose-marker-evidence
+      - text: Iterative refinement
+        href: articles/curating-a-gift.html#refine-the-catalogue-iteratively
       - text: Provenance and releases
         href: articles/curating-a-gift.html#record-provenance-build-and-close-the-attempt
       - text: ---

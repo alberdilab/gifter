@@ -1,0 +1,634 @@
+---
+title: "Across the bacterial phylogeny"
+description: >
+  Encoded GIFT repertoires of 696 complete genomes spanning every eligible
+  order of the GTDB bacterial tree.
+---
+
+```{r setup, include = FALSE}
+# A case study reports a finished analysis. Nothing is evaluated here: every
+# number and figure is read from the tables that manuscript/analysis/ committed,
+# so the page cannot drift from the scripts that produced them.
+knitr::opts_chunk$set(
+  echo = FALSE, message = FALSE, warning = FALSE,
+  dev = "ragg_png", dpi = 150, fig.retina = 2, out.width = "100%",
+  fig.width = 9, fig.height = 5.4, fig.align = "center"
+)
+
+# Each figure links to its own full-resolution file.
+default_plot_hook <- knitr::knit_hooks$get("plot")
+knitr::knit_hooks$set(plot = function(x, options) {
+  paste0(
+    '<a class="case-figure" href="', x[[1L]], '" target="_blank" ',
+    'title="Open at full resolution">', default_plot_hook(x, options), "</a>"
+  )
+})
+
+library(ggplot2)
+library(patchwork)
+
+root <- normalizePath(".")
+while (!file.exists(file.path(root, "DESCRIPTION"))) root <- dirname(root)
+output_dir <- file.path(root, "manuscript", "analysis", "output")
+panel_dir <- file.path(root, "manuscript", "analysis", "gtdb-phylogeny")
+
+read_tsv <- function(dir, file) {
+  utils::read.delim(
+    file.path(dir, file), check.names = FALSE, stringsAsFactors = FALSE,
+    quote = ""
+  )
+}
+item <- function(x, name) x$value[match(name, x$item)]
+strip_rank <- function(x) sub("^[a-z]__", "", x)
+big <- function(x) format(as.numeric(x), big.mark = ",", trim = TRUE)
+
+audit <- read_tsv(output_dir, "gtdb-phylogeny-input-audit.tsv")
+selection <- read_tsv(panel_dir, "selection-audit.tsv")
+origins <- read_tsv(panel_dir, "origin-group-summary.tsv")
+genomes <- read_tsv(output_dir, "gtdb-phylogeny-genome-summary.tsv")
+gifts <- read_tsv(output_dir, "gtdb-phylogeny-gift-summary.tsv")
+phyla <- read_tsv(output_dir, "gtdb-phylogeny-phylum-summary.tsv")
+expectation <- read_tsv(output_dir, "gtdb-size-expectation-genomes.tsv")
+model <- read_tsv(output_dir, "gtdb-size-expectation-model.tsv")
+taxa <- read_tsv(output_dir, "gtdb-size-expectation-taxa.tsv")
+signal <- read_tsv(output_dir, "gtdb-size-deviation-phylogenetic-signal.tsv")
+classes <- read_tsv(output_dir, "gtdb-gift-class-genome-size.tsv")
+gift_signal <- read_tsv(output_dir, "gtdb-gift-phylogenetic-signal.tsv")
+origin_traits <- read_tsv(output_dir, "gtdb-origin-genome-traits.tsv")
+near_steps <- read_tsv(output_dir, "gtdb-near-miss-steps.tsv")
+near_readings <- read_tsv(output_dir, "gtdb-near-miss-readings.tsv")
+near_genomes <- read_tsv(output_dir, "gtdb-near-miss-genomes.tsv")
+calls <- utils::read.delim(
+  xzfile(file.path(output_dir, "gtdb-phylogeny-calls.tsv.xz")),
+  check.names = FALSE, stringsAsFactors = FALSE, quote = ""
+)
+tree <- ape::read.tree(file.path(panel_dir, "selected-genomes.tree"))
+
+n_genomes <- nrow(genomes)
+n_gifts <- nrow(gifts)
+supported <- genomes[["all supported GIFTs"]]
+
+# The site palette (pkgdown/extra.css).
+ink <- "#173330"; muted <- "#687672"; line <- "#dcded5"; surface <- "#fffdf8"
+forest <- "#0d3d38"; mint <- "#90c9b5"; coral <- "#ef765d"; gold <- "#d9a936"
+blue <- "#477e91"
+
+theme_case <- function(base_size = 12) {
+  theme_minimal(base_size = base_size) +
+    theme(
+      text = element_text(colour = ink),
+      axis.text = element_text(colour = muted),
+      axis.title = element_text(colour = ink, size = rel(0.92)),
+      panel.grid.minor = element_blank(),
+      panel.grid.major = element_line(colour = line, linewidth = 0.35),
+      plot.background = element_rect(fill = surface, colour = NA),
+      panel.background = element_rect(fill = surface, colour = NA),
+      legend.background = element_rect(fill = surface, colour = NA),
+      legend.key = element_rect(fill = surface, colour = NA),
+      legend.position = "bottom",
+      legend.title = element_text(size = rel(0.9)),
+      strip.text = element_text(colour = ink, face = "bold", hjust = 0),
+      plot.title = element_text(face = "bold", size = rel(1)),
+      plot.margin = margin(10, 14, 8, 10)
+    )
+}
+
+# One colour per major phylum, shared by every figure on the page.
+phylum_counts <- sort(table(strip_rank(genomes$phylum)), decreasing = TRUE)
+major_phyla <- names(phylum_counts)[1:12]
+phylum_levels <- c(major_phyla, "other phyla")
+phylum_colours <- setNames(
+  c(grDevices::hcl.colors(length(major_phyla), "Dark 3"), "#cfcec6"),
+  phylum_levels
+)
+phylum_group <- function(x) {
+  x <- strip_rank(x)
+  factor(ifelse(x %in% major_phyla, x, "other phyla"), levels = phylum_levels)
+}
+```
+
+<p class="lead">How much of what a bacterium encodes is set by the size of its
+genome, and how much by its lineage? This case study evaluates the whole GIFT
+catalogue on `r n_genomes` complete genomes that span every eligible order of
+the GTDB bacterial tree.</p>
+
+<div class="case-stats">
+<div><strong>`r n_genomes`</strong><span>complete genomes</span></div>
+<div><strong>`r item(audit, "selected phyla")`</strong><span>phyla</span></div>
+<div><strong>`r item(audit, "selected orders")`</strong><span>orders</span></div>
+<div><strong>`r n_gifts`</strong><span>GIFTs evaluated</span></div>
+<div><strong>`r big(item(audit, "supported genome-GIFT pairs"))`</strong><span>supported calls</span></div>
+</div>
+
+**In short**
+
+- Genome size alone explains `r round(100 * as.numeric(item(model, "deviance explained")))`%
+  of the variation in how many GIFTs a genome supports.
+- What remains is lineage: related genomes sit above or below the size
+  expectation together (Pagel's λ = `r signif(signal$pagel_lambda[[1]], 2)`).
+- Catabolic capabilities follow genome size more closely than biosynthetic
+  ones, and are scattered more widely over the tree.
+- Where a genome is one requirement short of a GIFT, the same requirement is
+  usually the one missing, which gives us a ranked list of GIFT definitions
+  to revisit.
+
+If you have not yet read what a GIFT call claims,
+[start with a single genome](../evaluating-a-genome.html).
+
+## The genome panel
+
+The panel was drawn from the `r big(item(selection, "complete-genome species representatives"))`
+species representatives of GTDB `r item(audit, "GTDB release")` that are
+complete assemblies and tips of the bac120 reference tree. A genome was eligible
+when its isolation source could be assigned to at least one origin group, which
+left `r big(item(selection, "origin-classified eligible representatives"))`
+candidates. Selection then ran in two steps, without looking at any annotation
+or GIFT call:
+
+1. **One genome per order.** The phylogenetic medoid of each of the
+   `r item(audit, "selected orders")` eligible orders, so that no order is
+   missing.
+2. **Balanced origins.** Further genomes were added until every origin group
+   reached 85 genomes, or all of its members if it had fewer, each time taking
+   the genome that added the most phylogenetic diversity.
+
+```{r origin-table}
+origin_table <- origins[origins$origin_group != "any_origin_group", ]
+knitr::kable(
+  data.frame(
+    Origin = origin_table$description,
+    Eligible = big(origin_table$eligible_genomes),
+    Selected = origin_table$selected_genomes
+  ),
+  align = "lrr",
+  caption = "Origin groups of the panel. A genome can belong to several, so the counts do not add up to the panel size."
+)
+```
+
+The panel is deliberately enriched for breadth. Its numbers describe these
+`r n_genomes` genomes and are not prevalence estimates for bacteria at large.
+
+## From annotation to calls
+
+Each genome was annotated with [giftag](https://alberdilab.github.io/giftag/)'s
+marker sources through Drakkar, which produced
+`r sprintf("%.1f", as.numeric(item(audit, "marker rows")) / 1e6)` million marker
+rows. The whole panel was then evaluated in one call, as a community of
+`r n_genomes` genomes:
+
+```{r, eval = FALSE, echo = TRUE}
+library(gifter)
+
+# markers: one row per observed marker, with genome_id, gene_id, namespace
+# and accession
+calls <- evaluate_gifts_community(markers)
+```
+
+The result holds one row per genome and GIFT, `r big(item(audit, "genome-GIFT calls"))`
+in total, each with its closest implementation, the requirements it lacks and
+the genes behind it. Everything below is read from that table
+(database `r item(audit, "database version")`, gifter `r item(audit, "package version")`).
+
+## Repertoires across the tree
+
+```{r overview-data}
+# Tip order and coordinates of a rectangular tree, from the edge matrix.
+tree <- ape::reorder.phylo(tree, "cladewise")
+n_tips <- length(tree$tip.label)
+node_x <- ape::node.depth.edgelength(tree)
+node_y <- numeric(n_tips + tree$Nnode)
+tip_edges <- tree$edge[tree$edge[, 2] <= n_tips, 2]
+node_y[tip_edges] <- seq_len(n_tips)
+post <- ape::reorder.phylo(tree, "postorder")$edge
+for (parent in unique(post[, 1])) {
+  node_y[parent] <- mean(range(node_y[post[post[, 1] == parent, 2]]))
+}
+tree_h <- data.frame(
+  x = node_x[tree$edge[, 1]], xend = node_x[tree$edge[, 2]],
+  y = node_y[tree$edge[, 2]]
+)
+tree_v <- do.call(rbind, lapply(unique(tree$edge[, 1]), function(parent) {
+  ys <- node_y[tree$edge[tree$edge[, 1] == parent, 2]]
+  data.frame(x = node_x[parent], y = min(ys), yend = max(ys))
+}))
+tips <- data.frame(genome_id = tree$tip.label, y = node_y[seq_len(n_tips)])
+tips <- merge(tips, genomes[c("genome_id", "phylum", "all supported GIFTs")])
+tips$phylum_group <- phylum_group(tips$phylum)
+tips <- tips[order(tips$y), ]
+
+runs <- rle(as.character(tips$phylum_group))
+run_end <- cumsum(runs$lengths)
+runs <- data.frame(
+  phylum_group = runs$values, n = runs$lengths,
+  y = (run_end - runs$lengths + 1 + run_end) / 2
+)
+runs <- runs[runs$phylum_group != "other phyla", ]
+phylum_labels <- do.call(rbind, lapply(
+  split(runs, runs$phylum_group), function(r) r[which.max(r$n), ]
+))
+
+heat <- merge(calls[c("genome_id", "gift_id", "gift_type", "complete",
+                      "evidence_confidence")], tips[c("genome_id", "y")])
+heat$gift_id <- factor(heat$gift_id, levels = gifts$gift_id[order(gifts$heatmap_column)])
+heat$gift_type <- factor(
+  heat$gift_type, levels = c("metabolic", "structural", "regulatory", "defense")
+)
+heat$status <- ifelse(heat$complete, heat$evidence_confidence, "unsupported")
+heat$status <- factor(
+  heat$status, levels = c("unsupported", "ambiguous", "high-confidence", "curated")
+)
+```
+
+```{r overview, fig.width = 10, fig.height = 11.5, fig.cap = "Every GIFT call of the panel. Rows are genomes in the order of the pruned GTDB tree, with the twelve largest phyla named; columns are GIFTs, grouped by type (metabolic, structural, regulatory, defense). A filled cell is a genome that supports a complete implementation, coloured by the confidence of its evidence. The bars count the supported GIFTs of each genome."}
+shared_y <- scale_y_continuous(limits = c(0.5, n_tips + 0.5), expand = c(0, 0))
+void <- theme_void(base_size = 12) +
+  theme(
+    plot.background = element_rect(fill = surface, colour = NA),
+    text = element_text(colour = ink),
+    plot.title = element_text(face = "bold", size = 11, hjust = 0,
+                              margin = margin(b = 6))
+  )
+
+p_tree <- ggplot() +
+  geom_segment(data = tree_h, aes(x = x, xend = xend, y = y, yend = y),
+               colour = muted, linewidth = 0.2) +
+  geom_segment(data = tree_v, aes(x = x, xend = x, y = y, yend = yend),
+               colour = muted, linewidth = 0.2) +
+  shared_y + labs(title = "GTDB tree") + void
+
+p_names <- ggplot(phylum_labels, aes(x = 1, y = y, label = phylum_group)) +
+  geom_text(hjust = 1, size = 3.1, colour = ink) +
+  shared_y + scale_x_continuous(limits = c(0, 1), expand = c(0, 0.03)) +
+  coord_cartesian(clip = "off") + labs(title = "") + void
+
+p_strip <- ggplot(tips, aes(x = 1, y = y, fill = phylum_group)) +
+  geom_raster() + shared_y +
+  scale_fill_manual(values = phylum_colours, guide = "none") +
+  labs(title = "") + void
+
+p_heat <- ggplot(heat, aes(x = gift_id, y = y, fill = status)) +
+  geom_raster() +
+  facet_grid(cols = vars(gift_type), scales = "free_x", space = "free_x",
+             labeller = as_labeller(c(
+               metabolic = "metabolic", structural = "str.",
+               regulatory = "reg.", defense = "def."
+             ))) +
+  shared_y +
+  scale_fill_manual(
+    values = c(unsupported = "#efece3", ambiguous = gold,
+               `high-confidence` = "#5fa893", curated = forest),
+    drop = FALSE, name = NULL
+  ) +
+  labs(title = paste(n_gifts, "GIFTs")) + void +
+  theme(
+    strip.text = element_text(size = 8.5, face = "bold", margin = margin(b = 3)),
+    strip.clip = "off",
+    panel.spacing.x = grid::unit(2.4, "mm"),
+    legend.position = "bottom",
+    legend.key.size = grid::unit(4, "mm"),
+    legend.text = element_text(size = 10)
+  )
+
+p_count <- ggplot(tips, aes(x = `all supported GIFTs`, y = y)) +
+  geom_segment(aes(x = 0, xend = `all supported GIFTs`, yend = y),
+               colour = forest, linewidth = 0.35) +
+  shared_y +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.04))) +
+  labs(title = "Supported", x = NULL) +
+  theme_case(11) +
+  theme(
+    axis.text.y = element_blank(), axis.title.y = element_blank(),
+    panel.grid.major.y = element_blank(),
+    plot.title = element_text(size = 11, margin = margin(b = 6)),
+    plot.margin = margin(0, 8, 0, 4)
+  )
+
+p_tree + p_names + p_strip + p_heat + p_count +
+  plot_layout(widths = c(1.2, 0.72, 0.07, 4.4, 0.8), guides = "collect") &
+  theme(legend.position = "bottom")
+```
+
+```{r overview-numbers}
+pate <- phyla[phyla$phylum == "p__Patescibacteriota", ]
+top_genome <- genomes[which.max(supported), ]
+never <- sum(gifts$complete == 0)
+```
+
+A genome supports a median of `r median(supported)` of the `r n_gifts` GIFTs,
+and the range runs from `r min(supported)` to `r max(supported)`
+(*`r strip_rank(top_genome$species)`*). The catalogue is well exercised:
+`r n_gifts - never` GIFTs are supported by at least one genome, and
+`r round(100 * mean(calls$evidence_confidence[calls$complete] == "curated"))`%
+of the supported calls carry curated evidence confidence.
+
+The pale bands are the lineages with reduced genomes. The
+`r pate$genomes` Patescibacteriota support a median of
+`r pate$median_supported` GIFTs, and the Bacillota_I lineage, which holds the
+mycoplasmas, a median of
+`r phyla$median_supported[phyla$phylum == "p__Bacillota_I"]`. At the other end,
+the largest repertoires belong to Pseudomonadota. Outside the reduced lineages
+some metabolic GIFTs form nearly solid columns, while many others appear only
+in patches of related genomes.
+
+## Genome size sets the expectation
+
+```{r size, fig.height = 5.6, fig.cap = "Supported GIFTs against the size of the evaluated assembly. Each point is a genome, coloured by phylum. The line is the expectation from a smooth model of the supported share of the catalogue given genome size."}
+size <- expectation
+size$phylum_group <- phylum_group(size$phylum)
+size <- size[order(size$phylum_group, decreasing = TRUE), ]
+curve <- size[order(size$genome_size), ]
+
+ggplot(size, aes(x = genome_size / 1e6, y = supported)) +
+  geom_point(aes(colour = phylum_group), size = 1.7, alpha = 0.85) +
+  geom_line(data = curve, aes(y = expected), colour = ink, linewidth = 0.9) +
+  scale_x_log10(breaks = c(0.25, 0.5, 1, 2, 4, 8, 16),
+                labels = function(x) format(x, drop0trailing = TRUE, trim = TRUE)) +
+  scale_colour_manual(values = phylum_colours, name = NULL) +
+  labs(x = "genome size (Mb, log scale)", y = "supported GIFTs") +
+  guides(colour = guide_legend(nrow = 3, override.aes = list(size = 3, alpha = 1))) +
+  theme_case()
+```
+
+The number of supported GIFTs rises with genome size
+(Spearman ρ = `r round(as.numeric(item(model, "Spearman rho, genome size and supported GIFTs")), 2)`).
+The relationship is not a straight line. Below about 1 Mb genomes support
+almost nothing in the catalogue, between 1 and 5 Mb the repertoire grows
+steeply, and above that it levels off at around 65 GIFTs.
+
+The fitted curve is the **size expectation**: the number of GIFTs a genome of
+that size supports on average in this panel. A genome's **deviation** is the
+difference between what it supports and that expectation. No single genome
+departs from it significantly once the `r n_genomes` tests are corrected for,
+but lineages do.
+
+## Lineages depart from it together
+
+```{r taxa, fig.height = 6, fig.cap = "Deviation from the size expectation in each phylum with at least five panel genomes (count in brackets). A phylum is coloured when its genomes sit consistently above or below the expectation at a false discovery rate of 0.05."}
+phylum_taxa <- taxa[taxa$rank == "phylum", ]
+dev <- expectation[expectation$phylum %in% phylum_taxa$taxon, ]
+dev <- merge(dev, phylum_taxa[c("taxon", "genomes", "median_residual", "deviation")],
+             by.x = "phylum", by.y = "taxon", suffixes = c("", "_taxon"))
+dev$label <- paste0(strip_rank(dev$phylum), " (", dev$genomes, ")")
+dev$label <- reorder(dev$label, dev$median_residual)
+deviation_colours <- c(
+  "more than expected" = coral, "within expectation" = "#b9b8b0",
+  "fewer than expected" = blue
+)
+
+ggplot(dev, aes(x = residual, y = label)) +
+  geom_vline(xintercept = 0, colour = ink, linewidth = 0.4) +
+  geom_boxplot(aes(fill = deviation_taxon, colour = deviation_taxon),
+               alpha = 0.35, outlier.shape = NA, width = 0.62, linewidth = 0.4) +
+  geom_point(aes(colour = deviation_taxon), size = 0.9, alpha = 0.7,
+             position = position_jitter(height = 0.16, width = 0, seed = 1)) +
+  scale_fill_manual(values = deviation_colours, name = NULL,
+                    aesthetics = c("fill", "colour")) +
+  labs(x = "observed − expected GIFTs", y = NULL) +
+  theme_case() +
+  theme(panel.grid.major.y = element_blank(),
+        axis.text.y = element_text(colour = ink))
+```
+
+```{r taxa-numbers}
+n_tested <- nrow(phylum_taxa)
+n_more <- sum(phylum_taxa$deviation == "more than expected")
+n_fewer <- sum(phylum_taxa$deviation == "fewer than expected")
+more_names <- strip_rank(phylum_taxa$taxon[phylum_taxa$deviation == "more than expected"])
+```
+
+Of the `r n_tested` phyla with at least five genomes, `r n_more` support more
+GIFTs than their genome sizes predict (`r paste(more_names, collapse = ", ")`)
+and `r n_fewer` support fewer. The deviation is strongly structured by
+phylogeny: Pagel's λ is `r signif(signal$pagel_lambda[[1]], 2)` and Blomberg's K
+is `r signif(signal$blomberg_k[[1]], 2)`, and genomes deviate in the same
+direction as their relatives out to a patristic distance of about 1.1
+substitutions per site.
+
+A phylum below the expectation does not necessarily encode less. We curated
+the catalogue mostly from the biochemistry of well-studied organisms, so a
+lineage that uses routes we have not curated yet will read as short. The
+[last section](#one-step-short) looks at where genomes fall just short.
+
+## Which capabilities scale with size
+
+```{r classes, fig.height = 7.2, fig.cap = "Correlation between genome size and the number of supported GIFTs in each class with at least five GIFTs (count in brackets), with 95% bootstrap intervals. Classes come from the GIFT type, the metabolic mode and two curated facets, and a GIFT can belong to several."}
+cls <- classes[classes$grouping != "all GIFTs", ]
+group_labels <- c(
+  gift_type = "GIFT type", mode = "Mode",
+  physiological_role = "Physiological role", substrate_class = "Substrate class"
+)
+cls$grouping <- factor(group_labels[cls$grouping], levels = group_labels)
+cls$label <- paste0(gsub("_", " ", cls$class), " (", cls$gifts, ")")
+cls$label <- reorder(cls$label, cls$spearman_rho)
+
+ggplot(cls, aes(x = spearman_rho, y = label)) +
+  geom_vline(xintercept = classes$spearman_rho[classes$grouping == "all GIFTs"],
+             colour = coral, linetype = "22", linewidth = 0.5) +
+  geom_segment(aes(x = rho_lower, xend = rho_upper, yend = label),
+               colour = muted, linewidth = 0.6) +
+  geom_point(colour = forest, size = 2.6) +
+  facet_grid(rows = vars(grouping), scales = "free_y", space = "free_y",
+             switch = "y") +
+  scale_x_continuous(limits = c(0, 0.85), expand = c(0, 0)) +
+  labs(x = "Spearman ρ with genome size", y = NULL) +
+  theme_case() +
+  theme(
+    panel.grid.major.y = element_blank(),
+    axis.text.y = element_text(colour = ink),
+    strip.placement = "outside",
+    strip.text.y.left = element_text(angle = 90, hjust = 0.5, colour = muted,
+                                     face = "plain", size = 10),
+    panel.spacing.y = grid::unit(5, "mm")
+  )
+```
+
+```{r class-numbers}
+rho <- function(class) sprintf("%.2f", classes$spearman_rho[classes$class == class])
+```
+
+The dashed line is the correlation for the whole catalogue, and mode is the
+metabolic mode of a GIFT. Catabolic GIFTs
+follow genome size more closely (ρ = `r rho("catabolic")`) than anabolic ones
+(ρ = `r rho("anabolic")`): the classes that follow size most closely are those for acquiring
+carbon and nitrogen, while biosynthetic classes are already widely supported in
+mid-sized genomes. Two kinds of capability barely follow size at all, structural machinery
+(ρ = `r rho("structural")`) and fermentative end products
+(ρ = `r rho("fermentative_end_product")`), which are properties of a lineage's
+way of life and not of how much it encodes.
+
+## How capabilities are distributed over the tree
+
+```{r signal, fig.height = 4.8, fig.cap = "Phylogenetic signal of each GIFT that at least ten genomes support and at least ten lack, as Fritz and Purvis's D. A GIFT near 0 is as clumped on the tree as a trait inherited by descent; a GIFT near 1 is scattered at random. Bars are class medians."}
+sig <- gift_signal
+sig$class <- ifelse(sig$gift_type == "metabolic",
+                    paste0("metabolic, ", sig$mode), sig$gift_type)
+medians <- stats::aggregate(d_statistic ~ class, sig, stats::median)
+sig$class <- factor(sig$class, levels = medians$class[order(medians$d_statistic)])
+medians$class <- factor(medians$class, levels = levels(sig$class))
+counts <- table(sig$class)
+class_labels <- setNames(paste0(names(counts), " (", counts, ")"), names(counts))
+
+ggplot(sig, aes(x = d_statistic, y = class)) +
+  annotate("rect", xmin = -Inf, xmax = 0, ymin = -Inf, ymax = Inf,
+           fill = mint, alpha = 0.16) +
+  geom_vline(xintercept = c(0, 1), colour = ink, linewidth = 0.4,
+             linetype = c("solid", "22")) +
+  geom_point(colour = forest, alpha = 0.55, size = 1.9,
+             position = position_jitter(height = 0.2, width = 0, seed = 2)) +
+  geom_segment(data = medians,
+               aes(x = d_statistic, xend = d_statistic,
+                   y = as.numeric(class) - 0.34, yend = as.numeric(class) + 0.34),
+               colour = coral, linewidth = 1.3) +
+  annotate("text", x = 0, y = Inf, label = "inherited by descent", hjust = 1.06,
+           vjust = 1.4, size = 3.4, colour = muted) +
+  annotate("text", x = 1, y = Inf, label = "random", hjust = 1.15, vjust = 1.4,
+           size = 3.4, colour = muted) +
+  scale_y_discrete(labels = class_labels, expand = expansion(add = c(0.6, 0.9))) +
+  labs(x = "Fritz and Purvis's D", y = NULL) +
+  theme_case() +
+  theme(panel.grid.major.y = element_blank(),
+        axis.text.y = element_text(colour = ink))
+```
+
+```{r signal-numbers}
+class_median <- function(class) sprintf("%.2f", medians$d_statistic[medians$class == class])
+conserved <- sum(sig$distribution == "as conserved as Brownian motion")
+```
+
+Most GIFTs are conserved: `r conserved` of the `r nrow(sig)` tested are as
+clumped on the tree as descent with modification predicts. The classes differ
+in the direction the previous section suggests. Anabolic GIFTs are the most
+conserved of the large classes (median D = `r class_median("metabolic, anabolic")`),
+catabolic GIFTs are more scattered (`r class_median("metabolic, catabolic")`),
+and defense GIFTs are the most scattered of all (`r class_median("defense")`),
+as expected of systems that move between lineages.
+
+## Origin adds little beyond lineage
+
+```{r origin, fig.height = 5.6, fig.cap = "Difference associated with each origin group, from phylogenetic regressions in which the twelve groups with at least twenty genomes are fitted together. Points with 95% intervals; filled points pass a false discovery rate of 0.05."}
+ori <- origin_traits
+ori$origin <- gsub("_", " ", sub("^origin_", "", ori$origin))
+response_labels <- c(
+  "log2 genome size" = "Genome size (log2)",
+  "supported GIFTs" = "Supported GIFTs",
+  "deviation from the size expectation (GIFTs)" = "Deviation from expectation"
+)
+ori$response <- factor(response_labels[ori$response], levels = response_labels)
+ori$significant <- ori$q_value < 0.05
+ori$origin <- factor(ori$origin, levels = rev(unique(ori$origin)))
+
+ggplot(ori, aes(x = phylogenetic_estimate, y = origin)) +
+  geom_vline(xintercept = 0, colour = ink, linewidth = 0.4) +
+  geom_segment(aes(x = phylogenetic_estimate - 1.96 * standard_error,
+                   xend = phylogenetic_estimate + 1.96 * standard_error,
+                   yend = origin), colour = muted, linewidth = 0.6) +
+  geom_point(aes(fill = significant), shape = 21, colour = forest, size = 2.8,
+             stroke = 0.7) +
+  facet_wrap(vars(response), scales = "free_x") +
+  scale_fill_manual(values = c(`TRUE` = coral, `FALSE` = surface), guide = "none") +
+  labs(x = "difference from genomes without the tag", y = NULL) +
+  theme_case() +
+  theme(panel.grid.major.y = element_blank(),
+        axis.text.y = element_text(colour = ink),
+        panel.spacing.x = grid::unit(7, "mm"))
+```
+
+```{r origin-numbers}
+ori_value <- function(response, origin, column) {
+  origin_traits[origin_traits$response == response &
+                  origin_traits$origin == origin, column]
+}
+```
+
+Before accounting for phylogeny, origin groups look very different: plant-associated
+genomes support `r round(ori_value("supported GIFTs", "origin_plant_associated", "naive_difference"))`
+more GIFTs than the rest and animal-associated genomes
+`r abs(round(ori_value("supported GIFTs", "origin_animal_associated", "naive_difference")))`
+fewer. Most of that is which lineages live where. In the phylogenetic
+regressions two differences remain: plant-associated genomes are larger
+(`r round(100 * (2^ori_value("log2 genome size", "origin_plant_associated", "phylogenetic_estimate") - 1))`%),
+and genomes from thermal environments support
+`r round(ori_value("deviation from the size expectation (GIFTs)", "origin_thermal_geothermal", "phylogenetic_estimate"), 1)`
+more GIFTs than their size predicts.
+
+## One step short
+
+A **near miss** is an unsupported GIFT whose closest implementation lacks
+exactly one of at least two requirements. gifter never counts a near miss as
+support, but it reports each one with the requirement that is missing, and
+across a broad panel those reports add up to a map of where the catalogue, the
+markers or the biology fall short.
+
+```{r near, fig.height = 6.6, fig.cap = "The fifteen requirements most often missing alone. Each bar is one implementation of a GIFT and the single requirement its near misses lack; the number of genomes that support the GIFT is given at the end of the bar."}
+near <- merge(near_steps, gifts[c("gift_id", "gift_name")])
+near <- near[order(-near$genomes_one_step_short), ][1:15, ]
+near$label <- paste0(gsub("_", " ", near$gift_id), "\n", near$missing_requirement)
+near$label <- reorder(near$label, near$genomes_one_step_short)
+reading_colours <- c(
+  "same step missing, GIFT-specific steps present" = coral,
+  "missing step varies, GIFT-specific steps present" = blue,
+  "present steps all shared with other GIFTs" = "#b9b8b0"
+)
+
+ggplot(near, aes(x = genomes_one_step_short, y = label, fill = reading)) +
+  geom_col(width = 0.68) +
+  geom_text(aes(label = paste(genomes_supporting_gift, "support")),
+            hjust = -0.12, size = 3.2, colour = muted) +
+  scale_fill_manual(values = reading_colours, name = NULL) +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.16))) +
+  labs(x = "genomes one step short", y = NULL) +
+  guides(fill = guide_legend(ncol = 1)) +
+  theme_case() +
+  theme(panel.grid.major.y = element_blank(),
+        axis.text.y = element_text(colour = ink, size = 9, lineheight = 0.9),
+        legend.justification = "left")
+```
+
+```{r near-numbers}
+reading_share <- function(reading) {
+  round(100 * near_readings$share_of_near_miss_calls[near_readings$reading == reading])
+}
+top <- near_steps[which.max(near_steps$genomes_one_step_short), ]
+```
+
+The median genome is one step short of `r median(near_genomes$near_misses)`
+GIFTs. The near misses fall into three readings:
+
+| Reading | Share of near misses | What it suggests |
+|---|---|---|
+| The same step is missing, and steps specific to the GIFT are present | `r reading_share("same step missing, GIFT-specific steps present")`% | An alternative enzyme or marker we have not curated yet, or a step the lineage does not encode |
+| The missing step varies, and steps specific to the GIFT are present | `r reading_share("missing step varies, GIFT-specific steps present")`% | Scattered gaps, with no single candidate |
+| Every step present is shared with other GIFTs | `r reading_share("present steps all shared with other GIFTs")`% | No evidence for this GIFT in particular; the shared steps belong to something else |
+
+The first reading is the one we can act on. The most frequent case is
+`r gsub("_", " ", top$gift_id)`: `r top$genomes_one_step_short` genomes carry
+one of its two requirements and lack `r top$missing_requirement`, while only
+`r top$genomes_supporting_gift` support the GIFT. A gap that consistent is a point we
+will analyse to improve the definition of the GIFT.
+
+We have logged these gaps as open leads, and none has been assessed yet. Each
+one will go through the full curation process, which may add an alternative
+route or marker, or confirm that the lineage does not encode the step. The
+panel is then evaluated again with the new database release, so the numbers on
+this page belong to database `r item(audit, "database version")` and will move
+as the definitions improve. The loop is described in
+[Refine the catalogue iteratively](../curating-a-gift.html#refine-the-catalogue-iteratively).
+
+## Reproduce this analysis
+
+The panel, the calls and every table behind this page are committed to the
+repository under
+[`manuscript/analysis/`](https://github.com/alberdilab/gifter/tree/main/manuscript/analysis).
+
+| Script | What it does |
+|---|---|
+| `23-gtdb-phylogeny.R` | Selects and locks the panel, evaluates the calls |
+| `26-gtdb-repertoire-genome-size.R` | Size expectation and deviations by taxon |
+| `27-gtdb-size-signal-and-gift-classes.R` | Phylogenetic signal of the deviation; classes of GIFT against size |
+| `28-gtdb-origin-and-annotations.R` | Origin groups and assembly annotations |
+| `29-gtdb-near-misses-and-gift-signal.R` | Near misses; phylogenetic signal of each GIFT |
+| `30-gtdb-near-miss-steps.R` | Which requirement is missing in a near miss |
+
+The panel itself, with accessions, taxonomy, origin tags and the pruned tree,
+is in
+[`gtdb-phylogeny/`](https://github.com/alberdilab/gifter/tree/main/manuscript/analysis/gtdb-phylogeny).

@@ -588,3 +588,60 @@ footer a { color: var(--forest-2); }
     padding: 0;
   }
 }
+
+/* Case studies ------------------------------------------------------------- */
+
+.case-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin: 24px 0 28px;
+}
+
+.case-stats > div {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.case-stats strong {
+  display: block;
+  color: var(--forest);
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.case-stats span {
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+/* A figure is a card that opens its full-resolution file. */
+a.case-figure {
+  display: block;
+  margin: 26px 0 8px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  cursor: zoom-in;
+}
+
+a.case-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+a.case-figure .figure { margin: 0; }
+
+a.case-figure .caption,
+a.case-figure figcaption {
+  margin: 10px 6px 4px;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.5;
+  text-align: left;
+}

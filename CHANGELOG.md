@@ -13,6 +13,35 @@ versioned with the package.
 
 ---
 
+### 2026-10-05T03:24Z — The documentation gains a Case studies section, starting with the phylogeny
+
+**What changed.** The site has a new "Case studies" menu after Workflows, and
+its first page, `vignettes/articles/phylogeny.Rmd`, presents the 696-genome
+GTDB panel: the panel, the calls beside the tree, the genome-size expectation,
+deviations by lineage, classes of GIFT against size, phylogenetic signal per
+GIFT, origin groups and near misses. The page evaluates nothing. Every number
+and figure is read at build time from the tables under
+`manuscript/analysis/output/` and `manuscript/analysis/gtdb-phylogeny/`, and
+the figures are drawn for the web at 300 dpi, each linking to its
+full-resolution file. `vignettes/articles/` is excluded from the package build,
+and the site build now needs ggplot2, patchwork, ape and ragg
+(`Config/Needs/website`).
+
+The curation guide gains a section, "Refine the catalogue iteratively",
+describing how unsupported calls on a broad panel become logged leads, go
+through the full curation process and are re-evaluated with the next database
+release. It restates existing rules and adds none.
+
+**Why.** The workflows teach the API on small fixtures. The case studies show
+what the same calls return on real genomes at scale, which a vignette that must
+run at `R CMD check` cannot do.
+
+**Effect.** Documentation only. No package code, database content or analysis
+output changed. The host-associated and environmental case studies are still to
+be written.
+
+---
+
 ### 2026-10-04T16:37Z — Chicken per-MAG repertoire is read against the GTDB size expectation
 
 **What changed.** A new manuscript analysis, `31-r10-size-expectation.R`, gives

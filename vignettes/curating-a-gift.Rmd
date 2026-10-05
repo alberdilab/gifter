@@ -351,6 +351,46 @@ process above.
 A benchmark lead is a question, not a diagnosis. The record is in
 [the phenotype curation leads](https://github.com/alberdilab/gifter/blob/main/inst/doc/proposal-phenotype-curation-leads.md).
 
+## Refine the catalogue iteratively
+
+The catalogue is not finished when a GIFT is implemented. Every time the
+database is evaluated on a broad set of genomes, the calls show where
+definitions fall short, and those observations feed the next round of curation.
+
+```text
+database release
+  -> evaluate a broad genome panel               (case studies, benchmarks)
+  -> read the unsupported calls                   (near misses, rarely supported GIFTs,
+                                                   lineages below the size expectation)
+  -> log the leads as an expansion attempt
+  -> take each lead through the curation process above
+  -> change, defer or refuse, with the record
+  -> new database release, and evaluate the panel again
+```
+
+Three rules keep the loop honest.
+
+- **A lead is a question.** A near miss is never counted as support, and a gap
+  shared by many genomes does not show that the definition is wrong. The
+  lineage may simply not encode the step.
+- **A lead earns no shortcut.** It goes through the same stages as any other
+  candidate: prior attempts, reference knowledge, marker specificity and genome
+  tests. A marker is never widened so that a panel reads better.
+- **Every round is recorded.** The screen opens a row in the
+  [expansion attempts](../atlas/#attempts), and each change that follows is a
+  database change linked to the GIFTs it affects. Results computed on a panel
+  state the database version they were computed with, because the next release
+  can move them.
+
+The [GTDB phylogenetic panel](phylogeny.html#one-step-short) gave the
+first full round. Its near misses were screened by which requirement is
+missing and whether the requirements present are specific to the GIFT. That
+produced an open list of definitions to re-read: one marker-specificity review,
+eight single-step alternatives in long pathways, fifteen two-requirement GIFTs,
+two boundary checks, sixteen rarely supported GIFTs and four lineages. None has
+been assessed yet, and the list is kept in
+[the near-miss leads assessment](https://github.com/alberdilab/gifter/blob/main/inst/doc/assessment-gtdb-near-miss-leads.md).
+
 ## Two worked examples
 
 ### A metabolic GIFT: acetate interconversion
