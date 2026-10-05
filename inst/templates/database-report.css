@@ -955,6 +955,9 @@ h1, h2, h3, h4, h5, p { margin-top: 0; }
 }
 
 .graph-node:hover rect { stroke: var(--forest-2); }
+.graph-node.linked a { cursor: pointer; }
+.graph-node.linked a:focus-visible rect { stroke: var(--forest-2); stroke-width: 2.5; }
+.graph-link-icon { fill: var(--forest-2); font-size: 13px; font-weight: 750; }
 
 .graph-node.anchor rect {
   stroke: #9fc7b7;

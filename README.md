@@ -434,7 +434,9 @@ The report includes release metadata and row counts, a whole-database network
 view drawing every GIFT together with its declared anchors, in which a GIFT is a
 large dot and an anchor a small one -- hover a dot for its identifier and
 boundaries, click a GIFT to open it, and recolour either kind of dot by the
-metadata it carries -- a merged route network for every GIFT, the complete GIFT-to-marker evidence hierarchy, the
+metadata it carries -- a merged route network for every GIFT, where reaction
+and boundary nodes with source IDs open their Rhea and ChEBI records, the
+complete GIFT-to-marker evidence hierarchy, the
 curation changelog linked to the traits each change affects, an entity map, and
 a searchable browser for every SQLite table. Each GIFT has its own page, which
 links its reactions, markers and related pathways to their public records and

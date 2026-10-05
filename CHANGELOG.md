@@ -13,6 +13,20 @@ versioned with the package.
 
 ---
 
+### 2026-10-05T15:23Z — Route diagrams open source records
+
+**What changed.** ChEBI links now use the literal-colon record URL, and reaction
+and boundary nodes in the atlas route diagrams open their Rhea and ChEBI
+records. Linked nodes show an external-link cue and remain keyboard accessible.
+
+**Why.** ChEBI returns 404 for the encoded-colon URL, and route diagrams showed
+identifiers without links.
+
+**Effect.** Atlas navigation only. No biological definition, call, source table,
+schema or public API changes.
+
+---
+
 ### 2026-10-05T14:39Z — Catalogue statistics and reference links follow the database
 
 **What changed.** A successful database rebuild now refreshes the README's

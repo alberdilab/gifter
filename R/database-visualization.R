@@ -72,7 +72,10 @@
         "https://www.rhea-db.org/rhea/",
         utils::URLencode(sub("^RHEA:", "", id), reserved = TRUE)
       ),
-      CHEBI = paste0("https://www.ebi.ac.uk/chebi/", encoded),
+      # ChEBI's record route needs the literal colon: CHEBI%3A... returns 404.
+      CHEBI = if (grepl("^CHEBI:[0-9]+$", id)) {
+        paste0("https://www.ebi.ac.uk/chebi/", id)
+      } else NA_character_,
       NA_character_
     )
   }, character(1))
@@ -350,19 +353,20 @@
   paste(vapply(seq_len(nrow(rows)), function(index) {
     row <- rows[index, , drop = FALSE]
     if (!is.null(role)) row$role <- role
+    chebi_url <- .report_external_url("CHEBI", row$chebi_id)
     chebi <- if (!is.na(row$chebi_id) && nzchar(row$chebi_id)) {
       paste0(" &middot; ", .html_escape(row$chebi_id))
     } else {
       ""
     }
-    linked <- nzchar(chebi)
+    linked <- !is.na(chebi_url)
     paste0(
       if (linked) '<a' else '<span',
       ' class="anchor-chip ', .html_escape(row$role),
       if (linked) ' external-id' else '', '" title="',
       .html_escape(row$name), chebi, '"',
       if (linked) paste0(
-        ' href="', .html_escape(.report_external_url("CHEBI", row$chebi_id)),
+        ' href="', .html_escape(chebi_url),
         '" target="_blank" rel="noopener noreferrer"',
         ' aria-label="Open ', .html_escape(row$chebi_id), ' in ChEBI"'
       ) else '',
@@ -962,7 +966,8 @@
         "</span></div></div>",
         '<p class="network-caption">Alternative routes are overlaid on the reactions they ',
         'share, so parallel branches are route alternatives. Thicker edges are used by ',
-        'more routes.',
+        'more routes. Select a reaction or boundary anchor to open its Rhea or ChEBI ',
+        'record when one is available.',
         if (sides$reversible) {
           paste0(
             ' The chain is drawn both ways because this GIFT declares no ',
@@ -1135,7 +1140,9 @@
 
 # One node of a layered diagram. `shape` selects the drawn geometry: `box` for
 # GIFTs, `step` for reactions, and `pill` for declared molecular anchors.
-.graph_node <- function(id, shape, kind, label, sublabel = "", badge = "", title = "") {
+.graph_node <- function(id, shape, kind, label, sublabel = "", badge = "", title = "",
+                        url = "", link_label = "") {
+  if (is.na(url)) url <- ""
   width <- switch(
     shape,
     pill = max(70, nchar(label) * 7.6 + 32),
@@ -1145,7 +1152,8 @@
   height <- switch(shape, pill = 34, step = 58, 70)
   data.frame(
     id = id, shape = shape, kind = kind, label = label, sublabel = sublabel,
-    badge = badge, title = title, width = width, height = height,
+    badge = badge, title = title, url = url, link_label = link_label,
+    width = width, height = height,
     stringsAsFactors = FALSE
   )
 }
@@ -1258,6 +1266,7 @@
 .report_graph_node_svg <- function(nodes) {
   paste(vapply(seq_len(nrow(nodes)), function(index) {
     node <- nodes[index, , drop = FALSE]
+    linked <- nzchar(node$url)
     title <- if (nzchar(node$title)) {
       paste0("<title>", .html_escape(node$title), "</title>")
     } else {
@@ -1288,8 +1297,20 @@
       )
     }
     paste0(
-      '<g class="graph-node ', .html_escape(node$kind), '" transform="translate(',
-      round(node$x, 1), " ", round(node$y, 1), ')">', title, body, "</g>"
+      '<g class="graph-node ', .html_escape(node$kind),
+      if (linked) ' linked' else '', '" transform="translate(',
+      round(node$x, 1), " ", round(node$y, 1), ')">',
+      if (linked) paste0(
+        '<a href="', .html_escape(node$url),
+        '" target="_blank" rel="noopener noreferrer" aria-label="',
+        .html_escape(node$link_label), '">'
+      ) else '',
+      title, body,
+      if (linked) paste0(
+        '<text class="graph-link-icon" x="', node$width - 13,
+        '" y="16" text-anchor="middle">&#8599;</text></a>'
+      ) else '',
+      "</g>"
     )
   }, character(1)), collapse = "")
 }
@@ -1304,7 +1325,8 @@
   paste0(
     '<svg class="', class, '" width="', round(width), '" height="', round(height),
     '" viewBox="0 0 ', round(width), " ", round(height),
-    '" role="img" aria-label="', .html_escape(label), '"><defs><marker id="', marker,
+    '" role="', if (any(nzchar(nodes$url))) "group" else "img",
+    '" aria-label="', .html_escape(label), '"><defs><marker id="', marker,
     '" class="graph-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" ',
     'orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z"/></marker>',
     # The mirrored head, drawn at the start of an edge that runs both ways. Its
@@ -2008,6 +2030,10 @@
         shape = "pill",
         kind = paste("anchor", if (reversible) "shared" else role),
         label = row$anchor_id,
+        url = if (!is.na(row$chebi_id)) .report_external_url("CHEBI", row$chebi_id) else "",
+        link_label = if (!is.na(row$chebi_id)) {
+          paste("Open", row$chebi_id, "in ChEBI")
+        } else "",
         title = paste0(
           row$anchor_id, " \u00b7 ", row$name,
           if (!is.na(row$chebi_id) && nzchar(row$chebi_id)) paste0(" (", row$chebi_id, ")") else "",
@@ -2025,6 +2051,10 @@
       id = id, shape = "step",
       kind = paste0("reaction", if (identical(row$orientation, "reverse")) " reverse" else ""),
       label = row$name, sublabel = row$reaction_id,
+      url = if (!is.na(row$rhea_master)) .report_external_url("RHEA", row$rhea_master) else "",
+      link_label = if (!is.na(row$rhea_master)) {
+        paste("Open", row$rhea_master, "in Rhea")
+      } else "",
       badge = if (total_routes > 1L) {
         paste0(orientation, " \u00b7 ", used, "/", total_routes, " routes")
       } else {

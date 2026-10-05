@@ -212,15 +212,41 @@ test_that("the atlas links each GIFT's evidence and each identifier's public rec
   expect_match(adenylate, "Source: KEGG M00049", fixed = TRUE)
   expect_match(adenylate, 'href="https://www.kegg.jp/module/M00049"', fixed = TRUE)
   expect_match(html, 'href="https://www.rhea-db.org/rhea/17129"', fixed = TRUE)
-  expect_match(html, 'href="https://www.ebi.ac.uk/chebi/CHEBI%3A58053"', fixed = TRUE)
+  expect_match(html, 'href="https://www.ebi.ac.uk/chebi/CHEBI:58053"', fixed = TRUE)
+  expect_identical(
+    gifter:::.report_external_url("CHEBI", "CHEBI:16452"),
+    "https://www.ebi.ac.uk/chebi/CHEBI:16452"
+  )
+  expect_no_match(html, "CHEBI%3A", fixed = TRUE)
   expect_match(html, 'aria-label="Open CHEBI:58053 in ChEBI"', fixed = TRUE)
+
+  network <- regmatches(html, regexpr(
+    '<svg class="network-svg route-network-svg[^>]*aria-label="Route network of purine_core_biosynthesis".*?</svg>',
+    html, perl = TRUE
+  ))
+  expect_length(network, 1L)
+  expect_match(network, 'role="group"', fixed = TRUE)
+  expect_match(
+    network,
+    '<a href="https://www.rhea-db.org/rhea/17129" target="_blank"',
+    fixed = TRUE
+  )
+  expect_match(
+    network,
+    '<a href="https://www.ebi.ac.uk/chebi/CHEBI:58053" target="_blank"',
+    fixed = TRUE
+  )
+  plain_node <- gifter:::.graph_node("local", "step", "reaction", "unmapped")
+  plain_node$x <- 0
+  plain_node$y <- 0
+  expect_no_match(gifter:::.report_graph_node_svg(plain_node), "<a ", fixed = TRUE)
   expect_match(
     gifter:::.report_table_cell("RHEA:17129", "reaction_id"),
     'href="https://www.rhea-db.org/rhea/17129"', fixed = TRUE
   )
   expect_match(
     gifter:::.report_table_cell("CHEBI:58053", "chebi_id"),
-    'href="https://www.ebi.ac.uk/chebi/CHEBI%3A58053"', fixed = TRUE
+    'href="https://www.ebi.ac.uk/chebi/CHEBI:58053"', fixed = TRUE
   )
   expect_no_match(
     gifter:::.report_table_cell("LOCAL:1", "reaction_id"), "href=", fixed = TRUE
