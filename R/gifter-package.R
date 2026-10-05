@@ -1,4 +1,4 @@
-#' gifter: Genome-Inferred Functional Traits Between Molecular Anchors
+#' gifter: Genome-Inferred Functional Traits from Curated Markers
 #'
 #' gifter evaluates whether genomic markers support complete, curated
 #' genome-inferred functional traits (GIFTs) and preserves the evidence chain

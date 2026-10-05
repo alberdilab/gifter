@@ -4,7 +4,7 @@ citHeader("To cite the gifter software in publications, use:")
 
 bibentry(
   bibtype = "Manual",
-  title = "gifter: Genome-Inferred Functional Traits from Genomic Evidence",
+  title = "gifter: Genome-Inferred Functional Traits from Curated Markers",
   author = person("Antton", "Alberdi"),
   year = "2026",
   note = paste("R package version", meta$Version),

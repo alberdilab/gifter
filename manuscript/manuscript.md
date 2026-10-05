@@ -1981,8 +1981,29 @@ internal intermediates; compartment-split anchors composing only through a
 transport trait; within-mode cycle rejection with between-mode acceptance;
 weakest-confidence propagation; and independence of the three version fields.
 
-*[Add at submission: runtime and memory for a realistic MAG catalogue; the
-recommended annotation upstream; parallel/batch usage over many genomes.]*
+**Computational cost.** We measured the gifter portion of the R10 chicken
+case study from a checksum-verified, gene-resolved marker table: 11,219,684
+annotation rows for 822 MAGs, followed by the 388-sample dataset. On an
+eight-core Apple M3 laptop with 16 GB RAM, gifter 0.7.3 and database
+2026.39.1 took 1,366 s wall time (1,329 s CPU) using one evaluation worker,
+with 3.85 GB peak sampled resident memory. With eight workers, the same
+workflow and calls took 852 s wall time (3,188 s summed CPU); aggregate
+worker memory was not measurable in this sandbox. Genome evaluation in the
+single-worker run accounted for
+1,336 s; verifying and loading the markers took 13.6 s, dataset assembly
+0.10 s, the 11-frame primary sample-trait reading 0.85 s, and the exact
+plant-fibre network 14.5 s. Memory was sampled every 0.05 s. The measured
+workflow excludes upstream gene calling and profile annotation, the case
+study's other detection and confidence readings, statistical contrasts and
+figure rendering. `evaluate_gifts_community()` can evaluate genomes with
+multiple workers; the observed wall-time ratio for these two runs was 1.60,
+with a single-core background pipeline active. The stage timings, CPU and memory,
+input and database checksums, and measurement script are retained under
+`manuscript/analysis/r10-chicken/benchmark/` and
+`manuscript/analysis/36-r10-gifter-resources.R`. This is one descriptive run
+on a shared machine, not a repeated performance estimate. Upstream Drakkar
+and giftag annotation have separate resource scopes and are reported
+separately.
 
 ### M6. Datasets and analysis
 

@@ -4,7 +4,7 @@
 \name{gifter-package}
 \alias{gifter}
 \alias{gifter-package}
-\title{gifter: Genome-Inferred Functional Traits Between Molecular Anchors}
+\title{gifter: Genome-Inferred Functional Traits from Curated Markers}
 \description{
 gifter evaluates whether genomic markers support complete, curated
 genome-inferred functional traits (GIFTs) and preserves the evidence chain

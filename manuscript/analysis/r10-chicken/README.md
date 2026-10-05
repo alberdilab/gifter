@@ -186,18 +186,49 @@ Even a smoke test reads and verifies the full marker table before subsetting.
 
 The controller samples resident memory every 0.05 seconds and records wall and
 CPU time for each stage. Brief memory spikes between samples can be missed.
-It writes the stage summary under `benchmark/` and
-the raw memory samples and worker log under the ignored `.cache/` directory.
+It writes the stage summary, stage events and compressed raw RSS samples under
+`benchmark/`; the worker log stays in the ignored `.cache/` directory.
 Stage RSS is the peak process memory during that stage, including objects
 retained from prior stages. It is not an additional allocation to add to the
-previous stage. With multiple workers the summed RSS includes copy-on-write
-pages in more than one process, so it is an upper estimate of unique physical
-memory. The full-workflow row is the observed process span and peak RSS across
+previous stage. With multiple workers, a visible summed RSS includes
+copy-on-write pages in more than one process, so it is an upper estimate of
+unique physical memory. If the sampler cannot see forked workers, aggregate
+evaluation memory is marked unavailable; parent RSS alone is not a whole-job
+peak. The full-workflow row is the observed process span and peak RSS across
 all five stages. It excludes gene calling, profile search, software and profile
 installation, data download, figure rendering and the case study's downstream
 statistical contrasts. The separate Drakkar and giftag accounting above covers
 annotation with different resource scopes; these timings should not be added
 to a remote Slurm span as though they were one measured end-to-end execution.
+
+The completed one-worker run on 2026-10-05 used gifter 0.7.3, database
+2026.39.1, R 4.3.3 and macOS 26.6.2 on an Apple M3 MacBook Pro with eight
+cores and 16 GB RAM. The marker and database SHA-256 values are in
+`benchmark/gifter-resource-g822-s388-w1.tsv`. Its worker log confirms 822
+genomes, 388 samples and 23,657 supported genome-GIFT calls, matching the
+independent current-database R10 reevaluation.
+
+| gifter stage | Wall time | CPU time | Peak sampled RSS (GB) |
+|---|---:|---:|---:|
+| Verify and read marker input | 13.6 s | 13.4 s | 1.59 |
+| Evaluate 822 genomes | 1,335.7 s | 1,300.9 s | 3.85 |
+| Assemble 388-sample dataset | 0.10 s | 0.09 s | 3.36 |
+| Read 11 frames at primary detection | 0.85 s | 0.80 s | 3.34 |
+| Build exact plant-fibre network | 14.5 s | 13.9 s | 2.90 |
+| **Full measured gifter portion** | **1,366.4 s** | **1,329.0 s** | **3.85** |
+
+The five stage timings do not quite sum to the full span because garbage
+collection and frame construction occur between stages. Stage RSS is absolute
+process occupancy, not extra memory required by that operation. This is one
+observed run, not a repeated estimate; a separate single-core R pipeline was
+active on the same machine. Total CPU time was 97.3% of wall time. The
+eight-worker run used the same inputs and returned the same 23,657 supported
+calls. It took 852.3 s wall time and 3,188.0 s CPU, compared with 1,366.4 s
+and 1,329.0 s at one worker. Its evaluator took 824.8 s versus 1,335.7 s;
+the observed full-workflow wall-time ratio is 1.60. These are two runs on a
+shared machine, not a scaling curve. The sandbox did not expose the eight
+forked workers to the RSS sampler. Its recorded parent RSS is not an aggregate
+memory measurement, so the eight-worker aggregate RSS is unavailable.
 
 ## Completed run
 

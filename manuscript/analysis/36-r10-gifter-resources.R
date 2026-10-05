@@ -14,6 +14,12 @@ samples <- as.integer(Sys.getenv("GIFTER_BENCH_SAMPLES", "388"))
 stopifnot(!anyNA(c(workers, genomes, samples)), all(c(workers, genomes, samples) > 0L))
 
 root <- "manuscript/analysis"
+sha256 <- function(path) {
+  command <- if (nzchar(Sys.which("shasum"))) "shasum" else "sha256sum"
+  args <- if (identical(command, "shasum")) c("-a", "256", path) else path
+  result <- system2(command, args, stdout = TRUE)
+  sub("[[:space:]].*$", "", result[[1L]])
+}
 cache_dir <- file.path(root, ".cache/r10-chicken/gifter-benchmark")
 output_dir <- file.path(root, "r10-chicken/benchmark")
 dir.create(cache_dir, recursive = TRUE, showWarnings = FALSE)
@@ -55,6 +61,16 @@ if (!identical(status, 0L)) {
   stop("Benchmark worker failed (exit ", status, "). See ", error_path,
        " and ", log_path, call. = FALSE)
 }
+identity <- grep("^genomes=", readLines(log_path, warn = FALSE), value = TRUE)
+stopifnot(length(identity) == 1L)
+tokens <- strsplit(strsplit(identity, " ", fixed = TRUE)[[1L]], "=", fixed = TRUE)
+identity_fields <- stats::setNames(vapply(tokens, `[[`, character(1), 2L),
+                                   vapply(tokens, `[[`, character(1), 1L))
+stopifnot(all(c("genomes", "samples", "gift_db_version", "supported_calls") %in%
+                names(identity_fields)))
+field <- function(name) identity_fields[[name]]
+stopifnot(as.integer(field("genomes")) == min(genomes, 822L),
+          as.integer(field("samples")) == min(samples, 388L))
 
 events <- utils::read.delim(event_path, stringsAsFactors = FALSE)
 rss <- as.data.frame(do.call(rbind, observations))
@@ -80,6 +96,15 @@ summary <- rbind(summary, data.frame(
   peak_parent_rss_gb = max(rss$parent_rss_bytes, na.rm = TRUE) / 1e9,
   peak_summed_rss_gb = max(rss$summed_rss_bytes, na.rm = TRUE) / 1e9
 ))
+summary$max_observed_processes <- max(rss$processes)
+if (workers > 1L && summary$max_observed_processes < 2L) {
+  # On some sandboxed macOS hosts ps_children() cannot see forked workers.
+  # The parent RSS remains valid, but it is not a whole-job memory reading.
+  summary$peak_summed_rss_gb[
+    summary$stage %in% c("genome_evaluation", "full_gifter_workflow")
+  ] <- NA_real_
+  warning("Forked workers were not visible; aggregate evaluation RSS is unavailable")
+}
 summary$genomes <- min(genomes, 822L)
 summary$samples <- min(samples, 388L)
 summary$workers <- workers
@@ -88,11 +113,17 @@ summary$r_version <- as.character(getRversion())
 summary$platform <- R.version$platform
 summary$measured_utc <- format(Sys.time(), "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
 summary$annotation_sha256 <- "1bc6f6a882223d1f86c417f5d0f9c8937fc70b370affc0c5399bc3e81fcfbd86"
-summary$database_sha256 <- sub("[[:space:]].*$", "", system2(
-  "shasum", c("-a", "256", "inst/extdata/gifter.sqlite"), stdout = TRUE
-)[[1L]])
+summary$database_sha256 <- sha256("inst/extdata/gifter.sqlite")
+summary$database_version <- field("gift_db_version")
+summary$supported_calls <- as.integer(field("supported_calls"))
 summary_path <- file.path(output_dir, paste0("gifter-resource-", tag, ".tsv"))
 utils::write.table(summary, summary_path, sep = "\t", quote = FALSE, row.names = FALSE)
+stopifnot(file.copy(event_path,
+                    file.path(output_dir, paste0("gifter-events-", tag, ".tsv")),
+                    overwrite = TRUE))
+rss_bytes <- readBin(sample_path, "raw", n = file.info(sample_path)$size)
+writeBin(memCompress(rss_bytes, type = "xz"),
+         file.path(output_dir, paste0("gifter-rss-", tag, ".tsv.xz")))
 print(summary[c("stage", "wall_seconds", "cpu_seconds", "peak_parent_rss_gb", "peak_summed_rss_gb")], row.names = FALSE)
 cat("Summary: ", summary_path, "\nRaw samples: ", sample_path,
     "\nWorker log: ", log_path, "\n", sep = "")

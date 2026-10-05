@@ -139,7 +139,7 @@ bound on a biological effect. No call, package API or database content changes.
 
 ## Unreleased
 
-### 2026-10-05T03:28Z — R10 gifter resource benchmark
+### 2026-10-05T04:08Z — R10 gifter resource benchmark
 
 **What changed.** A reproducible analysis script measures input loading,
 genome evaluation, dataset assembly, sample traits, and the sample network for
@@ -150,8 +150,12 @@ wall time, CPU time, and sampled peak resident memory in a fresh process.
 cost on a realistic catalogue. Annotation and gifter evaluation have different
 inputs and resource scopes, so their measurements are reported separately.
 
-**Effect.** This adds a benchmark artifact and method without changing GIFT
-calls, database content, schema, or package API.
+**Effect.** The 822-MAG × 388-sample gifter portion took 1,366 s wall time
+and peaked at 3.85 GB sampled RSS with one worker. Eight workers reduced wall
+time to 852 s, with greater total CPU time; aggregate worker memory was
+unavailable in this sandbox. Both runs yielded the same 23,657 supported
+genome-GIFT calls. The measurement changes no GIFT call, database content,
+schema, or package API.
 
 ### 2026-10-05T03:01Z — Chicken giftag rerun and Drakkar resource audit
 

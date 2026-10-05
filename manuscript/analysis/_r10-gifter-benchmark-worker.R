@@ -25,6 +25,12 @@ if (any(!file.exists(required))) {
 read_tsv <- function(path) {
   utils::read.delim(path, check.names = FALSE, stringsAsFactors = FALSE)
 }
+sha256 <- function(path) {
+  command <- if (nzchar(Sys.which("shasum"))) "shasum" else "sha256sum"
+  args <- if (identical(command, "shasum")) c("-a", "256", path) else path
+  result <- system2(command, args, stdout = TRUE)
+  sub("[[:space:]].*$", "", result[[1L]])
+}
 record <- function(event, stage, cpu = NA_real_) {
   cat(event, stage, sprintf("%.6f", as.numeric(Sys.time())), cpu,
       sep = "\t", file = event_path, append = TRUE)
@@ -45,8 +51,7 @@ annotations <- stage("input_read", {
   manifest <- read_tsv(manifest_path)
   target <- manifest[manifest$file == "gifter_input.tsv.xz", , drop = FALSE]
   stopifnot(nrow(target) == 1L, file.info(annotation_path)$size == target$bytes)
-  checksum <- system2("shasum", c("-a", "256", annotation_path), stdout = TRUE)
-  stopifnot(identical(sub("[[:space:]].*$", "", checksum[[1L]]), target$sha256))
+  stopifnot(identical(sha256(annotation_path), target$sha256))
   markers <- read_tsv(annotation_path)
   stopifnot(identical(names(markers), c("genome_id", "gene_id", "namespace", "accession")))
   manifest_genomes <- read_tsv(file.path(case_dir, "mag-manifest.tsv"))$genome_id
