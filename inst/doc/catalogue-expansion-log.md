@@ -88,3 +88,86 @@ not a claim that no unrecorded thought occurred before the contract existed.
 
 The test suite checks the table shape, identifiers, dates, source paths,
 revisit links and the coverage of all currently curated GIFT identifiers.
+
+## Retrospective evidence audit (2026-10-05)
+
+This is a documentation and provenance audit, not a new expansion attempt or a
+biological database release. The analysis is reproducible with
+`python3 data-raw/curation_history_audit.py`; it reads the current TSV sources
+and tests whether linked repository files exist. Passing GIFT identifiers, for
+example `python3 data-raw/curation_history_audit.py adenylate_biosynthesis
+lactate_formation`, also prints their current anchors, route steps, accepted
+markers and external cross-references. At database 2026.39.1 the coverage audit
+gives:
+
+| Attempts opened | Attempts | GIFTs they introduced | GIFTs with a curation document | GIFTs now linked to a script | GIFTs now linked to a result table |
+|---|---:|---:|---:|---:|---:|
+| Before October 2026 | 25 | 153 | 153 | 1 | 1 |
+| October 2026 onward | 13 | 10 | 10 | 7 | 8 |
+| All | 38 | 163 | 163 | 8 | 9 |
+
+All 163 current GIFTs occur in a closed attempt and have a curation document;
+all attempt and `gift_evidence.tsv` paths resolve. There are 144 biological
+change rows. The script and table columns count **current** evidence links for
+GIFTs introduced in each period, including later work on those GIFTs. They do
+not count scripts or tables known to have existed at the time of introduction.
+The recent link density shows what the older records could explain more
+clearly, but it is not a measure of historical scientific quality.
+
+As a discoverability check, only 4 of the 25 pre-October attempts currently
+link a Markdown source containing an explicit PMID, PubMed URL or DOI. This is
+a text search, not a judgement that the other 21 lack literature support:
+their `database_changes.tsv` evidence fields, `SOURCES.md`, pinned reference
+records or uncited prose may still support particular claims. It shows why a
+reader often has to leave the attempt's linked document to find the paper
+behind a decision. The count also reflects later additions to shared documents,
+so it says nothing about citation coverage on the original attempt date.
+
+Two older decisions show the difference between a document trail and a
+reproducible claim:
+
+- **Initial nucleotide boundaries (2026-08-17).** The baseline attempt now
+  links both its change entry and
+  [`SOURCES.md`](../extdata/database-source/SOURCES.md), which explains the
+  nucleotide cuts. The current `gift_anchors.tsv`, `route_reactions.tsv` and
+  `gift_xrefs.tsv` corroborate the *present* IMP-to-AMP cut: AMP is the output,
+  the route contains `RHEA:15753` and `RHEA:16853`, both required and forward,
+  with accepted markers `K01939` and `K01756`. The link to
+  [KEGG M00049](https://www.kegg.jp/entry/M00049) is `subset_of` because the
+  module continues to ADP and ATP. That is a defensible boundary explanation;
+  the current rows alone cannot prove the exact historical database state.
+- **Organic acids (2026-08-18).** The
+  [original proposal](proposal-organic-acid-formation.md) reports a 59-KO,
+  11,855-organism KEGG screen and graph experiments, but §13 says the graph
+  work was done in a scratch script that changed no repository file. Neither
+  that script nor an organism-by-KO result table is linked. The current pinned
+  snapshot checks accessions and reaction chemistry; it does not archive the
+  historical organism membership that would reproduce those prevalence
+  counts. The later [cycle proposal](proposal-central-metabolic-cycles.md)
+  explicitly revisits the initial cycle refusal, so the old refusal must be
+  read as a dated decision. A second qualification concerns lactate:
+  [Rhea RHEA:23444](https://www.rhea-db.org/rhea/23444) records a reversible
+  NAD-dependent reaction, and [Zhao et al. 2013
+  (PMID:24251099)](https://pubmed.ncbi.nlm.nih.gov/24251099/) experimentally
+  observed its use for lactate oxidation in *Lactococcus lactis*. The
+  current route records `RHEA:23444` in reverse with `K00016` as its accepted
+  marker; `K29125` is absent from that route's marker mapping. The
+  difference between `K00016` and the quinone-dependent lactate dehydrogenase
+  supports distinct enzyme chemistry, but does not prove that `K00016` is used
+  only to form lactate. The proposal now carries a dated note about that limit.
+
+The practical backfill is **claim by claim**. Keep the dated original and its
+outcome, then append a dated reassessment that names the exact claim, resource
+release or experimental paper, analysis code, saved inputs and result table,
+and whether the new evidence confirms, limits or reverses the old reasoning.
+Link a new analysis as retrospective evidence, never as a script supposedly
+run in the original attempt. For a numeric historical claim with no saved
+input, label it as a reported historical result and run a new, dated screen
+with a pinned denominator if the number matters. If reassessment changes a
+GIFT definition or marker interpretation, it needs the biological change,
+review and database-release procedure; this audit changes no calls. In
+particular, the present `lactate_formation` description and the 2026.14.1
+change entry still say that `K00016` establishes reaction direction. The
+experimental counterexample above makes that wording a priority for a curated
+source-table reassessment; a retrospective note alone does not amend the
+compiled definition.

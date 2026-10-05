@@ -4,6 +4,24 @@ Status: **accepted and implemented in database version 2026.14.1 (schema 6).**
 Evidence test applied 2026-08-18 against database version 2026.13.1. The
 implementation record, including where it departed from this proposal, is §14.
 
+Retrospective evidence note (2026-10-05): the KO prevalence counts below are
+the recorded results of the 2026-08-18 screen; its organism-by-KO input and
+scratch graph script were not retained, so they cannot be regenerated from the
+packaged reference snapshot. The distinction between NAD-dependent `K00016`
+and quinone-dependent `K29125` supports different enzyme chemistries, but the
+"direction evidenced" conclusion in §§1 and 6.1 is stronger than the cited
+markers alone establish. [Rhea RHEA:23444](https://www.rhea-db.org/rhea/23444)
+records the NAD-dependent reaction in both directions, and [Zhao et al. 2013
+(PMID:24251099)](https://pubmed.ncbi.nlm.nih.gov/24251099/) found that the
+NAD-dependent enzyme in *Lactococcus lactis* can oxidize lactate during
+respiration under particular metabolite conditions. `K00016` still supports
+the curated pyruvate-to-(S)-lactate chemistry; it does not establish exclusive
+forward use, lactate excretion, or flux in a genome. This is a later
+qualification of the historical reasoning, not a reconstruction of the 2026
+screen or an independently reviewed change to `lactate_formation`. The
+[retrospective evidence audit](catalogue-expansion-log.md#retrospective-evidence-audit-2026-10-05)
+records the broader provenance gap.
+
 Scope: decide whether the capacity to form fumarate, succinate, citrate,
 lactate and the neighbouring fermentation acids can be expressed as GIFTs, and
 identify what must be architecturally true before any of it can be curated.

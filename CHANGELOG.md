@@ -13,6 +13,26 @@ versioned with the package.
 
 ---
 
+### 2026-10-05T05:05Z — Historical curation evidence is audited retrospectively
+
+**What changed.** A repository-only audit script counts the documents, analysis
+scripts and result tables linked to expansion attempts and their GIFTs. The
+attempt log now reports its results and explains two older decisions in detail:
+the initial nucleotide boundaries and the organic-acid screen. The initial
+nucleotide attempt links its existing source rationale directly, and the
+organic-acid proposal carries a dated literature-based qualification of its
+lactate-direction argument.
+
+**Why.** Every GIFT has a curation document, but most early screens lack retained
+code and result tables. A documented historical number and a reproducible
+analysis must be distinguishable. Experimental evidence also shows that the
+NAD-dependent lactate dehydrogenase can oxidize lactate under some conditions.
+
+**Effect.** Documentation and audit tooling only. No GIFT definition, call,
+database source table, schema or public API changes.
+
+---
+
 ### 2026-10-05T04:35Z — Each database change has its own page in the atlas
 
 **What changed.** The Changes view of the atlas is now a table that indexes the
