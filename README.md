@@ -429,6 +429,12 @@ lists the curation documents, analysis scripts and result tables behind its
 definition, linked to this repository at the commit the database was compiled
 from.
 
+For a per-GIFT explanation of each curated cut or machinery scope, see
+[Why each GIFT is delimited this way](inst/doc/gift-delimitation-rationales.md).
+Each entry gives the scope, the reason for it, and links to the detailed
+curation and analysis records. It is a reading guide to the versioned database
+sources, not a second definition used for evaluation.
+
 The biological changelog is part of the database rather than a file beside the
 code, so it travels with the compiled artifact:
 

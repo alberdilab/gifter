@@ -114,6 +114,11 @@ not count scripts or tables known to have existed at the time of introduction.
 The recent link density shows what the older records could explain more
 clearly, but it is not a measure of historical scientific quality.
 
+The [per-GIFT delimitation index](gift-delimitation-rationales.md) now puts the
+current scope, boundary or machinery decision, and supporting record beside
+each other in short bullet lists. It is a guide to the current catalogue, not
+an amendment to the dated attempt outcomes or the compiled source tables.
+
 As a discoverability check, only 4 of the 25 pre-October attempts currently
 link a Markdown source containing an explicit PMID, PubMed URL or DOI. This is
 a text search, not a judgement that the other 21 lack literature support:

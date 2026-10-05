@@ -1757,7 +1757,10 @@ the same molecule and biological boundary. Ask:
 - Would extending the endpoint drift into shared housekeeping metabolism?
 
 Record the rationale in GIFT/anchor descriptions, notes, provenance docs, and
-tests where it defines a durable invariant.
+tests where it defines a durable invariant. The
+[per-GIFT delimitation index](gift-delimitation-rationales.md) shows the current
+decisions as scope, reason, and supporting record bullets; keep the underlying
+source tables and curation document authoritative.
 
 ### 3. Curate reaction routes
 
