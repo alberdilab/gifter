@@ -391,9 +391,59 @@ two boundary checks, sixteen rarely supported GIFTs and four lineages. None has
 been assessed yet, and the list is kept in
 [the near-miss leads assessment](https://github.com/alberdilab/gifter/blob/main/inst/doc/assessment-gtdb-near-miss-leads.md).
 
-## Two worked examples
+## Why a candidate stops
 
-### A metabolic GIFT: acetate interconversion
+A blocker explains why a proposed GIFT cannot currently be defined and
+evidenced at the specificity it claims. It does not establish that organisms
+lack the capability. These are curation diagnoses, not additional GIFT types or
+mutually exclusive database statuses; several may apply to one candidate.
+
+- **Definition blocker.** The proposed claim has no defensible rule for what
+  counts as one complete capability. A generic *capsule* combines different
+  polymers and assembly designs, so it has no single meaningful parts list.
+  A chemically named structure can be assessed separately.
+- **Marker specificity blocker.** An available marker does not distinguish the
+  claimed function from another. `K00752` contains proteins named HasA as well
+  as PgaC and NodC relatives, so it cannot by itself support a hyaluronan
+  synthesis call. That candidate also has an architecture-size blocker: only
+  one independently required, polymer-specific function has been established.
+- **Completeness blocker.** The required parts can be stated, but accepted
+  markers do not yet cover a complete implementation. In the assessed
+  halophilic-archaeal gas-vesicle architecture, eight proteins are required and
+  five lack accepted markers. A GvpA-only call would not establish the whole
+  structure.
+- **Boundary or direction blocker.** The chemistry is known, but the proposed
+  start, end or direction misstates it. A glucose phosphotransferase system
+  imports glucose as glucose 6-phosphate; a GIFT claiming unchanged
+  intracellular glucose as its output would name the wrong boundary.
+- **Representation blocker.** The claim requires evidence that the current
+  evaluator does not use. Assigning a substrate to a
+  polysaccharide-utilization locus may depend on which genes occur together,
+  while GIFT marker matching does not evaluate gene neighbourhood.
+
+The record for a stopped candidate states the specific blocker, whether the
+proposed claim is deferred or refused, and what new evidence or narrower claim
+would justify revisiting it.
+
+## Three worked examples: accepted, deferred and rejected
+
+The outcome depends on whether the **claim** has a coherent completion rule and
+whether the **evidence** can test it. All three examples below went through
+curation; only the first became a GIFT in the database. The recorded outcomes
+are *implemented*, *deferred* and *refused*, respectively.
+
+| Candidate | Outcome | Decisive reason |
+|---|---|---|
+| Acetate interconversion | **Accepted: implemented** | A two-reaction route and specific markers support the reversible claim. The proposed *formation* claim was narrowed because the markers cannot establish direction. |
+| Gas-vesicle construction | **Deferred** | An eight-protein architecture is defined for halophilic archaea, but five required proteins lack accepted markers. The same candidate can be revisited when that evidence exists. |
+| Generic capsule | **Rejected: refused at this breadth** | Different polymers and assembly designs have no single meaningful completion rule. A chemically named structure would be a new, narrower candidate. |
+
+Deferral preserves a coherent claim awaiting evidence. Refusal rejects the
+claim as proposed; collecting more of the same broad markers would not make a
+generic capsule one defined capability. Neither outcome says that a genome
+lacks the structure.
+
+### Implemented: acetate interconversion
 
 The candidate was "acetate formation", assessed with the short-chain fatty
 acids on 2026-08-18.
@@ -409,10 +459,12 @@ acids on 2026-08-18.
 - **The claim.** Both reactions are reversible and the markers cannot tell the
   direction, so the GIFT was named an *interconversion* rather than a
   *formation*. A name that claims direction would exceed the evidence.
-- **A refusal in the same assessment.** The butyrate-kinase route was refused.
-  Its enzymes are shared with *Bacillus* branched-chain metabolism at both the
-  KO and TIGRFAM levels, so no change of marker namespace could make it
-  specific.
+
+The narrower interconversion claim passed curation and was added to the
+database. A positive call rests on a complete evidenced route; it does not
+require every known acetate producer to complete the routes curated so far.
+The *Akkermansia* gap remains an undercall to investigate, not a reason to
+widen a marker.
 
 The resulting definition can be read with the public accessors:
 
@@ -430,45 +482,32 @@ evidence[, c("evidence_kind", "location")]
 The `source` column names the module and date the markers were taken from. The
 evidence row points to the assessment that defines and defends the GIFT.
 
-### A structural GIFT: the type II secretion system
+### Deferred: gas-vesicle construction
 
-The type II secretion system was deferred by the 2026-10-03 survey of
-structural machines. Its prepilin peptidase is not merely a homologue of the
-type IVa pilus peptidase; it is often the same enzyme. Once the rule for shared
-components was settled, the curation questions were quantitative, and a
-dedicated screen answered them over 11,908 KEGG genomes:
+The proposed structural GIFT has a concrete completion rule: one studied
+halophilic-archaeal architecture needs eight *gvp* proteins to build a gas
+vesicle. The [structural-machine assessment](https://github.com/alberdilab/gifter/blob/main/inst/doc/proposal-structural-gifts.md#64-gas-vesicles)
+found an accepted marker for GvpA, but five required proteins have no admitted
+marker. A genome carrying GvpA therefore cannot be called complete through
+this architecture.
 
-- **Is it a distinct machine?** 1,571 genomes complete the core Gsp
-  apparatus. 703 complete it without the type IVa pilus, and 674 complete the
-  pilus without it, so the apparatus is not a proxy for the pilus.
-- **Does the shared peptidase discriminate?** Requiring it removes only 35 of
-  the 1,571 genomes, so it does almost no discriminating work. It could not be
-  refused either: 1,319 of the 1,536 complete apparatuses reach the peptidase
-  through PilD rather than GspO.
-- **Controls.** Twelve named strains were evaluated.
-  - Five of the seven expected to carry a type II system complete it,
-    including *Pseudomonas aeruginosa* PAO1 and *Escherichia coli* K-12.
-  - *Vibrio cholerae* N16961 and *Legionella pneumophila* fall one role short
-    (GspD and GspC respectively). Both shortfalls are kept in the table as
-    observations about the markers.
-  - The three expected to lack it (*Bacillus subtilis* 168, *Campylobacter
-    jejuni* and *Helicobacter pylori*) support at most two of the eleven roles.
+The candidate is **deferred**, because the parts list is meaningful but the
+current marker evidence cannot check every required part. It can be revisited
+if the missing proteins gain specific markers or a deliberate marker-admission
+decision supports them. No gas-vesicle GIFT or GvpA-only shortcut was added.
 
-Each Gsp role is supported by a KEGG orthology and, where one exists, an NCBIfam
-equivalog for the same role:
+### Refused: generic capsule
 
-```{r}
-machinery <- get_gift_machinery("type_ii_secretion_system")
-unique(machinery[, c("function_name", "required")])
-head(machinery[, c("component_name", "namespace", "accession", "confidence")])
+The [structural assessment](https://github.com/alberdilab/gifter/blob/main/inst/doc/proposal-structural-gifts.md#55-capsules-and-other-extracellular-polysaccharide-layers)
+found that *capsule* describes where a polymer is retained, not one chemical
+product or assembly design. Wzx/Wzy and Wza/Wzc machinery also serves O
+antigens and extracellular polysaccharides. Finding that machinery cannot
+establish that a genome encodes a complete, generic capsule.
 
-get_gift_evidence("type_ii_secretion_system")[, c("evidence_kind", "location")]
-```
-
-Here the evidence lists the analysis script and the three result tables it
-wrote, as well as the curation documents. The numbers above can be regenerated
-with `Rscript data-raw/t2ss_prevalence.R`, or checked from the cached inputs
-with `--offline`.
+The proposed claim was **refused at this breadth**. Unlike gas vesicles, it
+does not have one parts list waiting for better markers. A named polymer and
+its complete, distinguishable assembly architecture could be assessed as a
+separate candidate; that would not validate the original generic claim.
 
 ## Check composition and traceability
 
@@ -544,6 +583,9 @@ Finally, the investigation is closed with one of three explicit outcomes:
 - **deferred:** a standing blocker and the evidence that would retrigger work;
 - **refused:** the claim cannot be supported without exceeding the evidence or
   violating the ontology.
+
+The [blocker diagnosis](#why-a-candidate-stops) explains a deferred or refused
+outcome; it does not change a genome's GIFT call.
 
 A refusal is a curation result, not missing data. Recording it prevents a later
 curator from unknowingly repeating the same investigation or admitting the same
