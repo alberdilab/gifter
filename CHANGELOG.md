@@ -13,6 +13,37 @@ versioned with the package.
 
 ---
 
+### 2026-10-06T04:34Z — Highlight case-study summaries
+
+**What changed.** The three Case study articles now place their “In short”
+findings in a shared summary box.
+
+**Why.** The main findings should be easy to spot before the detailed analysis.
+
+**Effect.** Documentation layout only; the findings and biological claims are
+unchanged.
+
+---
+
+### 2026-10-06T04:20Z — Add phenotype validation as the final case study
+
+**What changed.** The Case studies menu now ends with a page built from the
+committed BacDive, MediaDive, Madin and annotation-route result tables. It
+shows per-observation recall, disagreement traces, reference consistency and
+the catalogue's testable coverage, with a link from the curation article. The
+page distinguishes the 44 frame-only GIFTs from 44 independent assays: it
+explains nutrient-level tests, alternative routes, conditional cofactor and
+nitrogen results, and the one GIFT excluded by the KO-only annotation ceiling.
+
+**Why.** The finished R9 analysis was present in the manuscript but its
+results were not available from the documentation's Case studies.
+
+**Effect.** Documentation only. The page identifies the pinned database
+release and keeps encoded capability distinct from observed phenotype; no
+GIFT definition, call or public API changes.
+
+---
+
 ### 2026-10-06T02:32Z — Reanalyse the chicken MAGs with giftag and document the comparison
 
 **What changed.** The verified 822-MAG giftag transfer was evaluated across

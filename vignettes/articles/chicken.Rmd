@@ -161,6 +161,7 @@ The main analysis below uses the original Drakkar annotation and database
 with giftag and compares both annotations on database
 `r unique(giftag_samples$database_version)`. The two releases are kept separate.
 
+::: {.case-summary}
 **In short**
 
 - Median community metabolic richness was `r sample_median(7, "All metabolic GIFTs", "community_richness")`,
@@ -174,6 +175,7 @@ with giftag and compares both annotations on database
   later ages. Their community unions remained within that margin.
 - An apparent two-band pattern in community richness follows the operational
   detection of one broad-repertoire *Escherichia coli* MAG.
+:::
 
 These are encoded capabilities. They say nothing directly about expression,
 flux, nutrient exchange, growth or host phenotype. If a GIFT call is new to

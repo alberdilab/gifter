@@ -19,6 +19,7 @@ articles:
   contents:
   - articles/phylogeny
   - articles/chicken
+  - articles/phenotype-validation
 - title: Curation
   navbar: ~
   contents:
@@ -59,6 +60,8 @@ navbar:
         href: articles/phylogeny.html
       - text: Across chicken caecal maturation
         href: articles/chicken.html
+      - text: Against observed phenotypes
+        href: articles/phenotype-validation.html
     atlas:
       text: Atlas
       menu:

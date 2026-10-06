@@ -330,7 +330,9 @@ Some data are used to evaluate gifter but never to define a GIFT.
 - **Observed phenotypes.** BacDive substrate-use records, MediaDive growth media
   and species-level trait tables are compared with gifter's calls as a
   benchmark. They are not accepted as marker evidence: an organism growing on a
-  substrate says nothing about which gene does the work.
+  substrate says nothing about which gene does the work. The
+  [phenotype case study](phenotype-validation.html) presents the results and
+  their limits.
 - **Application datasets.** The GTDB panel, the chicken caecal
   metagenome-assembled genomes and the Microflora Danica samples used in the
   manuscript analyses are readings of the catalogue, not inputs to it.

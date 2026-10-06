@@ -121,6 +121,7 @@ the GTDB bacterial tree.</p>
 <div><strong>`r big(item(audit, "supported genome-GIFT pairs"))`</strong><span>supported calls</span></div>
 </div>
 
+::: {.case-summary}
 **In short**
 
 - Genome size alone explains `r round(100 * as.numeric(item(model, "deviance explained")))`%
@@ -132,6 +133,7 @@ the GTDB bacterial tree.</p>
 - Where a genome is one requirement short of a GIFT, the same requirement is
   usually the one missing, which gives us a ranked list of GIFT definitions
   to revisit.
+:::
 
 If you have not yet read what a GIFT call claims,
 [start with a single genome](evaluating-a-genome.html).

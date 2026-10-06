@@ -1,0 +1,321 @@
+---
+title: "Against observed phenotypes"
+description: >
+  Strain-matched BacDive observations, defined media and an independent trait
+  synthesis show where GIFT calls agree with measured phenotypes and where
+  their evidence runs out.
+---
+
+```{r setup, include = FALSE}
+# This case study reads committed R9 results. It does not re-fetch phenotypes,
+# annotate genomes or re-evaluate GIFTs while the documentation is built.
+knitr::opts_chunk$set(
+  echo = FALSE, message = FALSE, warning = FALSE,
+  dev = "ragg_png", dpi = 150, fig.retina = 2, out.width = "100%",
+  fig.width = 9, fig.height = 6, fig.align = "center"
+)
+default_plot_hook <- knitr::knit_hooks$get("plot")
+knitr::knit_hooks$set(plot = function(x, options) {
+  href <- paste0("phenotype-validation_files/figure-html/", basename(x[[1L]]))
+  paste0(
+    '<a class="case-figure" href="', href, '" target="_blank" ',
+    'title="Open at full resolution">', default_plot_hook(x, options), "</a>"
+  )
+})
+
+library(ggplot2)
+
+root <- normalizePath(".")
+while (!file.exists(file.path(root, "DESCRIPTION"))) root <- dirname(root)
+out <- file.path(root, "manuscript", "analysis", "output")
+read_tsv <- function(file) {
+  utils::read.delim(file.path(out, file), check.names = FALSE,
+                    stringsAsFactors = FALSE, quote = "")
+}
+fmt <- function(x, digits = 3) format(round(x, digits), nsmall = digits, trim = TRUE)
+big <- function(x) format(x, big.mark = ",", trim = TRUE)
+
+agreement <- read_tsv("phenotype-agreement.tsv")
+failures <- read_tsv("phenotype-disagreements.tsv")
+consistency <- read_tsv("phenotype-reference-consistency.tsv")
+auxotrophy <- read_tsv("auxotrophy-agreement.tsv")
+madin <- read_tsv("madin-agreement.tsv")
+annotation <- read_tsv("annotation-route-calls.tsv")
+coverage <- read_tsv("phenotype-validation-summary.tsv")
+coverage_detail <- read_tsv("phenotype-validation-coverage.tsv")
+manifest <- read_tsv("phenotype-validation-input-manifest.tsv")
+release <- unique(manifest$database_version[manifest$input_kind == "gifter_database"])
+stopifnot(length(release) == 1L, nzchar(release))
+
+primary <- agreement[agreement$recall_usable & agreement$n >= 20, ]
+status_n <- function(status) sum(coverage$gift_n[coverage$validation_status == status])
+catalogue_n <- sum(coverage$gift_n)
+individual_n <- status_n("individual_recall_usable")
+frame_n <- status_n("bounded_frame_aggregate")
+other_n <- catalogue_n - individual_n - frame_n
+frame_only_ids <- coverage_detail$gift_id[coverage_detail$bounded_frame_aggregate]
+gift_ids_for <- function(classes) {
+  rows <- auxotrophy$gift_id[auxotrophy$substrate_class %in% classes]
+  unique(unlist(strsplit(rows, "|", fixed = TRUE)))
+}
+essential_ids <- gift_ids_for(c("amino_acid", "nucleotide"))
+context_ids <- gift_ids_for(c("cofactor", "inorganic_nitrogen"))
+unmeasured_ids <- setdiff(frame_only_ids, c(essential_ids, context_ids))
+stopifnot(length(frame_only_ids) == length(essential_ids) +
+            length(context_ids) + length(unmeasured_ids),
+          setequal(frame_only_ids, c(essential_ids, context_ids, unmeasured_ids)),
+          identical(unmeasured_ids, "siroheme_to_heme_b"))
+pick <- function(table, term, field = NULL, kinds = NULL) {
+  x <- table[table$term == term, ]
+  if (!is.null(field)) x <- x[x$field == field, ]
+  if (!is.null(kinds)) x <- x[grepl(kinds, x$kinds), ]
+  stopifnot(nrow(x) == 1L)
+  x
+}
+
+ink <- "#173330"; muted <- "#687672"; line <- "#dcded5"; surface <- "#fffdf8"
+blue <- "#477e91"
+theme_case <- function(base_size = 12) {
+  theme_minimal(base_size = base_size) +
+    theme(
+      text = element_text(colour = ink),
+      axis.text = element_text(colour = muted),
+      axis.title = element_text(colour = ink),
+      panel.grid.minor = element_blank(),
+      panel.grid.major = element_line(colour = line, linewidth = 0.35),
+      plot.background = element_rect(fill = surface, colour = NA),
+      panel.background = element_rect(fill = surface, colour = NA),
+      strip.text = element_text(colour = ink, face = "bold", hjust = 0),
+      plot.title = element_text(face = "bold"),
+      plot.margin = margin(10, 14, 8, 10)
+    )
+}
+```
+
+<p class="lead">When a strain is observed to use a substrate, does its genome
+support the corresponding GIFT? We compared curated genomic calls with
+strain-resolved BacDive assays, growth on chemically defined MediaDive media,
+and a second, species-level trait compilation. The result is a test of where
+the <em>genomic evidence</em> reaches an observed capability, not a prediction
+of what a strain will do in any particular assay.</p>
+
+<div class="case-stats">
+<div><strong>`r catalogue_n`</strong><span>GIFTs in the tested release</span></div>
+<div><strong>`r nrow(primary)`</strong><span>BacDive comparisons with at least 20 paired records</span></div>
+<div><strong>`r individual_n`</strong><span>GIFTs individually testable at that threshold</span></div>
+<div><strong>`r big(sum(auxotrophy$n[auxotrophy$substrate_class %in% c("amino_acid", "nucleotide")]))`</strong><span>defined-medium tests on essential nutrient classes</span></div>
+</div>
+
+These results are pinned to database **`r release`** and its committed analysis
+tables. The live catalogue can contain additional GIFTs or changed routes.
+
+::: {.case-summary}
+**In short**
+
+- Recall is reported separately for each observed phenotype. An EC-resolved
+  enzyme assay tests a reaction; substrate use and product formation test a GIFT.
+- A positive genomic call with no observed phenotype is allowed: expression,
+  regulation and assay conditions lie outside the GIFT claim. An observed
+  capability with no supported call is the useful disagreement to investigate.
+- Only `r individual_n` of `r catalogue_n` GIFTs have a direct individual
+  recall test at this threshold. Another `r frame_n` belong to bounded
+  anabolic frames: defined-medium growth can challenge their nutrient-level
+  support, with limits explained below. The remaining `r other_n` have no
+  usable test in these references.
+:::
+
+## What was compared
+
+BacDive records measured strain phenotypes and assembly accessions. We joined
+those accessions to the reference genomes, mapped metabolite identifiers to
+declared anchors and EC identifiers to reactions, and excluded BacDive's
+**genome-based predictions**. The reviewed crosswalk admits a phenotype to a
+recall calculation only where its boundary is `equivalent` to, or narrower
+than, the GIFT claim. For example, gelatin hydrolysis is not treated as an
+observation of collagen cleavage, and motility is not treated as an observation
+of a flagellar apparatus.
+
+For an observation that passes that rule, recall is the share of
+**observed-positive** records whose matched genomes support the target. The
+`n` beside each point below counts *all* paired observations, positive and
+negative; the recall denominator is the observed-positive subset. Each row
+also gives the number of represented genera. Rows are kept separate even when
+they name the same substrate, because growth on a sugar and acid production
+from it are different assays.
+
+```{r primary-recall, fig.width = 9.5, fig.height = 8.5, fig.cap = "BacDive recall by curated observation, with all paired records (n) and represented genera shown at right. Only equivalent or subset-of mappings with at least 20 pairs appear. The positive subset of each n is the recall denominator. No rate is pooled across observations."}
+primary$assay <- ifelse(
+  primary$field == "enzymes", "enzyme activity",
+  ifelse(primary$field == "metabolite production", "product formation",
+         ifelse(grepl("builds acid", primary$kinds), "acidification", "substrate use"))
+)
+primary$label <- paste(primary$term, primary$assay, sep = " · ")
+primary$layer_label <- ifelse(primary$layer == "reaction",
+                              "Reaction: enzyme activity",
+                              "GIFT: substrate use or product formation")
+primary <- primary[order(primary$layer, primary$recall), ]
+primary$label <- factor(primary$label, levels = unique(primary$label))
+
+ggplot(primary, aes(recall, label)) +
+  geom_segment(aes(x = 0, xend = recall, yend = label),
+               colour = line, linewidth = 0.8) +
+  geom_point(colour = blue, size = 2.2) +
+  geom_text(aes(x = 1.03, label = sprintf("n = %d · %d genera", n, genera)),
+            hjust = 0, size = 2.5, colour = muted) +
+  facet_wrap(~ layer_label, ncol = 1, scales = "free_y") +
+  scale_x_continuous(limits = c(0, 1.62), breaks = seq(0, 1, 0.25)) +
+  labs(x = "recall among observed-positive records", y = NULL) +
+  theme_case() +
+  theme(panel.grid.major.y = element_blank(),
+        axis.text.y = element_text(size = 9))
+```
+
+Urease activity reaches `r fmt(pick(primary, "urease", "enzymes")$recall)`
+recall across `r big(pick(primary, "urease", "enzymes")$n)` paired records;
+urea utilisation reaches
+`r fmt(pick(primary, "urea", "metabolite utilization")$recall)` across
+`r big(pick(primary, "urea", "metabolite utilization")$n)`. Indole production
+reaches `r fmt(pick(primary, "indole")$recall)`. N-acetylglucosamine use
+reaches only `r fmt(pick(primary, "N-acetylglucosamine")$recall)`: tracing
+its missing reaction led to curation of a second route through the
+phosphotransferase system. That is a specific route lead, not evidence that
+the phenotype itself was inferred from the genome.
+
+## A disagreement has a direction
+
+The `r big(sum(primary$encoded_not_observed))` supported-call/negative-assay
+comparisons are **permitted** under the GIFT claim. Of the
+`r big(sum(primary$observed_not_encoded))` observed-positive/unsupported-call
+comparisons, `r sum(failures$class[failures$target %in% primary$target] == "incomplete route")`
+have a closest route with a named missing requirement and
+`r sum(failures$class[failures$target %in% primary$target] == "no evidence")`
+have no genomic evidence for that capability. These are counts of
+genome–observation comparisons, not distinct genomes. A missing requirement
+is a curation lead; it is not automatically an annotation error or a missing
+enzyme.
+
+Two assays in BacDive sometimes disagree with each other. For urease activity
+versus urea utilisation, `r consistency$agree_with_genome[consistency$gift_id == "urea_hydrolysis"]`
+of `r consistency$strains_with_genome[consistency$gift_id == "urea_hydrolysis"]`
+genome-backed strains agree. For tryptophanase activity versus indole
+production, only
+`r consistency$agree_with_genome[consistency$gift_id == "tryptophan_degradation_indole"]`
+of `r consistency$strains_with_genome[consistency$gift_id == "tryptophan_degradation_indole"]`
+agree. An unexpectedly low recall on one assay needs to be read beside that
+assay's own consistency with the reference.
+
+## A second reference checks the mapping
+
+Madin's published species-level compilation records carbon-substrate use. It
+offers an independent check on whether BacDive's *growth* and *acidification*
+rows should be kept separate. The comparison below uses the reported recall
+for each source; the strain and species denominators differ, so the columns
+are not paired measurements of the same organisms.
+
+```{r substrate-comparison}
+sugar_targets <- data.frame(
+  substrate = c("L-arabinose", "D-galactose", "L-rhamnose", "D-xylose"),
+  madin_term = c("arabinose", "galactose", "rhamnose", "xylose")
+)
+sugar_targets$bacdive_growth <- vapply(sugar_targets$substrate, function(term)
+  pick(agreement, term, "metabolite utilization", "carbon source")$recall,
+  numeric(1))
+sugar_targets$bacdive_acid <- vapply(sugar_targets$substrate, function(term)
+  pick(agreement, term, "metabolite utilization", "builds acid")$recall,
+  numeric(1))
+sugar_targets$madin_use <- vapply(sugar_targets$madin_term, function(term)
+  pick(madin, term, "carbon_substrates")$recall,
+  numeric(1))
+knitr::kable(
+  data.frame(
+    Substrate = sugar_targets$substrate,
+    `BacDive growth/use` = fmt(sugar_targets$bacdive_growth),
+    `BacDive acidification` = fmt(sugar_targets$bacdive_acid),
+    `Madin substrate use` = fmt(sugar_targets$madin_use),
+    check.names = FALSE
+  ),
+  caption = "Recall from distinct observed-positive sets; each BacDive test kind remains a separate claim."
+)
+```
+
+The independent substrate-use values track BacDive growth/use more closely
+than acidification. Madin requires a species-to-genome representative choice;
+the [analysis](https://github.com/alberdilab/gifter/blob/main/manuscript/analysis/07-madin.R)
+repeated that choice 100 times and recorded its sensitivity. Its motility row,
+like BacDive's, is excluded from flagellar-apparatus recall because motility
+does not imply a flagellum.
+
+## What defined media and annotation add
+
+MediaDive connects growth-positive strains to chemically defined media. If a
+medium omits a biomass-essential nutrient and the strain grows, that is an
+observed-positive test of the relevant biosynthetic capability. Alternative
+curated routes to the same nutrient are OR-ed: growth without cysteine asks
+whether the genome supports **either** curated cysteine route, not whether it
+supports both. Only media whose ingredients are at least 75% resolvable to
+identifiers enter this inference. For each growth-positive strain–medium pair,
+the analysis records which omitted nutrients have genomic support; it then
+summarises support by nutrient and by genome within a bounded frame. An
+unsupported product points to GIFT evidence worth tracing. A medium that
+supplies a nutrient gives no test of its synthesis.
+
+This gives the strongest indirect check for `r length(essential_ids)` of the
+`r frame_n` frame-only GIFTs: they make `r sum(auxotrophy$substrate_class %in% c("amino_acid", "nucleotide"))`
+amino-acid or nucleotide products. Across those products, the committed table
+records
+`r big(sum(auxotrophy$n[auxotrophy$substrate_class %in% c("amino_acid", "nucleotide")]))`
+nutrient-level tests and
+`r fmt(sum(auxotrophy$supported[auxotrophy$substrate_class %in% c("amino_acid", "nucleotide")]) / sum(auxotrophy$n[auxotrophy$substrate_class %in% c("amino_acid", "nucleotide")]))`
+recall. The [per-nutrient table](https://github.com/alberdilab/gifter/blob/main/manuscript/analysis/output/auxotrophy-agreement.tsv)
+shows where support is strong or weak; the [disagreement table](https://github.com/alberdilab/gifter/blob/main/manuscript/analysis/output/auxotrophy-disagreements.tsv)
+retains the genomes, media and omitted nutrients behind unsupported calls.
+
+The other `r length(context_ids)` measured frame-only GIFTs make cofactors or
+inorganic nitrogen products. Their nutrient-level rows are reported, but a
+strain may grow without making a particular cofactor or without fixing
+nitrogen, so a low support fraction is not by itself a failed genomic call.
+The final frame member, `siroheme_to_heme_b`, was excluded from this test
+because the KO-only genome annotation cannot evidence one of its components.
+Thus **`r frame_n` counts frame membership**, not 44 independent phenotype
+assays or 44 equally falsifiable GIFTs. Even where a nutrient test is sound,
+growth implies some way to obtain that product; it does not identify which
+curated route the organism uses.
+
+The primary comparison uses KEGG's own KO assignments. On the same
+`r unique(annotation$genomes)` genomes, a pinned annotation pipeline recovered
+`r fmt(sum(annotation$annot_ko) / sum(annotation$kegg_ko))` of the complete
+KEGG-route calls using KofamScan alone, and
+`r fmt(sum(annotation$annot_full) / sum(annotation$kegg_ko))` after adding
+NCBIfam, dbCAN and Pfam evidence. Those fractions describe the change in
+**total supported calls**, not per-GIFT recall or overall accuracy; some
+capabilities gained calls while others lost them. Gene calling was held fixed,
+so this comparison isolates marker assignment rather than all losses a MAG
+annotation workflow could introduce.
+
+## How much of the catalogue could be tested?
+
+For this `r catalogue_n`-GIFT release, `r individual_n` GIFTs had a direct
+individual recall test at 20 or more paired observations. Another `r frame_n`
+had no such assay comparison but belonged to bounded anabolic frames;
+`r length(frame_only_ids) - length(unmeasured_ids)` entered the indirect
+defined-medium analysis described above. The other `r other_n` had no usable
+recall test in these references: some had no public observation, while others
+had too few records or only a related or refused proxy. This is a limit of the
+available observations and crosswalk, not a negative GIFT call.
+
+The [coverage table](https://github.com/alberdilab/gifter/blob/main/manuscript/analysis/output/phenotype-validation-coverage.tsv)
+names the status of every GIFT. The [full manuscript account](https://github.com/alberdilab/gifter/blob/main/manuscript/manuscript.md#r9-agreement-with-observed-phenotypes)
+sets out the comparison and its limitations.
+
+## Reproduce this analysis
+
+All figures and values on this page read the committed
+[R9 tables](https://github.com/alberdilab/gifter/tree/main/manuscript/analysis/output).
+The producing scripts are
+[`03-phenotype.R`](https://github.com/alberdilab/gifter/blob/main/manuscript/analysis/03-phenotype.R),
+[`04-auxotrophy.R`](https://github.com/alberdilab/gifter/blob/main/manuscript/analysis/04-auxotrophy.R),
+[`05-annotation-route.R`](https://github.com/alberdilab/gifter/blob/main/manuscript/analysis/05-annotation-route.R),
+[`07-madin.R`](https://github.com/alberdilab/gifter/blob/main/manuscript/analysis/07-madin.R)
+and the [coverage audit](https://github.com/alberdilab/gifter/blob/main/manuscript/analysis/19-phenotype-validation-coverage.R).
+The reviewed [phenotype crosswalk](https://github.com/alberdilab/gifter/blob/main/data-raw/reference/phenotype-crosswalk.tsv)
+states exactly which observation licenses each comparison.
