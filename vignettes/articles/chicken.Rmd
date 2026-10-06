@@ -66,8 +66,44 @@ handoff_contrasts <- read_tsv("r10-handoff-age-contrasts.tsv")
 size_audit <- read_tsv("r10-size-expectation-audit.tsv")
 size_effects <- read_tsv("r10-size-expectation-age-contrasts.tsv")
 
+# The giftag rerun and its Drakkar comparator use one later database release.
+# These products stay separate from the original R10 analysis above.
+giftag_out <- file.path(out, "r10-giftag")
+current_drakkar_out <- file.path(out, "r10-drakkar-current")
+read_case_tsv <- function(dir, file) {
+  utils::read.delim(file.path(dir, file), check.names = FALSE,
+                    stringsAsFactors = FALSE, quote = "")
+}
+read_case_xz <- function(dir, file) {
+  utils::read.delim(xzfile(file.path(dir, file)), check.names = FALSE,
+                    stringsAsFactors = FALSE, quote = "")
+}
+giftag_audit <- read_case_tsv(giftag_out, "r10-input-audit.tsv")
+current_drakkar_audit <- read_case_tsv(current_drakkar_out, "r10-input-audit.tsv")
+call_comparison <- read_case_tsv(giftag_out, "r10-giftag-call-concordance.tsv")
+sample_comparison <- read_case_tsv(giftag_out, "r10-giftag-sample-metric-concordance.tsv")
+marker_comparison <- read_case_tsv(giftag_out, "r10-giftag-marker-concordance.tsv")
+genome_comparison <- read_case_tsv(giftag_out, "r10-giftag-genome-concordance.tsv")
+discordant_calls <- read_case_xz(giftag_out, "r10-giftag-discordant-calls.tsv.xz")
+resource_summary <- read_case_tsv(giftag_out, "r10-giftag-resource-summary.tsv")
+giftag_samples <- read_case_xz(giftag_out, "r10-sample-traits.tsv.xz")
+current_drakkar_samples <- read_case_xz(current_drakkar_out, "r10-sample-traits.tsv.xz")
+giftag_network <- read_case_tsv(giftag_out, "r10-network-metrics.tsv")
+current_drakkar_network <- read_case_tsv(current_drakkar_out, "r10-network-metrics.tsv")
+giftag_contrasts <- read_case_tsv(giftag_out, "r10-age-contrasts.tsv")
+
 primary <- as.numeric(item(audit, "primary_detection"))
 stopifnot(primary == 0.001, nrow(mode) == as.numeric(item(audit, "samples")))
+stopifnot(
+  item(giftag_audit, "gifter_sqlite_sha256") ==
+    item(current_drakkar_audit, "gifter_sqlite_sha256"),
+  item(giftag_audit, "published_bacterial_mags") == "822",
+  item(current_drakkar_audit, "published_bacterial_mags") == "822",
+  nrow(genome_comparison) == 822L,
+  length(unique(giftag_samples$database_version)) == 1L,
+  identical(unique(giftag_samples$database_version),
+            unique(current_drakkar_samples$database_version))
+)
 
 sample_median <- function(age, frame, metric) {
   x <- samples$value[samples$detection == primary &
@@ -115,10 +151,15 @@ The two views tell different stories.</p>
 <div class="case-stats">
 <div><strong>`r item(audit, "published_bacterial_mags")`</strong><span>bacterial MAGs</span></div>
 <div><strong>`r item(audit, "samples")`</strong><span>caecal samples</span></div>
-<div><strong>`r item(audit, "catalogue_gifts")`</strong><span>GIFTs evaluated</span></div>
-<div><strong>`r big(item(audit, "supported_genome_gift_calls"))`</strong><span>supported MAG–GIFT calls</span></div>
+<div><strong>`r item(audit, "catalogue_gifts")`</strong><span>GIFTs in original reading</span></div>
+<div><strong>`r big(item(audit, "supported_genome_gift_calls"))`</strong><span>original Drakkar calls</span></div>
 <div><strong>`r nrow(handoff_graph)`</strong><span>exact extracellular links</span></div>
 </div>
+
+The main analysis below uses the original Drakkar annotation and database
+`r unique(samples$database_version)`. A later section evaluates the same MAGs
+with giftag and compares both annotations on database
+`r unique(giftag_samples$database_version)`. The two releases are kept separate.
 
 **In short**
 
@@ -384,6 +425,146 @@ of the narrower per-MAG repertoire, while the remaining difference stays
 visible. It does not change any original call or turn a size association
 into a functional mechanism.
 
+## Reannotating the same MAGs with giftag
+
+We reannotated the **same checksum-verified 822 assemblies** with
+[giftag](https://alberdilab.github.io/giftag/) and evaluated its marker output
+with the current gifter database. For a fair call comparison, we also
+reevaluated the original Drakkar markers on that **same** database
+(`r unique(giftag_samples$database_version)`, SQLite SHA-256
+`r item(giftag_audit, "gifter_sqlite_sha256")`). This pair is separate from
+the original `r item(audit, "catalogue_gifts")`-GIFT reading above: the later
+catalogue has `r item(giftag_audit, "catalogue_gifts")` GIFTs. Neither
+annotation changes a genome call after evaluation; the same fixed calls are
+read across the `r item(giftag_audit, "samples")` samples.
+
+The two evaluations support
+`r big(item(current_drakkar_audit, "supported_genome_gift_calls"))` Drakkar and
+`r big(item(giftag_audit, "supported_genome_gift_calls"))` giftag MAG–GIFT
+pairs. Their overlap and differences are:
+
+```{r giftag-call-table}
+call_order <- c("all", "metabolic", "structural", "regulatory", "defense")
+call_table <- call_comparison[match(call_order, call_comparison$gift_type), ]
+knitr::kable(
+  data.frame(
+    Type = ifelse(call_table$gift_type == "all", "All GIFTs", call_table$gift_type),
+    Shared = big(call_table$shared_calls),
+    `Drakkar only` = big(call_table$drakkar_only),
+    `giftag only` = big(call_table$giftag_only),
+    `Jaccard (%)` = fmt(100 * call_table$jaccard, 1),
+    check.names = FALSE
+  ), align = "lrrrr",
+  caption = "Supported MAG–GIFT pairs on the same 163-GIFT database. Jaccard is shared pairs divided by the union of pairs; it measures concordance, not correctness."
+)
+```
+
+The `r nrow(genome_comparison)`-MAG comparison includes
+`r genome_comparison$genome_id[genome_comparison$union_calls == 0]`, which has
+no supported GIFT in either reading. A zero-call MAG remains in the denominator
+and is not dropped because it has no positive call.
+
+```{r giftag-genomes, fig.width = 8.5, fig.height = 6.5, fig.cap = "Supported GIFT counts for the same 822 MAGs, with both annotations evaluated on database 2026.39.1. Each point is a MAG. The diagonal marks equal counts, not equal sets of GIFTs; the call-level table above shows where the sets disagree. The zero-call MAG lies at the origin."}
+genome_comparison$difference <- genome_comparison$giftag_calls -
+  genome_comparison$drakkar_calls
+ggplot(genome_comparison, aes(drakkar_calls, giftag_calls)) +
+  geom_abline(slope = 1, intercept = 0, colour = muted, linetype = "dashed") +
+  geom_point(aes(colour = difference), alpha = 0.75, size = 1.8) +
+  scale_colour_gradient2(low = blue, mid = forest, high = coral,
+                         midpoint = 0, name = "giftag − Drakkar") +
+  coord_equal() +
+  labs(x = "Drakkar supported GIFTs per MAG",
+       y = "giftag supported GIFTs per MAG") + theme_case()
+```
+
+The marker inputs have different scope. Drakkar projected
+`r big(item(current_drakkar_audit, "drakkar_marker_rows"))` rows from broader
+annotation resources; giftag emitted
+`r big(item(giftag_audit, "giftag_marker_rows"))` rows from profiles targeted
+to gifter's vocabulary. The raw row counts are therefore not comparable as
+marker recovery. Within that vocabulary, KO genome–marker presence had
+`r fmt(100 * one(marker_comparison, namespace = "KO")$jaccard, 1)`% Jaccard,
+while CAZy had
+`r fmt(100 * one(marker_comparison, namespace = "CAZY")$jaccard, 1)`%.
+Gene prediction, profile releases and hit thresholds also differ, so neither
+annotator is a ground truth for the other.
+
+### What changes in the sample reading
+
+```{r giftag-age-table}
+age_series <- function(table, frame, metric, digits = 2) {
+  paste(vapply(c(7, 21, 35), function(age) {
+    x <- table$value[table$detection == primary &
+                       table$sampling_time == age &
+                       table$reference_frame == frame &
+                       table$metric_id == metric]
+    stopifnot(length(x) > 0L)
+    fmt(median(x), digits)
+  }, character(1)), collapse = " / ")
+}
+network_series <- function(table) {
+  paste(vapply(c(7, 21, 35), function(age) {
+    x <- table$value[table$sampling_time == age &
+                       table$metric_id == "interaction_density"]
+    stopifnot(length(x) > 0L)
+    fmt(median(x), 3)
+  }, character(1)), collapse = " / ")
+}
+knitr::kable(
+  data.frame(
+    Metric = c("Community metabolic richness", "Mean metabolic GIFTs per MAG",
+               "Mean plant-fibre GIFTs per MAG", "Exact handoff density"),
+    `Drakkar: days 7 / 21 / 35` = c(
+      age_series(current_drakkar_samples, "All metabolic GIFTs", "community_richness", 0),
+      age_series(current_drakkar_samples, "All metabolic GIFTs", "mean_genome_richness"),
+      age_series(current_drakkar_samples, "Plant fibre utilisation", "mean_genome_richness"),
+      network_series(current_drakkar_network)
+    ),
+    `giftag: days 7 / 21 / 35` = c(
+      age_series(giftag_samples, "All metabolic GIFTs", "community_richness", 0),
+      age_series(giftag_samples, "All metabolic GIFTs", "mean_genome_richness"),
+      age_series(giftag_samples, "Plant fibre utilisation", "mean_genome_richness"),
+      network_series(giftag_network)
+    ), check.names = FALSE
+  ), align = "lll",
+  caption = "Sample medians at the same operational relative-abundance detection threshold (> 0.001). The three ages are cross-sectional groups, not repeated trajectories of individual birds."
+)
+```
+
+At the primary threshold, only
+`r one(sample_comparison, detection = primary, reference_frame = "All metabolic GIFTs", metric_id = "community_richness")$changed_samples`
+of 388 samples changed their community metabolic richness between annotators;
+the largest difference was one GIFT. Mean per-MAG metabolic richness changed
+in all 388 samples, by an average of
+`r fmt(one(sample_comparison, detection = primary, reference_frame = "All metabolic GIFTs", metric_id = "mean_genome_richness")$mean_difference)`
+additional GIFTs with giftag. Its adjusted day-21 and day-35 differences from
+day 7 remained negative:
+`r fmt(one(giftag_contrasts, detection = primary, reference_frame = "All metabolic GIFTs", metric_id = "mean_genome_richness", contrast = "day_21_minus_day_7")$estimate)` and
+`r fmt(one(giftag_contrasts, detection = primary, reference_frame = "All metabolic GIFTs", metric_id = "mean_genome_richness", contrast = "day_35_minus_day_7")$estimate)`
+GIFTs. Thus the contrast between a broad community union and narrower encoded
+member repertoires survives this annotation change.
+
+The absolute handoff-density reading is more annotation sensitive: its
+giftag medians are higher at every age. Among the discordant calls, giftag
+additionally supports xylan degradation in
+`r sum(discordant_calls$gift_id == "xylan_degradation" & discordant_calls$caller == "giftag_only")`
+MAGs and arabinoxylan debranching in
+`r sum(discordant_calls$gift_id == "arabinoxylan_debranching" & discordant_calls$caller == "giftag_only")`.
+The three **declared extracellular links** themselves are unchanged. The
+number of compatible MAG pairs depends on which markers an annotation finds;
+neither density is an observation of molecular exchange.
+
+The measured giftag annotation stage took
+`r fmt(as.numeric(resource_summary$value[resource_summary$metric == "giftag_annotation_wall_seconds"]) / 3600)`
+hours with eight requested CPUs. The recorded Drakkar workflow spanned
+`r fmt(as.numeric(resource_summary$value[resource_summary$metric == "drakkar_slurm_workflow_span_seconds"]) / 3600)`
+hours with up to 100 concurrent Slurm jobs. Their source coverage and compute
+arrangements differ; these are practical workflow measurements, not a
+same-task algorithm benchmark. The original 19-frame temporal follow-up and
+single-MAG richness-mode diagnostic above remain readings of the original
+Drakkar calls; this giftag rerun repeated the primary R10 sample and age
+analysis only.
+
 ## Reproduce this analysis
 
 The [analysis directory](https://github.com/alberdilab/gifter/tree/main/manuscript/analysis)
@@ -398,6 +579,9 @@ Large marker inputs stay outside git; the scripts verify them before use.
 | `22-r10-handoff-bimodality.R` | Richness-band diagnosis, exact extracellular links and matched null |
 | `24-r10-reference-frame-time.R` | All curated frames, equivalence decisions and abundance weighting |
 | `31-r10-size-expectation.R` | Separate current-database comparison with the GTDB size expectation |
+| `33-r10-giftag-compare.R` | MAG–GIFT and sample-metric concordance on one database |
+| `34-r10-giftag-markers.py` | Genome-marker concordance within the marker vocabulary |
+| `35-r10-giftag-resources.py`, `36-r10-giftag-genome-timing.py` | Annotation resource and per-MAG timing audits |
 
 Every plot here is drawn from the committed tables; the site build performs
 no annotation, GIFT evaluation or statistical refitting. For an individual

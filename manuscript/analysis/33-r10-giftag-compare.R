@@ -54,8 +54,16 @@ gifts <- unique(rbind(
   calls$giftag[c("gift_id", "gift_type")]
 ))
 stopifnot(!anyDuplicated(gifts$gift_id))
-genomes <- sort(unique(c(calls$drakkar$genome_id, calls$giftag$genome_id)))
-stopifnot(length(genomes) == 822L)
+mag_manifest <- read.delim(
+  file.path(root, "r10-chicken", "mag-manifest.tsv"),
+  stringsAsFactors = FALSE
+)
+genomes <- sort(mag_manifest$genome_id)
+stopifnot(
+  length(genomes) == 822L, !anyDuplicated(genomes),
+  all(calls$drakkar$genome_id %in% genomes),
+  all(calls$giftag$genome_id %in% genomes)
+)
 
 split_key <- function(keys) {
   if (!length(keys)) return(data.frame(genome_id = character(),

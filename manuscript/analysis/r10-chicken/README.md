@@ -62,7 +62,7 @@ not this prose, as authoritative provenance.
 
 ## Giftag rerun and practical annotation benchmark
 
-The same checksum-verified 822 nucleotide MAGs are being reannotated with
+The same checksum-verified 822 nucleotide MAGs were reannotated with
 giftag 0.2.0 in a separate Mjolnir task:
 
 ```text
@@ -72,19 +72,24 @@ giftag 0.2.0 in a separate Mjolnir task:
 
 The remote scripts `run-giftag.sbatch`, `prepare-giftag-transfer.sbatch`
 and `collect-drakkar-accounting.py` are source controlled here. The
-one-MAG pilot passed as Slurm job `45861710`; the full job is `45861711`
-and its dependent transfer job is `45861732` (submitted 2026-10-05 UTC).
+one-MAG pilot passed as Slurm job `45861710`; the full job `45861711`
+completed on 2026-10-05. Its dependent transfer job `45861732` stayed
+pending after the dependency cleared, so it was cancelled and the identical
+packaging script ran directly on the Mjolnir entry node. The transfer bundle
+was complete at 2026-10-06T02:15:44Z, with 822 genomes and 133,678 marker
+rows. Its 13 files were checked against their sizes and SHA-256 manifest on
+Mjolnir and again when fetched locally.
 An initial pilot, `45861678`, stopped before annotation because Mjolnir has
 no `/usr/bin/time`; its files are retained as
 `pilot-failed-45861678/`. The corrected jobs use giftag's benchmark
 `measure.py` wrapper.
 
-The full job requests eight CPUs and 20 GB and processes the MAG directory
+The full job requested eight CPUs and 20 GB and processed the MAG directory
 with `--input-type nucleotide --mode auto --threads 8`. It verifies every
 FASTA against `mag-sha256.tsv` before timing, records a run manifest and
-per-genome table, validates the exact 822-MAG output and marker rows, then
-packages the result with a transfer checksum manifest. The pilot annotated
-`cmag_001` (1,722 predicted proteins, 150 marker rows) in 28.729 seconds,
+per-genome table, and validates the exact 822-MAG output and marker rows. The
+separate transfer script packages the result with a checksum manifest. The
+pilot annotated `cmag_001` (1,722 predicted proteins, 150 marker rows) in 28.729 seconds,
 with 117.784 CPU seconds and a 1.328 GB peak child-process RSS. The pilot is
 a functionality check, not a full-catalogue speed estimate. Its four-column
 handoff evaluated in the current gifter database and supported 31 GIFTs;
@@ -101,7 +106,7 @@ giftag code is version
 0.2.0, source commit `ab5769fa216107eef551011ae1a4de6c1c676458`.
 The profile build was based on gifter database 2026.37.1, but the marker
 vocabulary is byte-identical to the current database 2026.39.1. Both sets of
-marker observations will be evaluated against that *same current* gifter
+marker observations were evaluated against that *same current* gifter
 SQLite file, SHA-256
 `2aaecf7ef6cbb7531baf1d160ab5abbcc60c922463e21e2200100564c7d32987`.
 The old Figure 7 and its original database run remain separate.
@@ -137,8 +142,8 @@ workflow. The accounting includes failed attempts. KOfam, Pfam and NCBIFAM
 searches account for most of the actual CPU total. The largest per-job Slurm
 step RSS is 1.601 GB; it is not a peak for the concurrently running workflow.
 
-When `transfer/transfer.complete` appears on Mjolnir, run from the repository
-root:
+The completed bundle was fetched and reanalysed locally. To reproduce the
+comparison from the repository root, run:
 
 ```sh
 bash manuscript/analysis/r10-chicken/fetch-and-rerun-giftag.sh
@@ -148,10 +153,8 @@ python3 manuscript/analysis/35-r10-giftag-resources.py
 python3 manuscript/analysis/36-r10-giftag-genome-timing.py
 ```
 
-`monitor-giftag-benchmark.sh` performs those commands when the Mjolnir
-transfer becomes complete and stops with an error if either Slurm job fails.
-It is safe to run from the repository root in an interactive session when a
-long-running local monitor is preferred.
+`monitor-giftag-benchmark.sh` can perform those commands when a scheduled
+transfer becomes complete; the completed run above used the direct fetch.
 
 The fetch script verifies every transferred file, then runs the unchanged R10
 trait, sample, age-contrast and Figure 7 workflow in isolated
@@ -164,6 +167,24 @@ script reports annotation wall time, CPU time, memory, throughput and
 Drakkar-to-giftag ratios with each metric's scope. The per-MAG timing script
 retains giftag's elapsed time and the original Drakkar jobs and CPU seconds
 for each verified MAG, allowing genome-size and outlier audits.
+
+Against database 2026.39.1, the current Drakkar projection supported 23,657
+MAG–GIFT pairs and giftag supported 24,181. They shared 23,002 pairs (Jaccard
+0.926); 655 were Drakkar-only and 1,179 giftag-only. The comparison retains
+all 822 MAGs from `mag-manifest.tsv`, including `cmag_103`, which has no
+supported GIFT in either reading. At the primary detection threshold, only
+seven of 388 samples changed community metabolic richness between annotators,
+whereas mean per-MAG metabolic richness changed in all 388. The adjusted
+day-21 and day-35 per-MAG age differences remained negative with giftag. The
+absolute exact potential-handoff density was higher with giftag; this reflects
+annotation-sensitive encoded compatibility, not measured exchange. The
+tables under `output/r10-giftag/` retain every comparison and its inputs.
+
+The full giftag annotation took 14,436.6 seconds wall time and 107,700.5
+child CPU seconds, with a 2.365 GB peak child-process RSS. The Drakkar
+workflow spanned 61,930 seconds over up to 100 concurrent Slurm jobs and
+broader source searches. These are measured practical workflows with
+different scope and compute allocation, not an algorithm speed comparison.
 
 ## gifter runtime and memory benchmark
 

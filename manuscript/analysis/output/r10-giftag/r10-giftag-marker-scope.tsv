@@ -1,0 +1,12 @@
+caller	namespace	all_rows	gifter_vocabulary_rows	genomes_with_vocabulary_marker	unique_genome_markers
+drakkar	CAZY	57738	11861	805	4837
+drakkar	EC	5795258	403	275	300
+drakkar	KO	1175250	106058	822	93083
+drakkar	NCBIFAM	760175	4510	614	4304
+drakkar	PFAM	2915624	2	2	2
+drakkar	TIGRFAM	515639	330	273	297
+giftag	CAZY	22877	22877	818	9069
+giftag	KO	105958	105958	822	92384
+giftag	NCBIFAM	4511	4511	614	4305
+giftag	PFAM	2	2	2	2
+giftag	TIGRFAM	330	330	273	297

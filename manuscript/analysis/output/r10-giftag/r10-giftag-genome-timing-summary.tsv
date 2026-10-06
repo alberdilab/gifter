@@ -1,0 +1,6 @@
+metric	value
+genomes	822
+median_annotation_seconds	16.7
+p95_annotation_seconds	31.5
+maximum_annotation_seconds	65.0
+median_seconds_per_1000_proteins	8.154360008375761

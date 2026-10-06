@@ -1,0 +1,18 @@
+metric	value	unit	scope
+genomes	822	MAG	same checksum-verified nucleotide FASTAs
+input_bytes_compressed	555894001	byte	same FASTAs for both annotation workflows
+input_length_bp	1787143610	bp	giftag input nucleotide length
+giftag_proteins	1672043	protein	pyrodigal, auto mode
+drakkar_proteins	1672043	protein	Drakkar annotation_qc.tsv prodigal rows
+giftag_marker_rows	133678	row	only gifter marker vocabulary
+drakkar_marker_rows	11219684	row	Drakkar gifter_input.tsv.xz; includes non-gifter markers
+giftag_annotation_wall_seconds	14436.567197380587	second	measure.py timed annotate only; 8 requested CPUs
+giftag_annotation_cpu_seconds	107700.535058	CPU second	child user plus system CPU time
+giftag_peak_child_rss_bytes	2364706816	byte	largest child process; not whole Slurm job peak
+drakkar_slurm_workflow_span_seconds	61930	second	first to last of 5,784 Slurm submissions; up to 100 concurrent jobs
+drakkar_actual_cpu_seconds	4998517.43	CPU second	sum Slurm TotalCPU, including failed attempts
+drakkar_allocated_core_seconds	3071393	core second	Slurm CPUTimeRAW; some threaded jobs report one allocated CPU
+annotation_wall_span_ratio_drakkar_to_giftag	4.289800972300171	ratio	practical workflows with different parallelism and source scope
+actual_cpu_ratio_drakkar_to_giftag	46.41125902771186	ratio	practical workflows with different source scope
+giftag_mag_per_hour	204.9794774298509	MAG/hour	annotation stage only
+giftag_mbp_per_hour	445.6542132237193	Mbp/hour	annotation stage only

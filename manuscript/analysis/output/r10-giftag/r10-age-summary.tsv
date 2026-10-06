@@ -1,0 +1,1417 @@
+detection	sampling_time	trial	reference_frame	metric_id	n	mean	sd	median	q25	q75
+0	7	CA	All metabolic GIFTs	assessable_fraction	68	1	0	1	1	1
+0	7	CA	All metabolic GIFTs	community_richness	68	122.808823529412	0.579689905297457	123	123	123
+0	7	CA	All metabolic GIFTs	detected_genomes	68	791.779411764706	72.973281879778	806	792.75	813
+0	7	CA	All metabolic GIFTs	mean_genome_richness	68	28.1326552364349	1.13391614069738	27.9728115395298	27.8895105279248	28.060298908493
+0	7	CA	All metabolic GIFTs	singleton_fraction	68	0.0886078012360717	0.0024711993987154	0.0894308943089431	0.0894308943089431	0.0894308943089431
+0	7	CA	Amino-acid autonomy	assessable_fraction	68	1	0	1	1	1
+0	7	CA	Amino-acid autonomy	community_coverage	68	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0	7	CA	Amino-acid autonomy	community_richness	68	20	0	20	20	20
+0	7	CA	Amino-acid autonomy	detected_genomes	68	791.779411764706	72.973281879778	806	792.75	813
+0	7	CA	Amino-acid autonomy	mean_genome_richness	68	9.13030700224089	0.40750584562536	9.06808513897505	9.04247900259345	9.09260100979079
+0	7	CA	Amino-acid autonomy	singleton_fraction	68	0	0	0	0	0
+0	7	CA	Biomass-essential anabolic GIFTs	assessable_fraction	68	1	0	1	1	1
+0	7	CA	Biomass-essential anabolic GIFTs	community_coverage	68	0.928141711229946	0.00930074494368318	0.931818181818182	0.931818181818182	0.931818181818182
+0	7	CA	Biomass-essential anabolic GIFTs	community_richness	68	40.8382352941176	0.40923277752206	41	41	41
+0	7	CA	Biomass-essential anabolic GIFTs	detected_genomes	68	791.779411764706	72.973281879778	806	792.75	813
+0	7	CA	Biomass-essential anabolic GIFTs	mean_genome_richness	68	13.9799780436597	0.59412632516889	13.9032038095412	13.8501625682277	13.945987654321
+0	7	CA	Biomass-essential anabolic GIFTs	singleton_fraction	68	0.045669857999485	0.00813862452395644	0.048780487804878	0.048780487804878	0.048780487804878
+0	7	CA	Carbohydrate degradation	assessable_fraction	68	1	0	1	1	1
+0	7	CA	Carbohydrate degradation	community_richness	68	17	0	17	17	17
+0	7	CA	Carbohydrate degradation	detected_genomes	68	791.779411764706	72.973281879778	806	792.75	813
+0	7	CA	Carbohydrate degradation	mean_genome_richness	68	3.8367071097533	0.119981390334867	3.82129935504169	3.80697166154774	3.83794627961295
+0	7	CA	Carbohydrate degradation	singleton_fraction	68	0.000865051903114187	0.00713340073636274	0	0	0
+0	7	CA	Cofactor autonomy	assessable_fraction	68	1	0	1	1	1
+0	7	CA	Cofactor autonomy	community_coverage	68	0.932352941176471	0.00808452083454443	0.933333333333333	0.933333333333333	0.933333333333333
+0	7	CA	Cofactor autonomy	community_richness	68	13.9852941176471	0.121267812518167	14	14	14
+0	7	CA	Cofactor autonomy	detected_genomes	68	791.779411764706	72.973281879778	806	792.75	813
+0	7	CA	Cofactor autonomy	mean_genome_richness	68	1.83697173354445	0.0923706671930371	1.83782054298217	1.80897482365406	1.84423994546694
+0	7	CA	Cofactor autonomy	singleton_fraction	68	0.00113122171945701	0.00932829327062818	0	0	0
+0	7	CA	Extracellular processing outputs	assessable_fraction	68	1	0	1	1	1
+0	7	CA	Extracellular processing outputs	community_richness	68	2.98529411764706	0.121267812518167	3	3	3
+0	7	CA	Extracellular processing outputs	detected_genomes	68	791.779411764706	72.973281879778	806	792.75	813
+0	7	CA	Extracellular processing outputs	mean_genome_richness	68	1.33444928747832	0.0247248657951988	1.33170731707317	1.32711941980003	1.3352125977265
+0	7	CA	Extracellular processing outputs	singleton_fraction	68	0.00490196078431372	0.0404226041727221	0	0	0
+0	7	CA	Fermentation products	assessable_fraction	68	1	0	1	1	1
+0	7	CA	Fermentation products	community_richness	68	9	0	9	9	9
+0	7	CA	Fermentation products	detected_genomes	68	791.779411764706	72.973281879778	806	792.75	813
+0	7	CA	Fermentation products	mean_genome_richness	68	1.66574081864641	0.0428331491596642	1.65613406874186	1.6472215522829	1.66918477225081
+0	7	CA	Fermentation products	singleton_fraction	68	0.111111111111111	0	0.111111111111111	0.111111111111111	0.111111111111111
+0	7	CA	Nucleotide autonomy	assessable_fraction	68	1	0	1	1	1
+0	7	CA	Nucleotide autonomy	community_coverage	68	1	0	1	1	1
+0	7	CA	Nucleotide autonomy	community_richness	68	4	0	4	4	4
+0	7	CA	Nucleotide autonomy	detected_genomes	68	791.779411764706	72.973281879778	806	792.75	813
+0	7	CA	Nucleotide autonomy	mean_genome_richness	68	2.36238774519239	0.0708685592470422	2.35326959567946	2.34078017559304	2.36187402529891
+0	7	CA	Nucleotide autonomy	singleton_fraction	68	0	0	0	0	0
+0	7	CA	Nutrient uptake	assessable_fraction	68	1	0	1	1	1
+0	7	CA	Nutrient uptake	community_richness	68	3	0	3	3	3
+0	7	CA	Nutrient uptake	detected_genomes	68	791.779411764706	72.973281879778	806	792.75	813
+0	7	CA	Nutrient uptake	mean_genome_richness	68	0.0115664880188474	0.00263104931268526	0.011166253101737	0.011070110701107	0.0113528889143643
+0	7	CA	Nutrient uptake	singleton_fraction	68	0	0	0	0	0
+0	7	CA	Plant fibre utilisation	assessable_fraction	68	1	0	1	1	1
+0	7	CA	Plant fibre utilisation	community_richness	68	12	0	12	12	12
+0	7	CA	Plant fibre utilisation	detected_genomes	68	791.779411764706	72.973281879778	806	792.75	813
+0	7	CA	Plant fibre utilisation	mean_genome_richness	68	2.75303661003019	0.075378832624994	2.74352635300021	2.73190654072188	2.75240706947095
+0	7	CA	Plant fibre utilisation	singleton_fraction	68	0	0	0	0	0
+0	7	CA	Short-chain fatty acids	assessable_fraction	68	1	0	1	1	1
+0	7	CA	Short-chain fatty acids	community_richness	68	3	0	3	3	3
+0	7	CA	Short-chain fatty acids	detected_genomes	68	791.779411764706	72.973281879778	806	792.75	813
+0	7	CA	Short-chain fatty acids	mean_genome_richness	68	0.646556783111807	0.017933431068389	0.642945763506279	0.639077080887426	0.649510792086234
+0	7	CA	Short-chain fatty acids	singleton_fraction	68	0.333333333333333	0	0.333333333333333	0.333333333333333	0.333333333333333
+0	7	CB	All metabolic GIFTs	assessable_fraction	54	1	0	1	1	1
+0	7	CB	All metabolic GIFTs	community_richness	54	122.703703703704	0.602811952581154	123	123	123
+0	7	CB	All metabolic GIFTs	detected_genomes	54	781.62962962963	51.4060037226019	794	771.5	812
+0	7	CB	All metabolic GIFTs	mean_genome_richness	54	28.2762877844457	0.810316519979442	28.0239582516837	27.9610231425091	28.2436548342775
+0	7	CB	All metabolic GIFTs	singleton_fraction	54	0.0881210667452231	0.00416081563501936	0.0894308943089431	0.0894308943089431	0.0894308943089431
+0	7	CB	Amino-acid autonomy	assessable_fraction	54	1	0	1	1	1
+0	7	CB	Amino-acid autonomy	community_coverage	54	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0	7	CB	Amino-acid autonomy	community_richness	54	20	0	20	20	20
+0	7	CB	Amino-acid autonomy	detected_genomes	54	781.62962962963	51.4060037226019	794	771.5	812
+0	7	CB	Amino-acid autonomy	mean_genome_richness	54	9.18034362351113	0.282345808974645	9.09270358652851	9.05881883370434	9.15620795538828
+0	7	CB	Amino-acid autonomy	singleton_fraction	54	0	0	0	0	0
+0	7	CB	Biomass-essential anabolic GIFTs	assessable_fraction	54	1	0	1	1	1
+0	7	CB	Biomass-essential anabolic GIFTs	community_coverage	54	0.926767676767677	0.00953735123934378	0.931818181818182	0.931818181818182	0.931818181818182
+0	7	CB	Biomass-essential anabolic GIFTs	community_richness	54	40.7777777777778	0.419643454531127	41	41	41
+0	7	CB	Biomass-essential anabolic GIFTs	detected_genomes	54	781.62962962963	51.4060037226019	794	771.5	812
+0	7	CB	Biomass-essential anabolic GIFTs	mean_genome_richness	54	14.0509090129359	0.42598319604885	13.9256101062303	13.8840595768504	14.0329779222161
+0	7	CB	Biomass-essential anabolic GIFTs	singleton_fraction	54	0.0434959349593496	0.00997932605287435	0.048780487804878	0.048780487804878	0.048780487804878
+0	7	CB	Carbohydrate degradation	assessable_fraction	54	1	0	1	1	1
+0	7	CB	Carbohydrate degradation	community_richness	54	17	0	17	17	17
+0	7	CB	Carbohydrate degradation	detected_genomes	54	781.62962962963	51.4060037226019	794	771.5	812
+0	7	CB	Carbohydrate degradation	mean_genome_richness	54	3.85934453419493	0.0964102585585836	3.82992008608012	3.81785032300004	3.86432874940432
+0	7	CB	Carbohydrate degradation	singleton_fraction	54	0	0	0	0	0
+0	7	CB	Cofactor autonomy	assessable_fraction	54	1	0	1	1	1
+0	7	CB	Cofactor autonomy	community_coverage	54	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+0	7	CB	Cofactor autonomy	community_richness	54	14	0	14	14	14
+0	7	CB	Cofactor autonomy	detected_genomes	54	781.62962962963	51.4060037226019	794	771.5	812
+0	7	CB	Cofactor autonomy	mean_genome_richness	54	1.83915825113031	0.068332148914635	1.83871350161274	1.80138545627376	1.8505474489081
+0	7	CB	Cofactor autonomy	singleton_fraction	54	0	0	0	0	0
+0	7	CB	Extracellular processing outputs	assessable_fraction	54	1	0	1	1	1
+0	7	CB	Extracellular processing outputs	community_richness	54	2.96296296296296	0.190625877092986	3	3	3
+0	7	CB	Extracellular processing outputs	detected_genomes	54	781.62962962963	51.4060037226019	794	771.5	812
+0	7	CB	Extracellular processing outputs	mean_genome_richness	54	1.34089256969864	0.0197456117152633	1.33461555532541	1.33170283906021	1.34218722033292
+0	7	CB	Extracellular processing outputs	singleton_fraction	54	0.0246913580246914	0.0881168428575716	0	0	0
+0	7	CB	Fermentation products	assessable_fraction	54	1	0	1	1	1
+0	7	CB	Fermentation products	community_richness	54	9	0	9	9	9
+0	7	CB	Fermentation products	detected_genomes	54	781.62962962963	51.4060037226019	794	771.5	812
+0	7	CB	Fermentation products	mean_genome_richness	54	1.67806891112628	0.0396496058961098	1.66687683900799	1.64933452659599	1.69485039061322
+0	7	CB	Fermentation products	singleton_fraction	54	0.111111111111111	0	0.111111111111111	0.111111111111111	0.111111111111111
+0	7	CB	Nucleotide autonomy	assessable_fraction	54	1	0	1	1	1
+0	7	CB	Nucleotide autonomy	community_coverage	54	1	0	1	1	1
+0	7	CB	Nucleotide autonomy	community_richness	54	4	0	4	4	4
+0	7	CB	Nucleotide autonomy	detected_genomes	54	781.62962962963	51.4060037226019	794	771.5	812
+0	7	CB	Nucleotide autonomy	mean_genome_richness	54	2.37719141918372	0.0620562724623086	2.35809987819732	2.35258196887823	2.37425661592042
+0	7	CB	Nucleotide autonomy	singleton_fraction	54	0	0	0	0	0
+0	7	CB	Nutrient uptake	assessable_fraction	54	1	0	1	1	1
+0	7	CB	Nutrient uptake	community_richness	54	3	0	3	3	3
+0	7	CB	Nutrient uptake	detected_genomes	54	781.62962962963	51.4060037226019	794	771.5	812
+0	7	CB	Nutrient uptake	mean_genome_richness	54	0.0115817288501599	0.00106141961956876	0.0113350125944584	0.0110837438423645	0.0116656012000342
+0	7	CB	Nutrient uptake	singleton_fraction	54	0	0	0	0	0
+0	7	CB	Plant fibre utilisation	assessable_fraction	54	1	0	1	1	1
+0	7	CB	Plant fibre utilisation	community_richness	54	12	0	12	12	12
+0	7	CB	Plant fibre utilisation	detected_genomes	54	781.62962962963	51.4060037226019	794	771.5	812
+0	7	CB	Plant fibre utilisation	mean_genome_richness	54	2.76772537343964	0.0623778910090803	2.74855642188367	2.74150629436967	2.77021087467189
+0	7	CB	Plant fibre utilisation	singleton_fraction	54	0	0	0	0	0
+0	7	CB	Short-chain fatty acids	assessable_fraction	54	1	0	1	1	1
+0	7	CB	Short-chain fatty acids	community_richness	54	3	0	3	3	3
+0	7	CB	Short-chain fatty acids	detected_genomes	54	781.62962962963	51.4060037226019	794	771.5	812
+0	7	CB	Short-chain fatty acids	mean_genome_richness	54	0.65120213399829	0.0169729182901683	0.646349132634797	0.639187872102511	0.656965432992489
+0	7	CB	Short-chain fatty acids	singleton_fraction	54	0.333333333333333	0	0.333333333333333	0.333333333333333	0.333333333333333
+0	21	CA	All metabolic GIFTs	assessable_fraction	67	1	0	1	1	1
+0	21	CA	All metabolic GIFTs	community_richness	67	122.880597014925	0.444576341049833	123	123	123
+0	21	CA	All metabolic GIFTs	detected_genomes	67	803.388059701493	43.6066978535792	812	799.5	817
+0	21	CA	All metabolic GIFTs	mean_genome_richness	67	27.9969635686843	0.596169524232252	27.9375780274657	27.8983170180426	27.95970540879
+0	21	CA	All metabolic GIFTs	singleton_fraction	67	0.0889072729117308	0.00200439420776322	0.0894308943089431	0.0894308943089431	0.0894308943089431
+0	21	CA	Amino-acid autonomy	assessable_fraction	67	1	0	1	1	1
+0	21	CA	Amino-acid autonomy	community_coverage	67	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0	21	CA	Amino-acid autonomy	community_richness	67	20	0	20	20	20
+0	21	CA	Amino-acid autonomy	detected_genomes	67	803.388059701493	43.6066978535792	812	799.5	817
+0	21	CA	Amino-acid autonomy	mean_genome_richness	67	9.07690052577743	0.223598419313353	9.05036855036855	9.04087039877301	9.06075637797067
+0	21	CA	Amino-acid autonomy	singleton_fraction	67	0	0	0	0	0
+0	21	CA	Biomass-essential anabolic GIFTs	assessable_fraction	67	1	0	1	1	1
+0	21	CA	Biomass-essential anabolic GIFTs	community_coverage	67	0.929782903663501	0.00653850555570986	0.931818181818182	0.931818181818182	0.931818181818182
+0	21	CA	Biomass-essential anabolic GIFTs	community_richness	67	40.910447761194	0.287694244451234	41	41	41
+0	21	CA	Biomass-essential anabolic GIFTs	detected_genomes	67	803.388059701493	43.6066978535792	812	799.5	817
+0	21	CA	Biomass-essential anabolic GIFTs	mean_genome_richness	67	13.9117144728084	0.318216874099761	13.8822800495663	13.8470667082294	13.8975003648124
+0	21	CA	Biomass-essential anabolic GIFTs	singleton_fraction	67	0.0470240262104114	0.00630336570735534	0.048780487804878	0.048780487804878	0.048780487804878
+0	21	CA	Carbohydrate degradation	assessable_fraction	67	1	0	1	1	1
+0	21	CA	Carbohydrate degradation	community_richness	67	17	0	17	17	17
+0	21	CA	Carbohydrate degradation	detected_genomes	67	803.388059701493	43.6066978535792	812	799.5	817
+0	21	CA	Carbohydrate degradation	mean_genome_richness	67	3.82262727039029	0.0644334063979032	3.81740196078431	3.8109875231632	3.82255103249497
+0	21	CA	Carbohydrate degradation	singleton_fraction	67	0.000877963125548727	0.00718643790331206	0	0	0
+0	21	CA	Cofactor autonomy	assessable_fraction	67	1	0	1	1	1
+0	21	CA	Cofactor autonomy	community_coverage	67	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+0	21	CA	Cofactor autonomy	community_richness	67	14	0	14	14	14
+0	21	CA	Cofactor autonomy	detected_genomes	67	803.388059701493	43.6066978535792	812	799.5	817
+0	21	CA	Cofactor autonomy	mean_genome_richness	67	1.83308292609276	0.0373126419999024	1.83578431372549	1.81613501251564	1.84375014079811
+0	21	CA	Cofactor autonomy	singleton_fraction	67	0.00106609808102345	0.00872638888259321	0	0	0
+0	21	CA	Extracellular processing outputs	assessable_fraction	67	1	0	1	1	1
+0	21	CA	Extracellular processing outputs	community_richness	67	2.98507462686567	0.122169444356305	3	3	3
+0	21	CA	Extracellular processing outputs	detected_genomes	67	803.388059701493	43.6066978535792	812	799.5	817
+0	21	CA	Extracellular processing outputs	mean_genome_richness	67	1.33127504446885	0.0172032450330937	1.33006134969325	1.32728383458647	1.3320895349215
+0	21	CA	Extracellular processing outputs	singleton_fraction	67	0	0	0	0	0
+0	21	CA	Fermentation products	assessable_fraction	67	1	0	1	1	1
+0	21	CA	Fermentation products	community_richness	67	9	0	9	9	9
+0	21	CA	Fermentation products	detected_genomes	67	803.388059701493	43.6066978535792	812	799.5	817
+0	21	CA	Fermentation products	mean_genome_richness	67	1.65356957789437	0.0273981970454798	1.64858199753391	1.64154346611559	1.65858152385785
+0	21	CA	Fermentation products	singleton_fraction	67	0.111111111111111	0	0.111111111111111	0.111111111111111	0.111111111111111
+0	21	CA	Nucleotide autonomy	assessable_fraction	67	1	0	1	1	1
+0	21	CA	Nucleotide autonomy	community_coverage	67	1	0	1	1	1
+0	21	CA	Nucleotide autonomy	community_richness	67	4	0	4	4	4
+0	21	CA	Nucleotide autonomy	detected_genomes	67	803.388059701493	43.6066978535792	812	799.5	817
+0	21	CA	Nucleotide autonomy	mean_genome_richness	67	2.35374075461439	0.046090272064449	2.3501849568434	2.34248287671233	2.35416694826289
+0	21	CA	Nucleotide autonomy	singleton_fraction	67	0	0	0	0	0
+0	21	CA	Nutrient uptake	assessable_fraction	67	1	0	1	1	1
+0	21	CA	Nutrient uptake	community_richness	67	3	0	3	3	3
+0	21	CA	Nutrient uptake	detected_genomes	67	803.388059701493	43.6066978535792	812	799.5	817
+0	21	CA	Nutrient uptake	mean_genome_richness	67	0.011257355853656	0.00103009535892559	0.0110837438423645	0.011015911872705	0.0112570400500626
+0	21	CA	Nutrient uptake	singleton_fraction	67	0	0	0	0	0
+0	21	CA	Plant fibre utilisation	assessable_fraction	67	1	0	1	1	1
+0	21	CA	Plant fibre utilisation	community_richness	67	12	0	12	12	12
+0	21	CA	Plant fibre utilisation	detected_genomes	67	803.388059701493	43.6066978535792	812	799.5	817
+0	21	CA	Plant fibre utilisation	mean_genome_richness	67	2.74408175548372	0.0426030537054693	2.74069478908189	2.73634694199243	2.74358974358974
+0	21	CA	Plant fibre utilisation	singleton_fraction	67	0	0	0	0	0
+0	21	CA	Short-chain fatty acids	assessable_fraction	67	1	0	1	1	1
+0	21	CA	Short-chain fatty acids	community_richness	67	3	0	3	3	3
+0	21	CA	Short-chain fatty acids	detected_genomes	67	803.388059701493	43.6066978535792	812	799.5	817
+0	21	CA	Short-chain fatty acids	mean_genome_richness	67	0.641448269708922	0.0137592744505249	0.639060568603214	0.636642362075827	0.64272359817095
+0	21	CA	Short-chain fatty acids	singleton_fraction	67	0.333333333333333	0	0.333333333333333	0.333333333333333	0.333333333333333
+0	21	CB	All metabolic GIFTs	assessable_fraction	59	1	0	1	1	1
+0	21	CB	All metabolic GIFTs	community_richness	59	122.847457627119	0.407412327020263	123	123	123
+0	21	CB	All metabolic GIFTs	detected_genomes	59	797.305084745763	27.7602135521003	798	791.5	813.5
+0	21	CB	All metabolic GIFTs	mean_genome_richness	59	27.9180395265942	0.0692034231633471	27.9185463659148	27.8684851517138	27.9559695969905
+0	21	CB	All metabolic GIFTs	singleton_fraction	59	0.088570426990991	0.00245106235819309	0.0894308943089431	0.0894308943089431	0.0894308943089431
+0	21	CB	Amino-acid autonomy	assessable_fraction	59	1	0	1	1	1
+0	21	CB	Amino-acid autonomy	community_coverage	59	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0	21	CB	Amino-acid autonomy	community_richness	59	20	0	20	20	20
+0	21	CB	Amino-acid autonomy	detected_genomes	59	797.305084745763	27.7602135521003	798	791.5	813.5
+0	21	CB	Amino-acid autonomy	mean_genome_richness	59	9.05512278390462	0.0215858959741392	9.05302096177559	9.04041991691705	9.06652937572333
+0	21	CB	Amino-acid autonomy	singleton_fraction	59	0	0	0	0	0
+0	21	CB	Biomass-essential anabolic GIFTs	assessable_fraction	59	1	0	1	1	1
+0	21	CB	Biomass-essential anabolic GIFTs	community_coverage	59	0.928736517719569	0.00784760982893171	0.931818181818182	0.931818181818182	0.931818181818182
+0	21	CB	Biomass-essential anabolic GIFTs	community_richness	59	40.864406779661	0.345294832472996	41	41	41
+0	21	CB	Biomass-essential anabolic GIFTs	detected_genomes	59	797.305084745763	27.7602135521003	798	791.5	813.5
+0	21	CB	Biomass-essential anabolic GIFTs	mean_genome_richness	59	13.8616155681642	0.0471247476839165	13.8605527638191	13.829310419797	13.8956198352153
+0	21	CB	Biomass-essential anabolic GIFTs	singleton_fraction	59	0.045979743695742	0.00776515484373109	0.048780487804878	0.048780487804878	0.048780487804878
+0	21	CB	Carbohydrate degradation	assessable_fraction	59	1	0	1	1	1
+0	21	CB	Carbohydrate degradation	community_richness	59	17	0	17	17	17
+0	21	CB	Carbohydrate degradation	detected_genomes	59	797.305084745763	27.7602135521003	798	791.5	813.5
+0	21	CB	Carbohydrate degradation	mean_genome_richness	59	3.81529104829024	0.0149273325310339	3.81695331695332	3.80723650209528	3.82370994299617
+0	21	CB	Carbohydrate degradation	singleton_fraction	59	0.000997008973080758	0.00765817123416611	0	0	0
+0	21	CB	Cofactor autonomy	assessable_fraction	59	1	0	1	1	1
+0	21	CB	Cofactor autonomy	community_coverage	59	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+0	21	CB	Cofactor autonomy	community_richness	59	14	0	14	14	14
+0	21	CB	Cofactor autonomy	detected_genomes	59	797.305084745763	27.7602135521003	798	791.5	813.5
+0	21	CB	Cofactor autonomy	mean_genome_richness	59	1.81488365988544	0.0254444935755536	1.81101376720901	1.79974016950846	1.84139284139284
+0	21	CB	Cofactor autonomy	singleton_fraction	59	0.00121065375302663	0.0092992079272017	0	0	0
+0	21	CB	Extracellular processing outputs	assessable_fraction	59	1	0	1	1	1
+0	21	CB	Extracellular processing outputs	community_richness	59	3	0	3	3	3
+0	21	CB	Extracellular processing outputs	detected_genomes	59	797.305084745763	27.7602135521003	798	791.5	813.5
+0	21	CB	Extracellular processing outputs	mean_genome_richness	59	1.32920165251536	0.00417694034945455	1.32957393483709	1.32614171503669	1.33211231572921
+0	21	CB	Extracellular processing outputs	singleton_fraction	59	0	0	0	0	0
+0	21	CB	Fermentation products	assessable_fraction	59	1	0	1	1	1
+0	21	CB	Fermentation products	community_richness	59	9	0	9	9	9
+0	21	CB	Fermentation products	detected_genomes	59	797.305084745763	27.7602135521003	798	791.5	813.5
+0	21	CB	Fermentation products	mean_genome_richness	59	1.65916528735712	0.0172474635537063	1.65872020075282	1.64619164619165	1.66519492084695
+0	21	CB	Fermentation products	singleton_fraction	59	0.111111111111111	0	0.111111111111111	0.111111111111111	0.111111111111111
+0	21	CB	Nucleotide autonomy	assessable_fraction	59	1	0	1	1	1
+0	21	CB	Nucleotide autonomy	community_coverage	59	1	0	1	1	1
+0	21	CB	Nucleotide autonomy	community_richness	59	4	0	4	4	4
+0	21	CB	Nucleotide autonomy	detected_genomes	59	797.305084745763	27.7602135521003	798	791.5	813.5
+0	21	CB	Nucleotide autonomy	mean_genome_richness	59	2.34584637806257	0.0104152979997888	2.34595300261097	2.34076344227364	2.35426807594895
+0	21	CB	Nucleotide autonomy	singleton_fraction	59	0	0	0	0	0
+0	21	CB	Nutrient uptake	assessable_fraction	59	1	0	1	1	1
+0	21	CB	Nutrient uptake	community_richness	59	3	0	3	3	3
+0	21	CB	Nutrient uptake	detected_genomes	59	797.305084745763	27.7602135521003	798	791.5	813.5
+0	21	CB	Nutrient uptake	mean_genome_richness	59	0.0113046306578864	0.000487622106274048	0.0112781954887218	0.011063310878809	0.0113708194460407
+0	21	CB	Nutrient uptake	singleton_fraction	59	0	0	0	0	0
+0	21	CB	Plant fibre utilisation	assessable_fraction	59	1	0	1	1	1
+0	21	CB	Plant fibre utilisation	community_richness	59	12	0	12	12	12
+0	21	CB	Plant fibre utilisation	detected_genomes	59	797.305084745763	27.7602135521003	798	791.5	813.5
+0	21	CB	Plant fibre utilisation	mean_genome_richness	59	2.73815968798658	0.009502041712075	2.7402088772846	2.73069611573661	2.74347789854457
+0	21	CB	Plant fibre utilisation	singleton_fraction	59	0	0	0	0	0
+0	21	CB	Short-chain fatty acids	assessable_fraction	59	1	0	1	1	1
+0	21	CB	Short-chain fatty acids	community_richness	59	3	0	3	3	3
+0	21	CB	Short-chain fatty acids	detected_genomes	59	797.305084745763	27.7602135521003	798	791.5	813.5
+0	21	CB	Short-chain fatty acids	mean_genome_richness	59	0.643383580683894	0.00762941281319058	0.642317380352645	0.639628634440958	0.646394845331648
+0	21	CB	Short-chain fatty acids	singleton_fraction	59	0.333333333333333	0	0.333333333333333	0.333333333333333	0.333333333333333
+0	35	CA	All metabolic GIFTs	assessable_fraction	69	1	0	1	1	1
+0	35	CA	All metabolic GIFTs	community_richness	69	122.95652173913	0.361157559257307	123	123	123
+0	35	CA	All metabolic GIFTs	detected_genomes	69	808.536231884058	44.1596634252096	817	808	820
+0	35	CA	All metabolic GIFTs	mean_genome_richness	69	27.9875729233887	0.412623951997741	27.9376528117359	27.9152119700748	27.9631901840491
+0	35	CA	All metabolic GIFTs	singleton_fraction	69	0.0894632968068811	0.000269155362590133	0.0894308943089431	0.0894308943089431	0.0894308943089431
+0	35	CA	Amino-acid autonomy	assessable_fraction	69	1	0	1	1	1
+0	35	CA	Amino-acid autonomy	community_coverage	69	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0	35	CA	Amino-acid autonomy	community_richness	69	20	0	20	20	20
+0	35	CA	Amino-acid autonomy	detected_genomes	69	808.536231884058	44.1596634252096	817	808	820
+0	35	CA	Amino-acid autonomy	mean_genome_richness	69	9.06997266350053	0.157184005774705	9.05	9.04263093788063	9.05875152998776
+0	35	CA	Amino-acid autonomy	singleton_fraction	69	0	0	0	0	0
+0	35	CA	Biomass-essential anabolic GIFTs	assessable_fraction	69	1	0	1	1	1
+0	35	CA	Biomass-essential anabolic GIFTs	community_coverage	69	0.931488801054018	0.00273604211558566	0.931818181818182	0.931818181818182	0.931818181818182
+0	35	CA	Biomass-essential anabolic GIFTs	community_richness	69	40.9855072463768	0.120385853085769	41	41	41
+0	35	CA	Biomass-essential anabolic GIFTs	detected_genomes	69	808.536231884058	44.1596634252096	817	808	820
+0	35	CA	Biomass-essential anabolic GIFTs	mean_genome_richness	69	13.9110600888954	0.215800259197064	13.8905109489051	13.8757687576876	13.9023199023199
+0	35	CA	Biomass-essential anabolic GIFTs	singleton_fraction	69	0.0487981618946624	0.000146812015958255	0.048780487804878	0.048780487804878	0.048780487804878
+0	35	CA	Carbohydrate degradation	assessable_fraction	69	1	0	1	1	1
+0	35	CA	Carbohydrate degradation	community_richness	69	17	0	17	17	17
+0	35	CA	Carbohydrate degradation	detected_genomes	69	808.536231884058	44.1596634252096	817	808	820
+0	35	CA	Carbohydrate degradation	mean_genome_richness	69	3.82130773372751	0.0409053469275546	3.81585365853659	3.81295843520782	3.82029339853301
+0	35	CA	Carbohydrate degradation	singleton_fraction	69	0.000852514919011084	0.00708152076975113	0	0	0
+0	35	CA	Cofactor autonomy	assessable_fraction	69	1	0	1	1	1
+0	35	CA	Cofactor autonomy	community_coverage	69	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+0	35	CA	Cofactor autonomy	community_richness	69	14	0	14	14	14
+0	35	CA	Cofactor autonomy	detected_genomes	69	808.536231884058	44.1596634252096	817	808	820
+0	35	CA	Cofactor autonomy	mean_genome_richness	69	1.83905616091551	0.0217487583518637	1.84165651644336	1.82917705735661	1.84428223844282
+0	35	CA	Cofactor autonomy	singleton_fraction	69	0.0010351966873706	0.00859898950612638	0	0	0
+0	35	CA	Extracellular processing outputs	assessable_fraction	69	1	0	1	1	1
+0	35	CA	Extracellular processing outputs	community_richness	69	2.98550724637681	0.120385853085769	3	3	3
+0	35	CA	Extracellular processing outputs	detected_genomes	69	808.536231884058	44.1596634252096	817	808	820
+0	35	CA	Extracellular processing outputs	mean_genome_richness	69	1.33115895052959	0.006513677199616	1.33087330873309	1.32919254658385	1.33211678832117
+0	35	CA	Extracellular processing outputs	singleton_fraction	69	0	0	0	0	0
+0	35	CA	Fermentation products	assessable_fraction	69	1	0	1	1	1
+0	35	CA	Fermentation products	community_richness	69	9	0	9	9	9
+0	35	CA	Fermentation products	detected_genomes	69	808.536231884058	44.1596634252096	817	808	820
+0	35	CA	Fermentation products	mean_genome_richness	69	1.64879864001092	0.0282059818869121	1.64303178484108	1.6390243902439	1.65222772277228
+0	35	CA	Fermentation products	singleton_fraction	69	0.111111111111111	0	0.111111111111111	0.111111111111111	0.111111111111111
+0	35	CA	Nucleotide autonomy	assessable_fraction	69	1	0	1	1	1
+0	35	CA	Nucleotide autonomy	community_coverage	69	1	0	1	1	1
+0	35	CA	Nucleotide autonomy	community_richness	69	4	0	4	4	4
+0	35	CA	Nucleotide autonomy	detected_genomes	69	808.536231884058	44.1596634252096	817	808	820
+0	35	CA	Nucleotide autonomy	mean_genome_richness	69	2.35500449242461	0.0301528519225027	2.35444579780755	2.34777227722772	2.35523114355231
+0	35	CA	Nucleotide autonomy	singleton_fraction	69	0	0	0	0	0
+0	35	CA	Nutrient uptake	assessable_fraction	69	1	0	1	1	1
+0	35	CA	Nutrient uptake	community_richness	69	3	0	3	3	3
+0	35	CA	Nutrient uptake	detected_genomes	69	808.536231884058	44.1596634252096	817	808	820
+0	35	CA	Nutrient uptake	mean_genome_richness	69	0.0111566163946766	0.000805422303642943	0.011015911872705	0.0109756097560976	0.0111386138613861
+0	35	CA	Nutrient uptake	singleton_fraction	69	0	0	0	0	0
+0	35	CA	Plant fibre utilisation	assessable_fraction	69	1	0	1	1	1
+0	35	CA	Plant fibre utilisation	community_richness	69	12	0	12	12	12
+0	35	CA	Plant fibre utilisation	detected_genomes	69	808.536231884058	44.1596634252096	817	808	820
+0	35	CA	Plant fibre utilisation	mean_genome_richness	69	2.74298720315634	0.0250023965576032	2.73960880195599	2.7380073800738	2.74205378973105
+0	35	CA	Plant fibre utilisation	singleton_fraction	69	0	0	0	0	0
+0	35	CA	Short-chain fatty acids	assessable_fraction	69	1	0	1	1	1
+0	35	CA	Short-chain fatty acids	community_richness	69	3	0	3	3	3
+0	35	CA	Short-chain fatty acids	detected_genomes	69	808.536231884058	44.1596634252096	817	808	820
+0	35	CA	Short-chain fatty acids	mean_genome_richness	69	0.639193560896494	0.010775894971161	0.636919315403423	0.635365853658537	0.640836408364084
+0	35	CA	Short-chain fatty acids	singleton_fraction	69	0.333333333333333	0	0.333333333333333	0.333333333333333	0.333333333333333
+0	35	CB	All metabolic GIFTs	assessable_fraction	71	1	0	1	1	1
+0	35	CB	All metabolic GIFTs	community_richness	71	122.915492957746	0.405197619272354	123	123	123
+0	35	CB	All metabolic GIFTs	detected_genomes	71	810.478873239437	61.0659734935281	819	816	821
+0	35	CB	All metabolic GIFTs	mean_genome_richness	71	28.0091495911588	0.547737039802756	27.9426829268293	27.9318734793187	27.9570870049021
+0	35	CB	All metabolic GIFTs	singleton_fraction	71	0.089377910807508	0.00167311973910168	0.0894308943089431	0.0894308943089431	0.0894308943089431
+0	35	CB	Amino-acid autonomy	assessable_fraction	71	1	0	1	1	1
+0	35	CB	Amino-acid autonomy	community_coverage	71	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0	35	CB	Amino-acid autonomy	community_richness	71	20	0	20	20	20
+0	35	CB	Amino-acid autonomy	detected_genomes	71	810.478873239437	61.0659734935281	819	816	821
+0	35	CB	Amino-acid autonomy	mean_genome_richness	71	9.07246797652268	0.193974562644929	9.04884004884005	9.04506699147381	9.05552205247327
+0	35	CB	Amino-acid autonomy	singleton_fraction	71	0	0	0	0	0
+0	35	CB	Biomass-essential anabolic GIFTs	assessable_fraction	71	1	0	1	1	1
+0	35	CB	Biomass-essential anabolic GIFTs	community_coverage	71	0.930537772087068	0.00527760066945011	0.931818181818182	0.931818181818182	0.931818181818182
+0	35	CB	Biomass-essential anabolic GIFTs	community_richness	71	40.943661971831	0.232214429455805	41	41	41
+0	35	CB	Biomass-essential anabolic GIFTs	detected_genomes	71	810.478873239437	61.0659734935281	819	816	821
+0	35	CB	Biomass-essential anabolic GIFTs	mean_genome_richness	71	13.9274541018528	0.304828395325806	13.8928136419001	13.8853671703854	13.9004306355793
+0	35	CB	Biomass-essential anabolic GIFTs	singleton_fraction	71	0.0481449673651666	0.00397370230063377	0.048780487804878	0.048780487804878	0.048780487804878
+0	35	CB	Carbohydrate degradation	assessable_fraction	71	1	0	1	1	1
+0	35	CB	Carbohydrate degradation	community_richness	71	17	0	17	17	17
+0	35	CB	Carbohydrate degradation	detected_genomes	71	810.478873239437	61.0659734935281	819	816	821
+0	35	CB	Carbohydrate degradation	mean_genome_richness	71	3.82442692461391	0.0513654130877124	3.81640146878825	3.8136419001218	3.8232038202735
+0	35	CB	Carbohydrate degradation	singleton_fraction	71	0.00165700082850042	0.00980194875010086	0	0	0
+0	35	CB	Cofactor autonomy	assessable_fraction	71	1	0	1	1	1
+0	35	CB	Cofactor autonomy	community_coverage	71	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+0	35	CB	Cofactor autonomy	community_richness	71	14	0	14	14	14
+0	35	CB	Cofactor autonomy	detected_genomes	71	810.478873239437	61.0659734935281	819	816	821
+0	35	CB	Cofactor autonomy	mean_genome_richness	71	1.8487409913454	0.0552832143533585	1.84428223844282	1.84190962788749	1.84577700273263
+0	35	CB	Cofactor autonomy	singleton_fraction	71	0.00201207243460765	0.0119023663394082	0	0	0
+0	35	CB	Extracellular processing outputs	assessable_fraction	71	1	0	1	1	1
+0	35	CB	Extracellular processing outputs	community_richness	71	2.98591549295775	0.118678165819385	3	3	3
+0	35	CB	Extracellular processing outputs	detected_genomes	71	810.478873239437	61.0659734935281	819	816	821
+0	35	CB	Extracellular processing outputs	mean_genome_richness	71	1.33363238255295	0.00888218339491334	1.33211678832117	1.33170731707317	1.33333333333333
+0	35	CB	Extracellular processing outputs	singleton_fraction	71	0	0	0	0	0
+0	35	CB	Fermentation products	assessable_fraction	71	1	0	1	1	1
+0	35	CB	Fermentation products	community_richness	71	9	0	9	9	9
+0	35	CB	Fermentation products	detected_genomes	71	810.478873239437	61.0659734935281	819	816	821
+0	35	CB	Fermentation products	mean_genome_richness	71	1.64164620859773	0.0085837694929223	1.6390243902439	1.63702801461632	1.64333939295275
+0	35	CB	Fermentation products	singleton_fraction	71	0.111111111111111	0	0.111111111111111	0.111111111111111	0.111111111111111
+0	35	CB	Nucleotide autonomy	assessable_fraction	71	1	0	1	1	1
+0	35	CB	Nucleotide autonomy	community_coverage	71	1	0	1	1	1
+0	35	CB	Nucleotide autonomy	community_richness	71	4	0	4	4	4
+0	35	CB	Nucleotide autonomy	detected_genomes	71	810.478873239437	61.0659734935281	819	816	821
+0	35	CB	Nucleotide autonomy	mean_genome_richness	71	2.3588085054107	0.0421513854381182	2.35444579780755	2.35254451625321	2.35523114355231
+0	35	CB	Nucleotide autonomy	singleton_fraction	71	0	0	0	0	0
+0	35	CB	Nutrient uptake	assessable_fraction	71	1	0	1	1	1
+0	35	CB	Nutrient uptake	community_richness	71	3	0	3	3	3
+0	35	CB	Nutrient uptake	detected_genomes	71	810.478873239437	61.0659734935281	819	816	821
+0	35	CB	Nutrient uptake	mean_genome_richness	71	0.0111289763785803	0.00103082272772692	0.010989010989011	0.0109622411693057	0.0110294117647059
+0	35	CB	Nutrient uptake	singleton_fraction	71	0	0	0	0	0
+0	35	CB	Plant fibre utilisation	assessable_fraction	71	1	0	1	1	1
+0	35	CB	Plant fibre utilisation	community_richness	71	12	0	12	12	12
+0	35	CB	Plant fibre utilisation	detected_genomes	71	810.478873239437	61.0659734935281	819	816	821
+0	35	CB	Plant fibre utilisation	mean_genome_richness	71	2.74597196283042	0.0332970826121305	2.74114774114774	2.73934226552984	2.74494311569033
+0	35	CB	Plant fibre utilisation	singleton_fraction	71	0	0	0	0	0
+0	35	CB	Short-chain fatty acids	assessable_fraction	71	1	0	1	1	1
+0	35	CB	Short-chain fatty acids	community_richness	71	3	0	3	3	3
+0	35	CB	Short-chain fatty acids	detected_genomes	71	810.478873239437	61.0659734935281	819	816	821
+0	35	CB	Short-chain fatty acids	mean_genome_richness	71	0.636843725413705	0.00731861900670788	0.635365853658537	0.634591961023143	0.63720063671225
+0	35	CB	Short-chain fatty acids	singleton_fraction	71	0.333333333333333	0	0.333333333333333	0.333333333333333	0.333333333333333
+1e-05	7	CA	All metabolic GIFTs	assessable_fraction	68	1	0	1	1	1
+1e-05	7	CA	All metabolic GIFTs	community_richness	68	121.147058823529	1.47885298313993	121	121	122
+1e-05	7	CA	All metabolic GIFTs	detected_genomes	68	637.588235294118	85.541337706052	653.5	594.5	697.25
+1e-05	7	CA	All metabolic GIFTs	mean_genome_richness	68	29.8352549700077	2.11149206769367	29.1294039175007	28.3049697927118	30.9673845535044
+1e-05	7	CA	All metabolic GIFTs	singleton_fraction	68	0.0854089112383859	0.01250077184262	0.0823059206069638	0.075	0.0901639344262295
+1e-05	7	CA	Amino-acid autonomy	assessable_fraction	68	1	0	1	1	1
+1e-05	7	CA	Amino-acid autonomy	community_coverage	68	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	7	CA	Amino-acid autonomy	community_richness	68	20	0	20	20	20
+1e-05	7	CA	Amino-acid autonomy	detected_genomes	68	637.588235294118	85.541337706052	653.5	594.5	697.25
+1e-05	7	CA	Amino-acid autonomy	mean_genome_richness	68	9.79314126178348	0.775127175557555	9.52870673005497	9.22887796755828	10.2200721928771
+1e-05	7	CA	Amino-acid autonomy	singleton_fraction	68	0	0	0	0	0
+1e-05	7	CA	Biomass-essential anabolic GIFTs	assessable_fraction	68	1	0	1	1	1
+1e-05	7	CA	Biomass-essential anabolic GIFTs	community_coverage	68	0.909090909090909	0.00680120001891567	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	7	CA	Biomass-essential anabolic GIFTs	community_richness	68	40	0.29925280083229	40	40	40
+1e-05	7	CA	Biomass-essential anabolic GIFTs	detected_genomes	68	637.588235294118	85.541337706052	653.5	594.5	697.25
+1e-05	7	CA	Biomass-essential anabolic GIFTs	mean_genome_richness	68	14.8132426066189	1.13575606975293	14.4010720039012	13.9882219458078	15.4042624323366
+1e-05	7	CA	Biomass-essential anabolic GIFTs	singleton_fraction	68	0.0301309642055697	0.0101097565392023	0.025	0.025	0.025
+1e-05	7	CA	Carbohydrate degradation	assessable_fraction	68	1	0	1	1	1
+1e-05	7	CA	Carbohydrate degradation	community_richness	68	17	0	17	17	17
+1e-05	7	CA	Carbohydrate degradation	detected_genomes	68	637.588235294118	85.541337706052	653.5	594.5	697.25
+1e-05	7	CA	Carbohydrate degradation	mean_genome_richness	68	4.02365186400303	0.229650694566697	3.96358717468589	3.82135265941079	4.1593143202283
+1e-05	7	CA	Carbohydrate degradation	singleton_fraction	68	0.0129757785467128	0.0284669822546322	0	0	0
+1e-05	7	CA	Cofactor autonomy	assessable_fraction	68	1	0	1	1	1
+1e-05	7	CA	Cofactor autonomy	community_coverage	68	0.932352941176471	0.00808452083454443	0.933333333333333	0.933333333333333	0.933333333333333
+1e-05	7	CA	Cofactor autonomy	community_richness	68	13.9852941176471	0.121267812518167	14	14	14
+1e-05	7	CA	Cofactor autonomy	detected_genomes	68	637.588235294118	85.541337706052	653.5	594.5	697.25
+1e-05	7	CA	Cofactor autonomy	mean_genome_richness	68	1.85300762326474	0.159865161393602	1.80795364679777	1.74274664027503	1.90935494303199
+1e-05	7	CA	Cofactor autonomy	singleton_fraction	68	0.0137362637362637	0.0284712668832623	0	0	0
+1e-05	7	CA	Extracellular processing outputs	assessable_fraction	68	1	0	1	1	1
+1e-05	7	CA	Extracellular processing outputs	community_richness	68	2.75	0.436232171512701	3	2.75	3
+1e-05	7	CA	Extracellular processing outputs	detected_genomes	68	637.588235294118	85.541337706052	653.5	594.5	697.25
+1e-05	7	CA	Extracellular processing outputs	mean_genome_richness	68	1.37513510072954	0.0533677540764886	1.36511738590119	1.3320348042556	1.40936201128645
+1e-05	7	CA	Extracellular processing outputs	singleton_fraction	68	0.0637254901960784	0.132050456977557	0	0	0
+1e-05	7	CA	Fermentation products	assessable_fraction	68	1	0	1	1	1
+1e-05	7	CA	Fermentation products	community_richness	68	8.97058823529412	0.170213933457599	9	9	9
+1e-05	7	CA	Fermentation products	detected_genomes	68	637.588235294118	85.541337706052	653.5	594.5	697.25
+1e-05	7	CA	Fermentation products	mean_genome_richness	68	1.82516001587644	0.0769971574655999	1.81248153872574	1.76586232226671	1.89097975688166
+1e-05	7	CA	Fermentation products	singleton_fraction	68	0.107843137254902	0.0189126592730666	0.111111111111111	0.111111111111111	0.111111111111111
+1e-05	7	CA	Nucleotide autonomy	assessable_fraction	68	1	0	1	1	1
+1e-05	7	CA	Nucleotide autonomy	community_coverage	68	1	0	1	1	1
+1e-05	7	CA	Nucleotide autonomy	community_richness	68	4	0	4	4	4
+1e-05	7	CA	Nucleotide autonomy	detected_genomes	68	637.588235294118	85.541337706052	653.5	594.5	697.25
+1e-05	7	CA	Nucleotide autonomy	mean_genome_richness	68	2.47674794822057	0.152346052652756	2.42415080378661	2.3581134570831	2.56735538777257
+1e-05	7	CA	Nucleotide autonomy	singleton_fraction	68	0	0	0	0	0
+1e-05	7	CA	Nutrient uptake	assessable_fraction	68	1	0	1	1	1
+1e-05	7	CA	Nutrient uptake	community_richness	68	3	0	3	3	3
+1e-05	7	CA	Nutrient uptake	detected_genomes	68	637.588235294118	85.541337706052	653.5	594.5	697.25
+1e-05	7	CA	Nutrient uptake	mean_genome_richness	68	0.0142924699875849	0.00293973794129541	0.0137720694984311	0.0128296702739228	0.0151395820670645
+1e-05	7	CA	Nutrient uptake	singleton_fraction	68	0.0196078431372549	0.113475955638399	0	0	0
+1e-05	7	CA	Plant fibre utilisation	assessable_fraction	68	1	0	1	1	1
+1e-05	7	CA	Plant fibre utilisation	community_richness	68	12	0	12	12	12
+1e-05	7	CA	Plant fibre utilisation	detected_genomes	68	637.588235294118	85.541337706052	653.5	594.5	697.25
+1e-05	7	CA	Plant fibre utilisation	mean_genome_richness	68	2.87886017111532	0.148419220437611	2.83800457188459	2.75411477398254	2.97464663416938
+1e-05	7	CA	Plant fibre utilisation	singleton_fraction	68	0.00735294117647059	0.0425534833643998	0	0	0
+1e-05	7	CA	Short-chain fatty acids	assessable_fraction	68	1	0	1	1	1
+1e-05	7	CA	Short-chain fatty acids	community_richness	68	2.97058823529412	0.170213933457599	3	3	3
+1e-05	7	CA	Short-chain fatty acids	detected_genomes	68	637.588235294118	85.541337706052	653.5	594.5	697.25
+1e-05	7	CA	Short-chain fatty acids	mean_genome_richness	68	0.70628817066871	0.0297847269438733	0.705701912666907	0.681101501991418	0.729473039215686
+1e-05	7	CA	Short-chain fatty acids	singleton_fraction	68	0.323529411764706	0.0567379778191997	0.333333333333333	0.333333333333333	0.333333333333333
+1e-05	7	CB	All metabolic GIFTs	assessable_fraction	54	1	0	1	1	1
+1e-05	7	CB	All metabolic GIFTs	community_richness	54	121.055555555556	1.30913577523014	121	121	122
+1e-05	7	CB	All metabolic GIFTs	detected_genomes	54	580.481481481482	60.9511839130735	576.5	526.25	628.5
+1e-05	7	CB	All metabolic GIFTs	mean_genome_richness	54	31.4899592519203	1.84871571419138	31.5337652543535	30.2492831179322	32.95651336074
+1e-05	7	CB	All metabolic GIFTs	singleton_fraction	54	0.0862640841887465	0.00884016061842806	0.0826446280991736	0.082136566860859	0.0901639344262295
+1e-05	7	CB	Amino-acid autonomy	assessable_fraction	54	1	0	1	1	1
+1e-05	7	CB	Amino-acid autonomy	community_coverage	54	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	7	CB	Amino-acid autonomy	community_richness	54	20	0	20	20	20
+1e-05	7	CB	Amino-acid autonomy	detected_genomes	54	580.481481481482	60.9511839130735	576.5	526.25	628.5
+1e-05	7	CB	Amino-acid autonomy	mean_genome_richness	54	10.3906487520157	0.690700812266	10.4106677636089	9.8937802907916	10.8985054493718
+1e-05	7	CB	Amino-acid autonomy	singleton_fraction	54	0	0	0	0	0
+1e-05	7	CB	Biomass-essential anabolic GIFTs	assessable_fraction	54	1	0	1	1	1
+1e-05	7	CB	Biomass-essential anabolic GIFTs	community_coverage	54	0.908670033670034	0.00309279007927169	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	7	CB	Biomass-essential anabolic GIFTs	community_richness	54	39.9814814814815	0.136082763487954	40	40	40
+1e-05	7	CB	Biomass-essential anabolic GIFTs	detected_genomes	54	580.481481481482	60.9511839130735	576.5	526.25	628.5
+1e-05	7	CB	Biomass-essential anabolic GIFTs	mean_genome_richness	54	15.6964262331287	1.00873785925235	15.7403203414233	15.0033291805094	16.5066054299418
+1e-05	7	CB	Biomass-essential anabolic GIFTs	singleton_fraction	54	0.0296296296296296	0.0109394496365587	0.025	0.025	0.025
+1e-05	7	CB	Carbohydrate degradation	assessable_fraction	54	1	0	1	1	1
+1e-05	7	CB	Carbohydrate degradation	community_richness	54	17	0	17	17	17
+1e-05	7	CB	Carbohydrate degradation	detected_genomes	54	580.481481481482	60.9511839130735	576.5	526.25	628.5
+1e-05	7	CB	Carbohydrate degradation	mean_genome_richness	54	4.21061148114223	0.20085953416682	4.20954771157168	4.05559235325794	4.36181534439825
+1e-05	7	CB	Carbohydrate degradation	singleton_fraction	54	0.0130718954248366	0.0246849090900663	0	0	0
+1e-05	7	CB	Cofactor autonomy	assessable_fraction	54	1	0	1	1	1
+1e-05	7	CB	Cofactor autonomy	community_coverage	54	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+1e-05	7	CB	Cofactor autonomy	community_richness	54	14	0	14	14	14
+1e-05	7	CB	Cofactor autonomy	detected_genomes	54	580.481481481482	60.9511839130735	576.5	526.25	628.5
+1e-05	7	CB	Cofactor autonomy	mean_genome_richness	54	1.97081312617856	0.140658005684335	1.97331480659931	1.87187596006144	2.0705018749163
+1e-05	7	CB	Cofactor autonomy	singleton_fraction	54	0.0145502645502645	0.0290380681375481	0	0	0
+1e-05	7	CB	Extracellular processing outputs	assessable_fraction	54	1	0	1	1	1
+1e-05	7	CB	Extracellular processing outputs	community_richness	54	2.48148148148148	0.504348664241606	2	2	3
+1e-05	7	CB	Extracellular processing outputs	detected_genomes	54	580.481481481482	60.9511839130735	576.5	526.25	628.5
+1e-05	7	CB	Extracellular processing outputs	mean_genome_richness	54	1.41991565222709	0.0496034471795127	1.41543893079574	1.37711326984667	1.45074570886467
+1e-05	7	CB	Extracellular processing outputs	singleton_fraction	54	0.0987654320987654	0.153636965296003	0	0	0.333333333333333
+1e-05	7	CB	Fermentation products	assessable_fraction	54	1	0	1	1	1
+1e-05	7	CB	Fermentation products	community_richness	54	8.98148148148148	0.136082763487954	9	9	9
+1e-05	7	CB	Fermentation products	detected_genomes	54	580.481481481482	60.9511839130735	576.5	526.25	628.5
+1e-05	7	CB	Fermentation products	mean_genome_richness	54	1.88693113430198	0.0646958085574696	1.90154400543736	1.82248652718615	1.94121828306992
+1e-05	7	CB	Fermentation products	singleton_fraction	54	0.109053497942387	0.0151203070542171	0.111111111111111	0.111111111111111	0.111111111111111
+1e-05	7	CB	Nucleotide autonomy	assessable_fraction	54	1	0	1	1	1
+1e-05	7	CB	Nucleotide autonomy	community_coverage	54	1	0	1	1	1
+1e-05	7	CB	Nucleotide autonomy	community_richness	54	4	0	4	4	4
+1e-05	7	CB	Nucleotide autonomy	detected_genomes	54	580.481481481482	60.9511839130735	576.5	526.25	628.5
+1e-05	7	CB	Nucleotide autonomy	mean_genome_richness	54	2.60034814218119	0.135081050361474	2.60348084886128	2.49500269251481	2.69658299116586
+1e-05	7	CB	Nucleotide autonomy	singleton_fraction	54	0	0	0	0	0
+1e-05	7	CB	Nutrient uptake	assessable_fraction	54	1	0	1	1	1
+1e-05	7	CB	Nutrient uptake	community_richness	54	3	0	3	3	3
+1e-05	7	CB	Nutrient uptake	detected_genomes	54	580.481481481482	60.9511839130735	576.5	526.25	628.5
+1e-05	7	CB	Nutrient uptake	mean_genome_richness	54	0.0155737796080379	0.00177419263774335	0.0155709808640368	0.0141846361185984	0.0171021493351419
+1e-05	7	CB	Nutrient uptake	singleton_fraction	54	0.0123456790123457	0.0907218423253028	0	0	0
+1e-05	7	CB	Plant fibre utilisation	assessable_fraction	54	1	0	1	1	1
+1e-05	7	CB	Plant fibre utilisation	community_richness	54	12	0	12	12	12
+1e-05	7	CB	Plant fibre utilisation	detected_genomes	54	580.481481481482	60.9511839130735	576.5	526.25	628.5
+1e-05	7	CB	Plant fibre utilisation	mean_genome_richness	54	2.99971510968642	0.132543107534558	2.99910714285714	2.88398182091307	3.08970146343701
+1e-05	7	CB	Plant fibre utilisation	singleton_fraction	54	0.00462962962962963	0.0340206908719886	0	0	0
+1e-05	7	CB	Short-chain fatty acids	assessable_fraction	54	1	0	1	1	1
+1e-05	7	CB	Short-chain fatty acids	community_richness	54	2.98148148148148	0.136082763487954	3	3	3
+1e-05	7	CB	Short-chain fatty acids	detected_genomes	54	580.481481481482	60.9511839130735	576.5	526.25	628.5
+1e-05	7	CB	Short-chain fatty acids	mean_genome_richness	54	0.732715245191185	0.0225368069853937	0.737127888758324	0.712414965986395	0.75
+1e-05	7	CB	Short-chain fatty acids	singleton_fraction	54	0.32716049382716	0.0453609211626514	0.333333333333333	0.333333333333333	0.333333333333333
+1e-05	21	CA	All metabolic GIFTs	assessable_fraction	67	1	0	1	1	1
+1e-05	21	CA	All metabolic GIFTs	community_richness	67	120.194029850746	2.91931294309149	122	121	122
+1e-05	21	CA	All metabolic GIFTs	detected_genomes	67	712.940298507463	38.8220027417345	719	705	729.5
+1e-05	21	CA	All metabolic GIFTs	mean_genome_richness	67	27.9814784805727	0.807295442085112	27.798331015299	27.5842335403532	28.0849228832232
+1e-05	21	CA	All metabolic GIFTs	singleton_fraction	67	0.0945931949533013	0.0234510999932627	0.0819672131147541	0.0819672131147541	0.0983606557377049
+1e-05	21	CA	Amino-acid autonomy	assessable_fraction	67	1	0	1	1	1
+1e-05	21	CA	Amino-acid autonomy	community_coverage	67	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	21	CA	Amino-acid autonomy	community_richness	67	20	0	20	20	20
+1e-05	21	CA	Amino-acid autonomy	detected_genomes	67	712.940298507463	38.8220027417345	719	705	729.5
+1e-05	21	CA	Amino-acid autonomy	mean_genome_richness	67	9.10548433256211	0.286408651165309	9.02631578947368	8.98144022924318	9.12544150443011
+1e-05	21	CA	Amino-acid autonomy	singleton_fraction	67	0	0	0	0	0
+1e-05	21	CA	Biomass-essential anabolic GIFTs	assessable_fraction	67	1	0	1	1	1
+1e-05	21	CA	Biomass-essential anabolic GIFTs	community_coverage	67	0.905020352781547	0.00963048603035938	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	21	CA	Biomass-essential anabolic GIFTs	community_richness	67	39.8208955223881	0.423741385335813	40	40	40
+1e-05	21	CA	Biomass-essential anabolic GIFTs	detected_genomes	67	712.940298507463	38.8220027417345	719	705	729.5
+1e-05	21	CA	Biomass-essential anabolic GIFTs	mean_genome_richness	67	13.8333642453441	0.434249703436176	13.7246175243394	13.618861079125	13.8685072405964
+1e-05	21	CA	Biomass-essential anabolic GIFTs	singleton_fraction	67	0.0295459848972772	0.0128746332457105	0.025	0.025	0.0256410256410256
+1e-05	21	CA	Carbohydrate degradation	assessable_fraction	67	1	0	1	1	1
+1e-05	21	CA	Carbohydrate degradation	community_richness	67	17	0	17	17	17
+1e-05	21	CA	Carbohydrate degradation	detected_genomes	67	712.940298507463	38.8220027417345	719	705	729.5
+1e-05	21	CA	Carbohydrate degradation	mean_genome_richness	67	3.8183200600774	0.0918554026910758	3.80241935483871	3.76885527303937	3.83989877123536
+1e-05	21	CA	Carbohydrate degradation	singleton_fraction	67	0.0333625987708516	0.0437133952045816	0	0	0.0588235294117647
+1e-05	21	CA	Cofactor autonomy	assessable_fraction	67	1	0	1	1	1
+1e-05	21	CA	Cofactor autonomy	community_coverage	67	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+1e-05	21	CA	Cofactor autonomy	community_richness	67	14	0	14	14	14
+1e-05	21	CA	Cofactor autonomy	detected_genomes	67	712.940298507463	38.8220027417345	719	705	729.5
+1e-05	21	CA	Cofactor autonomy	mean_genome_richness	67	1.74542498603336	0.0678126101231537	1.73071528751753	1.71025009798158	1.75880481304056
+1e-05	21	CA	Cofactor autonomy	singleton_fraction	67	0.0255863539445629	0.0345066217940352	0	0	0.0714285714285714
+1e-05	21	CA	Extracellular processing outputs	assessable_fraction	67	1	0	1	1	1
+1e-05	21	CA	Extracellular processing outputs	community_richness	67	2.97014925373134	0.171459797720291	3	3	3
+1e-05	21	CA	Extracellular processing outputs	detected_genomes	67	712.940298507463	38.8220027417345	719	705	729.5
+1e-05	21	CA	Extracellular processing outputs	mean_genome_richness	67	1.32903336218902	0.0226167872986638	1.3240611961057	1.31818181818182	1.33427386614082
+1e-05	21	CA	Extracellular processing outputs	singleton_fraction	67	0.0149253731343284	0.0694576348094165	0	0	0
+1e-05	21	CA	Fermentation products	assessable_fraction	67	1	0	1	1	1
+1e-05	21	CA	Fermentation products	community_richness	67	8.7910447761194	0.409630781012121	9	9	9
+1e-05	21	CA	Fermentation products	detected_genomes	67	712.940298507463	38.8220027417345	719	705	729.5
+1e-05	21	CA	Fermentation products	mean_genome_richness	67	1.72636628570981	0.0352707577292054	1.72176308539945	1.70430107526882	1.73941084280205
+1e-05	21	CA	Fermentation products	singleton_fraction	67	0.087893864013267	0.045514531223569	0.111111111111111	0.111111111111111	0.111111111111111
+1e-05	21	CA	Nucleotide autonomy	assessable_fraction	67	1	0	1	1	1
+1e-05	21	CA	Nucleotide autonomy	community_coverage	67	1	0	1	1	1
+1e-05	21	CA	Nucleotide autonomy	community_richness	67	4	0	4	4	4
+1e-05	21	CA	Nucleotide autonomy	detected_genomes	67	712.940298507463	38.8220027417345	719	705	729.5
+1e-05	21	CA	Nucleotide autonomy	mean_genome_richness	67	2.3379748371681	0.064989649903184	2.32548476454294	2.30605190264281	2.35003753753754
+1e-05	21	CA	Nucleotide autonomy	singleton_fraction	67	0	0	0	0	0
+1e-05	21	CA	Nutrient uptake	assessable_fraction	67	1	0	1	1	1
+1e-05	21	CA	Nutrient uptake	community_richness	67	3	0	3	3	3
+1e-05	21	CA	Nutrient uptake	detected_genomes	67	712.940298507463	38.8220027417345	719	705	729.5
+1e-05	21	CA	Nutrient uptake	mean_genome_richness	67	0.0118000750216302	0.0020113508680372	0.0124309392265193	0.0118733509234828	0.0126671420930647
+1e-05	21	CA	Nutrient uptake	singleton_fraction	67	0.139303482587065	0.273087187341414	0	0	0
+1e-05	21	CA	Plant fibre utilisation	assessable_fraction	67	1	0	1	1	1
+1e-05	21	CA	Plant fibre utilisation	community_richness	67	12	0	12	12	12
+1e-05	21	CA	Plant fibre utilisation	detected_genomes	67	712.940298507463	38.8220027417345	719	705	729.5
+1e-05	21	CA	Plant fibre utilisation	mean_genome_richness	67	2.74495173266544	0.058343209467328	2.73119777158774	2.71617274247363	2.75522371301858
+1e-05	21	CA	Plant fibre utilisation	singleton_fraction	67	0.0522388059701493	0.10240769525303	0	0	0
+1e-05	21	CA	Short-chain fatty acids	assessable_fraction	67	1	0	1	1	1
+1e-05	21	CA	Short-chain fatty acids	community_richness	67	2.7910447761194	0.409630781012121	3	3	3
+1e-05	21	CA	Short-chain fatty acids	detected_genomes	67	712.940298507463	38.8220027417345	719	705	729.5
+1e-05	21	CA	Short-chain fatty acids	mean_genome_richness	67	0.667505791587922	0.0161408620365172	0.663945578231293	0.657464259530792	0.673440281449804
+1e-05	21	CA	Short-chain fatty acids	singleton_fraction	67	0.263681592039801	0.136543593670707	0.333333333333333	0.333333333333333	0.333333333333333
+1e-05	21	CB	All metabolic GIFTs	assessable_fraction	59	1	0	1	1	1
+1e-05	21	CB	All metabolic GIFTs	community_richness	59	120.93220338983	2.39153973472048	122	121	122
+1e-05	21	CB	All metabolic GIFTs	detected_genomes	59	678.305084745763	36.3897741591613	682	661	705.5
+1e-05	21	CB	All metabolic GIFTs	mean_genome_richness	59	28.4320362320122	0.850510170952147	28.1494607087827	27.8582372384313	28.691170769529
+1e-05	21	CB	All metabolic GIFTs	singleton_fraction	59	0.0924102876703086	0.0146957375221147	0.0901639344262295	0.0819672131147541	0.0983606557377049
+1e-05	21	CB	Amino-acid autonomy	assessable_fraction	59	1	0	1	1	1
+1e-05	21	CB	Amino-acid autonomy	community_coverage	59	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	21	CB	Amino-acid autonomy	community_richness	59	20	0	20	20	20
+1e-05	21	CB	Amino-acid autonomy	detected_genomes	59	678.305084745763	36.3897741591613	682	661	705.5
+1e-05	21	CB	Amino-acid autonomy	mean_genome_richness	59	9.27387882307288	0.302421902461842	9.18335901386749	9.06815060253518	9.36266802036571
+1e-05	21	CB	Amino-acid autonomy	singleton_fraction	59	0	0	0	0	0
+1e-05	21	CB	Biomass-essential anabolic GIFTs	assessable_fraction	59	1	0	1	1	1
+1e-05	21	CB	Biomass-essential anabolic GIFTs	community_coverage	59	0.906394453004623	0.00741238575448133	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	21	CB	Biomass-essential anabolic GIFTs	community_richness	59	39.8813559322034	0.326144973197179	40	40	40
+1e-05	21	CB	Biomass-essential anabolic GIFTs	detected_genomes	59	678.305084745763	36.3897741591613	682	661	705.5
+1e-05	21	CB	Biomass-essential anabolic GIFTs	mean_genome_richness	59	14.0498657573123	0.451008639802181	13.8977443609023	13.7403803113273	14.1787408534539
+1e-05	21	CB	Biomass-essential anabolic GIFTs	singleton_fraction	59	0.0318122555410691	0.0145408046745064	0.025	0.025	0.05
+1e-05	21	CB	Carbohydrate degradation	assessable_fraction	59	1	0	1	1	1
+1e-05	21	CB	Carbohydrate degradation	community_richness	59	17	0	17	17	17
+1e-05	21	CB	Carbohydrate degradation	detected_genomes	59	678.305084745763	36.3897741591613	682	661	705.5
+1e-05	21	CB	Carbohydrate degradation	mean_genome_richness	59	3.87720964108447	0.100490570825171	3.86119873817035	3.80819136047347	3.91380613957561
+1e-05	21	CB	Carbohydrate degradation	singleton_fraction	59	0.0299102691924227	0.0351804819667184	0	0	0.0588235294117647
+1e-05	21	CB	Cofactor autonomy	assessable_fraction	59	1	0	1	1	1
+1e-05	21	CB	Cofactor autonomy	community_coverage	59	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+1e-05	21	CB	Cofactor autonomy	community_richness	59	14	0	14	14	14
+1e-05	21	CB	Cofactor autonomy	detected_genomes	59	678.305084745763	36.3897741591613	682	661	705.5
+1e-05	21	CB	Cofactor autonomy	mean_genome_richness	59	1.7484189740722	0.0625574746258115	1.7300435413643	1.70365274889351	1.79354869638838
+1e-05	21	CB	Cofactor autonomy	singleton_fraction	59	0.0278450363196126	0.0351355802483991	0	0	0.0714285714285714
+1e-05	21	CB	Extracellular processing outputs	assessable_fraction	59	1	0	1	1	1
+1e-05	21	CB	Extracellular processing outputs	community_richness	59	3	0	3	3	3
+1e-05	21	CB	Extracellular processing outputs	detected_genomes	59	678.305084745763	36.3897741591613	682	661	705.5
+1e-05	21	CB	Extracellular processing outputs	mean_genome_richness	59	1.34291662737402	0.0228017780886435	1.33773861967695	1.32682394464311	1.35952571659376
+1e-05	21	CB	Extracellular processing outputs	singleton_fraction	59	0.0734463276836158	0.139344340572883	0	0	0
+1e-05	21	CB	Fermentation products	assessable_fraction	59	1	0	1	1	1
+1e-05	21	CB	Fermentation products	community_richness	59	8.88135593220339	0.326144973197179	9	9	9
+1e-05	21	CB	Fermentation products	detected_genomes	59	678.305084745763	36.3897741591613	682	661	705.5
+1e-05	21	CB	Fermentation products	mean_genome_richness	59	1.78103495029567	0.0537450385460807	1.77358490566038	1.74128883248936	1.81499472873246
+1e-05	21	CB	Fermentation products	singleton_fraction	59	0.0979284369114878	0.036238330355242	0.111111111111111	0.111111111111111	0.111111111111111
+1e-05	21	CB	Nucleotide autonomy	assessable_fraction	59	1	0	1	1	1
+1e-05	21	CB	Nucleotide autonomy	community_coverage	59	1	0	1	1	1
+1e-05	21	CB	Nucleotide autonomy	community_richness	59	4	0	4	4	4
+1e-05	21	CB	Nucleotide autonomy	detected_genomes	59	678.305084745763	36.3897741591613	682	661	705.5
+1e-05	21	CB	Nucleotide autonomy	mean_genome_richness	59	2.37625369848986	0.0734376457082248	2.34858044164038	2.32928720853105	2.40169585221736
+1e-05	21	CB	Nucleotide autonomy	singleton_fraction	59	0	0	0	0	0
+1e-05	21	CB	Nutrient uptake	assessable_fraction	59	1	0	1	1	1
+1e-05	21	CB	Nutrient uptake	community_richness	59	3	0	3	3	3
+1e-05	21	CB	Nutrient uptake	detected_genomes	59	678.305084745763	36.3897741591613	682	661	705.5
+1e-05	21	CB	Nutrient uptake	mean_genome_richness	59	0.0127895901184928	0.0016689614643	0.0131195335276968	0.0126849957289577	0.0135338345864662
+1e-05	21	CB	Nutrient uptake	singleton_fraction	59	0.0790960451977401	0.217429982131453	0	0	0
+1e-05	21	CB	Plant fibre utilisation	assessable_fraction	59	1	0	1	1	1
+1e-05	21	CB	Plant fibre utilisation	community_richness	59	12	0	12	12	12
+1e-05	21	CB	Plant fibre utilisation	detected_genomes	59	678.305084745763	36.3897741591613	682	661	705.5
+1e-05	21	CB	Plant fibre utilisation	mean_genome_richness	59	2.78307965499867	0.0667378467874518	2.77005347593583	2.73593270101719	2.80704254993495
+1e-05	21	CB	Plant fibre utilisation	singleton_fraction	59	0.0296610169491526	0.0815362432992948	0	0	0
+1e-05	21	CB	Short-chain fatty acids	assessable_fraction	59	1	0	1	1	1
+1e-05	21	CB	Short-chain fatty acids	community_richness	59	2.88135593220339	0.326144973197179	3	3	3
+1e-05	21	CB	Short-chain fatty acids	detected_genomes	59	678.305084745763	36.3897741591613	682	661	705.5
+1e-05	21	CB	Short-chain fatty acids	mean_genome_richness	59	0.691250732122181	0.0208208800567748	0.687683284457478	0.675565192071712	0.702926398120906
+1e-05	21	CB	Short-chain fatty acids	singleton_fraction	59	0.293785310734463	0.108714991065726	0.333333333333333	0.333333333333333	0.333333333333333
+1e-05	35	CA	All metabolic GIFTs	assessable_fraction	69	1	0	1	1	1
+1e-05	35	CA	All metabolic GIFTs	community_richness	69	120.623188405797	2.93107814572287	122	122	122
+1e-05	35	CA	All metabolic GIFTs	detected_genomes	69	729.782608695652	38.3056091596861	732	725	741
+1e-05	35	CA	All metabolic GIFTs	mean_genome_richness	69	27.726234007659	0.544047491197639	27.6350267379679	27.4641873278237	27.8153409090909
+1e-05	35	CA	All metabolic GIFTs	singleton_fraction	69	0.10044555479041	0.0230092285616082	0.0983606557377049	0.0819672131147541	0.0983606557377049
+1e-05	35	CA	Amino-acid autonomy	assessable_fraction	69	1	0	1	1	1
+1e-05	35	CA	Amino-acid autonomy	community_coverage	69	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	35	CA	Amino-acid autonomy	community_richness	69	20	0	20	20	20
+1e-05	35	CA	Amino-acid autonomy	detected_genomes	69	729.782608695652	38.3056091596861	732	725	741
+1e-05	35	CA	Amino-acid autonomy	mean_genome_richness	69	9.01521504626913	0.1956960085468	8.97994652406417	8.92391304347826	9.03280839895013
+1e-05	35	CA	Amino-acid autonomy	singleton_fraction	69	0	0	0	0	0
+1e-05	35	CA	Biomass-essential anabolic GIFTs	assessable_fraction	69	1	0	1	1	1
+1e-05	35	CA	Biomass-essential anabolic GIFTs	community_coverage	69	0.907114624505929	0.0127729856309524	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	35	CA	Biomass-essential anabolic GIFTs	community_richness	69	39.9130434782609	0.562011367761904	40	40	40
+1e-05	35	CA	Biomass-essential anabolic GIFTs	detected_genomes	69	729.782608695652	38.3056091596861	732	725	741
+1e-05	35	CA	Biomass-essential anabolic GIFTs	mean_genome_richness	69	13.7062736046848	0.298061343121106	13.6519944979367	13.5528455284553	13.7448275862069
+1e-05	35	CA	Biomass-essential anabolic GIFTs	singleton_fraction	69	0.0358131440846181	0.015387631245046	0.0256410256410256	0.025	0.05
+1e-05	35	CA	Carbohydrate degradation	assessable_fraction	69	1	0	1	1	1
+1e-05	35	CA	Carbohydrate degradation	community_richness	69	17	0	17	17	17
+1e-05	35	CA	Carbohydrate degradation	detected_genomes	69	729.782608695652	38.3056091596861	732	725	741
+1e-05	35	CA	Carbohydrate degradation	mean_genome_richness	69	3.78826361962426	0.0606666403810244	3.77405857740586	3.75761772853186	3.80359435173299
+1e-05	35	CA	Carbohydrate degradation	singleton_fraction	69	0.0426257459505541	0.0438388630787861	0.0588235294117647	0	0.0588235294117647
+1e-05	35	CA	Cofactor autonomy	assessable_fraction	69	1	0	1	1	1
+1e-05	35	CA	Cofactor autonomy	community_coverage	69	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+1e-05	35	CA	Cofactor autonomy	community_richness	69	14	0	14	14	14
+1e-05	35	CA	Cofactor autonomy	detected_genomes	69	729.782608695652	38.3056091596861	732	725	741
+1e-05	35	CA	Cofactor autonomy	mean_genome_richness	69	1.73147460385575	0.05374062482339	1.72108843537415	1.69986357435198	1.74732620320856
+1e-05	35	CA	Cofactor autonomy	singleton_fraction	69	0.0372670807453416	0.035941912529199	0.0714285714285714	0	0.0714285714285714
+1e-05	35	CA	Extracellular processing outputs	assessable_fraction	69	1	0	1	1	1
+1e-05	35	CA	Extracellular processing outputs	community_richness	69	2.98550724637681	0.120385853085769	3	3	3
+1e-05	35	CA	Extracellular processing outputs	detected_genomes	69	729.782608695652	38.3056091596861	732	725	741
+1e-05	35	CA	Extracellular processing outputs	mean_genome_richness	69	1.32237690275594	0.0123314685033812	1.3202170963365	1.31481481481481	1.32827586206897
+1e-05	35	CA	Extracellular processing outputs	singleton_fraction	69	0.00966183574879228	0.0563316072584391	0	0	0
+1e-05	35	CA	Fermentation products	assessable_fraction	69	1	0	1	1	1
+1e-05	35	CA	Fermentation products	community_richness	69	8.79710144927536	0.405103840897163	9	9	9
+1e-05	35	CA	Fermentation products	detected_genomes	69	729.782608695652	38.3056091596861	732	725	741
+1e-05	35	CA	Fermentation products	mean_genome_richness	69	1.71061533354476	0.0304082264011584	1.70629370629371	1.69365721997301	1.72060857538036
+1e-05	35	CA	Fermentation products	singleton_fraction	69	0.0885668276972625	0.0450115378774625	0.111111111111111	0.111111111111111	0.111111111111111
+1e-05	35	CA	Nucleotide autonomy	assessable_fraction	69	1	0	1	1	1
+1e-05	35	CA	Nucleotide autonomy	community_coverage	69	1	0	1	1	1
+1e-05	35	CA	Nucleotide autonomy	community_richness	69	4	0	4	4	4
+1e-05	35	CA	Nucleotide autonomy	detected_genomes	69	729.782608695652	38.3056091596861	732	725	741
+1e-05	35	CA	Nucleotide autonomy	mean_genome_richness	69	2.32087335024061	0.0448043875453753	2.30965147453083	2.29752066115702	2.3278463648834
+1e-05	35	CA	Nucleotide autonomy	singleton_fraction	69	0	0	0	0	0
+1e-05	35	CA	Nutrient uptake	assessable_fraction	69	1	0	1	1	1
+1e-05	35	CA	Nutrient uptake	community_richness	69	3	0	3	3	3
+1e-05	35	CA	Nutrient uptake	detected_genomes	69	729.782608695652	38.3056091596861	732	725	741
+1e-05	35	CA	Nutrient uptake	mean_genome_richness	69	0.0115164680351848	0.00182275324517631	0.0122282608695652	0.0118577075098814	0.0123796423658872
+1e-05	35	CA	Nutrient uptake	singleton_fraction	69	0.135265700483092	0.270069227264775	0	0	0
+1e-05	35	CA	Plant fibre utilisation	assessable_fraction	69	1	0	1	1	1
+1e-05	35	CA	Plant fibre utilisation	community_richness	69	12	0	12	12	12
+1e-05	35	CA	Plant fibre utilisation	detected_genomes	69	729.782608695652	38.3056091596861	732	725	741
+1e-05	35	CA	Plant fibre utilisation	mean_genome_richness	69	2.7260606060878	0.0365080486380946	2.71791443850267	2.70708446866485	2.73286713286713
+1e-05	35	CA	Plant fibre utilisation	singleton_fraction	69	0.0507246376811594	0.101275960224291	0	0	0
+1e-05	35	CA	Short-chain fatty acids	assessable_fraction	69	1	0	1	1	1
+1e-05	35	CA	Short-chain fatty acids	community_richness	69	2.79710144927536	0.405103840897163	3	3	3
+1e-05	35	CA	Short-chain fatty acids	detected_genomes	69	729.782608695652	38.3056091596861	732	725	741
+1e-05	35	CA	Short-chain fatty acids	mean_genome_richness	69	0.661961577055361	0.0116457954811774	0.659807956104252	0.655585106382979	0.665300546448087
+1e-05	35	CA	Short-chain fatty acids	singleton_fraction	69	0.265700483091787	0.135034613632388	0.333333333333333	0.333333333333333	0.333333333333333
+1e-05	35	CB	All metabolic GIFTs	assessable_fraction	71	1	0	1	1	1
+1e-05	35	CB	All metabolic GIFTs	community_richness	71	119.676056338028	3.30702562903078	122	115	122
+1e-05	35	CB	All metabolic GIFTs	detected_genomes	71	742.633802816901	56.4738218587337	751	745	759.5
+1e-05	35	CB	All metabolic GIFTs	mean_genome_richness	71	28.0776674582364	0.722042234192944	27.8753315649867	27.7432518876936	28.0998938300713
+1e-05	35	CB	All metabolic GIFTs	singleton_fraction	71	0.108584050955613	0.0263197051760266	0.0983606557377049	0.0856990537118486	0.147826086956522
+1e-05	35	CB	Amino-acid autonomy	assessable_fraction	71	1	0	1	1	1
+1e-05	35	CB	Amino-acid autonomy	community_coverage	71	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-05	35	CB	Amino-acid autonomy	community_richness	71	20	0	20	20	20
+1e-05	35	CB	Amino-acid autonomy	detected_genomes	71	742.633802816901	56.4738218587337	751	745	759.5
+1e-05	35	CB	Amino-acid autonomy	mean_genome_richness	71	9.11533977196019	0.251368529162282	9.05006418485237	8.99936467598475	9.10979143337066
+1e-05	35	CB	Amino-acid autonomy	singleton_fraction	71	0	0	0	0	0
+1e-05	35	CB	Biomass-essential anabolic GIFTs	assessable_fraction	71	1	0	1	1	1
+1e-05	35	CB	Biomass-essential anabolic GIFTs	community_coverage	71	0.902048655569782	0.0112602762299996	0.909090909090909	0.886363636363636	0.909090909090909
+1e-05	35	CB	Biomass-essential anabolic GIFTs	community_richness	71	39.6901408450704	0.495452154119984	40	39	40
+1e-05	35	CB	Biomass-essential anabolic GIFTs	detected_genomes	71	742.633802816901	56.4738218587337	751	745	759.5
+1e-05	35	CB	Biomass-essential anabolic GIFTs	mean_genome_richness	71	13.9236599518946	0.397425522666834	13.8211488250653	13.7481808548216	13.9422381157753
+1e-05	35	CB	Biomass-essential anabolic GIFTs	singleton_fraction	71	0.0350315778347383	0.0135247019866276	0.0256410256410256	0.025	0.05
+1e-05	35	CB	Carbohydrate degradation	assessable_fraction	71	1	0	1	1	1
+1e-05	35	CB	Carbohydrate degradation	community_richness	71	17	0	17	17	17
+1e-05	35	CB	Carbohydrate degradation	detected_genomes	71	742.633802816901	56.4738218587337	751	745	759.5
+1e-05	35	CB	Carbohydrate degradation	mean_genome_richness	71	3.84875225120736	0.0801773528702917	3.83160621761658	3.80396511707463	3.86981041997697
+1e-05	35	CB	Carbohydrate degradation	singleton_fraction	71	0.0604805302402651	0.0444350831831157	0.0588235294117647	0	0.117647058823529
+1e-05	35	CB	Cofactor autonomy	assessable_fraction	71	1	0	1	1	1
+1e-05	35	CB	Cofactor autonomy	community_coverage	71	0.933333333333333	0	0.933333333333333	0.933333333333333	0.933333333333333
+1e-05	35	CB	Cofactor autonomy	community_richness	71	14	0	14	14	14
+1e-05	35	CB	Cofactor autonomy	detected_genomes	71	742.633802816901	56.4738218587337	751	745	759.5
+1e-05	35	CB	Cofactor autonomy	mean_genome_richness	71	1.79833326565752	0.0728771816375262	1.78314917127072	1.76477393147298	1.80964939019169
+1e-05	35	CB	Cofactor autonomy	singleton_fraction	71	0.0503018108651911	0.0328313256983515	0.0714285714285714	0	0.0714285714285714
+1e-05	35	CB	Extracellular processing outputs	assessable_fraction	71	1	0	1	1	1
+1e-05	35	CB	Extracellular processing outputs	community_richness	71	2.98591549295775	0.118678165819385	3	3	3
+1e-05	35	CB	Extracellular processing outputs	detected_genomes	71	742.633802816901	56.4738218587337	751	745	759.5
+1e-05	35	CB	Extracellular processing outputs	mean_genome_richness	71	1.33892803811872	0.0179116387903053	1.33419689119171	1.32871490423833	1.34238688036827
+1e-05	35	CB	Extracellular processing outputs	singleton_fraction	71	0.00469483568075117	0.0395593886064618	0	0	0
+1e-05	35	CB	Fermentation products	assessable_fraction	71	1	0	1	1	1
+1e-05	35	CB	Fermentation products	community_richness	71	8.67605633802817	0.471309661242674	9	8	9
+1e-05	35	CB	Fermentation products	detected_genomes	71	742.633802816901	56.4738218587337	751	745	759.5
+1e-05	35	CB	Fermentation products	mean_genome_richness	71	1.68562803538046	0.0225597504572265	1.68157894736842	1.67242582126457	1.69395793691979
+1e-05	35	CB	Fermentation products	singleton_fraction	71	0.0751173708920188	0.0523677401380749	0.111111111111111	0	0.111111111111111
+1e-05	35	CB	Nucleotide autonomy	assessable_fraction	71	1	0	1	1	1
+1e-05	35	CB	Nucleotide autonomy	community_coverage	71	1	0	1	1	1
+1e-05	35	CB	Nucleotide autonomy	community_richness	71	4	0	4	4	4
+1e-05	35	CB	Nucleotide autonomy	detected_genomes	71	742.633802816901	56.4738218587337	751	745	759.5
+1e-05	35	CB	Nucleotide autonomy	mean_genome_richness	71	2.36103570058894	0.0576125053538172	2.34701986754967	2.33594983909083	2.36564271338208
+1e-05	35	CB	Nucleotide autonomy	singleton_fraction	71	0	0	0	0	0
+1e-05	35	CB	Nutrient uptake	assessable_fraction	71	1	0	1	1	1
+1e-05	35	CB	Nutrient uptake	community_richness	71	3	0	3	3	3
+1e-05	35	CB	Nutrient uptake	detected_genomes	71	742.633802816901	56.4738218587337	751	745	759.5
+1e-05	35	CB	Nutrient uptake	mean_genome_richness	71	0.0108448705498518	0.00222456322454348	0.0118733509234828	0.00803754082474967	0.0120401391662908
+1e-05	35	CB	Nutrient uptake	singleton_fraction	71	0.215962441314554	0.314206440828449	0	0	0.666666666666667
+1e-05	35	CB	Plant fibre utilisation	assessable_fraction	71	1	0	1	1	1
+1e-05	35	CB	Plant fibre utilisation	community_richness	71	12	0	12	12	12
+1e-05	35	CB	Plant fibre utilisation	detected_genomes	71	742.633802816901	56.4738218587337	751	745	759.5
+1e-05	35	CB	Plant fibre utilisation	mean_genome_richness	71	2.7623599563401	0.0530553376046902	2.74798927613941	2.73271441202476	2.77214243898869
+1e-05	35	CB	Plant fibre utilisation	singleton_fraction	71	0.0809859154929577	0.117827415310669	0	0	0.25
+1e-05	35	CB	Short-chain fatty acids	assessable_fraction	71	1	0	1	1	1
+1e-05	35	CB	Short-chain fatty acids	community_richness	71	2.67605633802817	0.471309661242674	3	2	3
+1e-05	35	CB	Short-chain fatty acids	detected_genomes	71	742.633802816901	56.4738218587337	751	745	759.5
+1e-05	35	CB	Short-chain fatty acids	mean_genome_richness	71	0.65463462490929	0.0102553005208392	0.652575957727873	0.647962172492008	0.658456748092036
+1e-05	35	CB	Short-chain fatty acids	singleton_fraction	71	0.225352112676056	0.157103220414225	0.333333333333333	0	0.333333333333333
+1e-04	7	CA	All metabolic GIFTs	assessable_fraction	68	1	0	1	1	1
+1e-04	7	CA	All metabolic GIFTs	community_richness	68	115.470588235294	3.22522977654326	114	113	119
+1e-04	7	CA	All metabolic GIFTs	detected_genomes	68	408.529411764706	75.0759755654997	401	363.75	452.5
+1e-04	7	CA	All metabolic GIFTs	mean_genome_richness	68	33.4894700984605	2.96908730460844	33.4784139055508	30.8904733712007	36.0808428370567
+1e-04	7	CA	All metabolic GIFTs	singleton_fraction	68	0.124696492577449	0.0370226693183514	0.115044247787611	0.0903361344537815	0.159647597977244
+1e-04	7	CA	Amino-acid autonomy	assessable_fraction	68	1	0	1	1	1
+1e-04	7	CA	Amino-acid autonomy	community_coverage	68	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-04	7	CA	Amino-acid autonomy	community_richness	68	20	0	20	20	20
+1e-04	7	CA	Amino-acid autonomy	detected_genomes	68	408.529411764706	75.0759755654997	401	363.75	452.5
+1e-04	7	CA	Amino-acid autonomy	mean_genome_richness	68	11.2128822676147	1.10601406775401	11.1961189913318	10.2418259557344	12.1574822801238
+1e-04	7	CA	Amino-acid autonomy	singleton_fraction	68	0	0	0	0	0
+1e-04	7	CA	Biomass-essential anabolic GIFTs	assessable_fraction	68	1	0	1	1	1
+1e-04	7	CA	Biomass-essential anabolic GIFTs	community_coverage	68	0.884692513368984	0.0126120098518519	0.886363636363636	0.886363636363636	0.886363636363636
+1e-04	7	CA	Biomass-essential anabolic GIFTs	community_richness	68	38.9264705882353	0.554928433481486	39	39	39
+1e-04	7	CA	Biomass-essential anabolic GIFTs	detected_genomes	68	408.529411764706	75.0759755654997	401	363.75	452.5
+1e-04	7	CA	Biomass-essential anabolic GIFTs	mean_genome_richness	68	16.7391968414492	1.6011163519737	16.7129383372734	15.3393324549064	18.1471527886268
+1e-04	7	CA	Biomass-essential anabolic GIFTs	singleton_fraction	68	0.0380140112725252	0.0172183699816659	0.05	0.0256410256410256	0.0512820512820513
+1e-04	7	CA	Carbohydrate degradation	assessable_fraction	68	1	0	1	1	1
+1e-04	7	CA	Carbohydrate degradation	community_richness	68	17	0	17	17	17
+1e-04	7	CA	Carbohydrate degradation	detected_genomes	68	408.529411764706	75.0759755654997	401	363.75	452.5
+1e-04	7	CA	Carbohydrate degradation	mean_genome_richness	68	4.36849016234512	0.305139028367115	4.38675879839803	4.11784152749736	4.62140620791813
+1e-04	7	CA	Carbohydrate degradation	singleton_fraction	68	0.0951557093425605	0.0704339928553953	0.117647058823529	0.0441176470588235	0.176470588235294
+1e-04	7	CA	Cofactor autonomy	assessable_fraction	68	1	0	1	1	1
+1e-04	7	CA	Cofactor autonomy	community_coverage	68	0.903921568627451	0.0333479628417547	0.933333333333333	0.866666666666667	0.933333333333333
+1e-04	7	CA	Cofactor autonomy	community_richness	68	13.5588235294118	0.500219442626321	14	13	14
+1e-04	7	CA	Cofactor autonomy	detected_genomes	68	408.529411764706	75.0759755654997	401	363.75	452.5
+1e-04	7	CA	Cofactor autonomy	mean_genome_richness	68	2.08280340077362	0.237054751026899	2.06370236773955	1.8890303245142	2.28150710545999
+1e-04	7	CA	Cofactor autonomy	singleton_fraction	68	0.081043956043956	0.0562128220998248	0.0769230769230769	0.0535714285714286	0.142857142857143
+1e-04	7	CA	Extracellular processing outputs	assessable_fraction	68	1	0	1	1	1
+1e-04	7	CA	Extracellular processing outputs	community_richness	68	2.41176470588235	0.495812136956775	2	2	3
+1e-04	7	CA	Extracellular processing outputs	detected_genomes	68	408.529411764706	75.0759755654997	401	363.75	452.5
+1e-04	7	CA	Extracellular processing outputs	mean_genome_richness	68	1.45550488301359	0.0734344913651018	1.45553653180482	1.39423912607469	1.51583534257585
+1e-04	7	CA	Extracellular processing outputs	singleton_fraction	68	0.0784313725490196	0.142445439891964	0	0	0
+1e-04	7	CA	Fermentation products	assessable_fraction	68	1	0	1	1	1
+1e-04	7	CA	Fermentation products	community_richness	68	8.36764705882353	0.485749513629422	8	8	9
+1e-04	7	CA	Fermentation products	detected_genomes	68	408.529411764706	75.0759755654997	401	363.75	452.5
+1e-04	7	CA	Fermentation products	mean_genome_richness	68	1.98900594610649	0.0870474385649669	2.00230259671436	1.93833484900379	2.05411196911197
+1e-04	7	CA	Fermentation products	singleton_fraction	68	0.0408496732026144	0.0539721681810469	0	0	0.111111111111111
+1e-04	7	CA	Nucleotide autonomy	assessable_fraction	68	1	0	1	1	1
+1e-04	7	CA	Nucleotide autonomy	community_coverage	68	1	0	1	1	1
+1e-04	7	CA	Nucleotide autonomy	community_richness	68	4	0	4	4	4
+1e-04	7	CA	Nucleotide autonomy	detected_genomes	68	408.529411764706	75.0759755654997	401	363.75	452.5
+1e-04	7	CA	Nucleotide autonomy	mean_genome_richness	68	2.67254338243325	0.188898643949552	2.70892245072836	2.5179711530468	2.84268428454236
+1e-04	7	CA	Nucleotide autonomy	singleton_fraction	68	0	0	0	0	0
+1e-04	7	CA	Nutrient uptake	assessable_fraction	68	1	0	1	1	1
+1e-04	7	CA	Nutrient uptake	community_richness	68	3	0	3	3	3
+1e-04	7	CA	Nutrient uptake	detected_genomes	68	408.529411764706	75.0759755654997	401	363.75	452.5
+1e-04	7	CA	Nutrient uptake	mean_genome_richness	68	0.0180705145539886	0.00586105429677551	0.0158321265456166	0.013986013986014	0.0230474888066325
+1e-04	7	CA	Nutrient uptake	singleton_fraction	68	0.42156862745098	0.323833009086282	0.666666666666667	0	0.666666666666667
+1e-04	7	CA	Plant fibre utilisation	assessable_fraction	68	1	0	1	1	1
+1e-04	7	CA	Plant fibre utilisation	community_richness	68	12	0	12	12	12
+1e-04	7	CA	Plant fibre utilisation	detected_genomes	68	408.529411764706	75.0759755654997	401	363.75	452.5
+1e-04	7	CA	Plant fibre utilisation	mean_genome_richness	68	3.10186105670198	0.195975723455934	3.1345400656293	2.95208358009442	3.25521406112049
+1e-04	7	CA	Plant fibre utilisation	singleton_fraction	68	0.158088235294118	0.121437378407356	0.25	0	0.25
+1e-04	7	CA	Short-chain fatty acids	assessable_fraction	68	1	0	1	1	1
+1e-04	7	CA	Short-chain fatty acids	community_richness	68	2.36764705882353	0.485749513629423	2	2	3
+1e-04	7	CA	Short-chain fatty acids	detected_genomes	68	408.529411764706	75.0759755654997	401	363.75	452.5
+1e-04	7	CA	Short-chain fatty acids	mean_genome_richness	68	0.77744980320624	0.0358262590465882	0.785376164650257	0.757555293337494	0.802889125799573
+1e-04	7	CA	Short-chain fatty acids	singleton_fraction	68	0.122549019607843	0.161916504543141	0	0	0.333333333333333
+1e-04	7	CB	All metabolic GIFTs	assessable_fraction	54	1	0	1	1	1
+1e-04	7	CB	All metabolic GIFTs	community_richness	54	114.166666666667	3.26068634978866	113	112	119
+1e-04	7	CB	All metabolic GIFTs	detected_genomes	54	359.203703703704	47.686626276624	347	323.25	383.5
+1e-04	7	CB	All metabolic GIFTs	mean_genome_richness	54	35.6842374591184	2.34037729908175	36.8143707709127	34.508152173913	37.4205179900744
+1e-04	7	CB	All metabolic GIFTs	singleton_fraction	54	0.140126509151403	0.0307055170143474	0.151785714285714	0.102713585434174	0.160714285714286
+1e-04	7	CB	Amino-acid autonomy	assessable_fraction	54	1	0	1	1	1
+1e-04	7	CB	Amino-acid autonomy	community_coverage	54	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-04	7	CB	Amino-acid autonomy	community_richness	54	20	0	20	20	20
+1e-04	7	CB	Amino-acid autonomy	detected_genomes	54	359.203703703704	47.686626276624	347	323.25	383.5
+1e-04	7	CB	Amino-acid autonomy	mean_genome_richness	54	12.038082206725	0.894943079697358	12.4551236592501	11.501149068323	12.6791754597528
+1e-04	7	CB	Amino-acid autonomy	singleton_fraction	54	0	0	0	0	0
+1e-04	7	CB	Biomass-essential anabolic GIFTs	assessable_fraction	54	1	0	1	1	1
+1e-04	7	CB	Biomass-essential anabolic GIFTs	community_coverage	54	0.875841750841751	0.0137594239730304	0.863636363636364	0.863636363636364	0.886363636363636
+1e-04	7	CB	Biomass-essential anabolic GIFTs	community_richness	54	38.537037037037	0.605414654813338	38	38	39
+1e-04	7	CB	Biomass-essential anabolic GIFTs	detected_genomes	54	359.203703703704	47.686626276624	347	323.25	383.5
+1e-04	7	CB	Biomass-essential anabolic GIFTs	mean_genome_richness	54	17.9309666780489	1.28329272932403	18.57615802877	17.1825776397516	18.8594686077163
+1e-04	7	CB	Biomass-essential anabolic GIFTs	singleton_fraction	54	0.0421771130104463	0.0150059926750566	0.0512820512820513	0.0263157894736842	0.0512820512820513
+1e-04	7	CB	Carbohydrate degradation	assessable_fraction	54	1	0	1	1	1
+1e-04	7	CB	Carbohydrate degradation	community_richness	54	17	0	17	17	17
+1e-04	7	CB	Carbohydrate degradation	detected_genomes	54	359.203703703704	47.686626276624	347	323.25	383.5
+1e-04	7	CB	Carbohydrate degradation	mean_genome_richness	54	4.5813828332544	0.228547792761288	4.67226327312534	4.45350151975684	4.73595861486486
+1e-04	7	CB	Carbohydrate degradation	singleton_fraction	54	0.123093681917211	0.0526983189318558	0.117647058823529	0.0588235294117647	0.176470588235294
+1e-04	7	CB	Cofactor autonomy	assessable_fraction	54	1	0	1	1	1
+1e-04	7	CB	Cofactor autonomy	community_coverage	54	0.883950617283951	0.0294895360333259	0.866666666666667	0.866666666666667	0.916666666666667
+1e-04	7	CB	Cofactor autonomy	community_richness	54	13.2592592592593	0.442343040499889	13	13	13.75
+1e-04	7	CB	Cofactor autonomy	detected_genomes	54	359.203703703704	47.686626276624	347	323.25	383.5
+1e-04	7	CB	Cofactor autonomy	mean_genome_richness	54	2.26375493656582	0.18250074583873	2.33934239953827	2.1804327843738	2.38408268081165
+1e-04	7	CB	Cofactor autonomy	singleton_fraction	54	0.101546601546602	0.0429962168850116	0.0769230769230769	0.0769230769230769	0.142857142857143
+1e-04	7	CB	Extracellular processing outputs	assessable_fraction	54	1	0	1	1	1
+1e-04	7	CB	Extracellular processing outputs	community_richness	54	2.12962962962963	0.339049520304525	2	2	2
+1e-04	7	CB	Extracellular processing outputs	detected_genomes	54	359.203703703704	47.686626276624	347	323.25	383.5
+1e-04	7	CB	Extracellular processing outputs	mean_genome_richness	54	1.50109365922272	0.0586350354247449	1.51125588128845	1.45509574468085	1.54590359352528
+1e-04	7	CB	Extracellular processing outputs	singleton_fraction	54	0.037037037037037	0.105740211429086	0	0	0
+1e-04	7	CB	Fermentation products	assessable_fraction	54	1	0	1	1	1
+1e-04	7	CB	Fermentation products	community_richness	54	8.27777777777778	0.452108964435865	8	8	9
+1e-04	7	CB	Fermentation products	detected_genomes	54	359.203703703704	47.686626276624	347	323.25	383.5
+1e-04	7	CB	Fermentation products	mean_genome_richness	54	2.04054755866388	0.069168603406108	2.05067975830816	2.00342741935484	2.0933400982696
+1e-04	7	CB	Fermentation products	singleton_fraction	54	0.0308641975308642	0.0502343293817628	0	0	0.111111111111111
+1e-04	7	CB	Nucleotide autonomy	assessable_fraction	54	1	0	1	1	1
+1e-04	7	CB	Nucleotide autonomy	community_coverage	54	1	0	1	1	1
+1e-04	7	CB	Nucleotide autonomy	community_richness	54	4	0	4	4	4
+1e-04	7	CB	Nucleotide autonomy	detected_genomes	54	359.203703703704	47.686626276624	347	323.25	383.5
+1e-04	7	CB	Nucleotide autonomy	mean_genome_richness	54	2.80291033985399	0.153077658903623	2.8234126984127	2.73640451609969	2.92249388072986
+1e-04	7	CB	Nucleotide autonomy	singleton_fraction	54	0	0	0	0	0
+1e-04	7	CB	Nutrient uptake	assessable_fraction	54	1	0	1	1	1
+1e-04	7	CB	Nutrient uptake	community_richness	54	3	0	3	3	3
+1e-04	7	CB	Nutrient uptake	detected_genomes	54	359.203703703704	47.686626276624	347	323.25	383.5
+1e-04	7	CB	Nutrient uptake	mean_genome_richness	54	0.019440878484989	0.00511965979307341	0.0180451535873223	0.0160214477211796	0.0205198828089236
+1e-04	7	CB	Nutrient uptake	singleton_fraction	54	0.481481481481481	0.301405976290577	0.666666666666667	0	0.666666666666667
+1e-04	7	CB	Plant fibre utilisation	assessable_fraction	54	1	0	1	1	1
+1e-04	7	CB	Plant fibre utilisation	community_richness	54	12	0	12	12	12
+1e-04	7	CB	Plant fibre utilisation	detected_genomes	54	359.203703703704	47.686626276624	347	323.25	383.5
+1e-04	7	CB	Plant fibre utilisation	mean_genome_richness	54	3.22260499223881	0.149102808313827	3.24950479833339	3.12816802252816	3.3380062305296
+1e-04	7	CB	Plant fibre utilisation	singleton_fraction	54	0.180555555555556	0.113027241108966	0.25	0	0.25
+1e-04	7	CB	Short-chain fatty acids	assessable_fraction	54	1	0	1	1	1
+1e-04	7	CB	Short-chain fatty acids	community_richness	54	2.27777777777778	0.452108964435865	2	2	3
+1e-04	7	CB	Short-chain fatty acids	detected_genomes	54	359.203703703704	47.686626276624	347	323.25	383.5
+1e-04	7	CB	Short-chain fatty acids	mean_genome_richness	54	0.80528033006376	0.0251151033752176	0.812985751295337	0.792336118251928	0.822118794326241
+1e-04	7	CB	Short-chain fatty acids	singleton_fraction	54	0.0925925925925926	0.150702988145288	0	0	0.333333333333333
+1e-04	21	CA	All metabolic GIFTs	assessable_fraction	67	1	0	1	1	1
+1e-04	21	CA	All metabolic GIFTs	community_richness	67	114.477611940299	2.55460492678936	114	113	114
+1e-04	21	CA	All metabolic GIFTs	detected_genomes	67	494.805970149254	44.7197464370387	498	471	526
+1e-04	21	CA	All metabolic GIFTs	mean_genome_richness	67	28.9426221866473	1.85005573661695	28.3366533864542	27.7211026586634	29.8147621034034
+1e-04	21	CA	All metabolic GIFTs	singleton_fraction	67	0.154011811099314	0.0279664905333717	0.15929203539823	0.150442477876106	0.168141592920354
+1e-04	21	CA	Amino-acid autonomy	assessable_fraction	67	1	0	1	1	1
+1e-04	21	CA	Amino-acid autonomy	community_coverage	67	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-04	21	CA	Amino-acid autonomy	community_richness	67	20	0	20	20	20
+1e-04	21	CA	Amino-acid autonomy	detected_genomes	67	494.805970149254	44.7197464370387	498	471	526
+1e-04	21	CA	Amino-acid autonomy	mean_genome_richness	67	9.55625451118762	0.672084699357009	9.29482071713147	9.1032276683923	9.9000871101514
+1e-04	21	CA	Amino-acid autonomy	singleton_fraction	67	0	0	0	0	0
+1e-04	21	CA	Biomass-essential anabolic GIFTs	assessable_fraction	67	1	0	1	1	1
+1e-04	21	CA	Biomass-essential anabolic GIFTs	community_coverage	67	0.883310719131615	0.0111168254901814	0.886363636363636	0.886363636363636	0.886363636363636
+1e-04	21	CA	Biomass-essential anabolic GIFTs	community_richness	67	38.865671641791	0.489140321567981	39	39	39
+1e-04	21	CA	Biomass-essential anabolic GIFTs	detected_genomes	67	494.805970149254	44.7197464370387	498	471	526
+1e-04	21	CA	Biomass-essential anabolic GIFTs	mean_genome_richness	67	14.3631812468728	0.996247503021117	13.948132780083	13.6872733879598	14.788929649351
+1e-04	21	CA	Biomass-essential anabolic GIFTs	singleton_fraction	67	0.0452046447922332	0.0138823349422401	0.0512820512820513	0.0263157894736842	0.0512820512820513
+1e-04	21	CA	Carbohydrate degradation	assessable_fraction	67	1	0	1	1	1
+1e-04	21	CA	Carbohydrate degradation	community_richness	67	17	0	17	17	17
+1e-04	21	CA	Carbohydrate degradation	detected_genomes	67	494.805970149254	44.7197464370387	498	471	526
+1e-04	21	CA	Carbohydrate degradation	mean_genome_richness	67	3.879258988949	0.195294283949932	3.81782945736434	3.74081056623287	3.99912841629684
+1e-04	21	CA	Carbohydrate degradation	singleton_fraction	67	0.145741878841089	0.0473234637219814	0.176470588235294	0.117647058823529	0.176470588235294
+1e-04	21	CA	Cofactor autonomy	assessable_fraction	67	1	0	1	1	1
+1e-04	21	CA	Cofactor autonomy	community_coverage	67	0.913432835820896	0.0307371289164233	0.933333333333333	0.866666666666667	0.933333333333333
+1e-04	21	CA	Cofactor autonomy	community_richness	67	13.7014925373134	0.46105693374635	14	13	14
+1e-04	21	CA	Cofactor autonomy	detected_genomes	67	494.805970149254	44.7197464370387	498	471	526
+1e-04	21	CA	Cofactor autonomy	mean_genome_richness	67	1.75900769862784	0.139725854696094	1.71544715447154	1.67430102126235	1.79268207037011
+1e-04	21	CA	Cofactor autonomy	singleton_fraction	67	0.115794653108086	0.038560282275063	0.142857142857143	0.0769230769230769	0.142857142857143
+1e-04	21	CA	Extracellular processing outputs	assessable_fraction	67	1	0	1	1	1
+1e-04	21	CA	Extracellular processing outputs	community_richness	67	2.85074626865672	0.359027784156703	3	3	3
+1e-04	21	CA	Extracellular processing outputs	detected_genomes	67	494.805970149254	44.7197464370387	498	471	526
+1e-04	21	CA	Extracellular processing outputs	mean_genome_richness	67	1.34716362341189	0.0458287617526243	1.33274336283186	1.3147390724214	1.37318146759222
+1e-04	21	CA	Extracellular processing outputs	singleton_fraction	67	0.0497512437810945	0.119675928052234	0	0	0
+1e-04	21	CA	Fermentation products	assessable_fraction	67	1	0	1	1	1
+1e-04	21	CA	Fermentation products	community_richness	67	8.16417910447761	0.373233817582309	8	8	8
+1e-04	21	CA	Fermentation products	detected_genomes	67	494.805970149254	44.7197464370387	498	471	526
+1e-04	21	CA	Fermentation products	mean_genome_richness	67	1.80617831998905	0.070564799806502	1.79668049792531	1.75443096692006	1.84516949021786
+1e-04	21	CA	Fermentation products	singleton_fraction	67	0.0182421227197347	0.0414704241758121	0	0	0
+1e-04	21	CA	Nucleotide autonomy	assessable_fraction	67	1	0	1	1	1
+1e-04	21	CA	Nucleotide autonomy	community_coverage	67	1	0	1	1	1
+1e-04	21	CA	Nucleotide autonomy	community_richness	67	4	0	4	4	4
+1e-04	21	CA	Nucleotide autonomy	detected_genomes	67	494.805970149254	44.7197464370387	498	471	526
+1e-04	21	CA	Nucleotide autonomy	mean_genome_richness	67	2.38433461558815	0.138391510762626	2.33516483516484	2.28448758882594	2.43981015712545
+1e-04	21	CA	Nucleotide autonomy	singleton_fraction	67	0	0	0	0	0
+1e-04	21	CA	Nutrient uptake	assessable_fraction	67	1	0	1	1	1
+1e-04	21	CA	Nutrient uptake	community_richness	67	3	0	3	3	3
+1e-04	21	CA	Nutrient uptake	detected_genomes	67	494.805970149254	44.7197464370387	498	471	526
+1e-04	21	CA	Nutrient uptake	mean_genome_richness	67	0.0118254789083028	0.003444919918716	0.0114068441064639	0.0099514409290388	0.0129589632829374
+1e-04	21	CA	Nutrient uptake	singleton_fraction	67	0.577114427860696	0.269568114192603	0.666666666666667	0.666666666666667	0.666666666666667
+1e-04	21	CA	Plant fibre utilisation	assessable_fraction	67	1	0	1	1	1
+1e-04	21	CA	Plant fibre utilisation	community_richness	67	12	0	12	12	12
+1e-04	21	CA	Plant fibre utilisation	detected_genomes	67	494.805970149254	44.7197464370387	498	471	526
+1e-04	21	CA	Plant fibre utilisation	mean_genome_richness	67	2.80027484289082	0.128221179538696	2.76294820717131	2.70239353669586	2.88220985300449
+1e-04	21	CA	Plant fibre utilisation	singleton_fraction	67	0.208955223880597	0.0933084543955773	0.25	0.25	0.25
+1e-04	21	CA	Short-chain fatty acids	assessable_fraction	67	1	0	1	1	1
+1e-04	21	CA	Short-chain fatty acids	community_richness	67	2.16417910447761	0.373233817582309	2	2	2
+1e-04	21	CA	Short-chain fatty acids	detected_genomes	67	494.805970149254	44.7197464370387	498	471	526
+1e-04	21	CA	Short-chain fatty acids	mean_genome_richness	67	0.702784386578129	0.0284133903901532	0.696911196911197	0.681949711396415	0.72036140983564
+1e-04	21	CA	Short-chain fatty acids	singleton_fraction	67	0.054726368159204	0.124411272527437	0	0	0
+1e-04	21	CB	All metabolic GIFTs	assessable_fraction	59	1	0	1	1	1
+1e-04	21	CB	All metabolic GIFTs	community_richness	59	114.525423728814	2.7565341319865	114	113	114
+1e-04	21	CB	All metabolic GIFTs	detected_genomes	59	469.627118644068	47.0835275042589	475	436.5	502
+1e-04	21	CB	All metabolic GIFTs	mean_genome_richness	59	30.2020182784583	2.03921285414895	29.5541401273885	28.6175878532088	31.7230685701511
+1e-04	21	CB	All metabolic GIFTs	singleton_fraction	59	0.146300150386642	0.0260943737779421	0.150442477876106	0.142857142857143	0.15929203539823
+1e-04	21	CB	Amino-acid autonomy	assessable_fraction	59	1	0	1	1	1
+1e-04	21	CB	Amino-acid autonomy	community_coverage	59	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-04	21	CB	Amino-acid autonomy	community_richness	59	20	0	20	20	20
+1e-04	21	CB	Amino-acid autonomy	detected_genomes	59	469.627118644068	47.0835275042589	475	436.5	502
+1e-04	21	CB	Amino-acid autonomy	mean_genome_richness	59	9.98393173743179	0.749402881443038	9.76506024096386	9.36363296216475	10.5132653061224
+1e-04	21	CB	Amino-acid autonomy	singleton_fraction	59	0	0	0	0	0
+1e-04	21	CB	Biomass-essential anabolic GIFTs	assessable_fraction	59	1	0	1	1	1
+1e-04	21	CB	Biomass-essential anabolic GIFTs	community_coverage	59	0.883281972265023	0.0142855072758782	0.886363636363636	0.863636363636364	0.886363636363636
+1e-04	21	CB	Biomass-essential anabolic GIFTs	community_richness	59	38.864406779661	0.628562320138641	39	38	39
+1e-04	21	CB	Biomass-essential anabolic GIFTs	detected_genomes	59	469.627118644068	47.0835275042589	475	436.5	502
+1e-04	21	CB	Biomass-essential anabolic GIFTs	mean_genome_richness	59	14.9765184829355	1.09361446219751	14.6396226415094	14.1069460645874	15.8315288556737
+1e-04	21	CB	Biomass-essential anabolic GIFTs	singleton_fraction	59	0.042589606349642	0.0143148618400979	0.0512820512820513	0.0263157894736842	0.0512820512820513
+1e-04	21	CB	Carbohydrate degradation	assessable_fraction	59	1	0	1	1	1
+1e-04	21	CB	Carbohydrate degradation	community_richness	59	17	0	17	17	17
+1e-04	21	CB	Carbohydrate degradation	detected_genomes	59	469.627118644068	47.0835275042589	475	436.5	502
+1e-04	21	CB	Carbohydrate degradation	mean_genome_richness	59	4.04403176942926	0.219186986540465	3.99813432835821	3.87866757410768	4.20432590072301
+1e-04	21	CB	Carbohydrate degradation	singleton_fraction	59	0.111665004985045	0.041873149007827	0.117647058823529	0.117647058823529	0.117647058823529
+1e-04	21	CB	Cofactor autonomy	assessable_fraction	59	1	0	1	1	1
+1e-04	21	CB	Cofactor autonomy	community_coverage	59	0.912994350282486	0.0309597125139751	0.933333333333333	0.866666666666667	0.933333333333333
+1e-04	21	CB	Cofactor autonomy	community_richness	59	13.6949152542373	0.464395687709626	14	13	14
+1e-04	21	CB	Cofactor autonomy	detected_genomes	59	469.627118644068	47.0835275042589	475	436.5	502
+1e-04	21	CB	Cofactor autonomy	mean_genome_richness	59	1.83301365196235	0.147943176728838	1.78615071283096	1.7113892247242	1.94557800262194
+1e-04	21	CB	Cofactor autonomy	singleton_fraction	59	0.108400074501769	0.0350312227591337	0.0769230769230769	0.0769230769230769	0.142857142857143
+1e-04	21	CB	Extracellular processing outputs	assessable_fraction	59	1	0	1	1	1
+1e-04	21	CB	Extracellular processing outputs	community_richness	59	2.76271186440678	0.429072096298892	3	3	3
+1e-04	21	CB	Extracellular processing outputs	detected_genomes	59	469.627118644068	47.0835275042589	475	436.5	502
+1e-04	21	CB	Extracellular processing outputs	mean_genome_richness	59	1.38147981646136	0.0508584530818304	1.37367303609342	1.34347341922753	1.42153305766751
+1e-04	21	CB	Extracellular processing outputs	singleton_fraction	59	0.11864406779661	0.160968237322914	0	0	0.333333333333333
+1e-04	21	CB	Fermentation products	assessable_fraction	59	1	0	1	1	1
+1e-04	21	CB	Fermentation products	community_richness	59	8.16949152542373	0.378406020441342	8	8	8
+1e-04	21	CB	Fermentation products	detected_genomes	59	469.627118644068	47.0835275042589	475	436.5	502
+1e-04	21	CB	Fermentation products	mean_genome_richness	59	1.90164954442493	0.0801034427540651	1.89783889980354	1.83576803000696	1.95430275105028
+1e-04	21	CB	Fermentation products	singleton_fraction	59	0.0209510357815443	0.0441751962711725	0	0	0
+1e-04	21	CB	Nucleotide autonomy	assessable_fraction	59	1	0	1	1	1
+1e-04	21	CB	Nucleotide autonomy	community_coverage	59	1	0	1	1	1
+1e-04	21	CB	Nucleotide autonomy	community_richness	59	4	0	4	4	4
+1e-04	21	CB	Nucleotide autonomy	detected_genomes	59	469.627118644068	47.0835275042589	475	436.5	502
+1e-04	21	CB	Nucleotide autonomy	mean_genome_richness	59	2.4752097185242	0.14804090698256	2.44150943396226	2.36887911872385	2.57495876157848
+1e-04	21	CB	Nucleotide autonomy	singleton_fraction	59	0	0	0	0	0
+1e-04	21	CB	Nutrient uptake	assessable_fraction	59	1	0	1	1	1
+1e-04	21	CB	Nutrient uptake	community_richness	59	3	0	3	3	3
+1e-04	21	CB	Nutrient uptake	detected_genomes	59	469.627118644068	47.0835275042589	475	436.5	502
+1e-04	21	CB	Nutrient uptake	mean_genome_richness	59	0.0136794579335727	0.00385156286777567	0.0125523012552301	0.0114381650095936	0.0142016806722689
+1e-04	21	CB	Nutrient uptake	singleton_fraction	59	0.553672316384181	0.252270680294228	0.666666666666667	0.666666666666667	0.666666666666667
+1e-04	21	CB	Plant fibre utilisation	assessable_fraction	59	1	0	1	1	1
+1e-04	21	CB	Plant fibre utilisation	community_richness	59	12	0	12	12	12
+1e-04	21	CB	Plant fibre utilisation	detected_genomes	59	469.627118644068	47.0835275042589	475	436.5	502
+1e-04	21	CB	Plant fibre utilisation	mean_genome_richness	59	2.89466407824879	0.143605789321534	2.86761710794297	2.78950448067459	2.99609991805081
+1e-04	21	CB	Plant fibre utilisation	singleton_fraction	59	0.207627118644068	0.0946015051103356	0.25	0.25	0.25
+1e-04	21	CB	Short-chain fatty acids	assessable_fraction	59	1	0	1	1	1
+1e-04	21	CB	Short-chain fatty acids	community_richness	59	2.16949152542373	0.378406020441342	2	2	2
+1e-04	21	CB	Short-chain fatty acids	detected_genomes	59	469.627118644068	47.0835275042589	475	436.5	502
+1e-04	21	CB	Short-chain fatty acids	mean_genome_richness	59	0.744130365910009	0.0295500319113057	0.744136460554371	0.72325197400453	0.764001061417475
+1e-04	21	CB	Short-chain fatty acids	singleton_fraction	59	0.0564971751412429	0.126135340147114	0	0	0
+1e-04	35	CA	All metabolic GIFTs	assessable_fraction	69	1	0	1	1	1
+1e-04	35	CA	All metabolic GIFTs	community_richness	69	114.144927536232	2.72394265681437	114	113	114
+1e-04	35	CA	All metabolic GIFTs	detected_genomes	69	541	39.2315899124522	552	514	568
+1e-04	35	CA	All metabolic GIFTs	mean_genome_richness	69	27.9078481238102	1.23595573589067	27.6326164874552	27.2849264705882	28.3472485768501
+1e-04	35	CA	All metabolic GIFTs	singleton_fraction	69	0.152749260848208	0.0229535592461517	0.157894736842105	0.149122807017544	0.166666666666667
+1e-04	35	CA	Amino-acid autonomy	assessable_fraction	69	1	0	1	1	1
+1e-04	35	CA	Amino-acid autonomy	community_coverage	69	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-04	35	CA	Amino-acid autonomy	community_richness	69	20	0	20	20	20
+1e-04	35	CA	Amino-acid autonomy	detected_genomes	69	541	39.2315899124522	552	514	568
+1e-04	35	CA	Amino-acid autonomy	mean_genome_richness	69	9.178408317961	0.437776008275405	9.08902691511387	8.9375	9.33333333333333
+1e-04	35	CA	Amino-acid autonomy	singleton_fraction	69	0	0	0	0	0
+1e-04	35	CA	Biomass-essential anabolic GIFTs	assessable_fraction	69	1	0	1	1	1
+1e-04	35	CA	Biomass-essential anabolic GIFTs	community_coverage	69	0.890316205533597	0.00951270941540259	0.886363636363636	0.886363636363636	0.886363636363636
+1e-04	35	CA	Biomass-essential anabolic GIFTs	community_richness	69	39.1739130434783	0.418559214277714	39	39	39
+1e-04	35	CA	Biomass-essential anabolic GIFTs	detected_genomes	69	541	39.2315899124522	552	514	568
+1e-04	35	CA	Biomass-essential anabolic GIFTs	mean_genome_richness	69	13.8293896455872	0.654565422880894	13.6574394463668	13.4897260273973	14.0772442588727
+1e-04	35	CA	Biomass-essential anabolic GIFTs	singleton_fraction	69	0.0476691310215338	0.0142257663644437	0.0512820512820513	0.05	0.0512820512820513
+1e-04	35	CA	Carbohydrate degradation	assessable_fraction	69	1	0	1	1	1
+1e-04	35	CA	Carbohydrate degradation	community_richness	69	16.9710144927536	0.240771706171538	17	17	17
+1e-04	35	CA	Carbohydrate degradation	detected_genomes	69	541	39.2315899124522	552	514	568
+1e-04	35	CA	Carbohydrate degradation	mean_genome_richness	69	3.7794022453097	0.147015293099303	3.74452554744526	3.69123505976096	3.85106382978723
+1e-04	35	CA	Carbohydrate degradation	singleton_fraction	69	0.129695936345553	0.0355642541751774	0.117647058823529	0.117647058823529	0.176470588235294
+1e-04	35	CA	Cofactor autonomy	assessable_fraction	69	1	0	1	1	1
+1e-04	35	CA	Cofactor autonomy	community_coverage	69	0.932367149758454	0.00802572353905128	0.933333333333333	0.933333333333333	0.933333333333333
+1e-04	35	CA	Cofactor autonomy	community_richness	69	13.9855072463768	0.120385853085769	14	14	14
+1e-04	35	CA	Cofactor autonomy	detected_genomes	69	541	39.2315899124522	552	514	568
+1e-04	35	CA	Cofactor autonomy	mean_genome_richness	69	1.67889300006705	0.10279495599502	1.65770609318996	1.61747572815534	1.71635610766046
+1e-04	35	CA	Cofactor autonomy	singleton_fraction	69	0.120242076763816	0.0378628282311572	0.142857142857143	0.0714285714285714	0.142857142857143
+1e-04	35	CA	Extracellular processing outputs	assessable_fraction	69	1	0	1	1	1
+1e-04	35	CA	Extracellular processing outputs	community_richness	69	2.94202898550725	0.235400657891435	3	3	3
+1e-04	35	CA	Extracellular processing outputs	detected_genomes	69	541	39.2315899124522	552	514	568
+1e-04	35	CA	Extracellular processing outputs	mean_genome_richness	69	1.32581578277691	0.0342314632126549	1.31669535283993	1.30308219178082	1.34935304990758
+1e-04	35	CA	Extracellular processing outputs	singleton_fraction	69	0.033816425120773	0.101378207559998	0	0	0
+1e-04	35	CA	Fermentation products	assessable_fraction	69	1	0	1	1	1
+1e-04	35	CA	Fermentation products	community_richness	69	8.08695652173913	0.283835621172797	8	8	8
+1e-04	35	CA	Fermentation products	detected_genomes	69	541	39.2315899124522	552	514	568
+1e-04	35	CA	Fermentation products	mean_genome_richness	69	1.77466791484338	0.0486414479602623	1.77551020408163	1.73897058823529	1.7931654676259
+1e-04	35	CA	Fermentation products	singleton_fraction	69	0.0114734299516908	0.0344315053294187	0	0	0
+1e-04	35	CA	Nucleotide autonomy	assessable_fraction	69	1	0	1	1	1
+1e-04	35	CA	Nucleotide autonomy	community_coverage	69	1	0	1	1	1
+1e-04	35	CA	Nucleotide autonomy	community_richness	69	4	0	4	4	4
+1e-04	35	CA	Nucleotide autonomy	detected_genomes	69	541	39.2315899124522	552	514	568
+1e-04	35	CA	Nucleotide autonomy	mean_genome_richness	69	2.33589948740685	0.0909750671217228	2.31409168081494	2.27840909090909	2.36743215031315
+1e-04	35	CA	Nucleotide autonomy	singleton_fraction	69	0	0	0	0	0
+1e-04	35	CA	Nutrient uptake	assessable_fraction	69	1	0	1	1	1
+1e-04	35	CA	Nutrient uptake	community_richness	69	2.97101449275362	0.240771706171538	3	3	3
+1e-04	35	CA	Nutrient uptake	detected_genomes	69	541	39.2315899124522	552	514	568
+1e-04	35	CA	Nutrient uptake	mean_genome_richness	69	0.0103426188976923	0.00265360476994859	0.0102739726027397	0.00902527075812274	0.0108499095840868
+1e-04	35	CA	Nutrient uptake	singleton_fraction	69	0.618357487922705	0.223426687533279	0.666666666666667	0.666666666666667	0.666666666666667
+1e-04	35	CA	Plant fibre utilisation	assessable_fraction	69	1	0	1	1	1
+1e-04	35	CA	Plant fibre utilisation	community_richness	69	11.9565217391304	0.361157559257307	12	12	12
+1e-04	35	CA	Plant fibre utilisation	detected_genomes	69	541	39.2315899124522	552	514	568
+1e-04	35	CA	Plant fibre utilisation	mean_genome_richness	69	2.73528696697912	0.0916161242331874	2.70886075949367	2.6763698630137	2.78003384094755
+1e-04	35	CA	Plant fibre utilisation	singleton_fraction	69	0.22463768115942	0.0760336556699986	0.25	0.25	0.25
+1e-04	35	CA	Short-chain fatty acids	assessable_fraction	69	1	0	1	1	1
+1e-04	35	CA	Short-chain fatty acids	community_richness	69	2.08695652173913	0.283835621172797	2	2	2
+1e-04	35	CA	Short-chain fatty acids	detected_genomes	69	541	39.2315899124522	552	514	568
+1e-04	35	CA	Short-chain fatty acids	mean_genome_richness	69	0.69454253118038	0.019320840653845	0.690518783542039	0.680926916221034	0.704672897196262
+1e-04	35	CA	Short-chain fatty acids	singleton_fraction	69	0.0289855072463768	0.0946118737242655	0	0	0
+1e-04	35	CB	All metabolic GIFTs	assessable_fraction	71	1	0	1	1	1
+1e-04	35	CB	All metabolic GIFTs	community_richness	71	114.183098591549	4.31710835482314	114	113	114
+1e-04	35	CB	All metabolic GIFTs	detected_genomes	71	528.676056338028	50.9220060899544	538	511	557
+1e-04	35	CB	All metabolic GIFTs	mean_genome_richness	71	28.5642751396206	1.61794269029576	28.222641509434	27.7541317933266	28.8503516304422
+1e-04	35	CB	All metabolic GIFTs	singleton_fraction	71	0.136760285690396	0.0304841963112982	0.149122807017544	0.140350877192982	0.157894736842105
+1e-04	35	CB	Amino-acid autonomy	assessable_fraction	71	1	0	1	1	1
+1e-04	35	CB	Amino-acid autonomy	community_coverage	71	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+1e-04	35	CB	Amino-acid autonomy	community_richness	71	20	0	20	20	20
+1e-04	35	CB	Amino-acid autonomy	detected_genomes	71	528.676056338028	50.9220060899544	538	511	557
+1e-04	35	CB	Amino-acid autonomy	mean_genome_richness	71	9.38281278717242	0.578412938819832	9.27843803056027	9.090616991918	9.49211502782931
+1e-04	35	CB	Amino-acid autonomy	singleton_fraction	71	0	0	0	0	0
+1e-04	35	CB	Biomass-essential anabolic GIFTs	assessable_fraction	71	1	0	1	1	1
+1e-04	35	CB	Biomass-essential anabolic GIFTs	community_coverage	71	0.889244558258643	0.0101126896279402	0.886363636363636	0.886363636363636	0.886363636363636
+1e-04	35	CB	Biomass-essential anabolic GIFTs	community_richness	71	39.1267605633803	0.44495834362937	39	39	39
+1e-04	35	CB	Biomass-essential anabolic GIFTs	detected_genomes	71	528.676056338028	50.9220060899544	538	511	557
+1e-04	35	CB	Biomass-essential anabolic GIFTs	mean_genome_richness	71	14.2289658977305	0.868971406295908	14.0603015075377	13.7886323615731	14.3710845490705
+1e-04	35	CB	Biomass-essential anabolic GIFTs	singleton_fraction	71	0.031564216608694	0.0129462844065228	0.0256410256410256	0.0256410256410256	0.0381578947368421
+1e-04	35	CB	Carbohydrate degradation	assessable_fraction	71	1	0	1	1	1
+1e-04	35	CB	Carbohydrate degradation	community_richness	71	16.9154929577465	0.405197619272354	17	17	17
+1e-04	35	CB	Carbohydrate degradation	detected_genomes	71	528.676056338028	50.9220060899544	538	511	557
+1e-04	35	CB	Carbohydrate degradation	mean_genome_richness	71	3.87156602478619	0.183783027850363	3.84569138276553	3.76675789596932	3.92493977493977
+1e-04	35	CB	Carbohydrate degradation	singleton_fraction	71	0.108036454018227	0.0275531410926157	0.117647058823529	0.117647058823529	0.117647058823529
+1e-04	35	CB	Cofactor autonomy	assessable_fraction	71	1	0	1	1	1
+1e-04	35	CB	Cofactor autonomy	community_coverage	71	0.930516431924883	0.0135065873090785	0.933333333333333	0.933333333333333	0.933333333333333
+1e-04	35	CB	Cofactor autonomy	community_richness	71	13.9577464788732	0.202598809636177	14	14	14
+1e-04	35	CB	Cofactor autonomy	detected_genomes	71	528.676056338028	50.9220060899544	538	511	557
+1e-04	35	CB	Cofactor autonomy	mean_genome_richness	71	1.79132301484739	0.135149181940647	1.76549413735343	1.71931455031631	1.81356923030504
+1e-04	35	CB	Cofactor autonomy	singleton_fraction	71	0.0765361399164216	0.0250987654140438	0.0714285714285714	0.0714285714285714	0.0714285714285714
+1e-04	35	CB	Extracellular processing outputs	assessable_fraction	71	1	0	1	1	1
+1e-04	35	CB	Extracellular processing outputs	community_richness	71	2.94366197183099	0.232214429455805	3	3	3
+1e-04	35	CB	Extracellular processing outputs	detected_genomes	71	528.676056338028	50.9220060899544	538	511	557
+1e-04	35	CB	Extracellular processing outputs	mean_genome_richness	71	1.35206346127762	0.0439991117480083	1.34599156118143	1.33023920375572	1.36706202733074
+1e-04	35	CB	Extracellular processing outputs	singleton_fraction	71	0.0422535211267606	0.111690863970906	0	0	0
+1e-04	35	CB	Fermentation products	assessable_fraction	71	1	0	1	1	1
+1e-04	35	CB	Fermentation products	community_richness	71	8.16901408450704	0.377431753261728	8	8	8
+1e-04	35	CB	Fermentation products	detected_genomes	71	528.676056338028	50.9220060899544	538	511	557
+1e-04	35	CB	Fermentation products	mean_genome_richness	71	1.73300726624705	0.0573488878209658	1.72893772893773	1.69833644601231	1.76217296766501
+1e-04	35	CB	Fermentation products	singleton_fraction	71	0.0205399061032864	0.0437230110082925	0	0	0
+1e-04	35	CB	Nucleotide autonomy	assessable_fraction	71	1	0	1	1	1
+1e-04	35	CB	Nucleotide autonomy	community_coverage	71	1	0	1	1	1
+1e-04	35	CB	Nucleotide autonomy	community_richness	71	4	0	4	4	4
+1e-04	35	CB	Nucleotide autonomy	detected_genomes	71	528.676056338028	50.9220060899544	538	511	557
+1e-04	35	CB	Nucleotide autonomy	mean_genome_richness	71	2.39700457481774	0.118905414514447	2.37340619307832	2.34055053991857	2.41664653054649
+1e-04	35	CB	Nucleotide autonomy	singleton_fraction	71	0	0	0	0	0
+1e-04	35	CB	Nutrient uptake	assessable_fraction	71	1	0	1	1	1
+1e-04	35	CB	Nutrient uptake	community_richness	71	2.91549295774648	0.405197619272354	3	3	3
+1e-04	35	CB	Nutrient uptake	detected_genomes	71	528.676056338028	50.9220060899544	538	511	557
+1e-04	35	CB	Nutrient uptake	mean_genome_richness	71	0.0106725721336531	0.00301672101960212	0.0103448275862069	0.00878734622144113	0.0118713990480962
+1e-04	35	CB	Nutrient uptake	singleton_fraction	71	0.530516431924883	0.279327223417281	0.666666666666667	0.666666666666667	0.666666666666667
+1e-04	35	CB	Plant fibre utilisation	assessable_fraction	71	1	0	1	1	1
+1e-04	35	CB	Plant fibre utilisation	community_richness	71	11.8732394366197	0.607796428908531	12	12	12
+1e-04	35	CB	Plant fibre utilisation	detected_genomes	71	528.676056338028	50.9220060899544	538	511	557
+1e-04	35	CB	Plant fibre utilisation	mean_genome_richness	71	2.78234521423639	0.114072239089945	2.76582278481013	2.72261490603199	2.80659682877383
+1e-04	35	CB	Plant fibre utilisation	singleton_fraction	71	0.197183098591549	0.10277830647413	0.25	0.25	0.25
+1e-04	35	CB	Short-chain fatty acids	assessable_fraction	71	1	0	1	1	1
+1e-04	35	CB	Short-chain fatty acids	community_richness	71	2.16901408450704	0.377431753261727	2	2	2
+1e-04	35	CB	Short-chain fatty acids	detected_genomes	71	528.676056338028	50.9220060899544	538	511	557
+1e-04	35	CB	Short-chain fatty acids	mean_genome_richness	71	0.682946680117999	0.0237627697628424	0.683760683760684	0.667311607436903	0.696848750991819
+1e-04	35	CB	Short-chain fatty acids	singleton_fraction	71	0.0563380281690141	0.125810584420576	0	0	0
+0.001	7	CA	All metabolic GIFTs	assessable_fraction	68	1	0	1	1	1
+0.001	7	CA	All metabolic GIFTs	community_richness	68	109.911764705882	5.85326874902289	111	110	112
+0.001	7	CA	All metabolic GIFTs	detected_genomes	68	138.382352941176	22.8453786513667	137.5	125	149
+0.001	7	CA	All metabolic GIFTs	mean_genome_richness	68	37.6705204595795	2.7500976628512	38.2254385964912	36.7564708230754	39.5461568627451
+0.001	7	CA	All metabolic GIFTs	singleton_fraction	68	0.174159422666521	0.0414086697671014	0.188344594594595	0.169642857142857	0.203580793182563
+0.001	7	CA	Amino-acid autonomy	assessable_fraction	68	1	0	1	1	1
+0.001	7	CA	Amino-acid autonomy	community_coverage	68	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0.001	7	CA	Amino-acid autonomy	community_richness	68	20	0	20	20	20
+0.001	7	CA	Amino-acid autonomy	detected_genomes	68	138.382352941176	22.8453786513667	137.5	125	149
+0.001	7	CA	Amino-acid autonomy	mean_genome_richness	68	12.8036231902469	1.03774424603829	13.0475935828877	12.3429686773864	13.5082202111614
+0.001	7	CA	Amino-acid autonomy	singleton_fraction	68	0	0	0	0	0
+0.001	7	CA	Biomass-essential anabolic GIFTs	assessable_fraction	68	1	0	1	1	1
+0.001	7	CA	Biomass-essential anabolic GIFTs	community_coverage	68	0.863302139037433	0.01271942422451	0.863636363636364	0.863636363636364	0.863636363636364
+0.001	7	CA	Biomass-essential anabolic GIFTs	community_richness	68	37.9852941176471	0.55965466587844	38	38	38
+0.001	7	CA	Biomass-essential anabolic GIFTs	detected_genomes	68	138.382352941176	22.8453786513667	137.5	125	149
+0.001	7	CA	Biomass-essential anabolic GIFTs	mean_genome_richness	68	18.9759405145296	1.45932576591312	19.3406773293259	18.4044784211668	20.0389849366655
+0.001	7	CA	Biomass-essential anabolic GIFTs	singleton_fraction	68	0.0530907187253936	0.0310632035818369	0.0526315789473684	0.0263157894736842	0.0555555555555556
+0.001	7	CA	Carbohydrate degradation	assessable_fraction	68	1	0	1	1	1
+0.001	7	CA	Carbohydrate degradation	community_richness	68	16.75	0.903971337545875	17	17	17
+0.001	7	CA	Carbohydrate degradation	detected_genomes	68	138.382352941176	22.8453786513667	137.5	125	149
+0.001	7	CA	Carbohydrate degradation	mean_genome_richness	68	4.75222931615274	0.294862460149035	4.80613283962046	4.63327338129496	4.9639765294344
+0.001	7	CA	Carbohydrate degradation	singleton_fraction	68	0.150704399406822	0.0610390000624326	0.176470588235294	0.161764705882353	0.176470588235294
+0.001	7	CA	Cofactor autonomy	assessable_fraction	68	1	0	1	1	1
+0.001	7	CA	Cofactor autonomy	community_coverage	68	0.86078431372549	0.032035001830936	0.866666666666667	0.866666666666667	0.866666666666667
+0.001	7	CA	Cofactor autonomy	community_richness	68	12.9117647058824	0.480525027464038	13	13	13
+0.001	7	CA	Cofactor autonomy	detected_genomes	68	138.382352941176	22.8453786513667	137.5	125	149
+0.001	7	CA	Cofactor autonomy	mean_genome_richness	68	2.44207333481012	0.236455835633949	2.49489795918367	2.31029267495095	2.58958773784355
+0.001	7	CA	Cofactor autonomy	singleton_fraction	68	0.150703463203463	0.096257940224353	0.153846153846154	0.0769230769230769	0.181818181818182
+0.001	7	CA	Extracellular processing outputs	assessable_fraction	68	1	0	1	1	1
+0.001	7	CA	Extracellular processing outputs	community_richness	68	2.02941176470588	0.170213933457599	2	2	2
+0.001	7	CA	Extracellular processing outputs	detected_genomes	68	138.382352941176	22.8453786513667	137.5	125	149
+0.001	7	CA	Extracellular processing outputs	mean_genome_richness	68	1.50692224044504	0.0693980238700972	1.51501035196687	1.47539335664336	1.54716117216117
+0.001	7	CA	Extracellular processing outputs	singleton_fraction	68	0.00980392156862745	0.0567379778191997	0	0	0
+0.001	7	CA	Fermentation products	assessable_fraction	68	1	0	1	1	1
+0.001	7	CA	Fermentation products	community_richness	68	7.73529411764706	0.588893398325833	8	7	8
+0.001	7	CA	Fermentation products	detected_genomes	68	138.382352941176	22.8453786513667	137.5	125	149
+0.001	7	CA	Fermentation products	mean_genome_richness	68	2.12677226478852	0.105384534483219	2.13773286719985	2.08229715489989	2.18760486577181
+0.001	7	CA	Fermentation products	singleton_fraction	68	0.102124183006536	0.110226296503754	0.125	0	0.142857142857143
+0.001	7	CA	Nucleotide autonomy	assessable_fraction	68	1	0	1	1	1
+0.001	7	CA	Nucleotide autonomy	community_coverage	68	1	0	1	1	1
+0.001	7	CA	Nucleotide autonomy	community_richness	68	4	0	4	4	4
+0.001	7	CA	Nucleotide autonomy	detected_genomes	68	138.382352941176	22.8453786513667	137.5	125	149
+0.001	7	CA	Nucleotide autonomy	mean_genome_richness	68	2.87690918989446	0.15826028488696	2.92337837047435	2.80798659938787	2.98158828748891
+0.001	7	CA	Nucleotide autonomy	singleton_fraction	68	0	0	0	0	0
+0.001	7	CA	Nutrient uptake	assessable_fraction	68	1	0	1	1	1
+0.001	7	CA	Nutrient uptake	community_richness	68	2.80882352941176	0.696630546019236	3	3	3
+0.001	7	CA	Nutrient uptake	detected_genomes	68	138.382352941176	22.8453786513667	137.5	125	149
+0.001	7	CA	Nutrient uptake	mean_genome_richness	68	0.0327457277405858	0.0143346878942722	0.0316210473690789	0.0273506662939148	0.0368419597434196
+0.001	7	CA	Nutrient uptake	singleton_fraction	65	0.625641025641026	0.216568024882967	0.666666666666667	0.666666666666667	0.666666666666667
+0.001	7	CA	Plant fibre utilisation	assessable_fraction	68	1	0	1	1	1
+0.001	7	CA	Plant fibre utilisation	community_richness	68	11.75	0.903971337545875	12	12	12
+0.001	7	CA	Plant fibre utilisation	detected_genomes	68	138.382352941176	22.8453786513667	137.5	125	149
+0.001	7	CA	Plant fibre utilisation	mean_genome_richness	68	3.31645587263108	0.178143934716424	3.34360204144377	3.26788904446912	3.42185007974482
+0.001	7	CA	Plant fibre utilisation	singleton_fraction	68	0.219771241830065	0.090391438096792	0.25	0.25	0.25
+0.001	7	CA	Short-chain fatty acids	assessable_fraction	68	1	0	1	1	1
+0.001	7	CA	Short-chain fatty acids	community_richness	68	2.07352941176471	0.262944093177546	2	2	2
+0.001	7	CA	Short-chain fatty acids	detected_genomes	68	138.382352941176	22.8453786513667	137.5	125	149
+0.001	7	CA	Short-chain fatty acids	mean_genome_richness	68	0.84877938383979	0.0419428632784034	0.851822427656604	0.825941056317479	0.877785576416915
+0.001	7	CA	Short-chain fatty acids	singleton_fraction	68	0.0245098039215686	0.0876480310591821	0	0	0
+0.001	7	CB	All metabolic GIFTs	assessable_fraction	54	1	0	1	1	1
+0.001	7	CB	All metabolic GIFTs	community_richness	54	108.907407407407	5.93444857961504	110.5	110	111
+0.001	7	CB	All metabolic GIFTs	detected_genomes	54	130.444444444444	16.7744939655044	130	117	140.75
+0.001	7	CB	All metabolic GIFTs	mean_genome_richness	54	39.192505126048	1.85948829116658	39.6753589921529	38.6705950136183	40.4754464285714
+0.001	7	CB	All metabolic GIFTs	singleton_fraction	54	0.188444303946664	0.0448915836697918	0.202678571428571	0.1875	0.215402902902903
+0.001	7	CB	Amino-acid autonomy	assessable_fraction	54	1	0	1	1	1
+0.001	7	CB	Amino-acid autonomy	community_coverage	54	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0.001	7	CB	Amino-acid autonomy	community_richness	54	20	0	20	20	20
+0.001	7	CB	Amino-acid autonomy	detected_genomes	54	130.444444444444	16.7744939655044	130	117	140.75
+0.001	7	CB	Amino-acid autonomy	mean_genome_richness	54	13.3526251916564	0.69359867081561	13.5222593758196	13.0982047235218	13.8040192131101
+0.001	7	CB	Amino-acid autonomy	singleton_fraction	54	0	0	0	0	0
+0.001	7	CB	Biomass-essential anabolic GIFTs	assessable_fraction	54	1	0	1	1	1
+0.001	7	CB	Biomass-essential anabolic GIFTs	community_coverage	54	0.858585858585859	0.0195789665769419	0.863636363636364	0.863636363636364	0.863636363636364
+0.001	7	CB	Biomass-essential anabolic GIFTs	community_richness	54	37.7777777777778	0.861474529385444	38	38	38
+0.001	7	CB	Biomass-essential anabolic GIFTs	detected_genomes	54	130.444444444444	16.7744939655044	130	117	140.75
+0.001	7	CB	Biomass-essential anabolic GIFTs	mean_genome_richness	54	19.770109330055	0.973544386231353	20.0219398921689	19.5156661085865	20.4391996891997
+0.001	7	CB	Biomass-essential anabolic GIFTs	singleton_fraction	54	0.0782372665327602	0.0274042822854798	0.0789473684210526	0.0526315789473684	0.105263157894737
+0.001	7	CB	Carbohydrate degradation	assessable_fraction	54	1	0	1	1	1
+0.001	7	CB	Carbohydrate degradation	community_richness	54	16.7222222222222	0.877747259507158	17	17	17
+0.001	7	CB	Carbohydrate degradation	detected_genomes	54	130.444444444444	16.7744939655044	130	117	140.75
+0.001	7	CB	Carbohydrate degradation	mean_genome_richness	54	4.90667661728926	0.223275044681723	4.93006993006993	4.85212903225806	5.02008385610037
+0.001	7	CB	Carbohydrate degradation	singleton_fraction	54	0.157952069716776	0.0545914620660154	0.176470588235294	0.176470588235294	0.176470588235294
+0.001	7	CB	Cofactor autonomy	assessable_fraction	54	1	0	1	1	1
+0.001	7	CB	Cofactor autonomy	community_coverage	54	0.850617283950617	0.0563534595214088	0.866666666666667	0.866666666666667	0.866666666666667
+0.001	7	CB	Cofactor autonomy	community_richness	54	12.7592592592593	0.845301892821131	13	13	13
+0.001	7	CB	Cofactor autonomy	detected_genomes	54	130.444444444444	16.7744939655044	130	117	140.75
+0.001	7	CB	Cofactor autonomy	mean_genome_richness	54	2.57489652844837	0.158995716650297	2.63074738150186	2.52975291695264	2.66402080659326
+0.001	7	CB	Cofactor autonomy	singleton_fraction	54	0.229413076635299	0.081681926597994	0.230769230769231	0.153846153846154	0.307692307692308
+0.001	7	CB	Extracellular processing outputs	assessable_fraction	54	1	0	1	1	1
+0.001	7	CB	Extracellular processing outputs	community_richness	54	2.01851851851852	0.136082763487954	2	2	2
+0.001	7	CB	Extracellular processing outputs	detected_genomes	54	130.444444444444	16.7744939655044	130	117	140.75
+0.001	7	CB	Extracellular processing outputs	mean_genome_richness	54	1.53642666162439	0.0515009197063467	1.54341609708467	1.50349472972211	1.57142857142857
+0.001	7	CB	Extracellular processing outputs	singleton_fraction	54	0.00617283950617284	0.0453609211626514	0	0	0
+0.001	7	CB	Fermentation products	assessable_fraction	54	1	0	1	1	1
+0.001	7	CB	Fermentation products	community_richness	54	7.85185185185185	0.528701057145429	8	8	8
+0.001	7	CB	Fermentation products	detected_genomes	54	130.444444444444	16.7744939655044	130	117	140.75
+0.001	7	CB	Fermentation products	mean_genome_richness	54	2.1862545291283	0.102666760351932	2.1806073314694	2.14541655698868	2.22945151863062
+0.001	7	CB	Fermentation products	singleton_fraction	54	0.0504482657260435	0.0816418721860878	0	0	0.125
+0.001	7	CB	Nucleotide autonomy	assessable_fraction	54	1	0	1	1	1
+0.001	7	CB	Nucleotide autonomy	community_coverage	54	1	0	1	1	1
+0.001	7	CB	Nucleotide autonomy	community_richness	54	4	0	4	4	4
+0.001	7	CB	Nucleotide autonomy	detected_genomes	54	130.444444444444	16.7744939655044	130	117	140.75
+0.001	7	CB	Nucleotide autonomy	mean_genome_richness	54	2.96359666334676	0.113980324588119	2.99186938127975	2.93883394065591	3.01770320197044
+0.001	7	CB	Nucleotide autonomy	singleton_fraction	54	0	0	0	0	0
+0.001	7	CB	Nutrient uptake	assessable_fraction	54	1	0	1	1	1
+0.001	7	CB	Nutrient uptake	community_richness	54	2.81481481481481	0.585164839671439	3	3	3
+0.001	7	CB	Nutrient uptake	detected_genomes	54	130.444444444444	16.7744939655044	130	117	140.75
+0.001	7	CB	Nutrient uptake	mean_genome_richness	54	0.0337216205120737	0.00919546734521375	0.0351816325267653	0.0286749482401656	0.0399337748344371
+0.001	7	CB	Nutrient uptake	singleton_fraction	54	0.641975308641975	0.203242601179943	0.666666666666667	0.666666666666667	0.666666666666667
+0.001	7	CB	Plant fibre utilisation	assessable_fraction	54	1	0	1	1	1
+0.001	7	CB	Plant fibre utilisation	community_richness	54	11.7222222222222	0.877747259507158	12	12	12
+0.001	7	CB	Plant fibre utilisation	detected_genomes	54	130.444444444444	16.7744939655044	130	117	140.75
+0.001	7	CB	Plant fibre utilisation	mean_genome_richness	54	3.39966090629752	0.140616880807037	3.41581647873039	3.31506061228683	3.49644145950281
+0.001	7	CB	Plant fibre utilisation	singleton_fraction	54	0.223765432098765	0.0806551951308268	0.25	0.25	0.25
+0.001	7	CB	Short-chain fatty acids	assessable_fraction	54	1	0	1	1	1
+0.001	7	CB	Short-chain fatty acids	community_richness	54	2.01851851851852	0.136082763487954	2	2	2
+0.001	7	CB	Short-chain fatty acids	detected_genomes	54	130.444444444444	16.7744939655044	130	117	140.75
+0.001	7	CB	Short-chain fatty acids	mean_genome_richness	54	0.87852168279845	0.0312869761810535	0.886595744680851	0.862672371337109	0.897251089507208
+0.001	7	CB	Short-chain fatty acids	singleton_fraction	54	0.00617283950617284	0.0453609211626514	0	0	0
+0.001	21	CA	All metabolic GIFTs	assessable_fraction	67	1	0	1	1	1
+0.001	21	CA	All metabolic GIFTs	community_richness	67	104.65671641791	8.96381993586469	110	93.5	111
+0.001	21	CA	All metabolic GIFTs	detected_genomes	67	148.820895522388	21.2017190363182	151	132.5	158
+0.001	21	CA	All metabolic GIFTs	mean_genome_richness	67	30.6959293214632	2.83985100162569	30.2097902097902	28.8739449287394	32.47976011994
+0.001	21	CA	All metabolic GIFTs	singleton_fraction	67	0.158218115526419	0.0520522805173535	0.18348623853211	0.0989130434782609	0.196428571428571
+0.001	21	CA	Amino-acid autonomy	assessable_fraction	67	1	0	1	1	1
+0.001	21	CA	Amino-acid autonomy	community_coverage	67	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0.001	21	CA	Amino-acid autonomy	community_richness	67	20	0	20	20	20
+0.001	21	CA	Amino-acid autonomy	detected_genomes	67	148.820895522388	21.2017190363182	151	132.5	158
+0.001	21	CA	Amino-acid autonomy	mean_genome_richness	67	10.3059646520575	1.04477748831267	10.2097902097902	9.59062813230872	10.9523056653491
+0.001	21	CA	Amino-acid autonomy	singleton_fraction	67	0	0	0	0	0
+0.001	21	CA	Biomass-essential anabolic GIFTs	assessable_fraction	67	1	0	1	1	1
+0.001	21	CA	Biomass-essential anabolic GIFTs	community_coverage	67	0.8578697421981	0.0174002485933273	0.863636363636364	0.840909090909091	0.863636363636364
+0.001	21	CA	Biomass-essential anabolic GIFTs	community_richness	67	37.7462686567164	0.765610938106405	38	37	38
+0.001	21	CA	Biomass-essential anabolic GIFTs	detected_genomes	67	148.820895522388	21.2017190363182	151	132.5	158
+0.001	21	CA	Biomass-essential anabolic GIFTs	mean_genome_richness	67	15.4276838009263	1.50722590569994	15.2237762237762	14.4337275190934	16.3292353823088
+0.001	21	CA	Biomass-essential anabolic GIFTs	singleton_fraction	67	0.0491442557428418	0.0249041367079153	0.0526315789473684	0.0263157894736842	0.0540540540540541
+0.001	21	CA	Carbohydrate degradation	assessable_fraction	67	1	0	1	1	1
+0.001	21	CA	Carbohydrate degradation	community_richness	67	16.0149253731343	1.50244787448968	17	14	17
+0.001	21	CA	Carbohydrate degradation	detected_genomes	67	148.820895522388	21.2017190363182	151	132.5	158
+0.001	21	CA	Carbohydrate degradation	mean_genome_richness	67	4.00212978762341	0.324243664925052	3.96402877697842	3.74242424242424	4.22532139577594
+0.001	21	CA	Carbohydrate degradation	singleton_fraction	67	0.132555708850704	0.0720937291998857	0.176470588235294	0.0714285714285714	0.176470588235294
+0.001	21	CA	Cofactor autonomy	assessable_fraction	67	1	0	1	1	1
+0.001	21	CA	Cofactor autonomy	community_coverage	67	0.849751243781095	0.0510407292070936	0.866666666666667	0.8	0.866666666666667
+0.001	21	CA	Cofactor autonomy	community_richness	67	12.7462686567164	0.765610938106404	13	12	13
+0.001	21	CA	Cofactor autonomy	detected_genomes	67	148.820895522388	21.2017190363182	151	132.5	158
+0.001	21	CA	Cofactor autonomy	mean_genome_richness	67	1.88291266237598	0.208128735397335	1.84246575342466	1.76119878845847	2
+0.001	21	CA	Cofactor autonomy	singleton_fraction	67	0.146619549604624	0.0769335087392893	0.153846153846154	0.0769230769230769	0.166666666666667
+0.001	21	CA	Extracellular processing outputs	assessable_fraction	67	1	0	1	1	1
+0.001	21	CA	Extracellular processing outputs	community_richness	67	2.43283582089552	0.499207875478589	2	2	3
+0.001	21	CA	Extracellular processing outputs	detected_genomes	67	148.820895522388	21.2017190363182	151	132.5	158
+0.001	21	CA	Extracellular processing outputs	mean_genome_richness	67	1.32887366177653	0.0823507892293227	1.32323232323232	1.2623950508175	1.37847222222222
+0.001	21	CA	Extracellular processing outputs	singleton_fraction	67	0.114427860696517	0.159462890630124	0	0	0.333333333333333
+0.001	21	CA	Fermentation products	assessable_fraction	67	1	0	1	1	1
+0.001	21	CA	Fermentation products	community_richness	67	7.1044776119403	0.83728146598325	7	6	8
+0.001	21	CA	Fermentation products	detected_genomes	67	148.820895522388	21.2017190363182	151	132.5	158
+0.001	21	CA	Fermentation products	mean_genome_richness	67	1.82114969552704	0.13288776854368	1.81818181818182	1.73812898653437	1.87733607855559
+0.001	21	CA	Fermentation products	singleton_fraction	67	0.159168443496802	0.105718042433009	0.166666666666667	0.125	0.25
+0.001	21	CA	Nucleotide autonomy	assessable_fraction	67	1	0	1	1	1
+0.001	21	CA	Nucleotide autonomy	community_coverage	67	1	0	1	1	1
+0.001	21	CA	Nucleotide autonomy	community_richness	67	4	0	4	4	4
+0.001	21	CA	Nucleotide autonomy	detected_genomes	67	148.820895522388	21.2017190363182	151	132.5	158
+0.001	21	CA	Nucleotide autonomy	mean_genome_richness	67	2.52677886381237	0.203336670426702	2.50877192982456	2.40860917537747	2.6507996001999
+0.001	21	CA	Nucleotide autonomy	singleton_fraction	67	0	0	0	0	0
+0.001	21	CA	Nutrient uptake	assessable_fraction	67	1	0	1	1	1
+0.001	21	CA	Nutrient uptake	community_richness	67	2.13432835820895	1.31305245098287	3	1	3
+0.001	21	CA	Nutrient uptake	detected_genomes	67	148.820895522388	21.2017190363182	151	132.5	158
+0.001	21	CA	Nutrient uptake	mean_genome_richness	67	0.0163802492913441	0.0103422358063127	0.0202702702702703	0.00695714973519499	0.0237669427710843
+0.001	21	CA	Nutrient uptake	singleton_fraction	51	0.856209150326797	0.233380014004668	1	0.666666666666667	1
+0.001	21	CA	Plant fibre utilisation	assessable_fraction	67	1	0	1	1	1
+0.001	21	CA	Plant fibre utilisation	community_richness	67	10.9850746268657	1.53240291910048	12	9	12
+0.001	21	CA	Plant fibre utilisation	detected_genomes	67	148.820895522388	21.2017190363182	151	132.5	158
+0.001	21	CA	Plant fibre utilisation	mean_genome_richness	67	2.88247412278555	0.197441647918035	2.87261146496815	2.73512522485125	3.0118901626233
+0.001	21	CA	Plant fibre utilisation	singleton_fraction	67	0.188640132669983	0.105557473116646	0.25	0.111111111111111	0.25
+0.001	21	CA	Short-chain fatty acids	assessable_fraction	67	1	0	1	1	1
+0.001	21	CA	Short-chain fatty acids	community_richness	67	2	0	2	2	2
+0.001	21	CA	Short-chain fatty acids	detected_genomes	67	148.820895522388	21.2017190363182	151	132.5	158
+0.001	21	CA	Short-chain fatty acids	mean_genome_richness	67	0.736423738894581	0.0557599256263577	0.741176470588235	0.70056134723336	0.765811587793012
+0.001	21	CA	Short-chain fatty acids	singleton_fraction	67	0	0	0	0	0
+0.001	21	CB	All metabolic GIFTs	assessable_fraction	59	1	0	1	1	1
+0.001	21	CB	All metabolic GIFTs	community_richness	59	107.71186440678	7.04921332724593	110	110	111
+0.001	21	CB	All metabolic GIFTs	detected_genomes	59	148.915254237288	19.6716916647118	151	134.5	160.5
+0.001	21	CB	All metabolic GIFTs	mean_genome_richness	59	32.5052937160293	3.51548951024273	32.698275862069	29.9589453615841	35.1149723542536
+0.001	21	CB	All metabolic GIFTs	singleton_fraction	59	0.170920239165646	0.0442206326783434	0.18348623853211	0.171171171171171	0.198198198198198
+0.001	21	CB	Amino-acid autonomy	assessable_fraction	59	1	0	1	1	1
+0.001	21	CB	Amino-acid autonomy	community_coverage	59	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0.001	21	CB	Amino-acid autonomy	community_richness	59	20	0	20	20	20
+0.001	21	CB	Amino-acid autonomy	detected_genomes	59	148.915254237288	19.6716916647118	151	134.5	160.5
+0.001	21	CB	Amino-acid autonomy	mean_genome_richness	59	10.9024936141603	1.30377676823345	10.9568965517241	9.98762414056532	11.8486897717667
+0.001	21	CB	Amino-acid autonomy	singleton_fraction	59	0	0	0	0	0
+0.001	21	CB	Biomass-essential anabolic GIFTs	assessable_fraction	59	1	0	1	1	1
+0.001	21	CB	Biomass-essential anabolic GIFTs	community_coverage	59	0.859784283513097	0.0211660232680063	0.863636363636364	0.863636363636364	0.863636363636364
+0.001	21	CB	Biomass-essential anabolic GIFTs	community_richness	59	37.8305084745763	0.931305023792279	38	38	38
+0.001	21	CB	Biomass-essential anabolic GIFTs	detected_genomes	59	148.915254237288	19.6716916647118	151	134.5	160.5
+0.001	21	CB	Biomass-essential anabolic GIFTs	mean_genome_richness	59	16.2944949695367	1.87816427944483	16.3965517241379	15.0633000369959	17.6558441558442
+0.001	21	CB	Biomass-essential anabolic GIFTs	singleton_fraction	59	0.0623367311592111	0.0277382248028237	0.0526315789473684	0.0526315789473684	0.0769230769230769
+0.001	21	CB	Carbohydrate degradation	assessable_fraction	59	1	0	1	1	1
+0.001	21	CB	Carbohydrate degradation	community_richness	59	16.6271186440678	0.848899999893286	17	17	17
+0.001	21	CB	Carbohydrate degradation	detected_genomes	59	148.915254237288	19.6716916647118	151	134.5	160.5
+0.001	21	CB	Carbohydrate degradation	mean_genome_richness	59	4.21096265600992	0.370232653880585	4.19607843137255	3.98862433862434	4.51583782071587
+0.001	21	CB	Carbohydrate degradation	singleton_fraction	59	0.142040545031572	0.046229265860487	0.176470588235294	0.117647058823529	0.176470588235294
+0.001	21	CB	Cofactor autonomy	assessable_fraction	59	1	0	1	1	1
+0.001	21	CB	Cofactor autonomy	community_coverage	59	0.854237288135593	0.0612445337570983	0.866666666666667	0.866666666666667	0.866666666666667
+0.001	21	CB	Cofactor autonomy	community_richness	59	12.8135593220339	0.918668006356475	13	13	13
+0.001	21	CB	Cofactor autonomy	detected_genomes	59	148.915254237288	19.6716916647118	151	134.5	160.5
+0.001	21	CB	Cofactor autonomy	mean_genome_richness	59	2.01423271799767	0.278048048435243	2.01923076923077	1.78790389395195	2.21365554276947
+0.001	21	CB	Cofactor autonomy	singleton_fraction	59	0.180867155443427	0.0785235880555557	0.153846153846154	0.153846153846154	0.214285714285714
+0.001	21	CB	Extracellular processing outputs	assessable_fraction	59	1	0	1	1	1
+0.001	21	CB	Extracellular processing outputs	community_richness	59	2.22033898305085	0.418033021718648	2	2	2
+0.001	21	CB	Extracellular processing outputs	detected_genomes	59	148.915254237288	19.6716916647118	151	134.5	160.5
+0.001	21	CB	Extracellular processing outputs	mean_genome_richness	59	1.37540563422997	0.0952981898290634	1.36428571428571	1.3058074185088	1.45316556291391
+0.001	21	CB	Extracellular processing outputs	singleton_fraction	59	0.0508474576271186	0.120877369257431	0	0	0
+0.001	21	CB	Fermentation products	assessable_fraction	59	1	0	1	1	1
+0.001	21	CB	Fermentation products	community_richness	59	7.45762711864407	0.857462855298944	8	7	8
+0.001	21	CB	Fermentation products	detected_genomes	59	148.915254237288	19.6716916647118	151	134.5	160.5
+0.001	21	CB	Fermentation products	mean_genome_richness	59	1.95551105354952	0.122735772575358	1.95555555555556	1.89283154121864	2.04921733895244
+0.001	21	CB	Fermentation products	singleton_fraction	59	0.10710922787194	0.114612165462829	0.125	0	0.142857142857143
+0.001	21	CB	Nucleotide autonomy	assessable_fraction	59	1	0	1	1	1
+0.001	21	CB	Nucleotide autonomy	community_coverage	59	1	0	1	1	1
+0.001	21	CB	Nucleotide autonomy	community_richness	59	4	0	4	4	4
+0.001	21	CB	Nucleotide autonomy	detected_genomes	59	148.915254237288	19.6716916647118	151	134.5	160.5
+0.001	21	CB	Nucleotide autonomy	mean_genome_richness	59	2.63752151800895	0.222091761843754	2.62941176470588	2.51942815249267	2.80434383743865
+0.001	21	CB	Nucleotide autonomy	singleton_fraction	59	0	0	0	0	0
+0.001	21	CB	Nutrient uptake	assessable_fraction	59	1	0	1	1	1
+0.001	21	CB	Nutrient uptake	community_richness	59	2.55932203389831	1.00466474834897	3	3	3
+0.001	21	CB	Nutrient uptake	detected_genomes	59	148.915254237288	19.6716916647118	151	134.5	160.5
+0.001	21	CB	Nutrient uptake	mean_genome_richness	59	0.0233495554021237	0.0124318699813252	0.0242424242424242	0.0191742220044107	0.0288842544316997
+0.001	21	CB	Nutrient uptake	singleton_fraction	53	0.748427672955975	0.215882806698513	0.666666666666667	0.666666666666667	1
+0.001	21	CB	Plant fibre utilisation	assessable_fraction	59	1	0	1	1	1
+0.001	21	CB	Plant fibre utilisation	community_richness	59	11.4915254237288	1.13521806132403	12	12	12
+0.001	21	CB	Plant fibre utilisation	detected_genomes	59	148.915254237288	19.6716916647118	151	134.5	160.5
+0.001	21	CB	Plant fibre utilisation	mean_genome_richness	59	2.99185276765141	0.234356844845219	2.96078431372549	2.8470962907456	3.20606817513958
+0.001	21	CB	Plant fibre utilisation	singleton_fraction	59	0.209039548022599	0.0889481262450183	0.25	0.25	0.25
+0.001	21	CB	Short-chain fatty acids	assessable_fraction	59	1	0	1	1	1
+0.001	21	CB	Short-chain fatty acids	community_richness	59	2.01694915254237	0.130188910980824	2	2	2
+0.001	21	CB	Short-chain fatty acids	detected_genomes	59	148.915254237288	19.6716916647118	151	134.5	160.5
+0.001	21	CB	Short-chain fatty acids	mean_genome_richness	59	0.794744991523802	0.0515416371906847	0.787878787878788	0.7623245506033	0.830952380952381
+0.001	21	CB	Short-chain fatty acids	singleton_fraction	59	0.00564971751412429	0.0433963036602746	0	0	0
+0.001	35	CA	All metabolic GIFTs	assessable_fraction	69	1	0	1	1	1
+0.001	35	CA	All metabolic GIFTs	community_richness	69	108.188405797101	7.07164046680335	111	110	112
+0.001	35	CA	All metabolic GIFTs	detected_genomes	69	174.159420289855	26.469529201132	177	151	192
+0.001	35	CA	All metabolic GIFTs	mean_genome_richness	69	29.1197578748437	2.38605089679915	29.1117021276596	27.1984126984127	30.687898089172
+0.001	35	CA	All metabolic GIFTs	singleton_fraction	69	0.168257181381974	0.0428387304367014	0.18348623853211	0.165137614678899	0.196428571428571
+0.001	35	CA	Amino-acid autonomy	assessable_fraction	69	1	0	1	1	1
+0.001	35	CA	Amino-acid autonomy	community_coverage	69	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0.001	35	CA	Amino-acid autonomy	community_richness	69	20	0	20	20	20
+0.001	35	CA	Amino-acid autonomy	detected_genomes	69	174.159420289855	26.469529201132	177	151	192
+0.001	35	CA	Amino-acid autonomy	mean_genome_richness	69	9.6542627068165	0.895650823925928	9.63276836158192	8.96585365853659	10.2901234567901
+0.001	35	CA	Amino-acid autonomy	singleton_fraction	69	0	0	0	0	0
+0.001	35	CA	Biomass-essential anabolic GIFTs	assessable_fraction	69	1	0	1	1	1
+0.001	35	CA	Biomass-essential anabolic GIFTs	community_coverage	69	0.873847167325428	0.0185032712867624	0.863636363636364	0.863636363636364	0.886363636363636
+0.001	35	CA	Biomass-essential anabolic GIFTs	community_richness	69	38.4492753623188	0.814143936617547	38	38	39
+0.001	35	CA	Biomass-essential anabolic GIFTs	detected_genomes	69	174.159420289855	26.469529201132	177	151	192
+0.001	35	CA	Biomass-essential anabolic GIFTs	mean_genome_richness	69	14.5785634053189	1.32346737966564	14.5681818181818	13.5585106382979	15.5617283950617
+0.001	35	CA	Biomass-essential anabolic GIFTs	singleton_fraction	69	0.0533333941228678	0.0212213681487528	0.0512820512820513	0.0277777777777778	0.075
+0.001	35	CA	Carbohydrate degradation	assessable_fraction	69	1	0	1	1	1
+0.001	35	CA	Carbohydrate degradation	community_richness	69	16.5652173913043	0.931132467823065	17	17	17
+0.001	35	CA	Carbohydrate degradation	detected_genomes	69	174.159420289855	26.469529201132	177	151	192
+0.001	35	CA	Carbohydrate degradation	mean_genome_richness	69	3.88907257386616	0.249182019166163	3.88590604026846	3.69503546099291	4.08241758241758
+0.001	35	CA	Carbohydrate degradation	singleton_fraction	69	0.142280680388097	0.0476039948889923	0.176470588235294	0.117647058823529	0.176470588235294
+0.001	35	CA	Cofactor autonomy	assessable_fraction	69	1	0	1	1	1
+0.001	35	CA	Cofactor autonomy	community_coverage	69	0.889855072463768	0.0454837282640751	0.866666666666667	0.866666666666667	0.933333333333333
+0.001	35	CA	Cofactor autonomy	community_richness	69	13.3478260869565	0.682255923961128	13	13	14
+0.001	35	CA	Cofactor autonomy	detected_genomes	69	174.159420289855	26.469529201132	177	151	192
+0.001	35	CA	Cofactor autonomy	mean_genome_richness	69	1.76198476329768	0.208396930000088	1.74761904761905	1.62146892655367	1.88652482269504
+0.001	35	CA	Cofactor autonomy	singleton_fraction	69	0.146146124406994	0.0544155022598472	0.142857142857143	0.0833333333333333	0.153846153846154
+0.001	35	CA	Extracellular processing outputs	assessable_fraction	69	1	0	1	1	1
+0.001	35	CA	Extracellular processing outputs	community_richness	69	2.50724637681159	0.503610155185335	3	2	3
+0.001	35	CA	Extracellular processing outputs	detected_genomes	69	174.159420289855	26.469529201132	177	151	192
+0.001	35	CA	Extracellular processing outputs	mean_genome_richness	69	1.32801557897284	0.0641236881307312	1.32642487046632	1.27647058823529	1.37931034482759
+0.001	35	CA	Extracellular processing outputs	singleton_fraction	69	0.135265700483092	0.164881028406741	0	0	0.333333333333333
+0.001	35	CA	Fermentation products	assessable_fraction	69	1	0	1	1	1
+0.001	35	CA	Fermentation products	community_richness	69	7.2463768115942	0.929987303857822	7	7	8
+0.001	35	CA	Fermentation products	detected_genomes	69	174.159420289855	26.469529201132	177	151	192
+0.001	35	CA	Fermentation products	mean_genome_richness	69	1.78360133090628	0.104864101948975	1.79558011049724	1.72872340425532	1.8586387434555
+0.001	35	CA	Fermentation products	singleton_fraction	69	0.114067172762825	0.0985887295780667	0.125	0	0.166666666666667
+0.001	35	CA	Nucleotide autonomy	assessable_fraction	69	1	0	1	1	1
+0.001	35	CA	Nucleotide autonomy	community_coverage	69	1	0	1	1	1
+0.001	35	CA	Nucleotide autonomy	community_richness	69	4	0	4	4	4
+0.001	35	CA	Nucleotide autonomy	detected_genomes	69	174.159420289855	26.469529201132	177	151	192
+0.001	35	CA	Nucleotide autonomy	mean_genome_richness	69	2.48415970917787	0.179802458006356	2.48387096774194	2.35460992907801	2.58986175115207
+0.001	35	CA	Nucleotide autonomy	singleton_fraction	69	0	0	0	0	0
+0.001	35	CA	Nutrient uptake	assessable_fraction	69	1	0	1	1	1
+0.001	35	CA	Nutrient uptake	community_richness	69	2.49275362318841	1.07953133085064	3	3	3
+0.001	35	CA	Nutrient uptake	detected_genomes	69	174.159420289855	26.469529201132	177	151	192
+0.001	35	CA	Nutrient uptake	mean_genome_richness	69	0.0181023856394143	0.00927667255131321	0.0201342281879195	0.0157894736842105	0.0239234449760766
+0.001	35	CA	Nutrient uptake	singleton_fraction	60	0.8	0.196005303744683	0.666666666666667	0.666666666666667	1
+0.001	35	CA	Plant fibre utilisation	assessable_fraction	69	1	0	1	1	1
+0.001	35	CA	Plant fibre utilisation	community_richness	69	11.4347826086957	1.18170192406552	12	12	12
+0.001	35	CA	Plant fibre utilisation	detected_genomes	69	174.159420289855	26.469529201132	177	151	192
+0.001	35	CA	Plant fibre utilisation	mean_genome_richness	69	2.83105281598352	0.158624134006942	2.82584269662921	2.69189189189189	2.97165991902834
+0.001	35	CA	Plant fibre utilisation	singleton_fraction	69	0.208132045088567	0.0935490994841361	0.25	0.25	0.25
+0.001	35	CA	Short-chain fatty acids	assessable_fraction	69	1	0	1	1	1
+0.001	35	CA	Short-chain fatty acids	community_richness	69	2.01449275362319	0.120385853085769	2	2	2
+0.001	35	CA	Short-chain fatty acids	detected_genomes	69	174.159420289855	26.469529201132	177	151	192
+0.001	35	CA	Short-chain fatty acids	mean_genome_richness	69	0.714633645862164	0.0364631284310027	0.717241379310345	0.692682926829268	0.737327188940092
+0.001	35	CA	Short-chain fatty acids	singleton_fraction	69	0.00483091787439614	0.0401286176952565	0	0	0
+0.001	35	CB	All metabolic GIFTs	assessable_fraction	71	1	0	1	1	1
+0.001	35	CB	All metabolic GIFTs	community_richness	71	104.760563380282	8.83251264805596	110	94	112
+0.001	35	CB	All metabolic GIFTs	detected_genomes	71	157.197183098592	18.7781177501214	159	145	167.5
+0.001	35	CB	All metabolic GIFTs	mean_genome_richness	71	29.7997633354902	3.00546323156565	29.9668874172185	28.0249017295598	31.3929209563516
+0.001	35	CB	All metabolic GIFTs	singleton_fraction	71	0.150331052984129	0.0537545514980392	0.178571428571429	0.0864890135577373	0.189189189189189
+0.001	35	CB	Amino-acid autonomy	assessable_fraction	71	1	0	1	1	1
+0.001	35	CB	Amino-acid autonomy	community_coverage	71	0.909090909090909	0	0.909090909090909	0.909090909090909	0.909090909090909
+0.001	35	CB	Amino-acid autonomy	community_richness	71	20	0	20	20	20
+0.001	35	CB	Amino-acid autonomy	detected_genomes	71	157.197183098592	18.7781177501214	159	145	167.5
+0.001	35	CB	Amino-acid autonomy	mean_genome_richness	71	9.8423671675372	1.13353108654007	9.93367346938776	9.13294296248102	10.4953306021761
+0.001	35	CB	Amino-acid autonomy	singleton_fraction	71	0	0	0	0	0
+0.001	35	CB	Biomass-essential anabolic GIFTs	assessable_fraction	71	1	0	1	1	1
+0.001	35	CB	Biomass-essential anabolic GIFTs	community_coverage	71	0.865877080665813	0.0217839726326026	0.863636363636364	0.863636363636364	0.886363636363636
+0.001	35	CB	Biomass-essential anabolic GIFTs	community_richness	71	38.0985915492958	0.958494795834517	38	38	39
+0.001	35	CB	Biomass-essential anabolic GIFTs	detected_genomes	71	157.197183098592	18.7781177501214	159	145	167.5
+0.001	35	CB	Biomass-essential anabolic GIFTs	mean_genome_richness	71	15.0141093107326	1.62999454861962	15.0683229813665	13.9917394161269	15.9490110567816
+0.001	35	CB	Biomass-essential anabolic GIFTs	singleton_fraction	71	0.0491573286235999	0.0238175002213084	0.0526315789473684	0.0274024024024024	0.0769230769230769
+0.001	35	CB	Carbohydrate degradation	assessable_fraction	71	1	0	1	1	1
+0.001	35	CB	Carbohydrate degradation	community_richness	71	16.2535211267606	1.07860107625115	17	15	17
+0.001	35	CB	Carbohydrate degradation	detected_genomes	71	157.197183098592	18.7781177501214	159	145	167.5
+0.001	35	CB	Carbohydrate degradation	mean_genome_richness	71	3.96734651205347	0.336781525887812	3.98496240601504	3.7856884057971	4.11776061776062
+0.001	35	CB	Carbohydrate degradation	singleton_fraction	71	0.125194303073342	0.046739658905923	0.117647058823529	0.117647058823529	0.176470588235294
+0.001	35	CB	Cofactor autonomy	assessable_fraction	71	1	0	1	1	1
+0.001	35	CB	Cofactor autonomy	community_coverage	71	0.873239436619718	0.0638996530556345	0.866666666666667	0.866666666666667	0.933333333333333
+0.001	35	CB	Cofactor autonomy	community_richness	71	13.0985915492958	0.958494795834516	13	13	14
+0.001	35	CB	Cofactor autonomy	detected_genomes	71	157.197183098592	18.7781177501214	159	145	167.5
+0.001	35	CB	Cofactor autonomy	mean_genome_richness	71	1.89892204127385	0.241595822864044	1.86585365853659	1.7239110707804	2.05724800654263
+0.001	35	CB	Cofactor autonomy	singleton_fraction	71	0.141278908884543	0.0657700774282402	0.153846153846154	0.0871212121212121	0.214285714285714
+0.001	35	CB	Extracellular processing outputs	assessable_fraction	71	1	0	1	1	1
+0.001	35	CB	Extracellular processing outputs	community_richness	71	2.36619718309859	0.485193234545881	2	2	3
+0.001	35	CB	Extracellular processing outputs	detected_genomes	71	157.197183098592	18.7781177501214	159	145	167.5
+0.001	35	CB	Extracellular processing outputs	mean_genome_richness	71	1.34675001863237	0.0851444471945526	1.35294117647059	1.29868578255675	1.39155052264808
+0.001	35	CB	Extracellular processing outputs	singleton_fraction	71	0.103286384976526	0.155242250996701	0	0	0.333333333333333
+0.001	35	CB	Fermentation products	assessable_fraction	71	1	0	1	1	1
+0.001	35	CB	Fermentation products	community_richness	71	7.01408450704225	0.978233944360651	7	7	8
+0.001	35	CB	Fermentation products	detected_genomes	71	157.197183098592	18.7781177501214	159	145	167.5
+0.001	35	CB	Fermentation products	mean_genome_richness	71	1.70702702515712	0.112708475749321	1.70666666666667	1.62828947368421	1.80768233219214
+0.001	35	CB	Fermentation products	singleton_fraction	71	0.152397719651241	0.129469572252335	0.142857142857143	0	0.267857142857143
+0.001	35	CB	Nucleotide autonomy	assessable_fraction	71	1	0	1	1	1
+0.001	35	CB	Nucleotide autonomy	community_coverage	71	1	0	1	1	1
+0.001	35	CB	Nucleotide autonomy	community_richness	71	4	0	4	4	4
+0.001	35	CB	Nucleotide autonomy	detected_genomes	71	157.197183098592	18.7781177501214	159	145	167.5
+0.001	35	CB	Nucleotide autonomy	mean_genome_richness	71	2.57038208819595	0.200911453908786	2.5765306122449	2.46011530398323	2.68105786618445
+0.001	35	CB	Nucleotide autonomy	singleton_fraction	71	0	0	0	0	0
+0.001	35	CB	Nutrient uptake	assessable_fraction	71	1	0	1	1	1
+0.001	35	CB	Nutrient uptake	community_richness	71	2.08450704225352	1.31742691717323	3	1	3
+0.001	35	CB	Nutrient uptake	detected_genomes	71	157.197183098592	18.7781177501214	159	145	167.5
+0.001	35	CB	Nutrient uptake	mean_genome_richness	71	0.0157054152262068	0.0106042890138827	0.0191082802547771	0.00595998297147722	0.0233717172636657
+0.001	35	CB	Nutrient uptake	singleton_fraction	54	0.839506172839506	0.2020932464351	1	0.666666666666667	1
+0.001	35	CB	Plant fibre utilisation	assessable_fraction	71	1	0	1	1	1
+0.001	35	CB	Plant fibre utilisation	community_richness	71	10.9718309859155	1.45378158101961	12	9	12
+0.001	35	CB	Plant fibre utilisation	detected_genomes	71	157.197183098592	18.7781177501214	159	145	167.5
+0.001	35	CB	Plant fibre utilisation	mean_genome_richness	71	2.84189607609464	0.21254650343522	2.84883720930233	2.72185430463576	2.93773520355799
+0.001	35	CB	Plant fibre utilisation	singleton_fraction	71	0.181924882629108	0.106634908920959	0.25	0.111111111111111	0.25
+0.001	35	CB	Short-chain fatty acids	assessable_fraction	71	1	0	1	1	1
+0.001	35	CB	Short-chain fatty acids	community_richness	71	2	0	2	2	2
+0.001	35	CB	Short-chain fatty acids	detected_genomes	71	157.197183098592	18.7781177501214	159	145	167.5
+0.001	35	CB	Short-chain fatty acids	mean_genome_richness	71	0.691525834211752	0.0437033602146796	0.697368421052632	0.665422885572139	0.720248447204969
+0.001	35	CB	Short-chain fatty acids	singleton_fraction	71	0	0	0	0	0

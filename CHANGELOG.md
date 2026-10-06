@@ -13,6 +13,27 @@ versioned with the package.
 
 ---
 
+### 2026-10-06T02:32Z — Reanalyse the chicken MAGs with giftag and document the comparison
+
+**What changed.** The verified 822-MAG giftag transfer was evaluated across
+the 388 chicken samples against database 2026.39.1. The comparison now reads
+the locked MAG manifest so a genome with no supported GIFT remains in the
+per-genome denominator. Committed result tables cover call and marker
+concordance, sample metrics, age contrasts and annotation resources. The
+chicken case-study article reports those results beside the original Drakkar
+reading, with both database releases named.
+
+**Why.** A positive-call table omits a zero-call MAG, and the original article
+predated the completed giftag annotation. The two annotators must be compared
+on the same database without treating concordance as accuracy or handoff
+topology as observed exchange.
+
+**Effect.** Documentation and analysis outputs change; no database source,
+GIFT definition, package evaluation rule or public API changes. The original
+Drakkar case-study results remain pinned to their earlier release.
+
+---
+
 ### 2026-10-06T01:47Z — Document the chicken caecal case study
 
 **What changed.** The Case studies menu now links a chicken caecal article
