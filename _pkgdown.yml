@@ -17,6 +17,7 @@ articles:
 - title: Case studies
   navbar: ~
   contents:
+  - articles/incomplete-genomes
   - articles/phylogeny
   - articles/chicken
   - articles/phenotype-validation
@@ -56,6 +57,8 @@ navbar:
     cases:
       text: Case studies
       menu:
+      - text: When a genome is incomplete
+        href: articles/incomplete-genomes.html
       - text: Across the bacterial phylogeny
         href: articles/phylogeny.html
       - text: Across chicken caecal maturation

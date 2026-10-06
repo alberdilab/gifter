@@ -168,6 +168,10 @@ The [Glossary](https://alberdilab.github.io/gifter/articles/glossary.html) defin
 both analysis concepts and technical curation terms such as equivalog, profile
 HMM and gathering threshold.
 
+The case studies include [what happens when a genome is incomplete](https://alberdilab.github.io/gifter/articles/incomplete-genomes.html),
+alongside bacterial phylogeny, chicken caecal communities and comparisons with
+observed phenotypes.
+
 ## Evaluate a genome
 
 The packaged reference database contains the atomic capabilities `PRPP > IMP`,

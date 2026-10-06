@@ -13,6 +13,25 @@ versioned with the package.
 
 ---
 
+### 2026-10-06T04:44Z — Document incomplete-genome behavior and analysis inputs
+
+**What changed.** A case study now reads the committed gene-subsampling,
+assessability and marker-context tables. The quantitative-traits tutorial
+explains when a zero assessable denominator omits `supported_fraction`; the
+single-genome guide shows how to inspect unmatched markers against pinned
+annotation releases. The chicken case study names the source study's distillR
+reading and reports a separately pinned gifter resource measurement.
+
+**Why.** The manuscript contained measured behavior under genome
+incompleteness and practical annotation and runtime limits that readers could
+not yet find together in the documentation.
+
+**Effect.** Documentation only. The case study states its database release and
+simulation limits; no GIFT definition, evaluation rule, schema or public API
+changes.
+
+---
+
 ### 2026-10-06T04:34Z — Highlight case-study summaries
 
 **What changed.** The three Case study articles now place their “In short”

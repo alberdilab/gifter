@@ -92,6 +92,17 @@ giftag_network <- read_case_tsv(giftag_out, "r10-network-metrics.tsv")
 current_drakkar_network <- read_case_tsv(current_drakkar_out, "r10-network-metrics.tsv")
 giftag_contrasts <- read_case_tsv(giftag_out, "r10-age-contrasts.tsv")
 
+# A later, separately pinned measurement of the gifter portion of this workflow.
+benchmark_dir <- file.path(root, "manuscript", "analysis", "r10-chicken", "benchmark")
+read_benchmark <- function(workers) {
+  utils::read.delim(
+    file.path(benchmark_dir, paste0("gifter-resource-g822-s388-w", workers, ".tsv")),
+    check.names = FALSE, stringsAsFactors = FALSE
+  )
+}
+benchmark_one <- read_benchmark(1)
+benchmark_eight <- read_benchmark(8)
+
 primary <- as.numeric(item(audit, "primary_detection"))
 stopifnot(primary == 0.001, nrow(mode) == as.numeric(item(audit, "samples")))
 stopifnot(
@@ -102,7 +113,13 @@ stopifnot(
   nrow(genome_comparison) == 822L,
   length(unique(giftag_samples$database_version)) == 1L,
   identical(unique(giftag_samples$database_version),
-            unique(current_drakkar_samples$database_version))
+            unique(current_drakkar_samples$database_version)),
+  identical(unique(benchmark_one$database_version), unique(giftag_samples$database_version)),
+  identical(unique(benchmark_eight$database_version), unique(giftag_samples$database_version)),
+  identical(unique(benchmark_one$database_sha256),
+            item(giftag_audit, "gifter_sqlite_sha256")),
+  identical(unique(benchmark_eight$database_sha256),
+            item(giftag_audit, "gifter_sqlite_sha256"))
 )
 
 sample_median <- function(age, frame, metric) {
@@ -160,6 +177,13 @@ The main analysis below uses the original Drakkar annotation and database
 `r unique(samples$database_version)`. A later section evaluates the same MAGs
 with giftag and compares both annotations on database
 `r unique(giftag_samples$database_version)`. The two releases are kept separate.
+
+The [source study](https://doi.org/10.1093/ismeco/ycag091) used distillR to
+score 170 quantitative GIFTs and reported a decline in mean
+community-weighted metabolic capacity with chicken age. Here the same archive
+is reannotated and read as complete, traceable gifter capabilities. These are
+different definitions and summaries, so the original score is context for the
+question rather than a directly comparable gifter metric.
 
 ::: {.case-summary}
 **In short**
@@ -567,6 +591,32 @@ single-MAG richness-mode diagnostic above remain readings of the original
 Drakkar calls; this giftag rerun repeated the primary R10 sample and age
 analysis only.
 
+## Resources for the gifter reading
+
+We measured the gifter portion of this workflow on the same 822 MAGs and 388
+samples using database `r unique(benchmark_one$database_version)`. The input
+contained 11,219,684 gene–marker rows. On an eight-core Apple M3 laptop with
+16 GB RAM, one evaluation worker took
+`r fmt(one(benchmark_one, stage = "full_gifter_workflow")$wall_seconds / 60, 1)`
+minutes end to end, with
+`r fmt(one(benchmark_one, stage = "full_gifter_workflow")$peak_parent_rss_gb)`
+GB peak sampled resident memory. Eight workers took
+`r fmt(one(benchmark_eight, stage = "full_gifter_workflow")$wall_seconds / 60, 1)`
+minutes. Genome evaluation accounted for
+`r fmt(one(benchmark_one, stage = "genome_evaluation")$wall_seconds / 60, 1)`
+minutes of the single-worker run; dataset assembly and the 11-frame primary
+sample-trait reading each took under one second, while the exact plant-fibre
+network took
+`r fmt(one(benchmark_one, stage = "sample_network")$wall_seconds, 1)`
+seconds.
+
+These are single measured runs, not a scaling guarantee. Aggregate worker
+memory could not be measured in the eight-worker run. The timings exclude
+upstream gene calling and marker annotation, statistical models and figure
+rendering. The [measurement tables](https://github.com/alberdilab/gifter/tree/main/manuscript/analysis/r10-chicken/benchmark)
+retain the input and database checksums, stage timings, CPU use and memory
+samples.
+
 ## Reproduce this analysis
 
 The [analysis directory](https://github.com/alberdilab/gifter/tree/main/manuscript/analysis)
@@ -581,6 +631,7 @@ Large marker inputs stay outside git; the scripts verify them before use.
 | `22-r10-handoff-bimodality.R` | Richness-band diagnosis, exact extracellular links and matched null |
 | `24-r10-reference-frame-time.R` | All curated frames, equivalence decisions and abundance weighting |
 | `31-r10-size-expectation.R` | Separate current-database comparison with the GTDB size expectation |
+| `36-r10-gifter-resources.R` | Gifter evaluation, dataset and network resource measurement |
 | `33-r10-giftag-compare.R` | MAG–GIFT and sample-metric concordance on one database |
 | `34-r10-giftag-markers.py` | Genome-marker concordance within the marker vocabulary |
 | `35-r10-giftag-resources.py`, `36-r10-giftag-genome-timing.py` | Annotation resource and per-MAG timing audits |

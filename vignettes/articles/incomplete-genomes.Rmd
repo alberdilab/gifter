@@ -1,0 +1,206 @@
+---
+title: "When a genome is incomplete"
+description: >
+  Gene-loss experiments show how complete GIFT calls, missing-reaction
+  diagnostics and assessable denominators behave on fragmented genomes.
+---
+
+```{r setup, include = FALSE}
+# This case study reads committed R7 tables. It does not subsample genomes,
+# re-evaluate GIFTs or refit the context model while the site is built.
+knitr::opts_chunk$set(
+  echo = FALSE, message = FALSE, warning = FALSE,
+  dev = "ragg_png", dpi = 150, fig.retina = 2, out.width = "100%",
+  fig.width = 9, fig.height = 5.5, fig.align = "center"
+)
+default_plot_hook <- knitr::knit_hooks$get("plot")
+knitr::knit_hooks$set(plot = function(x, options) {
+  href <- paste0("incomplete-genomes_files/figure-html/", basename(x[[1L]]))
+  paste0(
+    '<a class="case-figure" href="', href, '" target="_blank" ',
+    'title="Open at full resolution">', default_plot_hook(x, options), "</a>"
+  )
+})
+
+library(ggplot2)
+root <- normalizePath(".")
+while (!file.exists(file.path(root, "DESCRIPTION"))) root <- dirname(root)
+out <- file.path(root, "manuscript", "analysis", "output")
+read_tsv <- function(file) {
+  utils::read.delim(file.path(out, file), check.names = FALSE,
+                    stringsAsFactors = FALSE, quote = "")
+}
+decay <- read_tsv("incompleteness-decay.tsv")
+summary <- read_tsv("incompleteness-summary.tsv")
+assess <- read_tsv("incompleteness-assessability.tsv")
+contexts <- read_tsv("cooccurrence-summary.tsv")
+blocks <- read_tsv("block-drop-summary.tsv")
+
+lost_n <- sum(decay$lost)
+one_short_n <- sum(decay$one_reaction_short)
+below <- assess[assess$policy == "completeness" & assess$kept < 0.9, ]
+below_fraction <- below[below$metric == "supported_fraction", ]
+below_assessable <- below[below$metric == "assessable_fraction", ]
+zero_denominator_n <- sum(below_assessable$numerator == 0)
+stopifnot(
+  length(unique(decay$org)) == 120L,
+  lost_n == 42636L,
+  nrow(below_fraction) == 3823L,
+  all(below_fraction$value == 1),
+  zero_denominator_n == 497L,
+  sum(contexts$n) == 718L,
+  blocks$survivors_measured[blocks$block_mean == 20] == 2L
+)
+at_level <- function(kept, column) summary[[column]][summary$kept == kept]
+fmt <- function(x, digits = 3) format(round(x, digits), nsmall = digits, trim = TRUE)
+big <- function(x) format(x, big.mark = ",", trim = TRUE)
+
+ink <- "#173330"; muted <- "#687672"; line <- "#dcded5"; surface <- "#fffdf8"
+forest <- "#0d3d38"; coral <- "#ef765d"; blue <- "#477e91"
+theme_case <- function(base_size = 12) {
+  theme_minimal(base_size = base_size) +
+    theme(
+      text = element_text(colour = ink),
+      axis.text = element_text(colour = muted),
+      axis.title = element_text(colour = ink),
+      panel.grid.minor = element_blank(),
+      panel.grid.major = element_line(colour = line, linewidth = 0.35),
+      plot.background = element_rect(fill = surface, colour = NA),
+      panel.background = element_rect(fill = surface, colour = NA),
+      plot.title = element_text(face = "bold"),
+      plot.margin = margin(10, 14, 8, 10)
+    )
+}
+```
+
+<p class="lead">What does an incomplete genome do to a GIFT call? We removed
+genes from complete reference genomes, then evaluated the remaining evidence
+at each level. Complete calls disappear as their required steps lose support.
+The closest incomplete route still names what is missing, while genome quality
+changes only whether an unsupported call can count as an informative absence.</p>
+
+<div class="case-stats">
+<div><strong>`r length(unique(decay$org))`</strong><span>reference genomes</span></div>
+<div><strong>`r big(lost_n)`</strong><span>calls lost in gene subsamples</span></div>
+<div><strong>`r fmt(100 * one_short_n / lost_n, 1)`%</strong><span>lost calls one reaction short</span></div>
+<div><strong>`r big(zero_denominator_n)`</strong><span>cases with no assessable frame member</span></div>
+</div>
+
+These experiments used database **2026.27.1**. The live catalogue has since
+changed; the numbers below describe the pinned analysis, not a prediction for
+the current database.
+
+::: {.case-summary}
+**In short**
+
+- A complete route call falls faster under gene loss than a flat marker
+  fraction, because losing one required reaction loses the call.
+- Most lost calls are exactly one reaction short. They remain **unsupported**,
+  but identify the chemistry to check in the assembly or annotation.
+- The completeness policy withholds uninformative absences from denominators.
+  It never restores a lost call. When no member is assessable, it emits no
+  `supported_fraction`.
+- Co-occurrence of neighboring genes did not justify filling missing steps.
+:::
+
+## What disappears when genes disappear
+
+The analysis sampled 120 KEGG reference genomes across the curated-marker-count
+distribution. For each genome, it retained 90%, 80%, 70%, 60% or 50% of its
+genes in three independent subsamples, then evaluated the GIFTs again. Genes
+were removed, and their markers followed. This preserves the fact that several
+markers on one gene vanish together.
+
+The comparator is the fraction of each GIFT's curated KO markers still present
+in the same subsamples. It is a **flat marker-fraction baseline**, not native
+KEGG MODULE evaluation, which also represents alternatives and complexes.
+
+```{r retention, fig.cap = "Mean retained complete GIFT calls and mean flat marker-fraction score, each relative to its full-genome value on the same 120 genomes. The flat score is not KEGG MODULE completeness."}
+retention <- rbind(
+  data.frame(kept = summary$kept, value = summary$retention,
+             measure = "Complete GIFT calls"),
+  data.frame(kept = summary$kept, value = summary$fullness_ratio,
+             measure = "Flat marker fraction")
+)
+retention$measure <- factor(retention$measure,
+                            levels = c("Complete GIFT calls", "Flat marker fraction"))
+ggplot(retention, aes(kept, value, colour = measure)) +
+  geom_line(linewidth = 0.9) +
+  geom_point(size = 2.5) +
+  scale_colour_manual(values = c("Complete GIFT calls" = forest,
+                                 "Flat marker fraction" = coral)) +
+  scale_x_continuous(breaks = summary$kept,
+                     labels = paste0(100 * summary$kept, "%")) +
+  scale_y_continuous(limits = c(0, 1), breaks = seq(0, 1, 0.2)) +
+  labs(x = "Genes retained", y = "Fraction of full-genome value", colour = NULL) +
+  theme_case()
+```
+
+At 90% gene content, `r fmt(at_level(0.9, "retention"))` of the original complete
+calls remain, while the marker-fraction score retains
+`r fmt(at_level(0.9, "fullness_ratio"))` of its full-genome value. At 50%, the
+values are `r fmt(at_level(0.5, "retention"))` and
+`r fmt(at_level(0.5, "fullness_ratio"))`. A call is lost when a required
+reaction loses its final accepted marker; a fraction can decline gradually.
+No subsample gained a GIFT that the full gene set did not support.
+
+## A lost call still names its gap
+
+Across the subsamples, `r big(lost_n)` formerly complete calls were lost.
+`r big(one_short_n)` of them, or `r fmt(100 * one_short_n / lost_n, 1)`%, lacked
+exactly one reaction in their closest route. At 90% gene content, the share was
+`r fmt(100 * at_level(0.9, "one_reaction_short") /
+          at_level(0.9, "lost_calls"), 1)`%.
+
+An unsupported call reports `minimum_missing_requirements` and its closest
+implementation. For a metabolic GIFT, `missing_reactions_best_route` names the
+reaction to investigate. The [single-genome guide](evaluating-a-genome.html#step-4-read-the-incomplete-calls-because-they-are-informative)
+shows how to read that trace. A near miss is a curation or annotation lead; it
+does not establish that the organism encodes the missing step.
+
+## Quality changes a denominator, not a call
+
+The same subsamples were read within three bounded anabolic frames at a
+`threshold = 0.9`. Below the threshold, `policy = "completeness"` treats every
+unsupported member as indeterminate for denominator calculations. In the
+`r big(nrow(below_fraction))` below-threshold cases where
+`supported_fraction` could still be reported, it was 1.000 every time: only
+supported members remained assessable. In another
+`r big(zero_denominator_n)` cases, no member was assessable and the
+`supported_fraction` row was **absent**, rather than zero or `NA`.
+
+Read `supported_fraction` alongside `assessable_fraction` and the supported
+count. The latter never changes under the policy. The
+[quantitative-traits tutorial](quantitative-traits.html#step-6-mag-completeness-and-the-honesty-of-a-denominator)
+shows how to request and interpret those metrics for a MAG.
+
+## Why neighboring evidence does not fill a gap
+
+A second analysis asked whether a missing component or requirement could be
+inferred from the others commonly found beside it. In the reference panel,
+`r sum(contexts$n)` contexts had enough genomes for that screen. After controls
+for genus and background prevalence, 43 appeared strong enough under an
+independent-gene-loss assumption. Removing contiguous runs of neighboring
+genes, closer to how assemblies lose contigs, left
+`r blocks$survivors_measured[blocks$block_mean == 20]` candidates at a mean run
+of 20 genes and
+`r blocks$survivors_measured[blocks$block_mean == 50]` at 50 genes; those
+candidates were not the same. Co-occurrence therefore provides no reliable rule
+for changing an unsupported GIFT to supported.
+
+Random gene deletion does not reproduce all assembly biases, and the experiment
+kept the original gene calls fixed. Its retention curve describes a controlled
+sensitivity analysis, not a calibration of real MAG completeness. The
+contiguous-run analysis addresses gene linkage for the gap-filling question,
+not every bias in an assembled genome.
+
+## Reproduce this analysis
+
+The figures and values here read the committed
+[R7 tables](https://github.com/alberdilab/gifter/tree/main/manuscript/analysis/output).
+The producing scripts are
+[`02-incompleteness.R`](https://github.com/alberdilab/gifter/blob/main/manuscript/analysis/02-incompleteness.R),
+[`09-cooccurrence.R`](https://github.com/alberdilab/gifter/blob/main/manuscript/analysis/09-cooccurrence.R)
+and [`10-block-drop.R`](https://github.com/alberdilab/gifter/blob/main/manuscript/analysis/10-block-drop.R).
+The [manuscript account](https://github.com/alberdilab/gifter/blob/main/manuscript/manuscript.md#r7-behaviour-under-genome-incompleteness)
+gives the full methods, controls and interpretation.

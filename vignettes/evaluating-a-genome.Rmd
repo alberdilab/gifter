@@ -161,6 +161,24 @@ unique(mapped$accession[!mapped$matched])
 Those three are ribosomal and tRNA-synthetase orthologues. They are real genes;
 gifter simply makes no capability claim that rests on them.
 
+When you expect an annotation source to cover a curated marker namespace,
+inspect unmatched accessions **within that namespace**:
+
+```{r}
+unmatched <- unique(mapped[!mapped$matched, c("namespace", "accession")])
+split(unmatched$accession, unmatched$namespace)
+```
+
+Many unmatched annotations are ordinary: gifter curates a specific set of
+capabilities, not every function in an annotation file. A run where expected
+`CAZY` eCAMI clusters are consistently unmatched is different. Their
+identifiers can be renumbered between dbCAN releases, so compare your
+annotation release with the pinned releases in
+[`SOURCES.md`](https://github.com/alberdilab/gifter/blob/main/inst/extdata/database-source/SOURCES.md)
+before reading those unsupported GIFTs as absences. The same check applies to
+versioned `NCBIFAM` accessions. Keep the release identity with your marker
+table so the audit remains reproducible.
+
 ## Step 3: evaluate
 
 ```{r}

@@ -278,6 +278,12 @@ points at exactly that.
 The honest reading of a fragmented genome is `gift_richness` beside
 `assessable_fraction`, not the fraction on its own.
 
+If the frame contains **no supported GIFTs** on a genome below the quality
+threshold, none of its members is assessable under this policy. gifter still
+reports `gift_richness = 0` and `assessable_fraction = 0`, but it emits **no
+`supported_fraction` row**: there is no denominator. An absent row is not a
+measured zero or an `NA` value to include in an average.
+
 Two guarantees hold whatever policy you choose:
 
 - **no policy can make an unsupported GIFT supported.** Genome quality changes
@@ -286,6 +292,10 @@ Two guarantees hold whatever policy you choose:
 - there is **no default threshold**. How complete a genome must be before its
   silence is informative is your declared choice, and a package default would be
   read as a recommendation.
+
+The [incomplete-genome case study](incomplete-genomes.html) measures how calls
+and assessable denominators change when genes are removed from reference
+genomes.
 
 ## What these numbers may not say
 
