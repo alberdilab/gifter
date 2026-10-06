@@ -13,6 +13,25 @@ versioned with the package.
 
 ---
 
+### 2026-10-06T01:47Z — Document the chicken caecal case study
+
+**What changed.** The Case studies menu now links a chicken caecal article
+built from the committed R10 result tables. It shows sample-level age
+patterns, classifications across all 19 curated frames, the MAG behind the
+richness split, exact extracellular handoffs and the later GTDB genome-size
+comparison. Figures render from the analysis outputs at site-build time. Both
+case studies now use working article cross-links and figure zoom links.
+
+**Why.** The completed 822-MAG, 388-sample analysis was available in the
+manuscript and analysis scripts but lacked a documentation entry like the
+phylogeny study.
+
+**Effect.** Documentation only. The article keeps the original and later
+database releases separate and states the operational detection and evidence
+limits. No GIFT call, biological definition or public API changes.
+
+---
+
 ### 2026-10-05T15:23Z — Route diagrams open source records
 
 **What changed.** ChEBI links now use the literal-colon record URL, and reaction

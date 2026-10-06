@@ -1,0 +1,405 @@
+---
+title: "Across chicken caecal maturation"
+description: >
+  Encoded capabilities in 822 bacterial MAGs across 388 samples from two
+  chicken trials, with detection and evidence sensitivity kept explicit.
+---
+
+```{r setup, include = FALSE}
+# This article reads committed analysis products. It does not rerun annotation,
+# evaluation, detection, network construction or statistical models.
+knitr::opts_chunk$set(
+  echo = FALSE, message = FALSE, warning = FALSE,
+  dev = "ragg_png", dpi = 150, fig.retina = 2, out.width = "100%",
+  fig.width = 9, fig.height = 5.4, fig.align = "center"
+)
+default_plot_hook <- knitr::knit_hooks$get("plot")
+knitr::knit_hooks$set(plot = function(x, options) {
+  href <- paste0("chicken_files/figure-html/", basename(x[[1L]]))
+  paste0(
+    '<a class="case-figure" href="', href, '" target="_blank" ',
+    'title="Open at full resolution">', default_plot_hook(x, options), "</a>"
+  )
+})
+
+library(ggplot2)
+
+root <- normalizePath(".")
+while (!file.exists(file.path(root, "DESCRIPTION"))) root <- dirname(root)
+out <- file.path(root, "manuscript", "analysis", "output")
+read_tsv <- function(file) {
+  utils::read.delim(file.path(out, file), check.names = FALSE,
+                    stringsAsFactors = FALSE, quote = "")
+}
+read_xz <- function(file) {
+  utils::read.delim(xzfile(file.path(out, file)), check.names = FALSE,
+                    stringsAsFactors = FALSE, quote = "")
+}
+item <- function(table, key) {
+  value <- table$value[table$item == key]
+  stopifnot(length(value) == 1L)
+  value
+}
+one <- function(table, ...) {
+  filters <- list(...)
+  for (key in names(filters)) table <- table[table[[key]] == filters[[key]], , drop = FALSE]
+  stopifnot(nrow(table) == 1L)
+  table
+}
+fmt <- function(x, digits = 2) format(round(as.numeric(x), digits), nsmall = digits, trim = TRUE)
+big <- function(x) format(as.numeric(x), big.mark = ",", trim = TRUE)
+
+audit <- read_tsv("r10-input-audit.tsv")
+followup <- read_tsv("r10-followup-audit.tsv")
+frame_audit <- read_tsv("r10-frame-time-audit.tsv")
+samples <- read_xz("r10-sample-traits.tsv.xz")
+network <- read_tsv("r10-network-metrics.tsv")
+age_contrasts <- read_tsv("r10-age-contrasts.tsv")
+frames <- read_tsv("r10-frame-time-classification.tsv")
+weighted <- read_tsv("r10-frame-time-abundance-weighted-classification.tsv")
+mode <- read_tsv("r10-richness-mode-samples.tsv")
+driver <- read_tsv("r10-richness-mode-driver.tsv")
+mode_age <- read_tsv("r10-richness-mode-driver-age-summary.tsv")
+handoff_graph <- read_tsv("r10-handoff-graph.tsv")
+handoff_age <- read_tsv("r10-handoff-age-summary.tsv")
+handoff_contrasts <- read_tsv("r10-handoff-age-contrasts.tsv")
+size_audit <- read_tsv("r10-size-expectation-audit.tsv")
+size_effects <- read_tsv("r10-size-expectation-age-contrasts.tsv")
+
+primary <- as.numeric(item(audit, "primary_detection"))
+stopifnot(primary == 0.001, nrow(mode) == as.numeric(item(audit, "samples")))
+
+sample_median <- function(age, frame, metric) {
+  x <- samples$value[samples$detection == primary &
+                     samples$sampling_time == age &
+                     samples$reference_frame == frame &
+                     samples$metric_id == metric]
+  stopifnot(length(x) > 0L)
+  median(x)
+}
+handoff_median <- function(age, metric) {
+  one(handoff_age, confidence_floor = "all accepted", detection = primary,
+      sampling_time = age, metric_id = metric)$median
+}
+
+ink <- "#173330"; muted <- "#687672"; line <- "#dcded5"; surface <- "#fffdf8"
+forest <- "#0d3d38"; mint <- "#90c9b5"; coral <- "#ef765d"; gold <- "#d9a936"
+blue <- "#477e91"
+ages <- c("day 7", "day 21", "day 35")
+age_colour <- c("day 7" = forest, "day 21" = blue, "day 35" = coral)
+theme_case <- function(base_size = 12) {
+  theme_minimal(base_size = base_size) +
+    theme(
+      text = element_text(colour = ink),
+      axis.text = element_text(colour = muted),
+      axis.title = element_text(colour = ink, size = rel(0.92)),
+      panel.grid.minor = element_blank(),
+      panel.grid.major = element_line(colour = line, linewidth = 0.35),
+      plot.background = element_rect(fill = surface, colour = NA),
+      panel.background = element_rect(fill = surface, colour = NA),
+      legend.background = element_rect(fill = surface, colour = NA),
+      legend.key = element_rect(fill = surface, colour = NA),
+      legend.position = "bottom",
+      strip.text = element_text(colour = ink, face = "bold"),
+      plot.margin = margin(10, 14, 8, 10)
+    )
+}
+```
+
+<p class="lead">What changes as a chicken caecal community matures: the union
+of capabilities its members encode, or the repertoire carried by each member?
+We followed `r item(audit, "published_bacterial_mags")` bacterial metagenome-assembled
+genomes (MAGs) across `r item(audit, "samples")` samples at days 7, 21 and 35.
+The two views tell different stories.</p>
+
+<div class="case-stats">
+<div><strong>`r item(audit, "published_bacterial_mags")`</strong><span>bacterial MAGs</span></div>
+<div><strong>`r item(audit, "samples")`</strong><span>caecal samples</span></div>
+<div><strong>`r item(audit, "catalogue_gifts")`</strong><span>GIFTs evaluated</span></div>
+<div><strong>`r big(item(audit, "supported_genome_gift_calls"))`</strong><span>supported MAG–GIFT calls</span></div>
+<div><strong>`r nrow(handoff_graph)`</strong><span>exact extracellular links</span></div>
+</div>
+
+**In short**
+
+- Median community metabolic richness was `r sample_median(7, "All metabolic GIFTs", "community_richness")`,
+  `r sample_median(21, "All metabolic GIFTs", "community_richness")` and
+  `r sample_median(35, "All metabolic GIFTs", "community_richness")` GIFTs at the three ages.
+- Median mean metabolic repertoire per detected MAG fell from
+  `r fmt(sample_median(7, "All metabolic GIFTs", "mean_genome_richness"))` to
+  `r fmt(sample_median(35, "All metabolic GIFTs", "mean_genome_richness"))` GIFTs.
+- Three of the `r item(frame_audit, "curated_reference_frames")` curated
+  reference frames had a decrease beyond one GIFT in per-MAG richness at both
+  later ages. Their community unions remained within that margin.
+- An apparent two-band pattern in community richness follows the operational
+  detection of one broad-repertoire *Escherichia coli* MAG.
+
+These are encoded capabilities. They say nothing directly about expression,
+flux, nutrient exchange, growth or host phenotype. If a GIFT call is new to
+you, [start with a single genome](evaluating-a-genome.html).
+
+## The dataset and its boundary
+
+We used the [public archive](https://doi.org/10.5281/zenodo.18457570) of the
+[Marcos et al. chicken caecal study](https://doi.org/10.1093/ismeco/ycag091).
+The archive's abundance matrix has 825 rows. An exact join to its published
+bacterial taxonomy retained 822 MAGs. Their assemblies were checksum-verified
+and reannotated with Drakkar's gene-resolved marker projection, producing
+`r big(item(audit, "drakkar_marker_rows"))` marker rows. gifter evaluated those
+markers into `r big(item(audit, "supported_genome_gift_calls"))` supported
+MAG–GIFT pairs, across `r item(audit, "represented_gifts")` of the
+`r item(audit, "catalogue_gifts")` catalogue GIFTs. This reading uses database
+version `r unique(samples$database_version)`.
+
+```{r evaluation-example, eval = FALSE, echo = TRUE}
+library(gifter)
+
+# Gene-resolved marker rows have genome_id, gene_id, namespace and accession.
+catalogue <- evaluate_gifts_community(markers)
+dataset <- gifter_dataset(catalogue, abundance, metadata)
+```
+
+The archived data lack the per-sample genome-breadth matrix used in the
+source paper. We therefore call a MAG *detected* when its reconstructed
+relative abundance is **greater than 0.001** for the primary reading, and
+repeat the analysis at greater than 0, 0.00001 and 0.0001. This threshold is
+an operational choice; it does not reproduce the source paper's breadth
+filter. A completeness estimate below 90% makes an unsupported call
+indeterminate for absence denominators only. Detection and completeness never
+promote a GIFT call to supported.
+
+## A broad union, narrower members
+
+```{r age-data}
+select_metric <- function(frame, metric, label, table = samples) {
+  x <- table[table$detection == primary & table$reference_frame == frame &
+             table$metric_id == metric, c("sampling_time", "trial", "value")]
+  x$panel <- label
+  x
+}
+main <- rbind(
+  select_metric("All metabolic GIFTs", "community_richness", "Community metabolic richness"),
+  select_metric("All metabolic GIFTs", "mean_genome_richness", "Mean per-MAG metabolic repertoire"),
+  select_metric("Plant fibre utilisation", "community_richness", "Community plant-fibre richness"),
+  select_metric("Plant fibre utilisation", "interaction_density", "Exact potential-handoff density", network)
+)
+main$sampling_time <- factor(paste("day", main$sampling_time), levels = ages)
+main$panel <- factor(main$panel, levels = c(
+  "Community metabolic richness", "Mean per-MAG metabolic repertoire",
+  "Community plant-fibre richness", "Exact potential-handoff density"
+))
+```
+
+```{r age, fig.width = 9.5, fig.height = 7, fig.cap = "Sample-level results at relative abundance > 0.001. Boxes show distributions within each age and trial; points are samples. Density counts compatible ordered MAG pairs over eligible ordered pairs for the exact plant-fibre network. It is potential topology, not observed exchange."}
+ggplot(main, aes(sampling_time, value, colour = trial)) +
+  geom_boxplot(aes(group = interaction(sampling_time, trial)),
+               outlier.shape = NA, width = 0.62, alpha = 0.18) +
+  geom_jitter(width = 0.16, height = 0, alpha = 0.34, size = 0.8) +
+  facet_wrap(~ panel, scales = "free_y", ncol = 2) +
+  scale_colour_manual(values = c(CA = forest, CB = coral)) +
+  labs(x = NULL, y = NULL, colour = "Trial") + theme_case()
+```
+
+Median detected MAG count rose from
+`r sample_median(7, "All metabolic GIFTs", "detected_genomes")` at day 7 to
+`r sample_median(35, "All metabolic GIFTs", "detected_genomes")` at day 35.
+Community metabolic richness remained near 110, while mean per-MAG metabolic
+richness fell. In models adjusting for trial, treatment, breed and sex, with a
+random intercept for pen, the day-21 and day-35 differences in mean per-MAG
+richness from day 7 were
+`r fmt(one(age_contrasts, detection = primary, reference_frame = "All metabolic GIFTs", metric_id = "mean_genome_richness", contrast = "day_21_minus_day_7")$estimate)` and
+`r fmt(one(age_contrasts, detection = primary, reference_frame = "All metabolic GIFTs", metric_id = "mean_genome_richness", contrast = "day_35_minus_day_7")$estimate)`
+GIFTs. Those directions persisted at every tested detection threshold. The
+community's bounded biomass-essential coverage stayed at a median of
+`r fmt(100 * sample_median(7, "biomass-essential anabolic GIFTs", "community_coverage"), 1)`%
+at all three ages. A broad community union can therefore coexist with a
+narrower encoded repertoire in each detected member.
+
+## What the curated frames add
+
+Each [reference frame](quantitative-traits.html) is a database-defined set
+of GIFTs. The analysis compared all `r item(frame_audit, "curated_reference_frames")`
+frames. A change was called *stable within margin* only when both later-age
+contrasts were equivalent within one GIFT for counts, or five percentage
+points for bounded coverage, at **all four** detection thresholds. A
+nonsignificant age test by itself was not treated as evidence of stability.
+
+```{r frame-data}
+tile <- frames[frames$metric_id %in% c("community_richness", "mean_genome_richness"), ]
+tile$reading <- paste(
+  ifelse(tile$metric_id == "community_richness", "Community", "Per MAG"),
+  ifelse(tile$contrast == "day_21_minus_day_7", "day 21", "day 35")
+)
+tile$reading <- factor(tile$reading, levels = c(
+  "Community day 21", "Community day 35", "Per MAG day 21", "Per MAG day 35"
+))
+order_frames <- tile$reference_frame[tile$reading == "Per MAG day 35"]
+tile$reference_frame <- factor(tile$reference_frame, levels = rev(order_frames))
+labels <- c(
+  observed_invariant = "Invariant", stable_within_margin = "Within margin",
+  decrease = "Decrease > 1 GIFT", magnitude_uncertain = "Magnitude uncertain",
+  detection_sensitive = "Detection sensitive"
+)
+```
+
+```{r frames, fig.width = 9.5, fig.height = 8.3, fig.cap = "Classification of adjusted day-21 and day-35 changes from day 7 for all 19 curated frames. Community union and mean per-MAG richness are separate metrics. The colour describes a model and detection-sensitivity result, not a GIFT call or measured activity."}
+ggplot(tile, aes(reading, reference_frame, fill = classification)) +
+  geom_tile(colour = surface, linewidth = 0.8, width = 0.96, height = 0.9) +
+  scale_fill_manual(values = c(
+    observed_invariant = forest, stable_within_margin = mint,
+    decrease = coral, magnitude_uncertain = gold,
+    detection_sensitive = blue
+  ), labels = labels, name = NULL) +
+  labs(x = NULL, y = NULL) +
+  theme_case(11) +
+  theme(panel.grid = element_blank(), axis.text.x = element_text(angle = 25, hjust = 1),
+        legend.position = "bottom")
+```
+
+Fifteen frames had community richness within the one-GIFT margin at every
+threshold; amino-acid and nucleotide autonomy were exactly invariant.
+Aromatic catabolism and carbon acquisition were detection sensitive. All
+four bounded frames retained community coverage within five percentage
+points. The clearest per-MAG decreases were in amino-acid autonomy,
+biomass-essential anabolism and vitamin biosynthesis.
+
+```{r focal-table}
+focal_ids <- c("amino_acid_autonomy", "biomass_essential_anabolism", "vitamin_biosynthesis")
+focal <- frames[frames$frame_id %in% focal_ids &
+                frames$metric_id == "mean_genome_richness", ]
+focal <- focal[order(match(focal$frame_id, focal_ids), focal$contrast), ]
+weighted_focal <- weighted[weighted$frame_id %in% focal_ids, ]
+stopifnot(nrow(weighted_focal) == nrow(focal), all(weighted_focal$estimate < 0))
+knitr::kable(
+  data.frame(
+    Frame = focal$reference_frame,
+    Contrast = ifelse(focal$contrast == "day_21_minus_day_7", "day 21 − day 7", "day 35 − day 7"),
+    `Adjusted difference` = fmt(focal$estimate),
+    `95% interval` = paste0("[", fmt(focal$confidence_low), ", ", fmt(focal$confidence_high), "]"),
+    check.names = FALSE
+  ),
+  align = "llrr",
+  caption = "Mean encoded GIFTs per detected MAG. Each of these six effects exceeds the one-GIFT margin; intervals and classifications come from the committed model output."
+)
+```
+
+The abundance-weighted reading sums the relative abundance coverage of each
+member GIFT within the detected community. It preserved all
+`r nrow(weighted_focal)` negative age directions.
+`r sum(weighted_focal$classification == "decrease")` effects stayed beyond one
+GIFT; the day-21 vitamin result had an uncertain magnitude when weighted by
+abundance. Weighting changes how an
+encoded repertoire is summarised; it does not measure expression or flux.
+
+## Why community richness forms two bands
+
+At the primary threshold, `r driver$lower_mode_samples` samples held
+`r min(mode$metabolic_richness[mode$richness_mode == "lower"])`–`r driver$mode_lower_maximum`
+metabolic GIFTs and `r driver$upper_mode_samples` held
+`r driver$mode_upper_minimum`–`r max(mode$metabolic_richness[mode$richness_mode == "upper"])`.
+The detected status of `r driver$driver_genome`, an *`r driver$species`* MAG,
+matched the split in all `r driver$samples` samples. It encoded
+`r driver$metabolic_gifts_in_driver` metabolic and
+`r driver$plant_fibre_gifts_in_driver` plant-fibre GIFTs.
+
+```{r mode, fig.width = 9, fig.height = 5.5, fig.cap = "Each point is one sample. The dashed line is the operational detection cutoff of relative abundance > 0.001 for cmag_510. The apparent two-band richness pattern follows whether this broad-repertoire MAG lies above the cutoff; abundance remains continuous."}
+mode$age <- factor(paste("day", mode$sampling_time), levels = ages)
+ggplot(mode, aes(driver_abundance, metabolic_richness, colour = age)) +
+  geom_vline(xintercept = primary, linetype = "dashed", colour = muted) +
+  geom_point(alpha = 0.7, size = 1.8) +
+  scale_x_log10() +
+  scale_colour_manual(values = age_colour, name = NULL) +
+  labs(x = "cmag_510 relative abundance (log scale)",
+       y = "Community metabolic GIFT richness") + theme_case()
+```
+
+Computationally removing this MAG's calls reduced median metabolic richness
+to `r median(mode$richness_without_driver_metabolic[mode$richness_mode == "lower"])`
+in the lower band and
+`r median(mode$richness_without_driver_metabolic[mode$richness_mode == "upper"])`
+in the upper band. Its median abundance fell from
+`r fmt(one(mode_age, sampling_time = 7)$median_abundance, 5)` at day 7 to
+`r fmt(one(mode_age, sampling_time = 35)$median_abundance, 5)` at day 35,
+moving more samples below the cutoff. At a threshold of 0.00001 it was
+detected in every sample. The bands are thus a sensitivity of a binary
+community union to detection, not two measured functional states.
+
+## Exact potential handoffs
+
+A cross-genome link requires two GIFTs to share a **declared extracellular
+anchor** exactly. The catalogue at this database version yielded only
+`r nrow(handoff_graph)` such links:
+
+```{r handoff-table}
+knitr::kable(
+  data.frame(
+    Provider = gsub("_", " ", handoff_graph$from_gift),
+    `Extracellular anchor` = handoff_graph$shared_anchor,
+    Recipient = gsub("_", " ", handoff_graph$to_gift),
+    check.names = FALSE
+  ), align = "lll",
+  caption = "Exact graph links eligible for cross-genome projection. These are curated compatibility paths, not observed interactions."
+)
+```
+
+Median potential-handoff density was
+`r fmt(handoff_median(7, "interaction_density"), 3)`,
+`r fmt(handoff_median(21, "interaction_density"), 3)` and
+`r fmt(handoff_median(35, "interaction_density"), 3)` at the three ages.
+The day-21 and day-35 adjusted density differences from day 7 were
+`r fmt(one(handoff_contrasts, confidence_floor = "all accepted", detection = primary, metric_id = "interaction_density", contrast = "day_21_minus_day_7")$estimate, 3)` and
+`r fmt(one(handoff_contrasts, confidence_floor = "all accepted", detection = primary, metric_id = "interaction_density", contrast = "day_35_minus_day_7")$estimate, 3)`.
+The direction remained negative across detection thresholds and after
+subtracting a null mean from
+`r item(followup, "null_replicates_per_detected_genome_count")` random
+catalogue communities matched for detected-MAG count. With ambiguous marker
+evidence withheld, absolute density was much lower, but the age direction
+did not reverse. Potential links are constrained by the three curated
+extracellular paths; they do not show that molecules moved between organisms.
+
+## A later comparison with genome size
+
+The [phylogeny case study](phylogeny.html) provides a size expectation from
+`r item(size_audit, "GTDB genomes behind the expectation")` complete genomes.
+A later R10 analysis applied it to these MAGs using database
+`r item(size_audit, "database version")` and
+`r item(size_audit, "catalogue GIFTs")` GIFTs. This is a **separate
+reevaluation** from the `r item(audit, "catalogue_gifts")`-GIFT result above;
+the `r item(size_audit, "GIFTs shared with the audited R10 catalogue")`
+shared GIFTs even have
+`r item(size_audit, "calls on shared GIFTs that differ from the audited R10 calls")`
+changed MAG calls. Its estimates must stay with its database release.
+
+```{r size-effect}
+size_day35 <- one(size_effects, variant = "primary", detection = primary,
+                  frame_id = "all_metabolic", contrast = "day_35_minus_day_7")
+```
+
+In that later reading, the adjusted day-35 per-MAG metabolic difference from
+day 7 was `r fmt(size_day35$observed)` GIFTs. The GTDB size expectation
+reproduced `r fmt(size_day35$size_expected)` of that difference
+(`r fmt(100 * size_day35$share_reproduced_by_size, 0)`%), leaving a
+`r fmt(size_day35$deviation)`-GIFT deviation. Genome size thus explains part
+of the narrower per-MAG repertoire, while the remaining difference stays
+visible. It does not change any original call or turn a size association
+into a functional mechanism.
+
+## Reproduce this analysis
+
+The [analysis directory](https://github.com/alberdilab/gifter/tree/main/manuscript/analysis)
+contains the scripts, committed result tables and input manifests. The
+[R10 case directory](https://github.com/alberdilab/gifter/tree/main/manuscript/analysis/r10-chicken)
+pins the public archive, checksums, annotation transfer and detection limits.
+Large marker inputs stay outside git; the scripts verify them before use.
+
+| Script | What it contributes |
+|---|---|
+| `21-r10-chicken.R` | MAG calls, sample traits, age models and primary case figure |
+| `22-r10-handoff-bimodality.R` | Richness-band diagnosis, exact extracellular links and matched null |
+| `24-r10-reference-frame-time.R` | All curated frames, equivalence decisions and abundance weighting |
+| `31-r10-size-expectation.R` | Separate current-database comparison with the GTDB size expectation |
+
+Every plot here is drawn from the committed tables; the site build performs
+no annotation, GIFT evaluation or statistical refitting. For an individual
+sample, its GIFT calls and denominators can be inspected through the
+[multi-sample dataset workflow](multi-sample-datasets.html).

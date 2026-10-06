@@ -18,8 +18,9 @@ knitr::opts_chunk$set(
 # Each figure links to its own full-resolution file.
 default_plot_hook <- knitr::knit_hooks$get("plot")
 knitr::knit_hooks$set(plot = function(x, options) {
+  href <- paste0("phylogeny_files/figure-html/", basename(x[[1L]]))
   paste0(
-    '<a class="case-figure" href="', x[[1L]], '" target="_blank" ',
+    '<a class="case-figure" href="', href, '" target="_blank" ',
     'title="Open at full resolution">', default_plot_hook(x, options), "</a>"
   )
 })
@@ -133,7 +134,7 @@ the GTDB bacterial tree.</p>
   to revisit.
 
 If you have not yet read what a GIFT call claims,
-[start with a single genome](../evaluating-a-genome.html).
+[start with a single genome](evaluating-a-genome.html).
 
 ## The genome panel
 
@@ -612,7 +613,7 @@ route or marker, or confirm that the lineage does not encode the step. The
 panel is then evaluated again with the new database release, so the numbers on
 this page belong to database `r item(audit, "database version")` and will move
 as the definitions improve. The loop is described in
-[Refine the catalogue iteratively](../curating-a-gift.html#refine-the-catalogue-iteratively).
+[Refine the catalogue iteratively](curating-a-gift.html#refine-the-catalogue-iteratively).
 
 ## Reproduce this analysis
 
